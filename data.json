@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-01T20:41:43.970Z",
+  "generated": "2026-06-01T22:42:59.992Z",
   "pillars": [
     {
       "id": "cb4375f148b64a2e8a0ecd0f0e0e4962",
@@ -437,16 +437,6 @@
   ],
   "tasks": [
     {
-      "id": "372c5749485980098aeae441c69a38a4",
-      "type": "task",
-      "name": "Use claude to organize/consolidate RAE folders ",
-      "status": "In progress (WIP)",
-      "pillar": null,
-      "domain": "RAE",
-      "hours": 2,
-      "projectIds": []
-    },
-    {
       "id": "371c57494859807f86afccfb6d5b32e5",
       "type": "task",
       "name": "Create AI Agent per chat gpt",
@@ -787,16 +777,6 @@
       "projectIds": []
     },
     {
-      "id": "362c5749485980ddaf0eda3c1a9f023f",
-      "type": "task",
-      "name": "Test Notion MCP + Claude ",
-      "status": "Up Next (Sprint Backlog)",
-      "pillar": null,
-      "domain": "Personal Admin",
-      "hours": 3,
-      "projectIds": []
-    },
-    {
       "id": "361c5749485980ff8ffae15d55c7cb62",
       "type": "task",
       "name": "document core processes and core values? ",
@@ -874,16 +854,6 @@
       "pillar": null,
       "domain": "Personal Admin",
       "hours": 1,
-      "projectIds": []
-    },
-    {
-      "id": "35dc5749485980e9b408c4d43bae92b6",
-      "type": "task",
-      "name": "Finish connecting relationships between databases to make sure it works correctly.  Create a project also.  ",
-      "status": "Up Next (Sprint Backlog)",
-      "pillar": null,
-      "domain": "Personal Admin",
-      "hours": 2,
       "projectIds": []
     },
     {
