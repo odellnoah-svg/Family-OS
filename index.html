@@ -37,7 +37,6 @@ body{background:var(--bg);color:var(--tx);font-family:'DM Sans',sans-serif;heigh
 .hdr-btn{padding:5px 11px;border:1px solid var(--bdr);border-radius:7px;background:transparent;font-family:'DM Sans',sans-serif;font-size:11px;font-weight:500;color:var(--tx2);cursor:pointer;transition:all .12s;}
 .hdr-btn:hover{background:var(--surf2);color:var(--tx);}
 #vc{flex:1;overflow:hidden;position:relative;}
-/* Shared card */
 .card{background:var(--surf);border:1px solid var(--bdr);border-left:4px solid var(--pc,var(--bdr));border-radius:10px;padding:11px 13px 10px;cursor:pointer;display:flex;flex-direction:column;transition:transform .12s,box-shadow .14s,opacity .15s;}
 .card:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(38,28,16,.08);}
 .card.dim{opacity:.15;pointer-events:none;}.card.sel{border-color:var(--pc,var(--acc));border-left-color:var(--pc,var(--acc));box-shadow:0 3px 18px rgba(38,28,16,.1);}
@@ -51,11 +50,9 @@ body{background:var(--bg);color:var(--tx);font-family:'DM Sans',sans-serif;heigh
 .card-ft{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:6px;border-top:1px solid var(--bdr);}
 .card-c{font-size:10.5px;color:var(--tx3);}.card-arr{font-size:12px;color:var(--tx3);transition:transform .12s,color .12s;}
 .card:not(.noclk):hover .card-arr{transform:translateX(2px);color:var(--pc,var(--acc));}
-/* Tags */
 .tag{font-size:9.5px;font-weight:500;padding:2px 7px;border-radius:20px;}
 .t-g{background:#E6F4EE;color:#2A7050;}.t-y{background:#FFF3E0;color:#B06820;}.t-r{background:#FFEEED;color:#A83428;}
 .t-b{background:#EBF2FB;color:#2C5FA0;}.t-n{background:var(--surf2);color:var(--tx2);}.t-s{background:#EDF0F2;color:#4A6070;}
-/* V1 COLUMNS */
 .v1{display:flex;flex-direction:column;height:100%;}
 .v1-bar{background:var(--surf);border-bottom:1px solid var(--bdr);padding:0 20px;height:38px;display:flex;align-items:center;gap:7px;flex-shrink:0;}
 .v1-bar-lbl{font-size:10px;color:var(--tx3);text-transform:uppercase;letter-spacing:.1em;margin-right:2px;}
@@ -69,7 +66,6 @@ body{background:var(--bg);color:var(--tx);font-family:'DM Sans',sans-serif;heigh
 .v1ch{font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:.1em;color:var(--tx3);padding:0 2px 9px;display:flex;align-items:center;gap:6px;}
 .v1cn{background:var(--surf2);border-radius:9px;padding:1px 6px;font-size:10px;color:var(--tx2);}
 .v1 .card{margin-bottom:7px;}
-/* V2 NESTED */
 .v2{height:100%;overflow-y:auto;padding:20px 28px 48px;}
 .v2-in{max-width:860px;margin:0 auto;}
 .v2p{margin-bottom:10px;border:1px solid var(--bdr);border-radius:13px;overflow:hidden;}
@@ -92,7 +88,6 @@ body{background:var(--bg);color:var(--tx);font-family:'DM Sans',sans-serif;heigh
 .v2rn{font-size:11.5px;color:var(--tx);line-height:1.4;flex:1;}
 .v2rt{display:flex;gap:3px;flex-wrap:wrap;margin-top:3px;}
 .v2em{font-size:12px;color:var(--tx3);font-style:italic;padding:6px 0;}
-/* V3 SWIMLANES */
 .v3{display:flex;height:100%;overflow-x:auto;overflow-y:hidden;}
 .v3lane{min-width:210px;flex:1;display:flex;flex-direction:column;border-right:1px solid var(--bdr);overflow-y:auto;}
 .v3lane:last-child{border-right:none;}
@@ -140,10 +135,9 @@ body{background:var(--bg);color:var(--tx);font-family:'DM Sans',sans-serif;heigh
     <div class="hdr-brand">Eubanks Family OS <em>· Vision</em></div>
     <div class="hdr-stats" id="hdr-stats"></div>
     <div class="view-tabs">
-      <button class="vtab on" onclick="sv('columns')"   id="vt-columns">Columns</button>
-      <button class="vtab"    onclick="sv('nested')"    id="vt-nested">Nested</button>
-      <button class="vtab"    onclick="sv('swimlanes')" id="vt-swimlanes">Swimlanes</button>
-
+      <button class="vtab on" onclick="sv('columns')" id="vt-columns">Columns</button>
+      <button class="vtab" onclick="sv('nested')" id="vt-nested">Nested</button>
+      <button class="vtab" onclick="sv('swimlanes')" id="vt-swimlanes">Swimlanes</button>
     </div>
     <div class="hdr-right">
       <div class="updated" id="updated-ts"></div>
@@ -153,24 +147,14 @@ body{background:var(--bg);color:var(--tx);font-family:'DM Sans',sans-serif;heigh
   <div id="vc"></div>
 </div>
 <script>
-// ── CONFIG ───────────────────────────────────────
 const PC={'Faith & Character':'#7B6FAC','Marriage & Family':'#B5695A','Health & Energy':'#4A8B70','Home/Homestead':'#A07848','Freedom & Ownership':'#4A7BAD','Systems & Simplicity':'#6E8C8A','Adventure & Community':'#C48B3A'}
-
-// ── STATE ────────────────────────────────────────
-let D={pillars:[],goals:[],rocks:[],projects:[],tasks:[]}
-let ALL={} // merged id→item lookup
-let CV='columns' // current view
+let D={pillars:[],goals:[],rocks:[],projects:[],tasks:[]},ALL={},CV='columns'
 let COLVIS={pillars:true,goals:true,rocks:true,projects:true,tasks:true}
-let V1SEL=null
-let V2EXP=new Set()
-
-// ── BOOT ─────────────────────────────────────────
+let V1SEL=null,V2EXP=new Set()
 window.addEventListener('DOMContentLoaded',init)
 async function init(){so('scr-loading');try{await load();so('app');renderHdr();sv('columns')}catch(e){if(e.message==='NO_DATA')so('scr-nodata');else{document.getElementById('err-msg').textContent=e.message;so('scr-error')}}}
 async function reload(){so('scr-loading');try{await load();so('app');renderHdr();sv(CV)}catch(e){if(e.message==='NO_DATA')so('scr-nodata');else{document.getElementById('err-msg').textContent=e.message;so('scr-error')}}}
 function so(id){['scr-loading','scr-nodata','scr-error','app'].forEach(s=>document.getElementById(s).hidden=s!==id)}
-
-// ── DATA ─────────────────────────────────────────
 async function load(){
   const res=await fetch('./data.json?v='+Date.now())
   if(!res.ok)throw new Error('data.json not found (HTTP '+res.status+')')
@@ -189,21 +173,17 @@ function colorize(){
   ALL={...by(D.pillars),...by(D.goals),...by(D.rocks),...by(D.projects),...by(D.tasks)}
 }
 const by=arr=>Object.fromEntries(arr.map(x=>[x.id,x]))
-
-// ── RELATIONSHIP HELPERS (bidirectional) ─────────
-const goalsOf =p=>D.goals.filter(g=>p.goalIds?.includes(g.id)||g.pillarIds?.includes(p.id))
-const rocksOf =g=>D.rocks.filter(r=>g.rockIds?.includes(r.id)||r.goalIds?.includes(g.id))
-const projsOf =r=>D.projects.filter(p=>r.projectIds?.includes(p.id)||p.rockIds?.includes(r.id))
+const goalsOf=p=>D.goals.filter(g=>p.goalIds?.includes(g.id)||g.pillarIds?.includes(p.id))
+const rocksOf=g=>D.rocks.filter(r=>g.rockIds?.includes(r.id)||r.goalIds?.includes(g.id))
+const projsOf=r=>D.projects.filter(p=>r.projectIds?.includes(p.id)||p.rockIds?.includes(r.id))
 const tasksOf=pr=>D.tasks.filter(t=>pr.taskIds?.includes(t.id)||t.projectIds?.includes(pr.id))
-
-// ── CHAIN ─────────────────────────────────────────
 function chain(id){
   const out=new Set(),item=ALL[id]
   if(!item)return out
   function dn(n){
-    if(n.type==='pillar') goalsOf(n).forEach(g=>{out.add(g.id);dn(g)})
-    if(n.type==='goal')   rocksOf(n).forEach(r=>{out.add(r.id);dn(r)})
-    if(n.type==='rock')   projsOf(n).forEach(p=>{out.add(p.id);dn(p)})
+    if(n.type==='pillar')goalsOf(n).forEach(g=>{out.add(g.id);dn(g)})
+    if(n.type==='goal')rocksOf(n).forEach(r=>{out.add(r.id);dn(r)})
+    if(n.type==='rock')projsOf(n).forEach(p=>{out.add(p.id);dn(p)})
     if(n.type==='project')tasksOf(n).forEach(t=>{out.add(t.id)})
   }
   function up(n){
@@ -214,8 +194,6 @@ function chain(id){
   }
   dn(item);up(item);return out
 }
-
-// ── SHARED UTILS ──────────────────────────────────
 function tags(item,type){
   const sc=s=>({'Healthy':'t-g','On Track':'t-g','Complete':'t-g','Needs Attention':'t-y','At Risk':'t-y','Paused':'t-y','Neglected':'t-r','Dropped':'t-r','Active':'t-b','Not Started':'t-n'})[s]||'t-n'
   const t=(c,l)=>`<span class="tag ${c}">${l}</span>`,p=[]
@@ -227,7 +205,6 @@ function tags(item,type){
   return p.join('')
 }
 function ccount(item,type){
-  const id=item.id
   if(type==='pillar'){const n=goalsOf(item).length;return n?`${n} goal${n!==1?'s':''}`:'No goals linked'}
   if(type==='goal'){const n=rocksOf(item).length;return n?`${n} rock${n!==1?'s':''}`:'No rocks linked'}
   if(type==='rock'){const n=projsOf(item).length;return n?`${n} project${n!==1?'s':''}`:'No projects linked'}
@@ -243,14 +220,11 @@ function orphan(item,type){
 const stag=s=>{const sc=s=>({'Healthy':'t-g','On Track':'t-g','Complete':'t-g','Needs Attention':'t-y','At Risk':'t-y','Paused':'t-y','Neglected':'t-r','Dropped':'t-r','Active':'t-b','Not Started':'t-n'})[s]||'t-n';return s?`<span class="tag ${sc(s)}">${s}</span>`:''}
 const trunc=(s,n)=>s&&s.length>n?s.slice(0,n)+'…':(s||'')
 const cap=s=>s?s[0].toUpperCase()+s.slice(1):''
-
 function renderHdr(){
   const counts=[['Pillars',D.pillars.length],['Goals',D.goals.length],['Rocks',D.rocks.length],['Projects',D.projects.length],['Tasks',D.tasks.length]]
   document.getElementById('hdr-stats').innerHTML=counts.map(([l,n])=>`<div class="stat"><div class="stat-n">${n}</div><div class="stat-l">${l}</div></div>`).join('')
   if(D._ts){const d=new Date(D._ts);document.getElementById('updated-ts').textContent=d.toLocaleDateString('en-US',{month:'short',day:'numeric'})+' · '+d.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'})}
 }
-
-// ── VIEW SWITCHER ─────────────────────────────────
 function sv(name){
   CV=name
   document.querySelectorAll('.vtab').forEach(t=>t.classList.remove('on'))
@@ -258,10 +232,6 @@ function sv(name){
   const views={columns:v1Render,nested:v2Render,swimlanes:v3Render}
   views[name]?.()
 }
-
-// ═══════════════════════════════════════
-// VIEW 1 — COLUMNS
-// ═══════════════════════════════════════
 function v1Render(){
   const COLS=[{k:'pillars',l:'Pillars',items:D.pillars},{k:'goals',l:'Goals',items:D.goals},{k:'rocks',l:'Rocks',items:D.rocks},{k:'projects',l:'Projects',items:D.projects},{k:'tasks',l:'Tasks',items:D.tasks}]
   document.getElementById('vc').innerHTML=`
@@ -315,11 +285,7 @@ function v1TogCol(k){
   if(btn)btn.classList.toggle('on',COLVIS[k])
   v1Draw()
 }
-function v1Sel(id){
-  V1SEL=V1SEL===id?null:id
-  v1FillCols()
-  v1Draw()
-}
+function v1Sel(id){V1SEL=V1SEL===id?null:id;v1FillCols();v1Draw()}
 function v1Draw(){
   const row=document.getElementById('v1in'),svg=document.getElementById('v1svg')
   if(!row||!svg)return
@@ -347,10 +313,6 @@ function v1Draw(){
   svg.innerHTML=paths.join('')
 }
 window.addEventListener('resize',()=>{if(CV==='columns')v1Draw()})
-
-// ═══════════════════════════════════════
-// VIEW 2 — NESTED
-// ═══════════════════════════════════════
 function v2Render(){
   let h='<div class="v2"><div class="v2-in">'
   D.pillars.forEach(p=>{
@@ -393,10 +355,6 @@ function v2tog(id){
   if(V2EXP.has(id)){V2EXP.delete(id);body.hidden=true;if(chv)chv.style.transform=''}
   else{V2EXP.add(id);body.hidden=false;if(chv)chv.style.transform='rotate(90deg)'}
 }
-
-// ═══════════════════════════════════════
-// VIEW 3 — SWIMLANES
-// ═══════════════════════════════════════
 function v3Render(){
   let h='<div class="v3">'
   D.pillars.forEach(p=>{
@@ -407,24 +365,4 @@ function v3Render(){
         <div class="v3ls">${goals.length} goal${goals.length!==1?'s':''}</div>
       </div>
       <div class="v3lb">`
-    if(!goals.length){h+=`<div class="v3em">No goals yet</div>`}
-    else goals.forEach(g=>{
-      const rocks=rocksOf(g)
-      h+=`<div class="v3goal">
-        <div class="v3gn" style="--pc:${g.pc}">${g.name}</div>`
-      if(rocks.length){
-        h+=`<div class="v3rs">`
-        rocks.forEach(r=>{h+=`<div class="v3r"><div class="v3rp" style="background:${r.pc}"></div>${trunc(r.name,50)}</div>`})
-        h+=`</div>`
-      }
-      h+=`</div>`
-    })
-    h+=`</div></div>`
-  })
-  h+='</div>'
-  document.getElementById('vc').innerHTML=h
-}
-
-</script>
-</body>
-</html>
+    if(!goals.length){h+=`<div class="v3em">No goals yet</div>
