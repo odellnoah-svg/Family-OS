@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-01T03:29:17.841Z",
+  "generated": "2026-06-01T12:43:02.336Z",
   "pillars": [
     {
       "id": "cb4375f148b64a2e8a0ecd0f0e0e4962",
@@ -332,7 +332,9 @@
       "pillarIds": [
         "2fb60975ef4e4b0fbd56793fba264939"
       ],
-      "goalIds": [],
+      "goalIds": [
+        "371c57494859806fb06de3b6549ceadf"
+      ],
       "projectIds": []
     },
     {
@@ -344,7 +346,9 @@
       "pillarIds": [
         "76181932d64d40de88929de677bdf7c2"
       ],
-      "goalIds": [],
+      "goalIds": [
+        "371c574948598057b2fad969568b7813"
+      ],
       "projectIds": []
     },
     {
@@ -356,7 +360,9 @@
       "pillarIds": [
         "2f43207e861543bb8c72d04d16a27f53"
       ],
-      "goalIds": [],
+      "goalIds": [
+        "371c5749485980b392b8f37690635474"
+      ],
       "projectIds": []
     },
     {
@@ -368,7 +374,9 @@
       "pillarIds": [
         "76181932d64d40de88929de677bdf7c2"
       ],
-      "goalIds": [],
+      "goalIds": [
+        "371c57494859802ba8b1f3ef319fe2d0"
+      ],
       "projectIds": []
     },
     {
@@ -380,7 +388,9 @@
       "pillarIds": [
         "2fb60975ef4e4b0fbd56793fba264939"
       ],
-      "goalIds": [],
+      "goalIds": [
+        "371c57494859800d929ec7c31183b8b0"
+      ],
       "projectIds": []
     },
     {
@@ -393,7 +403,9 @@
         "2fb60975ef4e4b0fbd56793fba264939",
         "683e3c08456247dea6168f9329c85470"
       ],
-      "goalIds": [],
+      "goalIds": [
+        "371c57494859800d929ec7c31183b8b0"
+      ],
       "projectIds": []
     },
     {
@@ -405,7 +417,9 @@
       "pillarIds": [
         "76181932d64d40de88929de677bdf7c2"
       ],
-      "goalIds": [],
+      "goalIds": [
+        "371c57494859802ba8b1f3ef319fe2d0"
+      ],
       "projectIds": []
     }
   ],
