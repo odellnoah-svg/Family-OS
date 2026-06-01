@@ -13,20 +13,25 @@ body{background:var(--bg);color:var(--tx);font-family:'DM Sans',sans-serif;heigh
 .screen{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:var(--bg);z-index:100;}
 .sc-title{font-family:'Playfair Display',serif;font-size:22px;font-weight:600;margin-bottom:6px;}
 .sc-sub{font-size:13px;color:var(--tx2);margin-bottom:28px;}
-.dots{display:flex;gap:7px;}.dot{width:7px;height:7px;border-radius:50%;background:var(--acc);animation:blink 1.2s ease-in-out infinite;}
+.dots{display:flex;gap:7px;}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--acc);animation:blink 1.2s ease-in-out infinite;}
 .dot:nth-child(2){animation-delay:.2s;}.dot:nth-child(3){animation-delay:.4s;}
 @keyframes blink{0%,100%{opacity:.2;transform:scale(.8);}50%{opacity:1;transform:scale(1);}}
 .info-box{background:var(--surf);border:1px solid var(--bdr);border-radius:16px;padding:36px 40px;max-width:440px;text-align:center;}
-.ib-icon{font-size:28px;margin-bottom:12px;}.ib-head{font-family:'Playfair Display',serif;font-size:19px;font-weight:600;margin-bottom:8px;}
-.ib-body{font-size:13px;color:var(--tx2);line-height:1.65;}.ib-steps{text-align:left;margin-top:16px;}
-.ib-steps li{font-size:12.5px;color:var(--tx2);margin-bottom:5px;line-height:1.5;}.ib-steps strong{color:var(--tx);}
+.ib-icon{font-size:28px;margin-bottom:12px;}
+.ib-head{font-family:'Playfair Display',serif;font-size:19px;font-weight:600;margin-bottom:8px;}
+.ib-body{font-size:13px;color:var(--tx2);line-height:1.65;}
+.ib-steps{text-align:left;margin-top:16px;}
+.ib-steps li{font-size:12.5px;color:var(--tx2);margin-bottom:5px;line-height:1.5;}
+.ib-steps strong{color:var(--tx);}
 .ib-code{font-size:11px;color:var(--tx3);margin-top:10px;font-family:monospace;}
 #app{display:flex;flex-direction:column;height:100vh;}
 .hdr{background:var(--surf);border-bottom:1px solid var(--bdr);height:56px;display:flex;align-items:center;padding:0 20px;gap:14px;flex-shrink:0;}
 .hdr-brand{font-family:'Playfair Display',serif;font-size:17px;font-weight:600;white-space:nowrap;flex-shrink:0;}
 .hdr-brand em{font-weight:400;font-style:italic;color:var(--tx2);}
 .hdr-stats{display:flex;gap:12px;flex-shrink:0;}
-.stat{text-align:center;}.stat-n{font-size:15px;font-weight:500;line-height:1;}
+.stat{text-align:center;}
+.stat-n{font-size:15px;font-weight:500;line-height:1;}
 .stat-l{font-size:8px;color:var(--tx3);text-transform:uppercase;letter-spacing:.08em;margin-top:2px;}
 .view-tabs{display:flex;gap:4px;flex:1;justify-content:center;}
 .vtab{padding:5px 12px;border:1px solid var(--bdr);border-radius:20px;background:transparent;font-family:'DM Sans',sans-serif;font-size:11px;font-weight:500;color:var(--tx2);cursor:pointer;transition:all .14s;white-space:nowrap;}
@@ -39,20 +44,26 @@ body{background:var(--bg);color:var(--tx);font-family:'DM Sans',sans-serif;heigh
 #vc{flex:1;overflow:hidden;position:relative;}
 .card{background:var(--surf);border:1px solid var(--bdr);border-left:4px solid var(--pc,var(--bdr));border-radius:10px;padding:11px 13px 10px;cursor:pointer;display:flex;flex-direction:column;transition:transform .12s,box-shadow .14s,opacity .15s;}
 .card:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(38,28,16,.08);}
-.card.dim{opacity:.15;pointer-events:none;}.card.sel{border-color:var(--pc,var(--acc));border-left-color:var(--pc,var(--acc));box-shadow:0 3px 18px rgba(38,28,16,.1);}
-.card.noclk{cursor:default;}.card.noclk:hover{transform:none;box-shadow:none;}
+.card.dim{opacity:.15;pointer-events:none;}
+.card.sel{border-color:var(--pc,var(--acc));border-left-color:var(--pc,var(--acc));box-shadow:0 3px 18px rgba(38,28,16,.1);}
+.card.noclk{cursor:default;}
+.card.noclk:hover{transform:none;box-shadow:none;}
 .card.orphan{border-style:dashed;background:var(--bg);}
 .card-k{font-size:9px;font-weight:500;text-transform:uppercase;letter-spacing:.1em;color:var(--tx3);margin-bottom:3px;}
 .card-n{font-size:12.5px;font-weight:500;line-height:1.4;color:var(--tx);margin-bottom:7px;}
-.card-d{font-size:11px;color:var(--tx2);line-height:1.5;margin-bottom:7px;}
 .card-tgs{display:flex;flex-wrap:wrap;gap:3px;margin-bottom:7px;}
 .card-w{font-size:10px;color:var(--tx3);font-style:italic;margin-bottom:5px;}
 .card-ft{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:6px;border-top:1px solid var(--bdr);}
-.card-c{font-size:10.5px;color:var(--tx3);}.card-arr{font-size:12px;color:var(--tx3);transition:transform .12s,color .12s;}
+.card-c{font-size:10.5px;color:var(--tx3);}
+.card-arr{font-size:12px;color:var(--tx3);transition:transform .12s,color .12s;}
 .card:not(.noclk):hover .card-arr{transform:translateX(2px);color:var(--pc,var(--acc));}
 .tag{font-size:9.5px;font-weight:500;padding:2px 7px;border-radius:20px;}
-.t-g{background:#E6F4EE;color:#2A7050;}.t-y{background:#FFF3E0;color:#B06820;}.t-r{background:#FFEEED;color:#A83428;}
-.t-b{background:#EBF2FB;color:#2C5FA0;}.t-n{background:var(--surf2);color:var(--tx2);}.t-s{background:#EDF0F2;color:#4A6070;}
+.t-g{background:#E6F4EE;color:#2A7050;}
+.t-y{background:#FFF3E0;color:#B06820;}
+.t-r{background:#FFEEED;color:#A83428;}
+.t-b{background:#EBF2FB;color:#2C5FA0;}
+.t-n{background:var(--surf2);color:var(--tx2);}
+.t-s{background:#EDF0F2;color:#4A6070;}
 .v1{display:flex;flex-direction:column;height:100%;}
 .v1-bar{background:var(--surf);border-bottom:1px solid var(--bdr);padding:0 20px;height:38px;display:flex;align-items:center;gap:7px;flex-shrink:0;}
 .v1-bar-lbl{font-size:10px;color:var(--tx3);text-transform:uppercase;letter-spacing:.1em;margin-right:2px;}
@@ -113,7 +124,8 @@ body{background:var(--bg);color:var(--tx);font-family:'DM Sans',sans-serif;heigh
 </div>
 <div class="screen" id="scr-nodata" hidden>
   <div class="info-box">
-    <div class="ib-icon">🌱</div><div class="ib-head">Ready to grow</div>
+    <div class="ib-icon">🌱</div>
+    <div class="ib-head">Ready to grow</div>
     <div class="ib-body">Run the GitHub Action to load your Notion data.
       <ol class="ib-steps">
         <li>Add secret <strong>NOTION_TOKEN</strong> in GitHub Settings</li>
@@ -125,7 +137,8 @@ body{background:var(--bg);color:var(--tx);font-family:'DM Sans',sans-serif;heigh
 </div>
 <div class="screen" id="scr-error" hidden>
   <div class="info-box">
-    <div class="ib-icon">⚠</div><div class="ib-head">Couldn't load data</div>
+    <div class="ib-icon">⚠</div>
+    <div class="ib-head">Couldn't load data</div>
     <div class="ib-body">Could not read data.json.</div>
     <div class="ib-code" id="err-msg"></div>
   </div>
@@ -152,8 +165,22 @@ let D={pillars:[],goals:[],rocks:[],projects:[],tasks:[]},ALL={},CV='columns'
 let COLVIS={pillars:true,goals:true,rocks:true,projects:true,tasks:true}
 let V1SEL=null,V2EXP=new Set()
 window.addEventListener('DOMContentLoaded',init)
-async function init(){so('scr-loading');try{await load();so('app');renderHdr();sv('columns')}catch(e){if(e.message==='NO_DATA')so('scr-nodata');else{document.getElementById('err-msg').textContent=e.message;so('scr-error')}}}
-async function reload(){so('scr-loading');try{await load();so('app');renderHdr();sv(CV)}catch(e){if(e.message==='NO_DATA')so('scr-nodata');else{document.getElementById('err-msg').textContent=e.message;so('scr-error')}}}
+async function init(){
+  so('scr-loading')
+  try{await load();so('app');renderHdr();sv('columns')}
+  catch(e){
+    if(e.message==='NO_DATA')so('scr-nodata')
+    else{document.getElementById('err-msg').textContent=e.message;so('scr-error')}
+  }
+}
+async function reload(){
+  so('scr-loading')
+  try{await load();so('app');renderHdr();sv(CV)}
+  catch(e){
+    if(e.message==='NO_DATA')so('scr-nodata')
+    else{document.getElementById('err-msg').textContent=e.message;so('scr-error')}
+  }
+}
 function so(id){['scr-loading','scr-nodata','scr-error','app'].forEach(s=>document.getElementById(s).hidden=s!==id)}
 async function load(){
   const res=await fetch('./data.json?v='+Date.now())
@@ -234,20 +261,7 @@ function sv(name){
 }
 function v1Render(){
   const COLS=[{k:'pillars',l:'Pillars',items:D.pillars},{k:'goals',l:'Goals',items:D.goals},{k:'rocks',l:'Rocks',items:D.rocks},{k:'projects',l:'Projects',items:D.projects},{k:'tasks',l:'Tasks',items:D.tasks}]
-  document.getElementById('vc').innerHTML=`
-    <div class="v1">
-      <div class="v1-bar">
-        <span class="v1-bar-lbl">Show:</span>
-        ${COLS.map(c=>`<button class="ctog ${COLVIS[c.k]?'on':''}" onclick="v1TogCol('${c.k}')">${c.l}</button>`).join('')}
-        <span style="margin-left:8px;font-size:10px;color:var(--tx3)">· Click a card to trace its chain</span>
-      </div>
-      <div class="v1-scroll" id="v1sc" onscroll="v1Draw()">
-        <div class="v1-inner" id="v1in">
-          <svg id="v1svg"></svg>
-          ${COLS.map(c=>`<div class="v1col ${COLVIS[c.k]?'':'hidden'}" id="v1col-${c.k}"></div>`).join('')}
-        </div>
-      </div>
-    </div>`
+  document.getElementById('vc').innerHTML=`<div class="v1"><div class="v1-bar"><span class="v1-bar-lbl">Show:</span>${COLS.map(c=>`<button class="ctog ${COLVIS[c.k]?'on':''}" onclick="v1TogCol('${c.k}')">${c.l}</button>`).join('')}<span style="margin-left:8px;font-size:10px;color:var(--tx3)">· Click a card to trace its chain</span></div><div class="v1-scroll" id="v1sc" onscroll="v1Draw()"><div class="v1-inner" id="v1in"><svg id="v1svg"></svg>${COLS.map(c=>`<div class="v1col ${COLVIS[c.k]?'':'hidden'}" id="v1col-${c.k}"></div>`).join('')}</div></div></div>`
   v1FillCols()
   setTimeout(v1Draw,120)
   document.getElementById('v1sc').addEventListener('scroll',v1Draw)
@@ -259,28 +273,16 @@ function v1FillCols(){
     if(!col)return
     const inChain=V1SEL?chain(V1SEL):null
     if(V1SEL)inChain.add(V1SEL)
-    col.innerHTML=`<div class="v1ch">${l}<span class="v1cn">${items.length}</span></div>`+
-      items.map(item=>{
-        const color=item.pc||item.color||'#8B7355'
-        const isOrph=orphan(item,type)
-        const isDim=V1SEL&&!inChain.has(item.id)
-        const isSel=V1SEL===item.id
-        return `<div class="card ${isDim?'dim':''} ${isSel?'sel':''} ${isOrph?'orphan':''} ${type==='task'?'noclk':''}"
-          id="v1c-${item.id}" data-id="${item.id}" style="--pc:${color}"
-          onclick="v1Sel('${item.id}')">
-          <div class="card-k">${cap(type)}</div>
-          <div class="card-n">${item.name}</div>
-          <div class="card-tgs">${tags(item,type)}</div>
-          ${isOrph?`<div class="card-w">⚠ Not fully linked</div>`:''}
-          <div class="card-ft"><span class="card-c">${ccount(item,type)}</span>${type!=='task'?'<span class="card-arr">→</span>':''}</div>
-        </div>`
-      }).join('')
+    col.innerHTML=`<div class="v1ch">${l}<span class="v1cn">${items.length}</span></div>`+items.map(item=>{
+      const color=item.pc||item.color||'#8B7355'
+      const isOrph=orphan(item,type),isDim=V1SEL&&!inChain.has(item.id),isSel=V1SEL===item.id
+      return `<div class="card ${isDim?'dim':''} ${isSel?'sel':''} ${isOrph?'orphan':''} ${type==='task'?'noclk':''}" id="v1c-${item.id}" data-id="${item.id}" style="--pc:${color}" onclick="v1Sel('${item.id}')"><div class="card-k">${cap(type)}</div><div class="card-n">${item.name}</div><div class="card-tgs">${tags(item,type)}</div>${isOrph?'<div class="card-w">⚠ Not fully linked</div>':''}<div class="card-ft"><span class="card-c">${ccount(item,type)}</span>${type!=='task'?'<span class="card-arr">→</span>':''}</div></div>`
+    }).join('')
   })
 }
 function v1TogCol(k){
   COLVIS[k]=!COLVIS[k]
-  const col=document.getElementById('v1col-'+k)
-  const btn=document.querySelector(`.ctog[onclick*="${k}"]`)
+  const col=document.getElementById('v1col-'+k),btn=document.querySelector(`.ctog[onclick*="${k}"]`)
   if(col)col.hidden=!COLVIS[k]
   if(btn)btn.classList.toggle('on',COLVIS[k])
   v1Draw()
@@ -295,8 +297,7 @@ function v1Draw(){
   if(V1SEL)inC.add(V1SEL)
   const line=(fid,tid,color)=>{
     const fi=ALL[fid],ti=ALL[tid]
-    if(!fi||!ti)return''
-    if(!COLVIS[fi.type+'s']||!COLVIS[ti.type+'s'])return''
+    if(!fi||!ti||!COLVIS[fi.type+'s']||!COLVIS[ti.type+'s'])return''
     const fa=document.getElementById('v1c-'+fid),ta=document.getElementById('v1c-'+tid)
     if(!fa||!ta)return''
     const rr=row.getBoundingClientRect(),fr=fa.getBoundingClientRect(),tr=ta.getBoundingClientRect()
@@ -317,31 +318,13 @@ function v2Render(){
   let h='<div class="v2"><div class="v2-in">'
   D.pillars.forEach(p=>{
     const goals=goalsOf(p),pe=V2EXP.has(p.id)
-    h+=`<div class="v2p">
-      <div class="v2ph" onclick="v2tog('${p.id}')">
-        <div class="v2pip" style="background:${p.color}"></div>
-        <div class="v2pn">${p.name}</div>
-        <div class="v2pm">${stag(p.status)}<span class="tag t-n">${goals.length} goal${goals.length!==1?'s':''}</span></div>
-        <div class="v2chv" id="v2ch-${p.id}" style="${pe?'transform:rotate(90deg)':''}">›</div>
-      </div>
-      <div class="v2bod ${pe?'open':''}" id="v2b-${p.id}" ${pe?'':'hidden'}>`
-    if(!goals.length){h+=`<div class="v2em">No goals linked to this pillar yet.</div>`}
+    h+=`<div class="v2p"><div class="v2ph" onclick="v2tog('${p.id}')"><div class="v2pip" style="background:${p.color}"></div><div class="v2pn">${p.name}</div><div class="v2pm">${stag(p.status)}<span class="tag t-n">${goals.length} goal${goals.length!==1?'s':''}</span></div><div class="v2chv" id="v2ch-${p.id}" style="${pe?'transform:rotate(90deg)':''}">›</div></div><div class="v2bod ${pe?'open':''}" id="v2b-${p.id}" ${pe?'':'hidden'}>`
+    if(!goals.length)h+=`<div class="v2em">No goals linked yet.</div>`
     else goals.forEach(g=>{
       const rocks=rocksOf(g),ge=V2EXP.has(g.id)
-      h+=`<div class="v2g" style="--pc:${g.pc}">
-        <div class="v2gh" onclick="v2tog('${g.id}')">
-          <div class="v2gn">${g.name}</div>
-          <div style="display:flex;gap:4px;align-items:center;flex-shrink:0">${g.horizon?`<span class="tag t-n">${g.horizon}</span>`:''} ${stag(g.status)}<span class="tag t-n">${rocks.length} rock${rocks.length!==1?'s':''}</span></div>
-          <div class="v2chv" id="v2ch-${g.id}" style="margin-left:6px;${ge?'transform:rotate(90deg)':''}">›</div>
-        </div>
-        <div class="v2gbod ${ge?'open':''}" id="v2b-${g.id}" ${ge?'':'hidden'}>`
-      if(!rocks.length){h+=`<div class="v2em">No rocks linked to this goal yet.</div>`}
-      else rocks.forEach(r=>{
-        h+=`<div class="v2r">
-          <div class="v2rp" style="background:${r.pc}"></div>
-          <div><div class="v2rn">${r.name}</div><div class="v2rt">${r.quarter?`<span class="tag t-n">${r.quarter}${r.year?' '+r.year:''}</span>`:''}</div></div>
-        </div>`
-      })
+      h+=`<div class="v2g" style="--pc:${g.pc}"><div class="v2gh" onclick="v2tog('${g.id}')"><div class="v2gn">${g.name}</div><div style="display:flex;gap:4px;align-items:center;flex-shrink:0">${g.horizon?`<span class="tag t-n">${g.horizon}</span>`:''} ${stag(g.status)}<span class="tag t-n">${rocks.length} rock${rocks.length!==1?'s':''}</span></div><div class="v2chv" id="v2ch-${g.id}" style="margin-left:6px;${ge?'transform:rotate(90deg)':''}">›</div></div><div class="v2gbod ${ge?'open':''}" id="v2b-${g.id}" ${ge?'':'hidden'}>`
+      if(!rocks.length)h+=`<div class="v2em">No rocks linked yet.</div>`
+      else rocks.forEach(r=>{h+=`<div class="v2r"><div class="v2rp" style="background:${r.pc}"></div><div><div class="v2rn">${r.name}</div><div class="v2rt">${r.quarter?`<span class="tag t-n">${r.quarter}${r.year?' '+r.year:''}</span>`:''}</div></div></div>`})
       h+=`</div></div>`
     })
     h+=`</div></div>`
@@ -359,10 +342,19 @@ function v3Render(){
   let h='<div class="v3">'
   D.pillars.forEach(p=>{
     const goals=goalsOf(p)
-    h+=`<div class="v3lane" style="--pc:${p.color}">
-      <div class="v3lh">
-        <div class="v3ln"><div class="v3lp" style="background:${p.color}"></div>${p.name}</div>
-        <div class="v3ls">${goals.length} goal${goals.length!==1?'s':''}</div>
-      </div>
-      <div class="v3lb">`
-    if(!goals.length){h+=`<div class="v3em">No goals yet</div>
+    h+=`<div class="v3lane" style="--pc:${p.color}"><div class="v3lh"><div class="v3ln"><div class="v3lp" style="background:${p.color}"></div>${p.name}</div><div class="v3ls">${goals.length} goal${goals.length!==1?'s':''}</div></div><div class="v3lb">`
+    if(!goals.length)h+=`<div class="v3em">No goals yet</div>`
+    else goals.forEach(g=>{
+      const rocks=rocksOf(g)
+      h+=`<div class="v3goal"><div class="v3gn" style="--pc:${g.pc}">${g.name}</div>`
+      if(rocks.length){h+=`<div class="v3rs">`;rocks.forEach(r=>{h+=`<div class="v3r"><div class="v3rp" style="background:${r.pc}"></div>${trunc(r.name,50)}</div>`});h+=`</div>`}
+      h+=`</div>`
+    })
+    h+=`</div></div>`
+  })
+  h+='</div>'
+  document.getElementById('vc').innerHTML=h
+}
+</script>
+</body>
+</html>
