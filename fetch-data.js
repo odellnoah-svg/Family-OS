@@ -99,7 +99,7 @@ function parseRock(p) {
     quarter:    sP(p.properties,  'Quarter'),
     year:       sP(p.properties,  'Year'),
     pillarIds:  relP(p.properties, 'Pillar'),
-    goalIds:    relP(p.properties, 'Related Goal '),  // trailing space is intentional
+    goalIds:    relP(p.properties, 'Related Goal'),
     projectIds: relP(p.properties, 'Related Projects'),
   }
 }
