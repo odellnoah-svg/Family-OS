@@ -146,11 +146,11 @@ function drillInto(type,id){
 function goTo(level){PATH=PATH.slice(0,level);render();window.scrollTo({top:0,behavior:'smooth'})}
 function getChildren(){
   if(!PATH.length)return{type:'pillar',items:D.pillars}
-  const p=PATH[PATH.length-1],id=p.id
-  if(p.type==='pillar')return{type:'goal',items:D.goals.filter(g=>g.pillarIds?.includes(id))}
-  if(p.type==='goal')return{type:'rock',items:D.rocks.filter(r=>r.goalIds?.includes(id))}
-  if(p.type==='rock')return{type:'project',items:D.projects.filter(pr=>pr.rockIds?.includes(id))}
-  if(p.type==='project')return{type:'task',items:D.tasks.filter(t=>t.projectIds?.includes(id))}
+  const p=PATH[PATH.length-1],it=p.item,id=p.id
+  if(p.type==='pillar') return{type:'goal',   items:D.goals.filter(g=>it.goalIds?.includes(g.id)||g.pillarIds?.includes(id))}
+  if(p.type==='goal')   return{type:'rock',   items:D.rocks.filter(r=>it.rockIds?.includes(r.id)||r.goalIds?.includes(id))}
+  if(p.type==='rock')   return{type:'project',items:D.projects.filter(pr=>it.projectIds?.includes(pr.id)||pr.rockIds?.includes(id))}
+  if(p.type==='project')return{type:'task',   items:D.tasks.filter(t=>it.taskIds?.includes(t.id)||t.projectIds?.includes(id))}
   return{type:null,items:[]}
 }
 function render(){
