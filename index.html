@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eubanks Family OS · Vision Hierarchy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:    #F7F2EB;
+  --surf:  #FDFAF6;
+  --surf2: #EDE6DA;
+  --bdr:   #DDD4C4;
+  --tx:    #261C10;
+  --tx2:   #7A6A54;
+  --tx3:   #B0A08C;
+  --acc:   #7C5738;
+
+  --c-faith:    #7B6FAC;
+  --c-marriage: #B5695A;
+  --c-health:   #4A8B70;
+  --c-home:     #A07848;
+  --c-freedom:  #4A7BAD;
+  --c-systems:  #6E8C8A;
+  --c-adventure:#C48B3A;
+
+  --cw:  268px;
+  --gap: 48px;
+  --r:   10px;
+}
+
+*,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+body { background:var(--bg); color:var(--tx); font-family:'DM Sans',sans-serif; height:100vh; overflow:hidden; -webkit-font-smoothing:antialiased; }
+
+/* ── Loading & Error screens ── */
+.screen { position:fixed; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; z-index:100; background:var(--bg); }
+.sc-title { font-family:'Playfair Display',serif; font-size:22px; font-weight:600; margin-bottom:6px; }
+.sc-sub   { font-size:13px; color:var(--tx2); margin-bottom:28px; }
+.dots { display:flex; gap:7px; }
+.dot  { width:7px; height:7px; border-radius:50%; background:var(--acc); animation:blink 1.2s ease-in-out infinite; }
+.dot:nth-child(2){animation-delay:.2s;} .dot:nth-child(3){animation-delay:.4s;}
+@keyframes blink{0%,100%{opacity:.2;transform:scale(.8);}50%{opacity:1;transform:scale(1);}}
+
+.err-box  { background:var(--surf); border:1px solid var(--bdr); border-radius:16px; padding:36px 40px; max-width:420px; text-align:center; }
+.err-icon { font-size:28px; margin-bottom:14px; }
+.err-head { font-family:'Playfair Display',serif; font-size:20px; font-weight:600; margin-bottom:8px; }
+.err-body { font-size:13px; color:var(--tx2); line-height:1.6; }
+.err-code { font-size:11px; color:var(--tx3); margin-top:12px; font-family:monospace; }
+
+.no-data-box { background:var(--surf); border:1px solid var(--bdr); border-radius:16px; padding:40px 44px; max-width:460px; text-align:center; }
+.nd-icon { font-size:32px; margin-bottom:14px; }
+.nd-head { font-family:'Playfair Display',serif; font-size:21px; font-weight:600; margin-bottom:10px; }
+.nd-body { font-size:13px; color:var(--tx2); line-height:1.65; }
+.nd-step { text-align:left; margin-top:20px; }
+.nd-step li { font-size:12.5px; color:var(--tx2); margin-bottom:6px; line-height:1.5; padding-left:4px; }
+.nd-step li strong { color:var(--tx); }
+
+/* ── App ── */
+#app { display:flex; flex-direction:column; height:100vh; overflow:hidden; }
+
+.hdr { background:var(--surf); border-bottom:1px solid var(--bdr); height:56px; display:flex; align-items:center; padding:0 28px; flex-shrink:0; gap:20px; }
+.hdr-brand { font-family:'Playfair Display',serif; font-size:18px; font-weight:600; white-space:nowrap; }
+.hdr-brand em { font-weight:400; font-style:italic; color:var(--tx2); }
+.hdr-stats { display:flex; gap:18px; flex:1; }
+.stat   { text-align:center; }
+.stat-n { font-size:17px; font-weight:500; line-height:1; }
+.stat-l { font-size:9px; color:var(--tx3); text-transform:uppercase; letter-spacing:.08em; margin-top:2px; }
+.hdr-right { display:flex; align-items:center; gap:12px; flex-shrink:0; }
+.updated { font-size:11px; color:var(--tx3); white-space:nowrap; }
+.hdr-btns { display:flex; gap:7px; }
+.hdr-btn { padding:7px 13px; border:1px solid var(--bdr); border-radius:7px; background:transparent; font-family:'DM Sans',sans-serif; font-size:11.5px; font-weight:500; color:var(--tx2); cursor:pointer; transition:all .12s; white-space:nowrap; text-decoration:none; display:inline-block; }
+.hdr-btn:hover { background:var(--surf2); color:var(--tx); }
+
+.scroll-area { flex:1; overflow:auto; padding:24px 28px 48px; position:relative; }
+.cols-row { display:flex; gap:var(--gap); align-items:flex-start; width:max-content; min-width:100%; position:relative; }
+#svg-ov { position:absolute; top:0; left:0; pointer-events:none; z-index:1; overflow:visible; }
+
+.col { width:var(--cw); flex-shrink:0; position:relative; z-index:2; }
+.col-head { font-size:10px; font-weight:500; text-transform:uppercase; letter-spacing:.12em; color:var(--tx3); padding:0 2px 10px; display:flex; align-items:center; gap:7px; }
+.col-cnt  { background:var(--surf2); border-radius:9px; padding:1px 7px; font-size:10px; color:var(--tx2); }
+
+/* Cards */
+.card { background:var(--surf); border:1px solid var(--bdr); border-left:3px solid transparent; border-radius:var(--r); padding:11px 13px 10px; margin-bottom:7px; cursor:pointer; transition:transform .12s, box-shadow .12s, opacity .2s; user-select:none; }
+.card:hover { transform:translateX(3px); box-shadow:0 2px 14px rgba(38,28,16,.07); }
+.card.sel    { border-color:var(--pc,var(--acc)); border-left-color:var(--pc,var(--acc)); box-shadow:0 3px 20px rgba(38,28,16,.1); }
+.card.dim    { opacity:.18; }
+.card.orphan { border-style:dashed; background:var(--bg); }
+
+.kicker { font-size:9px; font-weight:500; text-transform:uppercase; letter-spacing:.1em; color:var(--tx3); margin-bottom:3px; }
+.cname  { font-size:12.5px; line-height:1.44; color:var(--tx); }
+.tags   { display:flex; flex-wrap:wrap; gap:4px; margin-top:7px; }
+.tag    { font-size:10px; font-weight:500; padding:2px 7px; border-radius:20px; letter-spacing:.02em; }
+.t-g { background:#E6F4EE; color:#2A7050; }
+.t-y { background:#FFF3E0; color:#B06820; }
+.t-r { background:#FFEEED; color:#A83428; }
+.t-b { background:#EBF2FB; color:#2C5FA0; }
+.t-n { background:var(--surf2); color:var(--tx2); }
+.t-s { background:#EDF0F2; color:#4A6070; }
+.warn { font-size:10.5px; color:var(--tx3); font-style:italic; margin-top:5px; }
+
+.p-row { display:flex; align-items:flex-start; gap:8px; }
+.pip   { width:9px; height:9px; border-radius:50%; flex-shrink:0; margin-top:3px; }
+
+/* Legend */
+.legend { position:fixed; right:18px; bottom:18px; background:var(--surf); border:1px solid var(--bdr); border-radius:13px; padding:13px 15px; z-index:50; box-shadow:0 4px 22px rgba(38,28,16,.07); }
+.leg-title { font-size:9.5px; font-weight:500; text-transform:uppercase; letter-spacing:.1em; color:var(--tx3); margin-bottom:9px; }
+.leg-row { display:flex; align-items:center; gap:7px; margin-bottom:5px; cursor:pointer; transition:opacity .12s; }
+.leg-row:hover { opacity:.7; }
+.leg-pip { width:7px; height:7px; border-radius:50%; flex-shrink:0; }
+.leg-lbl { font-size:11.5px; color:var(--tx2); }
+
+.tip { position:fixed; left:28px; bottom:18px; font-size:11px; color:var(--tx3); z-index:50; }
+
+[hidden] { display:none !important; }
+</style>
+</head>
+<body>
+
+<!-- Loading -->
+<div class="screen" id="scr-loading">
+  <div class="sc-title">Eubanks Family OS</div>
+  <div class="sc-sub" id="load-msg">Loading…</div>
+  <div class="dots"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+</div>
+
+<!-- No data yet -->
+<div class="screen" id="scr-nodata" hidden>
+  <div class="no-data-box">
+    <div class="nd-icon">🌱</div>
+    <div class="nd-head">Ready to grow</div>
+    <div class="nd-body">
+      The data file is empty. Run the GitHub Action once to pull your Notion data.
+      <ol class="nd-step">
+        <li>Go to your GitHub repo → <strong>Settings → Secrets → Actions</strong></li>
+        <li>Add a secret named <strong>NOTION_TOKEN</strong> with your integration token</li>
+        <li>Go to <strong>Actions → Sync Notion Data → Run workflow</strong></li>
+        <li>Reload this page once the Action completes (~30 seconds)</li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<!-- Error -->
+<div class="screen" id="scr-error" hidden>
+  <div class="err-box">
+    <div class="err-icon">⚠</div>
+    <div class="err-head">Couldn't load data</div>
+    <div class="err-body">The data file could not be read. Make sure data.json is in the same folder as index.html and the GitHub Action has run successfully.</div>
+    <div class="err-code" id="err-msg"></div>
+  </div>
+</div>
+
+<!-- App -->
+<div id="app" hidden>
+  <header class="hdr">
+    <div class="hdr-brand">Eubanks Family OS <em>· Vision Hierarchy</em></div>
+    <div class="hdr-stats" id="hdr-stats"></div>
+    <div class="hdr-right">
+      <div class="updated" id="updated-ts"></div>
+      <div class="hdr-btns">
+        <button class="hdr-btn" onclick="clearSel()">Clear</button>
+        <button class="hdr-btn" onclick="reloadData()">↺ Reload</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="scroll-area" id="scroll-area" onscroll="redraw()">
+    <div class="cols-row" id="cols-row">
+      <svg id="svg-ov"></svg>
+      <div class="col" id="col-pillars"></div>
+      <div class="col" id="col-goals"></div>
+      <div class="col" id="col-rocks"></div>
+      <div class="col" id="col-projects"></div>
+      <div class="col" id="col-tasks"></div>
+    </div>
+  </div>
+
+  <div class="legend" id="legend"></div>
+  <div class="tip">Click any card to trace its chain · Click again to clear</div>
+</div>
+
+<script>
+// ═══════════════════════════════════════════════════════
+//  PILLAR COLORS
+// ═══════════════════════════════════════════════════════
+const PC = {
+  'Faith & Character':    '#7B6FAC',
+  'Marriage & Family':    '#B5695A',
+  'Health & Energy':      '#4A8B70',
+  'Home/Homestead':       '#A07848',
+  'Freedom & Ownership':  '#4A7BAD',
+  'Systems & Simplicity': '#6E8C8A',
+  'Adventure & Community':'#C48B3A',
+}
+
+// ═══════════════════════════════════════════════════════
+//  STATE
+// ═══════════════════════════════════════════════════════
+let D   = { pillars:[], goals:[], rocks:[], projects:[], tasks:[] }
+let SEL = null
+
+// ═══════════════════════════════════════════════════════
+//  INIT
+// ═══════════════════════════════════════════════════════
+window.addEventListener('DOMContentLoaded', loadAndRender)
+
+async function loadAndRender() {
+  showOnly('scr-loading')
+  setMsg('Loading hierarchy data…')
+  try {
+    await loadData()
+    showOnly('app')
+    renderAll()
+  } catch(e) {
+    if (e.message === 'NO_DATA') {
+      showOnly('scr-nodata')
+    } else {
+      document.getElementById('err-msg').textContent = e.message
+      showOnly('scr-error')
+    }
+  }
+}
+
+async function reloadData() {
+  showOnly('scr-loading')
+  setMsg('Reloading…')
+  SEL = null
+  try {
+    await loadData()
+    showOnly('app')
+    renderAll()
+  } catch(e) {
+    if (e.message === 'NO_DATA') showOnly('scr-nodata')
+    else { document.getElementById('err-msg').textContent = e.message; showOnly('scr-error') }
+  }
+}
+
+function showOnly(id) {
+  ['scr-loading','scr-nodata','scr-error','app'].forEach(s => {
+    document.getElementById(s).hidden = (s !== id)
+  })
+}
+
+const setMsg = m => document.getElementById('load-msg').textContent = m
+
+// ═══════════════════════════════════════════════════════
+//  DATA LOADING
+// ═══════════════════════════════════════════════════════
+async function loadData() {
+  // Cache-bust so the browser always fetches the latest version
+  const res = await fetch('./data.json?v=' + Date.now())
+  if (!res.ok) throw new Error(`Could not load data.json (HTTP ${res.status})`)
+
+  const data = await res.json()
+  if (!data.generated) throw new Error('NO_DATA')
+
+  D = {
+    pillars:  data.pillars  || [],
+    goals:    data.goals    || [],
+    rocks:    data.rocks    || [],
+    projects: data.projects || [],
+    tasks:    data.tasks    || [],
+  }
+
+  // Store the timestamp for the header
+  D._generated = data.generated
+  assignColors()
+}
+
+function assignColors() {
+  const pm = idx(D.pillars), gm = idx(D.goals), rm = idx(D.rocks), prm = idx(D.projects)
+  D.pillars.forEach(p  => { p.color = PC[p.name] || '#8B7355'; p.pc = p.color })
+  D.goals.forEach(g    => { const pl = g.pillarIds.map(i=>pm[i]).find(Boolean);  g.pc = pl?.color || '#8B7355' })
+  D.rocks.forEach(r    => { const pl = r.pillarIds.map(i=>pm[i]).find(Boolean), gl = r.goalIds.map(i=>gm[i]).find(Boolean); r.pc = pl?.color || gl?.pc || '#8B7355' })
+  D.projects.forEach(pr=> { const rl = pr.rockIds.map(i=>rm[i]).find(Boolean);  pr.pc = rl?.pc || '#8B7355' })
+  D.tasks.forEach(t    => { const prl = t.projectIds.map(i=>prm[i]).find(Boolean); t.pc = prl?.pc || PC[t.pillar] || '#8B7355' })
+}
+
+const idx = arr => Object.fromEntries(arr.map(x => [x.id, x]))
+
+// ═══════════════════════════════════════════════════════
+//  RENDER
+// ═══════════════════════════════════════════════════════
+function renderAll() {
+  renderStats()
+  renderLegend()
+  renderPillars()
+  renderGoals()
+  renderRocks()
+  renderProjects()
+  renderTasks()
+  setTimeout(redraw, 150)
+}
+
+function renderStats() {
+  const items = [
+    ['Pillars',      D.pillars.length],
+    ['Goals',        D.goals.length],
+    ['Rocks',        D.rocks.length],
+    ['Projects',     D.projects.length],
+    ['Active Tasks', D.tasks.length],
+  ]
+  document.getElementById('hdr-stats').innerHTML =
+    items.map(([l,n]) =>
+      `<div class="stat"><div class="stat-n">${n}</div><div class="stat-l">${l}</div></div>`
+    ).join('')
+
+  if (D._generated) {
+    const d = new Date(D._generated)
+    const fmt = d.toLocaleDateString('en-US', { month:'short', day:'numeric', year:'numeric' }) +
+                ' · ' + d.toLocaleTimeString('en-US', { hour:'numeric', minute:'2-digit' })
+    document.getElementById('updated-ts').textContent = 'Updated ' + fmt
+  }
+}
+
+function renderLegend() {
+  document.getElementById('legend').innerHTML =
+    `<div class="leg-title">Pillars</div>` +
+    D.pillars.map(p => `
+      <div class="leg-row" onclick="selectById('${p.id}')">
+        <div class="leg-pip" style="background:${p.color}"></div>
+        <div class="leg-lbl">${p.name}</div>
+      </div>`).join('')
+}
+
+function colHead(label, count) {
+  return `<div class="col-head">${label}<span class="col-cnt">${count}</span></div>`
+}
+
+function renderPillars() {
+  document.getElementById('col-pillars').innerHTML =
+    colHead('Pillars', D.pillars.length) +
+    D.pillars.map(p => `
+      <div class="card" id="c-${p.id}" data-id="${p.id}" data-type="pillar"
+           style="--pc:${p.color}; border-left-color:${p.color}"
+           onclick="selectById('${p.id}')">
+        <div class="p-row">
+          <div class="pip" style="background:${p.color}"></div>
+          <div class="cname">${p.name}</div>
+        </div>
+        <div class="tags">
+          ${stag(p.status)}
+          ${p.goalIds.length ? ntag(p.goalIds.length,'goal') : ''}
+        </div>
+      </div>`).join('') || empty()
+}
+
+function renderGoals() {
+  document.getElementById('col-goals').innerHTML =
+    colHead('Goals', D.goals.length) +
+    D.goals.map(g => {
+      const orp = !g.pillarIds.length
+      return `
+      <div class="card ${orp?'orphan':''}" id="c-${g.id}" data-id="${g.id}" data-type="goal"
+           style="--pc:${g.pc}; border-left-color:${g.pc}"
+           onclick="selectById('${g.id}')">
+        <div class="kicker">Goal</div>
+        <div class="cname">${g.name}</div>
+        <div class="tags">
+          ${g.horizon ? `<span class="tag t-n">${g.horizon}</span>` : ''}
+          ${stag(g.status)}
+          ${g.rockIds.length ? ntag(g.rockIds.length,'rock') : ''}
+        </div>
+        ${orp ? '<div class="warn">⚠ No pillar linked</div>' : ''}
+      </div>`
+    }).join('') || empty()
+}
+
+function renderRocks() {
+  document.getElementById('col-rocks').innerHTML =
+    colHead('Rocks', D.rocks.length) +
+    D.rocks.map(r => {
+      const orp = !r.goalIds.length
+      return `
+      <div class="card ${orp?'orphan':''}" id="c-${r.id}" data-id="${r.id}" data-type="rock"
+           style="--pc:${r.pc}; border-left-color:${r.pc}"
+           onclick="selectById('${r.id}')">
+        <div class="kicker">Rock</div>
+        <div class="cname">${r.name}</div>
+        <div class="tags">
+          ${r.quarter ? `<span class="tag t-n">${r.quarter}${r.year ? ' '+r.year : ''}</span>` : ''}
+          ${r.projectIds.length ? ntag(r.projectIds.length,'project') : ''}
+        </div>
+        ${orp ? '<div class="warn">⚠ No goal linked</div>' : ''}
+      </div>`
+    }).join('') || empty()
+}
+
+function renderProjects() {
+  document.getElementById('col-projects').innerHTML =
+    colHead('Projects', D.projects.length) +
+    (D.projects.length
+      ? D.projects.map(pr => {
+          const orp = !pr.rockIds.length
+          return `
+          <div class="card ${orp?'orphan':''}" id="c-${pr.id}" data-id="${pr.id}" data-type="project"
+               style="--pc:${pr.pc}; border-left-color:${pr.pc}"
+               onclick="selectById('${pr.id}')">
+            <div class="kicker">Project</div>
+            <div class="cname">${pr.name}</div>
+            <div class="tags">
+              ${stag(pr.status)}
+              ${pr.taskIds.length ? ntag(pr.taskIds.length,'task') : ''}
+            </div>
+            ${pr.nextAction ? `<div class="warn">→ ${pr.nextAction.slice(0,60)}${pr.nextAction.length>60?'…':''}</div>` : ''}
+            ${orp ? '<div class="warn">⚠ No rock linked</div>' : ''}
+          </div>`
+        }).join('')
+      : '<div style="padding:20px 4px;font-size:12px;color:var(--tx3);font-style:italic">No projects yet</div>')
+}
+
+function renderTasks() {
+  document.getElementById('col-tasks').innerHTML =
+    colHead('Active Tasks', D.tasks.length) +
+    (D.tasks.length
+      ? D.tasks.map(t => {
+          const wip = t.status === 'In progress (WIP)'
+          const orp = !t.projectIds.length
+          return `
+          <div class="card ${orp?'orphan':''}" id="c-${t.id}" data-id="${t.id}" data-type="task"
+               style="--pc:${t.pc}; border-left-color:${t.pc}"
+               onclick="selectById('${t.id}')">
+            <div class="kicker">Task</div>
+            <div class="cname">${t.name}</div>
+            <div class="tags">
+              <span class="tag ${wip?'t-b':'t-n'}">${wip?'In WIP':'Up Next'}</span>
+              ${t.domain ? `<span class="tag t-n">${t.domain}</span>` : ''}
+              ${t.hours !== null ? `<span class="tag t-s">${t.hours}h</span>` : ''}
+            </div>
+            ${orp ? '<div class="warn">⚠ No project linked</div>' : ''}
+          </div>`
+        }).join('')
+      : '<div style="padding:20px 4px;font-size:12px;color:var(--tx3);font-style:italic">No active tasks</div>')
+}
+
+function stag(s) {
+  const m = {
+    'Healthy':'t-g','On Track':'t-g','Complete':'t-g',
+    'Needs Attention':'t-y','At Risk':'t-y','Paused':'t-y',
+    'Neglected':'t-r','Dropped':'t-r',
+    'Active':'t-b','Not Started':'t-n',
+  }
+  return s ? `<span class="tag ${m[s]||'t-n'}">${s}</span>` : ''
+}
+function ntag(n, u) { return `<span class="tag t-n">${n} ${u}${n!==1?'s':''}</span>` }
+function empty()    { return '<div style="padding:20px 4px;font-size:12px;color:var(--tx3);font-style:italic">None found</div>' }
+
+// ═══════════════════════════════════════════════════════
+//  SELECTION
+// ═══════════════════════════════════════════════════════
+function selectById(id) {
+  if (SEL === id) { clearSel(); return }
+  SEL = id
+  const chain = getChain(id)
+  chain.add(id)
+  document.querySelectorAll('.card').forEach(c => {
+    const cid = c.dataset.id
+    c.classList.toggle('sel', cid === id)
+    c.classList.toggle('dim', !chain.has(cid))
+  })
+  redraw()
+}
+
+function clearSel() {
+  SEL = null
+  document.querySelectorAll('.card').forEach(c => c.classList.remove('sel','dim'))
+  redraw()
+}
+
+function getChain(id) {
+  const out = new Set()
+  const pm=idx(D.pillars), gm=idx(D.goals), rm=idx(D.rocks), prm=idx(D.projects), tm=idx(D.tasks)
+  const all = { ...pm, ...gm, ...rm, ...prm, ...tm }
+  const item = all[id]
+  if (!item) return out
+
+  function down(node) {
+    if (node.type==='pillar')  node.goalIds.forEach(i    => { if(gm[i])  { out.add(i); down(gm[i])  } })
+    if (node.type==='goal')    node.rockIds.forEach(i    => { if(rm[i])  { out.add(i); down(rm[i])  } })
+    if (node.type==='rock')    node.projectIds.forEach(i => { if(prm[i]) { out.add(i); down(prm[i]) } })
+    if (node.type==='project') node.taskIds.forEach(i    => { if(tm[i])    out.add(i)                  })
+  }
+  function up(node) {
+    if (node.type==='goal')    { node.pillarIds.forEach(i   => { if(pm[i]) out.add(i) }) }
+    if (node.type==='rock')    { node.goalIds.forEach(i     => { if(gm[i])  { out.add(i); up(gm[i])  } }); node.pillarIds.forEach(i => { if(pm[i]) out.add(i) }) }
+    if (node.type==='project') { node.rockIds.forEach(i     => { if(rm[i])  { out.add(i); up(rm[i])  } }); node.goalIds.forEach(i   => { if(gm[i]) { out.add(i); up(gm[i]) } }) }
+    if (node.type==='task')    { node.projectIds.forEach(i  => { if(prm[i]) { out.add(i); up(prm[i]) } }) }
+  }
+  down(item)
+  up(item)
+  return out
+}
+
+// ═══════════════════════════════════════════════════════
+//  SVG CONNECTION LINES
+// ═══════════════════════════════════════════════════════
+function redraw() {
+  const row = document.getElementById('cols-row')
+  const svg = document.getElementById('svg-ov')
+  const w = row.scrollWidth, h = row.scrollHeight
+  svg.setAttribute('width', w); svg.setAttribute('height', h)
+  svg.style.width = w+'px'; svg.style.height = h+'px'
+
+  const lines = []
+  D.pillars.forEach(p  => p.goalIds.forEach(gi    => lines.push({a:p.id,  b:gi,  color:p.color})))
+  D.goals.forEach(g    => g.rockIds.forEach(ri     => lines.push({a:g.id,  b:ri,  color:g.pc})))
+  D.rocks.forEach(r    => r.projectIds.forEach(pi  => lines.push({a:r.id,  b:pi,  color:r.pc})))
+  D.projects.forEach(pr=> pr.taskIds.forEach(ti    => lines.push({a:pr.id, b:ti,  color:pr.pc})))
+
+  const chain = SEL ? getChain(SEL) : null
+  if (SEL) chain.add(SEL)
+
+  svg.innerHTML = lines.map(({a, b, color}) => {
+    const pts = getPts(a, b)
+    if (!pts) return ''
+    const lit = !SEL || (chain.has(a) && chain.has(b))
+    const op  = lit ? (SEL ? .78 : .2) : .04
+    const sw  = lit && SEL ? 2.2 : 1.5
+    const [x1,y1,x2,y2] = pts
+    const cx = (x2 - x1) * .44
+    return `<path d="M${x1},${y1} C${x1+cx},${y1} ${x2-cx},${y2} ${x2},${y2}" stroke="${color}" stroke-width="${sw}" fill="none" stroke-opacity="${op}" stroke-linecap="round"/>`
+  }).join('')
+}
+
+function getPts(aId, bId) {
+  const a = document.getElementById('c-'+aId)
+  const b = document.getElementById('c-'+bId)
+  if (!a || !b) return null
+  const row = document.getElementById('cols-row')
+  const rr  = row.getBoundingClientRect()
+  const ar  = a.getBoundingClientRect()
+  const br  = b.getBoundingClientRect()
+  return [
+    ar.right - rr.left,
+    (ar.top + ar.bottom) / 2 - rr.top,
+    br.left  - rr.left,
+    (br.top  + br.bottom) / 2 - rr.top,
+  ]
+}
+
+window.addEventListener('resize', redraw)
+</script>
+</body>
+</html>
