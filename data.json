@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-01T12:43:02.336Z",
+  "generated": "2026-06-01T20:41:43.970Z",
   "pillars": [
     {
       "id": "cb4375f148b64a2e8a0ecd0f0e0e4962",
@@ -437,13 +437,13 @@
   ],
   "tasks": [
     {
-      "id": "371c574948598061ba80cfbc525c94ec",
+      "id": "372c5749485980098aeae441c69a38a4",
       "type": "task",
-      "name": "Add spiritual componetnt to habit tracker",
+      "name": "Use claude to organize/consolidate RAE folders ",
       "status": "In progress (WIP)",
       "pillar": null,
-      "domain": "Health",
-      "hours": 0.5,
+      "domain": "RAE",
+      "hours": 2,
       "projectIds": []
     },
     {
@@ -554,16 +554,6 @@
       "pillar": null,
       "domain": "RAE",
       "hours": 8,
-      "projectIds": []
-    },
-    {
-      "id": "36ec5749485980f390c3e9813cb1eb22",
-      "type": "task",
-      "name": "verify wall thickness of laters 1/2”x0.025",
-      "status": "In progress (WIP)",
-      "pillar": null,
-      "domain": "RAE",
-      "hours": 2,
       "projectIds": []
     },
     {
