@@ -131,10 +131,27 @@ async function load(){
 function colorize(){
   const pm=by(D.pillars),gm=by(D.goals),rm=by(D.rocks),prm=by(D.projects)
   D.pillars.forEach(p=>{p.color=PC[p.name]||'#8B7355';p.pc=p.color})
-  D.goals.forEach(g=>{const p=g.pillarIds.map(i=>pm[i]).find(Boolean);g.pc=p?.color||'#8B7355'})
-  D.rocks.forEach(r=>{const p=r.pillarIds.map(i=>pm[i]).find(Boolean),g=r.goalIds.map(i=>gm[i]).find(Boolean);r.pc=p?.color||g?.pc||'#8B7355'})
-  D.projects.forEach(pr=>{const r=pr.rockIds.map(i=>rm[i]).find(Boolean);pr.pc=r?.pc||'#8B7355'})
-  D.tasks.forEach(t=>{const p=t.projectIds.map(i=>prm[i]).find(Boolean);t.pc=p?.pc||PC[t.pillar]||'#8B7355'})
+  D.goals.forEach(g=>{
+    const a=g.pillarIds.map(i=>pm[i]).find(Boolean)
+    const b=D.pillars.find(p=>p.goalIds?.includes(g.id))
+    g.pc=(a||b)?.color||'#8B7355'
+  })
+  D.rocks.forEach(r=>{
+    const a=r.pillarIds.map(i=>pm[i]).find(Boolean)
+    const b=r.goalIds.map(i=>gm[i]).find(Boolean)
+    const c=D.goals.find(g=>g.rockIds?.includes(r.id))
+    r.pc=a?.color||b?.pc||c?.pc||'#8B7355'
+  })
+  D.projects.forEach(pr=>{
+    const a=pr.rockIds.map(i=>rm[i]).find(Boolean)
+    const b=D.rocks.find(r=>r.projectIds?.includes(pr.id))
+    pr.pc=(a||b)?.pc||'#8B7355'
+  })
+  D.tasks.forEach(t=>{
+    const a=t.projectIds.map(i=>prm[i]).find(Boolean)
+    const b=D.projects.find(p=>p.taskIds?.includes(t.id))
+    t.pc=a?.pc||b?.pc||PC[t.pillar]||'#8B7355'
+  })
 }
 const by=arr=>Object.fromEntries(arr.map(x=>[x.id,x]))
 function drillInto(type,id){
@@ -189,10 +206,10 @@ function tags(item,type){
 }
 function childCount(item,type){
   const id=item.id
-  if(type==='pillar'){const n=D.goals.filter(g=>g.pillarIds?.includes(id)).length;return n?`${n} goal${n!==1?'s':''}`:'No goals linked yet'}
-  if(type==='goal'){const n=D.rocks.filter(r=>r.goalIds?.includes(id)).length;return n?`${n} rock${n!==1?'s':''}`:'No rocks linked yet'}
-  if(type==='rock'){const n=D.projects.filter(p=>p.rockIds?.includes(id)).length;return n?`${n} project${n!==1?'s':''}`:'No projects linked yet'}
-  if(type==='project'){const n=D.tasks.filter(t=>t.projectIds?.includes(id)).length;return n?`${n} active task${n!==1?'s':''}`:'No active tasks'}
+  if(type==='pillar'){const n=D.goals.filter(g=>item.goalIds?.includes(g.id)||g.pillarIds?.includes(id)).length;return n?`${n} goal${n!==1?'s':''}`:'No goals linked yet'}
+  if(type==='goal'){const n=D.rocks.filter(r=>item.rockIds?.includes(r.id)||r.goalIds?.includes(id)).length;return n?`${n} rock${n!==1?'s':''}`:'No rocks linked yet'}
+  if(type==='rock'){const n=D.projects.filter(p=>item.projectIds?.includes(p.id)||p.rockIds?.includes(id)).length;return n?`${n} project${n!==1?'s':''}`:'No projects linked yet'}
+  if(type==='project'){const n=D.tasks.filter(t=>item.taskIds?.includes(t.id)||t.projectIds?.includes(id)).length;return n?`${n} active task${n!==1?'s':''}`:'No active tasks'}
   return ''
 }
 function parentOf(t){return{goal:'pillar',rock:'goal',project:'rock',task:'project'}[t]||''}
