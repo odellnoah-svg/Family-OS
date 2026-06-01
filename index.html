@@ -9,65 +9,140 @@
 <style>
 :root{--bg:#F7F2EB;--surf:#FDFAF6;--surf2:#EDE6DA;--bdr:#DDD4C4;--tx:#261C10;--tx2:#7A6A54;--tx3:#B0A08C;--acc:#7C5738;}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-body{background:var(--bg);color:var(--tx);font-family:'DM Sans',sans-serif;min-height:100vh;-webkit-font-smoothing:antialiased;}
+body{background:var(--bg);color:var(--tx);font-family:'DM Sans',sans-serif;height:100vh;overflow:hidden;-webkit-font-smoothing:antialiased;}
 .screen{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:var(--bg);z-index:100;}
 .sc-title{font-family:'Playfair Display',serif;font-size:22px;font-weight:600;margin-bottom:6px;}
 .sc-sub{font-size:13px;color:var(--tx2);margin-bottom:28px;}
 .dots{display:flex;gap:7px;}.dot{width:7px;height:7px;border-radius:50%;background:var(--acc);animation:blink 1.2s ease-in-out infinite;}
 .dot:nth-child(2){animation-delay:.2s;}.dot:nth-child(3){animation-delay:.4s;}
 @keyframes blink{0%,100%{opacity:.2;transform:scale(.8);}50%{opacity:1;transform:scale(1);}}
-.info-box{background:var(--surf);border:1px solid var(--bdr);border-radius:16px;padding:40px 44px;max-width:460px;text-align:center;box-shadow:0 8px 40px rgba(38,28,16,.06);}
-.ib-icon{font-size:32px;margin-bottom:14px;}.ib-head{font-family:'Playfair Display',serif;font-size:21px;font-weight:600;margin-bottom:10px;}
-.ib-body{font-size:13px;color:var(--tx2);line-height:1.65;}
-.ib-steps{text-align:left;margin-top:20px;}.ib-steps li{font-size:12.5px;color:var(--tx2);margin-bottom:6px;line-height:1.5;}
-.ib-steps strong{color:var(--tx);}.ib-code{font-size:11px;color:var(--tx3);margin-top:12px;font-family:monospace;}
-#app{display:flex;flex-direction:column;min-height:100vh;}
-.hdr{background:var(--surf);border-bottom:1px solid var(--bdr);height:56px;display:flex;align-items:center;padding:0 32px;gap:20px;position:sticky;top:0;z-index:20;}
-.hdr-brand{font-family:'Playfair Display',serif;font-size:18px;font-weight:600;white-space:nowrap;flex-shrink:0;}
+.info-box{background:var(--surf);border:1px solid var(--bdr);border-radius:16px;padding:36px 40px;max-width:440px;text-align:center;}
+.ib-icon{font-size:28px;margin-bottom:12px;}.ib-head{font-family:'Playfair Display',serif;font-size:19px;font-weight:600;margin-bottom:8px;}
+.ib-body{font-size:13px;color:var(--tx2);line-height:1.65;}.ib-steps{text-align:left;margin-top:16px;}
+.ib-steps li{font-size:12.5px;color:var(--tx2);margin-bottom:5px;line-height:1.5;}.ib-steps strong{color:var(--tx);}
+.ib-code{font-size:11px;color:var(--tx3);margin-top:10px;font-family:monospace;}
+#app{display:flex;flex-direction:column;height:100vh;}
+.hdr{background:var(--surf);border-bottom:1px solid var(--bdr);height:56px;display:flex;align-items:center;padding:0 20px;gap:14px;flex-shrink:0;}
+.hdr-brand{font-family:'Playfair Display',serif;font-size:17px;font-weight:600;white-space:nowrap;flex-shrink:0;}
 .hdr-brand em{font-weight:400;font-style:italic;color:var(--tx2);}
-.hdr-stats{display:flex;gap:18px;flex:1;}.stat{text-align:center;}
-.stat-n{font-size:17px;font-weight:500;line-height:1;}.stat-l{font-size:9px;color:var(--tx3);text-transform:uppercase;letter-spacing:.08em;margin-top:2px;}
-.hdr-right{display:flex;align-items:center;gap:12px;flex-shrink:0;}.updated{font-size:11px;color:var(--tx3);white-space:nowrap;}
-.hdr-btn{padding:7px 13px;border:1px solid var(--bdr);border-radius:7px;background:transparent;font-family:'DM Sans',sans-serif;font-size:11.5px;font-weight:500;color:var(--tx2);cursor:pointer;transition:all .12s;}
+.hdr-stats{display:flex;gap:12px;flex-shrink:0;}
+.stat{text-align:center;}.stat-n{font-size:15px;font-weight:500;line-height:1;}
+.stat-l{font-size:8px;color:var(--tx3);text-transform:uppercase;letter-spacing:.08em;margin-top:2px;}
+.view-tabs{display:flex;gap:4px;flex:1;justify-content:center;}
+.vtab{padding:5px 12px;border:1px solid var(--bdr);border-radius:20px;background:transparent;font-family:'DM Sans',sans-serif;font-size:11px;font-weight:500;color:var(--tx2);cursor:pointer;transition:all .14s;white-space:nowrap;}
+.vtab:hover{background:var(--surf2);color:var(--tx);}
+.vtab.on{background:var(--tx);color:var(--bg);border-color:var(--tx);}
+.hdr-right{display:flex;align-items:center;gap:8px;flex-shrink:0;}
+.updated{font-size:10.5px;color:var(--tx3);white-space:nowrap;}
+.hdr-btn{padding:5px 11px;border:1px solid var(--bdr);border-radius:7px;background:transparent;font-family:'DM Sans',sans-serif;font-size:11px;font-weight:500;color:var(--tx2);cursor:pointer;transition:all .12s;}
 .hdr-btn:hover{background:var(--surf2);color:var(--tx);}
-.breadcrumb{background:var(--surf);border-bottom:1px solid var(--bdr);padding:0 32px;height:40px;display:flex;align-items:center;gap:5px;overflow:hidden;position:sticky;top:56px;z-index:19;}
-.bc-item{font-size:12px;color:var(--tx3);cursor:pointer;display:flex;align-items:center;gap:5px;white-space:nowrap;flex-shrink:0;border-radius:5px;padding:2px 5px;transition:all .12s;}
-.bc-item:hover:not(.bc-active){color:var(--tx);background:var(--surf2);}.bc-item.bc-active{color:var(--tx);font-weight:500;cursor:default;}
-.bc-sep{font-size:12px;color:var(--tx3);flex-shrink:0;}.bc-pip{width:6px;height:6px;border-radius:50%;flex-shrink:0;}
-.main{flex:1;padding:36px 32px 60px;max-width:1160px;margin:0 auto;width:100%;}
-.cascade{display:flex;align-items:center;gap:8px;margin-bottom:32px;flex-wrap:wrap;}
-.cs{font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.1em;padding:4px 10px;border-radius:20px;}
-.cs-on{background:var(--surf2);color:var(--tx2);}.cs-off{color:var(--tx3);}.cs-arr{font-size:11px;color:var(--tx3);}
-.ctx{border:1px solid var(--bdr);border-left:5px solid var(--pc,var(--acc));border-radius:14px;padding:18px 22px;margin-bottom:32px;display:flex;align-items:flex-start;justify-content:space-between;gap:16px;background:var(--surf);cursor:pointer;transition:box-shadow .15s;}
-.ctx:hover{box-shadow:0 3px 18px rgba(38,28,16,.07);}
-.ctx-left{flex:1;min-width:0;}.ctx-kicker{font-size:9.5px;font-weight:500;text-transform:uppercase;letter-spacing:.1em;color:var(--tx3);margin-bottom:5px;display:flex;align-items:center;gap:6px;}
-.ctx-pip{width:7px;height:7px;border-radius:50%;flex-shrink:0;}.ctx-name{font-family:'Playfair Display',serif;font-size:20px;font-weight:600;line-height:1.3;color:var(--tx);margin-bottom:8px;}
-.ctx-def{font-size:12.5px;color:var(--tx2);line-height:1.55;margin-bottom:8px;}.ctx-tags{display:flex;gap:5px;flex-wrap:wrap;}
-.ctx-back{font-size:11.5px;color:var(--tx3);padding-top:4px;white-space:nowrap;flex-shrink:0;}
-.section-hdr{margin-bottom:20px;}.section-title{font-family:'Playfair Display',serif;font-size:24px;font-weight:600;margin-bottom:4px;}
-.section-sub{font-size:13px;color:var(--tx2);}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(288px,1fr));gap:14px;}
-.card{background:var(--surf);border:1px solid var(--bdr);border-left:4px solid var(--pc,var(--bdr));border-radius:13px;padding:18px 20px 14px;cursor:pointer;display:flex;flex-direction:column;transition:transform .14s,box-shadow .14s;animation:pop .22s ease-out both;}
-.card:hover{transform:translateY(-3px);box-shadow:0 6px 24px rgba(38,28,16,.09);}
+#vc{flex:1;overflow:hidden;position:relative;}
+/* Shared card */
+.card{background:var(--surf);border:1px solid var(--bdr);border-left:4px solid var(--pc,var(--bdr));border-radius:10px;padding:11px 13px 10px;cursor:pointer;display:flex;flex-direction:column;transition:transform .12s,box-shadow .14s,opacity .15s;}
+.card:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(38,28,16,.08);}
+.card.dim{opacity:.15;pointer-events:none;}.card.sel{border-color:var(--pc,var(--acc));border-left-color:var(--pc,var(--acc));box-shadow:0 3px 18px rgba(38,28,16,.1);}
 .card.noclk{cursor:default;}.card.noclk:hover{transform:none;box-shadow:none;}
-.card.orphan{border-left-color:var(--bdr);border-style:dashed;background:var(--bg);}
-@keyframes pop{from{opacity:0;transform:translateY(9px);}to{opacity:1;transform:translateY(0);}}
-.card-top{display:flex;align-items:center;gap:7px;margin-bottom:5px;}
-.card-pip{width:8px;height:8px;border-radius:50%;flex-shrink:0;}.card-kicker{font-size:9.5px;font-weight:500;text-transform:uppercase;letter-spacing:.1em;color:var(--tx3);}
-.card-name{font-size:14px;font-weight:500;line-height:1.44;color:var(--tx);margin-bottom:9px;}
-.card-def{font-size:12px;color:var(--tx2);line-height:1.5;margin-bottom:9px;}
-.card-tags{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:9px;}
-.card-warn{font-size:10.5px;color:var(--tx3);font-style:italic;margin-bottom:6px;}
-.card-note{font-size:11.5px;color:var(--tx2);line-height:1.45;margin-bottom:8px;}
-.card-foot{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:7px;border-top:1px solid var(--bdr);}
-.card-count{font-size:11px;color:var(--tx3);}.card-arrow{font-size:13px;color:var(--tx3);transition:transform .14s,color .14s;}
-.card:hover .card-arrow{transform:translateX(3px);color:var(--pc,var(--acc));}
-.tag{font-size:10px;font-weight:500;padding:2px 8px;border-radius:20px;}
+.card.orphan{border-style:dashed;background:var(--bg);}
+.card-k{font-size:9px;font-weight:500;text-transform:uppercase;letter-spacing:.1em;color:var(--tx3);margin-bottom:3px;}
+.card-n{font-size:12.5px;font-weight:500;line-height:1.4;color:var(--tx);margin-bottom:7px;}
+.card-d{font-size:11px;color:var(--tx2);line-height:1.5;margin-bottom:7px;}
+.card-tgs{display:flex;flex-wrap:wrap;gap:3px;margin-bottom:7px;}
+.card-w{font-size:10px;color:var(--tx3);font-style:italic;margin-bottom:5px;}
+.card-ft{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:6px;border-top:1px solid var(--bdr);}
+.card-c{font-size:10.5px;color:var(--tx3);}.card-arr{font-size:12px;color:var(--tx3);transition:transform .12s,color .12s;}
+.card:not(.noclk):hover .card-arr{transform:translateX(2px);color:var(--pc,var(--acc));}
+/* Tags */
+.tag{font-size:9.5px;font-weight:500;padding:2px 7px;border-radius:20px;}
 .t-g{background:#E6F4EE;color:#2A7050;}.t-y{background:#FFF3E0;color:#B06820;}.t-r{background:#FFEEED;color:#A83428;}
 .t-b{background:#EBF2FB;color:#2C5FA0;}.t-n{background:var(--surf2);color:var(--tx2);}.t-s{background:#EDF0F2;color:#4A6070;}
-.empty{grid-column:1/-1;text-align:center;padding:52px 24px;}
-.empty-icon{font-size:36px;margin-bottom:14px;}.empty-head{font-family:'Playfair Display',serif;font-size:20px;color:var(--tx2);margin-bottom:7px;}
-.empty-body{font-size:13px;color:var(--tx3);line-height:1.65;max-width:340px;margin:0 auto;}
+/* V1 COLUMNS */
+.v1{display:flex;flex-direction:column;height:100%;}
+.v1-bar{background:var(--surf);border-bottom:1px solid var(--bdr);padding:0 20px;height:38px;display:flex;align-items:center;gap:7px;flex-shrink:0;}
+.v1-bar-lbl{font-size:10px;color:var(--tx3);text-transform:uppercase;letter-spacing:.1em;margin-right:2px;}
+.ctog{padding:3px 9px;border:1px solid var(--bdr);border-radius:20px;background:transparent;font-family:'DM Sans',sans-serif;font-size:10px;font-weight:500;color:var(--tx2);cursor:pointer;transition:all .12s;}
+.ctog.on{background:var(--tx);color:var(--bg);border-color:var(--tx);}
+.ctog:hover:not(.on){background:var(--surf2);}
+.v1-scroll{flex:1;overflow:auto;padding:18px 20px;position:relative;}
+.v1-inner{display:flex;gap:36px;align-items:flex-start;width:max-content;min-width:100%;position:relative;}
+#v1svg{position:absolute;top:0;left:0;pointer-events:none;z-index:1;overflow:visible;}
+.v1col{width:240px;flex-shrink:0;position:relative;z-index:2;}
+.v1ch{font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:.1em;color:var(--tx3);padding:0 2px 9px;display:flex;align-items:center;gap:6px;}
+.v1cn{background:var(--surf2);border-radius:9px;padding:1px 6px;font-size:10px;color:var(--tx2);}
+.v1 .card{margin-bottom:7px;}
+/* V2 NESTED */
+.v2{height:100%;overflow-y:auto;padding:20px 28px 48px;}
+.v2-in{max-width:860px;margin:0 auto;}
+.v2p{margin-bottom:10px;border:1px solid var(--bdr);border-radius:13px;overflow:hidden;}
+.v2ph{display:flex;align-items:center;gap:10px;padding:13px 18px;cursor:pointer;background:var(--surf);transition:background .12s;user-select:none;}
+.v2ph:hover{background:var(--surf2);}
+.v2pip{width:10px;height:10px;border-radius:50%;flex-shrink:0;}
+.v2pn{font-family:'Playfair Display',serif;font-size:16px;font-weight:600;flex:1;}
+.v2pm{display:flex;gap:5px;align-items:center;}
+.v2chv{font-size:14px;color:var(--tx3);transition:transform .2s;flex-shrink:0;font-weight:400;}
+.v2bod{background:var(--bg);padding:0 18px;}
+.v2bod.open{padding:10px 18px 14px;}
+.v2g{margin-bottom:7px;border:1px solid var(--bdr);border-left:3px solid var(--pc,var(--bdr));border-radius:9px;overflow:hidden;background:var(--surf);}
+.v2gh{display:flex;align-items:center;gap:8px;padding:9px 13px;cursor:pointer;transition:background .12s;}
+.v2gh:hover{background:var(--surf2);}
+.v2gn{font-size:12.5px;font-weight:500;flex:1;line-height:1.35;}
+.v2gbod{background:var(--bg);padding:0 13px;}
+.v2gbod.open{padding:8px 13px 10px;}
+.v2r{display:flex;align-items:flex-start;gap:7px;padding:7px 11px;border:1px solid var(--bdr);border-radius:7px;margin-bottom:5px;background:var(--surf);}
+.v2rp{width:6px;height:6px;border-radius:50%;flex-shrink:0;margin-top:4px;}
+.v2rn{font-size:11.5px;color:var(--tx);line-height:1.4;flex:1;}
+.v2rt{display:flex;gap:3px;flex-wrap:wrap;margin-top:3px;}
+.v2em{font-size:12px;color:var(--tx3);font-style:italic;padding:6px 0;}
+/* V3 SWIMLANES */
+.v3{display:flex;height:100%;overflow-x:auto;overflow-y:hidden;}
+.v3lane{min-width:210px;flex:1;display:flex;flex-direction:column;border-right:1px solid var(--bdr);overflow-y:auto;}
+.v3lane:last-child{border-right:none;}
+.v3lh{padding:12px 14px 10px;border-bottom:1px solid var(--bdr);flex-shrink:0;background:var(--surf);position:sticky;top:0;z-index:5;border-top:3px solid var(--pc,var(--bdr));}
+.v3ln{font-family:'Playfair Display',serif;font-size:13px;font-weight:600;display:flex;align-items:center;gap:6px;}
+.v3lp{width:7px;height:7px;border-radius:50%;flex-shrink:0;}
+.v3ls{font-size:10px;color:var(--tx3);margin-top:2px;}
+.v3lb{padding:10px;}
+.v3goal{margin-bottom:9px;}
+.v3gn{font-size:11.5px;font-weight:500;color:var(--tx);padding:6px 9px;background:var(--surf);border:1px solid var(--bdr);border-left:3px solid var(--pc,var(--bdr));border-radius:7px;margin-bottom:3px;line-height:1.4;}
+.v3rs{padding-left:9px;}
+.v3r{font-size:10.5px;color:var(--tx2);padding:4px 8px;background:var(--bg);border:1px solid var(--bdr);border-radius:5px;margin-bottom:3px;line-height:1.4;display:flex;align-items:flex-start;gap:4px;}
+.v3rp{width:5px;height:5px;border-radius:50%;flex-shrink:0;margin-top:3px;}
+.v3em{font-size:10.5px;color:var(--tx3);font-style:italic;padding:6px 0;text-align:center;}
+/* V4 FOCUS */
+.v4{display:flex;height:100%;}
+.v4sb{width:192px;flex-shrink:0;border-right:1px solid var(--bdr);overflow-y:auto;background:var(--surf);padding:14px 0;}
+.v4pb{display:flex;align-items:center;gap:8px;padding:9px 14px;cursor:pointer;transition:background .12s;border-left:3px solid transparent;}
+.v4pb:hover{background:var(--surf2);}
+.v4pb.on{border-left-color:var(--pc);background:var(--bg);}
+.v4pp{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+.v4pn{font-size:11.5px;font-weight:500;line-height:1.35;color:var(--tx);}
+.v4main{flex:1;overflow-y:auto;padding:24px 28px 48px;}
+.v4hero{margin-bottom:24px;padding:16px 20px;background:var(--surf);border:1px solid var(--bdr);border-left:5px solid var(--pc,var(--acc));border-radius:12px;}
+.v4hk{font-size:9.5px;font-weight:500;text-transform:uppercase;letter-spacing:.1em;color:var(--tx3);margin-bottom:4px;display:flex;align-items:center;gap:5px;}
+.v4hp{width:7px;height:7px;border-radius:50%;}
+.v4hn{font-family:'Playfair Display',serif;font-size:20px;font-weight:600;margin-bottom:5px;}
+.v4hd{font-size:12.5px;color:var(--tx2);line-height:1.55;}
+.v4gc{background:var(--surf);border:1px solid var(--bdr);border-left:4px solid var(--pc,var(--bdr));border-radius:10px;padding:12px 15px;margin-bottom:9px;}
+.v4gn{font-size:13.5px;font-weight:500;color:var(--tx);margin-bottom:6px;}
+.v4gt{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:8px;}
+.v4rg{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:6px;}
+.v4rc{background:var(--bg);border:1px solid var(--bdr);border-radius:7px;padding:8px 11px;}
+.v4rn{font-size:11px;font-weight:500;color:var(--tx);margin-bottom:4px;line-height:1.4;}
+.v4rt{display:flex;gap:3px;flex-wrap:wrap;}
+.v4nem{font-size:12.5px;color:var(--tx3);font-style:italic;}
+.v4ee{display:flex;align-items:center;justify-content:center;height:100%;color:var(--tx3);font-size:14px;font-style:italic;}
+/* V5 NETWORK */
+.v5{width:100%;height:100%;position:relative;overflow:hidden;}
+#v5svg{width:100%;height:100%;}
+.v5leg{position:absolute;bottom:14px;right:14px;background:var(--surf);border:1px solid var(--bdr);border-radius:11px;padding:11px 13px;z-index:10;}
+.v5lt{font-size:9.5px;font-weight:500;text-transform:uppercase;letter-spacing:.1em;color:var(--tx3);margin-bottom:8px;}
+.v5lr{display:flex;align-items:center;gap:7px;margin-bottom:5px;}
+.v5lp{width:7px;height:7px;border-radius:50%;}
+.v5ll{font-size:11px;color:var(--tx2);}
+.v5types{position:absolute;bottom:14px;left:14px;background:var(--surf);border:1px solid var(--bdr);border-radius:11px;padding:11px 13px;z-index:10;}
+.v5tr{display:flex;align-items:center;gap:7px;margin-bottom:5px;}
+.v5tc{border-radius:50%;flex-shrink:0;}
+.v5hint{position:absolute;top:10px;left:50%;transform:translateX(-50%);font-size:11px;color:var(--tx3);background:var(--surf);border:1px solid var(--bdr);border-radius:20px;padding:4px 12px;pointer-events:none;white-space:nowrap;}
+.v5load{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:13px;color:var(--tx2);}
 [hidden]{display:none!important;}
 </style>
 </head>
@@ -79,22 +154,20 @@ body{background:var(--bg);color:var(--tx);font-family:'DM Sans',sans-serif;min-h
 </div>
 <div class="screen" id="scr-nodata" hidden>
   <div class="info-box">
-    <div class="ib-icon">🌱</div>
-    <div class="ib-head">Ready to grow</div>
-    <div class="ib-body">Data file is empty. Run the GitHub Action to load your Notion data.
+    <div class="ib-icon">🌱</div><div class="ib-head">Ready to grow</div>
+    <div class="ib-body">Run the GitHub Action to load your Notion data.
       <ol class="ib-steps">
-        <li>Add secret <strong>NOTION_TOKEN</strong> in GitHub repo Settings</li>
-        <li>Go to <strong>Actions → Sync Notion Data → Run workflow</strong></li>
-        <li>Reload this page once it completes</li>
+        <li>Add secret <strong>NOTION_TOKEN</strong> in GitHub Settings</li>
+        <li><strong>Actions → Sync Notion Data → Run workflow</strong></li>
+        <li>Reload this page once complete</li>
       </ol>
     </div>
   </div>
 </div>
 <div class="screen" id="scr-error" hidden>
   <div class="info-box">
-    <div class="ib-icon">⚠</div>
-    <div class="ib-head">Couldn't load data</div>
-    <div class="ib-body">Could not read data.json. Make sure the GitHub Action has run successfully.</div>
+    <div class="ib-icon">⚠</div><div class="ib-head">Couldn't load data</div>
+    <div class="ib-body">Could not read data.json.</div>
     <div class="ib-code" id="err-msg"></div>
   </div>
 </div>
@@ -102,24 +175,41 @@ body{background:var(--bg);color:var(--tx);font-family:'DM Sans',sans-serif;min-h
   <header class="hdr">
     <div class="hdr-brand">Eubanks Family OS <em>· Vision</em></div>
     <div class="hdr-stats" id="hdr-stats"></div>
+    <div class="view-tabs">
+      <button class="vtab on" onclick="sv('columns')"   id="vt-columns">Columns</button>
+      <button class="vtab"    onclick="sv('nested')"    id="vt-nested">Nested</button>
+      <button class="vtab"    onclick="sv('swimlanes')" id="vt-swimlanes">Swimlanes</button>
+      <button class="vtab"    onclick="sv('focus')"     id="vt-focus">Focus</button>
+      <button class="vtab"    onclick="sv('network')"   id="vt-network">Network</button>
+    </div>
     <div class="hdr-right">
       <div class="updated" id="updated-ts"></div>
-      <button class="hdr-btn" onclick="reloadData()">↺ Reload</button>
+      <button class="hdr-btn" onclick="reload()">↺ Reload</button>
     </div>
   </header>
-  <nav class="breadcrumb" id="breadcrumb"></nav>
-  <main class="main" id="main"></main>
+  <div id="vc"></div>
 </div>
 <script>
+// ── CONFIG ───────────────────────────────────────
 const PC={'Faith & Character':'#7B6FAC','Marriage & Family':'#B5695A','Health & Energy':'#4A8B70','Home/Homestead':'#A07848','Freedom & Ownership':'#4A7BAD','Systems & Simplicity':'#6E8C8A','Adventure & Community':'#C48B3A'}
-const LEVELS=['Pillars','Goals','Rocks','Projects','Tasks']
-const SUBS=['The 7 areas of life you are stewarding · click any to explore','Measurable outcomes for this pillar · click any to see its rocks','90-day commitments · click any to see related projects','Active initiatives · click any to see its tasks','Next actions in this project']
-const EMPTY={goal:'No goals linked to this pillar yet.',rock:'No rocks linked to this goal yet.',project:'No projects linked to this rock yet.',task:'No active tasks linked to this project.'}
-let D={pillars:[],goals:[],rocks:[],projects:[],tasks:[]},PATH=[]
+
+// ── STATE ────────────────────────────────────────
+let D={pillars:[],goals:[],rocks:[],projects:[],tasks:[]}
+let ALL={} // merged id→item lookup
+let CV='columns' // current view
+let COLVIS={pillars:true,goals:true,rocks:true,projects:true,tasks:true}
+let V1SEL=null
+let V2EXP=new Set()
+let V4PIL=null
+let V5SIM=null, V5SEL=null
+
+// ── BOOT ─────────────────────────────────────────
 window.addEventListener('DOMContentLoaded',init)
-async function init(){showOnly('scr-loading');try{await load();showOnly('app');render()}catch(e){if(e.message==='NO_DATA')showOnly('scr-nodata');else{document.getElementById('err-msg').textContent=e.message;showOnly('scr-error')}}}
-async function reloadData(){showOnly('scr-loading');try{await load();showOnly('app');render()}catch(e){if(e.message==='NO_DATA')showOnly('scr-nodata');else{document.getElementById('err-msg').textContent=e.message;showOnly('scr-error')}}}
-function showOnly(id){['scr-loading','scr-nodata','scr-error','app'].forEach(s=>document.getElementById(s).hidden=s!==id)}
+async function init(){so('scr-loading');try{await load();so('app');renderHdr();sv('columns')}catch(e){if(e.message==='NO_DATA')so('scr-nodata');else{document.getElementById('err-msg').textContent=e.message;so('scr-error')}}}
+async function reload(){so('scr-loading');try{await load();so('app');renderHdr();sv(CV)}catch(e){if(e.message==='NO_DATA')so('scr-nodata');else{document.getElementById('err-msg').textContent=e.message;so('scr-error')}}}
+function so(id){['scr-loading','scr-nodata','scr-error','app'].forEach(s=>document.getElementById(s).hidden=s!==id)}
+
+// ── DATA ─────────────────────────────────────────
 async function load(){
   const res=await fetch('./data.json?v='+Date.now())
   if(!res.ok)throw new Error('data.json not found (HTTP '+res.status+')')
@@ -130,70 +220,41 @@ async function load(){
 }
 function colorize(){
   const pm=by(D.pillars),gm=by(D.goals),rm=by(D.rocks),prm=by(D.projects)
-  D.pillars.forEach(p=>{p.color=PC[p.name]||'#8B7355';p.pc=p.color})
-  D.goals.forEach(g=>{
-    const a=g.pillarIds.map(i=>pm[i]).find(Boolean)
-    const b=D.pillars.find(p=>p.goalIds?.includes(g.id))
-    g.pc=(a||b)?.color||'#8B7355'
-  })
-  D.rocks.forEach(r=>{
-    const a=r.pillarIds.map(i=>pm[i]).find(Boolean)
-    const b=r.goalIds.map(i=>gm[i]).find(Boolean)
-    const c=D.goals.find(g=>g.rockIds?.includes(r.id))
-    r.pc=a?.color||b?.pc||c?.pc||'#8B7355'
-  })
-  D.projects.forEach(pr=>{
-    const a=pr.rockIds.map(i=>rm[i]).find(Boolean)
-    const b=D.rocks.find(r=>r.projectIds?.includes(pr.id))
-    pr.pc=(a||b)?.pc||'#8B7355'
-  })
-  D.tasks.forEach(t=>{
-    const a=t.projectIds.map(i=>prm[i]).find(Boolean)
-    const b=D.projects.find(p=>p.taskIds?.includes(t.id))
-    t.pc=a?.pc||b?.pc||PC[t.pillar]||'#8B7355'
-  })
+  D.pillars.forEach(p=>{p.type='pillar';p.color=PC[p.name]||'#8B7355';p.pc=p.color})
+  D.goals.forEach(g=>{g.type='goal';const a=g.pillarIds?.map(i=>pm[i]).find(Boolean),b=D.pillars.find(p=>p.goalIds?.includes(g.id));g.pc=(a||b)?.color||'#8B7355'})
+  D.rocks.forEach(r=>{r.type='rock';const a=r.pillarIds?.map(i=>pm[i]).find(Boolean),b=r.goalIds?.map(i=>gm[i]).find(Boolean),c=D.goals.find(g=>g.rockIds?.includes(r.id));r.pc=a?.color||b?.pc||c?.pc||'#8B7355'})
+  D.projects.forEach(pr=>{pr.type='project';const a=pr.rockIds?.map(i=>rm[i]).find(Boolean),b=D.rocks.find(r=>r.projectIds?.includes(pr.id));pr.pc=(a||b)?.pc||'#8B7355'})
+  D.tasks.forEach(t=>{t.type='task';const a=t.projectIds?.map(i=>prm[i]).find(Boolean),b=D.projects.find(p=>p.taskIds?.includes(t.id));t.pc=a?.pc||b?.pc||PC[t.pillar]||'#8B7355'})
+  ALL={...by(D.pillars),...by(D.goals),...by(D.rocks),...by(D.projects),...by(D.tasks)}
 }
 const by=arr=>Object.fromEntries(arr.map(x=>[x.id,x]))
-function drillInto(type,id){
-  const item=[...D.pillars,...D.goals,...D.rocks,...D.projects,...D.tasks].find(x=>x.id===id)
-  if(!item)return
-  PATH.push({type,id,name:item.name,color:item.pc||item.color||'#8B7355',item})
-  render();window.scrollTo({top:0,behavior:'smooth'})
-}
-function goTo(level){PATH=PATH.slice(0,level);render();window.scrollTo({top:0,behavior:'smooth'})}
-function getChildren(){
-  if(!PATH.length)return{type:'pillar',items:D.pillars}
-  const p=PATH[PATH.length-1],it=p.item,id=p.id
-  if(p.type==='pillar') return{type:'goal',   items:D.goals.filter(g=>it.goalIds?.includes(g.id)||g.pillarIds?.includes(id))}
-  if(p.type==='goal')   return{type:'rock',   items:D.rocks.filter(r=>it.rockIds?.includes(r.id)||r.goalIds?.includes(id))}
-  if(p.type==='rock')   return{type:'project',items:D.projects.filter(pr=>it.projectIds?.includes(pr.id)||pr.rockIds?.includes(id))}
-  if(p.type==='project')return{type:'task',   items:D.tasks.filter(t=>it.taskIds?.includes(t.id)||t.projectIds?.includes(id))}
-  return{type:null,items:[]}
-}
-function render(){
-  const counts=[['Pillars',D.pillars.length],['Goals',D.goals.length],['Rocks',D.rocks.length],['Projects',D.projects.length],['Tasks',D.tasks.length]]
-  document.getElementById('hdr-stats').innerHTML=counts.map(([l,n])=>`<div class="stat"><div class="stat-n">${n}</div><div class="stat-l">${l}</div></div>`).join('')
-  if(D._ts){const d=new Date(D._ts);document.getElementById('updated-ts').textContent='Updated '+d.toLocaleDateString('en-US',{month:'short',day:'numeric'})+' · '+d.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'})}
-  const crumbs=[{label:'All Pillars',level:0,color:null},...PATH.map((p,i)=>({label:p.name,level:i+1,color:p.color}))]
-  document.getElementById('breadcrumb').innerHTML=crumbs.map((c,i)=>`${i>0?'<span class="bc-sep">›</span>':''}<span class="bc-item ${i===crumbs.length-1?'bc-active':''}" onclick="${i<crumbs.length-1?`goTo(${c.level})`:''}">${c.color?`<span class="bc-pip" style="background:${c.color}"></span>`:''}${trunc(c.label,30)}</span>`).join('')
-  const level=PATH.length,{type,items}=getChildren()
-  let h=`<div class="cascade">${LEVELS.map((l,i)=>`<span class="cs ${i===level?'cs-on':'cs-off'}">${l}</span>${i<LEVELS.length-1?'<span class="cs-arr">→</span>':''}`).join('')}</div>`
-  if(PATH.length>0){
-    const par=PATH[PATH.length-1],it=par.item,upLabel=PATH.length===1?'All Pillars':PATH[PATH.length-2].name,def=it.definition||it.metric||''
-    h+=`<div class="ctx" style="--pc:${par.color}" onclick="goTo(${PATH.length-1})"><div class="ctx-left"><div class="ctx-kicker"><span class="ctx-pip" style="background:${par.color}"></span>${cap(par.type)} · tap to go back</div><div class="ctx-name">${par.name}</div>${def?`<div class="ctx-def">${trunc(def,130)}</div>`:''}<div class="ctx-tags">${tags(it,par.type)}</div></div><div class="ctx-back">← ${trunc(upLabel,22)}</div></div>`
+
+// ── RELATIONSHIP HELPERS (bidirectional) ─────────
+const goalsOf =p=>D.goals.filter(g=>p.goalIds?.includes(g.id)||g.pillarIds?.includes(p.id))
+const rocksOf =g=>D.rocks.filter(r=>g.rockIds?.includes(r.id)||r.goalIds?.includes(g.id))
+const projsOf =r=>D.projects.filter(p=>r.projectIds?.includes(p.id)||p.rockIds?.includes(r.id))
+const tasksOf=pr=>D.tasks.filter(t=>pr.taskIds?.includes(t.id)||t.projectIds?.includes(pr.id))
+
+// ── CHAIN ─────────────────────────────────────────
+function chain(id){
+  const out=new Set(),item=ALL[id]
+  if(!item)return out
+  function dn(n){
+    if(n.type==='pillar') goalsOf(n).forEach(g=>{out.add(g.id);dn(g)})
+    if(n.type==='goal')   rocksOf(n).forEach(r=>{out.add(r.id);dn(r)})
+    if(n.type==='rock')   projsOf(n).forEach(p=>{out.add(p.id);dn(p)})
+    if(n.type==='project')tasksOf(n).forEach(t=>{out.add(t.id)})
   }
-  h+=`<div class="section-hdr"><div class="section-title">${LEVELS[Math.min(level,4)]}</div><div class="section-sub">${SUBS[Math.min(level,4)]}</div></div><div class="grid">`
-  if(!items.length){h+=`<div class="empty"><div class="empty-icon">○</div><div class="empty-head">Nothing here yet</div><div class="empty-body">${EMPTY[type]||'Nothing found.'}</div></div>`}
-  else{items.forEach((item,i)=>{h+=makeCard(item,type,i)})}
-  h+=`</div>`
-  document.getElementById('main').innerHTML=h
+  function up(n){
+    if(n.type==='goal'){n.pillarIds?.forEach(i=>{if(ALL[i])out.add(i)});D.pillars.filter(p=>p.goalIds?.includes(n.id)).forEach(p=>out.add(p.id))}
+    if(n.type==='rock'){[...(n.goalIds?.map(i=>ALL[i]).filter(Boolean)||[]),...D.goals.filter(g=>g.rockIds?.includes(n.id))].forEach(g=>{out.add(g.id);up(g)})}
+    if(n.type==='project'){[...(n.rockIds?.map(i=>ALL[i]).filter(Boolean)||[]),...D.rocks.filter(r=>r.projectIds?.includes(n.id))].forEach(r=>{out.add(r.id);up(r)})}
+    if(n.type==='task'){[...(n.projectIds?.map(i=>ALL[i]).filter(Boolean)||[]),...D.projects.filter(p=>p.taskIds?.includes(n.id))].forEach(p=>{out.add(p.id);up(p)})}
+  }
+  dn(item);up(item);return out
 }
-function makeCard(item,type,i){
-  const color=item.pc||item.color||'#8B7355',isLeaf=type==='task'
-  const isOrphan=type==='goal'&&!item.pillarIds?.length||type==='rock'&&!item.goalIds?.length||type==='project'&&!item.rockIds?.length||type==='task'&&!item.projectIds?.length
-  const def=type==='pillar'?(item.definition||''):type==='goal'?(item.metric||''):''
-  return `<div class="card ${isLeaf?'noclk':''} ${isOrphan?'orphan':''}" style="--pc:${color};animation-delay:${Math.min(i*28,280)}ms" onclick="${isLeaf?'':  `drillInto('${type}','${item.id}')`}"><div class="card-top"><div class="card-pip" style="background:${color}"></div><span class="card-kicker">${cap(type)}</span></div><div class="card-name">${item.name}</div>${def?`<div class="card-def">${trunc(def,88)}</div>`:''}<div class="card-tags">${tags(item,type)}</div>${isOrphan?`<div class="card-warn">⚠ Not linked to a ${parentOf(type)}</div>`:''}${type==='project'&&item.nextAction?`<div class="card-note">→ ${trunc(item.nextAction,65)}</div>`:''}<div class="card-foot"><span class="card-count">${childCount(item,type)}</span>${!isLeaf?'<span class="card-arrow">→</span>':''}</div></div>`
-}
+
+// ── SHARED UTILS ──────────────────────────────────
 function tags(item,type){
   const sc=s=>({'Healthy':'t-g','On Track':'t-g','Complete':'t-g','Needs Attention':'t-y','At Risk':'t-y','Paused':'t-y','Neglected':'t-r','Dropped':'t-r','Active':'t-b','Not Started':'t-n'})[s]||'t-n'
   const t=(c,l)=>`<span class="tag ${c}">${l}</span>`,p=[]
@@ -204,17 +265,339 @@ function tags(item,type){
   if(type==='task'){const w=item.status==='In progress (WIP)';p.push(t(w?'t-b':'t-n',w?'In WIP':'Up Next'));if(item.domain)p.push(t('t-n',item.domain));if(item.hours)p.push(t('t-s',item.hours+'h'))}
   return p.join('')
 }
-function childCount(item,type){
+function ccount(item,type){
   const id=item.id
-  if(type==='pillar'){const n=D.goals.filter(g=>item.goalIds?.includes(g.id)||g.pillarIds?.includes(id)).length;return n?`${n} goal${n!==1?'s':''}`:'No goals linked yet'}
-  if(type==='goal'){const n=D.rocks.filter(r=>item.rockIds?.includes(r.id)||r.goalIds?.includes(id)).length;return n?`${n} rock${n!==1?'s':''}`:'No rocks linked yet'}
-  if(type==='rock'){const n=D.projects.filter(p=>item.projectIds?.includes(p.id)||p.rockIds?.includes(id)).length;return n?`${n} project${n!==1?'s':''}`:'No projects linked yet'}
-  if(type==='project'){const n=D.tasks.filter(t=>item.taskIds?.includes(t.id)||t.projectIds?.includes(id)).length;return n?`${n} active task${n!==1?'s':''}`:'No active tasks'}
+  if(type==='pillar'){const n=goalsOf(item).length;return n?`${n} goal${n!==1?'s':''}`:'No goals linked'}
+  if(type==='goal'){const n=rocksOf(item).length;return n?`${n} rock${n!==1?'s':''}`:'No rocks linked'}
+  if(type==='rock'){const n=projsOf(item).length;return n?`${n} project${n!==1?'s':''}`:'No projects linked'}
+  if(type==='project'){const n=tasksOf(item).length;return n?`${n} active task${n!==1?'s':''}`:'No active tasks'}
   return ''
 }
-function parentOf(t){return{goal:'pillar',rock:'goal',project:'rock',task:'project'}[t]||''}
+function orphan(item,type){
+  if(type==='goal')return !item.pillarIds?.length&&!D.pillars.find(p=>p.goalIds?.includes(item.id))
+  if(type==='rock')return !item.goalIds?.length&&!D.goals.find(g=>g.rockIds?.includes(item.id))
+  if(type==='project')return !item.rockIds?.length&&!D.rocks.find(r=>r.projectIds?.includes(item.id))
+  return false
+}
+const stag=s=>{const sc=s=>({'Healthy':'t-g','On Track':'t-g','Complete':'t-g','Needs Attention':'t-y','At Risk':'t-y','Paused':'t-y','Neglected':'t-r','Dropped':'t-r','Active':'t-b','Not Started':'t-n'})[s]||'t-n';return s?`<span class="tag ${sc(s)}">${s}</span>`:''}
 const trunc=(s,n)=>s&&s.length>n?s.slice(0,n)+'…':(s||'')
 const cap=s=>s?s[0].toUpperCase()+s.slice(1):''
+
+function renderHdr(){
+  const counts=[['Pillars',D.pillars.length],['Goals',D.goals.length],['Rocks',D.rocks.length],['Projects',D.projects.length],['Tasks',D.tasks.length]]
+  document.getElementById('hdr-stats').innerHTML=counts.map(([l,n])=>`<div class="stat"><div class="stat-n">${n}</div><div class="stat-l">${l}</div></div>`).join('')
+  if(D._ts){const d=new Date(D._ts);document.getElementById('updated-ts').textContent=d.toLocaleDateString('en-US',{month:'short',day:'numeric'})+' · '+d.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'})}
+}
+
+// ── VIEW SWITCHER ─────────────────────────────────
+function sv(name){
+  if(V5SIM){V5SIM.stop();V5SIM=null}
+  CV=name
+  document.querySelectorAll('.vtab').forEach(t=>t.classList.remove('on'))
+  document.getElementById('vt-'+name)?.classList.add('on')
+  const views={columns:v1Render,nested:v2Render,swimlanes:v3Render,focus:v4Render,network:v5Render}
+  views[name]?.()
+}
+
+// ═══════════════════════════════════════
+// VIEW 1 — COLUMNS
+// ═══════════════════════════════════════
+function v1Render(){
+  const COLS=[{k:'pillars',l:'Pillars',items:D.pillars},{k:'goals',l:'Goals',items:D.goals},{k:'rocks',l:'Rocks',items:D.rocks},{k:'projects',l:'Projects',items:D.projects},{k:'tasks',l:'Tasks',items:D.tasks}]
+  document.getElementById('vc').innerHTML=`
+    <div class="v1">
+      <div class="v1-bar">
+        <span class="v1-bar-lbl">Show:</span>
+        ${COLS.map(c=>`<button class="ctog ${COLVIS[c.k]?'on':''}" onclick="v1TogCol('${c.k}')">${c.l}</button>`).join('')}
+        <span style="margin-left:8px;font-size:10px;color:var(--tx3)">· Click a card to trace its chain</span>
+      </div>
+      <div class="v1-scroll" id="v1sc" onscroll="v1Draw()">
+        <div class="v1-inner" id="v1in">
+          <svg id="v1svg"></svg>
+          ${COLS.map(c=>`<div class="v1col ${COLVIS[c.k]?'':'hidden'}" id="v1col-${c.k}"></div>`).join('')}
+        </div>
+      </div>
+    </div>`
+  v1FillCols()
+  setTimeout(v1Draw,120)
+  document.getElementById('v1sc').addEventListener('scroll',v1Draw)
+}
+function v1FillCols(){
+  const COLS=[{k:'pillars',l:'Pillars',items:D.pillars,type:'pillar'},{k:'goals',l:'Goals',items:D.goals,type:'goal'},{k:'rocks',l:'Rocks',items:D.rocks,type:'rock'},{k:'projects',l:'Projects',items:D.projects,type:'project'},{k:'tasks',l:'Tasks',items:D.tasks,type:'task'}]
+  COLS.forEach(({k,l,items,type})=>{
+    const col=document.getElementById('v1col-'+k)
+    if(!col)return
+    const inChain=V1SEL?chain(V1SEL):null
+    if(V1SEL)inChain.add(V1SEL)
+    col.innerHTML=`<div class="v1ch">${l}<span class="v1cn">${items.length}</span></div>`+
+      items.map(item=>{
+        const color=item.pc||item.color||'#8B7355'
+        const isOrph=orphan(item,type)
+        const isDim=V1SEL&&!inChain.has(item.id)
+        const isSel=V1SEL===item.id
+        return `<div class="card ${isDim?'dim':''} ${isSel?'sel':''} ${isOrph?'orphan':''} ${type==='task'?'noclk':''}"
+          id="v1c-${item.id}" data-id="${item.id}" style="--pc:${color}"
+          onclick="v1Sel('${item.id}')">
+          <div class="card-k">${cap(type)}</div>
+          <div class="card-n">${item.name}</div>
+          <div class="card-tgs">${tags(item,type)}</div>
+          ${isOrph?`<div class="card-w">⚠ Not fully linked</div>`:''}
+          <div class="card-ft"><span class="card-c">${ccount(item,type)}</span>${type!=='task'?'<span class="card-arr">→</span>':''}</div>
+        </div>`
+      }).join('')
+  })
+}
+function v1TogCol(k){
+  COLVIS[k]=!COLVIS[k]
+  const col=document.getElementById('v1col-'+k)
+  const btn=document.querySelector(`.ctog[onclick*="${k}"]`)
+  if(col)col.hidden=!COLVIS[k]
+  if(btn)btn.classList.toggle('on',COLVIS[k])
+  v1Draw()
+}
+function v1Sel(id){
+  V1SEL=V1SEL===id?null:id
+  v1FillCols()
+  v1Draw()
+}
+function v1Draw(){
+  const row=document.getElementById('v1in'),svg=document.getElementById('v1svg')
+  if(!row||!svg)return
+  svg.setAttribute('width',row.scrollWidth);svg.setAttribute('height',row.scrollHeight)
+  svg.style.width=row.scrollWidth+'px';svg.style.height=row.scrollHeight+'px'
+  const inC=V1SEL?chain(V1SEL):null
+  if(V1SEL)inC.add(V1SEL)
+  const line=(fid,tid,color)=>{
+    const fi=ALL[fid],ti=ALL[tid]
+    if(!fi||!ti)return''
+    if(!COLVIS[fi.type+'s']||!COLVIS[ti.type+'s'])return''
+    const fa=document.getElementById('v1c-'+fid),ta=document.getElementById('v1c-'+tid)
+    if(!fa||!ta)return''
+    const rr=row.getBoundingClientRect(),fr=fa.getBoundingClientRect(),tr=ta.getBoundingClientRect()
+    const x1=fr.right-rr.left,y1=(fr.top+fr.bottom)/2-rr.top,x2=tr.left-rr.left,y2=(tr.top+tr.bottom)/2-rr.top
+    const cx=(x2-x1)*.44,lit=!V1SEL||(inC.has(fid)&&inC.has(tid))
+    const op=lit?(V1SEL?.8:.18):.03,sw=lit&&V1SEL?2.2:1.5
+    return `<path d="M${x1},${y1} C${x1+cx},${y1} ${x2-cx},${y2} ${x2},${y2}" stroke="${color}" stroke-width="${sw}" fill="none" stroke-opacity="${op}" stroke-linecap="round"/>`
+  }
+  const paths=[]
+  D.pillars.forEach(p=>goalsOf(p).forEach(g=>paths.push(line(p.id,g.id,p.color))))
+  D.goals.forEach(g=>rocksOf(g).forEach(r=>paths.push(line(g.id,r.id,g.pc))))
+  D.rocks.forEach(r=>projsOf(r).forEach(pr=>paths.push(line(r.id,pr.id,r.pc))))
+  D.projects.forEach(pr=>tasksOf(pr).forEach(t=>paths.push(line(pr.id,t.id,pr.pc))))
+  svg.innerHTML=paths.join('')
+}
+window.addEventListener('resize',()=>{if(CV==='columns')v1Draw()})
+
+// ═══════════════════════════════════════
+// VIEW 2 — NESTED
+// ═══════════════════════════════════════
+function v2Render(){
+  let h='<div class="v2"><div class="v2-in">'
+  D.pillars.forEach(p=>{
+    const goals=goalsOf(p),pe=V2EXP.has(p.id)
+    h+=`<div class="v2p">
+      <div class="v2ph" onclick="v2tog('${p.id}')">
+        <div class="v2pip" style="background:${p.color}"></div>
+        <div class="v2pn">${p.name}</div>
+        <div class="v2pm">${stag(p.status)}<span class="tag t-n">${goals.length} goal${goals.length!==1?'s':''}</span></div>
+        <div class="v2chv" id="v2ch-${p.id}" style="${pe?'transform:rotate(90deg)':''}">›</div>
+      </div>
+      <div class="v2bod ${pe?'open':''}" id="v2b-${p.id}" ${pe?'':'hidden'}>`
+    if(!goals.length){h+=`<div class="v2em">No goals linked to this pillar yet.</div>`}
+    else goals.forEach(g=>{
+      const rocks=rocksOf(g),ge=V2EXP.has(g.id)
+      h+=`<div class="v2g" style="--pc:${g.pc}">
+        <div class="v2gh" onclick="v2tog('${g.id}')">
+          <div class="v2gn">${g.name}</div>
+          <div style="display:flex;gap:4px;align-items:center;flex-shrink:0">${g.horizon?`<span class="tag t-n">${g.horizon}</span>`:''} ${stag(g.status)}<span class="tag t-n">${rocks.length} rock${rocks.length!==1?'s':''}</span></div>
+          <div class="v2chv" id="v2ch-${g.id}" style="margin-left:6px;${ge?'transform:rotate(90deg)':''}">›</div>
+        </div>
+        <div class="v2gbod ${ge?'open':''}" id="v2b-${g.id}" ${ge?'':'hidden'}>`
+      if(!rocks.length){h+=`<div class="v2em">No rocks linked to this goal yet.</div>`}
+      else rocks.forEach(r=>{
+        h+=`<div class="v2r">
+          <div class="v2rp" style="background:${r.pc}"></div>
+          <div><div class="v2rn">${r.name}</div><div class="v2rt">${r.quarter?`<span class="tag t-n">${r.quarter}${r.year?' '+r.year:''}</span>`:''}</div></div>
+        </div>`
+      })
+      h+=`</div></div>`
+    })
+    h+=`</div></div>`
+  })
+  h+='</div></div>'
+  document.getElementById('vc').innerHTML=h
+}
+function v2tog(id){
+  const body=document.getElementById('v2b-'+id),chv=document.getElementById('v2ch-'+id)
+  if(!body)return
+  if(V2EXP.has(id)){V2EXP.delete(id);body.hidden=true;if(chv)chv.style.transform=''}
+  else{V2EXP.add(id);body.hidden=false;if(chv)chv.style.transform='rotate(90deg)'}
+}
+
+// ═══════════════════════════════════════
+// VIEW 3 — SWIMLANES
+// ═══════════════════════════════════════
+function v3Render(){
+  let h='<div class="v3">'
+  D.pillars.forEach(p=>{
+    const goals=goalsOf(p)
+    h+=`<div class="v3lane" style="--pc:${p.color}">
+      <div class="v3lh">
+        <div class="v3ln"><div class="v3lp" style="background:${p.color}"></div>${p.name}</div>
+        <div class="v3ls">${goals.length} goal${goals.length!==1?'s':''}</div>
+      </div>
+      <div class="v3lb">`
+    if(!goals.length){h+=`<div class="v3em">No goals yet</div>`}
+    else goals.forEach(g=>{
+      const rocks=rocksOf(g)
+      h+=`<div class="v3goal">
+        <div class="v3gn" style="--pc:${g.pc}">${g.name}</div>`
+      if(rocks.length){
+        h+=`<div class="v3rs">`
+        rocks.forEach(r=>{h+=`<div class="v3r"><div class="v3rp" style="background:${r.pc}"></div>${trunc(r.name,50)}</div>`})
+        h+=`</div>`
+      }
+      h+=`</div>`
+    })
+    h+=`</div></div>`
+  })
+  h+='</div>'
+  document.getElementById('vc').innerHTML=h
+}
+
+// ═══════════════════════════════════════
+// VIEW 4 — FOCUS PANEL
+// ═══════════════════════════════════════
+function v4Render(){
+  document.getElementById('vc').innerHTML=`
+    <div class="v4">
+      <aside class="v4sb" id="v4sb">${D.pillars.map(p=>`
+        <div class="v4pb ${V4PIL===p.id?'on':''}" style="--pc:${p.color}" onclick="v4sel('${p.id}')">
+          <div class="v4pp" style="background:${p.color}"></div>
+          <div class="v4pn">${p.name}</div>
+        </div>`).join('')}
+      </aside>
+      <div class="v4main" id="v4main"></div>
+    </div>`
+  if(!V4PIL&&D.pillars.length>0)V4PIL=D.pillars[0].id
+  v4main()
+}
+function v4sel(id){
+  V4PIL=id
+  document.querySelectorAll('.v4pb').forEach(b=>b.classList.remove('on'))
+  document.querySelector(`.v4pb[onclick*="${id}"]`)?.classList.add('on')
+  v4main()
+}
+function v4main(){
+  const p=ALL[V4PIL],el=document.getElementById('v4main')
+  if(!p||!el){if(el)el.innerHTML='<div class="v4ee">Select a pillar</div>';return}
+  const goals=goalsOf(p)
+  let h=`<div class="v4hero" style="--pc:${p.color}">
+    <div class="v4hk"><div class="v4hp" style="background:${p.color}"></div>Pillar</div>
+    <div class="v4hn">${p.name}</div>
+    ${p.definition?`<div class="v4hd">${p.definition}</div>`:''}
+  </div>`
+  if(!goals.length){h+=`<div class="v4nem">No goals linked to this pillar yet.</div>`}
+  else goals.forEach(g=>{
+    const rocks=rocksOf(g)
+    h+=`<div class="v4gc" style="--pc:${g.pc}">
+      <div class="v4gn">${g.name}</div>
+      <div class="v4gt">${g.horizon?`<span class="tag t-n">${g.horizon}</span>`:''} ${stag(g.status)}</div>
+      ${rocks.length?`<div class="v4rg">${rocks.map(r=>`
+        <div class="v4rc">
+          <div class="v4rn">${r.name}</div>
+          <div class="v4rt">${r.quarter?`<span class="tag t-n">${r.quarter}${r.year?' '+r.year:''}</span>`:''}</div>
+        </div>`).join('')}</div>`:`<div class="v2em" style="font-size:11px;padding:4px 0">No rocks linked yet</div>`}
+    </div>`
+  })
+  el.innerHTML=h
+}
+
+// ═══════════════════════════════════════
+// VIEW 5 — NETWORK
+// ═══════════════════════════════════════
+async function v5Render(){
+  document.getElementById('vc').innerHTML=`<div class="v5"><div class="v5load" id="v5load">Loading D3…</div></div>`
+  if(!window.d3){
+    await new Promise((res,rej)=>{
+      const s=document.createElement('script')
+      s.src='https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js'
+      s.onload=res;s.onerror=()=>rej(new Error('Could not load D3'))
+      document.head.appendChild(s)
+    }).catch(e=>{document.getElementById('v5load').textContent='D3 failed to load: '+e.message;return})
+  }
+  const vc=document.getElementById('vc')
+  vc.innerHTML=`
+    <div class="v5">
+      <svg id="v5svg"></svg>
+      <div class="v5hint">Drag nodes · Click to trace chain</div>
+      <div class="v5leg" id="v5leg"></div>
+      <div class="v5types" id="v5types"></div>
+    </div>`
+  const w=vc.clientWidth,h=vc.clientHeight
+  const nodes=[
+    ...D.pillars.map(p=>({id:p.id,name:p.name,type:'pillar',color:p.color,r:14})),
+    ...D.goals.map(g=>({id:g.id,name:g.name,type:'goal',color:g.pc,r:9})),
+    ...D.rocks.map(r=>({id:r.id,name:r.name,type:'rock',color:r.pc,r:7})),
+    ...D.projects.map(p=>({id:p.id,name:p.name,type:'project',color:p.pc,r:6})),
+    ...D.tasks.map(t=>({id:t.id,name:t.name,type:'task',color:t.pc,r:5})),
+  ]
+  const seen=new Set(),links=[]
+  function al(s,t){const k=s<t?`${s}|${t}`:`${t}|${s}`;if(!seen.has(k)){seen.add(k);links.push({source:s,target:t})}}
+  D.pillars.forEach(p=>goalsOf(p).forEach(g=>al(p.id,g.id)))
+  D.goals.forEach(g=>rocksOf(g).forEach(r=>al(g.id,r.id)))
+  D.rocks.forEach(r=>projsOf(r).forEach(p=>al(r.id,p.id)))
+  D.projects.forEach(p=>tasksOf(p).forEach(t=>al(p.id,t.id)))
+  const svg=d3.select('#v5svg').attr('width',w).attr('height',h)
+  svg.append('defs').append('style').text('.node-lbl{pointer-events:none;}')
+  const linkSel=svg.append('g').selectAll('line').data(links).join('line')
+    .attr('stroke',d=>{const n=nodes.find(x=>x.id===d.source);return n?.color||'#ccc'})
+    .attr('stroke-opacity',.25).attr('stroke-width',1.5)
+  const nodeSel=svg.append('g').selectAll('g').data(nodes).join('g')
+    .style('cursor','pointer')
+    .call(d3.drag()
+      .on('start',(e,d)=>{if(!e.active)sim.alphaTarget(.3).restart();d.fx=d.x;d.fy=d.y})
+      .on('drag', (e,d)=>{d.fx=e.x;d.fy=e.y})
+      .on('end',  (e,d)=>{if(!e.active)sim.alphaTarget(0);d.fx=null;d.fy=null}))
+    .on('click',(e,d)=>v5sel(d.id))
+  nodeSel.append('circle').attr('r',d=>d.r).attr('fill',d=>d.color).attr('stroke','#fff').attr('stroke-width',2)
+  nodeSel.append('text').attr('class','node-lbl')
+    .attr('x',d=>d.r+4).attr('y','0.35em')
+    .text(d=>trunc(d.name,d.type==='pillar'?22:20))
+    .attr('font-size',d=>d.type==='pillar'?'11px':'9.5px')
+    .attr('font-family',"'DM Sans',sans-serif")
+    .attr('fill','#261C10')
+    .attr('opacity',d=>d.type==='pillar'?1:0)
+  V5SIM=d3.forceSimulation(nodes)
+    .force('link',d3.forceLink(links).id(d=>d.id).distance(d=>{const s=nodes.find(n=>n.id===d.source.id||n.id===d.source);return s?.type==='pillar'?110:s?.type==='goal'?75:55}))
+    .force('charge',d3.forceManyBody().strength(-260))
+    .force('center',d3.forceCenter(w/2,h/2))
+    .force('collision',d3.forceCollide(d=>d.r+10))
+  const sim=V5SIM
+  sim.on('tick',()=>{
+    linkSel.attr('x1',d=>d.source.x).attr('y1',d=>d.source.y).attr('x2',d=>d.target.x).attr('y2',d=>d.target.y)
+    nodeSel.attr('transform',d=>`translate(${d.x},${d.y})`)
+  })
+  // Legends
+  document.getElementById('v5leg').innerHTML=`<div class="v5lt">Pillars</div>`+D.pillars.map(p=>`<div class="v5lr"><div class="v5lp" style="background:${p.color}"></div><div class="v5ll">${p.name}</div></div>`).join('')
+  document.getElementById('v5types').innerHTML=`<div class="v5lt">Node Size</div>`+
+    [{l:'Pillar',r:14},{l:'Goal',r:9},{l:'Rock',r:7},{l:'Project',r:6},{l:'Task',r:5}].map(t=>`<div class="v5tr"><div class="v5tc" style="width:${t.r*2}px;height:${t.r*2}px;background:var(--tx3)"></div><div class="v5ll">${t.l}</div></div>`).join('')
+}
+function v5sel(id){
+  V5SEL=V5SEL===id?null:id
+  const inC=V5SEL?chain(V5SEL):null
+  if(V5SEL)inC.add(V5SEL)
+  const svg=d3.select('#v5svg')
+  if(!svg.node())return
+  svg.selectAll('circle')
+    .attr('opacity',d=>!V5SEL||inC.has(d.id)?1:.12)
+    .attr('stroke-width',d=>d.id===V5SEL?3:2)
+    .attr('stroke',d=>d.id===V5SEL?'#261C10':'#fff')
+  svg.selectAll('line')
+    .attr('stroke-opacity',d=>{if(!V5SEL)return .25;const si=typeof d.source==='object'?d.source.id:d.source,ti=typeof d.target==='object'?d.target.id:d.target;return inC.has(si)&&inC.has(ti)?.75:.04})
+    .attr('stroke-width',d=>{if(!V5SEL)return 1.5;const si=typeof d.source==='object'?d.source.id:d.source,ti=typeof d.target==='object'?d.target.id:d.target;return inC.has(si)&&inC.has(ti)?2.5:1.5})
+  svg.selectAll('.node-lbl').attr('opacity',d=>{if(d.type==='pillar')return 1;if(!V5SEL)return 0;return inC.has(d.id)?1:0})
+}
 </script>
 </body>
 </html>
