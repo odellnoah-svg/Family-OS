@@ -1,8 +1,1096 @@
 {
-  "generated": null,
-  "pillars": [],
-  "goals": [],
-  "rocks": [],
-  "projects": [],
-  "tasks": []
+  "generated": "2026-06-01T03:29:17.841Z",
+  "pillars": [
+    {
+      "id": "cb4375f148b64a2e8a0ecd0f0e0e4962",
+      "type": "pillar",
+      "name": "Adventure & Community",
+      "status": null,
+      "goalIds": [
+        "371c574948598089aa98c04a6d1d9c5f",
+        "371c574948598003ba9fc841e25ac551"
+      ],
+      "rockIds": []
+    },
+    {
+      "id": "76181932d64d40de88929de677bdf7c2",
+      "type": "pillar",
+      "name": "Systems & Simplicity",
+      "status": null,
+      "goalIds": [
+        "371c57494859802ba8b1f3ef319fe2d0",
+        "371c5749485980fd9652fe1d95bfd506",
+        "371c574948598057b2fad969568b7813"
+      ],
+      "rockIds": [
+        "371c57494859806e9e57e23a6d97f6d5",
+        "371c5749485980149509d54121fd2ba1",
+        "371c5749485980299fcfd34e5b96071c"
+      ]
+    },
+    {
+      "id": "fa5c3f6312394f09b07566f455dac82d",
+      "type": "pillar",
+      "name": "Freedom & Ownership",
+      "status": null,
+      "goalIds": [
+        "371c574948598023980fc9e708ae4854",
+        "371c574948598098842ee8e64192b4db",
+        "371c5749485980d8b960d2f20651758d"
+      ],
+      "rockIds": []
+    },
+    {
+      "id": "2fb60975ef4e4b0fbd56793fba264939",
+      "type": "pillar",
+      "name": "Health & Energy",
+      "status": null,
+      "goalIds": [
+        "371c5749485980b6912dead2b91ef7bf",
+        "371c57494859800d929ec7c31183b8b0",
+        "371c57494859806fb06de3b6549ceadf",
+        "371c5749485980e4a63ec0e22521b4d1"
+      ],
+      "rockIds": [
+        "371c5749485980eaa3c9c7354eed9b5a",
+        "371c5749485980b298a1d58b2138d197",
+        "371c574948598099ac9bc443aeaef36a"
+      ]
+    },
+    {
+      "id": "62f10d5c983944388542d9b1db866b1a",
+      "type": "pillar",
+      "name": "Marriage & Family",
+      "status": null,
+      "goalIds": [
+        "371c574948598047bdfcc6a49fec96b8",
+        "371c5749485980e4a63ec0e22521b4d1",
+        "371c5749485980a98b21d813d8c820e7",
+        "371c5749485980b392b8f37690635474"
+      ],
+      "rockIds": []
+    },
+    {
+      "id": "2f43207e861543bb8c72d04d16a27f53",
+      "type": "pillar",
+      "name": "Faith & Character",
+      "status": null,
+      "goalIds": [
+        "371c57494859806fb06de3b6549ceadf",
+        "371c5749485980a98b21d813d8c820e7",
+        "371c5749485980b392b8f37690635474",
+        "371c5749485980579dcfc826a75e944c"
+      ],
+      "rockIds": [
+        "371c57494859803c9b22c1506b027558"
+      ]
+    },
+    {
+      "id": "683e3c08456247dea6168f9329c85470",
+      "type": "pillar",
+      "name": "Home/Homestead",
+      "status": null,
+      "goalIds": [
+        "371c574948598047bdfcc6a49fec96b8",
+        "371c574948598002b425f35ef1f730be"
+      ],
+      "rockIds": [
+        "371c5749485980eaa3c9c7354eed9b5a"
+      ]
+    }
+  ],
+  "goals": [
+    {
+      "id": "371c574948598057b2fad969568b7813",
+      "type": "goal",
+      "name": "AI agent utilization—- 3 fully functional applications implimented  ",
+      "status": null,
+      "horizon": null,
+      "priority": null,
+      "pillarIds": [
+        "76181932d64d40de88929de677bdf7c2"
+      ],
+      "rockIds": [
+        "371c5749485980299fcfd34e5b96071c"
+      ]
+    },
+    {
+      "id": "371c5749485980fd9652fe1d95bfd506",
+      "type": "goal",
+      "name": "make sure that the AI report looks at all pillars and makes suggestions for rhythms ",
+      "status": null,
+      "horizon": null,
+      "priority": null,
+      "pillarIds": [
+        "76181932d64d40de88929de677bdf7c2"
+      ],
+      "rockIds": []
+    },
+    {
+      "id": "371c574948598002b425f35ef1f730be",
+      "type": "goal",
+      "name": "Create weekly family quick light cleaning event ",
+      "status": null,
+      "horizon": null,
+      "priority": null,
+      "pillarIds": [
+        "683e3c08456247dea6168f9329c85470"
+      ],
+      "rockIds": []
+    },
+    {
+      "id": "371c574948598003ba9fc841e25ac551",
+      "type": "goal",
+      "name": "Create a menu of adventure /community ideas  (maybe just a list inside a notion page) ",
+      "status": null,
+      "horizon": null,
+      "priority": null,
+      "pillarIds": [
+        "cb4375f148b64a2e8a0ecd0f0e0e4962"
+      ],
+      "rockIds": []
+    },
+    {
+      "id": "371c5749485980579dcfc826a75e944c",
+      "type": "goal",
+      "name": "Establish a weekly dinner bible verse discussion ",
+      "status": null,
+      "horizon": null,
+      "priority": null,
+      "pillarIds": [
+        "2f43207e861543bb8c72d04d16a27f53"
+      ],
+      "rockIds": []
+    },
+    {
+      "id": "371c5749485980b392b8f37690635474",
+      "type": "goal",
+      "name": "Finish watching the house of David ",
+      "status": null,
+      "horizon": null,
+      "priority": null,
+      "pillarIds": [
+        "2f43207e861543bb8c72d04d16a27f53",
+        "62f10d5c983944388542d9b1db866b1a"
+      ],
+      "rockIds": [
+        "371c57494859803c9b22c1506b027558"
+      ]
+    },
+    {
+      "id": "371c5749485980d8b960d2f20651758d",
+      "type": "goal",
+      "name": "Complete a 1st draft roadmap to “financial freedom”",
+      "status": null,
+      "horizon": null,
+      "priority": null,
+      "pillarIds": [
+        "fa5c3f6312394f09b07566f455dac82d"
+      ],
+      "rockIds": []
+    },
+    {
+      "id": "371c5749485980a98b21d813d8c820e7",
+      "type": "goal",
+      "name": "Pray together nightly  (added to daily habit tracker for reminder) ",
+      "status": null,
+      "horizon": null,
+      "priority": null,
+      "pillarIds": [
+        "62f10d5c983944388542d9b1db866b1a",
+        "2f43207e861543bb8c72d04d16a27f53"
+      ],
+      "rockIds": []
+    },
+    {
+      "id": "371c5749485980e4a63ec0e22521b4d1",
+      "type": "goal",
+      "name": "Minimum of 1 day per quarter for Tricia to be alone or girls day, while Noah has Owen ",
+      "status": null,
+      "horizon": null,
+      "priority": null,
+      "pillarIds": [
+        "62f10d5c983944388542d9b1db866b1a",
+        "2fb60975ef4e4b0fbd56793fba264939"
+      ],
+      "rockIds": []
+    },
+    {
+      "id": "371c57494859806fb06de3b6549ceadf",
+      "type": "goal",
+      "name": "Fully embrace habit trackers (80% score) ",
+      "status": null,
+      "horizon": null,
+      "priority": null,
+      "pillarIds": [
+        "2f43207e861543bb8c72d04d16a27f53",
+        "2fb60975ef4e4b0fbd56793fba264939"
+      ],
+      "rockIds": [
+        "371c574948598099ac9bc443aeaef36a"
+      ]
+    },
+    {
+      "id": "371c574948598089aa98c04a6d1d9c5f",
+      "type": "goal",
+      "name": "Vacation? ",
+      "status": null,
+      "horizon": null,
+      "priority": null,
+      "pillarIds": [
+        "cb4375f148b64a2e8a0ecd0f0e0e4962"
+      ],
+      "rockIds": []
+    },
+    {
+      "id": "371c574948598047bdfcc6a49fec96b8",
+      "type": "goal",
+      "name": "Barndominium completed (livable condition) ",
+      "status": null,
+      "horizon": null,
+      "priority": null,
+      "pillarIds": [
+        "683e3c08456247dea6168f9329c85470",
+        "62f10d5c983944388542d9b1db866b1a"
+      ],
+      "rockIds": []
+    },
+    {
+      "id": "371c574948598098842ee8e64192b4db",
+      "type": "goal",
+      "name": "Create semi-automated financial report with associated scorecard ",
+      "status": null,
+      "horizon": null,
+      "priority": null,
+      "pillarIds": [
+        "fa5c3f6312394f09b07566f455dac82d"
+      ],
+      "rockIds": []
+    },
+    {
+      "id": "371c574948598023980fc9e708ae4854",
+      "type": "goal",
+      "name": "Minimum of 1 more rental “door”",
+      "status": null,
+      "horizon": null,
+      "priority": null,
+      "pillarIds": [
+        "fa5c3f6312394f09b07566f455dac82d"
+      ],
+      "rockIds": []
+    },
+    {
+      "id": "371c57494859802ba8b1f3ef319fe2d0",
+      "type": "goal",
+      "name": "Family OS framework completed and fully functional ",
+      "status": null,
+      "horizon": null,
+      "priority": null,
+      "pillarIds": [
+        "76181932d64d40de88929de677bdf7c2"
+      ],
+      "rockIds": [
+        "371c57494859806e9e57e23a6d97f6d5",
+        "371c5749485980149509d54121fd2ba1"
+      ]
+    },
+    {
+      "id": "371c5749485980b6912dead2b91ef7bf",
+      "type": "goal",
+      "name": "Owen adjusted to baby (less dependent on mom, allowing her to focus on baby)",
+      "status": null,
+      "horizon": "1-Year",
+      "priority": null,
+      "pillarIds": [
+        "2fb60975ef4e4b0fbd56793fba264939"
+      ],
+      "rockIds": []
+    },
+    {
+      "id": "371c57494859800d929ec7c31183b8b0",
+      "type": "goal",
+      "name": "Mom & baby settled (breast feeding, healthy, sleeping)",
+      "status": null,
+      "horizon": "1-Year",
+      "priority": null,
+      "pillarIds": [
+        "2fb60975ef4e4b0fbd56793fba264939"
+      ],
+      "rockIds": [
+        "371c5749485980eaa3c9c7354eed9b5a",
+        "371c5749485980b298a1d58b2138d197"
+      ]
+    }
+  ],
+  "rocks": [
+    {
+      "id": "371c574948598099ac9bc443aeaef36a",
+      "type": "rock",
+      "name": "Take habit trackers seriously (should see daily entries even if poor scores)",
+      "quarter": "Q2",
+      "year": "2026",
+      "pillarIds": [
+        "2fb60975ef4e4b0fbd56793fba264939"
+      ],
+      "goalIds": [],
+      "projectIds": []
+    },
+    {
+      "id": "371c5749485980299fcfd34e5b96071c",
+      "type": "rock",
+      "name": "Claude reading Notion accurately/reliably ",
+      "quarter": "Q2",
+      "year": "2026",
+      "pillarIds": [
+        "76181932d64d40de88929de677bdf7c2"
+      ],
+      "goalIds": [],
+      "projectIds": []
+    },
+    {
+      "id": "371c57494859803c9b22c1506b027558",
+      "type": "rock",
+      "name": "Weekly movie night to watch house of david ",
+      "quarter": "Q2",
+      "year": "2026",
+      "pillarIds": [
+        "2f43207e861543bb8c72d04d16a27f53"
+      ],
+      "goalIds": [],
+      "projectIds": []
+    },
+    {
+      "id": "371c5749485980149509d54121fd2ba1",
+      "type": "rock",
+      "name": "Complete weekly family OS review every week ",
+      "quarter": "Q2",
+      "year": "2026",
+      "pillarIds": [
+        "76181932d64d40de88929de677bdf7c2"
+      ],
+      "goalIds": [],
+      "projectIds": []
+    },
+    {
+      "id": "371c5749485980b298a1d58b2138d197",
+      "type": "rock",
+      "name": "Create a baby preparation checklist and satisfy ALL before end of June ",
+      "quarter": "Q2",
+      "year": "2026",
+      "pillarIds": [
+        "2fb60975ef4e4b0fbd56793fba264939"
+      ],
+      "goalIds": [],
+      "projectIds": []
+    },
+    {
+      "id": "371c5749485980eaa3c9c7354eed9b5a",
+      "type": "rock",
+      "name": "Cabin and Cottage both set-up for baby/toddler/sleeping ",
+      "quarter": "Q2",
+      "year": "2026",
+      "pillarIds": [
+        "2fb60975ef4e4b0fbd56793fba264939",
+        "683e3c08456247dea6168f9329c85470"
+      ],
+      "goalIds": [],
+      "projectIds": []
+    },
+    {
+      "id": "371c57494859806e9e57e23a6d97f6d5",
+      "type": "rock",
+      "name": "VTO/Family OS Roadmap— needs to be an output of other pages/databases ",
+      "quarter": "Q2",
+      "year": "2026",
+      "pillarIds": [
+        "76181932d64d40de88929de677bdf7c2"
+      ],
+      "goalIds": [],
+      "projectIds": []
+    }
+  ],
+  "projects": [
+    {
+      "id": "371c57494859809fbec0c48938627afe",
+      "type": "project",
+      "name": "Document core processes (list inside page) ",
+      "status": "Not Started",
+      "nextAction": "",
+      "rockIds": [],
+      "goalIds": [],
+      "taskIds": []
+    }
+  ],
+  "tasks": [
+    {
+      "id": "371c574948598061ba80cfbc525c94ec",
+      "type": "task",
+      "name": "Add spiritual componetnt to habit tracker",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": "Health",
+      "hours": 0.5,
+      "projectIds": []
+    },
+    {
+      "id": "371c57494859807f86afccfb6d5b32e5",
+      "type": "task",
+      "name": "Create AI Agent per chat gpt",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": "Personal Admin",
+      "hours": 2,
+      "projectIds": []
+    },
+    {
+      "id": "370c57494859805992ded605f1a21652",
+      "type": "task",
+      "name": "Transfer utilities from 214 ",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": "Real Estate",
+      "hours": null,
+      "projectIds": []
+    },
+    {
+      "id": "370c574948598066a063cce593aca2b1",
+      "type": "task",
+      "name": "Pay gas for 1108 ",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": "Real Estate",
+      "hours": null,
+      "projectIds": []
+    },
+    {
+      "id": "370c5749485980dbb48cd280b9f8b8ae",
+      "type": "task",
+      "name": "Inspect Wanda’s diswasher",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": "Real Estate",
+      "hours": null,
+      "projectIds": []
+    },
+    {
+      "id": "370c5749485980cc9b7efad777ba513c",
+      "type": "task",
+      "name": "Print out daily tracker for tricia ",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": "Health",
+      "hours": 1,
+      "projectIds": []
+    },
+    {
+      "id": "370c5749485980fcb321fe31dff50feb",
+      "type": "task",
+      "name": "Buy Char Bulls",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": "Ranch",
+      "hours": 8,
+      "projectIds": []
+    },
+    {
+      "id": "370c5749485980738cffca310dd0e182",
+      "type": "task",
+      "name": "Advertise PCC bulls for sale ",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": "Ranch",
+      "hours": 2,
+      "projectIds": []
+    },
+    {
+      "id": "370c5749485980bd860ef9479c172f1f",
+      "type": "task",
+      "name": "Order Goat/Sheep Collars ",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": "Ranch",
+      "hours": 2,
+      "projectIds": []
+    },
+    {
+      "id": "370c57494859807c866fd89712b8a17b",
+      "type": "task",
+      "name": "tig torch rigs",
+      "status": "Up Next (Sprint Backlog)",
+      "pillar": null,
+      "domain": "RAE",
+      "hours": 2,
+      "projectIds": []
+    },
+    {
+      "id": "36ec57494859803ab1b9f293adef2e5e",
+      "type": "task",
+      "name": "More micro torches and accessories ",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": "RAE",
+      "hours": null,
+      "projectIds": []
+    },
+    {
+      "id": "36ec5749485980b89cdefb11fc332629",
+      "type": "task",
+      "name": "WIP dashboard is centerpiece of production meeting and drives incentives",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": "RAE",
+      "hours": 8,
+      "projectIds": []
+    },
+    {
+      "id": "36ec5749485980f390c3e9813cb1eb22",
+      "type": "task",
+      "name": "verify wall thickness of laters 1/2”x0.025",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": "RAE",
+      "hours": 2,
+      "projectIds": []
+    },
+    {
+      "id": "36cc57494859808b85e3f648684def84",
+      "type": "task",
+      "name": "Wanda’s dishwasher repaired/diagnosed ",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": null,
+      "hours": null,
+      "projectIds": []
+    },
+    {
+      "id": "36ac57494859807ebc1bf3efb2588a82",
+      "type": "task",
+      "name": "Take pics of bulls to market/sell",
+      "status": "Up Next (Sprint Backlog)",
+      "pillar": null,
+      "domain": null,
+      "hours": null,
+      "projectIds": []
+    },
+    {
+      "id": "36ac5749485980ed86f1e9dfe81b63d7",
+      "type": "task",
+      "name": "Let bulls into goat and sheep pastures",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": null,
+      "hours": null,
+      "projectIds": []
+    },
+    {
+      "id": "368c5749485980abb760f105adf069eb",
+      "type": "task",
+      "name": "Add books/resources into Owen’s google drive folder — AI reference for guidance ",
+      "status": "Up Next (Sprint Backlog)",
+      "pillar": null,
+      "domain": "Owen",
+      "hours": 2,
+      "projectIds": []
+    },
+    {
+      "id": "368c5749485980a1b7f8cad41106a590",
+      "type": "task",
+      "name": "Bulls moved to goat pasture and mineral ",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": "Ranch",
+      "hours": 2,
+      "projectIds": []
+    },
+    {
+      "id": "368c5749485980f39b09d6a0b8e48586",
+      "type": "task",
+      "name": "Spray fence line and around houses",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": "Ranch",
+      "hours": 2,
+      "projectIds": []
+    },
+    {
+      "id": "368c574948598071b1badb89164f6e61",
+      "type": "task",
+      "name": "Unhook blue truck ",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": "Ranch",
+      "hours": 0.5,
+      "projectIds": []
+    },
+    {
+      "id": "368c57494859801b9c89d945888bce44",
+      "type": "task",
+      "name": "cabin fence boards repaired",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": "Ranch",
+      "hours": 2,
+      "projectIds": []
+    },
+    {
+      "id": "368c57494859802baa92ebb50eb0ecb6",
+      "type": "task",
+      "name": "Make an appointment for Mads mole",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": null,
+      "hours": null,
+      "projectIds": []
+    },
+    {
+      "id": "367c57494859802f8e96eccb8613b0ee",
+      "type": "task",
+      "name": "Move washer from Kimalee’s ",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": null,
+      "hours": null,
+      "projectIds": []
+    },
+    {
+      "id": "366c57494859808db073cf30173283c2",
+      "type": "task",
+      "name": "Layout for Tietz ",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": "RAE",
+      "hours": 3,
+      "projectIds": []
+    },
+    {
+      "id": "366c5749485980529cd5c39bcedd436c",
+      "type": "task",
+      "name": "Update dot compliance actions again",
+      "status": "Up Next (Sprint Backlog)",
+      "pillar": null,
+      "domain": "RAE",
+      "hours": 1,
+      "projectIds": []
+    },
+    {
+      "id": "366c5749485980d79779dd9475ada042",
+      "type": "task",
+      "name": "Call Mertain and ask why coverage is inconsistent ",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": null,
+      "hours": null,
+      "projectIds": []
+    },
+    {
+      "id": "365c57494859803280abe7ea77f76ca2",
+      "type": "task",
+      "name": "Adp ask off Friday ",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": "RAE",
+      "hours": 0.25,
+      "projectIds": []
+    },
+    {
+      "id": "365c574948598033ac24df4bf3af9e27",
+      "type": "task",
+      "name": "list madison’s books",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": null,
+      "hours": null,
+      "projectIds": []
+    },
+    {
+      "id": "364c57494859800389d2f3c822f2e542",
+      "type": "task",
+      "name": "TEFRA application process completed",
+      "status": "Up Next (Sprint Backlog)",
+      "pillar": null,
+      "domain": "Owen",
+      "hours": 8,
+      "projectIds": []
+    },
+    {
+      "id": "363c574948598097b039f8fb78af6c2f",
+      "type": "task",
+      "name": "administer flea and tick meds",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": null,
+      "hours": null,
+      "projectIds": []
+    },
+    {
+      "id": "363c5749485980afbb50d3b6dead8255",
+      "type": "task",
+      "name": "establish wip target hours",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": null,
+      "hours": null,
+      "projectIds": []
+    },
+    {
+      "id": "363c574948598082ad1ff5164dd91437",
+      "type": "task",
+      "name": "brush out dogs",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": null,
+      "hours": null,
+      "projectIds": []
+    },
+    {
+      "id": "363c57494859802e8890d462a273a831",
+      "type": "task",
+      "name": "how to identify top 3 priorities in WIP",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": null,
+      "hours": null,
+      "projectIds": []
+    },
+    {
+      "id": "363c57494859809184bdc5982ba0ff23",
+      "type": "task",
+      "name": "Plan for pulling males from goats and sheep",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": null,
+      "hours": null,
+      "projectIds": []
+    },
+    {
+      "id": "363c5749485980a6b41cdcf6db10f541",
+      "type": "task",
+      "name": "Pickup/sweep cabin by 5/27",
+      "status": "Up Next (Sprint Backlog)",
+      "pillar": null,
+      "domain": null,
+      "hours": null,
+      "projectIds": []
+    },
+    {
+      "id": "362c57494859805887a6f4693b53043e",
+      "type": "task",
+      "name": "Move sheep and goats to 3rd area to eat thistles",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": null,
+      "hours": null,
+      "projectIds": []
+    },
+    {
+      "id": "362c5749485980ddaf0eda3c1a9f023f",
+      "type": "task",
+      "name": "Test Notion MCP + Claude ",
+      "status": "Up Next (Sprint Backlog)",
+      "pillar": null,
+      "domain": "Personal Admin",
+      "hours": 3,
+      "projectIds": []
+    },
+    {
+      "id": "361c5749485980ff8ffae15d55c7cb62",
+      "type": "task",
+      "name": "document core processes and core values? ",
+      "status": "Up Next (Sprint Backlog)",
+      "pillar": null,
+      "domain": "Personal Admin",
+      "hours": 1,
+      "projectIds": []
+    },
+    {
+      "id": "361c57494859802393f4cae7af7bfa27",
+      "type": "task",
+      "name": "Add key manually reported weekly/monthly/quarterly metrics to the meeting database (feeds scorecards and future reports) — see list in body ",
+      "status": "Up Next (Sprint Backlog)",
+      "pillar": null,
+      "domain": "Personal Admin",
+      "hours": 2,
+      "projectIds": []
+    },
+    {
+      "id": "361c574948598022a956d713cc25854d",
+      "type": "task",
+      "name": "Add scorecards for each pillar and then have a high level scorecard for overall family OS (data entry during weekly meeting or monthly?)",
+      "status": "Up Next (Sprint Backlog)",
+      "pillar": null,
+      "domain": "Personal Admin",
+      "hours": 3,
+      "projectIds": []
+    },
+    {
+      "id": "360c57494859807b93d8c18c4ad390b1",
+      "type": "task",
+      "name": "Dress up the page organizaiton within the command center . Should everything be inside the command center ",
+      "status": "Up Next (Sprint Backlog)",
+      "pillar": null,
+      "domain": "Personal Admin",
+      "hours": 2,
+      "projectIds": []
+    },
+    {
+      "id": "35fc5749485980acba2af155b8f9edcc",
+      "type": "task",
+      "name": "Garage door opener for 106B",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": "Real Estate",
+      "hours": 4,
+      "projectIds": []
+    },
+    {
+      "id": "35dc57494859803ba7c7f6abd868c385",
+      "type": "task",
+      "name": "Breakdown last 12 mos of expenditures ",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": "Personal Admin",
+      "hours": 20,
+      "projectIds": []
+    },
+    {
+      "id": "35dc574948598092ba64e20189b5ea21",
+      "type": "task",
+      "name": "Credit cards for different areas",
+      "status": "Up Next (Sprint Backlog)",
+      "pillar": null,
+      "domain": "Personal Admin",
+      "hours": 8,
+      "projectIds": []
+    },
+    {
+      "id": "35dc57494859807c8a64c403fad2d317",
+      "type": "task",
+      "name": "Add personality tests to notion ",
+      "status": "Up Next (Sprint Backlog)",
+      "pillar": null,
+      "domain": "Personal Admin",
+      "hours": 1,
+      "projectIds": []
+    },
+    {
+      "id": "35dc5749485980e9b408c4d43bae92b6",
+      "type": "task",
+      "name": "Finish connecting relationships between databases to make sure it works correctly.  Create a project also.  ",
+      "status": "Up Next (Sprint Backlog)",
+      "pillar": null,
+      "domain": "Personal Admin",
+      "hours": 2,
+      "projectIds": []
+    },
+    {
+      "id": "35cc57494859804289f5c4fdcf7fa93b",
+      "type": "task",
+      "name": "Create a mind map of the OS/workflow with AI integration ",
+      "status": "Up Next (Sprint Backlog)",
+      "pillar": null,
+      "domain": "Personal Admin",
+      "hours": 2,
+      "projectIds": []
+    },
+    {
+      "id": "35cc5749485980d192fbca84e855b63a",
+      "type": "task",
+      "name": "Experiment with Claude connections to Notion.. especially Claude Coworker",
+      "status": "Up Next (Sprint Backlog)",
+      "pillar": null,
+      "domain": "Personal Admin",
+      "hours": 2,
+      "projectIds": []
+    },
+    {
+      "id": "35bc5749485980a188bafb70c6f3c5e8",
+      "type": "task",
+      "name": "Everyone in the family take personality tests and save results in google drive",
+      "status": "Up Next (Sprint Backlog)",
+      "pillar": null,
+      "domain": "Personal Admin",
+      "hours": 3,
+      "projectIds": []
+    },
+    {
+      "id": "35bc57494859805a99e7e1eb25d78800",
+      "type": "task",
+      "name": "research subtask options ",
+      "status": "Up Next (Sprint Backlog)",
+      "pillar": null,
+      "domain": "Personal Admin",
+      "hours": 3,
+      "projectIds": []
+    },
+    {
+      "id": "35bc57494859807fb701c064f98054aa",
+      "type": "task",
+      "name": "Backup computer to external hard drive ",
+      "status": "Up Next (Sprint Backlog)",
+      "pillar": null,
+      "domain": "Personal Admin",
+      "hours": 2,
+      "projectIds": []
+    },
+    {
+      "id": "35bc5749485980f4a850fdbcdd01132c",
+      "type": "task",
+      "name": "A progress tracking system for owen… milestones.. or something.. Pyramid?",
+      "status": "Up Next (Sprint Backlog)",
+      "pillar": null,
+      "domain": "Owen",
+      "hours": 8,
+      "projectIds": []
+    },
+    {
+      "id": "35bc5749485980f2b162d58a112c4406",
+      "type": "task",
+      "name": "Create monthly financial meeting",
+      "status": "Up Next (Sprint Backlog)",
+      "pillar": null,
+      "domain": null,
+      "hours": 1,
+      "projectIds": []
+    },
+    {
+      "id": "35bc5749485980ad9bb1c4e4a793ce15",
+      "type": "task",
+      "name": "Get FMLA paperwork signed ",
+      "status": "Up Next (Sprint Backlog)",
+      "pillar": null,
+      "domain": "Health",
+      "hours": 8,
+      "projectIds": []
+    },
+    {
+      "id": "358c5749485980f89d2ed1f90de1a4f0",
+      "type": "task",
+      "name": "Install blinds @ 1108",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": "Real Estate",
+      "hours": 4,
+      "projectIds": []
+    },
+    {
+      "id": "355c57494859809fafbcd066a7c6d77b",
+      "type": "task",
+      "name": "Update Security Deposits",
+      "status": "Up Next (Sprint Backlog)",
+      "pillar": null,
+      "domain": "Real Estate",
+      "hours": 4,
+      "projectIds": []
+    },
+    {
+      "id": "354c5749485980009d57fd7925ba6f9c",
+      "type": "task",
+      "name": "Vonner Test, pee catch",
+      "status": "Up Next (Sprint Backlog)",
+      "pillar": null,
+      "domain": "Owen",
+      "hours": 8,
+      "projectIds": []
+    },
+    {
+      "id": "354c57494859805e9ddcc5d6a1c811c3",
+      "type": "task",
+      "name": "Spanish Flash cards",
+      "status": "Up Next (Sprint Backlog)",
+      "pillar": null,
+      "domain": "Girls",
+      "hours": 2,
+      "projectIds": []
+    },
+    {
+      "id": "354c574948598010a4a5e40a0c476772",
+      "type": "task",
+      "name": "Shave Sammy",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": "Ranch",
+      "hours": 2,
+      "projectIds": []
+    },
+    {
+      "id": "354c5749485980d8a27ddaf5188f9a6e",
+      "type": "task",
+      "name": "Start using a self feeder for the guard dogs",
+      "status": "Up Next (Sprint Backlog)",
+      "pillar": null,
+      "domain": "Ranch",
+      "hours": 80,
+      "projectIds": []
+    },
+    {
+      "id": "354c5749485980d8a6c9c462dbfe3937",
+      "type": "task",
+      "name": "1 more conventional loan rental property ",
+      "status": "Up Next (Sprint Backlog)",
+      "pillar": null,
+      "domain": "Real Estate",
+      "hours": null,
+      "projectIds": []
+    },
+    {
+      "id": "354c57494859807e9419d16f07fec557",
+      "type": "task",
+      "name": "create calendar event for financial review with agenda ",
+      "status": "Up Next (Sprint Backlog)",
+      "pillar": null,
+      "domain": "Personal Admin",
+      "hours": 0.25,
+      "projectIds": []
+    },
+    {
+      "id": "354c57494859804b943ae11e91b9ed2f",
+      "type": "task",
+      "name": "Research seller financing options, and frame up a win-win solution",
+      "status": "Up Next (Sprint Backlog)",
+      "pillar": null,
+      "domain": "Real Estate",
+      "hours": 8,
+      "projectIds": []
+    },
+    {
+      "id": "33ec5749485980ad905ac079787cfed2",
+      "type": "task",
+      "name": "Requisition for SS tube bender ",
+      "status": "Up Next (Sprint Backlog)",
+      "pillar": null,
+      "domain": "RAE",
+      "hours": null,
+      "projectIds": []
+    },
+    {
+      "id": "33dc574948598084bb5bf0d20e834782",
+      "type": "task",
+      "name": "Change health insurance after baby is born",
+      "status": "Up Next (Sprint Backlog)",
+      "pillar": null,
+      "domain": "Personal Admin",
+      "hours": 4,
+      "projectIds": []
+    },
+    {
+      "id": "33ac57494859808d87d0c84a0101806b",
+      "type": "task",
+      "name": "Layout slab corners with string and paint ",
+      "status": "Up Next (Sprint Backlog)",
+      "pillar": null,
+      "domain": "Barndo",
+      "hours": 2,
+      "projectIds": []
+    },
+    {
+      "id": "33ac57494859802181c1e2701ee21897",
+      "type": "task",
+      "name": "Finalize drawings for barndo slab ",
+      "status": "Up Next (Sprint Backlog)",
+      "pillar": null,
+      "domain": "Barndo",
+      "hours": 8,
+      "projectIds": []
+    }
+  ]
 }
