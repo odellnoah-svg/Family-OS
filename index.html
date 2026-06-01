@@ -107,42 +107,6 @@ body{background:var(--bg);color:var(--tx);font-family:'DM Sans',sans-serif;heigh
 .v3r{font-size:10.5px;color:var(--tx2);padding:4px 8px;background:var(--bg);border:1px solid var(--bdr);border-radius:5px;margin-bottom:3px;line-height:1.4;display:flex;align-items:flex-start;gap:4px;}
 .v3rp{width:5px;height:5px;border-radius:50%;flex-shrink:0;margin-top:3px;}
 .v3em{font-size:10.5px;color:var(--tx3);font-style:italic;padding:6px 0;text-align:center;}
-/* V4 FOCUS */
-.v4{display:flex;height:100%;}
-.v4sb{width:192px;flex-shrink:0;border-right:1px solid var(--bdr);overflow-y:auto;background:var(--surf);padding:14px 0;}
-.v4pb{display:flex;align-items:center;gap:8px;padding:9px 14px;cursor:pointer;transition:background .12s;border-left:3px solid transparent;}
-.v4pb:hover{background:var(--surf2);}
-.v4pb.on{border-left-color:var(--pc);background:var(--bg);}
-.v4pp{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
-.v4pn{font-size:11.5px;font-weight:500;line-height:1.35;color:var(--tx);}
-.v4main{flex:1;overflow-y:auto;padding:24px 28px 48px;}
-.v4hero{margin-bottom:24px;padding:16px 20px;background:var(--surf);border:1px solid var(--bdr);border-left:5px solid var(--pc,var(--acc));border-radius:12px;}
-.v4hk{font-size:9.5px;font-weight:500;text-transform:uppercase;letter-spacing:.1em;color:var(--tx3);margin-bottom:4px;display:flex;align-items:center;gap:5px;}
-.v4hp{width:7px;height:7px;border-radius:50%;}
-.v4hn{font-family:'Playfair Display',serif;font-size:20px;font-weight:600;margin-bottom:5px;}
-.v4hd{font-size:12.5px;color:var(--tx2);line-height:1.55;}
-.v4gc{background:var(--surf);border:1px solid var(--bdr);border-left:4px solid var(--pc,var(--bdr));border-radius:10px;padding:12px 15px;margin-bottom:9px;}
-.v4gn{font-size:13.5px;font-weight:500;color:var(--tx);margin-bottom:6px;}
-.v4gt{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:8px;}
-.v4rg{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:6px;}
-.v4rc{background:var(--bg);border:1px solid var(--bdr);border-radius:7px;padding:8px 11px;}
-.v4rn{font-size:11px;font-weight:500;color:var(--tx);margin-bottom:4px;line-height:1.4;}
-.v4rt{display:flex;gap:3px;flex-wrap:wrap;}
-.v4nem{font-size:12.5px;color:var(--tx3);font-style:italic;}
-.v4ee{display:flex;align-items:center;justify-content:center;height:100%;color:var(--tx3);font-size:14px;font-style:italic;}
-/* V5 NETWORK */
-.v5{width:100%;height:100%;position:relative;overflow:hidden;}
-#v5svg{width:100%;height:100%;}
-.v5leg{position:absolute;bottom:14px;right:14px;background:var(--surf);border:1px solid var(--bdr);border-radius:11px;padding:11px 13px;z-index:10;}
-.v5lt{font-size:9.5px;font-weight:500;text-transform:uppercase;letter-spacing:.1em;color:var(--tx3);margin-bottom:8px;}
-.v5lr{display:flex;align-items:center;gap:7px;margin-bottom:5px;}
-.v5lp{width:7px;height:7px;border-radius:50%;}
-.v5ll{font-size:11px;color:var(--tx2);}
-.v5types{position:absolute;bottom:14px;left:14px;background:var(--surf);border:1px solid var(--bdr);border-radius:11px;padding:11px 13px;z-index:10;}
-.v5tr{display:flex;align-items:center;gap:7px;margin-bottom:5px;}
-.v5tc{border-radius:50%;flex-shrink:0;}
-.v5hint{position:absolute;top:10px;left:50%;transform:translateX(-50%);font-size:11px;color:var(--tx3);background:var(--surf);border:1px solid var(--bdr);border-radius:20px;padding:4px 12px;pointer-events:none;white-space:nowrap;}
-.v5load{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:13px;color:var(--tx2);}
 [hidden]{display:none!important;}
 </style>
 </head>
@@ -179,8 +143,7 @@ body{background:var(--bg);color:var(--tx);font-family:'DM Sans',sans-serif;heigh
       <button class="vtab on" onclick="sv('columns')"   id="vt-columns">Columns</button>
       <button class="vtab"    onclick="sv('nested')"    id="vt-nested">Nested</button>
       <button class="vtab"    onclick="sv('swimlanes')" id="vt-swimlanes">Swimlanes</button>
-      <button class="vtab"    onclick="sv('focus')"     id="vt-focus">Focus</button>
-      <button class="vtab"    onclick="sv('network')"   id="vt-network">Network</button>
+
     </div>
     <div class="hdr-right">
       <div class="updated" id="updated-ts"></div>
@@ -200,8 +163,6 @@ let CV='columns' // current view
 let COLVIS={pillars:true,goals:true,rocks:true,projects:true,tasks:true}
 let V1SEL=null
 let V2EXP=new Set()
-let V4PIL=null
-let V5SIM=null, V5SEL=null
 
 // ── BOOT ─────────────────────────────────────────
 window.addEventListener('DOMContentLoaded',init)
@@ -291,11 +252,10 @@ function renderHdr(){
 
 // ── VIEW SWITCHER ─────────────────────────────────
 function sv(name){
-  if(V5SIM){V5SIM.stop();V5SIM=null}
   CV=name
   document.querySelectorAll('.vtab').forEach(t=>t.classList.remove('on'))
   document.getElementById('vt-'+name)?.classList.add('on')
-  const views={columns:v1Render,nested:v2Render,swimlanes:v3Render,focus:v4Render,network:v5Render}
+  const views={columns:v1Render,nested:v2Render,swimlanes:v3Render}
   views[name]?.()
 }
 
@@ -465,139 +425,6 @@ function v3Render(){
   document.getElementById('vc').innerHTML=h
 }
 
-// ═══════════════════════════════════════
-// VIEW 4 — FOCUS PANEL
-// ═══════════════════════════════════════
-function v4Render(){
-  document.getElementById('vc').innerHTML=`
-    <div class="v4">
-      <aside class="v4sb" id="v4sb">${D.pillars.map(p=>`
-        <div class="v4pb ${V4PIL===p.id?'on':''}" style="--pc:${p.color}" onclick="v4sel('${p.id}')">
-          <div class="v4pp" style="background:${p.color}"></div>
-          <div class="v4pn">${p.name}</div>
-        </div>`).join('')}
-      </aside>
-      <div class="v4main" id="v4main"></div>
-    </div>`
-  if(!V4PIL&&D.pillars.length>0)V4PIL=D.pillars[0].id
-  v4main()
-}
-function v4sel(id){
-  V4PIL=id
-  document.querySelectorAll('.v4pb').forEach(b=>b.classList.remove('on'))
-  document.querySelector(`.v4pb[onclick*="${id}"]`)?.classList.add('on')
-  v4main()
-}
-function v4main(){
-  const p=ALL[V4PIL],el=document.getElementById('v4main')
-  if(!p||!el){if(el)el.innerHTML='<div class="v4ee">Select a pillar</div>';return}
-  const goals=goalsOf(p)
-  let h=`<div class="v4hero" style="--pc:${p.color}">
-    <div class="v4hk"><div class="v4hp" style="background:${p.color}"></div>Pillar</div>
-    <div class="v4hn">${p.name}</div>
-    ${p.definition?`<div class="v4hd">${p.definition}</div>`:''}
-  </div>`
-  if(!goals.length){h+=`<div class="v4nem">No goals linked to this pillar yet.</div>`}
-  else goals.forEach(g=>{
-    const rocks=rocksOf(g)
-    h+=`<div class="v4gc" style="--pc:${g.pc}">
-      <div class="v4gn">${g.name}</div>
-      <div class="v4gt">${g.horizon?`<span class="tag t-n">${g.horizon}</span>`:''} ${stag(g.status)}</div>
-      ${rocks.length?`<div class="v4rg">${rocks.map(r=>`
-        <div class="v4rc">
-          <div class="v4rn">${r.name}</div>
-          <div class="v4rt">${r.quarter?`<span class="tag t-n">${r.quarter}${r.year?' '+r.year:''}</span>`:''}</div>
-        </div>`).join('')}</div>`:`<div class="v2em" style="font-size:11px;padding:4px 0">No rocks linked yet</div>`}
-    </div>`
-  })
-  el.innerHTML=h
-}
-
-// ═══════════════════════════════════════
-// VIEW 5 — NETWORK
-// ═══════════════════════════════════════
-async function v5Render(){
-  document.getElementById('vc').innerHTML=`<div class="v5"><div class="v5load" id="v5load">Loading D3…</div></div>`
-  if(!window.d3){
-    await new Promise((res,rej)=>{
-      const s=document.createElement('script')
-      s.src='https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js'
-      s.onload=res;s.onerror=()=>rej(new Error('Could not load D3'))
-      document.head.appendChild(s)
-    }).catch(e=>{document.getElementById('v5load').textContent='D3 failed to load: '+e.message;return})
-  }
-  const vc=document.getElementById('vc')
-  vc.innerHTML=`
-    <div class="v5">
-      <svg id="v5svg"></svg>
-      <div class="v5hint">Drag nodes · Click to trace chain</div>
-      <div class="v5leg" id="v5leg"></div>
-      <div class="v5types" id="v5types"></div>
-    </div>`
-  const w=vc.clientWidth,h=vc.clientHeight
-  const nodes=[
-    ...D.pillars.map(p=>({id:p.id,name:p.name,type:'pillar',color:p.color,r:14})),
-    ...D.goals.map(g=>({id:g.id,name:g.name,type:'goal',color:g.pc,r:9})),
-    ...D.rocks.map(r=>({id:r.id,name:r.name,type:'rock',color:r.pc,r:7})),
-    ...D.projects.map(p=>({id:p.id,name:p.name,type:'project',color:p.pc,r:6})),
-    ...D.tasks.map(t=>({id:t.id,name:t.name,type:'task',color:t.pc,r:5})),
-  ]
-  const seen=new Set(),links=[]
-  function al(s,t){const k=s<t?`${s}|${t}`:`${t}|${s}`;if(!seen.has(k)){seen.add(k);links.push({source:s,target:t})}}
-  D.pillars.forEach(p=>goalsOf(p).forEach(g=>al(p.id,g.id)))
-  D.goals.forEach(g=>rocksOf(g).forEach(r=>al(g.id,r.id)))
-  D.rocks.forEach(r=>projsOf(r).forEach(p=>al(r.id,p.id)))
-  D.projects.forEach(p=>tasksOf(p).forEach(t=>al(p.id,t.id)))
-  const svg=d3.select('#v5svg').attr('width',w).attr('height',h)
-  svg.append('defs').append('style').text('.node-lbl{pointer-events:none;}')
-  const linkSel=svg.append('g').selectAll('line').data(links).join('line')
-    .attr('stroke',d=>{const n=nodes.find(x=>x.id===d.source);return n?.color||'#ccc'})
-    .attr('stroke-opacity',.25).attr('stroke-width',1.5)
-  const nodeSel=svg.append('g').selectAll('g').data(nodes).join('g')
-    .style('cursor','pointer')
-    .call(d3.drag()
-      .on('start',(e,d)=>{if(!e.active)sim.alphaTarget(.3).restart();d.fx=d.x;d.fy=d.y})
-      .on('drag', (e,d)=>{d.fx=e.x;d.fy=e.y})
-      .on('end',  (e,d)=>{if(!e.active)sim.alphaTarget(0);d.fx=null;d.fy=null}))
-    .on('click',(e,d)=>v5sel(d.id))
-  nodeSel.append('circle').attr('r',d=>d.r).attr('fill',d=>d.color).attr('stroke','#fff').attr('stroke-width',2)
-  nodeSel.append('text').attr('class','node-lbl')
-    .attr('x',d=>d.r+4).attr('y','0.35em')
-    .text(d=>trunc(d.name,d.type==='pillar'?22:20))
-    .attr('font-size',d=>d.type==='pillar'?'11px':'9.5px')
-    .attr('font-family',"'DM Sans',sans-serif")
-    .attr('fill','#261C10')
-    .attr('opacity',d=>d.type==='pillar'?1:0)
-  V5SIM=d3.forceSimulation(nodes)
-    .force('link',d3.forceLink(links).id(d=>d.id).distance(d=>{const s=nodes.find(n=>n.id===d.source.id||n.id===d.source);return s?.type==='pillar'?110:s?.type==='goal'?75:55}))
-    .force('charge',d3.forceManyBody().strength(-260))
-    .force('center',d3.forceCenter(w/2,h/2))
-    .force('collision',d3.forceCollide(d=>d.r+10))
-  const sim=V5SIM
-  sim.on('tick',()=>{
-    linkSel.attr('x1',d=>d.source.x).attr('y1',d=>d.source.y).attr('x2',d=>d.target.x).attr('y2',d=>d.target.y)
-    nodeSel.attr('transform',d=>`translate(${d.x},${d.y})`)
-  })
-  // Legends
-  document.getElementById('v5leg').innerHTML=`<div class="v5lt">Pillars</div>`+D.pillars.map(p=>`<div class="v5lr"><div class="v5lp" style="background:${p.color}"></div><div class="v5ll">${p.name}</div></div>`).join('')
-  document.getElementById('v5types').innerHTML=`<div class="v5lt">Node Size</div>`+
-    [{l:'Pillar',r:14},{l:'Goal',r:9},{l:'Rock',r:7},{l:'Project',r:6},{l:'Task',r:5}].map(t=>`<div class="v5tr"><div class="v5tc" style="width:${t.r*2}px;height:${t.r*2}px;background:var(--tx3)"></div><div class="v5ll">${t.l}</div></div>`).join('')
-}
-function v5sel(id){
-  V5SEL=V5SEL===id?null:id
-  const inC=V5SEL?chain(V5SEL):null
-  if(V5SEL)inC.add(V5SEL)
-  const svg=d3.select('#v5svg')
-  if(!svg.node())return
-  svg.selectAll('circle')
-    .attr('opacity',d=>!V5SEL||inC.has(d.id)?1:.12)
-    .attr('stroke-width',d=>d.id===V5SEL?3:2)
-    .attr('stroke',d=>d.id===V5SEL?'#261C10':'#fff')
-  svg.selectAll('line')
-    .attr('stroke-opacity',d=>{if(!V5SEL)return .25;const si=typeof d.source==='object'?d.source.id:d.source,ti=typeof d.target==='object'?d.target.id:d.target;return inC.has(si)&&inC.has(ti)?.75:.04})
-    .attr('stroke-width',d=>{if(!V5SEL)return 1.5;const si=typeof d.source==='object'?d.source.id:d.source,ti=typeof d.target==='object'?d.target.id:d.target;return inC.has(si)&&inC.has(ti)?2.5:1.5})
-  svg.selectAll('.node-lbl').attr('opacity',d=>{if(d.type==='pillar')return 1;if(!V5SEL)return 0;return inC.has(d.id)?1:0})
-}
 </script>
 </body>
 </html>
