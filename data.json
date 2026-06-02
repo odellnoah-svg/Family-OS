@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-02T13:00:56.540Z",
+  "generated": "2026-06-02T23:11:29.307Z",
   "pillars": [
     {
       "id": "cb4375f148b64a2e8a0ecd0f0e0e4962",
@@ -437,6 +437,46 @@
   ],
   "tasks": [
     {
+      "id": "373c574948598009960deadd867ff0cb",
+      "type": "task",
+      "name": "Move washer to driveway ",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": "Real Estate",
+      "hours": null,
+      "projectIds": []
+    },
+    {
+      "id": "373c57494859803a8d2cff4ccd25cff6",
+      "type": "task",
+      "name": "PAY BILLS",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": "Personal Admin",
+      "hours": null,
+      "projectIds": []
+    },
+    {
+      "id": "373c5749485980e68a16fa00e0e43209",
+      "type": "task",
+      "name": "Order water test kit ",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": "RAE",
+      "hours": null,
+      "projectIds": []
+    },
+    {
+      "id": "373c5749485980fe96c8ef49ff13f958",
+      "type": "task",
+      "name": "Refill vitamins",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": "Health",
+      "hours": null,
+      "projectIds": []
+    },
+    {
       "id": "373c5749485980c28f68e3377ad323f7",
       "type": "task",
       "name": "Turn VTO into strategic roadmap (ref chat convo)",
@@ -642,7 +682,7 @@
       "name": "Make an appointment for Mads mole",
       "status": "In progress (WIP)",
       "pillar": null,
-      "domain": null,
+      "domain": "Girls",
       "hours": null,
       "projectIds": []
     },
@@ -682,7 +722,7 @@
       "name": "Call Mertain and ask why coverage is inconsistent ",
       "status": "In progress (WIP)",
       "pillar": null,
-      "domain": null,
+      "domain": "Owen",
       "hours": null,
       "projectIds": []
     },
@@ -702,7 +742,7 @@
       "name": "list madison’s books",
       "status": "In progress (WIP)",
       "pillar": null,
-      "domain": null,
+      "domain": "Personal Admin",
       "hours": null,
       "projectIds": []
     },
@@ -722,7 +762,7 @@
       "name": "administer flea and tick meds",
       "status": "In progress (WIP)",
       "pillar": null,
-      "domain": null,
+      "domain": "Ranch",
       "hours": null,
       "projectIds": []
     },
@@ -742,7 +782,7 @@
       "name": "brush out dogs",
       "status": "In progress (WIP)",
       "pillar": null,
-      "domain": null,
+      "domain": "Ranch",
       "hours": null,
       "projectIds": []
     },
@@ -762,7 +802,7 @@
       "name": "Plan for pulling males from goats and sheep",
       "status": "In progress (WIP)",
       "pillar": null,
-      "domain": null,
+      "domain": "Ranch",
       "hours": null,
       "projectIds": []
     },
@@ -782,7 +822,7 @@
       "name": "Move sheep and goats to 3rd area to eat thistles",
       "status": "In progress (WIP)",
       "pillar": null,
-      "domain": null,
+      "domain": "Ranch",
       "hours": null,
       "projectIds": []
     },
