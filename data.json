@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-01T22:42:59.992Z",
+  "generated": "2026-06-02T13:00:56.540Z",
   "pillars": [
     {
       "id": "cb4375f148b64a2e8a0ecd0f0e0e4962",
@@ -437,9 +437,9 @@
   ],
   "tasks": [
     {
-      "id": "371c57494859807f86afccfb6d5b32e5",
+      "id": "373c5749485980c28f68e3377ad323f7",
       "type": "task",
-      "name": "Create AI Agent per chat gpt",
+      "name": "Turn VTO into strategic roadmap (ref chat convo)",
       "status": "In progress (WIP)",
       "pillar": null,
       "domain": "Personal Admin",
@@ -447,9 +447,9 @@
       "projectIds": []
     },
     {
-      "id": "370c57494859805992ded605f1a21652",
+      "id": "373c5749485980c08534c1ffdf707422",
       "type": "task",
-      "name": "Transfer utilities from 214 ",
+      "name": "Fix door at 214",
       "status": "In progress (WIP)",
       "pillar": null,
       "domain": "Real Estate",
@@ -457,13 +457,23 @@
       "projectIds": []
     },
     {
-      "id": "370c574948598066a063cce593aca2b1",
+      "id": "373c57494859808493fdd514acbba043",
       "type": "task",
-      "name": "Pay gas for 1108 ",
+      "name": "Invest Paige’s money at fidelity",
       "status": "In progress (WIP)",
       "pillar": null,
-      "domain": "Real Estate",
+      "domain": "Girls",
       "hours": null,
+      "projectIds": []
+    },
+    {
+      "id": "371c57494859807f86afccfb6d5b32e5",
+      "type": "task",
+      "name": "Create AI Agent per chat gpt",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": "Personal Admin",
+      "hours": 2,
       "projectIds": []
     },
     {
