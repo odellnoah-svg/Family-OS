@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-03T03:57:13.425Z",
+  "generated": "2026-06-03T18:10:50.142Z",
   "meta": {
     "currentQuarter": "Q2",
     "currentYear": "2026",
@@ -493,6 +493,26 @@
   ],
   "tasks": [
     {
+      "id": "374c57494859803cb956c58816392d9f",
+      "type": "task",
+      "name": "Signed sooner care paperwork",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": "Owen",
+      "hours": null,
+      "projectIds": []
+    },
+    {
+      "id": "374c5749485980df8e3cd0b369ff8ee5",
+      "type": "task",
+      "name": "Pick up rent from Wanda",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": "Real Estate",
+      "hours": null,
+      "projectIds": []
+    },
+    {
       "id": "374c5749485980eabef1eb4c3321292b",
       "type": "task",
       "name": "Reimburse deposit for Keano",
@@ -513,32 +533,12 @@
       "projectIds": []
     },
     {
-      "id": "373c57494859803a8d2cff4ccd25cff6",
-      "type": "task",
-      "name": "PAY BILLS",
-      "status": "In progress (WIP)",
-      "pillar": null,
-      "domain": "Personal Admin",
-      "hours": null,
-      "projectIds": []
-    },
-    {
       "id": "373c5749485980e68a16fa00e0e43209",
       "type": "task",
       "name": "Order water test kit ",
       "status": "In progress (WIP)",
       "pillar": null,
       "domain": "RAE",
-      "hours": null,
-      "projectIds": []
-    },
-    {
-      "id": "373c5749485980fe96c8ef49ff13f958",
-      "type": "task",
-      "name": "Refill vitamins",
-      "status": "In progress (WIP)",
-      "pillar": null,
-      "domain": "Health",
       "hours": null,
       "projectIds": []
     },
@@ -550,26 +550,6 @@
       "pillar": null,
       "domain": "Personal Admin",
       "hours": 2,
-      "projectIds": []
-    },
-    {
-      "id": "373c5749485980c08534c1ffdf707422",
-      "type": "task",
-      "name": "Fix door at 214",
-      "status": "In progress (WIP)",
-      "pillar": null,
-      "domain": "Real Estate",
-      "hours": null,
-      "projectIds": []
-    },
-    {
-      "id": "373c57494859808493fdd514acbba043",
-      "type": "task",
-      "name": "Invest Paige’s money at fidelity",
-      "status": "In progress (WIP)",
-      "pillar": null,
-      "domain": "Girls",
-      "hours": null,
       "projectIds": []
     },
     {
@@ -758,7 +738,7 @@
       "name": "Move washer from Kimalee’s ",
       "status": "In progress (WIP)",
       "pillar": null,
-      "domain": null,
+      "domain": "Real Estate",
       "hours": null,
       "projectIds": []
     },
