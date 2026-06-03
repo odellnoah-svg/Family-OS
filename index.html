@@ -7,30 +7,20 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
 <style>
-/* ── VARS ────────────────────────────────────────────────── */
-:root{
-  --bg:#F7F2EB;--surf:#FDFAF6;--surf2:#EDE6DA;--bdr:#DDD4C4;
-  --tx:#261C10;--tx2:#7A6A54;--tx3:#B0A08C;--acc:#7C5738;
-  --strategic:#2D4878;--execution:#2A6044;--stewardship:#574880;
-  --arch-bg:#F4F0EA;
-}
+:root{--bg:#F7F2EB;--surf:#FDFAF6;--surf2:#EDE6DA;--bdr:#DDD4C4;--tx:#261C10;--tx2:#7A6A54;--tx3:#B0A08C;--acc:#7C5738;--strategic:#2D4878;--execution:#2A6044;--stewardship:#574880;--arch-bg:#F4F0EA;}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 body{background:var(--bg);color:var(--tx);font-family:'DM Sans',sans-serif;height:100vh;overflow:hidden;-webkit-font-smoothing:antialiased;}
-
-/* ── LOADING / ERROR ─────────────────────────────────────── */
 .screen{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:var(--arch-bg);z-index:100;}
 .sc-title{font-family:'Playfair Display',serif;font-size:22px;font-weight:600;margin-bottom:6px;}
 .sc-sub{font-size:13px;color:var(--tx2);margin-bottom:28px;}
-.dots{display:flex;gap:7px;}
-.dot{width:7px;height:7px;border-radius:50%;background:var(--acc);animation:blink 1.2s ease-in-out infinite;}
+.dots{display:flex;gap:7px;}.dot{width:7px;height:7px;border-radius:50%;background:var(--acc);animation:blink 1.2s ease-in-out infinite;}
 .dot:nth-child(2){animation-delay:.2s;}.dot:nth-child(3){animation-delay:.4s;}
 @keyframes blink{0%,100%{opacity:.2;transform:scale(.8);}50%{opacity:1;transform:scale(1);}}
 .info-box{background:var(--surf);border:1px solid var(--bdr);border-radius:16px;padding:36px 40px;max-width:440px;text-align:center;}
 .ib-icon{font-size:28px;margin-bottom:12px;}.ib-head{font-family:'Playfair Display',serif;font-size:19px;font-weight:600;margin-bottom:8px;}
 .ib-body{font-size:13px;color:var(--tx2);line-height:1.65;}.ib-steps{text-align:left;margin-top:16px;}
 .ib-steps li{font-size:12.5px;color:var(--tx2);margin-bottom:5px;line-height:1.5;}.ib-steps strong{color:var(--tx);}
-
-/* ── APP / HEADER ────────────────────────────────────────── */
+/* App */
 #app{display:flex;flex-direction:column;height:100vh;}
 .hdr{background:var(--surf);border-bottom:1px solid var(--bdr);height:52px;display:flex;align-items:center;padding:0 20px;gap:14px;flex-shrink:0;}
 .hdr-brand{font-family:'Playfair Display',serif;font-size:16px;font-weight:600;white-space:nowrap;flex-shrink:0;}
@@ -44,26 +34,19 @@ body{background:var(--bg);color:var(--tx);font-family:'DM Sans',sans-serif;heigh
 .hdr-btn{padding:5px 10px;border:1px solid var(--bdr);border-radius:7px;background:transparent;font-family:'DM Sans',sans-serif;font-size:11px;font-weight:500;color:var(--tx2);cursor:pointer;transition:all .12s;}
 .hdr-btn:hover{background:var(--surf2);color:var(--tx);}
 #vc{flex:1;overflow:hidden;position:relative;}
-
-/* ── SHARED: SECTION HEADERS ─────────────────────────────── */
-.sec-hdr{display:flex;align-items:center;gap:12px;margin-bottom:18px;}
-.sec-hdr:not(:first-child){margin-top:36px;}
+/* Shared */
+.sec-hdr{display:flex;align-items:center;gap:12px;margin-bottom:16px;}
+.sec-hdr:not(:first-child){margin-top:32px;}
 .sec-lbl{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.14em;color:var(--tx3);white-space:nowrap;}
 .sec-line{flex:1;height:1px;background:var(--bdr);}
 .sec-cnt{font-size:11px;color:var(--tx3);}
-
-/* ── SHARED: CHIPS ───────────────────────────────────────── */
-.chip{font-size:10.5px;padding:3px 9px;background:var(--surf2);border-radius:20px;color:var(--tx2);}
-.chip-c{font-size:10.5px;padding:3px 9px;border-radius:20px;color:#fff;opacity:.92;}
-.chip-items{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px;}
-
-/* ── SHARED: TAGS ────────────────────────────────────────── */
+.chip{font-size:11px;padding:4px 10px;background:var(--surf2);border-radius:20px;color:var(--tx2);}
+.chip-c{font-size:11px;padding:4px 10px;border-radius:20px;color:#fff;opacity:.92;}
+.chip-items{display:flex;flex-wrap:wrap;gap:5px;margin-top:10px;}
 .tag{font-size:9.5px;font-weight:500;padding:2px 7px;border-radius:20px;}
-.t-g{background:#E6F4EE;color:#2A7050;}.t-y{background:#FFF3E0;color:#B06820;}
-.t-r{background:#FFEEED;color:#A83428;}.t-b{background:#EBF2FB;color:#2C5FA0;}
-.t-n{background:var(--surf2);color:var(--tx2);}.t-s{background:#EDF0F2;color:#4A6070;}
-
-/* ── GUIDE VIEW ──────────────────────────────────────────── */
+.t-g{background:#E6F4EE;color:#2A7050;}.t-y{background:#FFF3E0;color:#B06820;}.t-r{background:#FFEEED;color:#A83428;}
+.t-b{background:#EBF2FB;color:#2C5FA0;}.t-n{background:var(--surf2);color:var(--tx2);}.t-s{background:#EDF0F2;color:#4A6070;}
+/* ── GUIDE ─────────────────────────────────────────────── */
 .vguide{height:100%;overflow-y:auto;background:var(--arch-bg);}
 .arch{max-width:760px;margin:0 auto;padding:32px 40px 48px;}
 .arch-title-block{text-align:center;margin-bottom:24px;padding-bottom:20px;border-bottom:2px solid #E0D8CC;}
@@ -121,52 +104,52 @@ body{background:var(--bg);color:var(--tx);font-family:'DM Sans',sans-serif;heigh
 .arch-cta{text-align:center;margin-top:26px;}
 .arch-cta-btn{display:inline-block;padding:12px 34px;background:#1A2540;color:#FAF6F0;border:none;border-radius:9px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;cursor:pointer;letter-spacing:.04em;transition:background .15s;}
 .arch-cta-btn:hover{background:var(--strategic);}
-
-/* ── STRATEGIC VIEW ──────────────────────────────────────── */
+/* ── STRATEGIC ──────────────────────────────────────────── */
 .vstr{height:100%;overflow-y:auto;padding:24px 28px 52px;background:var(--bg);}
 .vstr-inner{max-width:1100px;margin:0 auto;}
-.vstr-grid{display:grid;grid-template-columns:1fr 224px;gap:24px;align-items:start;}
-.vstr-cascade{display:flex;flex-direction:column;}
-.vstr-card{background:var(--surf);border:1px solid var(--bdr);border-radius:12px;padding:15px 19px;}
+.vstr-grid{display:grid;grid-template-columns:1fr 232px;gap:24px;align-items:start;}
+.vstr-cascade{display:flex;flex-direction:column;gap:0;}
+.vstr-card{background:var(--surf);border:1px solid var(--bdr);border-radius:12px;overflow:hidden;margin-bottom:0;}
 .vstr-card.vis{border-left:4px solid var(--acc);}
-.vstr-kicker{font-size:9px;font-weight:500;text-transform:uppercase;letter-spacing:.12em;color:var(--tx3);margin-bottom:5px;}
-.vstr-body{font-size:12px;color:var(--tx2);line-height:1.6;}
-.vstr-para{margin-bottom:5px;}.vstr-bhead{font-weight:600;color:var(--tx);margin-bottom:3px;margin-top:6px;}
-.vstr-bullet{padding-left:12px;position:relative;margin-bottom:4px;}
-.vstr-bullet::before{content:'·';position:absolute;left:2px;color:var(--tx3);}
-.vstr-ph{font-style:italic;color:var(--tx3);font-size:12px;}
-.vstr-arrow{text-align:center;padding:5px 0;color:var(--tx3);font-size:15px;}
+.vstr-card-hd{padding:12px 18px 11px;background:var(--surf2);border-bottom:1px solid var(--bdr);}
+.vstr-card-title{font-family:'Playfair Display',serif;font-size:16px;font-weight:600;color:var(--tx);}
+.vstr-body{padding:14px 18px;font-size:13px;color:var(--tx);line-height:1.65;}
+.vstr-para{margin-bottom:7px;}
+.vstr-bhead{font-family:'Playfair Display',serif;font-size:14px;font-weight:600;color:var(--tx);margin:10px 0 5px;}
+.vstr-bullet{display:flex;align-items:flex-start;gap:9px;margin-bottom:7px;}
+.vstr-bdot{width:5px;height:5px;border-radius:50%;background:var(--acc);flex-shrink:0;margin-top:7px;}
+.vstr-btext{flex:1;line-height:1.55;}
+.vstr-ph{font-style:italic;color:var(--tx3);font-size:13px;}
+.vstr-arrow{text-align:center;padding:6px 0;color:var(--tx3);font-size:16px;}
 .vstr-sidebar{}
 .vstr-side-title{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--tx3);margin-bottom:10px;}
-.vstr-p-card{background:var(--surf);border:1px solid var(--bdr);border-left:4px solid var(--pc,var(--bdr));border-radius:9px;padding:8px 11px;margin-bottom:6px;}
-.vstr-p-name{font-size:11.5px;font-weight:500;color:var(--tx);display:flex;align-items:center;gap:6px;margin-bottom:2px;}
+.vstr-p-card{background:var(--surf);border:1px solid var(--bdr);border-left:4px solid var(--pc,var(--bdr));border-radius:9px;padding:9px 12px;margin-bottom:6px;}
+.vstr-p-name{font-size:12px;font-weight:500;color:var(--tx);display:flex;align-items:center;gap:6px;margin-bottom:3px;}
 .vstr-p-pip{width:7px;height:7px;border-radius:50%;flex-shrink:0;}
-.vstr-p-stats{font-size:10px;color:var(--tx3);}
-
-/* ── EXECUTION VIEW ──────────────────────────────────────── */
+.vstr-p-meta{font-size:10.5px;color:var(--tx3);display:flex;align-items:center;gap:5px;}
+/* ── EXECUTION ──────────────────────────────────────────── */
 .vexe{height:100%;overflow-y:auto;padding:24px 28px 52px;background:var(--bg);}
 .vexe-inner{max-width:1100px;margin:0 auto;}
-.vexe-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin-bottom:0;}
+.vexe-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;}
 .vexe-rock{background:var(--surf);border:1px solid var(--bdr);border-left:4px solid var(--pc,var(--bdr));border-radius:11px;padding:13px 15px;}
 .vexe-rock-k{font-size:9px;font-weight:500;text-transform:uppercase;letter-spacing:.1em;color:var(--tx3);margin-bottom:3px;}
-.vexe-rock-n{font-size:13px;font-weight:500;line-height:1.4;color:var(--tx);margin-bottom:8px;}
+.vexe-rock-n{font-size:13.5px;font-weight:500;line-height:1.4;color:var(--tx);margin-bottom:8px;}
 .vexe-rock-tags{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:7px;}
 .vexe-rock-goal{font-size:11px;color:var(--tx2);padding-top:7px;border-top:1px solid var(--bdr);}
 .vexe-proj{background:var(--surf);border:1px solid var(--bdr);border-left:4px solid var(--pc,var(--bdr));border-radius:11px;padding:13px 15px;}
 .vexe-proj-k{font-size:9px;font-weight:500;text-transform:uppercase;letter-spacing:.1em;color:var(--tx3);margin-bottom:3px;}
-.vexe-proj-n{font-size:13px;font-weight:500;line-height:1.4;color:var(--tx);margin-bottom:8px;}
+.vexe-proj-n{font-size:13.5px;font-weight:500;line-height:1.4;color:var(--tx);margin-bottom:8px;}
 .vexe-proj-tags{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:7px;}
 .vexe-proj-next{font-size:11.5px;color:var(--tx2);padding-top:7px;border-top:1px solid var(--bdr);line-height:1.4;}
 .vexe-tasks-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
-.vexe-tasks-col-hdr{font-size:11px;font-weight:600;color:var(--tx2);margin-bottom:8px;padding-bottom:6px;border-bottom:1px solid var(--bdr);}
+.vexe-tasks-col-hdr{font-size:12px;font-weight:600;color:var(--tx2);margin-bottom:8px;padding-bottom:6px;border-bottom:1px solid var(--bdr);}
 .vexe-task{display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid var(--bdr);}
 .vexe-task:last-child{border-bottom:none;}
 .vexe-task-pip{width:7px;height:7px;border-radius:50%;flex-shrink:0;}
-.vexe-task-n{font-size:11.5px;color:var(--tx);flex:1;line-height:1.35;}
+.vexe-task-n{font-size:12px;color:var(--tx);flex:1;line-height:1.35;}
 .vexe-task-tags{display:flex;gap:3px;flex-shrink:0;}
 .vexe-more{font-size:11px;color:var(--tx3);font-style:italic;padding:8px 0;}
-
-/* ── STEWARDSHIP / PILLAR LANES ──────────────────────────── */
+/* ── PILLARS ────────────────────────────────────────────── */
 .vpil{display:flex;height:100%;overflow-x:auto;overflow-y:hidden;}
 .vpil-lane{min-width:186px;flex:1;display:flex;flex-direction:column;border-right:1px solid var(--bdr);}
 .vpil-lane:last-child{border-right:none;}
@@ -180,18 +163,48 @@ body{background:var(--bg);color:var(--tx);font-family:'DM Sans',sans-serif;heigh
 .vpil-item.outcome{border-left:2px solid var(--pc,var(--bdr));}
 .vpil-item-sm{font-size:10px;color:var(--tx2);padding:4px 8px;background:var(--bg);border:1px solid var(--bdr);border-radius:5px;margin-bottom:3px;line-height:1.38;}
 .vpil-empty{font-size:10px;color:var(--tx3);font-style:italic;padding:4px 0;}
-
-/* ── PRINT ───────────────────────────────────────────────── */
+/* ── WIP DASHBOARD ──────────────────────────────────────── */
+.vwip{height:100%;overflow-y:auto;padding:20px 24px 52px;background:var(--bg);}
+.vwip-inner{max-width:1100px;margin:0 auto;}
+.vwip-toolbar{display:flex;align-items:center;gap:6px;margin-bottom:16px;flex-wrap:wrap;}
+.vwip-toolbar-lbl{font-size:11px;font-weight:500;color:var(--tx2);margin-right:2px;}
+.vwip-rbtn{padding:4px 11px;border:1px solid var(--bdr);border-radius:20px;background:transparent;font-family:'DM Sans',sans-serif;font-size:11px;color:var(--tx2);cursor:pointer;transition:all .12s;}
+.vwip-rbtn:hover{background:var(--surf2);}.vwip-rbtn.on{background:var(--tx);color:var(--bg);border-color:var(--tx);}
+.vwip-rdatelbl{font-size:11px;color:var(--tx3);margin-left:6px;}
+.vwip-metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:14px;}
+.vwip-metric{background:var(--surf);border:1px solid var(--bdr);border-radius:11px;padding:14px 16px;}
+.vwip-metric.warn{border-color:#D4905A;background:#FFF8F3;}
+.vwip-mval{font-family:'Playfair Display',serif;font-size:28px;font-weight:600;color:var(--tx);line-height:1;margin-bottom:5px;}
+.vwip-mtgt{font-size:14px;font-weight:400;color:var(--tx3);}
+.vwip-mlbl{font-size:10px;font-weight:600;color:var(--tx2);text-transform:uppercase;letter-spacing:.09em;margin-bottom:3px;}
+.vwip-msub{font-size:10.5px;color:var(--tx3);}
+.vwip-prog-track{height:5px;background:var(--surf2);border-radius:3px;margin-top:8px;overflow:hidden;}
+.vwip-prog-fill{height:100%;background:#4A8B70;border-radius:3px;transition:width .3s;}
+.vwip-chart-box{background:var(--surf);border:1px solid var(--bdr);border-radius:11px;padding:16px 18px;margin-bottom:14px;}
+.vwip-chart-title{font-size:13px;font-weight:600;color:var(--tx);margin-bottom:14px;}
+.vwip-chart-sub{font-weight:400;color:var(--tx3);font-size:11px;}
+.vwip-bar-wrap{height:220px;position:relative;}
+.vwip-bottom{display:grid;grid-template-columns:1fr 1fr 190px;gap:12px;margin-bottom:14px;}
+.vwip-pie-box{background:var(--surf);border:1px solid var(--bdr);border-radius:11px;padding:16px 18px;}
+.vwip-pie-wrap{height:200px;position:relative;}
+.vwip-stat-box{background:var(--surf);border:1px solid var(--bdr);border-radius:11px;padding:16px 18px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;}
+.vwip-stat-big{font-family:'Playfair Display',serif;font-size:42px;font-weight:700;color:var(--tx);line-height:1;margin-bottom:8px;}
+.vwip-stat-lbl{font-size:11px;font-weight:600;color:var(--tx2);text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px;}
+.vwip-stat-sub{font-size:11px;color:var(--tx3);}
+.vwip-stag-list{background:var(--surf);border:1px solid var(--bdr);border-radius:11px;overflow:hidden;}
+.vwip-stag-row{display:flex;align-items:center;gap:10px;padding:10px 14px;border-bottom:1px solid var(--bdr);}
+.vwip-stag-row:last-child{border-bottom:none;}
+.vwip-stag-pip{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+.vwip-stag-name{font-size:12.5px;color:var(--tx);flex:1;line-height:1.4;}
+.vwip-stag-meta{display:flex;gap:4px;flex-shrink:0;}
+.vwip-nodata{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;gap:12px;text-align:center;padding:32px;}
+/* Print */
 @media print{
   body{height:auto;overflow:visible;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
-  #app{height:auto;overflow:visible;}
-  #vc{height:auto;overflow:visible;}
-  .hdr{position:static;}
+  #app{height:auto;overflow:visible;}#vc{height:auto;overflow:visible;}.hdr{position:static;}
   .no-print{display:none!important;}
-  .vguide,.vstr,.vexe{height:auto;overflow:visible;}
-  .arch{max-width:100%;padding:16px 24px;}
-  .arch-cta{display:none;}
-  /* stack pillar lanes for print */
+  .vguide,.vstr,.vexe,.vwip{height:auto;overflow:visible;}
+  .arch{max-width:100%;padding:16px 24px;}.arch-cta{display:none;}
   .vpil{flex-direction:column;height:auto;overflow:visible;}
   .vpil-lane{border-right:none;border-bottom:1px solid var(--bdr);height:auto;}
   .vpil-body{overflow:visible;}
@@ -200,8 +213,6 @@ body{background:var(--bg);color:var(--tx);font-family:'DM Sans',sans-serif;heigh
 </style>
 </head>
 <body>
-
-<!-- Loading -->
 <div class="screen" id="scr-loading">
   <div class="sc-title">Eubanks Family OS</div>
   <div class="sc-sub" id="load-msg">Loading…</div>
@@ -211,11 +222,7 @@ body{background:var(--bg);color:var(--tx);font-family:'DM Sans',sans-serif;heigh
   <div class="info-box">
     <div class="ib-icon">🌱</div><div class="ib-head">Ready to grow</div>
     <div class="ib-body">Run the GitHub Action to load your Notion data.
-      <ol class="ib-steps">
-        <li>Add secret <strong>NOTION_TOKEN</strong> in GitHub Settings</li>
-        <li><strong>Actions → Sync Notion Data → Run workflow</strong></li>
-        <li>Reload once complete</li>
-      </ol>
+      <ol class="ib-steps"><li>Add secret <strong>NOTION_TOKEN</strong> in GitHub Settings</li><li><strong>Actions → Sync Notion Data → Run workflow</strong></li><li>Reload once complete</li></ol>
     </div>
   </div>
 </div>
@@ -226,16 +233,15 @@ body{background:var(--bg);color:var(--tx);font-family:'DM Sans',sans-serif;heigh
     <div class="ib-code" id="err-msg"></div>
   </div>
 </div>
-
-<!-- App -->
 <div id="app" hidden>
   <header class="hdr">
-    <div class="hdr-brand">Eubanks Family OS <em>· Vision</em></div>
+    <div class="hdr-brand">Eubanks Family OS <em>· Roadmap</em></div>
     <div class="view-tabs">
-      <button class="vtab on" onclick="sv('guide')"      id="vt-guide">Guide</button>
-      <button class="vtab"    onclick="sv('strategic')"  id="vt-strategic">Strategic</button>
-      <button class="vtab"    onclick="sv('execution')"  id="vt-execution">Execution</button>
-      <button class="vtab"    onclick="sv('pillars')"    id="vt-pillars">Pillars</button>
+      <button class="vtab on" onclick="sv('guide')"     id="vt-guide">Guide</button>
+      <button class="vtab"    onclick="sv('strategic')" id="vt-strategic">Strategic</button>
+      <button class="vtab"    onclick="sv('execution')" id="vt-execution">Execution</button>
+      <button class="vtab"    onclick="sv('pillars')"   id="vt-pillars">Pillars</button>
+      <button class="vtab"    onclick="sv('wip')"       id="vt-wip">WIP</button>
     </div>
     <div class="hdr-right">
       <div class="updated" id="updated-ts"></div>
@@ -245,17 +251,14 @@ body{background:var(--bg);color:var(--tx);font-family:'DM Sans',sans-serif;heigh
   <div id="vc"></div>
 </div>
 
-<!-- Guide template (static content cloned on demand) -->
+<!-- Guide template -->
 <template id="tguide">
-<div class="vguide">
-<div class="arch">
+<div class="vguide"><div class="arch">
   <div class="arch-title-block">
     <div class="arch-diamond">◆ ◆ ◆</div>
     <div class="arch-h1">Family OS Strategic Roadmap Architecture</div>
     <div class="arch-tagline">Our vision. Our focus. Our intentional life together.</div>
   </div>
-
-  <!-- STRATEGIC LAYER -->
   <div class="arch-section">
     <div class="arch-slabel strategic">
       <div class="arch-slabel-icon-circle"><span style="filter:brightness(10)">🏔</span></div>
@@ -263,38 +266,20 @@ body{background:var(--bg);color:var(--tx);font-family:'DM Sans',sans-serif;heigh
       <div class="arch-slabel-desc">Defines where we're going and what success looks like.</div>
     </div>
     <div class="arch-boxes">
-      <div class="arch-box strategic">
-        <div class="arch-box-icon-wrap"><span style="font-size:19px">🎯</span></div>
-        <div><div class="arch-box-title strategic">10-Year Target</div><div class="arch-box-desc">The long-range destination. Our ultimate definition of success.</div></div>
-      </div>
+      <div class="arch-box strategic"><div class="arch-box-icon-wrap" style="background:#EBF0F8"><span style="font-size:19px">🎯</span></div><div><div class="arch-box-title strategic">10-Year Target</div><div class="arch-box-desc">The long-range destination. Our ultimate definition of success.</div></div></div>
       <div class="arch-arrow">↓</div>
-      <div class="arch-box strategic">
-        <div class="arch-box-icon-wrap"><span style="font-size:19px">🔭</span></div>
-        <div><div class="arch-box-title strategic">3-Year Vision</div><div class="arch-box-desc">A narrative description of what life looks and feels like three years from now.</div></div>
-      </div>
+      <div class="arch-box strategic"><div class="arch-box-icon-wrap" style="background:#EBF0F8"><span style="font-size:19px">🔭</span></div><div><div class="arch-box-title strategic">3-Year Vision</div><div class="arch-box-desc">A narrative description of what life looks and feels like three years from now.</div></div></div>
       <div class="arch-arrow">↓</div>
       <div class="arch-box strategic arch-goals-box">
-        <div class="arch-goals-top">
-          <div class="arch-box-icon-wrap"><span style="font-size:19px">📋</span></div>
-          <div><div class="arch-box-title strategic">Goals Database</div><div class="arch-box-desc">Contains both 3-Year Outcomes and Annual Goals — differentiated by Goal Horizon.</div></div>
-        </div>
+        <div class="arch-goals-top"><div class="arch-box-icon-wrap" style="background:#EBF0F8"><span style="font-size:19px">📋</span></div><div><div class="arch-box-title strategic">Goals Database</div><div class="arch-box-desc">Contains both 3-Year Outcomes and Annual Goals — differentiated by Goal Horizon.</div></div></div>
         <div class="arch-sub-row">
-          <div class="arch-sub-box outcomes">
-            <div class="arch-sub-icon">◎</div>
-            <div><div class="arch-sub-title">3-Year Outcomes</div><div class="arch-sub-desc">Measurable proof that the 3-Year Vision is becoming real. Use only 3–5 max.</div></div>
-          </div>
-          <div class="arch-sub-box annuals">
-            <div class="arch-sub-icon">🏆</div>
-            <div><div class="arch-sub-title">Annual Goals</div><div class="arch-sub-desc">Meaningful progress commitments for the current year. May or may not tie to a 3-Year Outcome.</div></div>
-          </div>
+          <div class="arch-sub-box outcomes"><div class="arch-sub-icon">◎</div><div><div class="arch-sub-title">3-Year Outcomes</div><div class="arch-sub-desc">Measurable proof the 3-Year Vision is becoming real. Use only 3–5 max.</div></div></div>
+          <div class="arch-sub-box annuals"><div class="arch-sub-icon">🏆</div><div><div class="arch-sub-title">Annual Goals</div><div class="arch-sub-desc">Meaningful commitments for the current year. May or may not tie to a 3-Year Outcome.</div></div></div>
         </div>
       </div>
     </div>
   </div>
-
   <div class="arch-section-arrow">↓</div>
-
-  <!-- EXECUTION LAYER -->
   <div class="arch-section">
     <div class="arch-slabel execution">
       <div class="arch-slabel-icon-circle"><span style="filter:brightness(10)">⚙️</span></div>
@@ -302,26 +287,14 @@ body{background:var(--bg);color:var(--tx);font-family:'DM Sans',sans-serif;heigh
       <div class="arch-slabel-desc">Turns our priorities into action and measurable progress.</div>
     </div>
     <div class="arch-boxes">
-      <div class="arch-box execution">
-        <div class="arch-box-icon-wrap" style="background:#E8F4EE"><span style="font-size:19px">🪨</span></div>
-        <div><div class="arch-box-title execution">Quarterly Rocks</div><div class="arch-box-desc">The few 90-day priorities that move Annual Goals forward. Chosen each quarter.</div></div>
-      </div>
+      <div class="arch-box execution"><div class="arch-box-icon-wrap" style="background:#E8F4EE"><span style="font-size:19px">🪨</span></div><div><div class="arch-box-title execution">Quarterly Rocks</div><div class="arch-box-desc">The few 90-day priorities that move Annual Goals forward.</div></div></div>
       <div class="arch-arrow">↓</div>
-      <div class="arch-box execution">
-        <div class="arch-box-icon-wrap" style="background:#E8F4EE"><span style="font-size:19px">🧩</span></div>
-        <div><div class="arch-box-title execution">Projects</div><div class="arch-box-desc">The multi-step work required to complete Rocks or Goals.</div></div>
-      </div>
+      <div class="arch-box execution"><div class="arch-box-icon-wrap" style="background:#E8F4EE"><span style="font-size:19px">🧩</span></div><div><div class="arch-box-title execution">Projects</div><div class="arch-box-desc">The multi-step work required to complete Rocks or Goals.</div></div></div>
       <div class="arch-arrow">↓</div>
-      <div class="arch-box execution">
-        <div class="arch-box-icon-wrap" style="background:#E8F4EE"><span style="font-size:19px">✅</span></div>
-        <div><div class="arch-box-title execution">Tasks</div><div class="arch-box-desc">Specific next actions that drive execution. Managed in the Master Backlog.</div></div>
-      </div>
+      <div class="arch-box execution"><div class="arch-box-icon-wrap" style="background:#E8F4EE"><span style="font-size:19px">✅</span></div><div><div class="arch-box-title execution">Tasks</div><div class="arch-box-desc">Specific next actions that drive execution. Managed in the Master Backlog.</div></div></div>
     </div>
   </div>
-
   <div class="arch-section-arrow">↓</div>
-
-  <!-- STEWARDSHIP LAYER -->
   <div class="arch-section">
     <div class="arch-slabel stewardship">
       <div class="arch-slabel-icon-circle"><span style="filter:brightness(10)">🤝</span></div>
@@ -341,23 +314,16 @@ body{background:var(--bg);color:var(--tx);font-family:'DM Sans',sans-serif;heigh
           <div class="arch-grid-ph" style="background:#4A7BAD"><div class="arch-grid-ph-icon">📈</div><div class="arch-grid-ph-name">Freedom &amp; Ownership</div></div>
           <div class="arch-grid-ph" style="background:#6E8C8A"><div class="arch-grid-ph-icon">⚙️</div><div class="arch-grid-ph-name">Systems &amp; Simplicity</div></div>
           <div class="arch-grid-ph" style="background:#C48B3A"><div class="arch-grid-ph-icon">🧭</div><div class="arch-grid-ph-name">Adventure &amp; Community</div></div>
-          <div class="arch-grid-rl">3-Yr Outcomes</div>
-          <div class="arch-grid-cell"></div><div class="arch-grid-cell"></div><div class="arch-grid-cell"></div><div class="arch-grid-cell"></div><div class="arch-grid-cell"></div><div class="arch-grid-cell"></div><div class="arch-grid-cell"></div>
-          <div class="arch-grid-rl">Annual Goals</div>
-          <div class="arch-grid-cell"></div><div class="arch-grid-cell"></div><div class="arch-grid-cell"></div><div class="arch-grid-cell"></div><div class="arch-grid-cell"></div><div class="arch-grid-cell"></div><div class="arch-grid-cell"></div>
-          <div class="arch-grid-rl">Quarterly Rocks</div>
-          <div class="arch-grid-cell"></div><div class="arch-grid-cell"></div><div class="arch-grid-cell"></div><div class="arch-grid-cell"></div><div class="arch-grid-cell"></div><div class="arch-grid-cell"></div><div class="arch-grid-cell"></div>
-          <div class="arch-grid-rl">Projects</div>
-          <div class="arch-grid-cell"></div><div class="arch-grid-cell"></div><div class="arch-grid-cell"></div><div class="arch-grid-cell"></div><div class="arch-grid-cell"></div><div class="arch-grid-cell"></div><div class="arch-grid-cell"></div>
-          <div class="arch-grid-rl" style="border-radius:0 0 0 5px">Tasks</div>
-          <div class="arch-grid-cell"></div><div class="arch-grid-cell"></div><div class="arch-grid-cell"></div><div class="arch-grid-cell"></div><div class="arch-grid-cell"></div><div class="arch-grid-cell"></div><div class="arch-grid-cell" style="border-radius:0 0 5px 0"></div>
+          <div class="arch-grid-rl">3-Yr Outcomes</div><div class="arch-grid-cell"></div><div class="arch-grid-cell"></div><div class="arch-grid-cell"></div><div class="arch-grid-cell"></div><div class="arch-grid-cell"></div><div class="arch-grid-cell"></div><div class="arch-grid-cell"></div>
+          <div class="arch-grid-rl">Annual Goals</div><div class="arch-grid-cell"></div><div class="arch-grid-cell"></div><div class="arch-grid-cell"></div><div class="arch-grid-cell"></div><div class="arch-grid-cell"></div><div class="arch-grid-cell"></div><div class="arch-grid-cell"></div>
+          <div class="arch-grid-rl">Rocks</div><div class="arch-grid-cell"></div><div class="arch-grid-cell"></div><div class="arch-grid-cell"></div><div class="arch-grid-cell"></div><div class="arch-grid-cell"></div><div class="arch-grid-cell"></div><div class="arch-grid-cell"></div>
+          <div class="arch-grid-rl">Projects</div><div class="arch-grid-cell"></div><div class="arch-grid-cell"></div><div class="arch-grid-cell"></div><div class="arch-grid-cell"></div><div class="arch-grid-cell"></div><div class="arch-grid-cell"></div><div class="arch-grid-cell"></div>
+          <div class="arch-grid-rl" style="border-radius:0 0 0 5px">Tasks</div><div class="arch-grid-cell"></div><div class="arch-grid-cell"></div><div class="arch-grid-cell"></div><div class="arch-grid-cell"></div><div class="arch-grid-cell"></div><div class="arch-grid-cell"></div><div class="arch-grid-cell" style="border-radius:0 0 5px 0"></div>
         </div>
         <div style="height:10px"></div>
       </div>
     </div>
   </div>
-
-  <!-- Callouts -->
   <div class="arch-callouts">
     <div class="arch-callout">
       <div class="arch-callout-icon">✦</div>
@@ -369,37 +335,30 @@ body{background:var(--bg);color:var(--tx);font-family:'DM Sans',sans-serif;heigh
     <div class="arch-callout">
       <div class="arch-callout-icon">📜</div>
       <div class="arch-callout-title">Core Rule</div>
-      <div class="arch-callout-body"><strong>Notion remains the source of truth.</strong><br><br>This roadmap is a visual reflection of the system — not a second place where content is manually maintained. All data is fetched live from Notion.</div>
+      <div class="arch-callout-body"><strong>Notion remains the source of truth.</strong><br><br>This roadmap is a visual reflection of the system — not a second place where content is manually maintained.</div>
     </div>
   </div>
-
   <div class="arch-cta no-print">
     <button class="arch-cta-btn" onclick="sv('strategic')">View Strategic Layer →</button>
   </div>
-</div>
-</div>
+</div></div>
 </template>
 
 <script>
-// ── CONFIG ────────────────────────────────────────────────
 const PC={'Faith & Character':'#7B6FAC','Marriage & Family':'#B5695A','Health & Energy':'#4A8B70','Home/Homestead':'#A07848','Freedom & Ownership':'#4A7BAD','Systems & Simplicity':'#6E8C8A','Adventure & Community':'#C48B3A'}
+let D={pillars:[],goals:[],rocks:[],projects:[],tasks:[],wipTasks:[]},ALL={},CV='guide',WIP_RANGE='week'
 
-// ── STATE ─────────────────────────────────────────────────
-let D={pillars:[],goals:[],rocks:[],projects:[],tasks:[]},ALL={},CV='guide'
-
-// ── BOOT ──────────────────────────────────────────────────
 window.addEventListener('DOMContentLoaded',init)
 async function init(){so('scr-loading');try{await load();so('app');renderHdr();sv('guide')}catch(e){if(e.message==='NO_DATA')so('scr-nodata');else{document.getElementById('err-msg').textContent=e.message;so('scr-error')}}}
 async function reload(){so('scr-loading');try{await load();so('app');renderHdr();sv(CV)}catch(e){if(e.message==='NO_DATA')so('scr-nodata');else{document.getElementById('err-msg').textContent=e.message;so('scr-error')}}}
 function so(id){['scr-loading','scr-nodata','scr-error','app'].forEach(s=>document.getElementById(s).hidden=s!==id)}
 
-// ── DATA ──────────────────────────────────────────────────
 async function load(){
   const res=await fetch('./data.json?v='+Date.now())
   if(!res.ok)throw new Error('data.json not found (HTTP '+res.status+')')
   const data=await res.json()
   if(!data.generated)throw new Error('NO_DATA')
-  D={pillars:data.pillars||[],goals:data.goals||[],rocks:data.rocks||[],projects:data.projects||[],tasks:data.tasks||[],meta:data.meta||{},_ts:data.generated}
+  D={pillars:data.pillars||[],goals:data.goals||[],rocks:data.rocks||[],projects:data.projects||[],tasks:data.tasks||[],wipTasks:data.wipTasks||[],meta:data.meta||{},_ts:data.generated,_hasWip:'wipTasks' in data}
   colorize()
 }
 function colorize(){
@@ -409,165 +368,89 @@ function colorize(){
   D.rocks.forEach(r=>{r.type='rock';const a=r.pillarIds?.map(i=>pm[i]).find(Boolean),b=r.goalIds?.map(i=>gm[i]).find(Boolean),c=D.goals.find(g=>g.rockIds?.includes(r.id));r.pc=a?.color||b?.pc||c?.pc||'#8B7355'})
   D.projects.forEach(pr=>{pr.type='project';const a=pr.rockIds?.map(i=>rm[i]).find(Boolean),b=D.rocks.find(r=>r.projectIds?.includes(pr.id));pr.pc=(a||b)?.pc||'#8B7355'})
   D.tasks.forEach(t=>{t.type='task';const a=t.projectIds?.map(i=>prm[i]).find(Boolean),b=D.projects.find(p=>p.taskIds?.includes(t.id));t.pc=a?.pc||b?.pc||PC[t.pillar]||'#8B7355'})
+  D.wipTasks.forEach(t=>{t.type='task';const a=t.projectIds?.map(i=>prm[i]).find(Boolean);t.pc=a?.pc||PC[t.pillar]||'#8B7355'})
   ALL={...by(D.pillars),...by(D.goals),...by(D.rocks),...by(D.projects),...by(D.tasks)}
 }
 const by=arr=>Object.fromEntries(arr.map(x=>[x.id,x]))
-
-// ── RELATIONSHIPS ─────────────────────────────────────────
 const goalsOf=p=>D.goals.filter(g=>p.goalIds?.includes(g.id)||g.pillarIds?.includes(p.id))
 const rocksOf=g=>D.rocks.filter(r=>g.rockIds?.includes(r.id)||r.goalIds?.includes(g.id))
 const projsOf=r=>D.projects.filter(p=>r.projectIds?.includes(p.id)||p.rockIds?.includes(r.id))
-const tasksOf=pr=>D.tasks.filter(t=>pr.taskIds?.includes(t.id)||t.projectIds?.includes(pr.id))
-
-// ── UTILS ─────────────────────────────────────────────────
 const stag=s=>{const sc=s=>({'Healthy':'t-g','On Track':'t-g','Complete':'t-g','Needs Attention':'t-y','At Risk':'t-y','Paused':'t-y','Neglected':'t-r','Dropped':'t-r','Active':'t-b','Not Started':'t-n'})[s]||'t-n';return s?`<span class="tag ${sc(s)}">${s}</span>`:''}
 const trunc=(s,n)=>s&&s.length>n?s.slice(0,n)+'…':(s||'')
-const cap=s=>s?s[0].toUpperCase()+s.slice(1):''
+function fmtDate(d){return d.toLocaleDateString('en-US',{month:'short',day:'numeric'})}
+function renderHdr(){if(D._ts){const d=new Date(D._ts);document.getElementById('updated-ts').textContent=d.toLocaleDateString('en-US',{month:'short',day:'numeric'})+' · '+d.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'})}}
 
-function renderHdr(){
-  if(D._ts){const d=new Date(D._ts);document.getElementById('updated-ts').textContent=d.toLocaleDateString('en-US',{month:'short',day:'numeric'})+' · '+d.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'})}}
-
-// ── VIEW SWITCHER ─────────────────────────────────────────
 function sv(name){
   CV=name
   document.querySelectorAll('.vtab').forEach(t=>t.classList.remove('on'))
   document.getElementById('vt-'+name)?.classList.add('on')
-  const views={guide:vGuideRender,strategic:vStrategicRender,execution:vExeRender,pillars:vPilRender}
-  views[name]?.()
+  ;({guide:vGuide,strategic:vStrategic,execution:vExe,pillars:vPil,wip:vWip})[name]?.()
 }
 
-// ════════════════════════════════════════════════════════
-// GUIDE VIEW
-// ════════════════════════════════════════════════════════
-function vGuideRender(){
-  const vc=document.getElementById('vc')
-  vc.innerHTML=''
-  const tmpl=document.getElementById('tguide')
-  vc.appendChild(tmpl.content.cloneNode(true))
-}
+// ── GUIDE ──────────────────────────────────────────────────
+function vGuide(){const vc=document.getElementById('vc');vc.innerHTML='';vc.appendChild(document.getElementById('tguide').content.cloneNode(true))}
 
-// ════════════════════════════════════════════════════════
-// STRATEGIC VIEW
-// ════════════════════════════════════════════════════════
-function vStrategicRender(){
-  const meta=D.meta||{}
-  const outcomes=D.goals.filter(g=>g.horizon==='3-Year')
-  const annual=D.goals.filter(g=>g.horizon==='1-Year')
-  let h=`<div class="vstr"><div class="vstr-inner">`
-  h+=`<div class="sec-hdr"><span class="sec-lbl">Strategic Layer</span><div class="sec-line"></div></div>`
-  h+=`<div class="vstr-grid"><div class="vstr-cascade">`
-  // 10-Year Target
-  h+=`<div class="vstr-card vis"><div class="vstr-kicker">10-Year Target</div><div class="vstr-body">${vsBlocks(meta.tenYearTarget)}</div></div>`
+// ── STRATEGIC ──────────────────────────────────────────────
+function vStrategic(){
+  const meta=D.meta||{},outcomes=D.goals.filter(g=>g.horizon==='3-Year'),annual=D.goals.filter(g=>g.horizon==='1-Year')
+  let h=`<div class="vstr"><div class="vstr-inner"><div class="sec-hdr"><span class="sec-lbl">Strategic Layer</span><div class="sec-line"></div></div><div class="vstr-grid"><div class="vstr-cascade">`
+  h+=vsCard('10-Year Target',true,vsBlocks(meta.tenYearTarget))
   h+=`<div class="vstr-arrow">↓</div>`
-  // 3-Year Vision
-  h+=`<div class="vstr-card vis"><div class="vstr-kicker">3-Year Vision</div><div class="vstr-body">${vsBlocks(meta.threeYearVision)}</div></div>`
+  h+=vsCard('3-Year Vision',true,vsBlocks(meta.threeYearVision))
   h+=`<div class="vstr-arrow">↓</div>`
-  // 3-Year Outcomes
-  const outHtml=outcomes.length
-    ?`<div class="chip-items">${outcomes.map(g=>`<span class="chip-c" style="background:${g.pc}">${trunc(g.name,52)}</span>`).join('')}</div>`
-    :`<div class="vstr-ph">No 3-Year Outcomes yet — add goals with Goal Horizon = "3-Year" in Notion.</div>`
-  h+=`<div class="vstr-card"><div class="vstr-kicker">3-Year Outcomes · ${outcomes.length}</div><div class="vstr-body">${outHtml}</div></div>`
+  const outHtml=outcomes.length?`<div class="chip-items">${outcomes.map(g=>`<span class="chip-c" style="background:${g.pc}">${trunc(g.name,52)}</span>`).join('')}</div>`:`<div class="vstr-ph">No 3-Year Outcomes yet — add goals with Goal Horizon = "3-Year" in Notion.</div>`
+  h+=vsCard(`3-Year Outcomes · ${outcomes.length}`,false,outHtml)
   h+=`<div class="vstr-arrow">↓</div>`
-  // Annual Goals
-  const annHtml=annual.length
-    ?`<div class="chip-items">${annual.map(g=>`<span class="chip-c" style="background:${g.pc}">${trunc(g.name,50)}</span>`).join('')}</div>`
-    :`<div class="vstr-ph">No annual goals found.</div>`
-  h+=`<div class="vstr-card"><div class="vstr-kicker">Annual Goals · ${annual.length}</div><div class="vstr-body">${annHtml}</div></div>`
-  h+=`</div>`
-  // Pillar sidebar
-  h+=`<div class="vstr-sidebar"><div class="vstr-side-title">Pillar Stewardship</div>`
+  const annHtml=annual.length?`<div class="chip-items">${annual.map(g=>`<span class="chip-c" style="background:${g.pc}">${trunc(g.name,50)}</span>`).join('')}</div>`:`<div class="vstr-ph">No annual goals found.</div>`
+  h+=vsCard(`Annual Goals · ${annual.length}`,false,annHtml)
+  h+=`</div><div class="vstr-sidebar"><div class="vstr-side-title">Pillar Stewardship</div>`
   D.pillars.forEach(p=>{
-    const pg=goalsOf(p).length,meta2=D.meta||{}
-    const cQ=meta2.currentQuarter||'Q2',cY=meta2.currentYear||'2026'
+    const pg=goalsOf(p).length,meta2=D.meta||{},cQ=meta2.currentQuarter||'Q2',cY=meta2.currentYear||'2026'
     const pr=D.rocks.filter(r=>r.quarter===cQ&&r.year===cY&&(r.pillarIds?.includes(p.id)||goalsOf(p).some(g=>r.goalIds?.includes(g.id)||g.rockIds?.includes(r.id)))).length
-    h+=`<div class="vstr-p-card" style="--pc:${p.color};border-left-color:${p.color}"><div class="vstr-p-name"><span class="vstr-p-pip" style="background:${p.color}"></span>${p.name}</div><div class="vstr-p-stats">${pg} goal${pg!==1?'s':''} · ${stag(p.status)}</div></div>`
+    h+=`<div class="vstr-p-card" style="--pc:${p.color};border-left-color:${p.color}"><div class="vstr-p-name"><span class="vstr-p-pip" style="background:${p.color}"></span>${p.name}</div><div class="vstr-p-meta">${pg} goal${pg!==1?'s':''} · ${pr} rock${pr!==1?'s':''} ${stag(p.status)}</div></div>`
   })
   h+=`</div></div></div></div>`
   document.getElementById('vc').innerHTML=h
 }
-
+function vsCard(title,isVis,body){return`<div class="vstr-card ${isVis?'vis':''}"><div class="vstr-card-hd"><div class="vstr-card-title">${title}</div></div><div class="vstr-body">${body}</div></div>`}
 function vsBlocks(blocks){
-  if(!blocks||!blocks.length)return`<div class="vstr-ph">Not yet populated — update the Notion page to show content here.</div>`
+  if(!blocks?.length)return`<div class="vstr-ph">Not yet populated — update the Notion page to show content here.</div>`
   return blocks.filter(b=>b.text.toLowerCase()!=='summary').slice(0,10).map(b=>{
-    if(b.type==='bulleted_list_item'||b.type==='numbered_list_item')return`<div class="vstr-bullet">${b.text}</div>`
+    if(b.type==='bulleted_list_item'||b.type==='numbered_list_item')return`<div class="vstr-bullet"><div class="vstr-bdot"></div><div class="vstr-btext">${b.text}</div></div>`
     if(b.type.startsWith('heading'))return`<div class="vstr-bhead">${b.text}</div>`
     return`<div class="vstr-para">${trunc(b.text,300)}</div>`
   }).join('')
 }
 
-// ════════════════════════════════════════════════════════
-// EXECUTION VIEW
-// ════════════════════════════════════════════════════════
-function vExeRender(){
+// ── EXECUTION ──────────────────────────────────────────────
+function vExe(){
   const meta=D.meta||{},cQ=meta.currentQuarter||'Q2',cY=meta.currentYear||'2026'
   const qRocks=D.rocks.filter(r=>r.quarter===cQ&&r.year===cY)
   const active=D.projects.filter(p=>p.status==='Active'||p.status==='Not Started')
-  const wip=D.tasks.filter(t=>t.status==='In progress (WIP)')
-  const next=D.tasks.filter(t=>t.status==='Up Next (Sprint Backlog)')
-  const goalMap=by(D.goals)
+  const wip=D.tasks.filter(t=>t.status==='In progress (WIP)'),next=D.tasks.filter(t=>t.status==='Up Next (Sprint Backlog)')
+  const gm=by(D.goals)
   let h=`<div class="vexe"><div class="vexe-inner">`
-
-  // Rocks
   h+=`<div class="sec-hdr"><span class="sec-lbl">Quarterly Rocks</span><div class="sec-line"></div><span class="sec-cnt">${cQ} ${cY} · ${qRocks.length} rock${qRocks.length!==1?'s':''}</span></div>`
-  if(qRocks.length){
-    h+=`<div class="vexe-grid">`
-    qRocks.forEach(r=>{
-      const goalName=r.goalIds?.[0]?goalMap[r.goalIds[0]]?.name:'';
-      h+=`<div class="vexe-rock" style="--pc:${r.pc}">
-        <div class="vexe-rock-k">Rock</div>
-        <div class="vexe-rock-n">${r.name}</div>
-        <div class="vexe-rock-tags">${r.quarter?`<span class="tag t-n">${r.quarter}${r.year?' '+r.year:''}</span>`:''}</div>
-        ${goalName?`<div class="vexe-rock-goal">→ ${trunc(goalName,60)}</div>`:''}
-      </div>`
-    })
-    h+=`</div>`
-  } else { h+=`<div style="font-size:12px;color:var(--tx3);font-style:italic;margin-bottom:16px">No rocks found for ${cQ} ${cY}.</div>` }
-
-  // Projects
-  h+=`<div class="sec-hdr"><span class="sec-lbl">Active Projects</span><div class="sec-line"></div><span class="sec-cnt">${active.length} project${active.length!==1?'s':''}</span></div>`
-  if(active.length){
-    h+=`<div class="vexe-grid">`
-    active.forEach(p=>{
-      h+=`<div class="vexe-proj" style="--pc:${p.pc}">
-        <div class="vexe-proj-k">Project</div>
-        <div class="vexe-proj-n">${p.name}</div>
-        <div class="vexe-proj-tags">${stag(p.status)}</div>
-        ${p.nextAction?`<div class="vexe-proj-next">→ ${trunc(p.nextAction,80)}</div>`:''}
-      </div>`
-    })
-    h+=`</div>`
-  } else { h+=`<div style="font-size:12px;color:var(--tx3);font-style:italic;margin-bottom:16px">No active projects.</div>` }
-
-  // Tasks
+  if(qRocks.length){h+=`<div class="vexe-grid">`;qRocks.forEach(r=>{const gn=r.goalIds?.[0]?gm[r.goalIds[0]]?.name:'';h+=`<div class="vexe-rock" style="--pc:${r.pc}"><div class="vexe-rock-k">Rock</div><div class="vexe-rock-n">${r.name}</div><div class="vexe-rock-tags">${r.quarter?`<span class="tag t-n">${r.quarter}${r.year?' '+r.year:''}</span>`:''}</div>${gn?`<div class="vexe-rock-goal">→ ${trunc(gn,60)}</div>`:''}</div>`});h+=`</div>`}
+  else h+=`<div style="font-size:12px;color:var(--tx3);font-style:italic;margin-bottom:16px">No rocks for ${cQ} ${cY}.</div>`
+  h+=`<div class="sec-hdr"><span class="sec-lbl">Active Projects</span><div class="sec-line"></div><span class="sec-cnt">${active.length}</span></div>`
+  if(active.length){h+=`<div class="vexe-grid">`;active.forEach(p=>{h+=`<div class="vexe-proj" style="--pc:${p.pc}"><div class="vexe-proj-k">Project</div><div class="vexe-proj-n">${p.name}</div><div class="vexe-proj-tags">${stag(p.status)}</div>${p.nextAction?`<div class="vexe-proj-next">→ ${trunc(p.nextAction,80)}</div>`:''}</div>`});h+=`</div>`}
   const SHOW=20
   h+=`<div class="sec-hdr"><span class="sec-lbl">Active Tasks</span><div class="sec-line"></div><span class="sec-cnt">${wip.length} in WIP · ${next.length} up next</span></div>`
-  h+=`<div class="vexe-tasks-row">`
-  // WIP column
-  h+=`<div><div class="vexe-tasks-col-hdr">In WIP (${wip.length})</div>`
-  wip.slice(0,SHOW).forEach(t=>{
-    h+=`<div class="vexe-task"><div class="vexe-task-pip" style="background:${t.pc}"></div><div class="vexe-task-n">${t.name}</div><div class="vexe-task-tags">${t.domain?`<span class="tag t-n">${trunc(t.domain,14)}</span>`:''} ${t.hours?`<span class="tag t-s">${t.hours}h</span>`:''}</div></div>`
-  })
+  h+=`<div class="vexe-tasks-row"><div><div class="vexe-tasks-col-hdr">In WIP (${wip.length})</div>`
+  wip.slice(0,SHOW).forEach(t=>{h+=`<div class="vexe-task"><div class="vexe-task-pip" style="background:${t.pc}"></div><div class="vexe-task-n">${t.name}</div><div class="vexe-task-tags">${t.domain?`<span class="tag t-n">${trunc(t.domain,14)}</span>`:''} ${t.hours?`<span class="tag t-s">${t.hours}h</span>`:''}</div></div>`})
   if(wip.length>SHOW)h+=`<div class="vexe-more">+${wip.length-SHOW} more</div>`
-  h+=`</div>`
-  // Up Next column
-  h+=`<div><div class="vexe-tasks-col-hdr">Up Next (${next.length})</div>`
-  next.slice(0,SHOW).forEach(t=>{
-    h+=`<div class="vexe-task"><div class="vexe-task-pip" style="background:${t.pc}"></div><div class="vexe-task-n">${t.name}</div><div class="vexe-task-tags">${t.domain?`<span class="tag t-n">${trunc(t.domain,14)}</span>`:''} ${t.hours?`<span class="tag t-s">${t.hours}h</span>`:''}</div></div>`
-  })
-  if(next.length>SHOW)h+=`<div class="vexe-more">+${next.length-SHOW} more in backlog</div>`
-  h+=`</div></div>`
-
-  h+=`</div></div>`
+  h+=`</div><div><div class="vexe-tasks-col-hdr">Up Next (${next.length})</div>`
+  next.slice(0,SHOW).forEach(t=>{h+=`<div class="vexe-task"><div class="vexe-task-pip" style="background:${t.pc}"></div><div class="vexe-task-n">${t.name}</div><div class="vexe-task-tags">${t.domain?`<span class="tag t-n">${trunc(t.domain,14)}</span>`:''} ${t.hours?`<span class="tag t-s">${t.hours}h</span>`:''}</div></div>`})
+  if(next.length>SHOW)h+=`<div class="vexe-more">+${next.length-SHOW} more</div>`
+  h+=`</div></div></div></div>`
   document.getElementById('vc').innerHTML=h
 }
 
-// ════════════════════════════════════════════════════════
-// PILLAR LANES VIEW
-// ════════════════════════════════════════════════════════
-function vPilRender(){
+// ── PILLARS ────────────────────────────────────────────────
+function vPil(){
   const meta=D.meta||{},cQ=meta.currentQuarter||'Q2',cY=meta.currentYear||'2026'
-  const outcomes=D.goals.filter(g=>g.horizon==='3-Year')
-  const annual=D.goals.filter(g=>g.horizon==='1-Year')
+  const outcomes=D.goals.filter(g=>g.horizon==='3-Year'),annual=D.goals.filter(g=>g.horizon==='1-Year')
   const qRocks=D.rocks.filter(r=>r.quarter===cQ&&r.year===cY)
   let h=`<div class="vpil">`
   D.pillars.forEach(p=>{
@@ -576,19 +459,135 @@ function vPilRender(){
     const pRocks=qRocks.filter(r=>{if(r.pillarIds?.includes(p.id))return true;return goalsOf(p).some(g=>r.goalIds?.includes(g.id)||g.rockIds?.includes(r.id))})
     const pRockIds=new Set(pRocks.map(r=>r.id))
     const pProjs=D.projects.filter(pr=>pr.rockIds?.some(rid=>pRockIds.has(rid)))
-    const hasContent=pOut.length||pGoals.length||pRocks.length||pProjs.length
-    h+=`<div class="vpil-lane" style="--pc:${p.color}">
-      <div class="vpil-hdr"><div class="vpil-name"><span class="vpil-pip" style="background:${p.color}"></span>${p.name}</div></div>
-      <div class="vpil-body">`
-    if(pOut.length) h+=`<div class="vpil-grp"><div class="vpil-glbl">3-Yr Outcomes</div>${pOut.map(g=>`<div class="vpil-item outcome" style="--pc:${p.color}">${trunc(g.name,55)}</div>`).join('')}</div>`
-    if(pGoals.length) h+=`<div class="vpil-grp"><div class="vpil-glbl">Annual Goals</div>${pGoals.map(g=>`<div class="vpil-item">${trunc(g.name,55)}</div>`).join('')}</div>`
-    if(pRocks.length) h+=`<div class="vpil-grp"><div class="vpil-glbl">Rocks · ${cQ}</div>${pRocks.map(r=>`<div class="vpil-item-sm">${trunc(r.name,52)}</div>`).join('')}</div>`
-    if(pProjs.length) h+=`<div class="vpil-grp"><div class="vpil-glbl">Projects</div>${pProjs.map(pr=>`<div class="vpil-item-sm">${trunc(pr.name,52)}</div>`).join('')}</div>`
-    if(!hasContent) h+=`<div class="vpil-empty">Nothing this quarter</div>`
+    const has=pOut.length||pGoals.length||pRocks.length||pProjs.length
+    h+=`<div class="vpil-lane" style="--pc:${p.color}"><div class="vpil-hdr"><div class="vpil-name"><span class="vpil-pip" style="background:${p.color}"></span>${p.name}</div></div><div class="vpil-body">`
+    if(pOut.length)h+=`<div class="vpil-grp"><div class="vpil-glbl">3-Yr Outcomes</div>${pOut.map(g=>`<div class="vpil-item outcome" style="--pc:${p.color}">${trunc(g.name,55)}</div>`).join('')}</div>`
+    if(pGoals.length)h+=`<div class="vpil-grp"><div class="vpil-glbl">Annual Goals</div>${pGoals.map(g=>`<div class="vpil-item">${trunc(g.name,55)}</div>`).join('')}</div>`
+    if(pRocks.length)h+=`<div class="vpil-grp"><div class="vpil-glbl">Rocks · ${cQ}</div>${pRocks.map(r=>`<div class="vpil-item-sm">${trunc(r.name,52)}</div>`).join('')}</div>`
+    if(pProjs.length)h+=`<div class="vpil-grp"><div class="vpil-glbl">Projects</div>${pProjs.map(pr=>`<div class="vpil-item-sm">${trunc(pr.name,52)}</div>`).join('')}</div>`
+    if(!has)h+=`<div class="vpil-empty">Nothing this quarter</div>`
     h+=`</div></div>`
   })
-  h+=`</div>`
-  document.getElementById('vc').innerHTML=h
+  document.getElementById('vc').innerHTML=h+'</div>'
+}
+
+// ── WIP DASHBOARD ──────────────────────────────────────────
+function setWipRange(r){WIP_RANGE=r;vWip()}
+
+function getRange(r){
+  const now=new Date(),today=new Date(now.getFullYear(),now.getMonth(),now.getDate())
+  if(r==='week'){const d=today.getDay()||7,s=new Date(today);s.setDate(today.getDate()-(d-1));return{start:s,end:today,label:'This Week'}}
+  if(r==='lastweek'){const d=today.getDay()||7,e=new Date(today);e.setDate(today.getDate()-d);const s=new Date(e);s.setDate(e.getDate()-6);return{start:s,end:e,label:'Last Week'}}
+  if(r==='14days'){const s=new Date(today);s.setDate(today.getDate()-13);return{start:s,end:today,label:'Last 14 Days'}}
+  const s=new Date(today);s.setDate(today.getDate()-29);return{start:s,end:today,label:'Last 30 Days'}
+}
+
+async function vWip(){
+  // Destroy old charts
+  if(window.Chart){['wip-bar','wip-pie1','wip-pie2'].forEach(id=>{const c=Chart.getChart(id);if(c)c.destroy()})}
+  if(!D._hasWip){
+    document.getElementById('vc').innerHTML=`<div class="vwip-nodata"><div style="font-size:36px">📊</div><div style="font-family:'Playfair Display',serif;font-size:20px;color:var(--tx);margin-top:8px">WIP data not yet loaded</div><div style="font-size:13px;color:var(--tx2);max-width:360px;line-height:1.6;margin-top:8px">Re-run the GitHub Action to fetch extended task data, then reload this page.</div></div>`
+    return
+  }
+  if(!window.Chart){
+    await new Promise((res,rej)=>{const s=document.createElement('script');s.src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js';s.onload=res;s.onerror=rej;document.head.appendChild(s)}).catch(()=>{document.getElementById('vc').innerHTML=`<div class="vwip-nodata"><div>Could not load Chart.js. Check your connection.</div></div>`;return})
+    if(!window.Chart)return
+  }
+  renderWip()
+}
+
+function renderWip(){
+  const wt=D.wipTasks,{start,end,label}=getRange(WIP_RANGE),prm=by(D.projects)
+  const inRange=(ds,s,e)=>{if(!ds)return false;const d=new Date(ds+'T00:00:00');return d>=s&&d<=e}
+  const wipActive=wt.filter(t=>t.status==='In progress (WIP)')
+  const wipHrs=wipActive.reduce((s,t)=>s+(t.hours||0),0)
+  const completed=wt.filter(t=>inRange(t.completeDate,start,end))
+  const started=wt.filter(t=>inRange(t.startDate,start,end))
+  const compHrs=completed.reduce((s,t)=>s+(t.hours||0),0)
+  const startHrs=started.reduce((s,t)=>s+(t.hours||0),0)
+  const stagnant=wipActive.filter(t=>{if(!t.startDate)return false;return Math.floor((Date.now()-new Date(t.startDate+'T00:00:00'))/86400000)>=7})
+  const allActive=wt.filter(t=>t.status==='In progress (WIP)'||t.status==='Up Next (Sprint Backlog)')
+  const rockLinked=allActive.filter(t=>t.projectIds?.some(pid=>prm[pid]?.rockIds?.length>0))
+  const rockPct=allActive.length>0?Math.round(rockLinked.length/allActive.length*100):0
+  // Daily data
+  const days=[],cur=new Date(start)
+  while(cur<=end){days.push(new Date(cur));cur.setDate(cur.getDate()+1)}
+  const dayStrs=days.map(d=>d.toISOString().split('T')[0])
+  const dayLbls=days.map(d=>d.toLocaleDateString('en-US',{weekday:'short',month:'numeric',day:'numeric'}))
+  const compByDay=dayStrs.map(ds=>wt.filter(t=>t.completeDate===ds).reduce((s,t)=>s+(t.hours||0),0))
+  const startByDay=dayStrs.map(ds=>wt.filter(t=>t.startDate===ds).reduce((s,t)=>s+(t.hours||0),0))
+  // Pie data
+  const byPillar={},byDomain={}
+  completed.forEach(t=>{const k=t.pillar||'Other';byPillar[k]=(byPillar[k]||0)+(t.hours||0)})
+  completed.forEach(t=>{const k=t.domain||'Other';byDomain[k]=(byDomain[k]||0)+(t.hours||0)})
+  // Render
+  const RBTNS=['week','lastweek','14days','30days']
+  const RLBLS={week:'This Week',lastweek:'Last Week','14days':'14 Days','30days':'30 Days'}
+  document.getElementById('vc').innerHTML=`
+  <div class="vwip"><div class="vwip-inner">
+    <div class="vwip-toolbar">
+      <span class="vwip-toolbar-lbl">Date Range:</span>
+      ${RBTNS.map(r=>`<button class="vwip-rbtn ${r===WIP_RANGE?'on':''}" onclick="setWipRange('${r}')">${RLBLS[r]}</button>`).join('')}
+      <span class="vwip-rdatelbl">${fmtDate(start)} – ${fmtDate(end)}</span>
+    </div>
+    <div class="vwip-metrics">
+      <div class="vwip-metric">
+        <div class="vwip-mval">${wipHrs.toFixed(1)} <span class="vwip-mtgt">/ 30 hrs</span></div>
+        <div class="vwip-mlbl">Current WIP</div>
+        <div class="vwip-prog-track"><div class="vwip-prog-fill" style="width:${Math.min(wipHrs/30*100,100).toFixed(0)}%"></div></div>
+      </div>
+      <div class="vwip-metric">
+        <div class="vwip-mval">${compHrs.toFixed(1)} <span class="vwip-mtgt">hrs</span></div>
+        <div class="vwip-mlbl">Completed</div>
+        <div class="vwip-msub">${completed.length} tasks · ${label}</div>
+      </div>
+      <div class="vwip-metric">
+        <div class="vwip-mval">${startHrs.toFixed(1)} <span class="vwip-mtgt">hrs</span></div>
+        <div class="vwip-mlbl">Started</div>
+        <div class="vwip-msub">${started.length} tasks · ${label}</div>
+      </div>
+      <div class="vwip-metric ${stagnant.length>0?'warn':''}">
+        <div class="vwip-mval">${stagnant.length}</div>
+        <div class="vwip-mlbl">Stagnant Tasks</div>
+        <div class="vwip-msub">7+ days in WIP</div>
+      </div>
+    </div>
+    <div class="vwip-chart-box">
+      <div class="vwip-chart-title">Daily Hours · ${label}</div>
+      <div class="vwip-bar-wrap"><canvas id="wip-bar"></canvas></div>
+    </div>
+    <div class="vwip-bottom">
+      <div class="vwip-pie-box">
+        <div class="vwip-chart-title">By Pillar <span class="vwip-chart-sub">(completed hrs)</span></div>
+        <div class="vwip-pie-wrap"><canvas id="wip-pie1"></canvas></div>
+      </div>
+      <div class="vwip-pie-box">
+        <div class="vwip-chart-title">By Domain <span class="vwip-chart-sub">(completed hrs)</span></div>
+        <div class="vwip-pie-wrap"><canvas id="wip-pie2"></canvas></div>
+      </div>
+      <div class="vwip-stat-box">
+        <div class="vwip-stat-big">${rockPct}%</div>
+        <div class="vwip-stat-lbl">Rock-linked</div>
+        <div class="vwip-stat-sub">${rockLinked.length} of ${allActive.length} active tasks tied to a Rock</div>
+      </div>
+    </div>
+    ${stagnant.length>0?`
+    <div class="sec-hdr"><span class="sec-lbl">Stagnant Tasks</span><div class="sec-line"></div><span class="sec-cnt">${stagnant.length} task${stagnant.length!==1?'s':''} · 7+ days without progress</span></div>
+    <div class="vwip-stag-list">${stagnant.map(t=>{const days=Math.floor((Date.now()-new Date(t.startDate+'T00:00:00'))/86400000);return`<div class="vwip-stag-row"><div class="vwip-stag-pip" style="background:${t.pc}"></div><div class="vwip-stag-name">${t.name}</div><div class="vwip-stag-meta"><span class="tag t-r">${days}d</span>${t.domain?`<span class="tag t-n">${trunc(t.domain,16)}</span>`:''}</div></div>`}).join('')}</div>`:''}
+  </div></div>`
+
+  requestAnimationFrame(()=>{
+    // Bar chart
+    const bc=document.getElementById('wip-bar')
+    if(bc)new Chart(bc,{type:'bar',data:{labels:dayLbls,datasets:[{label:'Completed hrs',data:compByDay,backgroundColor:'rgba(74,139,112,.8)',borderRadius:4},{label:'Started hrs',data:startByDay,backgroundColor:'rgba(74,123,173,.6)',borderRadius:4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'top',labels:{font:{family:'DM Sans',size:11}}}},scales:{y:{beginAtZero:true,ticks:{font:{family:'DM Sans',size:10}}},x:{ticks:{font:{family:'DM Sans',size:10}}}}}})
+    // Pie 1: pillar
+    const p1=document.getElementById('wip-pie1')
+    if(p1&&Object.keys(byPillar).length)new Chart(p1,{type:'doughnut',data:{labels:Object.keys(byPillar),datasets:[{data:Object.values(byPillar),backgroundColor:Object.keys(byPillar).map(k=>PC[k]||'#999'),borderWidth:2,borderColor:'#FDFAF6'}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'right',labels:{font:{family:'DM Sans',size:10},boxWidth:11,padding:7}}}}})
+    // Pie 2: domain
+    const DCOLS=['#7B6FAC','#B5695A','#4A8B70','#A07848','#4A7BAD','#6E8C8A','#C48B3A','#8B7355','#9E6B8A','#6B8E9E']
+    const p2=document.getElementById('wip-pie2')
+    if(p2&&Object.keys(byDomain).length)new Chart(p2,{type:'doughnut',data:{labels:Object.keys(byDomain),datasets:[{data:Object.values(byDomain),backgroundColor:DCOLS.slice(0,Object.keys(byDomain).length),borderWidth:2,borderColor:'#FDFAF6'}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'right',labels:{font:{family:'DM Sans',size:10},boxWidth:11,padding:7}}}}})
+  })
 }
 </script>
 </body>
