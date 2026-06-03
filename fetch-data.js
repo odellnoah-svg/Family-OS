@@ -12,7 +12,6 @@ const fs = require('fs')
 const TOKEN = process.env.NOTION_TOKEN
 if (!TOKEN) {
   console.error('Error: NOTION_TOKEN environment variable is not set.')
-  console.error('Add it as a secret in GitHub: Settings → Secrets → Actions → New secret')
   process.exit(1)
 }
 
@@ -25,11 +24,16 @@ const DBS = {
   tasks:    '33ac5749485980b28d0beeaf4739beb1',
 }
 
-// ── Notion API ────────────────────────────────────────────────
+// ── Page IDs (for narrative content) ─────────────────────────
+const PAGES = {
+  tenYearTarget:  '371c57494859802dac05ec95e25766c4',
+  threeYearVision:'35cc5749485980369158c210926bdaea',
+}
+
+// ── Notion API: Query database ────────────────────────────────
 async function notionQuery(dbId, filter, cursor) {
   const body = { page_size: 100, ...(filter || {}) }
   if (cursor) body.start_cursor = cursor
-
   const res = await fetch(`https://api.notion.com/v1/databases/${dbId}/query`, {
     method: 'POST',
     headers: {
@@ -39,7 +43,6 @@ async function notionQuery(dbId, filter, cursor) {
     },
     body: JSON.stringify(body),
   })
-
   if (!res.ok) {
     const err = await res.json().catch(() => ({}))
     throw new Error(`Notion API error on db ${dbId}: ${err.message || res.status}`)
@@ -57,6 +60,37 @@ async function queryAll(dbId, filter) {
   return results
 }
 
+// ── Notion API: Fetch page block content ──────────────────────
+async function fetchPageContent(pageId) {
+  const res = await fetch(`https://api.notion.com/v1/blocks/${pageId}/children?page_size=100`, {
+    headers: {
+      'Authorization':  `Bearer ${TOKEN}`,
+      'Notion-Version': '2022-06-28',
+    },
+  })
+  if (!res.ok) {
+    console.warn(`    Warning: Could not fetch page ${pageId} (${res.status})`)
+    return []
+  }
+  const data = await res.json()
+  const blocks = []
+  for (const block of (data.results || [])) {
+    const type = block.type
+    // Stop at a divider or a new heading — marks end of summary section
+    if (type === 'divider') break
+    if (type === 'heading_1' && blocks.length > 0) break
+    if (type === 'heading_2' && blocks.length > 0) break
+    const content = block[type]
+    if (!content) continue
+    const richText = content.rich_text || []
+    const text = richText.map(t => t.plain_text).join('').trim()
+    if (!text) continue
+    blocks.push({ type, text })
+    if (blocks.length >= 8) break
+  }
+  return blocks
+}
+
 // ── Property helpers ──────────────────────────────────────────
 const nid  = id => id.replace(/-/g, '')
 const tP   = (pr, k) => pr[k]?.title?.map(t => t.plain_text).join('')        || '(Untitled)'
@@ -69,19 +103,16 @@ const numP = (pr, k) => pr[k]?.number ?? null
 // ── Parsers ───────────────────────────────────────────────────
 function parsePillar(p) {
   return {
-    id:      nid(p.id),
-    type:    'pillar',
+    id: nid(p.id), type: 'pillar',
     name:    tP(p.properties, 'Pillar Name'),
     status:  sP(p.properties, 'Status'),
     goalIds: relP(p.properties, 'Goal'),
     rockIds: relP(p.properties, 'Rock'),
   }
 }
-
 function parseGoal(p) {
   return {
-    id:        nid(p.id),
-    type:      'goal',
+    id: nid(p.id), type: 'goal',
     name:      tP(p.properties,  'Goal'),
     status:    sP(p.properties,  'Status'),
     horizon:   sP(p.properties,  'Goal Horizon'),
@@ -90,11 +121,9 @@ function parseGoal(p) {
     rockIds:   relP(p.properties, 'Related Rocks'),
   }
 }
-
 function parseRock(p) {
   return {
-    id:         nid(p.id),
-    type:       'rock',
+    id: nid(p.id), type: 'rock',
     name:       tP(p.properties,  'Rock'),
     quarter:    sP(p.properties,  'Quarter'),
     year:       sP(p.properties,  'Year'),
@@ -103,11 +132,9 @@ function parseRock(p) {
     projectIds: relP(p.properties, 'Related Projects'),
   }
 }
-
 function parseProject(p) {
   return {
-    id:         nid(p.id),
-    type:       'project',
+    id: nid(p.id), type: 'project',
     name:       tP(p.properties,  'Project'),
     status:     sP(p.properties,  'Status'),
     nextAction: txP(p.properties, 'Next Action'),
@@ -116,11 +143,9 @@ function parseProject(p) {
     taskIds:    relP(p.properties, 'Related Tasks'),
   }
 }
-
 function parseTask(p) {
   return {
-    id:         nid(p.id),
-    type:       'task',
+    id: nid(p.id), type: 'task',
     name:       tP(p.properties,  'Task Name'),
     status:     stP(p.properties, 'Status'),
     pillar:     sP(p.properties,  'Pillar'),
@@ -136,6 +161,7 @@ async function main() {
   console.log(new Date().toISOString())
   console.log('')
 
+  // Databases
   console.log('  Fetching pillars...')
   const pillars = (await queryAll(DBS.pillars)).map(parsePillar)
   console.log(`    ✓ ${pillars.length} pillars`)
@@ -163,8 +189,28 @@ async function main() {
   })).map(parseTask)
   console.log(`    ✓ ${tasks.length} active tasks`)
 
+  // Page content
+  console.log('  Fetching 10-Year Target page...')
+  const tenYearTarget = await fetchPageContent(PAGES.tenYearTarget)
+  console.log(`    ✓ ${tenYearTarget.length} blocks`)
+
+  console.log('  Fetching 3-Year Vision page...')
+  const threeYearVision = await fetchPageContent(PAGES.threeYearVision)
+  console.log(`    ✓ ${threeYearVision.length} blocks`)
+
+  // Current quarter/year for roadmap filtering
+  const now = new Date()
+  const currentQuarter = 'Q' + Math.ceil((now.getMonth() + 1) / 3)
+  const currentYear = now.getFullYear().toString()
+
   const data = {
     generated: new Date().toISOString(),
+    meta: {
+      currentQuarter,
+      currentYear,
+      tenYearTarget,
+      threeYearVision,
+    },
     pillars,
     goals,
     rocks,
@@ -176,6 +222,8 @@ async function main() {
 
   console.log('')
   console.log(`✓ data.json written successfully`)
+  console.log(`  Quarter: ${currentQuarter} ${currentYear}`)
+  console.log(`  ${pillars.length} pillars · ${goals.length} goals · ${rocks.length} rocks · ${projects.length} projects · ${tasks.length} tasks`)
 }
 
 main().catch(err => {
