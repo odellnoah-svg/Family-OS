@@ -164,8 +164,8 @@ function parseWipTask(p) {
     domain:       sP(p.properties,  'Domain (aka- Area)'),
     hours:        numP(p.properties, 'Estimated Hours'),
     projectIds:   relP(p.properties, 'Project'),
-    startDate:    dtP(p.properties,  'Auto- Start Date'),
-    completeDate: dtP(p.properties,  'Auto- Completed Date'),
+    startDate:    dtP(p.properties,  'Auto-Start Date'),
+    completeDate: dtP(p.properties,  'Auto-Completed Date'),
     daysInWip:    numP(p.properties, 'Current Days In WIP'),
   }
 }
@@ -204,22 +204,27 @@ async function main() {
   })).map(parseTask)
   console.log(`    ✓ ${tasks.length} active tasks`)
 
-  // WIP dashboard tasks (WIP + Up Next + Done last 30 days)
-  const thirtyAgo = new Date(Date.now() - 30*24*60*60*1000).toISOString().split('T')[0]
+  // WIP dashboard tasks
   console.log('  Fetching WIP dashboard tasks...')
-  const wipTasks = (await queryAll(DBS.tasks, {
-    filter: {
-      or: [
-        { property: 'Status', status: { equals: 'In progress (WIP)' } },
-        { property: 'Status', status: { equals: 'Up Next (Sprint Backlog)' } },
-        { and: [
-          { property: 'Status', status: { equals: 'Done' } },
-          { property: 'Auto- Completed Date', date: { on_or_after: thirtyAgo } }
-        ]}
-      ]
-    }
+  // Active tasks (WIP + Up Next)
+  const wipActive = (await queryAll(DBS.tasks, {
+    filter: { or: [
+      { property: 'Status', status: { equals: 'In progress (WIP)' } },
+      { property: 'Status', status: { equals: 'Up Next (Sprint Backlog)' } },
+    ]}
   })).map(parseWipTask)
-  console.log(`    ✓ ${wipTasks.length} WIP tasks`)
+  // Recent Done tasks — latest 100 sorted by last edited (avoids formula field name issues)
+  let wipDone = []
+  try {
+    const doneRes = await notionQuery(DBS.tasks, {
+      filter: { property: 'Status', status: { equals: 'Done' } },
+      sorts: [{ timestamp: 'last_edited_time', direction: 'descending' }],
+      page_size: 100
+    }, null)
+    wipDone = (doneRes.results || []).map(parseWipTask)
+  } catch(e) { console.warn(`    Warning: Could not fetch Done tasks: ${e.message}`) }
+  const wipTasks = [...wipActive, ...wipDone]
+  console.log(`    ✓ ${wipActive.length} active · ${wipDone.length} recent done`)
 
   // Page content
   console.log('  Fetching 10-Year Target page...')
