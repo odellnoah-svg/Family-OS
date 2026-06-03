@@ -98,7 +98,8 @@ const sP   = (pr, k) => pr[k]?.select?.name                                   ||
 const stP  = (pr, k) => pr[k]?.status?.name                                   || null
 const txP  = (pr, k) => pr[k]?.rich_text?.map(t => t.plain_text).join('')    || ''
 const relP = (pr, k) => (pr[k]?.relation || []).map(r => nid(r.id))
-const numP = (pr, k) => pr[k]?.number ?? null
+const numP = (pr, k) => { const f=pr[k]; if(!f)return null; if(f.number!==undefined)return f.number; if(f.formula?.number!==undefined)return f.formula.number; return null }
+const dtP  = (pr, k) => { const f=pr[k]; if(!f)return null; if(f.date?.start)return f.date.start; if(f.formula?.date?.start)return f.formula.date.start; return null }
 
 // ── Parsers ───────────────────────────────────────────────────
 function parsePillar(p) {
@@ -154,6 +155,20 @@ function parseTask(p) {
     projectIds: relP(p.properties, 'Project'),
   }
 }
+function parseWipTask(p) {
+  return {
+    id: nid(p.id), type: 'task',
+    name:         tP(p.properties,  'Task Name'),
+    status:       stP(p.properties, 'Status'),
+    pillar:       sP(p.properties,  'Pillar'),
+    domain:       sP(p.properties,  'Domain (aka- Area)'),
+    hours:        numP(p.properties, 'Estimated Hours'),
+    projectIds:   relP(p.properties, 'Project'),
+    startDate:    dtP(p.properties,  'Auto- Start Date'),
+    completeDate: dtP(p.properties,  'Auto- Completed Date'),
+    daysInWip:    numP(p.properties, 'Current Days In WIP'),
+  }
+}
 
 // ── Main ──────────────────────────────────────────────────────
 async function main() {
@@ -189,6 +204,23 @@ async function main() {
   })).map(parseTask)
   console.log(`    ✓ ${tasks.length} active tasks`)
 
+  // WIP dashboard tasks (WIP + Up Next + Done last 30 days)
+  const thirtyAgo = new Date(Date.now() - 30*24*60*60*1000).toISOString().split('T')[0]
+  console.log('  Fetching WIP dashboard tasks...')
+  const wipTasks = (await queryAll(DBS.tasks, {
+    filter: {
+      or: [
+        { property: 'Status', status: { equals: 'In progress (WIP)' } },
+        { property: 'Status', status: { equals: 'Up Next (Sprint Backlog)' } },
+        { and: [
+          { property: 'Status', status: { equals: 'Done' } },
+          { property: 'Auto- Completed Date', date: { on_or_after: thirtyAgo } }
+        ]}
+      ]
+    }
+  })).map(parseWipTask)
+  console.log(`    ✓ ${wipTasks.length} WIP tasks`)
+
   // Page content
   console.log('  Fetching 10-Year Target page...')
   const tenYearTarget = await fetchPageContent(PAGES.tenYearTarget)
@@ -216,6 +248,7 @@ async function main() {
     rocks,
     projects,
     tasks,
+    wipTasks,
   }
 
   fs.writeFileSync('data.json', JSON.stringify(data, null, 2))
@@ -223,7 +256,7 @@ async function main() {
   console.log('')
   console.log(`✓ data.json written successfully`)
   console.log(`  Quarter: ${currentQuarter} ${currentYear}`)
-  console.log(`  ${pillars.length} pillars · ${goals.length} goals · ${rocks.length} rocks · ${projects.length} projects · ${tasks.length} tasks`)
+  console.log(`  ${pillars.length} pillars · ${goals.length} goals · ${rocks.length} rocks · ${projects.length} projects · ${tasks.length} active tasks · ${wipTasks.length} WIP tasks`)
 }
 
 main().catch(err => {
