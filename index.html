@@ -180,6 +180,11 @@ body{background:var(--bg);color:var(--tx);font-family:'DM Sans',sans-serif;heigh
 .vwip-msub{font-size:10.5px;color:var(--tx3);}
 .vwip-prog-track{height:5px;background:var(--surf2);border-radius:3px;margin-top:8px;overflow:hidden;}
 .vwip-prog-fill{height:100%;background:#4A8B70;border-radius:3px;transition:width .3s;}
+.vwip-mval.over{color:#C03030!important;font-weight:700;}
+.vwip-mval.under{color:#C03030!important;font-weight:700;}
+.vwip-mval.hit{color:#2A7050!important;font-weight:700;}
+.vwip-prog-fill.over{background:#C03030;}
+.vwip-prog-fill.under{background:#C03030;}
 .vwip-chart-box{background:var(--surf);border:1px solid var(--bdr);border-radius:11px;padding:16px 18px;margin-bottom:14px;}
 .vwip-chart-title{font-size:13px;font-weight:600;color:var(--tx);margin-bottom:14px;}
 .vwip-chart-sub{font-weight:400;color:var(--tx3);font-size:11px;}
@@ -539,14 +544,15 @@ function renderWip(){
     </div>
     <div class="vwip-metrics">
       <div class="vwip-metric">
-        <div class="vwip-mval">${wipHrs.toFixed(1)} <span class="vwip-mtgt">/ 30 hrs</span></div>
+        <div class="vwip-mval ${wipHrs>30?'over':''} ">${wipHrs.toFixed(1)} <span class="vwip-mtgt">/ 30 hrs</span></div>
         <div class="vwip-mlbl">Current WIP</div>
-        <div class="vwip-prog-track"><div class="vwip-prog-fill" style="width:${Math.min(wipHrs/30*100,100).toFixed(0)}%"></div></div>
+        <div class="vwip-prog-track"><div class="vwip-prog-fill ${wipHrs>30?'over':''}" style="width:${Math.min(wipHrs/30*100,100).toFixed(0)}%"></div></div>
       </div>
       <div class="vwip-metric">
-        <div class="vwip-mval">${compHrs.toFixed(1)} <span class="vwip-mtgt">hrs</span></div>
+        <div class="vwip-mval ${compHrs>=30?'hit':'under'}">${compHrs.toFixed(1)} <span class="vwip-mtgt">/ 30 hrs</span></div>
         <div class="vwip-mlbl">Completed</div>
         <div class="vwip-msub">${completed.length} tasks · ${label}</div>
+        <div class="vwip-prog-track"><div class="vwip-prog-fill ${compHrs>=30?'':'under'}" style="width:${Math.min(compHrs/30*100,100).toFixed(0)}%"></div></div>
       </div>
       <div class="vwip-metric">
         <div class="vwip-mval">${startHrs.toFixed(1)} <span class="vwip-mtgt">hrs</span></div>
@@ -589,11 +595,11 @@ function renderWip(){
     if(bc)new Chart(bc,{type:'bar',data:{labels:dayLbls,datasets:[{label:'Completed hrs',data:compByDay,backgroundColor:'rgba(74,139,112,.8)',borderRadius:4},{label:'Started hrs',data:startByDay,backgroundColor:'rgba(74,123,173,.6)',borderRadius:4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'top',labels:{font:{family:'DM Sans',size:11}}}},scales:{y:{beginAtZero:true,ticks:{font:{family:'DM Sans',size:10}}},x:{ticks:{font:{family:'DM Sans',size:10}}}}}})
     // Pie 1: pillar
     const p1=document.getElementById('wip-pie1')
-    if(p1&&Object.keys(byPillar).length)new Chart(p1,{type:'doughnut',data:{labels:Object.keys(byPillar),datasets:[{data:Object.values(byPillar),backgroundColor:Object.keys(byPillar).map(k=>PC[k]||'#999'),borderWidth:2,borderColor:'#FDFAF6'}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'right',labels:{font:{family:'DM Sans',size:10},boxWidth:11,padding:7}}}}})
+    if(p1&&Object.keys(byPillar).length)new Chart(p1,{type:'doughnut',data:{labels:Object.keys(byPillar),datasets:[{data:Object.values(byPillar),backgroundColor:Object.keys(byPillar).map(k=>PC[k]||'#999'),borderWidth:2,borderColor:'#FDFAF6'}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'right',labels:{font:{family:'DM Sans',size:10},boxWidth:11,padding:7}},tooltip:{callbacks:{label:(ctx)=>{const tot=ctx.dataset.data.reduce((a,b)=>a+b,0);const pct=tot>0?Math.round(ctx.parsed/tot*100):0;return ` ${ctx.label}: ${ctx.parsed.toFixed(1)}h (${pct}%)`}}}}}})
     // Pie 2: domain
     const DCOLS=['#7B6FAC','#B5695A','#4A8B70','#A07848','#4A7BAD','#6E8C8A','#C48B3A','#8B7355','#9E6B8A','#6B8E9E']
     const p2=document.getElementById('wip-pie2')
-    if(p2&&Object.keys(byDomain).length)new Chart(p2,{type:'doughnut',data:{labels:Object.keys(byDomain),datasets:[{data:Object.values(byDomain),backgroundColor:DCOLS.slice(0,Object.keys(byDomain).length),borderWidth:2,borderColor:'#FDFAF6'}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'right',labels:{font:{family:'DM Sans',size:10},boxWidth:11,padding:7}}}}})
+    if(p2&&Object.keys(byDomain).length)new Chart(p2,{type:'doughnut',data:{labels:Object.keys(byDomain),datasets:[{data:Object.values(byDomain),backgroundColor:DCOLS.slice(0,Object.keys(byDomain).length),borderWidth:2,borderColor:'#FDFAF6'}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'right',labels:{font:{family:'DM Sans',size:10},boxWidth:11,padding:7}},tooltip:{callbacks:{label:(ctx)=>{const tot=ctx.dataset.data.reduce((a,b)=>a+b,0);const pct=tot>0?Math.round(ctx.parsed/tot*100):0;return ` ${ctx.label}: ${ctx.parsed.toFixed(1)}h (${pct}%)`}}}}}})
   })
 }
 </script>
