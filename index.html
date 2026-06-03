@@ -498,14 +498,15 @@ async function vWip(){
 
 function renderWip(){
   const wt=D.wipTasks,{start,end,label}=getRange(WIP_RANGE),prm=by(D.projects)
-  const inRange=(ds,s,e)=>{if(!ds)return false;const d=new Date(ds+'T00:00:00');return d>=s&&d<=e}
+  const ds2d=ds=>ds?ds.slice(0,10):null  // extract YYYY-MM-DD from datetime string
+  const inRange=(ds,s,e)=>{if(!ds)return false;const d=new Date(ds2d(ds)+'T12:00:00');return d>=s&&d<=e}
   const wipActive=wt.filter(t=>t.status==='In progress (WIP)')
   const wipHrs=wipActive.reduce((s,t)=>s+(t.hours||0),0)
   const completed=wt.filter(t=>inRange(t.completeDate,start,end))
   const started=wt.filter(t=>inRange(t.startDate,start,end))
   const compHrs=completed.reduce((s,t)=>s+(t.hours||0),0)
   const startHrs=started.reduce((s,t)=>s+(t.hours||0),0)
-  const stagnant=wipActive.filter(t=>{if(!t.startDate)return false;return Math.floor((Date.now()-new Date(t.startDate+'T00:00:00'))/86400000)>=7})
+  const stagnant=wipActive.filter(t=>{if(!t.startDate)return false;return Math.floor((Date.now()-new Date(ds2d(t.startDate)+'T12:00:00'))/86400000)>=7})
   const allActive=wt.filter(t=>t.status==='In progress (WIP)'||t.status==='Up Next (Sprint Backlog)')
   const rockLinked=allActive.filter(t=>t.rockIds?.length>0||t.projectIds?.some(pid=>prm[pid]?.rockIds?.length>0))
   const rockPct=allActive.length>0?Math.round(rockLinked.length/allActive.length*100):0
@@ -514,8 +515,8 @@ function renderWip(){
   while(cur<=end){days.push(new Date(cur));cur.setDate(cur.getDate()+1)}
   const dayStrs=days.map(d=>d.toISOString().split('T')[0])
   const dayLbls=days.map(d=>d.toLocaleDateString('en-US',{weekday:'short',month:'numeric',day:'numeric'}))
-  const compByDay=dayStrs.map(ds=>wt.filter(t=>t.completeDate===ds).reduce((s,t)=>s+(t.hours||0),0))
-  const startByDay=dayStrs.map(ds=>wt.filter(t=>t.startDate===ds).reduce((s,t)=>s+(t.hours||0),0))
+  const compByDay=dayStrs.map(ds=>wt.filter(t=>ds2d(t.completeDate)===ds).reduce((s,t)=>s+(t.hours||0),0))
+  const startByDay=dayStrs.map(ds=>wt.filter(t=>ds2d(t.startDate)===ds).reduce((s,t)=>s+(t.hours||0),0))
   // Pie data
   const byPillar={},byDomain={}
   const pillarById=by(D.pillars)
@@ -579,7 +580,7 @@ function renderWip(){
     </div>
     ${stagnant.length>0?`
     <div class="sec-hdr"><span class="sec-lbl">Stagnant Tasks</span><div class="sec-line"></div><span class="sec-cnt">${stagnant.length} task${stagnant.length!==1?'s':''} · 7+ days without progress</span></div>
-    <div class="vwip-stag-list">${stagnant.map(t=>{const days=Math.floor((Date.now()-new Date(t.startDate+'T00:00:00'))/86400000);return`<div class="vwip-stag-row"><div class="vwip-stag-pip" style="background:${t.pc}"></div><div class="vwip-stag-name">${t.name}</div><div class="vwip-stag-meta"><span class="tag t-r">${days}d</span>${t.domain?`<span class="tag t-n">${trunc(t.domain,16)}</span>`:''}</div></div>`}).join('')}</div>`:''}
+    <div class="vwip-stag-list">${stagnant.map(t=>{const days=Math.floor((Date.now()-new Date(ds2d(t.startDate)+'T12:00:00'))/86400000);return`<div class="vwip-stag-row"><div class="vwip-stag-pip" style="background:${t.pc}"></div><div class="vwip-stag-name">${t.name}</div><div class="vwip-stag-meta"><span class="tag t-r">${days}d</span>${t.domain?`<span class="tag t-n">${trunc(t.domain,16)}</span>`:''}</div></div>`}).join('')}</div>`:''}
   </div></div>`
 
   requestAnimationFrame(()=>{
