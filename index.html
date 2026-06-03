@@ -3,41 +3,134 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Eubanks Family OS · Vision</title>
+<title>Eubanks Family OS · Strategic Roadmap</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#F7F2EB;--surf:#FDFAF6;--surf2:#EDE6DA;--bdr:#DDD4C4;--tx:#261C10;--tx2:#7A6A54;--tx3:#B0A08C;--acc:#7C5738;}
+/* ── SHARED VARS ─────────────────────────────────────────── */
+:root {
+  --bg:#F7F2EB;--surf:#FDFAF6;--surf2:#EDE6DA;--bdr:#DDD4C4;
+  --tx:#261C10;--tx2:#7A6A54;--tx3:#B0A08C;--acc:#7C5738;
+  --strategic:#2D4268;--execution:#2A6048;--stewardship:#5C4878;
+  --arch-bg:#FAF6F0;
+}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 body{background:var(--bg);color:var(--tx);font-family:'DM Sans',sans-serif;height:100vh;overflow:hidden;-webkit-font-smoothing:antialiased;}
-.screen{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:var(--bg);z-index:100;}
+
+/* ── LOADING / ERROR SCREENS ─────────────────────────────── */
+.screen{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:var(--arch-bg);z-index:100;}
 .sc-title{font-family:'Playfair Display',serif;font-size:22px;font-weight:600;margin-bottom:6px;}
 .sc-sub{font-size:13px;color:var(--tx2);margin-bottom:28px;}
-.dots{display:flex;gap:7px;}.dot{width:7px;height:7px;border-radius:50%;background:var(--acc);animation:blink 1.2s ease-in-out infinite;}
+.dots{display:flex;gap:7px;}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--acc);animation:blink 1.2s ease-in-out infinite;}
 .dot:nth-child(2){animation-delay:.2s;}.dot:nth-child(3){animation-delay:.4s;}
 @keyframes blink{0%,100%{opacity:.2;transform:scale(.8);}50%{opacity:1;transform:scale(1);}}
 .info-box{background:var(--surf);border:1px solid var(--bdr);border-radius:16px;padding:36px 40px;max-width:440px;text-align:center;}
-.ib-icon{font-size:28px;margin-bottom:12px;}.ib-head{font-family:'Playfair Display',serif;font-size:19px;font-weight:600;margin-bottom:8px;}
-.ib-body{font-size:13px;color:var(--tx2);line-height:1.65;}.ib-steps{text-align:left;margin-top:16px;}
-.ib-steps li{font-size:12.5px;color:var(--tx2);margin-bottom:5px;line-height:1.5;}.ib-steps strong{color:var(--tx);}
+.ib-icon{font-size:28px;margin-bottom:12px;}
+.ib-head{font-family:'Playfair Display',serif;font-size:19px;font-weight:600;margin-bottom:8px;}
+.ib-body{font-size:13px;color:var(--tx2);line-height:1.65;}
+.ib-steps{text-align:left;margin-top:16px;}
+.ib-steps li{font-size:12.5px;color:var(--tx2);margin-bottom:5px;line-height:1.5;}
+.ib-steps strong{color:var(--tx);}
 .ib-code{font-size:11px;color:var(--tx3);margin-top:10px;font-family:monospace;}
-#app{display:flex;flex-direction:column;height:100vh;}
-.hdr{background:var(--surf);border-bottom:1px solid var(--bdr);height:56px;display:flex;align-items:center;padding:0 20px;gap:14px;flex-shrink:0;}
-.hdr-brand{font-family:'Playfair Display',serif;font-size:17px;font-weight:600;white-space:nowrap;flex-shrink:0;}
+
+/* ── APP SHELL ───────────────────────────────────────────── */
+#app{height:100vh;overflow:hidden;}
+#view-arch{height:100vh;overflow-y:auto;background:var(--arch-bg);}
+#view-data{display:flex;flex-direction:column;height:100vh;}
+
+/* ── ARCHITECTURE PAGE ───────────────────────────────────── */
+.arch{max-width:760px;margin:0 auto;padding:36px 40px 48px;}
+
+/* Title */
+.arch-title-block{text-align:center;margin-bottom:28px;padding-bottom:20px;border-bottom:1px solid #D4C4A8;}
+.arch-diamond{font-size:16px;color:#8A7A60;margin-bottom:10px;}
+.arch-h1{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:#1E140A;line-height:1.25;margin-bottom:8px;}
+.arch-tagline{font-family:'Playfair Display',serif;font-style:italic;font-size:14px;color:#7A6A54;}
+
+/* Section layout */
+.arch-section{display:flex;gap:14px;margin-bottom:6px;}
+.arch-slabel{width:124px;flex-shrink:0;border-radius:10px;padding:14px 10px;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;}
+.arch-slabel-icon{font-size:22px;line-height:1;}
+.arch-slabel-name{font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;line-height:1.2;}
+.arch-slabel-desc{font-size:9.5px;line-height:1.4;margin-top:2px;}
+.arch-slabel.strategic{background:#EEF1F8;border:2px solid var(--strategic);color:var(--strategic);}
+.arch-slabel.execution{background:#EEF5F0;border:2px solid var(--execution);color:var(--execution);}
+.arch-slabel.stewardship{background:#F2EEF8;border:2px solid var(--stewardship);color:var(--stewardship);}
+
+.arch-boxes{flex:1;display:flex;flex-direction:column;}
+.arch-box{background:#FEFCF8;border-radius:9px;padding:11px 14px;display:flex;align-items:flex-start;gap:11px;}
+.arch-box.strategic{border:1.5px solid #8090B8;}
+.arch-box.execution{border:1.5px solid #80A890;}
+.arch-box-icon{font-size:18px;line-height:1;flex-shrink:0;margin-top:1px;}
+.arch-box-title{font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:2px;}
+.arch-box-title.strategic{color:var(--strategic);}
+.arch-box-title.execution{color:var(--execution);}
+.arch-box-desc{font-size:11px;color:#5A4A3A;line-height:1.45;}
+
+/* Goals Database special box */
+.arch-goals-box{flex-direction:column;}
+.arch-goals-top{display:flex;align-items:flex-start;gap:11px;margin-bottom:10px;}
+.arch-sub-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+.arch-sub-box{background:#F5F2EC;border-radius:7px;padding:9px 11px;display:flex;align-items:flex-start;gap:8px;}
+.arch-sub-box.outcomes{border-left:3px solid var(--strategic);}
+.arch-sub-box.annuals{border-left:3px solid #8A6C5C;}
+.arch-sub-icon{font-size:15px;flex-shrink:0;}
+.arch-sub-title{font-size:9.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:2px;color:var(--tx);}
+.arch-sub-desc{font-size:10.5px;color:#5A4A3A;line-height:1.4;}
+
+.arch-arrow{text-align:center;font-size:15px;color:#A09080;padding:3px 0;line-height:1;}
+.arch-section-gap{height:6px;}
+.arch-section-arrow{text-align:center;font-size:17px;color:#A09080;padding:5px 0;margin-left:138px;}
+
+/* Pillar grid */
+.arch-pillar-wrap{flex:1;}
+.arch-pillar-header-box{background:#FEFCF8;border:1.5px solid #A090C0;border-radius:9px;padding:11px 14px 0;margin-bottom:0;}
+.arch-pillar-title{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--stewardship);text-align:center;margin-bottom:3px;}
+.arch-pillar-subtitle{font-size:10.5px;color:#5A4A50;text-align:center;line-height:1.4;margin-bottom:10px;}
+.arch-grid{display:grid;grid-template-columns:88px repeat(7,1fr);gap:3px;margin-bottom:3px;}
+.arch-grid-corner{background:transparent;}
+.arch-grid-ph{border-radius:6px 6px 0 0;padding:6px 4px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:2px;}
+.arch-grid-ph-icon{font-size:14px;}
+.arch-grid-ph-name{font-size:8px;font-weight:600;color:#fff;line-height:1.2;}
+.arch-grid-rl{background:#F2EEF8;border:1px solid #C8B8D8;border-radius:6px 0 0 6px;padding:5px 7px;font-size:8.5px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--stewardship);display:flex;align-items:center;}
+.arch-grid-cell{background:#FAF8FC;border:1px solid #DDD0EC;border-radius:0;height:22px;}
+.arch-grid-cell:last-child{border-radius:0 3px 3px 0;}
+
+/* Bottom callouts */
+.arch-callouts{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px;}
+.arch-callout{background:#FEFCF8;border:1px solid #D4C4A8;border-radius:9px;padding:12px 14px;}
+.arch-callout-icon{font-size:18px;margin-bottom:5px;}
+.arch-callout-title{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--tx);margin-bottom:5px;}
+.arch-callout-body{font-size:11px;color:#5A4A3A;line-height:1.5;}
+.arch-callout-row{display:flex;align-items:center;gap:6px;margin-top:4px;font-size:10.5px;color:#5A4A3A;}
+.arch-callout-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;}
+
+/* CTA button */
+.arch-cta{text-align:center;margin-top:24px;}
+.arch-cta-btn{display:inline-block;padding:12px 32px;background:var(--tx);color:var(--arch-bg);border:none;border-radius:9px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;cursor:pointer;letter-spacing:.04em;transition:background .15s;}
+.arch-cta-btn:hover{background:#3D2A18;}
+
+/* ── LIVE DATA HEADER ────────────────────────────────────── */
+.hdr{background:var(--surf);border-bottom:1px solid var(--bdr);height:52px;display:flex;align-items:center;padding:0 20px;gap:12px;flex-shrink:0;}
+.hdr-back{padding:5px 11px;border:1px solid var(--bdr);border-radius:7px;background:transparent;font-family:'DM Sans',sans-serif;font-size:11px;font-weight:500;color:var(--tx2);cursor:pointer;transition:all .12s;white-space:nowrap;}
+.hdr-back:hover{background:var(--surf2);color:var(--tx);}
+.hdr-brand{font-family:'Playfair Display',serif;font-size:16px;font-weight:600;white-space:nowrap;flex-shrink:0;}
 .hdr-brand em{font-weight:400;font-style:italic;color:var(--tx2);}
-.hdr-stats{display:flex;gap:12px;flex-shrink:0;}
-.stat{text-align:center;}.stat-n{font-size:15px;font-weight:500;line-height:1;}
-.stat-l{font-size:8px;color:var(--tx3);text-transform:uppercase;letter-spacing:.08em;margin-top:2px;}
+.hdr-stats{display:flex;gap:10px;flex-shrink:0;}
+.stat{text-align:center;}.stat-n{font-size:14px;font-weight:500;line-height:1;}
+.stat-l{font-size:8px;color:var(--tx3);text-transform:uppercase;letter-spacing:.08em;margin-top:1px;}
 .view-tabs{display:flex;gap:4px;flex:1;justify-content:center;}
-.vtab{padding:5px 12px;border:1px solid var(--bdr);border-radius:20px;background:transparent;font-family:'DM Sans',sans-serif;font-size:11px;font-weight:500;color:var(--tx2);cursor:pointer;transition:all .14s;white-space:nowrap;}
+.vtab{padding:5px 11px;border:1px solid var(--bdr);border-radius:20px;background:transparent;font-family:'DM Sans',sans-serif;font-size:11px;font-weight:500;color:var(--tx2);cursor:pointer;transition:all .14s;white-space:nowrap;}
 .vtab:hover{background:var(--surf2);color:var(--tx);}
 .vtab.on{background:var(--tx);color:var(--bg);border-color:var(--tx);}
 .hdr-right{display:flex;align-items:center;gap:8px;flex-shrink:0;}
-.updated{font-size:10.5px;color:var(--tx3);white-space:nowrap;}
-.hdr-btn{padding:5px 11px;border:1px solid var(--bdr);border-radius:7px;background:transparent;font-family:'DM Sans',sans-serif;font-size:11px;font-weight:500;color:var(--tx2);cursor:pointer;transition:all .12s;}
+.updated{font-size:10px;color:var(--tx3);white-space:nowrap;}
+.hdr-btn{padding:5px 10px;border:1px solid var(--bdr);border-radius:7px;background:transparent;font-family:'DM Sans',sans-serif;font-size:11px;font-weight:500;color:var(--tx2);cursor:pointer;transition:all .12s;}
 .hdr-btn:hover{background:var(--surf2);color:var(--tx);}
 #vc{flex:1;overflow:hidden;position:relative;}
-/* Shared card */
+
+/* ── SHARED CARD / TAG STYLES ────────────────────────────── */
 .card{background:var(--surf);border:1px solid var(--bdr);border-left:4px solid var(--pc,var(--bdr));border-radius:10px;padding:11px 13px 10px;cursor:pointer;display:flex;flex-direction:column;transition:transform .12s,box-shadow .14s,opacity .15s;}
 .card:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(38,28,16,.08);}
 .card.dim{opacity:.15;pointer-events:none;}.card.sel{border-color:var(--pc,var(--acc));border-left-color:var(--pc,var(--acc));box-shadow:0 3px 18px rgba(38,28,16,.1);}
@@ -49,25 +142,22 @@ body{background:var(--bg);color:var(--tx);font-family:'DM Sans',sans-serif;heigh
 .card-ft{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:6px;border-top:1px solid var(--bdr);}
 .card-c{font-size:10.5px;color:var(--tx3);}.card-arr{font-size:12px;color:var(--tx3);transition:transform .12s,color .12s;}
 .card:not(.noclk):hover .card-arr{transform:translateX(2px);color:var(--pc,var(--acc));}
-/* Tags */
 .tag{font-size:9.5px;font-weight:500;padding:2px 7px;border-radius:20px;}
 .t-g{background:#E6F4EE;color:#2A7050;}.t-y{background:#FFF3E0;color:#B06820;}.t-r{background:#FFEEED;color:#A83428;}
 .t-b{background:#EBF2FB;color:#2C5FA0;}.t-n{background:var(--surf2);color:var(--tx2);}.t-s{background:#EDF0F2;color:#4A6070;}
-/* ── ROADMAP VIEW ───────────────────────────────────────────── */
-.vr{height:100%;overflow-y:auto;padding:28px 28px 60px;background:var(--bg);}
-.vr-inner{max-width:1180px;margin:0 auto;}
-.vr-section-hdr{display:flex;align-items:center;gap:12px;margin-bottom:20px;margin-top:36px;}
+
+/* ── ROADMAP VIEW ────────────────────────────────────────── */
+.vr{height:100%;overflow-y:auto;padding:24px 24px 52px;background:var(--bg);}
+.vr-inner{max-width:1160px;margin:0 auto;}
+.vr-section-hdr{display:flex;align-items:center;gap:12px;margin-bottom:18px;margin-top:32px;}
 .vr-section-hdr:first-child{margin-top:0;}
 .vr-section-label{font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:.14em;color:var(--tx3);white-space:nowrap;}
 .vr-section-line{flex:1;height:1px;background:var(--bdr);}
-/* Top area: cascade + pillar sidebar */
-.vr-top{display:grid;grid-template-columns:1fr 240px;gap:28px;align-items:start;}
-/* Cascade */
+.vr-top{display:grid;grid-template-columns:1fr 232px;gap:24px;align-items:start;}
 .vr-cascade{display:flex;flex-direction:column;}
-.vr-level{background:var(--surf);border:1px solid var(--bdr);border-radius:13px;padding:16px 20px;position:relative;}
-.vr-level.vr-vision{border-left:4px solid var(--acc);background:var(--surf);}
+.vr-level{background:var(--surf);border:1px solid var(--bdr);border-radius:12px;padding:14px 18px;}
+.vr-level.vr-vision{border-left:4px solid var(--acc);}
 .vr-level-kicker{font-size:9px;font-weight:500;text-transform:uppercase;letter-spacing:.12em;color:var(--tx3);margin-bottom:4px;}
-.vr-level-title{font-family:'Playfair Display',serif;font-size:17px;font-weight:600;color:var(--tx);margin-bottom:8px;}
 .vr-level-body{font-size:12px;color:var(--tx2);line-height:1.6;}
 .vr-block-para{margin-bottom:5px;}
 .vr-block-head{font-weight:600;color:var(--tx);margin-bottom:3px;margin-top:6px;}
@@ -77,56 +167,55 @@ body{background:var(--bg);color:var(--tx);font-family:'DM Sans',sans-serif;heigh
 .vr-items{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px;}
 .vr-chip{font-size:10.5px;padding:3px 9px;background:var(--surf2);border-radius:20px;color:var(--tx2);}
 .vr-chip-color{font-size:10.5px;padding:3px 9px;border-radius:20px;color:#fff;opacity:.9;}
-.vr-count{font-size:11px;color:var(--tx3);margin-top:6px;}
-.vr-arrow{text-align:center;padding:6px 0;color:var(--tx3);font-size:16px;line-height:1;}
-/* Pillar sidebar */
+.vr-arrow{text-align:center;padding:5px 0;color:var(--tx3);font-size:15px;line-height:1;}
 .vr-pillars-side{}
 .vr-side-title{font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:.12em;color:var(--tx3);margin-bottom:10px;}
-.vr-p-card{background:var(--surf);border:1px solid var(--bdr);border-left:4px solid var(--pc,var(--bdr));border-radius:9px;padding:9px 12px;margin-bottom:6px;}
-.vr-p-name{font-size:12px;font-weight:500;color:var(--tx);display:flex;align-items:center;gap:7px;margin-bottom:2px;}
+.vr-p-card{background:var(--surf);border:1px solid var(--bdr);border-left:4px solid var(--pc,var(--bdr));border-radius:9px;padding:8px 11px;margin-bottom:5px;}
+.vr-p-name{font-size:11.5px;font-weight:500;color:var(--tx);display:flex;align-items:center;gap:6px;margin-bottom:2px;}
 .vr-p-pip{width:7px;height:7px;border-radius:50%;flex-shrink:0;}
 .vr-p-stats{font-size:10px;color:var(--tx3);}
-/* Execution board */
-.vr-board-hdr{display:flex;align-items:baseline;gap:10px;margin-bottom:14px;}
-.vr-board-title{font-family:'Playfair Display',serif;font-size:18px;font-weight:600;color:var(--tx);}
+.vr-board-hdr{display:flex;align-items:baseline;gap:10px;margin-bottom:12px;}
+.vr-board-title{font-family:'Playfair Display',serif;font-size:17px;font-weight:600;color:var(--tx);}
 .vr-board-sub{font-size:11px;color:var(--tx3);}
-.vr-board{display:flex;border:1px solid var(--bdr);border-radius:13px;overflow:hidden;overflow-x:auto;}
-.vr-lane{min-width:185px;flex:1;border-right:1px solid var(--bdr);display:flex;flex-direction:column;}
+.vr-board{display:flex;border:1px solid var(--bdr);border-radius:12px;overflow:hidden;overflow-x:auto;}
+.vr-lane{min-width:178px;flex:1;border-right:1px solid var(--bdr);display:flex;flex-direction:column;}
 .vr-lane:last-child{border-right:none;}
-.vr-lane-hdr{padding:11px 13px 9px;border-bottom:1px solid var(--bdr);background:var(--surf);border-top:4px solid var(--pc,var(--bdr));flex-shrink:0;}
-.vr-lane-name{font-size:11.5px;font-weight:600;color:var(--tx);display:flex;align-items:center;gap:6px;}
+.vr-lane-hdr{padding:10px 12px 8px;border-bottom:1px solid var(--bdr);background:var(--surf);border-top:4px solid var(--pc,var(--bdr));flex-shrink:0;}
+.vr-lane-name{font-size:11px;font-weight:600;color:var(--tx);display:flex;align-items:center;gap:5px;}
 .vr-lane-pip{width:6px;height:6px;border-radius:50%;flex-shrink:0;}
-.vr-lane-body{padding:9px;background:var(--bg);flex:1;}
-.vr-group{margin-bottom:10px;}
+.vr-lane-body{padding:8px;background:var(--bg);flex:1;}
+.vr-group{margin-bottom:9px;}
 .vr-glbl{font-size:8.5px;font-weight:500;text-transform:uppercase;letter-spacing:.1em;color:var(--tx3);margin-bottom:4px;}
-.vr-item{font-size:11px;color:var(--tx);padding:5px 8px;background:var(--surf);border:1px solid var(--bdr);border-radius:6px;margin-bottom:3px;line-height:1.38;}
-.vr-item-sm{font-size:10.5px;color:var(--tx2);padding:4px 8px;background:var(--bg);border:1px solid var(--bdr);border-radius:5px;margin-bottom:3px;line-height:1.38;}
-.vr-lane-empty{font-size:10.5px;color:var(--tx3);font-style:italic;padding:4px 0;}
-/* ── V1 COLUMNS ─────────────────────────────────────────────── */
+.vr-item{font-size:11px;color:var(--tx);padding:4px 8px;background:var(--surf);border:1px solid var(--bdr);border-radius:5px;margin-bottom:3px;line-height:1.38;}
+.vr-item-sm{font-size:10px;color:var(--tx2);padding:3px 7px;background:var(--bg);border:1px solid var(--bdr);border-radius:4px;margin-bottom:3px;line-height:1.38;}
+.vr-lane-empty{font-size:10px;color:var(--tx3);font-style:italic;padding:4px 0;}
+
+/* ── COLUMN VIEW ─────────────────────────────────────────── */
 .v1{display:flex;flex-direction:column;height:100%;}
-.v1-bar{background:var(--surf);border-bottom:1px solid var(--bdr);padding:0 20px;height:38px;display:flex;align-items:center;gap:7px;flex-shrink:0;}
+.v1-bar{background:var(--surf);border-bottom:1px solid var(--bdr);padding:0 20px;height:36px;display:flex;align-items:center;gap:7px;flex-shrink:0;}
 .v1-bar-lbl{font-size:10px;color:var(--tx3);text-transform:uppercase;letter-spacing:.1em;margin-right:2px;}
 .ctog{padding:3px 9px;border:1px solid var(--bdr);border-radius:20px;background:transparent;font-family:'DM Sans',sans-serif;font-size:10px;font-weight:500;color:var(--tx2);cursor:pointer;transition:all .12s;}
 .ctog.on{background:var(--tx);color:var(--bg);border-color:var(--tx);}.ctog:hover:not(.on){background:var(--surf2);}
-.v1-scroll{flex:1;overflow:auto;padding:18px 20px;position:relative;}
-.v1-inner{display:flex;gap:36px;align-items:flex-start;width:max-content;min-width:100%;position:relative;}
+.v1-scroll{flex:1;overflow:auto;padding:16px 20px;position:relative;}
+.v1-inner{display:flex;gap:32px;align-items:flex-start;width:max-content;min-width:100%;position:relative;}
 #v1svg{position:absolute;top:0;left:0;pointer-events:none;z-index:1;overflow:visible;}
-.v1col{width:240px;flex-shrink:0;position:relative;z-index:2;}
-.v1ch{font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:.1em;color:var(--tx3);padding:0 2px 9px;display:flex;align-items:center;gap:6px;}
+.v1col{width:238px;flex-shrink:0;position:relative;z-index:2;}
+.v1ch{font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:.1em;color:var(--tx3);padding:0 2px 8px;display:flex;align-items:center;gap:6px;}
 .v1cn{background:var(--surf2);border-radius:9px;padding:1px 6px;font-size:10px;color:var(--tx2);}
 .v1 .card{margin-bottom:7px;}
-/* ── V2 NESTED ──────────────────────────────────────────────── */
+
+/* ── NESTED VIEW ─────────────────────────────────────────── */
 .v2{height:100%;overflow-y:auto;padding:20px 28px 48px;}
 .v2-in{max-width:860px;margin:0 auto;}
 .v2p{margin-bottom:10px;border:1px solid var(--bdr);border-radius:13px;overflow:hidden;}
-.v2ph{display:flex;align-items:center;gap:10px;padding:13px 18px;cursor:pointer;background:var(--surf);transition:background .12s;user-select:none;}
+.v2ph{display:flex;align-items:center;gap:10px;padding:12px 18px;cursor:pointer;background:var(--surf);transition:background .12s;user-select:none;}
 .v2ph:hover{background:var(--surf2);}
 .v2pip{width:10px;height:10px;border-radius:50%;flex-shrink:0;}
 .v2pn{font-family:'Playfair Display',serif;font-size:16px;font-weight:600;flex:1;}
 .v2pm{display:flex;gap:5px;align-items:center;}
 .v2chv{font-size:14px;color:var(--tx3);transition:transform .2s;flex-shrink:0;font-weight:400;}
 .v2bod{background:var(--bg);padding:0 18px;}
-.v2bod.open{padding:10px 18px 14px;}
+.v2bod.open{padding:10px 18px 12px;}
 .v2g{margin-bottom:7px;border:1px solid var(--bdr);border-left:3px solid var(--pc,var(--bdr));border-radius:9px;overflow:hidden;background:var(--surf);}
 .v2gh{display:flex;align-items:center;gap:8px;padding:9px 13px;cursor:pointer;transition:background .12s;}
 .v2gh:hover{background:var(--surf2);}
@@ -138,30 +227,51 @@ body{background:var(--bg);color:var(--tx);font-family:'DM Sans',sans-serif;heigh
 .v2rn{font-size:11.5px;color:var(--tx);line-height:1.4;flex:1;}
 .v2rt{display:flex;gap:3px;flex-wrap:wrap;margin-top:3px;}
 .v2em{font-size:12px;color:var(--tx3);font-style:italic;padding:6px 0;}
-/* ── V3 SWIMLANES ───────────────────────────────────────────── */
+
+/* ── SWIMLANES VIEW ──────────────────────────────────────── */
 .v3{display:flex;height:100%;overflow-x:auto;overflow-y:hidden;}
-.v3lane{min-width:210px;flex:1;display:flex;flex-direction:column;border-right:1px solid var(--bdr);overflow-y:auto;}
+.v3lane{min-width:208px;flex:1;display:flex;flex-direction:column;border-right:1px solid var(--bdr);overflow-y:auto;}
 .v3lane:last-child{border-right:none;}
-.v3lh{padding:12px 14px 10px;border-bottom:1px solid var(--bdr);flex-shrink:0;background:var(--surf);position:sticky;top:0;z-index:5;border-top:3px solid var(--pc,var(--bdr));}
-.v3ln{font-family:'Playfair Display',serif;font-size:13px;font-weight:600;display:flex;align-items:center;gap:6px;}
+.v3lh{padding:11px 13px 9px;border-bottom:1px solid var(--bdr);flex-shrink:0;background:var(--surf);position:sticky;top:0;z-index:5;border-top:3px solid var(--pc,var(--bdr));}
+.v3ln{font-family:'Playfair Display',serif;font-size:12.5px;font-weight:600;display:flex;align-items:center;gap:6px;}
 .v3lp{width:7px;height:7px;border-radius:50%;flex-shrink:0;}
 .v3ls{font-size:10px;color:var(--tx3);margin-top:2px;}
 .v3lb{padding:10px;}
 .v3goal{margin-bottom:9px;}
-.v3gn{font-size:11.5px;font-weight:500;color:var(--tx);padding:6px 9px;background:var(--surf);border:1px solid var(--bdr);border-left:3px solid var(--pc,var(--bdr));border-radius:7px;margin-bottom:3px;line-height:1.4;}
+.v3gn{font-size:11px;font-weight:500;color:var(--tx);padding:6px 9px;background:var(--surf);border:1px solid var(--bdr);border-left:3px solid var(--pc,var(--bdr));border-radius:7px;margin-bottom:3px;line-height:1.4;}
 .v3rs{padding-left:9px;}
 .v3r{font-size:10.5px;color:var(--tx2);padding:4px 8px;background:var(--bg);border:1px solid var(--bdr);border-radius:5px;margin-bottom:3px;line-height:1.4;display:flex;align-items:flex-start;gap:4px;}
 .v3rp{width:5px;height:5px;border-radius:50%;flex-shrink:0;margin-top:3px;}
 .v3em{font-size:10.5px;color:var(--tx3);font-style:italic;padding:6px 0;text-align:center;}
+
+/* ── PRINT STYLES ────────────────────────────────────────── */
+@media print {
+  body{height:auto;overflow:visible;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  #app{height:auto;overflow:visible;}
+  #view-arch{height:auto;overflow:visible;}
+  #view-data{height:auto;overflow:visible;}
+  #vc{height:auto;overflow:visible;}
+  .hdr{position:static;}
+  .v1-scroll,.v2,.v3{height:auto;overflow:visible;}
+  .no-print{display:none!important;}
+  .arch{max-width:100%;padding:20px 28px;}
+  .arch-h1{font-size:22px;}
+  .arch-cta{display:none;}
+}
+
 [hidden]{display:none!important;}
 </style>
 </head>
 <body>
+
+<!-- Loading -->
 <div class="screen" id="scr-loading">
   <div class="sc-title">Eubanks Family OS</div>
   <div class="sc-sub" id="load-msg">Loading…</div>
   <div class="dots"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
 </div>
+
+<!-- No data -->
 <div class="screen" id="scr-nodata" hidden>
   <div class="info-box">
     <div class="ib-icon">🌱</div><div class="ib-head">Ready to grow</div>
@@ -169,11 +279,13 @@ body{background:var(--bg);color:var(--tx);font-family:'DM Sans',sans-serif;heigh
       <ol class="ib-steps">
         <li>Add secret <strong>NOTION_TOKEN</strong> in GitHub Settings</li>
         <li><strong>Actions → Sync Notion Data → Run workflow</strong></li>
-        <li>Reload this page once complete</li>
+        <li>Reload once complete</li>
       </ol>
     </div>
   </div>
 </div>
+
+<!-- Error -->
 <div class="screen" id="scr-error" hidden>
   <div class="info-box">
     <div class="ib-icon">⚠</div><div class="ib-head">Couldn't load data</div>
@@ -181,32 +293,213 @@ body{background:var(--bg);color:var(--tx);font-family:'DM Sans',sans-serif;heigh
     <div class="ib-code" id="err-msg"></div>
   </div>
 </div>
+
+<!-- App -->
 <div id="app" hidden>
-  <header class="hdr">
-    <div class="hdr-brand">Eubanks Family OS <em>· Vision</em></div>
-    <div class="hdr-stats" id="hdr-stats"></div>
-    <div class="view-tabs">
-      <button class="vtab on" onclick="sv('roadmap')"   id="vt-roadmap">Roadmap</button>
-      <button class="vtab"    onclick="sv('columns')"   id="vt-columns">Columns</button>
-      <button class="vtab"    onclick="sv('nested')"    id="vt-nested">Nested</button>
-      <button class="vtab"    onclick="sv('swimlanes')" id="vt-swimlanes">Swimlanes</button>
+
+  <!-- ══ ARCHITECTURE VIEW (default) ══════════════════════ -->
+  <div id="view-arch">
+  <div class="arch">
+
+    <!-- Title -->
+    <div class="arch-title-block">
+      <div class="arch-diamond">◆</div>
+      <div class="arch-h1">Family OS Strategic Roadmap Architecture</div>
+      <div class="arch-tagline">Our vision. Our focus. Our intentional life together.</div>
     </div>
-    <div class="hdr-right">
-      <div class="updated" id="updated-ts"></div>
-      <button class="hdr-btn" onclick="reload()">↺ Reload</button>
+
+    <!-- STRATEGIC LAYER -->
+    <div class="arch-section">
+      <div class="arch-slabel strategic">
+        <div class="arch-slabel-icon">🏔</div>
+        <div class="arch-slabel-name">Strategic Layer</div>
+        <div class="arch-slabel-desc">Defines where we're going and what success looks like.</div>
+      </div>
+      <div class="arch-boxes">
+        <div class="arch-box strategic">
+          <div class="arch-box-icon">🎯</div>
+          <div>
+            <div class="arch-box-title strategic">10-Year Target</div>
+            <div class="arch-box-desc">The long-range destination. Our ultimate definition of success.</div>
+          </div>
+        </div>
+        <div class="arch-arrow">↓</div>
+        <div class="arch-box strategic">
+          <div class="arch-box-icon">🔭</div>
+          <div>
+            <div class="arch-box-title strategic">3-Year Vision</div>
+            <div class="arch-box-desc">A narrative description of what life looks and feels like three years from now.</div>
+          </div>
+        </div>
+        <div class="arch-arrow">↓</div>
+        <div class="arch-box strategic arch-goals-box">
+          <div class="arch-goals-top">
+            <div class="arch-box-icon">📋</div>
+            <div>
+              <div class="arch-box-title strategic">Goals Database</div>
+              <div class="arch-box-desc">Contains both 3-Year Outcomes and Annual Goals — differentiated by Goal Horizon.</div>
+            </div>
+          </div>
+          <div class="arch-sub-row">
+            <div class="arch-sub-box outcomes">
+              <div class="arch-sub-icon">◎</div>
+              <div>
+                <div class="arch-sub-title">3-Year Outcomes</div>
+                <div class="arch-sub-desc">Measurable proof that the 3-Year Vision is becoming real. Use only 3–5 max.</div>
+              </div>
+            </div>
+            <div class="arch-sub-box annuals">
+              <div class="arch-sub-icon">🏆</div>
+              <div>
+                <div class="arch-sub-title">Annual Goals</div>
+                <div class="arch-sub-desc">Meaningful progress commitments for the current year. May or may not tie to a 3-Year Outcome.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  </header>
-  <div id="vc"></div>
-</div>
+
+    <div class="arch-section-arrow">↓</div>
+
+    <!-- EXECUTION LAYER -->
+    <div class="arch-section">
+      <div class="arch-slabel execution">
+        <div class="arch-slabel-icon">⚙️</div>
+        <div class="arch-slabel-name">Execution Layer</div>
+        <div class="arch-slabel-desc">Turns our priorities into action and measurable progress.</div>
+      </div>
+      <div class="arch-boxes">
+        <div class="arch-box execution">
+          <div class="arch-box-icon">🪨</div>
+          <div>
+            <div class="arch-box-title execution">Quarterly Rocks</div>
+            <div class="arch-box-desc">The few 90-day priorities that move Annual Goals forward. Chosen each quarter.</div>
+          </div>
+        </div>
+        <div class="arch-arrow">↓</div>
+        <div class="arch-box execution">
+          <div class="arch-box-icon">🧩</div>
+          <div>
+            <div class="arch-box-title execution">Projects</div>
+            <div class="arch-box-desc">The multi-step work required to complete Rocks or Goals.</div>
+          </div>
+        </div>
+        <div class="arch-arrow">↓</div>
+        <div class="arch-box execution">
+          <div class="arch-box-icon">✅</div>
+          <div>
+            <div class="arch-box-title execution">Tasks</div>
+            <div class="arch-box-desc">Specific next actions that drive execution. Managed in the Master Backlog.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="arch-section-arrow">↓</div>
+
+    <!-- STEWARDSHIP LAYER -->
+    <div class="arch-section">
+      <div class="arch-slabel stewardship">
+        <div class="arch-slabel-icon">🤝</div>
+        <div class="arch-slabel-name">Stewardship Layer</div>
+        <div class="arch-slabel-desc">The life areas we are called to steward well and keep in balance.</div>
+      </div>
+      <div class="arch-pillar-wrap">
+        <div class="arch-pillar-header-box">
+          <div class="arch-pillar-title">Pillars = Stewardship Lanes</div>
+          <div class="arch-pillar-subtitle">Pillars are parallel stewardship lanes — not a step in the execution chain. Every 3-Year Outcome, Annual Goal, Rock, Project, and Task belongs to one Pillar.</div>
+          <!-- Pillar grid -->
+          <div class="arch-grid" style="margin-top:10px;">
+            <div class="arch-grid-corner"></div>
+            <div class="arch-grid-ph" style="background:#7B6FAC"><div class="arch-grid-ph-icon">✝</div><div class="arch-grid-ph-name">Faith &amp; Character</div></div>
+            <div class="arch-grid-ph" style="background:#B5695A"><div class="arch-grid-ph-icon">❤️</div><div class="arch-grid-ph-name">Marriage &amp; Family</div></div>
+            <div class="arch-grid-ph" style="background:#4A8B70"><div class="arch-grid-ph-icon">💚</div><div class="arch-grid-ph-name">Health &amp; Energy</div></div>
+            <div class="arch-grid-ph" style="background:#A07848"><div class="arch-grid-ph-icon">🏠</div><div class="arch-grid-ph-name">Home / Homestead</div></div>
+            <div class="arch-grid-ph" style="background:#4A7BAD"><div class="arch-grid-ph-icon">📈</div><div class="arch-grid-ph-name">Freedom &amp; Ownership</div></div>
+            <div class="arch-grid-ph" style="background:#6E8C8A"><div class="arch-grid-ph-icon">⚙️</div><div class="arch-grid-ph-name">Systems &amp; Simplicity</div></div>
+            <div class="arch-grid-ph" style="background:#C48B3A"><div class="arch-grid-ph-icon">🧭</div><div class="arch-grid-ph-name">Adventure &amp; Community</div></div>
+            <!-- Row: 3-Yr Outcomes -->
+            <div class="arch-grid-rl">3-Yr Outcomes</div>
+            <div class="arch-grid-cell"></div><div class="arch-grid-cell"></div><div class="arch-grid-cell"></div><div class="arch-grid-cell"></div><div class="arch-grid-cell"></div><div class="arch-grid-cell"></div><div class="arch-grid-cell"></div>
+            <!-- Row: Annual Goals -->
+            <div class="arch-grid-rl">Annual Goals</div>
+            <div class="arch-grid-cell"></div><div class="arch-grid-cell"></div><div class="arch-grid-cell"></div><div class="arch-grid-cell"></div><div class="arch-grid-cell"></div><div class="arch-grid-cell"></div><div class="arch-grid-cell"></div>
+            <!-- Row: Rocks -->
+            <div class="arch-grid-rl">Quarterly Rocks</div>
+            <div class="arch-grid-cell"></div><div class="arch-grid-cell"></div><div class="arch-grid-cell"></div><div class="arch-grid-cell"></div><div class="arch-grid-cell"></div><div class="arch-grid-cell"></div><div class="arch-grid-cell"></div>
+            <!-- Row: Projects -->
+            <div class="arch-grid-rl">Projects</div>
+            <div class="arch-grid-cell"></div><div class="arch-grid-cell"></div><div class="arch-grid-cell"></div><div class="arch-grid-cell"></div><div class="arch-grid-cell"></div><div class="arch-grid-cell"></div><div class="arch-grid-cell"></div>
+            <!-- Row: Tasks -->
+            <div class="arch-grid-rl" style="border-radius:0 0 0 6px">Tasks</div>
+            <div class="arch-grid-cell" style="border-radius:0 0 0 0"></div><div class="arch-grid-cell"></div><div class="arch-grid-cell"></div><div class="arch-grid-cell"></div><div class="arch-grid-cell"></div><div class="arch-grid-cell"></div><div class="arch-grid-cell" style="border-radius:0 0 6px 0"></div>
+          </div>
+          <div style="height:12px"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom callouts -->
+    <div class="arch-callouts">
+      <div class="arch-callout">
+        <div class="arch-callout-icon">✦</div>
+        <div class="arch-callout-title">Key Concept</div>
+        <div class="arch-callout-body">The system operates on two dimensions working together:</div>
+        <div class="arch-callout-row"><div class="arch-callout-dot" style="background:#2D4268"></div><strong>Strategic Flow</strong> — where we're going and how execution cascades downward.</div>
+        <div class="arch-callout-row"><div class="arch-callout-dot" style="background:#5C4878"></div><strong>Stewardship Framework</strong> — the life areas we are responsible for maintaining.</div>
+      </div>
+      <div class="arch-callout">
+        <div class="arch-callout-icon">📜</div>
+        <div class="arch-callout-title">Core Rule</div>
+        <div class="arch-callout-body"><strong>Notion remains the source of truth.</strong><br><br>This roadmap is a visual reflection of the system — not a second place where content is manually maintained. All data is fetched live from Notion databases and pages.</div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="arch-cta no-print">
+      <button class="arch-cta-btn" onclick="showLiveData()">View Live Roadmap →</button>
+    </div>
+
+  </div>
+  </div><!-- end view-arch -->
+
+  <!-- ══ LIVE DATA VIEW ════════════════════════════════════ -->
+  <div id="view-data" hidden>
+    <header class="hdr">
+      <button class="hdr-back no-print" onclick="showArchitecture()">← Guide</button>
+      <div class="hdr-brand">Eubanks Family OS <em>· Vision</em></div>
+      <div class="hdr-stats" id="hdr-stats"></div>
+      <div class="view-tabs">
+        <button class="vtab on" onclick="sv('roadmap')"   id="vt-roadmap">Roadmap</button>
+        <button class="vtab"    onclick="sv('columns')"   id="vt-columns">Columns</button>
+        <button class="vtab"    onclick="sv('nested')"    id="vt-nested">Nested</button>
+        <button class="vtab"    onclick="sv('swimlanes')" id="vt-swimlanes">Swimlanes</button>
+      </div>
+      <div class="hdr-right">
+        <div class="updated" id="updated-ts"></div>
+        <button class="hdr-btn no-print" onclick="reload()">↺</button>
+      </div>
+    </header>
+    <div id="vc"></div>
+  </div>
+
+</div><!-- end app -->
+
 <script>
 const PC={'Faith & Character':'#7B6FAC','Marriage & Family':'#B5695A','Health & Energy':'#4A8B70','Home/Homestead':'#A07848','Freedom & Ownership':'#4A7BAD','Systems & Simplicity':'#6E8C8A','Adventure & Community':'#C48B3A'}
 let D={pillars:[],goals:[],rocks:[],projects:[],tasks:[]},ALL={},CV='roadmap'
-let COLVIS={pillars:true,goals:true,rocks:true,projects:true,tasks:true}
-let V1SEL=null,V2EXP=new Set()
+let COLVIS={pillars:true,goals:true,rocks:true,projects:true,tasks:true},V1SEL=null,V2EXP=new Set()
+
 window.addEventListener('DOMContentLoaded',init)
-async function init(){so('scr-loading');try{await load();so('app');renderHdr();sv('roadmap')}catch(e){if(e.message==='NO_DATA')so('scr-nodata');else{document.getElementById('err-msg').textContent=e.message;so('scr-error')}}}
-async function reload(){so('scr-loading');try{await load();so('app');renderHdr();sv(CV)}catch(e){if(e.message==='NO_DATA')so('scr-nodata');else{document.getElementById('err-msg').textContent=e.message;so('scr-error')}}}
+
+async function init(){so('scr-loading');try{await load();so('app');renderHdr();showArchitecture()}catch(e){if(e.message==='NO_DATA')so('scr-nodata');else{document.getElementById('err-msg').textContent=e.message;so('scr-error')}}}
+async function reload(){so('scr-loading');try{await load();so('app');renderHdr();showLiveData()}catch(e){if(e.message==='NO_DATA')so('scr-nodata');else{document.getElementById('err-msg').textContent=e.message;so('scr-error')}}}
 function so(id){['scr-loading','scr-nodata','scr-error','app'].forEach(s=>document.getElementById(s).hidden=s!==id)}
+
+function showArchitecture(){document.getElementById('view-arch').hidden=false;document.getElementById('view-data').hidden=true}
+function showLiveData(){document.getElementById('view-arch').hidden=true;document.getElementById('view-data').hidden=false;sv(CV)}
+
 async function load(){
   const res=await fetch('./data.json?v='+Date.now())
   if(!res.ok)throw new Error('data.json not found (HTTP '+res.status+')')
@@ -230,8 +523,7 @@ const rocksOf=g=>D.rocks.filter(r=>g.rockIds?.includes(r.id)||r.goalIds?.include
 const projsOf=r=>D.projects.filter(p=>r.projectIds?.includes(p.id)||p.rockIds?.includes(r.id))
 const tasksOf=pr=>D.tasks.filter(t=>pr.taskIds?.includes(t.id)||t.projectIds?.includes(pr.id))
 function chain(id){
-  const out=new Set(),item=ALL[id]
-  if(!item)return out
+  const out=new Set(),item=ALL[id];if(!item)return out
   function dn(n){
     if(n.type==='pillar')goalsOf(n).forEach(g=>{out.add(g.id);dn(g)})
     if(n.type==='goal')rocksOf(n).forEach(r=>{out.add(r.id);dn(r)})
@@ -285,174 +577,100 @@ function sv(name){
   views[name]?.()
 }
 
-// ════════════════════════════════════════════════════════
-// ROADMAP VIEW
-// ════════════════════════════════════════════════════════
+/* ── ROADMAP ──────────────────────────────────────────────── */
 function vrRender(){
-  const meta=D.meta||{}
-  const cQ=meta.currentQuarter||'Q2'
-  const cY=meta.currentYear||'2026'
+  const meta=D.meta||{},cQ=meta.currentQuarter||'Q2',cY=meta.currentYear||'2026'
   const outcomes=D.goals.filter(g=>g.horizon==='3-Year')
   const annual=D.goals.filter(g=>g.horizon==='1-Year')
   const qRocks=D.rocks.filter(r=>r.quarter===cQ&&r.year===cY)
   const active=D.projects.filter(p=>p.status==='Active')
-
   let h='<div class="vr"><div class="vr-inner">'
-
-  // Section header
   h+=`<div class="vr-section-hdr"><span class="vr-section-label">Strategic Flow</span><div class="vr-section-line"></div></div>`
-
-  // Top grid: cascade + pillar sidebar
   h+=`<div class="vr-top"><div class="vr-cascade">`
-
-  // 10-Year Target
-  h+=vrLevel('10-Year Target','true',vrBlocks(meta.tenYearTarget))
+  h+=vrLevel('10-Year Target',true,vrBlocks(meta.tenYearTarget))
   h+=`<div class="vr-arrow">↓</div>`
-
-  // 3-Year Vision
-  h+=vrLevel('3-Year Vision','true',vrBlocks(meta.threeYearVision))
+  h+=vrLevel('3-Year Vision',true,vrBlocks(meta.threeYearVision))
   h+=`<div class="vr-arrow">↓</div>`
-
-  // 3-Year Outcomes
-  const outHtml=outcomes.length
-    ?`<div class="vr-items">${outcomes.map(g=>`<span class="vr-chip-color" style="background:${g.pc}">${trunc(g.name,50)}</span>`).join('')}</div>`
-    :`<div class="vr-placeholder">No 3-Year Outcomes defined yet — add goals with Goal Horizon = "3-Year" in Notion.</div>`
-  h+=vrLevel(`3-Year Outcomes (${outcomes.length})','false',outHtml`)
+  const outHtml=outcomes.length?`<div class="vr-items">${outcomes.map(g=>`<span class="vr-chip-color" style="background:${g.pc}">${trunc(g.name,50)}</span>`).join('')}</div>`:`<div class="vr-placeholder">No 3-Year Outcomes yet — add goals with Goal Horizon = "3-Year" in Notion.</div>`
+  h+=vrLevel(`3-Year Outcomes (${outcomes.length})`,false,outHtml)
   h+=`<div class="vr-arrow">↓</div>`
-
-  // Annual Goals
-  const annHtml=annual.length
-    ?`<div class="vr-items">${annual.slice(0,8).map(g=>`<span class="vr-chip">${trunc(g.name,48)}</span>`).join('')}${annual.length>8?`<span class="vr-chip">+${annual.length-8} more</span>`:''}</div>`
-    :`<div class="vr-placeholder">No annual goals found.</div>`
-  h+=vrLevel(`Annual Goals (${annual.length})','false',annHtml`)
+  const annHtml=annual.length?`<div class="vr-items">${annual.slice(0,8).map(g=>`<span class="vr-chip">${trunc(g.name,46)}</span>`).join('')}${annual.length>8?`<span class="vr-chip">+${annual.length-8} more</span>`:''}</div>`:`<div class="vr-placeholder">No annual goals found.</div>`
+  h+=vrLevel(`Annual Goals (${annual.length})`,false,annHtml)
   h+=`<div class="vr-arrow">↓</div>`
-
-  // Quarterly Rocks
-  const rockHtml=qRocks.length
-    ?`<div class="vr-items">${qRocks.map(r=>`<span class="vr-chip-color" style="background:${r.pc}">${trunc(r.name,48)}</span>`).join('')}</div>`
-    :`<div class="vr-placeholder">No rocks found for ${cQ} ${cY}.</div>`
-  h+=vrLevel(`${cQ} ${cY} Rocks (${qRocks.length})','false',rockHtml`)
-
-  if(active.length){
-    h+=`<div class="vr-arrow">↓</div>`
-    const projHtml=`<div class="vr-items">${active.map(p=>`<span class="vr-chip">${trunc(p.name,48)}</span>`).join('')}</div>`
-    h+=vrLevel(`Active Projects (${active.length})','false',projHtml`)
-  }
-
-  h+=`</div>` // close cascade
-
-  // Pillar sidebar
+  const rockHtml=qRocks.length?`<div class="vr-items">${qRocks.map(r=>`<span class="vr-chip-color" style="background:${r.pc}">${trunc(r.name,46)}</span>`).join('')}</div>`:`<div class="vr-placeholder">No rocks for ${cQ} ${cY}.</div>`
+  h+=vrLevel(`${cQ} ${cY} Rocks (${qRocks.length})`,false,rockHtml)
+  if(active.length){h+=`<div class="vr-arrow">↓</div>`;h+=vrLevel(`Active Projects (${active.length})`,false,`<div class="vr-items">${active.map(p=>`<span class="vr-chip">${trunc(p.name,46)}</span>`).join('')}</div>`)}
+  h+=`</div>`
   h+=`<div class="vr-pillars-side"><div class="vr-side-title">Pillar Stewardship</div>`
   D.pillars.forEach(p=>{
     const pg=goalsOf(p).length
     const pr=qRocks.filter(r=>r.pillarIds?.includes(p.id)||goalsOf(p).some(g=>r.goalIds?.includes(g.id)||g.rockIds?.includes(r.id))).length
-    h+=`<div class="vr-p-card" style="--pc:${p.color};border-left-color:${p.color}">
-      <div class="vr-p-name"><span class="vr-p-pip" style="background:${p.color}"></span>${p.name}</div>
-      <div class="vr-p-stats">${pg} goal${pg!==1?'s':''} · ${pr} rock${pr!==1?'s':''}</div>
-    </div>`
+    h+=`<div class="vr-p-card" style="--pc:${p.color};border-left-color:${p.color}"><div class="vr-p-name"><span class="vr-p-pip" style="background:${p.color}"></span>${p.name}</div><div class="vr-p-stats">${pg} goal${pg!==1?'s':''} · ${pr} rock${pr!==1?'s':''}</div></div>`
   })
-  h+=`</div>` // close sidebar
-
-  h+=`</div>` // close vr-top
-
-  // Execution Board
-  h+=`<div class="vr-section-hdr" style="margin-top:40px"><span class="vr-section-label">Execution Board</span><div class="vr-section-line"></div></div>`
+  h+=`</div></div>`
+  h+=`<div class="vr-section-hdr" style="margin-top:36px"><span class="vr-section-label">Execution Board</span><div class="vr-section-line"></div></div>`
   h+=`<div class="vr-board-hdr"><div class="vr-board-title">By Pillar</div><div class="vr-board-sub">${cQ} ${cY}</div></div>`
   h+=`<div class="vr-board">`
-
   D.pillars.forEach(p=>{
-    const pOutcomes=outcomes.filter(g=>g.pillarIds?.includes(p.id)||p.goalIds?.includes(g.id))
+    const pOut=outcomes.filter(g=>g.pillarIds?.includes(p.id)||p.goalIds?.includes(g.id))
     const pGoals=annual.filter(g=>g.pillarIds?.includes(p.id)||p.goalIds?.includes(g.id))
-    const pRocks=qRocks.filter(r=>{
-      if(r.pillarIds?.includes(p.id))return true
-      return goalsOf(p).some(g=>r.goalIds?.includes(g.id)||g.rockIds?.includes(r.id))
-    })
+    const pRocks=qRocks.filter(r=>{if(r.pillarIds?.includes(p.id))return true;return goalsOf(p).some(g=>r.goalIds?.includes(g.id)||g.rockIds?.includes(r.id))})
     const pRockIds=new Set(pRocks.map(r=>r.id))
     const pProjs=D.projects.filter(pr=>pr.rockIds?.some(rid=>pRockIds.has(rid)))
-    const hasContent=pOutcomes.length||pGoals.length||pRocks.length||pProjs.length
-
-    h+=`<div class="vr-lane" style="--pc:${p.color}">
-      <div class="vr-lane-hdr"><div class="vr-lane-name"><span class="vr-lane-pip" style="background:${p.color}"></span>${p.name}</div></div>
-      <div class="vr-lane-body">`
-
-    if(pOutcomes.length){h+=`<div class="vr-group"><div class="vr-glbl">3-Yr Outcomes</div>${pOutcomes.map(g=>`<div class="vr-item" style="border-left:2px solid ${p.color}">${trunc(g.name,55)}</div>`).join('')}</div>`}
-    if(pGoals.length){h+=`<div class="vr-group"><div class="vr-glbl">Annual Goals</div>${pGoals.map(g=>`<div class="vr-item">${trunc(g.name,55)}</div>`).join('')}</div>`}
-    if(pRocks.length){h+=`<div class="vr-group"><div class="vr-glbl">Rocks</div>${pRocks.map(r=>`<div class="vr-item-sm">${trunc(r.name,52)}</div>`).join('')}</div>`}
-    if(pProjs.length){h+=`<div class="vr-group"><div class="vr-glbl">Projects</div>${pProjs.map(pr=>`<div class="vr-item-sm">${trunc(pr.name,52)}</div>`).join('')}</div>`}
-    if(!hasContent){h+=`<div class="vr-lane-empty">Nothing this quarter</div>`}
-
+    const has=pOut.length||pGoals.length||pRocks.length||pProjs.length
+    h+=`<div class="vr-lane" style="--pc:${p.color}"><div class="vr-lane-hdr"><div class="vr-lane-name"><span class="vr-lane-pip" style="background:${p.color}"></span>${p.name}</div></div><div class="vr-lane-body">`
+    if(pOut.length)h+=`<div class="vr-group"><div class="vr-glbl">3-Yr Outcomes</div>${pOut.map(g=>`<div class="vr-item" style="border-left:2px solid ${p.color}">${trunc(g.name,52)}</div>`).join('')}</div>`
+    if(pGoals.length)h+=`<div class="vr-group"><div class="vr-glbl">Annual Goals</div>${pGoals.map(g=>`<div class="vr-item">${trunc(g.name,52)}</div>`).join('')}</div>`
+    if(pRocks.length)h+=`<div class="vr-group"><div class="vr-glbl">Rocks</div>${pRocks.map(r=>`<div class="vr-item-sm">${trunc(r.name,50)}</div>`).join('')}</div>`
+    if(pProjs.length)h+=`<div class="vr-group"><div class="vr-glbl">Projects</div>${pProjs.map(pr=>`<div class="vr-item-sm">${trunc(pr.name,50)}</div>`).join('')}</div>`
+    if(!has)h+=`<div class="vr-lane-empty">Nothing this quarter</div>`
     h+=`</div></div>`
   })
-
-  h+=`</div>` // close board
-  h+=`</div></div>` // close vr-inner, vr
-
+  h+=`</div></div></div>`
   document.getElementById('vc').innerHTML=h
 }
-
 function vrLevel(title,isVision,bodyHtml){
-  const cls=isVision==='true'?'vr-level vr-vision':'vr-level'
-  return `<div class="${cls}"><div class="vr-level-kicker">${title}</div><div class="vr-level-body">${bodyHtml}</div></div>`
+  return `<div class="vr-level ${isVision?'vr-vision':''}"><div class="vr-level-kicker">${title}</div><div class="vr-level-body">${bodyHtml}</div></div>`
 }
-
 function vrBlocks(blocks){
-  if(!blocks||!blocks.length)return `<div class="vr-placeholder">Not yet populated — update the Notion page to show content here.</div>`
-  return blocks.slice(0,10).map(b=>{
-    if(b.type==='bulleted_list_item'||b.type==='numbered_list_item')return `<div class="vr-bullet">${trunc(b.text,100)}</div>`
-    if(b.type.startsWith('heading'))return `<div class="vr-block-head">${b.text}</div>`
-    return `<div class="vr-block-para">${trunc(b.text,160)}</div>`
+  if(!blocks||!blocks.length)return`<div class="vr-placeholder">Not yet populated — update the Notion page to show content here.</div>`
+  return blocks.filter(b=>b.text.toLowerCase()!=='summary').slice(0,10).map(b=>{
+    if(b.type==='bulleted_list_item'||b.type==='numbered_list_item')return`<div class="vr-bullet">${b.text}</div>`
+    if(b.type.startsWith('heading'))return`<div class="vr-block-head">${b.text}</div>`
+    return`<div class="vr-block-para">${trunc(b.text,300)}</div>`
   }).join('')
 }
 
-// ════════════════════════════════════════════════════════
-// COLUMNS VIEW
-// ════════════════════════════════════════════════════════
+/* ── COLUMNS ──────────────────────────────────────────────── */
 function v1Render(){
   const COLS=[{k:'pillars',l:'Pillars',items:D.pillars},{k:'goals',l:'Goals',items:D.goals},{k:'rocks',l:'Rocks',items:D.rocks},{k:'projects',l:'Projects',items:D.projects},{k:'tasks',l:'Tasks',items:D.tasks}]
   document.getElementById('vc').innerHTML=`<div class="v1"><div class="v1-bar"><span class="v1-bar-lbl">Show:</span>${COLS.map(c=>`<button class="ctog ${COLVIS[c.k]?'on':''}" onclick="v1TogCol('${c.k}')">${c.l}</button>`).join('')}<span style="margin-left:8px;font-size:10px;color:var(--tx3)">· Click a card to trace its chain</span></div><div class="v1-scroll" id="v1sc" onscroll="v1Draw()"><div class="v1-inner" id="v1in"><svg id="v1svg"></svg>${COLS.map(c=>`<div class="v1col ${COLVIS[c.k]?'':'hidden'}" id="v1col-${c.k}"></div>`).join('')}</div></div></div>`
-  v1FillCols()
-  setTimeout(v1Draw,120)
-  document.getElementById('v1sc').addEventListener('scroll',v1Draw)
+  v1FillCols();setTimeout(v1Draw,120);document.getElementById('v1sc').addEventListener('scroll',v1Draw)
 }
 function v1FillCols(){
   const COLS=[{k:'pillars',l:'Pillars',items:D.pillars,type:'pillar'},{k:'goals',l:'Goals',items:D.goals,type:'goal'},{k:'rocks',l:'Rocks',items:D.rocks,type:'rock'},{k:'projects',l:'Projects',items:D.projects,type:'project'},{k:'tasks',l:'Tasks',items:D.tasks,type:'task'}]
   COLS.forEach(({k,l,items,type})=>{
-    const col=document.getElementById('v1col-'+k)
-    if(!col)return
-    const inChain=V1SEL?chain(V1SEL):null
-    if(V1SEL)inChain.add(V1SEL)
+    const col=document.getElementById('v1col-'+k);if(!col)return
+    const inChain=V1SEL?chain(V1SEL):null;if(V1SEL)inChain.add(V1SEL)
     col.innerHTML=`<div class="v1ch">${l}<span class="v1cn">${items.length}</span></div>`+items.map(item=>{
-      const color=item.pc||item.color||'#8B7355'
-      const isOrph=orphan(item,type),isDim=V1SEL&&!inChain.has(item.id),isSel=V1SEL===item.id
-      return `<div class="card ${isDim?'dim':''} ${isSel?'sel':''} ${isOrph?'orphan':''} ${type==='task'?'noclk':''}" id="v1c-${item.id}" data-id="${item.id}" style="--pc:${color}" onclick="v1Sel('${item.id}')"><div class="card-k">${cap(type)}</div><div class="card-n">${item.name}</div><div class="card-tgs">${tags(item,type)}</div>${isOrph?'<div class="card-w">⚠ Not fully linked</div>':''}<div class="card-ft"><span class="card-c">${ccount(item,type)}</span>${type!=='task'?'<span class="card-arr">→</span>':''}</div></div>`
+      const color=item.pc||item.color||'#8B7355',isOrph=orphan(item,type),isDim=V1SEL&&!inChain.has(item.id),isSel=V1SEL===item.id
+      return`<div class="card ${isDim?'dim':''} ${isSel?'sel':''} ${isOrph?'orphan':''} ${type==='task'?'noclk':''}" id="v1c-${item.id}" data-id="${item.id}" style="--pc:${color}" onclick="v1Sel('${item.id}')"><div class="card-k">${cap(type)}</div><div class="card-n">${item.name}</div><div class="card-tgs">${tags(item,type)}</div>${isOrph?'<div class="card-w">⚠ Not fully linked</div>':''}<div class="card-ft"><span class="card-c">${ccount(item,type)}</span>${type!=='task'?'<span class="card-arr">→</span>':''}</div></div>`
     }).join('')
   })
 }
-function v1TogCol(k){
-  COLVIS[k]=!COLVIS[k]
-  const col=document.getElementById('v1col-'+k),btn=document.querySelector(`.ctog[onclick*="${k}"]`)
-  if(col)col.hidden=!COLVIS[k]
-  if(btn)btn.classList.toggle('on',COLVIS[k])
-  v1Draw()
-}
+function v1TogCol(k){COLVIS[k]=!COLVIS[k];const col=document.getElementById('v1col-'+k),btn=document.querySelector(`.ctog[onclick*="${k}"]`);if(col)col.hidden=!COLVIS[k];if(btn)btn.classList.toggle('on',COLVIS[k]);v1Draw()}
 function v1Sel(id){V1SEL=V1SEL===id?null:id;v1FillCols();v1Draw()}
 function v1Draw(){
-  const row=document.getElementById('v1in'),svg=document.getElementById('v1svg')
-  if(!row||!svg)return
-  svg.setAttribute('width',row.scrollWidth);svg.setAttribute('height',row.scrollHeight)
-  svg.style.width=row.scrollWidth+'px';svg.style.height=row.scrollHeight+'px'
-  const inC=V1SEL?chain(V1SEL):null
-  if(V1SEL)inC.add(V1SEL)
+  const row=document.getElementById('v1in'),svg=document.getElementById('v1svg');if(!row||!svg)return
+  svg.setAttribute('width',row.scrollWidth);svg.setAttribute('height',row.scrollHeight);svg.style.width=row.scrollWidth+'px';svg.style.height=row.scrollHeight+'px'
+  const inC=V1SEL?chain(V1SEL):null;if(V1SEL)inC.add(V1SEL)
   const line=(fid,tid,color)=>{
-    const fi=ALL[fid],ti=ALL[tid]
-    if(!fi||!ti||!COLVIS[fi.type+'s']||!COLVIS[ti.type+'s'])return''
-    const fa=document.getElementById('v1c-'+fid),ta=document.getElementById('v1c-'+tid)
-    if(!fa||!ta)return''
+    const fi=ALL[fid],ti=ALL[tid];if(!fi||!ti||!COLVIS[fi.type+'s']||!COLVIS[ti.type+'s'])return''
+    const fa=document.getElementById('v1c-'+fid),ta=document.getElementById('v1c-'+tid);if(!fa||!ta)return''
     const rr=row.getBoundingClientRect(),fr=fa.getBoundingClientRect(),tr=ta.getBoundingClientRect()
     const x1=fr.right-rr.left,y1=(fr.top+fr.bottom)/2-rr.top,x2=tr.left-rr.left,y2=(tr.top+tr.bottom)/2-rr.top
-    const cx=(x2-x1)*.44,lit=!V1SEL||(inC.has(fid)&&inC.has(tid))
-    const op=lit?(V1SEL?.8:.18):.03,sw=lit&&V1SEL?2.2:1.5
-    return `<path d="M${x1},${y1} C${x1+cx},${y1} ${x2-cx},${y2} ${x2},${y2}" stroke="${color}" stroke-width="${sw}" fill="none" stroke-opacity="${op}" stroke-linecap="round"/>`
+    const cx=(x2-x1)*.44,lit=!V1SEL||(inC.has(fid)&&inC.has(tid)),op=lit?(V1SEL?.8:.18):.03,sw=lit&&V1SEL?2.2:1.5
+    return`<path d="M${x1},${y1} C${x1+cx},${y1} ${x2-cx},${y2} ${x2},${y2}" stroke="${color}" stroke-width="${sw}" fill="none" stroke-opacity="${op}" stroke-linecap="round"/>`
   }
   const paths=[]
   D.pillars.forEach(p=>goalsOf(p).forEach(g=>paths.push(line(p.id,g.id,p.color))))
@@ -463,9 +681,7 @@ function v1Draw(){
 }
 window.addEventListener('resize',()=>{if(CV==='columns')v1Draw()})
 
-// ════════════════════════════════════════════════════════
-// NESTED VIEW
-// ════════════════════════════════════════════════════════
+/* ── NESTED ───────────────────────────────────────────────── */
 function v2Render(){
   let h='<div class="v2"><div class="v2-in">'
   D.pillars.forEach(p=>{
@@ -481,19 +697,11 @@ function v2Render(){
     })
     h+=`</div></div>`
   })
-  h+='</div></div>'
-  document.getElementById('vc').innerHTML=h
+  document.getElementById('vc').innerHTML=h+'</div></div>'
 }
-function v2tog(id){
-  const body=document.getElementById('v2b-'+id),chv=document.getElementById('v2ch-'+id)
-  if(!body)return
-  if(V2EXP.has(id)){V2EXP.delete(id);body.hidden=true;if(chv)chv.style.transform=''}
-  else{V2EXP.add(id);body.hidden=false;if(chv)chv.style.transform='rotate(90deg)'}
-}
+function v2tog(id){const body=document.getElementById('v2b-'+id),chv=document.getElementById('v2ch-'+id);if(!body)return;if(V2EXP.has(id)){V2EXP.delete(id);body.hidden=true;if(chv)chv.style.transform=''}else{V2EXP.add(id);body.hidden=false;if(chv)chv.style.transform='rotate(90deg)'}}
 
-// ════════════════════════════════════════════════════════
-// SWIMLANES VIEW
-// ════════════════════════════════════════════════════════
+/* ── SWIMLANES ────────────────────────────────────────────── */
 function v3Render(){
   let h='<div class="v3">'
   D.pillars.forEach(p=>{
@@ -503,13 +711,12 @@ function v3Render(){
     else goals.forEach(g=>{
       const rocks=rocksOf(g)
       h+=`<div class="v3goal"><div class="v3gn" style="--pc:${g.pc}">${g.name}</div>`
-      if(rocks.length){h+=`<div class="v3rs">`;rocks.forEach(r=>{h+=`<div class="v3r"><div class="v3rp" style="background:${r.pc}"></div>${trunc(r.name,50)}</div>`});h+=`</div>`}
+      if(rocks.length){h+=`<div class="v3rs">`;rocks.forEach(r=>{h+=`<div class="v3r"><div class="v3rp" style="background:${r.pc}"></div>${trunc(r.name,48)}</div>`});h+=`</div>`}
       h+=`</div>`
     })
     h+=`</div></div>`
   })
-  h+='</div>'
-  document.getElementById('vc').innerHTML=h
+  document.getElementById('vc').innerHTML=h+'</div>'
 }
 </script>
 </body>
