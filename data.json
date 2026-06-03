@@ -1,5 +1,61 @@
 {
-  "generated": "2026-06-02T23:11:29.307Z",
+  "generated": "2026-06-03T03:41:29.186Z",
+  "meta": {
+    "currentQuarter": "Q2",
+    "currentYear": "2026",
+    "tenYearTarget": [
+      {
+        "type": "heading_2",
+        "text": "Summary"
+      },
+      {
+        "type": "paragraph",
+        "text": "By December 31, 2036, the Eubanks family is living a faithful, peaceful, ownership-based life on our land."
+      },
+      {
+        "type": "paragraph",
+        "text": "Corporate W-2 income is optional, the home and homestead are complete, the ranch is profitable and enjoyable, and the family is operating with strong faith, strong marriage, healthy rhythms, and meaningful freedom."
+      },
+      {
+        "type": "paragraph",
+        "text": "We are not just wealthier — we are freer, calmer, wiser, healthier, and more present."
+      }
+    ],
+    "threeYearVision": [
+      {
+        "type": "paragraph",
+        "text": "Summary"
+      },
+      {
+        "type": "paragraph",
+        "text": "Target Date: December 31, 2028"
+      },
+      {
+        "type": "paragraph",
+        "text": "By December 31, 2028, the Eubanks family is living with greater peace, rhythm, and freedom — with our home, marriage, children, ranch, finances, and Family OS working together to support the life we are intentionally building."
+      },
+      {
+        "type": "bulleted_list_item",
+        "text": "Calm structure replaces constant reaction mode."
+      },
+      {
+        "type": "bulleted_list_item",
+        "text": "Our home becomes the steady center for homeschooling, meals, routines, rest, work, and connection."
+      },
+      {
+        "type": "bulleted_list_item",
+        "text": "Our family operates with rhythm — mornings, weekly planning, check-ins, and resets create peace without rigidity."
+      },
+      {
+        "type": "bulleted_list_item",
+        "text": "Our marriage functions as a team, with earlier communication before stress turns into emergencies."
+      },
+      {
+        "type": "bulleted_list_item",
+        "text": "Our kids feel deeply included, safe, loved, and connected — especially protecting meaningful time with the older girls while they are still home."
+      }
+    ]
+  },
   "pillars": [
     {
       "id": "cb4375f148b64a2e8a0ecd0f0e0e4962",
@@ -436,6 +492,16 @@
     }
   ],
   "tasks": [
+    {
+      "id": "374c5749485980eabef1eb4c3321292b",
+      "type": "task",
+      "name": "Reimburse deposit for Keano",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": "Real Estate",
+      "hours": null,
+      "projectIds": []
+    },
     {
       "id": "373c574948598009960deadd867ff0cb",
       "type": "task",
