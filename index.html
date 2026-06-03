@@ -507,7 +507,7 @@ function renderWip(){
   const startHrs=started.reduce((s,t)=>s+(t.hours||0),0)
   const stagnant=wipActive.filter(t=>{if(!t.startDate)return false;return Math.floor((Date.now()-new Date(t.startDate+'T00:00:00'))/86400000)>=7})
   const allActive=wt.filter(t=>t.status==='In progress (WIP)'||t.status==='Up Next (Sprint Backlog)')
-  const rockLinked=allActive.filter(t=>t.projectIds?.some(pid=>prm[pid]?.rockIds?.length>0))
+  const rockLinked=allActive.filter(t=>t.rockIds?.length>0||t.projectIds?.some(pid=>prm[pid]?.rockIds?.length>0))
   const rockPct=allActive.length>0?Math.round(rockLinked.length/allActive.length*100):0
   // Daily data
   const days=[],cur=new Date(start)
@@ -518,7 +518,13 @@ function renderWip(){
   const startByDay=dayStrs.map(ds=>wt.filter(t=>t.startDate===ds).reduce((s,t)=>s+(t.hours||0),0))
   // Pie data
   const byPillar={},byDomain={}
-  completed.forEach(t=>{const k=t.pillar||'Other';byPillar[k]=(byPillar[k]||0)+(t.hours||0)})
+  const pillarById=by(D.pillars)
+  completed.forEach(t=>{
+    let k='Other'
+    if(t.pillarIds?.length){const p=pillarById[t.pillarIds[0]];if(p)k=p.name}
+    else if(t.pc){const e=Object.entries(PC).find(([,v])=>v===t.pc);if(e)k=e[0]}
+    byPillar[k]=(byPillar[k]||0)+(t.hours||0)
+  })
   completed.forEach(t=>{const k=t.domain||'Other';byDomain[k]=(byDomain[k]||0)+(t.hours||0)})
   // Render
   const RBTNS=['week','lastweek','14days','30days']
