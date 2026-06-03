@@ -160,13 +160,13 @@ function parseWipTask(p) {
     id: nid(p.id), type: 'task',
     name:         tP(p.properties,  'Task Name'),
     status:       stP(p.properties, 'Status'),
-    pillar:       sP(p.properties,  'Pillar'),
+    pillarIds:    relP(p.properties, 'Pillar'),
     domain:       sP(p.properties,  'Domain (aka- Area)'),
     hours:        numP(p.properties, 'Estimated Hours'),
     projectIds:   relP(p.properties, 'Project'),
-    startDate:    dtP(p.properties,  'Auto-Start Date'),
-    completeDate: dtP(p.properties,  'Auto-Completed Date'),
-    daysInWip:    numP(p.properties, 'Current Days In WIP'),
+    rockIds:      relP(p.properties, '90-Day Rocks'),
+    startDate:    dtP(p.properties,  'Auto- Start Date (Entered WIP) '),
+    completeDate: dtP(p.properties,  'Auto- Completed Date (moved to done)'),
   }
 }
 
