@@ -528,6 +528,17 @@ function renderWip(){
   const compVal=isCount?completed.length:compHrs
   const startVal=isCount?started.length:startHrs
   const valUnit=isCount?'tasks':'hrs'
+  // Targets: WIP is always weekly (right-now cap); completion scales with date range
+  const cfg=D.meta?.wipTargets||{}
+  const WIP_HRS=cfg.wip_hrs_per_person||30
+  const WIP_TASKS=cfg.wip_tasks_per_person||15
+  const COMP_HRS=cfg.comp_hrs_per_week_per_person||30
+  const COMP_TASKS=cfg.comp_tasks_per_week_per_person||15
+  const personMult=WIP_PERSON==='all'?2:1
+  const daysForTarget=Math.max(days.length,7)
+  const scaleW=daysForTarget/7
+  const wipTarget=(isCount?WIP_TASKS:WIP_HRS)*personMult
+  const compTarget=(isCount?Math.round(COMP_TASKS*scaleW):Math.round(COMP_HRS*scaleW))*personMult
   const allActive=wt.filter(t=>t.status==='In progress (WIP)'||t.status==='Up Next (Sprint Backlog)')
   const rockLinked=allActive.filter(t=>t.rockIds?.length>0||t.projectIds?.some(pid=>prm[pid]?.rockIds?.length>0))
   const rockPct=allActive.length>0?Math.round(rockLinked.length/allActive.length*100):0
@@ -574,15 +585,15 @@ function renderWip(){
     </div>
     <div class="vwip-metrics">
       <div class="vwip-metric">
-        <div class="vwip-mval ${!isCount&&wipHrs>30?'over':''}">${isCount?wipVal:wipHrs.toFixed(1)} <span class="vwip-mtgt">/ 30 ${valUnit}</span></div>
+        <div class="vwip-mval ${!isCount&&wipHrs>wipTarget?'over':''}">${isCount?wipVal:wipHrs.toFixed(1)} <span class="vwip-mtgt">/ ${wipTarget} ${valUnit}</span></div>
         <div class="vwip-mlbl">Current WIP</div>
-        <div class="vwip-prog-track"><div class="vwip-prog-fill ${!isCount&&wipHrs>30?'over':''}" style="width:${Math.min(wipVal/30*100,100).toFixed(0)}%"></div></div>
+        <div class="vwip-prog-track"><div class="vwip-prog-fill ${!isCount&&wipHrs>wipTarget?'over':''}" style="width:${Math.min(wipVal/wipTarget*100,100).toFixed(0)}%"></div></div>
       </div>
       <div class="vwip-metric">
-        <div class="vwip-mval ${compVal>=30?'hit':'under'}">${isCount?compVal:compHrs.toFixed(1)} <span class="vwip-mtgt">/ 30 ${valUnit}</span></div>
+        <div class="vwip-mval ${compVal>=compTarget?'hit':'under'}">${isCount?compVal:compHrs.toFixed(1)} <span class="vwip-mtgt">/ ${compTarget} ${valUnit}</span></div>
         <div class="vwip-mlbl">Completed</div>
         <div class="vwip-msub">${completed.length} tasks · ${label}</div>
-        <div class="vwip-prog-track"><div class="vwip-prog-fill ${compVal>=30?'':'under'}" style="width:${Math.min(compVal/30*100,100).toFixed(0)}%"></div></div>
+        <div class="vwip-prog-track"><div class="vwip-prog-fill ${compVal>=compTarget?'':'under'}" style="width:${Math.min(compVal/compTarget*100,100).toFixed(0)}%"></div></div>
       </div>
       <div class="vwip-metric">
         <div class="vwip-mval">${isCount?startVal:startVal.toFixed(1)} <span class="vwip-mtgt">${valUnit}</span></div>
@@ -596,7 +607,7 @@ function renderWip(){
       </div>
       <div class="vwip-metric">
         <div class="vwip-mval">${avgVelocity} <span class="vwip-mtgt">${avgVelocity!=='—'?'days':''}</span></div>
-        <div class="vwip-mlbl">Avg Cycle Time</div>
+        <div class="vwip-mlbl">Avg Cycle Time (aka- Velocity)</div>
         <div class="vwip-msub">start → done · ${velSub}</div>
       </div>
     </div>
