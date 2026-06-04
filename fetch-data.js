@@ -91,6 +91,30 @@ async function fetchPageContent(pageId) {
   return blocks
 }
 
+// ── Notion API: Fetch dashboard config (key: value pairs) ────
+async function fetchConfigPage(pageId) {
+  const res = await fetch(`https://api.notion.com/v1/blocks/${pageId}/children?page_size=100`, {
+    headers: {
+      'Authorization':  `Bearer ${TOKEN}`,
+      'Notion-Version': '2022-06-28',
+    }
+  })
+  if (!res.ok) {
+    console.warn(`    Warning: Could not fetch config page ${pageId} (${res.status})`)
+    return {}
+  }
+  const data = await res.json()
+  const config = {}
+  for (const block of (data.results || [])) {
+    const type = block.type
+    const richText = block[type]?.rich_text || []
+    const text = richText.map(t => t.plain_text).join('').trim()
+    const match = text.match(/^(\w+):\s*(\d+(?:\.\d+)?)/)
+    if (match) config[match[1]] = parseFloat(match[2])
+  }
+  return config
+}
+
 // ── Property helpers ──────────────────────────────────────────
 const nid  = id => id.replace(/-/g, '')
 const tP   = (pr, k) => pr[k]?.title?.map(t => t.plain_text).join('')        || '(Untitled)'
@@ -230,6 +254,11 @@ async function main() {
   const wipTasks = [...wipActive, ...wipDone]
   console.log(`    ✓ ${wipActive.length} active · ${wipDone.length} recent done`)
 
+  // Dashboard config
+  console.log('  Fetching dashboard config...')
+  const wipTargets = await fetchConfigPage('375c574948598125 80bfd476854c912d'.replace(' ',''))
+  console.log(`    ✓ ${Object.keys(wipTargets).length} config values`)
+
   // Page content
   console.log('  Fetching 10-Year Target page...')
   const tenYearTarget = await fetchPageContent(PAGES.tenYearTarget)
@@ -251,6 +280,7 @@ async function main() {
       currentYear,
       tenYearTarget,
       threeYearVision,
+      wipTargets,
     },
     pillars,
     goals,
