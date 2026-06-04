@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-04T03:53:10.547Z",
+  "generated": "2026-06-04T04:35:07.374Z",
   "meta": {
     "currentQuarter": "Q2",
     "currentYear": "2026",
@@ -66,7 +66,14 @@
         "type": "bulleted_list_item",
         "text": "Financial momentum building steadily toward W-2 independence"
       }
-    ]
+    ],
+    "wipTargets": {
+      "wip_hrs_per_person": 30,
+      "wip_tasks_per_person": 15,
+      "comp_hrs_per_week_per_person": 30,
+      "comp_tasks_per_week_per_person": 15,
+      "avg_task_hrs": 2
+    }
   },
   "pillars": [
     {
