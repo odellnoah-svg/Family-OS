@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-04T01:58:13.305Z",
+  "generated": "2026-06-04T03:53:10.547Z",
   "meta": {
     "currentQuarter": "Q2",
     "currentYear": "2026",
@@ -505,13 +505,33 @@
   ],
   "tasks": [
     {
-      "id": "375c574948598072af02e7c62ae0df3c",
+      "id": "375c57494859804b88a8c62c0a1e8dd8",
       "type": "task",
-      "name": "WIP dashboard additions-  total view, Noah view, Tricia view ",
+      "name": "Create 3 year outcomes and add to goals database ",
       "status": "In progress (WIP)",
       "pillar": null,
       "domain": "Personal Admin",
-      "hours": 2,
+      "hours": 1.5,
+      "projectIds": []
+    },
+    {
+      "id": "375c5749485980378a7edcc4e2b1d755",
+      "type": "task",
+      "name": "Add Habits Tracker to dashboard ",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": "Personal Admin",
+      "hours": 0.5,
+      "projectIds": []
+    },
+    {
+      "id": "375c5749485980dc87bce84e800655a4",
+      "type": "task",
+      "name": "Add “velocity” to WIP dashboard ",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": "Personal Admin",
+      "hours": 0.5,
       "projectIds": []
     },
     {
@@ -1157,21 +1177,60 @@
   ],
   "wipTasks": [
     {
-      "id": "375c574948598072af02e7c62ae0df3c",
+      "id": "375c57494859804b88a8c62c0a1e8dd8",
       "type": "task",
-      "name": "WIP dashboard additions-  total view, Noah view, Tricia view ",
+      "name": "Create 3 year outcomes and add to goals database ",
       "status": "In progress (WIP)",
       "pillarIds": [
         "76181932d64d40de88929de677bdf7c2"
       ],
       "domain": "Personal Admin",
-      "hours": 2,
+      "hours": 1.5,
       "projectIds": [],
       "rockIds": [],
       "person": [
         "Noah Eubanks"
       ],
-      "startDate": "2026-06-03T20:31:00.000-05:00",
+      "velocity": 0,
+      "startDate": "2026-06-03T22:27:00.000-05:00",
+      "completeDate": null
+    },
+    {
+      "id": "375c5749485980378a7edcc4e2b1d755",
+      "type": "task",
+      "name": "Add Habits Tracker to dashboard ",
+      "status": "In progress (WIP)",
+      "pillarIds": [
+        "76181932d64d40de88929de677bdf7c2"
+      ],
+      "domain": "Personal Admin",
+      "hours": 0.5,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": "2026-06-03T21:08:00.000-05:00",
+      "completeDate": null
+    },
+    {
+      "id": "375c5749485980dc87bce84e800655a4",
+      "type": "task",
+      "name": "Add “velocity” to WIP dashboard ",
+      "status": "In progress (WIP)",
+      "pillarIds": [
+        "76181932d64d40de88929de677bdf7c2"
+      ],
+      "domain": "Personal Admin",
+      "hours": 0.5,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": "2026-06-03T21:07:00.000-05:00",
       "completeDate": null
     },
     {
@@ -1187,6 +1246,7 @@
       "person": [
         "Patricia Eubanks"
       ],
+      "velocity": 0,
       "startDate": "2026-06-03T14:13:00.000-05:00",
       "completeDate": null
     },
@@ -1204,6 +1264,7 @@
         "Noah Eubanks",
         "Patricia Eubanks"
       ],
+      "velocity": 0,
       "startDate": "2026-06-02T17:24:00.000-05:00",
       "completeDate": null
     },
@@ -1220,6 +1281,7 @@
       "person": [
         "Noah Eubanks"
       ],
+      "velocity": 0,
       "startDate": "2026-06-02T09:08:00.000-05:00",
       "completeDate": null
     },
@@ -1240,6 +1302,7 @@
       "person": [
         "Noah Eubanks"
       ],
+      "velocity": 0,
       "startDate": "2026-06-01T22:09:00.000-05:00",
       "completeDate": null
     },
@@ -1256,6 +1319,7 @@
       "person": [
         "Noah Eubanks"
       ],
+      "velocity": 0,
       "startDate": "2026-05-30T22:23:00.000-05:00",
       "completeDate": null
     },
@@ -1273,6 +1337,7 @@
         "Patricia Eubanks",
         "Noah Eubanks"
       ],
+      "velocity": 0,
       "startDate": "2026-05-30T11:12:00.000-05:00",
       "completeDate": null
     },
@@ -1289,6 +1354,7 @@
       "person": [
         "Noah Eubanks"
       ],
+      "velocity": 0,
       "startDate": "2026-05-30T11:01:00.000-05:00",
       "completeDate": null
     },
@@ -1305,6 +1371,7 @@
       "person": [
         "Noah Eubanks"
       ],
+      "velocity": 0,
       "startDate": "2026-05-30T10:59:00.000-05:00",
       "completeDate": null
     },
@@ -1321,6 +1388,7 @@
       "person": [
         "Noah Eubanks"
       ],
+      "velocity": 0,
       "startDate": "2026-05-30T10:57:00.000-05:00",
       "completeDate": null
     },
@@ -1337,6 +1405,7 @@
       "person": [
         "Noah Eubanks"
       ],
+      "velocity": 0,
       "startDate": null,
       "completeDate": null
     },
@@ -1353,6 +1422,7 @@
       "person": [
         "Noah Eubanks"
       ],
+      "velocity": 0,
       "startDate": "2026-05-28T15:49:00.000-05:00",
       "completeDate": null
     },
@@ -1369,6 +1439,7 @@
       "person": [
         "Noah Eubanks"
       ],
+      "velocity": 0,
       "startDate": "2026-05-28T09:27:00.000-05:00",
       "completeDate": null
     },
@@ -1385,6 +1456,7 @@
       "person": [
         "Noah Eubanks"
       ],
+      "velocity": 0,
       "startDate": "2026-05-26T17:09:00.000-05:00",
       "completeDate": null
     },
@@ -1399,6 +1471,7 @@
       "projectIds": [],
       "rockIds": [],
       "person": [],
+      "velocity": 0,
       "startDate": null,
       "completeDate": null
     },
@@ -1413,6 +1486,7 @@
       "projectIds": [],
       "rockIds": [],
       "person": [],
+      "velocity": 0,
       "startDate": "2026-05-24T10:30:00.000-05:00",
       "completeDate": null
     },
@@ -1429,6 +1503,7 @@
       "person": [
         "Noah Eubanks"
       ],
+      "velocity": 0,
       "startDate": null,
       "completeDate": null
     },
@@ -1445,6 +1520,7 @@
       "person": [
         "Noah Eubanks"
       ],
+      "velocity": 0,
       "startDate": "2026-05-22T16:46:00.000-05:00",
       "completeDate": null
     },
@@ -1461,6 +1537,7 @@
       "person": [
         "Noah Eubanks"
       ],
+      "velocity": 0,
       "startDate": "2026-05-22T16:45:00.000-05:00",
       "completeDate": null
     },
@@ -1477,6 +1554,7 @@
       "person": [
         "Noah Eubanks"
       ],
+      "velocity": 0,
       "startDate": "2026-05-22T16:45:00.000-05:00",
       "completeDate": null
     },
@@ -1493,6 +1571,7 @@
       "person": [
         "Noah Eubanks"
       ],
+      "velocity": 0,
       "startDate": "2026-05-22T16:43:00.000-05:00",
       "completeDate": null
     },
@@ -1509,6 +1588,7 @@
       "person": [
         "Patricia Eubanks"
       ],
+      "velocity": 0,
       "startDate": "2026-05-22T06:49:00.000-05:00",
       "completeDate": null
     },
@@ -1525,6 +1605,7 @@
       "person": [
         "Patricia Eubanks"
       ],
+      "velocity": 0,
       "startDate": "2026-05-30T11:12:00.000-05:00",
       "completeDate": null
     },
@@ -1541,6 +1622,7 @@
       "person": [
         "Noah Eubanks"
       ],
+      "velocity": 0,
       "startDate": "2026-05-20T18:33:00.000-05:00",
       "completeDate": null
     },
@@ -1557,6 +1639,7 @@
       "person": [
         "Noah Eubanks"
       ],
+      "velocity": 0,
       "startDate": "2026-05-20T12:51:00.000-05:00",
       "completeDate": null
     },
@@ -1573,6 +1656,7 @@
       "person": [
         "Patricia Eubanks"
       ],
+      "velocity": 0,
       "startDate": "2026-05-20T11:30:00.000-05:00",
       "completeDate": null
     },
@@ -1587,6 +1671,7 @@
       "projectIds": [],
       "rockIds": [],
       "person": [],
+      "velocity": 0,
       "startDate": "2026-05-19T10:25:00.000-05:00",
       "completeDate": null
     },
@@ -1603,6 +1688,7 @@
       "person": [
         "Patricia Eubanks"
       ],
+      "velocity": 0,
       "startDate": "2026-05-19T08:50:00.000-05:00",
       "completeDate": null
     },
@@ -1620,6 +1706,7 @@
         "Noah Eubanks",
         "Patricia Eubanks"
       ],
+      "velocity": 0,
       "startDate": "2026-05-18T13:19:00.000-05:00",
       "completeDate": null
     },
@@ -1636,6 +1723,7 @@
       "person": [
         "Patricia Eubanks"
       ],
+      "velocity": 0,
       "startDate": "2026-05-17T10:13:00.000-05:00",
       "completeDate": null
     },
@@ -1652,6 +1740,7 @@
       "person": [
         "Noah Eubanks"
       ],
+      "velocity": 0,
       "startDate": "2026-05-17T10:07:00.000-05:00",
       "completeDate": null
     },
@@ -1668,6 +1757,7 @@
       "person": [
         "Patricia Eubanks"
       ],
+      "velocity": 0,
       "startDate": "2026-05-30T11:12:00.000-05:00",
       "completeDate": null
     },
@@ -1684,6 +1774,7 @@
       "person": [
         "Noah Eubanks"
       ],
+      "velocity": 0,
       "startDate": "2026-05-17T09:57:00.000-05:00",
       "completeDate": null
     },
@@ -1700,6 +1791,7 @@
       "person": [
         "Patricia Eubanks"
       ],
+      "velocity": 0,
       "startDate": "2026-05-17T09:54:00.000-05:00",
       "completeDate": null
     },
@@ -1716,6 +1808,7 @@
       "person": [
         "Patricia Eubanks"
       ],
+      "velocity": 0,
       "startDate": null,
       "completeDate": null
     },
@@ -1732,6 +1825,7 @@
       "person": [
         "Patricia Eubanks"
       ],
+      "velocity": 0,
       "startDate": "2026-05-17T09:48:00.000-05:00",
       "completeDate": null
     },
@@ -1748,6 +1842,7 @@
       "person": [
         "Noah Eubanks"
       ],
+      "velocity": 0,
       "startDate": null,
       "completeDate": null
     },
@@ -1764,6 +1859,7 @@
       "person": [
         "Noah Eubanks"
       ],
+      "velocity": 0,
       "startDate": "2026-05-15T11:45:00.000-05:00",
       "completeDate": null
     },
@@ -1780,6 +1876,7 @@
       "person": [
         "Noah Eubanks"
       ],
+      "velocity": 0,
       "startDate": "2026-05-15T11:38:00.000-05:00",
       "completeDate": null
     },
@@ -1796,6 +1893,7 @@
       "person": [
         "Noah Eubanks"
       ],
+      "velocity": 0,
       "startDate": "2026-05-13T23:39:00.000-05:00",
       "completeDate": null
     },
@@ -1812,6 +1910,7 @@
       "person": [
         "Patricia Eubanks"
       ],
+      "velocity": 0,
       "startDate": "2026-05-20T14:21:00.000-05:00",
       "completeDate": null
     },
@@ -1828,6 +1927,7 @@
       "person": [
         "Patricia Eubanks"
       ],
+      "velocity": 0,
       "startDate": "2026-05-11T16:21:00.000-05:00",
       "completeDate": null
     },
@@ -1844,6 +1944,7 @@
       "person": [
         "Patricia Eubanks"
       ],
+      "velocity": 0,
       "startDate": "2026-05-11T16:10:00.000-05:00",
       "completeDate": null
     },
@@ -1860,6 +1961,7 @@
       "person": [
         "Noah Eubanks"
       ],
+      "velocity": 0,
       "startDate": null,
       "completeDate": null
     },
@@ -1876,6 +1978,7 @@
       "person": [
         "Noah Eubanks"
       ],
+      "velocity": 0,
       "startDate": null,
       "completeDate": null
     },
@@ -1892,6 +1995,7 @@
       "person": [
         "Noah Eubanks"
       ],
+      "velocity": 0,
       "startDate": null,
       "completeDate": null
     },
@@ -1909,6 +2013,7 @@
         "Noah Eubanks",
         "Patricia Eubanks"
       ],
+      "velocity": 0,
       "startDate": null,
       "completeDate": null
     },
@@ -1925,6 +2030,7 @@
       "person": [
         "Patricia Eubanks"
       ],
+      "velocity": 0,
       "startDate": null,
       "completeDate": null
     },
@@ -1941,6 +2047,7 @@
       "person": [
         "Noah Eubanks"
       ],
+      "velocity": 0,
       "startDate": null,
       "completeDate": null
     },
@@ -1957,6 +2064,7 @@
       "person": [
         "Patricia Eubanks"
       ],
+      "velocity": 0,
       "startDate": null,
       "completeDate": null
     },
@@ -1973,6 +2081,7 @@
       "person": [
         "Patricia Eubanks"
       ],
+      "velocity": 0,
       "startDate": null,
       "completeDate": null
     },
@@ -1990,6 +2099,7 @@
         "Noah Eubanks",
         "Patricia Eubanks"
       ],
+      "velocity": 0,
       "startDate": "2026-05-17T09:48:00.000-05:00",
       "completeDate": null
     },
@@ -2006,6 +2116,7 @@
       "person": [
         "Patricia Eubanks"
       ],
+      "velocity": 0,
       "startDate": "2026-05-30T11:12:00.000-05:00",
       "completeDate": null
     },
@@ -2022,6 +2133,7 @@
       "person": [
         "Patricia Eubanks"
       ],
+      "velocity": 0,
       "startDate": null,
       "completeDate": null
     },
@@ -2038,6 +2150,7 @@
       "person": [
         "Patricia Eubanks"
       ],
+      "velocity": 0,
       "startDate": null,
       "completeDate": null
     },
@@ -2054,6 +2167,7 @@
       "person": [
         "Patricia Eubanks"
       ],
+      "velocity": 0,
       "startDate": null,
       "completeDate": null
     },
@@ -2070,6 +2184,7 @@
       "person": [
         "Patricia Eubanks"
       ],
+      "velocity": 0,
       "startDate": null,
       "completeDate": null
     },
@@ -2086,6 +2201,7 @@
       "person": [
         "Patricia Eubanks"
       ],
+      "velocity": 0,
       "startDate": null,
       "completeDate": null
     },
@@ -2103,6 +2219,7 @@
         "Noah Eubanks",
         "Patricia Eubanks"
       ],
+      "velocity": 0,
       "startDate": null,
       "completeDate": null
     },
@@ -2119,6 +2236,7 @@
       "person": [
         "Patricia Eubanks"
       ],
+      "velocity": 0,
       "startDate": null,
       "completeDate": null
     },
@@ -2136,6 +2254,7 @@
         "Patricia Eubanks",
         "Noah Eubanks"
       ],
+      "velocity": 0,
       "startDate": null,
       "completeDate": null
     },
@@ -2152,6 +2271,7 @@
       "person": [
         "Noah Eubanks"
       ],
+      "velocity": 0,
       "startDate": null,
       "completeDate": null
     },
@@ -2168,6 +2288,7 @@
       "person": [
         "Patricia Eubanks"
       ],
+      "velocity": 0,
       "startDate": null,
       "completeDate": null
     },
@@ -2184,6 +2305,7 @@
       "person": [
         "Noah Eubanks"
       ],
+      "velocity": 0,
       "startDate": null,
       "completeDate": null
     },
@@ -2200,8 +2322,28 @@
       "person": [
         "Noah Eubanks"
       ],
+      "velocity": 0,
       "startDate": null,
       "completeDate": null
+    },
+    {
+      "id": "375c574948598072af02e7c62ae0df3c",
+      "type": "task",
+      "name": "WIP dashboard additions-  total view, Noah view, Tricia view ",
+      "status": "Done",
+      "pillarIds": [
+        "76181932d64d40de88929de677bdf7c2"
+      ],
+      "domain": "Personal Admin",
+      "hours": 0.5,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": "2026-06-03T20:31:00.000-05:00",
+      "completeDate": "2026-06-03T21:07:00.000-05:00"
     },
     {
       "id": "374c57494859803cb956c58816392d9f",
@@ -2216,6 +2358,7 @@
       "person": [
         "Patricia Eubanks"
       ],
+      "velocity": 0.041666666667,
       "startDate": "2026-06-03T12:48:00.000-05:00",
       "completeDate": "2026-06-03T13:48:00.000-05:00"
     },
@@ -2232,6 +2375,7 @@
       "person": [
         "Patricia Eubanks"
       ],
+      "velocity": 0.25,
       "startDate": "2026-06-03T10:58:00.000-05:00",
       "completeDate": "2026-06-03T17:03:00.000-05:00"
     },
@@ -2248,6 +2392,7 @@
       "person": [
         "Patricia Eubanks"
       ],
+      "velocity": 0.833333333333,
       "startDate": "2026-06-02T20:41:00.000-05:00",
       "completeDate": "2026-06-03T17:03:00.000-05:00"
     },
@@ -2264,6 +2409,7 @@
       "person": [
         "Patricia Eubanks"
       ],
+      "velocity": 1,
       "startDate": "2026-06-02T10:29:00.000-05:00",
       "completeDate": "2026-06-03T10:39:00.000-05:00"
     },
@@ -2280,6 +2426,7 @@
       "person": [
         "Patricia Eubanks"
       ],
+      "velocity": 1.083333333333,
       "startDate": "2026-06-02T08:33:00.000-05:00",
       "completeDate": "2026-06-03T10:39:00.000-05:00"
     },
@@ -2297,6 +2444,7 @@
         "Noah Eubanks",
         "Patricia Eubanks"
       ],
+      "velocity": 1.583333333333,
       "startDate": "2026-06-01T19:57:00.000-05:00",
       "completeDate": "2026-06-03T10:39:00.000-05:00"
     },
@@ -2313,6 +2461,7 @@
       "person": [
         "Patricia Eubanks"
       ],
+      "velocity": 1.625,
       "startDate": "2026-06-01T19:38:00.000-05:00",
       "completeDate": "2026-06-03T10:59:00.000-05:00"
     },
@@ -2329,6 +2478,7 @@
       "person": [
         "Patricia Eubanks"
       ],
+      "velocity": 0.083333333333,
       "startDate": "2026-06-01T18:35:00.000-05:00",
       "completeDate": "2026-06-01T21:09:00.000-05:00"
     },
@@ -2345,6 +2495,7 @@
       "person": [
         "Noah Eubanks"
       ],
+      "velocity": 1.041666666667,
       "startDate": "2026-05-31T10:25:00.000-05:00",
       "completeDate": "2026-06-01T11:37:00.000-05:00"
     },
@@ -2361,6 +2512,7 @@
       "person": [
         "Patricia Eubanks"
       ],
+      "velocity": 2.208333333333,
       "startDate": "2026-05-30T15:40:00.000-05:00",
       "completeDate": "2026-06-01T20:49:00.000-05:00"
     },
@@ -2377,6 +2529,7 @@
       "person": [
         "Patricia Eubanks"
       ],
+      "velocity": 2.208333333333,
       "startDate": "2026-05-30T15:39:00.000-05:00",
       "completeDate": "2026-06-01T20:49:00.000-05:00"
     },
@@ -2393,6 +2546,7 @@
       "person": [
         "Noah Eubanks"
       ],
+      "velocity": 4.083333333333,
       "startDate": "2026-05-28T09:23:00.000-05:00",
       "completeDate": "2026-06-01T11:34:00.000-05:00"
     },
@@ -2409,6 +2563,7 @@
       "person": [
         "Noah Eubanks"
       ],
+      "velocity": 1,
       "startDate": "2026-05-26T16:42:00.000-05:00",
       "completeDate": "2026-05-27T16:44:00.000-05:00"
     },
@@ -2423,6 +2578,7 @@
       "projectIds": [],
       "rockIds": [],
       "person": [],
+      "velocity": 2.25,
       "startDate": "2026-05-24T10:17:00.000-05:00",
       "completeDate": "2026-05-26T17:07:00.000-05:00"
     },
@@ -2439,6 +2595,7 @@
       "person": [
         "Noah Eubanks"
       ],
+      "velocity": 1.708333333333,
       "startDate": "2026-05-22T16:43:00.000-05:00",
       "completeDate": "2026-05-24T10:13:00.000-05:00"
     },
@@ -2455,6 +2612,7 @@
       "person": [
         "Noah Eubanks"
       ],
+      "velocity": 5,
       "startDate": "2026-05-22T16:41:00.000-05:00",
       "completeDate": "2026-05-27T16:44:00.000-05:00"
     },
@@ -2471,6 +2629,7 @@
       "person": [
         "Noah Eubanks"
       ],
+      "velocity": 5,
       "startDate": "2026-05-22T16:07:00.000-05:00",
       "completeDate": "2026-05-27T16:44:00.000-05:00"
     },
@@ -2487,6 +2646,7 @@
       "person": [
         "Patricia Eubanks"
       ],
+      "velocity": 5.291666666667,
       "startDate": "2026-05-21T08:36:00.000-05:00",
       "completeDate": "2026-05-26T16:21:00.000-05:00"
     },
@@ -2503,6 +2663,7 @@
       "person": [
         "Patricia Eubanks"
       ],
+      "velocity": 1.208333333333,
       "startDate": "2026-05-19T09:11:00.000-05:00",
       "completeDate": "2026-05-20T14:20:00.000-05:00"
     },
@@ -2519,6 +2680,7 @@
       "person": [
         "Patricia Eubanks"
       ],
+      "velocity": 7.291666666667,
       "startDate": "2026-05-19T08:50:00.000-05:00",
       "completeDate": "2026-05-26T16:21:00.000-05:00"
     },
@@ -2535,6 +2697,7 @@
       "person": [
         "Noah Eubanks"
       ],
+      "velocity": 0,
       "startDate": null,
       "completeDate": "2026-05-22T17:44:00.000-05:00"
     },
@@ -2552,6 +2715,7 @@
         "Patricia Eubanks",
         "Noah Eubanks"
       ],
+      "velocity": 7,
       "startDate": "2026-05-17T10:04:00.000-05:00",
       "completeDate": "2026-05-24T10:18:00.000-05:00"
     },
@@ -2568,6 +2732,7 @@
       "person": [
         "Noah Eubanks"
       ],
+      "velocity": 3.541666666667,
       "startDate": "2026-05-17T08:40:00.000-05:00",
       "completeDate": "2026-05-20T22:17:00.000-05:00"
     },
@@ -2584,6 +2749,7 @@
       "person": [
         "Patricia Eubanks"
       ],
+      "velocity": 9.291666666667,
       "startDate": "2026-05-17T09:48:00.000-05:00",
       "completeDate": "2026-05-26T17:05:00.000-05:00"
     },
@@ -2600,6 +2766,7 @@
       "person": [
         "Noah Eubanks"
       ],
+      "velocity": 1.916666666667,
       "startDate": "2026-05-16T12:06:00.000-05:00",
       "completeDate": "2026-05-18T10:15:00.000-05:00"
     },
@@ -2616,6 +2783,7 @@
       "person": [
         "Noah Eubanks"
       ],
+      "velocity": 16.708333333333,
       "startDate": "2026-05-15T23:50:00.000-05:00",
       "completeDate": "2026-06-01T16:53:00.000-05:00"
     },
@@ -2632,6 +2800,7 @@
       "person": [
         "Noah Eubanks"
       ],
+      "velocity": 0.416666666667,
       "startDate": "2026-05-15T09:47:00.000-05:00",
       "completeDate": "2026-05-15T20:33:00.000-05:00"
     },
@@ -2648,6 +2817,7 @@
       "person": [
         "Patricia Eubanks"
       ],
+      "velocity": 6.041666666667,
       "startDate": "2026-05-24T10:00:00.000-05:00",
       "completeDate": "2026-05-30T11:07:00.000-05:00"
     },
@@ -2664,6 +2834,7 @@
       "person": [
         "Noah Eubanks"
       ],
+      "velocity": 3.541666666667,
       "startDate": "2026-05-14T20:17:00.000-05:00",
       "completeDate": "2026-05-18T10:15:00.000-05:00"
     },
@@ -2680,6 +2851,7 @@
       "person": [
         "Noah Eubanks"
       ],
+      "velocity": 10.958333333333,
       "startDate": "2026-05-17T09:58:00.000-05:00",
       "completeDate": "2026-05-28T09:38:00.000-05:00"
     },
@@ -2696,6 +2868,7 @@
       "person": [
         "Noah Eubanks"
       ],
+      "velocity": 6,
       "startDate": "2026-05-14T15:41:00.000-05:00",
       "completeDate": "2026-05-20T16:01:00.000-05:00"
     },
@@ -2712,6 +2885,7 @@
       "person": [
         "Noah Eubanks"
       ],
+      "velocity": 0.208333333333,
       "startDate": "2026-05-14T11:51:00.000-05:00",
       "completeDate": "2026-05-14T17:16:00.000-05:00"
     },
@@ -2728,6 +2902,7 @@
       "person": [
         "Patricia Eubanks"
       ],
+      "velocity": 0.291666666667,
       "startDate": "2026-05-14T10:55:00.000-05:00",
       "completeDate": "2026-05-14T18:46:00.000-05:00"
     },
@@ -2744,6 +2919,7 @@
       "person": [
         "Noah Eubanks"
       ],
+      "velocity": 1.5,
       "startDate": "2026-05-14T08:22:00.000-05:00",
       "completeDate": "2026-05-15T20:27:00.000-05:00"
     },
@@ -2760,6 +2936,7 @@
       "person": [
         "Noah Eubanks"
       ],
+      "velocity": 0.75,
       "startDate": "2026-05-13T23:37:00.000-05:00",
       "completeDate": "2026-05-14T18:02:00.000-05:00"
     },
@@ -2776,6 +2953,7 @@
       "person": [
         "Noah Eubanks"
       ],
+      "velocity": 1.083333333333,
       "startDate": "2026-05-13T23:34:00.000-05:00",
       "completeDate": "2026-05-15T02:26:00.000-05:00"
     },
@@ -2792,6 +2970,7 @@
       "person": [
         "Noah Eubanks"
       ],
+      "velocity": 1.625,
       "startDate": "2026-05-13T10:47:00.000-05:00",
       "completeDate": "2026-05-15T01:53:00.000-05:00"
     },
@@ -2808,6 +2987,7 @@
       "person": [
         "Noah Eubanks"
       ],
+      "velocity": 0,
       "startDate": null,
       "completeDate": "2026-05-30T09:39:00.000-05:00"
     },
@@ -2824,6 +3004,7 @@
       "person": [
         "Noah Eubanks"
       ],
+      "velocity": 1.333333333333,
       "startDate": "2026-05-13T09:14:00.000-05:00",
       "completeDate": "2026-05-14T18:03:00.000-05:00"
     },
@@ -2840,6 +3021,7 @@
       "person": [
         "Noah Eubanks"
       ],
+      "velocity": 2.041666666667,
       "startDate": "2026-05-13T00:29:00.000-05:00",
       "completeDate": "2026-05-15T02:27:00.000-05:00"
     },
@@ -2856,6 +3038,7 @@
       "person": [
         "Noah Eubanks"
       ],
+      "velocity": 1.708333333333,
       "startDate": "2026-05-12T23:48:00.000-05:00",
       "completeDate": "2026-05-14T17:17:00.000-05:00"
     },
@@ -2872,6 +3055,7 @@
       "person": [
         "Noah Eubanks"
       ],
+      "velocity": 0.5,
       "startDate": "2026-05-13T11:17:00.000-05:00",
       "completeDate": "2026-05-13T23:36:00.000-05:00"
     },
@@ -2888,6 +3072,7 @@
       "person": [
         "Patricia Eubanks"
       ],
+      "velocity": 2.291666666667,
       "startDate": "2026-05-12T11:08:00.000-05:00",
       "completeDate": "2026-05-14T18:45:00.000-05:00"
     },
@@ -2904,6 +3089,7 @@
       "person": [
         "Patricia Eubanks"
       ],
+      "velocity": 7,
       "startDate": "2026-05-17T09:47:00.000-05:00",
       "completeDate": "2026-05-24T10:00:00.000-05:00"
     },
@@ -2920,6 +3106,7 @@
       "person": [
         "Noah Eubanks"
       ],
+      "velocity": 2.75,
       "startDate": "2026-05-11T22:35:00.000-05:00",
       "completeDate": "2026-05-14T17:23:00.000-05:00"
     },
@@ -2936,6 +3123,7 @@
       "person": [
         "Patricia Eubanks"
       ],
+      "velocity": 0.958333333333,
       "startDate": "2026-05-11T16:20:00.000-05:00",
       "completeDate": "2026-05-12T15:52:00.000-05:00"
     },
@@ -2952,6 +3140,7 @@
       "person": [
         "Noah Eubanks"
       ],
+      "velocity": 1.541666666667,
       "startDate": "2026-05-11T10:31:00.000-05:00",
       "completeDate": "2026-05-12T23:40:00.000-05:00"
     },
@@ -2968,6 +3157,7 @@
       "person": [
         "Noah Eubanks"
       ],
+      "velocity": 0.416666666667,
       "startDate": "2026-05-11T10:30:00.000-05:00",
       "completeDate": "2026-05-11T20:52:00.000-05:00"
     },
@@ -2984,6 +3174,7 @@
       "person": [
         "Noah Eubanks"
       ],
+      "velocity": 0.25,
       "startDate": "2026-05-11T07:28:00.000-05:00",
       "completeDate": "2026-05-11T14:13:00.000-05:00"
     },
@@ -3000,6 +3191,7 @@
       "person": [
         "Noah Eubanks"
       ],
+      "velocity": 21.666666666667,
       "startDate": "2026-05-10T23:57:00.000-05:00",
       "completeDate": "2026-06-01T16:55:00.000-05:00"
     },
@@ -3016,6 +3208,7 @@
       "person": [
         "Patricia Eubanks"
       ],
+      "velocity": 0,
       "startDate": "2026-05-13T18:27:00.000-05:00",
       "completeDate": "2026-05-13T18:27:00.000-05:00"
     },
@@ -3032,6 +3225,7 @@
       "person": [
         "Noah Eubanks"
       ],
+      "velocity": 0,
       "startDate": null,
       "completeDate": "2026-05-10T23:57:00.000-05:00"
     },
@@ -3048,6 +3242,7 @@
       "person": [
         "Patricia Eubanks"
       ],
+      "velocity": 1.625,
       "startDate": "2026-05-13T18:27:00.000-05:00",
       "completeDate": "2026-05-15T09:30:00.000-05:00"
     },
@@ -3064,6 +3259,7 @@
       "person": [
         "Patricia Eubanks"
       ],
+      "velocity": 0,
       "startDate": null,
       "completeDate": "2026-05-12T09:27:00.000-05:00"
     },
@@ -3080,6 +3276,7 @@
       "person": [
         "Patricia Eubanks"
       ],
+      "velocity": 0,
       "startDate": null,
       "completeDate": "2026-05-14T18:46:00.000-05:00"
     },
@@ -3096,6 +3293,7 @@
       "person": [
         "Noah Eubanks"
       ],
+      "velocity": 0,
       "startDate": null,
       "completeDate": "2026-05-10T23:55:00.000-05:00"
     },
@@ -3112,6 +3310,7 @@
       "person": [
         "Noah Eubanks"
       ],
+      "velocity": 0,
       "startDate": null,
       "completeDate": "2026-05-10T21:13:00.000-05:00"
     },
@@ -3128,6 +3327,7 @@
       "person": [
         "Noah Eubanks"
       ],
+      "velocity": 0,
       "startDate": null,
       "completeDate": "2026-05-10T23:55:00.000-05:00"
     },
@@ -3144,6 +3344,7 @@
       "person": [
         "Noah Eubanks"
       ],
+      "velocity": 0,
       "startDate": null,
       "completeDate": null
     },
@@ -3160,6 +3361,7 @@
       "person": [
         "Noah Eubanks"
       ],
+      "velocity": 0,
       "startDate": null,
       "completeDate": "2026-05-10T23:55:00.000-05:00"
     },
@@ -3177,6 +3379,7 @@
         "Noah Eubanks",
         "Patricia Eubanks"
       ],
+      "velocity": 0,
       "startDate": null,
       "completeDate": null
     },
@@ -3193,6 +3396,7 @@
       "person": [
         "Patricia Eubanks"
       ],
+      "velocity": 7.083333333333,
       "startDate": "2026-05-13T18:27:00.000-05:00",
       "completeDate": "2026-05-20T21:04:00.000-05:00"
     },
@@ -3209,6 +3413,7 @@
       "person": [
         "Noah Eubanks"
       ],
+      "velocity": 0,
       "startDate": null,
       "completeDate": null
     },
@@ -3226,6 +3431,7 @@
         "Noah Eubanks",
         "Patricia Eubanks"
       ],
+      "velocity": 0,
       "startDate": null,
       "completeDate": "2026-05-17T09:40:00.000-05:00"
     },
@@ -3242,6 +3448,7 @@
       "person": [
         "Patricia Eubanks"
       ],
+      "velocity": 0,
       "startDate": null,
       "completeDate": "2026-05-13T18:26:00.000-05:00"
     },
@@ -3258,6 +3465,7 @@
       "person": [
         "Patricia Eubanks"
       ],
+      "velocity": 4.333333333333,
       "startDate": "2026-05-17T09:47:00.000-05:00",
       "completeDate": "2026-05-21T18:21:00.000-05:00"
     },
@@ -3274,6 +3482,7 @@
       "person": [
         "Patricia Eubanks"
       ],
+      "velocity": 4.333333333333,
       "startDate": "2026-05-17T09:47:00.000-05:00",
       "completeDate": "2026-05-21T18:21:00.000-05:00"
     },
@@ -3290,6 +3499,7 @@
       "person": [
         "Noah Eubanks"
       ],
+      "velocity": 0,
       "startDate": null,
       "completeDate": "2026-05-10"
     },
@@ -3306,6 +3516,7 @@
       "person": [
         "Noah Eubanks"
       ],
+      "velocity": 0,
       "startDate": null,
       "completeDate": "2026-05-11T19:39:00.000-05:00"
     },
@@ -3322,6 +3533,7 @@
       "person": [
         "Patricia Eubanks"
       ],
+      "velocity": 7,
       "startDate": "2026-05-17T09:47:00.000-05:00",
       "completeDate": "2026-05-24T10:00:00.000-05:00"
     },
@@ -3338,6 +3550,7 @@
       "person": [
         "Noah Eubanks"
       ],
+      "velocity": 1.416666666667,
       "startDate": "2026-05-17T09:51:00.000-05:00",
       "completeDate": "2026-05-18T20:41:00.000-05:00"
     },
@@ -3354,6 +3567,7 @@
       "person": [
         "Noah Eubanks"
       ],
+      "velocity": 0,
       "startDate": null,
       "completeDate": "2026-05-11T14:12:00.000-05:00"
     },
@@ -3368,6 +3582,7 @@
       "projectIds": [],
       "rockIds": [],
       "person": [],
+      "velocity": 0,
       "startDate": null,
       "completeDate": null
     },
@@ -3382,6 +3597,7 @@
       "projectIds": [],
       "rockIds": [],
       "person": [],
+      "velocity": 0,
       "startDate": null,
       "completeDate": null
     },
@@ -3396,6 +3612,7 @@
       "projectIds": [],
       "rockIds": [],
       "person": [],
+      "velocity": 0,
       "startDate": null,
       "completeDate": null
     },
@@ -3410,6 +3627,7 @@
       "projectIds": [],
       "rockIds": [],
       "person": [],
+      "velocity": 0,
       "startDate": null,
       "completeDate": null
     },
@@ -3426,6 +3644,7 @@
       "person": [
         "Patricia Eubanks"
       ],
+      "velocity": 0,
       "startDate": null,
       "completeDate": null
     },
@@ -3442,6 +3661,7 @@
       "person": [
         "Patricia Eubanks"
       ],
+      "velocity": 0,
       "startDate": null,
       "completeDate": null
     },
@@ -3458,6 +3678,7 @@
       "person": [
         "Patricia Eubanks"
       ],
+      "velocity": 0,
       "startDate": null,
       "completeDate": "2026-05-12T15:52:00.000-05:00"
     },
@@ -3474,6 +3695,7 @@
       "person": [
         "Patricia Eubanks"
       ],
+      "velocity": 0,
       "startDate": null,
       "completeDate": null
     },
@@ -3490,6 +3712,7 @@
       "person": [
         "Patricia Eubanks"
       ],
+      "velocity": 0,
       "startDate": null,
       "completeDate": null
     },
@@ -3506,6 +3729,7 @@
       "person": [
         "Noah Eubanks"
       ],
+      "velocity": 0,
       "startDate": null,
       "completeDate": null
     },
@@ -3522,6 +3746,7 @@
       "person": [
         "Patricia Eubanks"
       ],
+      "velocity": 0,
       "startDate": null,
       "completeDate": null
     },
@@ -3538,6 +3763,7 @@
       "person": [
         "Noah Eubanks"
       ],
+      "velocity": 7,
       "startDate": "2026-05-17T09:51:00.000-05:00",
       "completeDate": "2026-05-24T10:14:00.000-05:00"
     },
@@ -3554,6 +3780,7 @@
       "person": [
         "Patricia Eubanks"
       ],
+      "velocity": 0,
       "startDate": null,
       "completeDate": null
     },
@@ -3570,6 +3797,7 @@
       "person": [
         "Patricia Eubanks"
       ],
+      "velocity": 0,
       "startDate": null,
       "completeDate": null
     },
@@ -3586,6 +3814,7 @@
       "person": [
         "Patricia Eubanks"
       ],
+      "velocity": 0,
       "startDate": null,
       "completeDate": null
     },
@@ -3602,6 +3831,7 @@
       "person": [
         "Patricia Eubanks"
       ],
+      "velocity": 0,
       "startDate": null,
       "completeDate": null
     },
@@ -3618,6 +3848,7 @@
       "person": [
         "Patricia Eubanks"
       ],
+      "velocity": 7,
       "startDate": "2026-05-17T09:47:00.000-05:00",
       "completeDate": "2026-05-24T10:00:00.000-05:00"
     },
@@ -3634,6 +3865,7 @@
       "person": [
         "Patricia Eubanks"
       ],
+      "velocity": 0,
       "startDate": null,
       "completeDate": null
     },
@@ -3650,6 +3882,7 @@
       "person": [
         "Patricia Eubanks"
       ],
+      "velocity": 0,
       "startDate": null,
       "completeDate": "2026-05-13T18:26:00.000-05:00"
     },
@@ -3666,6 +3899,7 @@
       "person": [
         "Patricia Eubanks"
       ],
+      "velocity": 0,
       "startDate": null,
       "completeDate": null
     },
@@ -3682,6 +3916,7 @@
       "person": [
         "Patricia Eubanks"
       ],
+      "velocity": 0,
       "startDate": null,
       "completeDate": null
     },
@@ -3699,6 +3934,7 @@
         "Patricia Eubanks",
         "Noah Eubanks"
       ],
+      "velocity": 9.083333333333,
       "startDate": "2026-05-17T09:47:00.000-05:00",
       "completeDate": "2026-05-26T12:00:00.000-05:00"
     },
@@ -3715,6 +3951,7 @@
       "person": [
         "Patricia Eubanks"
       ],
+      "velocity": 0,
       "startDate": null,
       "completeDate": null
     },
@@ -3731,6 +3968,7 @@
       "person": [
         "Noah Eubanks"
       ],
+      "velocity": 0,
       "startDate": null,
       "completeDate": "2026-05-24T10:27:00.000-05:00"
     },
@@ -3747,6 +3985,7 @@
       "person": [
         "Patricia Eubanks"
       ],
+      "velocity": 0,
       "startDate": null,
       "completeDate": null
     },
@@ -3764,6 +4003,7 @@
         "Patricia Eubanks",
         "Noah Eubanks"
       ],
+      "velocity": 0,
       "startDate": null,
       "completeDate": null
     },
@@ -3780,20 +4020,7 @@
       "person": [
         "Patricia Eubanks"
       ],
-      "startDate": null,
-      "completeDate": null
-    },
-    {
-      "id": "354c57494859805392caf1b3f68c41a2",
-      "type": "task",
-      "name": "Alternator test at oreilly’s ",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": "Ranch",
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [],
+      "velocity": 0,
       "startDate": null,
       "completeDate": null
     }
