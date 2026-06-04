@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-04T04:59:10.585Z",
+  "generated": "2026-06-04T10:29:08.012Z",
   "meta": {
     "currentQuarter": "Q2",
     "currentYear": "2026",
@@ -512,6 +512,36 @@
   ],
   "tasks": [
     {
+      "id": "375c574948598075ae12c19dc8678177",
+      "type": "task",
+      "name": "Mark up test tank drawing ",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": "RAE",
+      "hours": 2,
+      "projectIds": []
+    },
+    {
+      "id": "375c57494859800d8d4bc97aeb815d9b",
+      "type": "task",
+      "name": "Review goals and rocks ",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": "Personal Admin",
+      "hours": 1,
+      "projectIds": []
+    },
+    {
+      "id": "375c5749485980b78f7ce97361bc40a3",
+      "type": "task",
+      "name": "Add a finance tab to the metric view in the dashboard",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": "Personal Admin",
+      "hours": 1,
+      "projectIds": []
+    },
+    {
       "id": "375c57494859804b88a8c62c0a1e8dd8",
       "type": "task",
       "name": "Create 3 year outcomes and add to goals database ",
@@ -519,26 +549,6 @@
       "pillar": null,
       "domain": "Personal Admin",
       "hours": 1.5,
-      "projectIds": []
-    },
-    {
-      "id": "375c5749485980378a7edcc4e2b1d755",
-      "type": "task",
-      "name": "Add Habits Tracker to dashboard ",
-      "status": "In progress (WIP)",
-      "pillar": null,
-      "domain": "Personal Admin",
-      "hours": 0.5,
-      "projectIds": []
-    },
-    {
-      "id": "375c5749485980dc87bce84e800655a4",
-      "type": "task",
-      "name": "Add “velocity” to WIP dashboard ",
-      "status": "In progress (WIP)",
-      "pillar": null,
-      "domain": "Personal Admin",
-      "hours": 0.5,
       "projectIds": []
     },
     {
@@ -1184,6 +1194,61 @@
   ],
   "wipTasks": [
     {
+      "id": "375c574948598075ae12c19dc8678177",
+      "type": "task",
+      "name": "Mark up test tank drawing ",
+      "status": "In progress (WIP)",
+      "pillarIds": [],
+      "domain": "RAE",
+      "hours": 2,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": "2026-06-04T00:52:00.000-05:00",
+      "completeDate": null
+    },
+    {
+      "id": "375c57494859800d8d4bc97aeb815d9b",
+      "type": "task",
+      "name": "Review goals and rocks ",
+      "status": "In progress (WIP)",
+      "pillarIds": [
+        "76181932d64d40de88929de677bdf7c2"
+      ],
+      "domain": "Personal Admin",
+      "hours": 1,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": "2026-06-04T00:51:00.000-05:00",
+      "completeDate": null
+    },
+    {
+      "id": "375c5749485980b78f7ce97361bc40a3",
+      "type": "task",
+      "name": "Add a finance tab to the metric view in the dashboard",
+      "status": "In progress (WIP)",
+      "pillarIds": [
+        "fa5c3f6312394f09b07566f455dac82d"
+      ],
+      "domain": "Personal Admin",
+      "hours": 1,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": "2026-06-04T00:49:00.000-05:00",
+      "completeDate": null
+    },
+    {
       "id": "375c57494859804b88a8c62c0a1e8dd8",
       "type": "task",
       "name": "Create 3 year outcomes and add to goals database ",
@@ -1200,44 +1265,6 @@
       ],
       "velocity": 0,
       "startDate": "2026-06-03T22:27:00.000-05:00",
-      "completeDate": null
-    },
-    {
-      "id": "375c5749485980378a7edcc4e2b1d755",
-      "type": "task",
-      "name": "Add Habits Tracker to dashboard ",
-      "status": "In progress (WIP)",
-      "pillarIds": [
-        "76181932d64d40de88929de677bdf7c2"
-      ],
-      "domain": "Personal Admin",
-      "hours": 0.5,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-06-03T21:08:00.000-05:00",
-      "completeDate": null
-    },
-    {
-      "id": "375c5749485980dc87bce84e800655a4",
-      "type": "task",
-      "name": "Add “velocity” to WIP dashboard ",
-      "status": "In progress (WIP)",
-      "pillarIds": [
-        "76181932d64d40de88929de677bdf7c2"
-      ],
-      "domain": "Personal Admin",
-      "hours": 0.5,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-06-03T21:07:00.000-05:00",
       "completeDate": null
     },
     {
@@ -2332,6 +2359,44 @@
       "velocity": 0,
       "startDate": null,
       "completeDate": null
+    },
+    {
+      "id": "375c5749485980378a7edcc4e2b1d755",
+      "type": "task",
+      "name": "Add Habits Tracker to dashboard ",
+      "status": "Done",
+      "pillarIds": [
+        "76181932d64d40de88929de677bdf7c2"
+      ],
+      "domain": "Personal Admin",
+      "hours": 0.5,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 0.125,
+      "startDate": "2026-06-03T21:08:00.000-05:00",
+      "completeDate": "2026-06-04T00:49:00.000-05:00"
+    },
+    {
+      "id": "375c5749485980dc87bce84e800655a4",
+      "type": "task",
+      "name": "Add “velocity” to WIP dashboard ",
+      "status": "Done",
+      "pillarIds": [
+        "76181932d64d40de88929de677bdf7c2"
+      ],
+      "domain": "Personal Admin",
+      "hours": 0.5,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 0.125,
+      "startDate": "2026-06-03T21:07:00.000-05:00",
+      "completeDate": "2026-06-04T00:49:00.000-05:00"
     },
     {
       "id": "375c574948598072af02e7c62ae0df3c",
@@ -3995,41 +4060,6 @@
       "velocity": 0,
       "startDate": null,
       "completeDate": null
-    },
-    {
-      "id": "354c5749485980ac8ceed9735fd9c4d2",
-      "type": "task",
-      "name": "Schedule Calf Sale Weekend  ",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": "Ranch",
-      "hours": 0.25,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Patricia Eubanks",
-        "Noah Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": null,
-      "completeDate": null
-    },
-    {
-      "id": "354c5749485980d9a01cda3e622fb583",
-      "type": "task",
-      "name": "Oil change for Paige’s car",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": "Girls",
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Patricia Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": null,
-      "completeDate": null
     }
   ],
   "habitData": {
@@ -4532,6 +4562,30 @@
           "completed": 0,
           "possible": 16,
           "pct": 0
+        },
+        {
+          "date": "2026-06-04",
+          "habits": {
+            "Call One Friend": false,
+            "No Caffeine": false,
+            "No Bread / Chips / Pasta": false,
+            "Play with Owen": false,
+            "8 Hour Eating Window": false,
+            "Move": false,
+            "Minimum 1/2 Gallon Water": false,
+            "Plan Tomorrow Before Bed": false,
+            "Breath Strip for Sleep": false,
+            "Minimal Dairy": false,
+            "5am Wake": false,
+            "Reflect": false,
+            "Daily Supplements": false,
+            "No Cell Phone in Bedroom": false,
+            "No Gluten": false,
+            "Grow": false
+          },
+          "completed": 0,
+          "possible": 16,
+          "pct": 0
         }
       ]
     },
@@ -4751,6 +4805,19 @@
           "completed": 2,
           "possible": 5,
           "pct": 40
+        },
+        {
+          "date": "2026-06-04",
+          "habits": {
+            "Laundry": false,
+            "Supplements": false,
+            "Leucovorin": false,
+            "Take care of baby": false,
+            "Feed dogs": false
+          },
+          "completed": 0,
+          "possible": 5,
+          "pct": 0
         }
       ]
     }
