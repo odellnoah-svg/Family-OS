@@ -496,17 +496,22 @@ function getRange(r){
 }
 
 async function vWip(){
-  // Destroy old charts
-  if(window.Chart){['wip-bar','wip-pie1','wip-pie2'].forEach(id=>{const c=Chart.getChart(id);if(c)c.destroy()})}
-  if(!D._hasWip){
-    document.getElementById('vc').innerHTML=`<div class="vwip-nodata"><div style="font-size:36px">📊</div><div style="font-family:'Playfair Display',serif;font-size:20px;color:var(--tx);margin-top:8px">WIP data not yet loaded</div><div style="font-size:13px;color:var(--tx2);max-width:360px;line-height:1.6;margin-top:8px">Re-run the GitHub Action to fetch extended task data, then reload this page.</div></div>`
-    return
+  const vc=document.getElementById('vc')
+  try{
+    if(window.Chart){['wip-bar','wip-pie1','wip-pie2'].forEach(id=>{const c=Chart.getChart(id);if(c)c.destroy()})}
+    if(!D._hasWip){
+      vc.innerHTML=`<div class="vwip-nodata"><div style="font-size:36px">📊</div><div style="font-family:'Playfair Display',serif;font-size:20px;color:var(--tx);margin-top:8px">WIP data not yet loaded</div><div style="font-size:13px;color:var(--tx2);max-width:360px;line-height:1.6;margin-top:8px">Re-run the GitHub Action to fetch extended task data, then reload this page.</div></div>`
+      return
+    }
+    if(!window.Chart){
+      await new Promise((res,rej)=>{const s=document.createElement('script');s.src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js';s.onload=res;s.onerror=rej;document.head.appendChild(s)})
+      if(!window.Chart){vc.innerHTML=`<div class="vwip-nodata"><div>Could not load Chart.js — check network connection.</div></div>`;return}
+    }
+    renderWip()
+  }catch(e){
+    vc.innerHTML=`<div style="padding:32px;font-family:'DM Sans',sans-serif"><div style="font-size:13px;font-weight:600;color:#C03030;margin-bottom:8px">WIP Dashboard Error</div><div style="font-size:12px;color:var(--tx2);font-family:monospace;background:var(--surf2);padding:12px;border-radius:8px">${e.message}</div><div style="font-size:11px;color:var(--tx3);margin-top:8px">Check browser console for full details.</div></div>`
+    console.error('WIP render error:',e)
   }
-  if(!window.Chart){
-    await new Promise((res,rej)=>{const s=document.createElement('script');s.src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js';s.onload=res;s.onerror=rej;document.head.appendChild(s)}).catch(()=>{document.getElementById('vc').innerHTML=`<div class="vwip-nodata"><div>Could not load Chart.js. Check your connection.</div></div>`;return})
-    if(!window.Chart)return
-  }
-  renderWip()
 }
 
 function renderWip(){
