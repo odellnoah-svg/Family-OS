@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-04T04:35:07.374Z",
+  "generated": "2026-06-04T04:59:10.585Z",
   "meta": {
     "currentQuarter": "Q2",
     "currentYear": "2026",
@@ -4031,5 +4031,728 @@
       "startDate": null,
       "completeDate": null
     }
-  ]
+  ],
+  "habitData": {
+    "noah": {
+      "fields": [
+        "5am Wake",
+        "8 Hour Eating Window",
+        "Breath Strip for Sleep",
+        "Call One Friend",
+        "Daily Supplements",
+        "Grow",
+        "Minimal Dairy",
+        "Minimum 1/2 Gallon Water",
+        "Move",
+        "No Bread / Chips / Pasta",
+        "No Caffeine",
+        "No Cell Phone in Bedroom",
+        "No Gluten",
+        "Plan Tomorrow Before Bed",
+        "Play with Owen",
+        "Reflect"
+      ],
+      "entries": [
+        {
+          "date": "2026-05-15",
+          "habits": {
+            "Call One Friend": false,
+            "No Caffeine": false,
+            "No Bread / Chips / Pasta": false,
+            "Play with Owen": false,
+            "8 Hour Eating Window": false,
+            "Move": false,
+            "Minimum 1/2 Gallon Water": false,
+            "Plan Tomorrow Before Bed": false,
+            "Breath Strip for Sleep": false,
+            "Minimal Dairy": false,
+            "5am Wake": false,
+            "Reflect": false,
+            "Daily Supplements": false,
+            "No Cell Phone in Bedroom": false,
+            "No Gluten": false,
+            "Grow": false
+          },
+          "completed": 0,
+          "possible": 16,
+          "pct": 0
+        },
+        {
+          "date": "2026-05-16",
+          "habits": {
+            "Call One Friend": false,
+            "No Caffeine": false,
+            "No Bread / Chips / Pasta": false,
+            "Play with Owen": false,
+            "8 Hour Eating Window": false,
+            "Move": false,
+            "Minimum 1/2 Gallon Water": false,
+            "Plan Tomorrow Before Bed": false,
+            "Breath Strip for Sleep": true,
+            "Minimal Dairy": false,
+            "5am Wake": false,
+            "Reflect": false,
+            "Daily Supplements": true,
+            "No Cell Phone in Bedroom": false,
+            "No Gluten": false,
+            "Grow": false
+          },
+          "completed": 2,
+          "possible": 16,
+          "pct": 13
+        },
+        {
+          "date": "2026-05-17",
+          "habits": {
+            "Call One Friend": false,
+            "No Caffeine": false,
+            "No Bread / Chips / Pasta": false,
+            "Play with Owen": false,
+            "8 Hour Eating Window": false,
+            "Move": false,
+            "Minimum 1/2 Gallon Water": false,
+            "Plan Tomorrow Before Bed": false,
+            "Breath Strip for Sleep": false,
+            "Minimal Dairy": false,
+            "5am Wake": false,
+            "Reflect": false,
+            "Daily Supplements": false,
+            "No Cell Phone in Bedroom": false,
+            "No Gluten": false,
+            "Grow": false
+          },
+          "completed": 0,
+          "possible": 16,
+          "pct": 0
+        },
+        {
+          "date": "2026-05-18",
+          "habits": {
+            "Call One Friend": false,
+            "No Caffeine": false,
+            "No Bread / Chips / Pasta": false,
+            "Play with Owen": false,
+            "8 Hour Eating Window": false,
+            "Move": false,
+            "Minimum 1/2 Gallon Water": false,
+            "Plan Tomorrow Before Bed": false,
+            "Breath Strip for Sleep": false,
+            "Minimal Dairy": false,
+            "5am Wake": false,
+            "Reflect": false,
+            "Daily Supplements": false,
+            "No Cell Phone in Bedroom": false,
+            "No Gluten": false,
+            "Grow": false
+          },
+          "completed": 0,
+          "possible": 16,
+          "pct": 0
+        },
+        {
+          "date": "2026-05-19",
+          "habits": {
+            "Call One Friend": false,
+            "No Caffeine": false,
+            "No Bread / Chips / Pasta": false,
+            "Play with Owen": false,
+            "8 Hour Eating Window": false,
+            "Move": false,
+            "Minimum 1/2 Gallon Water": false,
+            "Plan Tomorrow Before Bed": false,
+            "Breath Strip for Sleep": false,
+            "Minimal Dairy": false,
+            "5am Wake": false,
+            "Reflect": false,
+            "Daily Supplements": false,
+            "No Cell Phone in Bedroom": false,
+            "No Gluten": false,
+            "Grow": false
+          },
+          "completed": 0,
+          "possible": 16,
+          "pct": 0
+        },
+        {
+          "date": "2026-05-20",
+          "habits": {
+            "Call One Friend": false,
+            "No Caffeine": false,
+            "No Bread / Chips / Pasta": false,
+            "Play with Owen": true,
+            "8 Hour Eating Window": false,
+            "Move": false,
+            "Minimum 1/2 Gallon Water": false,
+            "Plan Tomorrow Before Bed": false,
+            "Breath Strip for Sleep": false,
+            "Minimal Dairy": true,
+            "5am Wake": false,
+            "Reflect": false,
+            "Daily Supplements": true,
+            "No Cell Phone in Bedroom": false,
+            "No Gluten": false,
+            "Grow": true
+          },
+          "completed": 4,
+          "possible": 16,
+          "pct": 25
+        },
+        {
+          "date": "2026-05-21",
+          "habits": {
+            "Call One Friend": false,
+            "No Caffeine": false,
+            "No Bread / Chips / Pasta": false,
+            "Play with Owen": false,
+            "8 Hour Eating Window": false,
+            "Move": false,
+            "Minimum 1/2 Gallon Water": false,
+            "Plan Tomorrow Before Bed": false,
+            "Breath Strip for Sleep": false,
+            "Minimal Dairy": false,
+            "5am Wake": false,
+            "Reflect": false,
+            "Daily Supplements": false,
+            "No Cell Phone in Bedroom": false,
+            "No Gluten": false,
+            "Grow": false
+          },
+          "completed": 0,
+          "possible": 16,
+          "pct": 0
+        },
+        {
+          "date": "2026-05-22",
+          "habits": {
+            "Call One Friend": false,
+            "No Caffeine": false,
+            "No Bread / Chips / Pasta": false,
+            "Play with Owen": false,
+            "8 Hour Eating Window": false,
+            "Move": false,
+            "Minimum 1/2 Gallon Water": false,
+            "Plan Tomorrow Before Bed": false,
+            "Breath Strip for Sleep": false,
+            "Minimal Dairy": false,
+            "5am Wake": false,
+            "Reflect": false,
+            "Daily Supplements": false,
+            "No Cell Phone in Bedroom": false,
+            "No Gluten": false,
+            "Grow": false
+          },
+          "completed": 0,
+          "possible": 16,
+          "pct": 0
+        },
+        {
+          "date": "2026-05-23",
+          "habits": {
+            "Call One Friend": false,
+            "No Caffeine": false,
+            "No Bread / Chips / Pasta": false,
+            "Play with Owen": false,
+            "8 Hour Eating Window": false,
+            "Move": false,
+            "Minimum 1/2 Gallon Water": false,
+            "Plan Tomorrow Before Bed": false,
+            "Breath Strip for Sleep": false,
+            "Minimal Dairy": false,
+            "5am Wake": false,
+            "Reflect": false,
+            "Daily Supplements": false,
+            "No Cell Phone in Bedroom": false,
+            "No Gluten": false,
+            "Grow": false
+          },
+          "completed": 0,
+          "possible": 16,
+          "pct": 0
+        },
+        {
+          "date": "2026-05-24",
+          "habits": {
+            "Call One Friend": false,
+            "No Caffeine": false,
+            "No Bread / Chips / Pasta": false,
+            "Play with Owen": false,
+            "8 Hour Eating Window": false,
+            "Move": false,
+            "Minimum 1/2 Gallon Water": false,
+            "Plan Tomorrow Before Bed": false,
+            "Breath Strip for Sleep": false,
+            "Minimal Dairy": false,
+            "5am Wake": false,
+            "Reflect": false,
+            "Daily Supplements": false,
+            "No Cell Phone in Bedroom": false,
+            "No Gluten": false,
+            "Grow": false
+          },
+          "completed": 0,
+          "possible": 16,
+          "pct": 0
+        },
+        {
+          "date": "2026-05-25",
+          "habits": {
+            "Call One Friend": false,
+            "No Caffeine": false,
+            "No Bread / Chips / Pasta": false,
+            "Play with Owen": false,
+            "8 Hour Eating Window": false,
+            "Move": false,
+            "Minimum 1/2 Gallon Water": false,
+            "Plan Tomorrow Before Bed": false,
+            "Breath Strip for Sleep": false,
+            "Minimal Dairy": false,
+            "5am Wake": false,
+            "Reflect": false,
+            "Daily Supplements": false,
+            "No Cell Phone in Bedroom": false,
+            "No Gluten": false,
+            "Grow": false
+          },
+          "completed": 0,
+          "possible": 16,
+          "pct": 0
+        },
+        {
+          "date": "2026-05-26",
+          "habits": {
+            "Call One Friend": false,
+            "No Caffeine": false,
+            "No Bread / Chips / Pasta": false,
+            "Play with Owen": false,
+            "8 Hour Eating Window": false,
+            "Move": false,
+            "Minimum 1/2 Gallon Water": false,
+            "Plan Tomorrow Before Bed": false,
+            "Breath Strip for Sleep": false,
+            "Minimal Dairy": false,
+            "5am Wake": false,
+            "Reflect": false,
+            "Daily Supplements": false,
+            "No Cell Phone in Bedroom": false,
+            "No Gluten": false,
+            "Grow": false
+          },
+          "completed": 0,
+          "possible": 16,
+          "pct": 0
+        },
+        {
+          "date": "2026-05-27",
+          "habits": {
+            "Call One Friend": true,
+            "No Caffeine": false,
+            "No Bread / Chips / Pasta": false,
+            "Play with Owen": false,
+            "8 Hour Eating Window": false,
+            "Move": true,
+            "Minimum 1/2 Gallon Water": false,
+            "Plan Tomorrow Before Bed": false,
+            "Breath Strip for Sleep": true,
+            "Minimal Dairy": false,
+            "5am Wake": true,
+            "Reflect": false,
+            "Daily Supplements": true,
+            "No Cell Phone in Bedroom": false,
+            "No Gluten": false,
+            "Grow": true
+          },
+          "completed": 6,
+          "possible": 16,
+          "pct": 38
+        },
+        {
+          "date": "2026-05-28",
+          "habits": {
+            "Call One Friend": false,
+            "No Caffeine": false,
+            "No Bread / Chips / Pasta": false,
+            "Play with Owen": false,
+            "8 Hour Eating Window": false,
+            "Move": false,
+            "Minimum 1/2 Gallon Water": false,
+            "Plan Tomorrow Before Bed": false,
+            "Breath Strip for Sleep": false,
+            "Minimal Dairy": false,
+            "5am Wake": false,
+            "Reflect": false,
+            "Daily Supplements": false,
+            "No Cell Phone in Bedroom": false,
+            "No Gluten": false,
+            "Grow": false
+          },
+          "completed": 0,
+          "possible": 16,
+          "pct": 0
+        },
+        {
+          "date": "2026-05-29",
+          "habits": {
+            "Call One Friend": false,
+            "No Caffeine": false,
+            "No Bread / Chips / Pasta": false,
+            "Play with Owen": false,
+            "8 Hour Eating Window": false,
+            "Move": false,
+            "Minimum 1/2 Gallon Water": false,
+            "Plan Tomorrow Before Bed": false,
+            "Breath Strip for Sleep": false,
+            "Minimal Dairy": false,
+            "5am Wake": false,
+            "Reflect": false,
+            "Daily Supplements": false,
+            "No Cell Phone in Bedroom": false,
+            "No Gluten": false,
+            "Grow": false
+          },
+          "completed": 0,
+          "possible": 16,
+          "pct": 0
+        },
+        {
+          "date": "2026-05-30",
+          "habits": {
+            "Call One Friend": false,
+            "No Caffeine": false,
+            "No Bread / Chips / Pasta": false,
+            "Play with Owen": false,
+            "8 Hour Eating Window": false,
+            "Move": false,
+            "Minimum 1/2 Gallon Water": false,
+            "Plan Tomorrow Before Bed": false,
+            "Breath Strip for Sleep": false,
+            "Minimal Dairy": false,
+            "5am Wake": false,
+            "Reflect": false,
+            "Daily Supplements": false,
+            "No Cell Phone in Bedroom": false,
+            "No Gluten": false,
+            "Grow": false
+          },
+          "completed": 0,
+          "possible": 16,
+          "pct": 0
+        },
+        {
+          "date": "2026-05-31",
+          "habits": {
+            "Call One Friend": false,
+            "No Caffeine": false,
+            "No Bread / Chips / Pasta": false,
+            "Play with Owen": false,
+            "8 Hour Eating Window": false,
+            "Move": false,
+            "Minimum 1/2 Gallon Water": false,
+            "Plan Tomorrow Before Bed": false,
+            "Breath Strip for Sleep": false,
+            "Minimal Dairy": false,
+            "5am Wake": false,
+            "Reflect": false,
+            "Daily Supplements": false,
+            "No Cell Phone in Bedroom": false,
+            "No Gluten": false,
+            "Grow": false
+          },
+          "completed": 0,
+          "possible": 16,
+          "pct": 0
+        },
+        {
+          "date": "2026-06-01",
+          "habits": {
+            "Call One Friend": false,
+            "No Caffeine": false,
+            "No Bread / Chips / Pasta": false,
+            "Play with Owen": false,
+            "8 Hour Eating Window": false,
+            "Move": false,
+            "Minimum 1/2 Gallon Water": false,
+            "Plan Tomorrow Before Bed": false,
+            "Breath Strip for Sleep": false,
+            "Minimal Dairy": false,
+            "5am Wake": false,
+            "Reflect": false,
+            "Daily Supplements": false,
+            "No Cell Phone in Bedroom": false,
+            "No Gluten": false,
+            "Grow": false
+          },
+          "completed": 0,
+          "possible": 16,
+          "pct": 0
+        },
+        {
+          "date": "2026-06-02",
+          "habits": {
+            "Call One Friend": false,
+            "No Caffeine": false,
+            "No Bread / Chips / Pasta": false,
+            "Play with Owen": false,
+            "8 Hour Eating Window": false,
+            "Move": false,
+            "Minimum 1/2 Gallon Water": false,
+            "Plan Tomorrow Before Bed": false,
+            "Breath Strip for Sleep": false,
+            "Minimal Dairy": false,
+            "5am Wake": false,
+            "Reflect": false,
+            "Daily Supplements": false,
+            "No Cell Phone in Bedroom": false,
+            "No Gluten": false,
+            "Grow": false
+          },
+          "completed": 0,
+          "possible": 16,
+          "pct": 0
+        },
+        {
+          "date": "2026-06-03",
+          "habits": {
+            "Call One Friend": false,
+            "No Caffeine": false,
+            "No Bread / Chips / Pasta": false,
+            "Play with Owen": false,
+            "8 Hour Eating Window": false,
+            "Move": false,
+            "Minimum 1/2 Gallon Water": false,
+            "Plan Tomorrow Before Bed": false,
+            "Breath Strip for Sleep": false,
+            "Minimal Dairy": false,
+            "5am Wake": false,
+            "Reflect": false,
+            "Daily Supplements": false,
+            "No Cell Phone in Bedroom": false,
+            "No Gluten": false,
+            "Grow": false
+          },
+          "completed": 0,
+          "possible": 16,
+          "pct": 0
+        }
+      ]
+    },
+    "tricia": {
+      "fields": [
+        "Feed dogs",
+        "Laundry",
+        "Leucovorin",
+        "Supplements",
+        "Take care of baby"
+      ],
+      "entries": [
+        {
+          "date": "2026-05-19",
+          "habits": {
+            "Laundry": false,
+            "Supplements": false,
+            "Leucovorin": false,
+            "Take care of baby": false,
+            "Feed dogs": false
+          },
+          "completed": 0,
+          "possible": 5,
+          "pct": 0
+        },
+        {
+          "date": "2026-05-20",
+          "habits": {
+            "Laundry": false,
+            "Supplements": false,
+            "Leucovorin": false,
+            "Take care of baby": false,
+            "Feed dogs": false
+          },
+          "completed": 0,
+          "possible": 5,
+          "pct": 0
+        },
+        {
+          "date": "2026-05-21",
+          "habits": {
+            "Laundry": false,
+            "Supplements": false,
+            "Leucovorin": false,
+            "Take care of baby": false,
+            "Feed dogs": false
+          },
+          "completed": 0,
+          "possible": 5,
+          "pct": 0
+        },
+        {
+          "date": "2026-05-22",
+          "habits": {
+            "Laundry": false,
+            "Supplements": false,
+            "Leucovorin": false,
+            "Take care of baby": false,
+            "Feed dogs": false
+          },
+          "completed": 0,
+          "possible": 5,
+          "pct": 0
+        },
+        {
+          "date": "2026-05-23",
+          "habits": {
+            "Laundry": false,
+            "Supplements": false,
+            "Leucovorin": false,
+            "Take care of baby": false,
+            "Feed dogs": false
+          },
+          "completed": 0,
+          "possible": 5,
+          "pct": 0
+        },
+        {
+          "date": "2026-05-24",
+          "habits": {
+            "Laundry": false,
+            "Supplements": false,
+            "Leucovorin": false,
+            "Take care of baby": false,
+            "Feed dogs": false
+          },
+          "completed": 0,
+          "possible": 5,
+          "pct": 0
+        },
+        {
+          "date": "2026-05-25",
+          "habits": {
+            "Laundry": false,
+            "Supplements": false,
+            "Leucovorin": false,
+            "Take care of baby": false,
+            "Feed dogs": false
+          },
+          "completed": 0,
+          "possible": 5,
+          "pct": 0
+        },
+        {
+          "date": "2026-05-26",
+          "habits": {
+            "Laundry": false,
+            "Supplements": false,
+            "Leucovorin": false,
+            "Take care of baby": false,
+            "Feed dogs": false
+          },
+          "completed": 0,
+          "possible": 5,
+          "pct": 0
+        },
+        {
+          "date": "2026-05-27",
+          "habits": {
+            "Laundry": false,
+            "Supplements": false,
+            "Leucovorin": false,
+            "Take care of baby": false,
+            "Feed dogs": false
+          },
+          "completed": 0,
+          "possible": 5,
+          "pct": 0
+        },
+        {
+          "date": "2026-05-28",
+          "habits": {
+            "Laundry": false,
+            "Supplements": false,
+            "Leucovorin": false,
+            "Take care of baby": false,
+            "Feed dogs": false
+          },
+          "completed": 0,
+          "possible": 5,
+          "pct": 0
+        },
+        {
+          "date": "2026-05-29",
+          "habits": {
+            "Laundry": false,
+            "Supplements": false,
+            "Leucovorin": false,
+            "Take care of baby": false,
+            "Feed dogs": false
+          },
+          "completed": 0,
+          "possible": 5,
+          "pct": 0
+        },
+        {
+          "date": "2026-05-30",
+          "habits": {
+            "Laundry": false,
+            "Supplements": false,
+            "Leucovorin": false,
+            "Take care of baby": false,
+            "Feed dogs": false
+          },
+          "completed": 0,
+          "possible": 5,
+          "pct": 0
+        },
+        {
+          "date": "2026-05-31",
+          "habits": {
+            "Laundry": false,
+            "Supplements": false,
+            "Leucovorin": false,
+            "Take care of baby": false,
+            "Feed dogs": false
+          },
+          "completed": 0,
+          "possible": 5,
+          "pct": 0
+        },
+        {
+          "date": "2026-06-01",
+          "habits": {
+            "Laundry": false,
+            "Supplements": false,
+            "Leucovorin": false,
+            "Take care of baby": false,
+            "Feed dogs": false
+          },
+          "completed": 0,
+          "possible": 5,
+          "pct": 0
+        },
+        {
+          "date": "2026-06-02",
+          "habits": {
+            "Laundry": false,
+            "Supplements": false,
+            "Leucovorin": false,
+            "Take care of baby": false,
+            "Feed dogs": false
+          },
+          "completed": 0,
+          "possible": 5,
+          "pct": 0
+        },
+        {
+          "date": "2026-06-03",
+          "habits": {
+            "Laundry": true,
+            "Supplements": false,
+            "Leucovorin": true,
+            "Take care of baby": false,
+            "Feed dogs": false
+          },
+          "completed": 2,
+          "possible": 5,
+          "pct": 40
+        }
+      ]
+    }
+  }
 }
