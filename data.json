@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-04T19:49:38.580Z",
+  "generated": "2026-06-04T23:57:42.105Z",
   "meta": {
     "currentQuarter": "Q2",
     "currentYear": "2026",
@@ -511,6 +511,16 @@
     }
   ],
   "tasks": [
+    {
+      "id": "375c574948598042a898f3e01901fbe3",
+      "type": "task",
+      "name": "Add accounts balances to Claude?",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": "Personal Admin",
+      "hours": 1,
+      "projectIds": []
+    },
     {
       "id": "375c57494859807ca291d9c0fecd2255",
       "type": "task",
@@ -1203,6 +1213,25 @@
     }
   ],
   "wipTasks": [
+    {
+      "id": "375c574948598042a898f3e01901fbe3",
+      "type": "task",
+      "name": "Add accounts balances to Claude?",
+      "status": "In progress (WIP)",
+      "pillarIds": [
+        "fa5c3f6312394f09b07566f455dac82d"
+      ],
+      "domain": "Personal Admin",
+      "hours": 1,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": "2026-06-04T18:47:00.000-05:00",
+      "completeDate": null
+    },
     {
       "id": "375c57494859807ca291d9c0fecd2255",
       "type": "task",
