@@ -24,6 +24,12 @@ const DBS = {
   tasks:    '33ac5749485980b28d0beeaf4739beb1',
 }
 
+// ── Habit Tracker Database IDs ───────────────────────────────
+const HABIT_DBS = {
+  noah:   '362c574948598029b2e6ffdbcde0fc66',
+  tricia: '7dc5acf6912142b3a433ac47ab61e29b',
+}
+
 // ── Page IDs (for narrative content) ─────────────────────────
 const PAGES = {
   tenYearTarget:  '371c57494859802dac05ec95e25766c4',
@@ -198,6 +204,18 @@ function parseWipTask(p) {
   }
 }
 
+// ── Habit entry parser ───────────────────────────────────────
+function parseHabitEntry(p) {
+  const date = p.properties['Date']?.date?.start || null
+  const habits = {}
+  for (const [name, prop] of Object.entries(p.properties)) {
+    if (prop.type === 'checkbox') habits[name] = prop.checkbox ?? false
+  }
+  const completed = Object.values(habits).filter(v => v).length
+  const possible  = Object.keys(habits).length
+  return { date, habits, completed, possible, pct: possible > 0 ? Math.round(completed / possible * 100) : 0 }
+}
+
 // ── Main ──────────────────────────────────────────────────────
 async function main() {
   console.log('Eubanks Family OS — Notion sync starting')
@@ -254,6 +272,29 @@ async function main() {
   const wipTasks = [...wipActive, ...wipDone]
   console.log(`    ✓ ${wipActive.length} active · ${wipDone.length} recent done`)
 
+  // Habit tracker data (last 30 days)
+  const habitThirtyAgo = new Date(Date.now() - 30*24*60*60*1000).toISOString().split('T')[0]
+  console.log('  Fetching Noah habit data...')
+  const noahHabitRaw = (await queryAll(HABIT_DBS.noah, {
+    filter: { property: 'Date', date: { on_or_after: habitThirtyAgo } },
+    sorts: [{ property: 'Date', direction: 'ascending' }]
+  })).map(parseHabitEntry).filter(e => e.date)
+  console.log(`    ✓ ${noahHabitRaw.length} entries`)
+
+  console.log('  Fetching Tricia habit data...')
+  const triciaHabitRaw = (await queryAll(HABIT_DBS.tricia, {
+    filter: { property: 'Date', date: { on_or_after: habitThirtyAgo } },
+    sorts: [{ property: 'Date', direction: 'ascending' }]
+  })).map(parseHabitEntry).filter(e => e.date)
+  console.log(`    ✓ ${triciaHabitRaw.length} entries`)
+
+  const noahFields  = noahHabitRaw.length  > 0 ? Object.keys(noahHabitRaw[0].habits).sort()  : []
+  const triciaFields = triciaHabitRaw.length > 0 ? Object.keys(triciaHabitRaw[0].habits).sort() : []
+  const habitData = {
+    noah:   { fields: noahFields,   entries: noahHabitRaw  },
+    tricia: { fields: triciaFields, entries: triciaHabitRaw },
+  }
+
   // Dashboard config
   console.log('  Fetching dashboard config...')
   const wipTargets = await fetchConfigPage('375c574948598125 80bfd476854c912d'.replace(' ',''))
@@ -288,6 +329,7 @@ async function main() {
     projects,
     tasks,
     wipTasks,
+    habitData,
   }
 
   fs.writeFileSync('data.json', JSON.stringify(data, null, 2))
