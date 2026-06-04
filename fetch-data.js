@@ -168,6 +168,7 @@ function parseWipTask(p) {
     projectIds:   relP(p.properties, 'Project'),
     rockIds:      relP(p.properties, '90-Day Rocks'),
     person:       perP(p.properties, 'Person'),
+    velocity:     numP(p.properties, 'Velocity '),
     startDate:    dtP(p.properties,  'Auto- Start Date (Entered WIP) '),
     completeDate: dtP(p.properties,  'Auto- Completed Date (moved to done)'),
   }
