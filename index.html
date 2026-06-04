@@ -177,7 +177,7 @@ body{background:var(--bg);color:var(--tx);font-family:'DM Sans',sans-serif;heigh
 .vwip-rbtn{padding:4px 11px;border:1px solid var(--bdr);border-radius:20px;background:transparent;font-family:'DM Sans',sans-serif;font-size:11px;color:var(--tx2);cursor:pointer;transition:all .12s;}
 .vwip-rbtn:hover{background:var(--surf2);}.vwip-rbtn.on{background:var(--tx);color:var(--bg);border-color:var(--tx);}
 .vwip-rdatelbl{font-size:11px;color:var(--tx3);margin-left:6px;}
-.vwip-metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:14px;}
+.vwip-metrics{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:14px;}
 .vwip-metric{background:var(--surf);border:1px solid var(--bdr);border-radius:11px;padding:14px 16px;}
 .vwip-metric.warn{border-color:#D4905A;background:#FFF8F3;}
 .vwip-mval{font-family:'Playfair Display',serif;font-size:28px;font-weight:600;color:var(--tx);line-height:1;margin-bottom:5px;}
@@ -357,7 +357,7 @@ body{background:var(--bg);color:var(--tx);font-family:'DM Sans',sans-serif;heigh
 
 <script>
 const PC={'Faith & Character':'#7B6FAC','Marriage & Family':'#B5695A','Health & Energy':'#4A8B70','Home/Homestead':'#A07848','Freedom & Ownership':'#4A7BAD','Systems & Simplicity':'#6E8C8A','Adventure & Community':'#C48B3A'}
-let D={pillars:[],goals:[],rocks:[],projects:[],tasks:[],wipTasks:[]},ALL={},CV='guide',WIP_RANGE='week',WIP_PERSON='all'
+let D={pillars:[],goals:[],rocks:[],projects:[],tasks:[],wipTasks:[]},ALL={},CV='guide',WIP_RANGE='week',WIP_PERSON='all',WIP_MODE='hours'
 
 window.addEventListener('DOMContentLoaded',init)
 async function init(){so('scr-loading');try{await load();so('app');renderHdr();sv('guide')}catch(e){if(e.message==='NO_DATA')so('scr-nodata');else{document.getElementById('err-msg').textContent=e.message;so('scr-error')}}}
@@ -485,6 +485,7 @@ function vPil(){
 // ── WIP DASHBOARD ──────────────────────────────────────────
 function setWipRange(r){WIP_RANGE=r;vWip()}
 function setWipPerson(p){WIP_PERSON=p;vWip()}
+function setWipMode(m){WIP_MODE=m;vWip()}
 
 function getRange(r){
   const now=new Date(),today=new Date(now.getFullYear(),now.getMonth(),now.getDate())
@@ -522,6 +523,11 @@ function renderWip(){
   const compHrs=completed.reduce((s,t)=>s+(t.hours||0),0)
   const startHrs=started.reduce((s,t)=>s+(t.hours||0),0)
   const stagnant=wipActive.filter(t=>{if(!t.startDate)return false;return Math.floor((Date.now()-new Date(ds2d(t.startDate)+'T12:00:00'))/86400000)>=7})
+  const isCount=WIP_MODE==='count'
+  const wipVal=isCount?wipActive.length:wipHrs
+  const compVal=isCount?completed.length:compHrs
+  const startVal=isCount?started.length:startHrs
+  const valUnit=isCount?'tasks':'hrs'
   const allActive=wt.filter(t=>t.status==='In progress (WIP)'||t.status==='Up Next (Sprint Backlog)')
   const rockLinked=allActive.filter(t=>t.rockIds?.length>0||t.projectIds?.some(pid=>prm[pid]?.rockIds?.length>0))
   const rockPct=allActive.length>0?Math.round(rockLinked.length/allActive.length*100):0
@@ -530,8 +536,11 @@ function renderWip(){
   while(cur<=end){days.push(new Date(cur));cur.setDate(cur.getDate()+1)}
   const dayStrs=days.map(d=>d.toISOString().split('T')[0])
   const dayLbls=days.map(d=>d.toLocaleDateString('en-US',{weekday:'short',month:'numeric',day:'numeric'}))
-  const compByDay=dayStrs.map(ds=>wt.filter(t=>ds2d(t.completeDate)===ds).reduce((s,t)=>s+(t.hours||0),0))
-  const startByDay=dayStrs.map(ds=>wt.filter(t=>ds2d(t.startDate)===ds).reduce((s,t)=>s+(t.hours||0),0))
+  const compByDay=dayStrs.map(ds=>isCount?wt.filter(t=>ds2d(t.completeDate)===ds).length:wt.filter(t=>ds2d(t.completeDate)===ds).reduce((s,t)=>s+(t.hours||0),0))
+  const startByDay=dayStrs.map(ds=>isCount?wt.filter(t=>ds2d(t.startDate)===ds).length:wt.filter(t=>ds2d(t.startDate)===ds).reduce((s,t)=>s+(t.hours||0),0))
+  const velVals=completed.map(t=>t.velocity).filter(v=>v!=null&&v>0)
+  const avgVelocity=velVals.length>0?(velVals.reduce((a,b)=>a+b,0)/velVals.length).toFixed(2):'—'
+  const velSub=velVals.length>0?velVals.length+' task'+(velVals.length!==1?'s':'')+' measured':'no data yet'
   // Pie data
   const byPillar={},byDomain={}
   const pillarById=by(D.pillars)
@@ -539,9 +548,9 @@ function renderWip(){
     let k='Other'
     if(t.pillarIds?.length){const p=pillarById[t.pillarIds[0]];if(p)k=p.name}
     else if(t.pc){const e=Object.entries(PC).find(([,v])=>v===t.pc);if(e)k=e[0]}
-    byPillar[k]=(byPillar[k]||0)+(t.hours||0)
+    byPillar[k]=(byPillar[k]||0)+(isCount?1:(t.hours||0))
   })
-  completed.forEach(t=>{const k=t.domain||'Other';byDomain[k]=(byDomain[k]||0)+(t.hours||0)})
+  completed.forEach(t=>{const k=t.domain||'Other';byDomain[k]=(byDomain[k]||0)+(isCount?1:(t.hours||0))})
   // Render
   const RBTNS=['week','lastweek','14days','30days']
   const RLBLS={week:'This Week',lastweek:'Last Week','14days':'14 Days','30days':'30 Days'}
@@ -561,41 +570,47 @@ function renderWip(){
       <span class="vwip-toolbar-lbl">Date Range:</span>
       ${RBTNS.map(r=>`<button class="vwip-rbtn ${r===WIP_RANGE?'on':''}" onclick="setWipRange('${r}')">${RLBLS[r]}</button>`).join('')}
       <span class="vwip-rdatelbl">${fmtDate(start)} – ${fmtDate(end)}</span>
+      <div style="margin-left:auto;display:flex;gap:4px;"><button class="vwip-rbtn ${WIP_MODE==='hours'?'on':''}" onclick="setWipMode('hours')">Hours</button><button class="vwip-rbtn ${WIP_MODE==='count'?'on':''}" onclick="setWipMode('count')">Count</button></div>
     </div>
     <div class="vwip-metrics">
       <div class="vwip-metric">
-        <div class="vwip-mval ${wipHrs>30?'over':''} ">${wipHrs.toFixed(1)} <span class="vwip-mtgt">/ 30 hrs</span></div>
+        <div class="vwip-mval ${!isCount&&wipHrs>30?'over':''}">${isCount?wipVal:wipHrs.toFixed(1)} <span class="vwip-mtgt">/ 30 ${valUnit}</span></div>
         <div class="vwip-mlbl">Current WIP</div>
-        <div class="vwip-prog-track"><div class="vwip-prog-fill ${wipHrs>30?'over':''}" style="width:${Math.min(wipHrs/30*100,100).toFixed(0)}%"></div></div>
+        <div class="vwip-prog-track"><div class="vwip-prog-fill ${!isCount&&wipHrs>30?'over':''}" style="width:${Math.min(wipVal/30*100,100).toFixed(0)}%"></div></div>
       </div>
       <div class="vwip-metric">
-        <div class="vwip-mval ${compHrs>=30?'hit':'under'}">${compHrs.toFixed(1)} <span class="vwip-mtgt">/ 30 hrs</span></div>
+        <div class="vwip-mval ${compVal>=30?'hit':'under'}">${isCount?compVal:compHrs.toFixed(1)} <span class="vwip-mtgt">/ 30 ${valUnit}</span></div>
         <div class="vwip-mlbl">Completed</div>
         <div class="vwip-msub">${completed.length} tasks · ${label}</div>
-        <div class="vwip-prog-track"><div class="vwip-prog-fill ${compHrs>=30?'':'under'}" style="width:${Math.min(compHrs/30*100,100).toFixed(0)}%"></div></div>
+        <div class="vwip-prog-track"><div class="vwip-prog-fill ${compVal>=30?'':'under'}" style="width:${Math.min(compVal/30*100,100).toFixed(0)}%"></div></div>
       </div>
       <div class="vwip-metric">
-        <div class="vwip-mval">${startHrs.toFixed(1)} <span class="vwip-mtgt">hrs</span></div>
+        <div class="vwip-mval">${isCount?startVal:startVal.toFixed(1)} <span class="vwip-mtgt">${valUnit}</span></div>
         <div class="vwip-mlbl">Started</div>
-        <div class="vwip-msub">${started.length} tasks · ${label}</div>
+        <div class="vwip-msub">${started.length} task${started.length!==1?'s':''} · ${label}</div>
       </div>
       <div class="vwip-metric ${stagnant.length>0?'warn':''}">
         <div class="vwip-mval">${stagnant.length}</div>
         <div class="vwip-mlbl">Stagnant Tasks</div>
         <div class="vwip-msub">7+ days in WIP</div>
       </div>
+      <div class="vwip-metric">
+        <div class="vwip-mval">${avgVelocity} <span class="vwip-mtgt">${avgVelocity!=='—'?'days':''}</span></div>
+        <div class="vwip-mlbl">Avg Cycle Time</div>
+        <div class="vwip-msub">start → done · ${velSub}</div>
+      </div>
     </div>
     <div class="vwip-chart-box">
-      <div class="vwip-chart-title">Daily Hours · ${label}</div>
+      <div class="vwip-chart-title">Daily ${isCount?"Tasks":"Hours"} · ${label}</div>
       <div class="vwip-bar-wrap"><canvas id="wip-bar"></canvas></div>
     </div>
     <div class="vwip-bottom">
       <div class="vwip-pie-box">
-        <div class="vwip-chart-title">By Pillar <span class="vwip-chart-sub">(completed hrs)</span></div>
+        <div class="vwip-chart-title">By Pillar <span class="vwip-chart-sub">(completed ${isCount?"tasks":"hrs"})</span></div>
         <div class="vwip-pie-wrap"><canvas id="wip-pie1"></canvas></div>
       </div>
       <div class="vwip-pie-box">
-        <div class="vwip-chart-title">By Domain <span class="vwip-chart-sub">(completed hrs)</span></div>
+        <div class="vwip-chart-title">By Domain <span class="vwip-chart-sub">(completed ${isCount?"tasks":"hrs"})</span></div>
         <div class="vwip-pie-wrap"><canvas id="wip-pie2"></canvas></div>
       </div>
       <div class="vwip-stat-box">
@@ -612,7 +627,7 @@ function renderWip(){
   requestAnimationFrame(()=>{
     // Bar chart
     const bc=document.getElementById('wip-bar')
-    if(bc)new Chart(bc,{type:'bar',data:{labels:dayLbls,datasets:[{label:'Completed hrs',data:compByDay,backgroundColor:'rgba(74,139,112,.8)',borderRadius:4},{label:'Started hrs',data:startByDay,backgroundColor:'rgba(74,123,173,.6)',borderRadius:4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'top',labels:{font:{family:'DM Sans',size:11}}}},scales:{y:{beginAtZero:true,ticks:{font:{family:'DM Sans',size:10}}},x:{ticks:{font:{family:'DM Sans',size:10}}}}}})
+    if(bc)new Chart(bc,{type:'bar',data:{labels:dayLbls,datasets:[{label:isCount?'Completed tasks':'Completed hrs',data:compByDay,backgroundColor:'rgba(74,139,112,.8)',borderRadius:4},{label:isCount?'Started tasks':'Started hrs',data:startByDay,backgroundColor:'rgba(74,123,173,.6)',borderRadius:4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'top',labels:{font:{family:'DM Sans',size:11}}}},scales:{y:{beginAtZero:true,ticks:{font:{family:'DM Sans',size:10}}},x:{ticks:{font:{family:'DM Sans',size:10}}}}}})
     // Pie 1: pillar
     const p1=document.getElementById('wip-pie1')
     if(p1&&Object.keys(byPillar).length)new Chart(p1,{type:'doughnut',data:{labels:Object.keys(byPillar),datasets:[{data:Object.values(byPillar),backgroundColor:Object.keys(byPillar).map(k=>PC[k]||'#999'),borderWidth:2,borderColor:'#FDFAF6'}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'right',labels:{font:{family:'DM Sans',size:10},boxWidth:11,padding:7}},tooltip:{callbacks:{label:(ctx)=>{const tot=ctx.dataset.data.reduce((a,b)=>a+b,0);const pct=tot>0?Math.round(ctx.parsed/tot*100):0;return ` ${ctx.label}: ${ctx.parsed.toFixed(1)}h (${pct}%)`}}}}}})
