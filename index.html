@@ -535,7 +535,7 @@ function renderWip(){
   const COMP_HRS=cfg.comp_hrs_per_week_per_person||30
   const COMP_TASKS=cfg.comp_tasks_per_week_per_person||15
   const personMult=WIP_PERSON==='all'?2:1
-  const daysForTarget=Math.max(days.length,7)
+  const daysForTarget=Math.max(Math.ceil((end-start)/86400000)+1,7)
   const scaleW=daysForTarget/7
   const wipTarget=(isCount?WIP_TASKS:WIP_HRS)*personMult
   const compTarget=(isCount?Math.round(COMP_TASKS*scaleW):Math.round(COMP_HRS*scaleW))*personMult
