@@ -100,6 +100,8 @@ const txP  = (pr, k) => pr[k]?.rich_text?.map(t => t.plain_text).join('')    || 
 const relP = (pr, k) => (pr[k]?.relation || []).map(r => nid(r.id))
 const numP = (pr, k) => { const f=pr[k]; if(!f)return null; if(f.number!==undefined)return f.number; if(f.formula?.number!==undefined)return f.formula.number; return null }
 const dtP  = (pr, k) => { const f=pr[k]; if(!f)return null; if(f.date?.start)return f.date.start; if(f.formula?.date?.start)return f.formula.date.start; return null }
+const msP  = (pr, k) => (pr[k]?.multi_select || []).map(s => s.name)
+const perP = (pr, k) => (pr[k]?.people || []).map(p => p.name).filter(Boolean)
 
 // ── Parsers ───────────────────────────────────────────────────
 function parsePillar(p) {
@@ -165,6 +167,7 @@ function parseWipTask(p) {
     hours:        numP(p.properties, 'Estimated Hours'),
     projectIds:   relP(p.properties, 'Project'),
     rockIds:      relP(p.properties, '90-Day Rocks'),
+    person:       perP(p.properties, 'Person'),
     startDate:    dtP(p.properties,  'Auto- Start Date (Entered WIP) '),
     completeDate: dtP(p.properties,  'Auto- Completed Date (moved to done)'),
   }
