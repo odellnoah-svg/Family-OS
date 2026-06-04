@@ -22,13 +22,18 @@ body{background:var(--bg);color:var(--tx);font-family:'DM Sans',sans-serif;heigh
 .ib-steps li{font-size:12.5px;color:var(--tx2);margin-bottom:5px;line-height:1.5;}.ib-steps strong{color:var(--tx);}
 /* App */
 #app{display:flex;flex-direction:column;height:100vh;}
+header{flex-shrink:0;}
 .hdr{background:var(--surf);border-bottom:1px solid var(--bdr);height:52px;display:flex;align-items:center;padding:0 20px;gap:14px;flex-shrink:0;}
 .hdr-brand{font-family:'Playfair Display',serif;font-size:16px;font-weight:600;white-space:nowrap;flex-shrink:0;}
 .hdr-brand em{font-weight:400;font-style:italic;color:var(--tx2);}
-.view-tabs{display:flex;gap:4px;flex:1;justify-content:center;}
-.vtab{padding:6px 14px;border:1px solid var(--bdr);border-radius:20px;background:transparent;font-family:'DM Sans',sans-serif;font-size:11.5px;font-weight:500;color:var(--tx2);cursor:pointer;transition:all .14s;white-space:nowrap;}
-.vtab:hover{background:var(--surf2);color:var(--tx);}
-.vtab.on{background:var(--tx);color:var(--bg);border-color:var(--tx);}
+.area-tabs{display:flex;gap:5px;flex:1;justify-content:center;}
+.atab{padding:7px 20px;border:1.5px solid var(--bdr);border-radius:20px;background:transparent;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;color:var(--tx2);cursor:pointer;transition:all .14s;letter-spacing:.01em;}
+.atab:hover{background:var(--surf2);color:var(--tx);}
+.atab.on{background:var(--tx);color:var(--bg);border-color:var(--tx);}
+.sub-hdr{background:var(--surf);border-bottom:1px solid var(--bdr);height:36px;display:flex;align-items:center;padding:0 20px;gap:5px;flex-shrink:0;}
+.stab{padding:4px 13px;border:1px solid var(--bdr);border-radius:20px;background:transparent;font-family:'DM Sans',sans-serif;font-size:11px;font-weight:500;color:var(--tx2);cursor:pointer;transition:all .12s;}
+.stab:hover{background:var(--surf2);color:var(--tx);}
+.stab.on{background:var(--acc);color:#fff;border-color:var(--acc);}
 .hdr-right{display:flex;align-items:center;gap:8px;flex-shrink:0;}
 .updated{font-size:10px;color:var(--tx3);white-space:nowrap;}
 .hdr-btn{padding:5px 10px;border:1px solid var(--bdr);border-radius:7px;background:transparent;font-family:'DM Sans',sans-serif;font-size:11px;font-weight:500;color:var(--tx2);cursor:pointer;transition:all .12s;}
@@ -275,20 +280,20 @@ body{background:var(--bg);color:var(--tx);font-family:'DM Sans',sans-serif;heigh
   </div>
 </div>
 <div id="app" hidden>
-  <header class="hdr">
-    <div class="hdr-brand">Eubanks Family OS <em>· Roadmap</em></div>
-    <div class="view-tabs">
-      <button class="vtab on" onclick="sv('guide')"     id="vt-guide">Guide</button>
-      <button class="vtab"    onclick="sv('strategic')" id="vt-strategic">Strategic</button>
-      <button class="vtab"    onclick="sv('execution')" id="vt-execution">Execution</button>
-      <button class="vtab"    onclick="sv('pillars')"   id="vt-pillars">Pillars</button>
-      <button class="vtab"    onclick="sv('wip')"       id="vt-wip">WIP</button>
-      <button class="vtab"    onclick="sv('habits')"    id="vt-habits">Habits</button>
+  <header>
+    <div class="hdr">
+      <div class="hdr-brand">Eubanks Family OS <em>· Dashboard</em></div>
+      <div class="area-tabs">
+        <button class="atab" data-area="strategic" onclick="setArea('strategic')">Strategic</button>
+        <button class="atab" data-area="execution" onclick="setArea('execution')">Execution</button>
+        <button class="atab" data-area="metrics"   onclick="setArea('metrics')">Metrics</button>
+      </div>
+      <div class="hdr-right">
+        <div class="updated" id="updated-ts"></div>
+        <button class="hdr-btn no-print" onclick="reload()">↺ Reload</button>
+      </div>
     </div>
-    <div class="hdr-right">
-      <div class="updated" id="updated-ts"></div>
-      <button class="hdr-btn no-print" onclick="reload()">↺ Reload</button>
-    </div>
+    <div class="sub-hdr" id="sub-hdr" hidden></div>
   </header>
   <div id="vc"></div>
 </div>
@@ -388,10 +393,10 @@ body{background:var(--bg);color:var(--tx);font-family:'DM Sans',sans-serif;heigh
 
 <script>
 const PC={'Faith & Character':'#7B6FAC','Marriage & Family':'#B5695A','Health & Energy':'#4A8B70','Home/Homestead':'#A07848','Freedom & Ownership':'#4A7BAD','Systems & Simplicity':'#6E8C8A','Adventure & Community':'#C48B3A'}
-let D={pillars:[],goals:[],rocks:[],projects:[],tasks:[],wipTasks:[]},ALL={},CV='guide',WIP_RANGE='week',WIP_PERSON='all',WIP_MODE='hours',HAB_PERSON='noah',HAB_RANGE='week'
+let D={pillars:[],goals:[],rocks:[],projects:[],tasks:[],wipTasks:[],habitData:null},ALL={},CV='strategic',CV_AREA='strategic',WIP_RANGE='week',WIP_PERSON='all',WIP_MODE='hours',HAB_PERSON='noah',HAB_RANGE='week'
 
 window.addEventListener('DOMContentLoaded',init)
-async function init(){so('scr-loading');try{await load();so('app');renderHdr();sv('guide')}catch(e){if(e.message==='NO_DATA')so('scr-nodata');else{document.getElementById('err-msg').textContent=e.message;so('scr-error')}}}
+async function init(){so('scr-loading');try{await load();so('app');renderHdr();sv('strategic')}catch(e){if(e.message==='NO_DATA')so('scr-nodata');else{document.getElementById('err-msg').textContent=e.message;so('scr-error')}}}
 async function reload(){so('scr-loading');try{await load();so('app');renderHdr();sv(CV)}catch(e){if(e.message==='NO_DATA')so('scr-nodata');else{document.getElementById('err-msg').textContent=e.message;so('scr-error')}}}
 function so(id){['scr-loading','scr-nodata','scr-error','app'].forEach(s=>document.getElementById(s).hidden=s!==id)}
 
@@ -422,10 +427,29 @@ const trunc=(s,n)=>s&&s.length>n?s.slice(0,n)+'…':(s||'')
 function fmtDate(d){return d.toLocaleDateString('en-US',{month:'short',day:'numeric'})}
 function renderHdr(){if(D._ts){const d=new Date(D._ts);document.getElementById('updated-ts').textContent=d.toLocaleDateString('en-US',{month:'short',day:'numeric'})+' · '+d.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'})}}
 
+const VIEW_AREA={strategic:'strategic',pillars:'strategic',execution:'execution',wip:'metrics',habits:'metrics'}
+const AREA_VIEWS={strategic:[['guide','Guide'],['strategic','Roadmap'],['pillars','Pillars']],execution:[['execution','Execution']],metrics:[['wip','WIP'],['habits','Habits']]}
+const AREA_DEFAULTS={strategic:'strategic',execution:'execution',metrics:'wip'}
+
+function setArea(a){sv(AREA_DEFAULTS[a]||a)}
+
 function sv(name){
   CV=name
-  document.querySelectorAll('.vtab').forEach(t=>t.classList.remove('on'))
-  document.getElementById('vt-'+name)?.classList.add('on')
+  const area=VIEW_AREA[name]
+  if(area)CV_AREA=area
+  // Area tabs
+  document.querySelectorAll('.atab').forEach(t=>t.classList.remove('on'))
+  if(area)document.querySelector(`.atab[data-area="${area}"]`)?.classList.add('on')
+  // Sub-tabs
+  const subHdr=document.getElementById('sub-hdr')
+  const views=area?AREA_VIEWS[area]||[]:[]
+  if(views.length>1){
+    subHdr.hidden=false
+    subHdr.innerHTML=views.map(([v,l])=>`<button class="stab ${CV===v?'on':''}" onclick="sv('${v}')">${l}</button>`).join('')
+  } else {
+    subHdr.hidden=true
+  }
+  // Render view
   ;({guide:vGuide,strategic:vStrategic,execution:vExe,pillars:vPil,wip:vWip,habits:vHab})[name]?.()
 }
 
