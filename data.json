@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-04T10:29:08.012Z",
+  "generated": "2026-06-04T19:49:38.580Z",
   "meta": {
     "currentQuarter": "Q2",
     "currentYear": "2026",
@@ -512,6 +512,26 @@
   ],
   "tasks": [
     {
+      "id": "375c57494859807ca291d9c0fecd2255",
+      "type": "task",
+      "name": "Feed hiefers",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": "Ranch",
+      "hours": 1,
+      "projectIds": []
+    },
+    {
+      "id": "375c5749485980d8b4decf741753f0bf",
+      "type": "task",
+      "name": "Email blane Stacy map",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": "Ranch",
+      "hours": 1,
+      "projectIds": []
+    },
+    {
       "id": "375c574948598075ae12c19dc8678177",
       "type": "task",
       "name": "Mark up test tank drawing ",
@@ -659,16 +679,6 @@
       "pillar": null,
       "domain": "RAE",
       "hours": null,
-      "projectIds": []
-    },
-    {
-      "id": "36ec5749485980b89cdefb11fc332629",
-      "type": "task",
-      "name": "WIP dashboard is centerpiece of production meeting and drives incentives",
-      "status": "In progress (WIP)",
-      "pillar": null,
-      "domain": "RAE",
-      "hours": 8,
       "projectIds": []
     },
     {
@@ -1194,6 +1204,44 @@
   ],
   "wipTasks": [
     {
+      "id": "375c57494859807ca291d9c0fecd2255",
+      "type": "task",
+      "name": "Feed hiefers",
+      "status": "In progress (WIP)",
+      "pillarIds": [
+        "fa5c3f6312394f09b07566f455dac82d"
+      ],
+      "domain": "Ranch",
+      "hours": 1,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Patricia Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": "2026-06-04T09:33:00.000-05:00",
+      "completeDate": null
+    },
+    {
+      "id": "375c5749485980d8b4decf741753f0bf",
+      "type": "task",
+      "name": "Email blane Stacy map",
+      "status": "In progress (WIP)",
+      "pillarIds": [
+        "fa5c3f6312394f09b07566f455dac82d"
+      ],
+      "domain": "Ranch",
+      "hours": 1,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": "2026-06-04T08:10:00.000-05:00",
+      "completeDate": null
+    },
+    {
       "id": "375c574948598075ae12c19dc8678177",
       "type": "task",
       "name": "Mark up test tank drawing ",
@@ -1458,23 +1506,6 @@
       ],
       "velocity": 0,
       "startDate": "2026-05-28T15:49:00.000-05:00",
-      "completeDate": null
-    },
-    {
-      "id": "36ec5749485980b89cdefb11fc332629",
-      "type": "task",
-      "name": "WIP dashboard is centerpiece of production meeting and drives incentives",
-      "status": "In progress (WIP)",
-      "pillarIds": [],
-      "domain": "RAE",
-      "hours": 8,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-05-28T09:27:00.000-05:00",
       "completeDate": null
     },
     {
