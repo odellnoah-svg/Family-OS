@@ -273,7 +273,7 @@ async function main() {
   console.log(`    ✓ ${wipActive.length} active · ${wipDone.length} recent done`)
 
   // Habit tracker data (last 30 days)
-  const habitThirtyAgo = new Date(Date.now() - 30*24*60*60*1000).toISOString().split('T')[0]
+  const habitThirtyAgo = new Date(Date.now() - 62*24*60*60*1000).toISOString().split('T')[0]
   console.log('  Fetching Noah habit data...')
   const noahHabitRaw = (await queryAll(HABIT_DBS.noah, {
     filter: { property: 'Date', date: { on_or_after: habitThirtyAgo } },
