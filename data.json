@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-05T18:31:53.562Z",
+  "generated": "2026-06-05T23:53:49.870Z",
   "meta": {
     "currentQuarter": "Q2",
     "currentYear": "2026",
@@ -752,16 +752,6 @@
       "projectIds": []
     },
     {
-      "id": "368c57494859802baa92ebb50eb0ecb6",
-      "type": "task",
-      "name": "Make an appointment for Mads mole",
-      "status": "In progress (WIP)",
-      "pillar": null,
-      "domain": "Girls",
-      "hours": null,
-      "projectIds": []
-    },
-    {
       "id": "367c57494859802f8e96eccb8613b0ee",
       "type": "task",
       "name": "Move washer from Kimalee’s ",
@@ -949,16 +939,6 @@
       "pillar": null,
       "domain": "Real Estate",
       "hours": 4,
-      "projectIds": []
-    },
-    {
-      "id": "35dc57494859803ba7c7f6abd868c385",
-      "type": "task",
-      "name": "Breakdown last 12 mos of expenditures ",
-      "status": "In progress (WIP)",
-      "pillar": null,
-      "domain": "Personal Admin",
-      "hours": 20,
       "projectIds": []
     },
     {
@@ -1612,23 +1592,6 @@
       "completeDate": null
     },
     {
-      "id": "368c57494859802baa92ebb50eb0ecb6",
-      "type": "task",
-      "name": "Make an appointment for Mads mole",
-      "status": "In progress (WIP)",
-      "pillarIds": [],
-      "domain": "Girls",
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Patricia Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-05-22T06:49:00.000-05:00",
-      "completeDate": null
-    },
-    {
       "id": "367c57494859802f8e96eccb8613b0ee",
       "type": "task",
       "name": "Move washer from Kimalee’s ",
@@ -1948,23 +1911,6 @@
       ],
       "velocity": 0,
       "startDate": "2026-05-20T14:21:00.000-05:00",
-      "completeDate": null
-    },
-    {
-      "id": "35dc57494859803ba7c7f6abd868c385",
-      "type": "task",
-      "name": "Breakdown last 12 mos of expenditures ",
-      "status": "In progress (WIP)",
-      "pillarIds": [],
-      "domain": "Personal Admin",
-      "hours": 20,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Patricia Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-05-11T16:21:00.000-05:00",
       "completeDate": null
     },
     {
@@ -2746,6 +2692,23 @@
       "completeDate": "2026-05-27T16:44:00.000-05:00"
     },
     {
+      "id": "368c57494859802baa92ebb50eb0ecb6",
+      "type": "task",
+      "name": "Make an appointment for Mads mole",
+      "status": "Done",
+      "pillarIds": [],
+      "domain": "Girls",
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Patricia Eubanks"
+      ],
+      "velocity": 14.291666666667,
+      "startDate": "2026-05-22T06:49:00.000-05:00",
+      "completeDate": "2026-06-05T14:44:00.000-05:00"
+    },
+    {
       "id": "367c5749485980e494c3f158a5a4ff56",
       "type": "task",
       "name": "Mary Kay from Ellen",
@@ -3221,6 +3184,23 @@
       "velocity": 2.75,
       "startDate": "2026-05-11T22:35:00.000-05:00",
       "completeDate": "2026-05-14T17:23:00.000-05:00"
+    },
+    {
+      "id": "35dc57494859803ba7c7f6abd868c385",
+      "type": "task",
+      "name": "Breakdown last 12 mos of expenditures ",
+      "status": "Done",
+      "pillarIds": [],
+      "domain": "Personal Admin",
+      "hours": 20,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Patricia Eubanks"
+      ],
+      "velocity": 24.916666666667,
+      "startDate": "2026-05-11T16:21:00.000-05:00",
+      "completeDate": "2026-06-05T14:27:00.000-05:00"
     },
     {
       "id": "35dc57494859802dbacbf1f246103965",
@@ -4022,41 +4002,6 @@
       "status": "Done",
       "pillarIds": [],
       "domain": "Real Estate",
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Patricia Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": null,
-      "completeDate": null
-    },
-    {
-      "id": "354c5749485980229a23c47cca9aecbd",
-      "type": "task",
-      "name": "help moving furniture to cabin",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": "Baby Girl",
-      "hours": 3,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Patricia Eubanks",
-        "Noah Eubanks"
-      ],
-      "velocity": 9.083333333333,
-      "startDate": "2026-05-17T09:47:00.000-05:00",
-      "completeDate": "2026-05-26T12:00:00.000-05:00"
-    },
-    {
-      "id": "354c57494859801fbb28c32ecae30c88",
-      "type": "task",
-      "name": "projection for duplexes upfront cost",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": null,
       "hours": null,
       "projectIds": [],
       "rockIds": [],
