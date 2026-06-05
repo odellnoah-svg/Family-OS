@@ -393,7 +393,7 @@ header{flex-shrink:0;}
 
 <script>
 const PC={'Faith & Character':'#7B6FAC','Marriage & Family':'#B5695A','Health & Energy':'#4A8B70','Home/Homestead':'#A07848','Freedom & Ownership':'#4A7BAD','Systems & Simplicity':'#6E8C8A','Adventure & Community':'#C48B3A'}
-let D={pillars:[],goals:[],rocks:[],projects:[],tasks:[],wipTasks:[],habitData:null},ALL={},CV='strategic',CV_AREA='strategic',WIP_RANGE='week',WIP_PERSON='all',WIP_MODE='hours',HAB_PERSON='noah',HAB_RANGE='week'
+let D={pillars:[],goals:[],rocks:[],projects:[],tasks:[],wipTasks:[],habitData:null},ALL={},CV='strategic',CV_AREA='strategic',WIP_RANGE='week',WIP_PERSON='all',WIP_MODE='hours',HAB_PERSON='noah',HAB_MONTH=new Date().getMonth(),HAB_YEAR=new Date().getFullYear()
 
 window.addEventListener('DOMContentLoaded',init)
 async function init(){so('scr-loading');try{await load();so('app');renderHdr();sv('strategic')}catch(e){if(e.message==='NO_DATA')so('scr-nodata');else{document.getElementById('err-msg').textContent=e.message;so('scr-error')}}}
@@ -427,8 +427,8 @@ const trunc=(s,n)=>s&&s.length>n?s.slice(0,n)+'…':(s||'')
 function fmtDate(d){return d.toLocaleDateString('en-US',{month:'short',day:'numeric'})}
 function renderHdr(){if(D._ts){const d=new Date(D._ts);document.getElementById('updated-ts').textContent=d.toLocaleDateString('en-US',{month:'short',day:'numeric'})+' · '+d.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'})}}
 
-const VIEW_AREA={guide:'strategic',strategic:'strategic',pillars:'strategic',execution:'execution',wip:'metrics',habits:'metrics'}
-const AREA_VIEWS={strategic:[['guide','Guide'],['strategic','Roadmap'],['pillars','Pillars']],execution:[['execution','Execution']],metrics:[['wip','WIP'],['habits','Habits']]}
+const VIEW_AREA={guide:'strategic',strategic:'strategic',pillars:'strategic',execution:'execution',wip:'metrics',habits:'metrics',finance:'metrics'}
+const AREA_VIEWS={strategic:[['guide','Guide'],['strategic','Roadmap'],['pillars','Pillars']],execution:[['execution','Execution']],metrics:[['wip','WIP'],['habits','Habits'],['finance','Finance']]}
 const AREA_DEFAULTS={strategic:'strategic',execution:'execution',metrics:'wip'}
 
 function setArea(a){sv(AREA_DEFAULTS[a]||a)}
@@ -450,7 +450,7 @@ function sv(name){
     subHdr.hidden=true
   }
   // Render view
-  ;({guide:vGuide,strategic:vStrategic,execution:vExe,pillars:vPil,wip:vWip,habits:vHab})[name]?.()
+  ;({guide:vGuide,strategic:vStrategic,execution:vExe,pillars:vPil,wip:vWip,habits:vHab,finance:vFin})[name]?.()
 }
 
 // ── GUIDE ──────────────────────────────────────────────────
@@ -542,7 +542,8 @@ function setWipRange(r){WIP_RANGE=r;vWip()}
 function setWipPerson(p){WIP_PERSON=p;vWip()}
 function setWipMode(m){WIP_MODE=m;vWip()}
 function setHabPerson(p){HAB_PERSON=p;vHab()}
-function setHabRange(r){HAB_RANGE=r;vHab()}
+function prevHabMonth(){HAB_MONTH--;if(HAB_MONTH<0){HAB_MONTH=11;HAB_YEAR--}vHab()}
+function nextHabMonth(){const n=new Date();if(HAB_YEAR===n.getFullYear()&&HAB_MONTH>=n.getMonth())return;HAB_MONTH++;if(HAB_MONTH>11){HAB_MONTH=0;HAB_YEAR++}vHab()}
 
 function getRange(r){
   const now=new Date(),today=new Date(now.getFullYear(),now.getMonth(),now.getDate())
@@ -715,155 +716,495 @@ function renderWip(){
 </html>
 
 <!-- HABITS JS injected -->
+
+
+
 <script>
 // ════════════════════════════════════════════════════════
-// HABITS VIEW
+// FINANCE VIEW
 // ════════════════════════════════════════════════════════
+let FIN_VIEW='projections'
+function setFinView(v){FIN_VIEW=v;vFin()}
+
+async function vFin(){
+  const vc=document.getElementById('vc')
+  try{
+    if(window.Chart){['fin-chart'].forEach(id=>{const c=Chart.getChart(id);if(c)c.destroy()})}
+    if(!window.Chart){
+      await new Promise((res,rej)=>{const s=document.createElement('script');s.src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js';s.onload=res;s.onerror=rej;document.head.appendChild(s)})
+      if(!window.Chart)return
+    }
+    // Try loading monthly actuals
+    let fin=null
+    try{const r=await fetch('./finance.json?v='+Date.now());if(r.ok)fin=await r.json()}catch{}
+    renderFin(fin)
+  }catch(e){
+    vc.innerHTML=`<div style="padding:32px;color:var(--tx2)">Finance error: ${e.message}</div>`
+    console.error(e)
+  }
+}
+
+function renderFin(fin){
+  // ── Data ──────────────────────────────────────────────
+  const YEARS=[2026,2027,2028,2029,2030,2031,2032,2033,2034,2035,2036]
+  const DATA={
+    conservative:[3700,3941,4189,4445,4708,4979,5258,5546,5842,6147,6461],
+    base:        [3700,4511,5346,6207,7093,8006,8946,9914,10911,11938,13006],
+    optimistic:  [4400,5451,6544,7681,8863,10093,11372,12702,14085,15523,17019],
+    aggressive:  [4200,6242,8386,10637,13001,15483,18089,20825,23698,26715,29883],
+  }
+  const TARGET=10000
+  const fmt=n=>'$'+Math.round(n).toLocaleString('en-US')
+  const fmtK=n=>'$'+(n/1000).toFixed(0)+'K/mo'
+
+  // ── Scenario definitions ──────────────────────────────
+  const SCENARIOS=[
+    {key:'conservative',label:'Conservative',color:'#999999',dash:[6,4],badge:null,
+     desc:'Skip 3 duplexes',bullets:['1 deal/yr · avg $3K CF','3% organic growth'],
+     proj2029:4445,hitTarget:'$10K not reached by 2036'},
+    {key:'base',label:'Base case',color:'#4A7BAD',dash:null,badge:'most likely',
+     desc:'Add 3 duplexes (2027)',bullets:['2 deals/yr · avg $3.5K CF','3% organic growth'],
+     proj2029:6227,hitTarget:'Hits $10K in 2034'},
+    {key:'optimistic',label:'Optimistic',color:'#4A8B70',dash:null,badge:null,
+     desc:'3 duplexes + fix Rowe rents',bullets:['2–3 deals/yr · avg $4.5K CF','4% organic growth'],
+     proj2029:7672,hitTarget:'Hits $10K in 2031'},
+    {key:'aggressive',label:'Aggressive',color:'#7B6FAC',dash:null,badge:'3-yr goal',
+     desc:'3 duplexes + fix Rowe (2026)',bullets:['4 deals/yr · avg $5.5K CF','5% organic growth'],
+     proj2029:10644,hitTarget:'Hits $10K in 2029',highlight:true},
+  ]
+  const LEVERS=[
+    {title:'Fix Rowe to market rent',detail:'+$2,100/yr immediately',note:'currently nearly breakeven'},
+    {title:'Close the 3 duplexes deal',detail:'+$8,500/yr — single biggest near-term CF jump available',note:''},
+    {title:'Chase CoC, not doors',detail:'One Coo-y-yah-quality deal at 15%+ CoC beats 3 average ones',note:''},
+    {title:'Expand to nearby OK markets',detail:'Owasso · Muskogee · Claremore · Tahlequah',note:'can extend deal flow'},
+  ]
+
+  // ── Internal toggle (Projections | Monthly Report) ────
+  const hasActuals=fin!==null
+  const toggleHtml=hasActuals?`
+    <div style="display:flex;gap:5px;margin-bottom:18px;">
+      <button class="vwip-rbtn ${FIN_VIEW==='projections'?'on':''}" onclick="setFinView('projections')">Projections</button>
+      <button class="vwip-rbtn ${FIN_VIEW==='actuals'?'on':''}" onclick="setFinView('actuals')">Monthly Report</button>
+    </div>`:''
+
+  if(hasActuals&&FIN_VIEW==='actuals'){renderFinActuals(fin,toggleHtml);return}
+
+  // ── Projections view ──────────────────────────────────
+  document.getElementById('vc').innerHTML=`
+  <div style="height:100%;overflow-y:auto;padding:22px 26px 52px;background:var(--bg);">
+  <div style="max-width:1060px;margin:0 auto;">
+    ${toggleHtml}
+
+    <!-- Chart box -->
+    <div style="background:var(--surf);border:1px solid var(--bdr);border-radius:12px;padding:20px 22px 16px;margin-bottom:16px;">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
+        <div style="font-family:'Playfair Display',serif;font-size:18px;font-weight:600;color:var(--tx);">Portfolio Growth Scenarios · 2026–2036</div>
+        <div style="font-size:11px;color:var(--tx3);">Monthly net cash flow (non-W-2)</div>
+      </div>
+      <div style="position:relative;height:320px;"><canvas id="fin-chart"></canvas></div>
+    </div>
+
+    <!-- Scenario cards -->
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:11px;margin-bottom:16px;">
+      ${SCENARIOS.map(s=>`
+      <div style="background:var(--surf);border:1.5px solid ${s.highlight?s.color:'var(--bdr)'};border-radius:11px;padding:14px 15px;${s.highlight?'box-shadow:0 3px 14px rgba(123,111,172,.18)':''}">
+        <div style="display:flex;align-items:center;gap:7px;margin-bottom:8px;">
+          <div style="width:14px;height:3px;background:${s.color};border-radius:2px;flex-shrink:0;${s.key==='conservative'?'background:repeating-linear-gradient(90deg,#999 0,#999 5px,transparent 5px,transparent 9px)':''}"></div>
+          <div style="font-size:13px;font-weight:700;color:var(--tx);">${s.label}</div>
+          ${s.badge?`<span style="font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;padding:2px 7px;border-radius:20px;background:${s.highlight?s.color+'22':'var(--surf2)'};color:${s.highlight?s.color:'var(--tx3)'};">${s.badge}</span>`:''}
+        </div>
+        <div style="font-size:12px;color:var(--tx2);margin-bottom:6px;">${s.desc}</div>
+        ${s.bullets.map(b=>`<div style="font-size:11.5px;color:var(--tx2);padding-left:10px;position:relative;margin-bottom:2px;"><span style="position:absolute;left:2px;color:var(--tx3)">·</span>${b}</div>`).join('')}
+        <div style="margin-top:10px;padding-top:9px;border-top:1px solid var(--bdr);">
+          <div style="font-size:14px;font-weight:700;color:${s.highlight?s.color:'var(--tx)'};">2029: ${fmt(s.proj2029)}/mo</div>
+          <div style="font-size:11px;color:var(--tx3);margin-top:2px;">${s.hitTarget}</div>
+        </div>
+      </div>`).join('')}
+    </div>
+
+    <!-- Key levers -->
+    <div style="background:var(--surf);border:1px solid var(--bdr);border-radius:11px;padding:16px 18px;">
+      <div style="font-size:12px;font-weight:700;color:var(--tx);margin-bottom:14px;">Key levers — immediate impact</div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;">
+        ${LEVERS.map(l=>`
+        <div>
+          <div style="font-size:12.5px;font-weight:700;color:var(--tx);margin-bottom:4px;">${l.title}</div>
+          <div style="font-size:12px;color:var(--tx2);line-height:1.5;">${l.detail}</div>
+          ${l.note?`<div style="font-size:11px;color:var(--tx3);margin-top:3px;">${l.note}</div>`:''}
+        </div>`).join('')}
+      </div>
+    </div>
+
+  </div>
+  </div>`
+
+  // ── Chart.js ──────────────────────────────────────────
+  requestAnimationFrame(()=>{
+    const ctx=document.getElementById('fin-chart')
+    if(!ctx)return
+    new Chart(ctx,{
+      type:'line',
+      data:{
+        labels:YEARS,
+        datasets:[
+          {label:'Conservative',data:DATA.conservative,borderColor:'#999',borderDash:[7,4],borderWidth:2,pointRadius:3,pointBackgroundColor:'#999',tension:.15,fill:false},
+          {label:'Base case',data:DATA.base,borderColor:'#4A7BAD',borderWidth:2.5,pointRadius:3,pointBackgroundColor:'#4A7BAD',tension:.15,fill:false},
+          {label:'Optimistic',data:DATA.optimistic,borderColor:'#4A8B70',borderWidth:2.5,pointRadius:3,pointBackgroundColor:'#4A8B70',tension:.15,
+            fill:{target:'-1',above:'rgba(74,139,112,.08)',below:'transparent'}},
+          {label:'Aggressive',data:DATA.aggressive,borderColor:'#7B6FAC',borderWidth:3,pointRadius:4,pointBackgroundColor:'#7B6FAC',tension:.15,fill:false},
+          {label:'$10K/month target',data:YEARS.map(()=>TARGET),borderColor:'rgba(192,48,48,.7)',borderWidth:1.5,borderDash:[6,4],pointRadius:0,fill:false},
+        ]
+      },
+      options:{
+        responsive:true,maintainAspectRatio:false,
+        interaction:{mode:'index',intersect:false},
+        plugins:{
+          legend:{position:'top',labels:{font:{family:'DM Sans',size:11},boxWidth:28,padding:16,usePointStyle:false}},
+          tooltip:{callbacks:{
+            label:ctx=>{
+              if(ctx.datasetIndex===4)return` $10K target`
+              return` ${ctx.dataset.label}: ${fmt(ctx.parsed.y)}/mo`
+            }
+          }}
+        },
+        scales:{
+          y:{
+            min:0,max:32000,
+            ticks:{font:{family:'DM Sans',size:10},callback:v=>fmtK(v),stepSize:5000},
+            grid:{color:'rgba(180,160,140,.15)'}
+          },
+          x:{ticks:{font:{family:'DM Sans',size:10}},grid:{display:false}}
+        }
+      }
+    })
+  })
+}
+
+function renderFinActuals(fin,toggleHtml){
+  const fmt=n=>n!=null?'$'+Math.abs(n).toLocaleString('en-US'):'—'
+  const fmtPct=n=>n!=null?n.toFixed(1)+'%':'—'
+  const green='#2A7050',red='#C03030'
+  const s=fin.summary||{},props=fin.properties||[],targets=fin.targets||{}
+  const target=targets.monthlyTarget||20000
+  const progress=s.netCashFlow?Math.min(Math.round(s.netCashFlow/target*100),100):0
+  document.getElementById('vc').innerHTML=`
+  <div style="height:100%;overflow-y:auto;padding:22px 26px 52px;background:var(--bg);">
+  <div style="max-width:1060px;margin:0 auto;">
+    ${toggleHtml}
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;">
+      <div>
+        <div style="font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--tx);">${fin.period||'Monthly Report'}</div>
+        <div style="font-size:12px;color:var(--tx3);margin-top:3px;">Generated ${fin.generated?new Date(fin.generated).toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'}):''}</div>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:11px;margin-bottom:14px;">
+      ${[['Total Revenue',fmt(s.totalRevenue),s.totalRevenue>0?green:'var(--tx)'],['Total Expenses',fmt(s.totalExpenses),red],['Net Cash Flow',fmt(s.netCashFlow),(s.netCashFlow||0)>=0?green:red],['Rental Doors',s.doors||'—','var(--tx)']].map(([l,v,c])=>`
+      <div style="background:var(--surf);border:1px solid var(--bdr);border-radius:11px;padding:14px 16px;">
+        <div style="font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:${c};line-height:1;margin-bottom:5px;">${v}</div>
+        <div style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.09em;color:var(--tx2);">${l}</div>
+      </div>`).join('')}
+    </div>
+    <div style="background:var(--surf);border:1px solid var(--bdr);border-radius:11px;padding:16px 18px;margin-bottom:14px;">
+      <div style="display:flex;justify-content:space-between;margin-bottom:10px;">
+        <div style="font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--tx2);">Progress to $${(target/1000).toFixed(0)}K Target</div>
+        <div style="font-size:18px;font-weight:700;font-family:'Playfair Display',serif;color:${progress>=100?green:progress>=60?'#B06820':red};">${progress}%</div>
+      </div>
+      <div style="height:10px;background:var(--surf2);border-radius:5px;overflow:hidden;">
+        <div style="height:100%;width:${progress}%;background:${progress>=100?green:progress>=60?'#C48B3A':red};border-radius:5px;"></div>
+      </div>
+      <div style="font-size:11px;color:var(--tx3);margin-top:7px;">${fmt(s.netCashFlow)} of ${fmt(target)} per month</div>
+    </div>
+    ${props.length?`
+    <div class="sec-hdr"><span class="sec-lbl">Property Breakdown</span><div class="sec-line"></div><span class="sec-cnt">${props.length} doors</span></div>
+    <div style="background:var(--surf);border:1px solid var(--bdr);border-radius:11px;overflow:hidden;">
+      <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;padding:9px 16px;border-bottom:1px solid var(--bdr);background:var(--surf2);">
+        ${['Property','Revenue','Expenses','Net CF','CoC %'].map(h=>`<div style="font-size:9.5px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--tx3);">${h}</div>`).join('')}
+      </div>
+      ${props.map((p,i)=>`
+      <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;padding:11px 16px;border-bottom:${i<props.length-1?'1px solid var(--bdr)':'none'};">
+        <div style="font-size:13px;font-weight:500;color:var(--tx);">${p.name}</div>
+        <div style="font-size:13px;color:${green};">${fmt(p.revenue)}</div>
+        <div style="font-size:13px;color:${red};">${fmt(p.expenses)}</div>
+        <div style="font-size:13px;font-weight:600;color:${(p.netCashFlow||0)>=0?green:red};">${fmt(p.netCashFlow)}</div>
+        <div style="font-size:13px;color:${(p.cocReturn||0)>=10?green:(p.cocReturn||0)>=6?'#B06820':red};">${fmtPct(p.cocReturn)}</div>
+      </div>`).join('')}
+    </div>`:''}
+    ${fin.notes?`<div style="margin-top:14px;background:var(--surf);border:1px solid var(--bdr);border-radius:11px;padding:16px 18px;"><div style="font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--tx2);margin-bottom:10px;">Analysis Notes</div><div style="font-size:13px;color:var(--tx);line-height:1.7;">${fin.notes}</div></div>`:''}
+  </div></div>`
+}
+</script>
+
+<script>
+// ════════════════════════════════════════════════════════
+// HABITS VIEW — monthly calendar layout
+// ════════════════════════════════════════════════════════
+const HAB_G='#5C8A5C', HAB_GL='#A8C5A8', HAB_GBG='#EDF5ED', HAB_GH='#7A9A7A', HAB_GD='#3A6A3A'
+const MONTH_NAMES=['January','February','March','April','May','June','July','August','September','October','November','December']
+const DOW=['M','T','W','T','F','S','S']
+
 async function vHab(){
   const vc=document.getElementById('vc')
   try{
+    ['hab-area','hab-donut-main','hab-donut-month','hab-donut-w0','hab-donut-w1','hab-donut-w2','hab-donut-w3','hab-donut-w4'].forEach(id=>{if(window.Chart){const c=Chart.getChart(id);if(c)c.destroy()}})
     if(!D._hasHabits){
-      vc.innerHTML=`<div class="vhab-nodata"><div style="font-size:36px">📅</div><div style="font-family:'Playfair Display',serif;font-size:20px;color:var(--tx);margin-top:8px">Habit data not yet loaded</div><div style="font-size:13px;color:var(--tx2);max-width:360px;line-height:1.6;margin-top:8px">Re-run the GitHub Action to fetch habit tracker data, then reload.</div></div>`
+      vc.innerHTML=`<div class="vhab-nodata"><div style="font-size:36px">📅</div><div style="font-family:'Playfair Display',serif;font-size:20px;color:var(--tx);margin-top:8px">Habit data not yet loaded</div><div style="font-size:13px;color:var(--tx2);max-width:360px;line-height:1.6;margin-top:8px">Re-run the GitHub Action to fetch habit data, then reload.</div></div>`
       return
     }
     if(!window.Chart){
       await new Promise((res,rej)=>{const s=document.createElement('script');s.src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js';s.onload=res;s.onerror=rej;document.head.appendChild(s)})
-      if(!window.Chart){vc.innerHTML=`<div class="vhab-nodata">Could not load Chart.js.</div>`;return}
+      if(!window.Chart)return
     }
-    if(window.Chart){const c=Chart.getChart('hab-bar');if(c)c.destroy()}
     renderHab()
   }catch(e){
-    vc.innerHTML=`<div style="padding:32px;font-family:'DM Sans',sans-serif"><div style="font-size:13px;font-weight:600;color:#C03030;margin-bottom:8px">Habits Error</div><div style="font-size:12px;color:var(--tx2);font-family:monospace;background:var(--surf2);padding:12px;border-radius:8px">${e.message}</div></div>`
-    console.error('Habits error:',e)
+    vc.innerHTML=`<div style="padding:32px;color:#C03030;font-family:'DM Sans',sans-serif;">Habits error: ${e.message}</div>`
+    console.error('Habits:',e)
   }
 }
 
 function renderHab(){
   const person=D.habitData?.[HAB_PERSON]
-  if(!person?.entries?.length){
-    document.getElementById('vc').innerHTML=`<div class="vhab-nodata"><div style="font-size:32px">📅</div><div style="font-family:'Playfair Display',serif;font-size:18px;color:var(--tx);margin-top:8px">No habit entries found</div><div style="font-size:13px;color:var(--tx2);margin-top:6px">No data for ${HAB_PERSON} in the last 30 days.</div></div>`
-    return
-  }
+  const fields=person?.fields||[]
+  const allEntries=person?.entries||[]
 
-  const {start,end,label}=getRange(HAB_RANGE)
-  const inRange=ds=>{if(!ds)return false;const d=new Date(ds+'T12:00:00');return d>=start&&d<=end}
-  const entries=person.entries.filter(e=>inRange(e.date))
-  const fields=person.fields
-  const RBTNS=['week','lastweek','14days','30days']
-  const RLBLS={week:'This Week',lastweek:'Last Week','14days':'14 Days','30days':'30 Days'}
+  // ── Month data ──────────────────────────────────────────
+  const daysInMonth=new Date(HAB_YEAR,HAB_MONTH+1,0).getDate()
+  const monthStr=`${HAB_YEAR}-${String(HAB_MONTH+1).padStart(2,'0')}`
+  const monthEntries=allEntries.filter(e=>e.date?.startsWith(monthStr))
+  const entryMap=Object.fromEntries(monthEntries.map(e=>[e.date,e]))
 
-  // Stats
-  const tracked=entries.length
-  const avgPct=tracked>0?Math.round(entries.reduce((s,e)=>s+e.pct,0)/tracked):0
-  const daysAt100=entries.filter(e=>e.pct===100).length
-  const todayStr=new Date().toISOString().split('T')[0]
-  const todayEntry=entries.find(e=>e.date===todayStr)||null
-  const todayDisplay=todayEntry?`${todayEntry.completed}/${todayEntry.possible}`:'—'
+  // ── Stats ────────────────────────────────────────────────
+  const tracked=monthEntries.length
+  const totalPossible=tracked*fields.length
+  const totalCompleted=monthEntries.reduce((s,e)=>s+e.completed,0)
+  const avgPct=tracked?Math.round(monthEntries.reduce((s,e)=>s+e.pct,0)/tracked):0
+  const daysAt100=monthEntries.filter(e=>e.pct===100).length
+  const today=new Date()
+  const todayStr=`${today.getFullYear()}-${String(today.getMonth()+1).padStart(2,'0')}-${String(today.getDate()).padStart(2,'0')}`
+  const todayEntry=entryMap[todayStr]
 
-  // Color helpers
-  const hclr=p=>p>=80?'#2A7050':p>=60?'#B06820':'#C03030'
-  const hfill=p=>p>=80?'#4A8B70':p>=60?'#C48B3A':'#C03030'
-  const hbg=p=>p>=80?'#E6F4EE':p>=60?'#FFF3E0':'#FFEEED'
+  // ── Day of week offset (Mon=0) ───────────────────────────
+  const firstDow=(new Date(HAB_YEAR,HAB_MONTH,1).getDay()+6)%7 // Mon=0
 
-  // Daily chart data - every day in range
-  const days=[],cur=new Date(start)
-  while(cur<=end){days.push(new Date(cur));cur.setDate(cur.getDate()+1)}
-  const dayStrs=days.map(d=>d.toISOString().split('T')[0])
-  const dayLbls=days.map(d=>d.toLocaleDateString('en-US',{weekday:'short',month:'numeric',day:'numeric'}))
-  const entryMap=Object.fromEntries(entries.map(e=>[e.date,e]))
-  const pctByDay=dayStrs.map(ds=>entryMap[ds]?.pct??null)
-  const barColors=pctByDay.map(p=>p===null?'rgba(180,160,140,.25)':p>=80?'rgba(74,139,112,.85)':p>=60?'rgba(196,139,58,.85)':'rgba(192,48,48,.85)')
+  // ── Build day array with DOW ─────────────────────────────
+  // Pad with nulls before the 1st
+  const calDays=[...Array(firstDow).fill(null),...Array.from({length:daysInMonth},(_,i)=>i+1)]
+  // Pad to complete last week
+  while(calDays.length%7!==0)calDays.push(null)
+  const weeks=[]
+  for(let i=0;i<calDays.length;i+=7)weeks.push(calDays.slice(i,i+7))
 
-  // Per-habit stats
+  // ── Per-habit stats ──────────────────────────────────────
   const habitStats=fields.map(f=>{
-    const comp=entries.filter(e=>e.habits[f]===true).length
-    const pct=tracked>0?Math.round(comp/tracked*100):0
-    return{name:f,comp,tracked,pct}
+    const comp=monthEntries.filter(e=>e.habits[f]===true).length
+    const pct=tracked?Math.round(comp/tracked*100):0
+    return{name:f,comp,total:tracked,pct}
   }).sort((a,b)=>b.pct-a.pct)
 
-  // Render
+  // ── Weekly stats ─────────────────────────────────────────
+  const weekStats=weeks.map((wk,wi)=>{
+    const wDays=wk.filter(Boolean)
+    const wEntries=wDays.map(d=>entryMap[`${monthStr}-${String(d).padStart(2,'0')}`]).filter(Boolean)
+    const wPct=wEntries.length?Math.round(wEntries.reduce((s,e)=>s+e.pct,0)/wEntries.length):null
+    const wComp=wEntries.reduce((s,e)=>s+e.completed,0)
+    const wPoss=wEntries.length*fields.length
+    return{wi,wPct,wComp,wPoss,label:`Week ${wi+1}`}
+  })
+
+  // ── Daily pct array for charts ───────────────────────────
+  const dailyPcts=Array.from({length:daysInMonth},(_,i)=>{
+    const ds=`${monthStr}-${String(i+1).padStart(2,'0')}`
+    return entryMap[ds]?.pct??null
+  })
+
+  // ── Top 5 habits ─────────────────────────────────────────
+  const top5=habitStats.slice(0,5)
+
+  // ── Color helpers ─────────────────────────────────────────
+  const hc=p=>p>=80?HAB_GD:p>=60?'#7A9A3A':'#C05030'
+  const isFuture=d=>new Date(HAB_YEAR,HAB_MONTH,d)>today
+
+  // ── Calendar cells HTML ──────────────────────────────────
+  const cellHtml=(f,d)=>{
+    if(!d)return`<td style="width:22px;"></td>`
+    const ds=`${monthStr}-${String(d).padStart(2,'0')}`
+    const entry=entryMap[ds]
+    const future=isFuture(d)
+    if(future||!entry)return`<td style="width:22px;padding:1px;"><div style="width:18px;height:18px;border-radius:3px;background:${future?'transparent':'#EBEBEB'};border:${future?'none':'1px solid #DDD'}"></div></td>`
+    const done=entry.habits[f]
+    return`<td style="width:22px;padding:1px;"><div style="width:18px;height:18px;border-radius:3px;background:${done?HAB_G:'#EBEBEB'};border:${done?'none':'1px solid #DDD'};display:flex;align-items:center;justify-content:center;">${done?`<span style="color:#fff;font-size:11px;font-weight:700;line-height:1">✓</span>`:''}</div></td>`
+  }
+
+  // ── Render ────────────────────────────────────────────────
+  const canPrev=HAB_MONTH>0||HAB_YEAR<new Date().getFullYear()
+  const canNext=!(HAB_YEAR===new Date().getFullYear()&&HAB_MONTH>=new Date().getMonth())
+
   document.getElementById('vc').innerHTML=`
-  <div class="vhab"><div class="vhab-inner">
-    <div class="vhab-person-tabs">
-      <button class="vhab-ptab ${HAB_PERSON==='noah'?'on':''}" onclick="setHabPerson('noah')">Noah</button>
-      <button class="vhab-ptab ${HAB_PERSON==='tricia'?'on':''}" onclick="setHabPerson('tricia')">Tricia</button>
+  <div style="height:100%;overflow:auto;padding:16px 20px 40px;background:#F5F8F5;font-family:'DM Sans',sans-serif;">
+  <div style="max-width:1200px;margin:0 auto;">
+
+  <!-- Person tabs + Month nav -->
+  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;">
+    <div style="display:flex;gap:6px;">
+      <button onclick="setHabPerson('noah')" style="padding:6px 18px;border:1.5px solid ${HAB_PERSON==='noah'?HAB_G:'#C8D8C8'};border-radius:20px;background:${HAB_PERSON==='noah'?HAB_G:'transparent'};color:${HAB_PERSON==='noah'?'#fff':'#5A7A5A'};font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;cursor:pointer;">Noah</button>
+      <button onclick="setHabPerson('tricia')" style="padding:6px 18px;border:1.5px solid ${HAB_PERSON==='tricia'?HAB_G:'#C8D8C8'};border-radius:20px;background:${HAB_PERSON==='tricia'?HAB_G:'transparent'};color:${HAB_PERSON==='tricia'?'#fff':'#5A7A5A'};font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;cursor:pointer;">Tricia</button>
     </div>
-    <div class="vhab-toolbar">
-      <span class="vhab-toolbar-lbl">Date Range:</span>
-      ${RBTNS.map(r=>`<button class="vhab-rbtn ${r===HAB_RANGE?'on':''}" onclick="setHabRange('${r}')">${RLBLS[r]}</button>`).join('')}
-      <span class="vhab-rdatelbl">${fmtDate(start)} – ${fmtDate(end)}</span>
+    <div style="display:flex;align-items:center;gap:12px;">
+      <button onclick="prevHabMonth()" style="padding:5px 12px;border:1px solid #C8D8C8;border-radius:7px;background:transparent;font-size:13px;color:#5A7A5A;cursor:pointer;">←</button>
+      <span style="font-family:'Playfair Display',serif;font-size:16px;font-weight:600;color:#2A3A2A;">${MONTH_NAMES[HAB_MONTH]} ${HAB_YEAR}</span>
+      <button onclick="nextHabMonth()" style="padding:5px 12px;border:1px solid #C8D8C8;border-radius:7px;background:${canNext?'transparent':'#F0F0F0'};font-size:13px;color:${canNext?'#5A7A5A':'#AAA'};cursor:pointer;">→</button>
     </div>
-    <div class="vhab-metrics">
-      <div class="vhab-metric" style="background:${hbg(avgPct)};border-color:${hfill(avgPct)}40">
-        <div class="vhab-mval" style="color:${hclr(avgPct)}">${tracked?avgPct+'%':'—'}</div>
-        <div class="vhab-mlbl">Overall Score</div>
-        <div class="vhab-msub">avg daily completion</div>
+  </div>
+
+  <!-- Top row: Month card | Area chart | Overall donut -->
+  <div style="display:grid;grid-template-columns:200px 1fr 180px;gap:12px;margin-bottom:12px;">
+
+    <!-- Month card -->
+    <div style="background:#fff;border-radius:12px;border:1px solid #D8E8D8;padding:20px 18px;display:flex;flex-direction:column;justify-content:space-between;">
+      <div>
+        <div style="font-size:36px;font-weight:900;color:#2A3A2A;font-family:'Playfair Display',serif;line-height:1;text-transform:lowercase;">${MONTH_NAMES[HAB_MONTH].toLowerCase()}</div>
+        <div style="font-size:13px;color:#8A9A8A;margin-top:4px;">${HAB_YEAR}</div>
       </div>
-      <div class="vhab-metric">
-        <div class="vhab-mval">${tracked}</div>
-        <div class="vhab-mlbl">Days Tracked</div>
-        <div class="vhab-msub">${label}</div>
-      </div>
-      <div class="vhab-metric">
-        <div class="vhab-mval" style="color:${daysAt100>0?'#2A7050':''}">${daysAt100}</div>
-        <div class="vhab-mlbl">Days at 100%</div>
-        <div class="vhab-msub">${tracked?Math.round(daysAt100/tracked*100)+'% of tracked days':''}</div>
-      </div>
-      <div class="vhab-metric">
-        <div class="vhab-mval" style="color:${todayEntry?hclr(todayEntry.pct):'var(--tx3)'}">${todayDisplay}</div>
-        <div class="vhab-mlbl">Today</div>
-        <div class="vhab-msub">${todayEntry?todayEntry.pct+'% complete':'no entry yet'}</div>
+      <div style="margin-top:14px;padding-top:12px;border-top:1px solid #E8EEE8;">
+        <div style="background:${HAB_GH};border-radius:6px;padding:7px 10px;display:flex;justify-content:space-between;align-items:center;">
+          <span style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#fff;">Year</span>
+          <span style="font-size:12px;font-weight:700;color:#fff;">${HAB_YEAR}</span>
+        </div>
+        <div style="margin-top:10px;font-size:11px;color:#7A8A7A;">
+          <div style="margin-bottom:3px;">${tracked} days tracked</div>
+          <div style="margin-bottom:3px;">${fields.length} habits</div>
+          <div>${daysAt100} days at 100%</div>
+        </div>
       </div>
     </div>
-    <div class="vhab-chart-box">
-      <div class="vhab-chart-title">Daily Completion % · ${label}</div>
-      <div class="vhab-bar-wrap"><canvas id="hab-bar"></canvas></div>
+
+    <!-- Area chart -->
+    <div style="background:#fff;border-radius:12px;border:1px solid #D8E8D8;padding:16px 18px;">
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:#7A9A7A;margin-bottom:12px;text-align:center;">Progress Over Time</div>
+      <div style="position:relative;height:120px;"><canvas id="hab-area"></canvas></div>
     </div>
-    <div class="sec-hdr"><span class="sec-lbl">Individual Habits</span><div class="sec-line"></div><span class="sec-cnt">${fields.length} habits · ${tracked} days tracked</span></div>
-    <div class="vhab-breakdown">
-      ${tracked===0
-        ?'<div style="font-size:13px;color:var(--tx3);font-style:italic;padding:8px 0">No entries in this date range.</div>'
-        :habitStats.map(h=>`<div class="vhab-row">
-          <div class="vhab-hname">${h.name}</div>
-          <div class="vhab-track"><div class="vhab-fill" style="width:${h.pct}%;background:${hfill(h.pct)}"></div></div>
-          <div class="vhab-pct" style="color:${hclr(h.pct)}">${h.pct}%</div>
-          <div class="vhab-days">${h.comp}/${h.tracked} days</div>
+
+    <!-- Overall donut -->
+    <div style="background:#fff;border-radius:12px;border:1px solid #D8E8D8;padding:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;">
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:#7A9A7A;margin-bottom:10px;text-align:center;">Daily Habits</div>
+      <div style="position:relative;width:110px;height:110px;">
+        <canvas id="hab-donut-main" style="position:absolute;inset:0;"></canvas>
+        <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;">
+          <div style="font-size:26px;font-weight:700;color:${hc(avgPct)};font-family:'Playfair Display',serif;line-height:1;">${tracked?avgPct+'%':'—'}</div>
+        </div>
+      </div>
+      ${tracked?`<div style="font-size:11px;color:#8A9A8A;margin-top:8px;">${totalCompleted} / ${totalPossible}</div>`:''}
+    </div>
+  </div>
+
+  <!-- Main: Calendar + Progress bars -->
+  <div style="display:grid;grid-template-columns:1fr 200px;gap:12px;margin-bottom:12px;">
+
+    <!-- Calendar grid -->
+    <div style="background:#fff;border-radius:12px;border:1px solid #D8E8D8;padding:14px 16px;overflow-x:auto;">
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#7A9A7A;margin-bottom:10px;">Daily Habit Calendar</div>
+      <table style="border-collapse:collapse;min-width:100%;">
+        <thead>
+          <!-- Week headers -->
+          <tr>
+            <th style="width:155px;"></th>
+            ${weeks.map((wk,wi)=>`<th colspan="7" style="text-align:center;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#fff;background:${HAB_GH};padding:5px 2px;border-left:2px solid #E8F0E8;">Week ${wi+1}</th>`).join('')}
+          </tr>
+          <!-- Day number headers -->
+          <tr>
+            <th style="text-align:left;font-size:9px;font-weight:600;color:#9AAA9A;padding-bottom:4px;padding-right:6px;">HABIT</th>
+            ${weeks.map(wk=>wk.map(d=>`<th style="width:22px;text-align:center;font-size:9px;color:${d?(isFuture(d)?'#CCC':'#888'):'transparent'};padding:2px 1px;">${d||''}</th>`).join('')).join('')}
+          </tr>
+          <!-- Day of week headers -->
+          <tr>
+            <th></th>
+            ${weeks.map(wk=>wk.map((_,i)=>`<th style="width:22px;text-align:center;font-size:8px;color:#AAA;padding-bottom:5px;">${DOW[i]}</th>`).join('')).join('')}
+          </tr>
+        </thead>
+        <tbody>
+          ${fields.map(f=>`
+          <tr>
+            <td style="font-size:11px;color:#3A4A3A;padding:1px 6px 1px 0;white-space:nowrap;overflow:hidden;max-width:155px;text-overflow:ellipsis;">${f}</td>
+            ${weeks.map(wk=>wk.map(d=>cellHtml(f,d)).join('')).join('')}
+          </tr>`).join('')}
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Habit progress bars -->
+    <div style="background:#fff;border-radius:12px;border:1px solid #D8E8D8;padding:14px 15px;">
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#7A9A7A;margin-bottom:4px;">Habit Progress</div>
+      ${tracked?`<div style="font-size:10px;color:#8A9A8A;margin-bottom:10px;">${totalCompleted} / ${totalPossible}</div>`:''}
+      ${habitStats.map(h=>`
+      <div style="margin-bottom:8px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:2px;">
+          <div style="font-size:10px;color:#3A4A3A;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:120px;">${h.name}</div>
+          <div style="font-size:10px;font-weight:700;color:${hc(h.pct)};flex-shrink:0;margin-left:4px;">${h.pct}%</div>
+        </div>
+        <div style="height:6px;background:#EEF0EE;border-radius:3px;overflow:hidden;">
+          <div style="height:100%;width:${h.pct}%;background:${hc(h.pct)};border-radius:3px;"></div>
+        </div>
+      </div>`).join('')}
+    </div>
+  </div>
+
+  <!-- Bottom: Monthly summary + Weekly donuts -->
+  <div style="display:grid;grid-template-columns:200px 1fr;gap:12px;">
+
+    <!-- Monthly summary -->
+    <div style="background:#fff;border-radius:12px;border:1px solid #D8E8D8;padding:14px 15px;">
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#7A9A7A;margin-bottom:10px;">${MONTH_NAMES[HAB_MONTH]} Progress</div>
+      <div style="position:relative;width:80px;height:80px;margin:0 auto 10px;">
+        <canvas id="hab-donut-month" style="position:absolute;inset:0;"></canvas>
+        <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;">
+          <div style="font-size:18px;font-weight:700;color:${hc(avgPct)};font-family:'Playfair Display',serif;">${tracked?avgPct+'%':'—'}</div>
+        </div>
+      </div>
+      <div style="font-size:10px;color:#8A9A8A;text-align:center;margin-bottom:8px;">Completed: ${totalCompleted} / ${totalPossible}</div>
+      ${[{l:'COMPLETED',v:totalCompleted},{l:'POSSIBLE',v:totalPossible},{l:'TRACKED DAYS',v:tracked}].map(r=>`
+      <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid #E8EEE8;font-size:10px;">
+        <span style="color:#7A8A7A;">${r.l}</span><span style="font-weight:600;color:#3A4A3A;">${r.v}</span>
+      </div>`).join('')}
+    </div>
+
+    <!-- Weekly donuts -->
+    <div style="background:#fff;border-radius:12px;border:1px solid #D8E8D8;padding:14px 16px;">
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#7A9A7A;margin-bottom:12px;">Weekly Breakdown</div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;">
+        ${weekStats.map((ws,wi)=>`
+        <div style="display:flex;flex-direction:column;align-items:center;gap:6px;min-width:90px;">
+          <div style="font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#7A9A7A;">${ws.label}</div>
+          <div style="position:relative;width:80px;height:80px;">
+            <canvas id="hab-donut-w${wi}" style="position:absolute;inset:0;"></canvas>
+            <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;">
+              <div style="font-size:16px;font-weight:700;color:${ws.wPct!=null?hc(ws.wPct):'#CCC'};font-family:'Playfair Display',serif;">${ws.wPct!=null?ws.wPct+'%':'—'}</div>
+            </div>
+          </div>
+          <div style="font-size:10px;color:#8A9A8A;">${ws.wComp}/${ws.wPoss}</div>
         </div>`).join('')}
+      </div>
     </div>
+  </div>
+
   </div></div>`
 
+  // ── Charts ────────────────────────────────────────────────
   requestAnimationFrame(()=>{
-    const bc=document.getElementById('hab-bar')
-    if(!bc)return
-    new Chart(bc,{
-      type:'bar',
-      data:{
-        labels:dayLbls,
-        datasets:[{
-          label:'Completion %',
-          data:pctByDay.map(p=>p===null?0:p),
-          backgroundColor:barColors,
-          borderRadius:3,
-        }]
-      },
-      options:{
-        responsive:true,
-        maintainAspectRatio:false,
-        plugins:{
-          legend:{display:false},
-          tooltip:{callbacks:{
-            label:(ctx)=>{
-              const p=pctByDay[ctx.dataIndex]
-              return p===null?' No entry':` ${p}%`
-            }
-          }}
-        },
-        scales:{
-          y:{min:0,max:100,ticks:{font:{family:'DM Sans',size:10},callback:v=>v+'%'},grid:{color:'rgba(180,160,140,.15)'}},
-          x:{ticks:{font:{family:'DM Sans',size:10}}}
-        }
-      }
-    })
+    const dayLabels=Array.from({length:daysInMonth},(_,i)=>i+1)
+
+    // Area chart
+    const aCtx=document.getElementById('hab-area')
+    if(aCtx)new Chart(aCtx,{type:'line',data:{labels:dayLabels,datasets:[{data:dailyPcts.map(p=>p??0),borderColor:HAB_G,backgroundColor:HAB_GBG+'CC',fill:'origin',tension:.35,pointRadius:0,borderWidth:2}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>`${ctx.parsed.y}%`}}},scales:{y:{min:0,max:100,ticks:{font:{family:'DM Sans',size:9},callback:v=>v+'%',stepSize:50},grid:{color:'rgba(100,140,100,.1)'}},x:{ticks:{font:{family:'DM Sans',size:9},maxTicksLimit:8},grid:{display:false}}}}})
+
+    // Donut helper
+    const mkDonut=(id,pct,size=110)=>{
+      const c=document.getElementById(id)
+      if(!c)return
+      const p=pct??0
+      new Chart(c,{type:'doughnut',data:{datasets:[{data:[p,100-p],backgroundColor:[p>=80?HAB_GD:p>=60?HAB_GL:'#E08060','#EEEEEE'],borderWidth:0}]},options:{cutout:'72%',responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{enabled:false}}}})
+    }
+    mkDonut('hab-donut-main',avgPct)
+    mkDonut('hab-donut-month',avgPct,80)
+    weekStats.forEach((ws,wi)=>mkDonut(`hab-donut-w${wi}`,ws.wPct,80))
   })
 }
 </script>
