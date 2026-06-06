@@ -143,6 +143,9 @@ header{flex-shrink:0;}
 .vexe-rock.expanded .rk-full{display:block;}
 .vexe-rock-hint{font-size:10px;color:var(--tx3);margin-top:6px;padding-top:6px;border-top:1px solid var(--bdr);}
 .vexe-rock.expanded .vexe-rock-hint{display:none;}
+.vexe-rock .rk-goal-full{display:none;}
+.vexe-rock.expanded .rk-goal-short{display:none;}
+.vexe-rock.expanded .rk-goal-full{display:block;}
 .vexe-rock-k{font-size:9px;font-weight:500;text-transform:uppercase;letter-spacing:.1em;color:var(--tx3);margin-bottom:3px;}
 .vexe-rock-n{font-size:13.5px;font-weight:500;line-height:1.4;color:var(--tx);margin-bottom:8px;}
 .vexe-rock-tags{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:7px;}
@@ -503,7 +506,7 @@ function vExe(){
   const gm=by(D.goals)
   let h=`<div class="vexe"><div class="vexe-inner">`
   h+=`<div class="sec-hdr"><span class="sec-lbl">Quarterly Rocks</span><div class="sec-line"></div><span class="sec-cnt">${cQ} ${cY} · ${qRocks.length} rock${qRocks.length!==1?'s':''}</span></div>`
-  if(qRocks.length){h+=`<div class="vexe-grid">`;qRocks.forEach(r=>{const gn=r.goalIds?.[0]?gm[r.goalIds[0]]?.name:'';h+=`<div class="vexe-rock" style="--pc:${r.pc}" onclick="this.classList.toggle('expanded')"><div class="vexe-rock-k">Rock</div><div class="vexe-rock-n"><span class="rk-short">${trunc(r.name,55)}</span><span class="rk-full">${r.name}</span></div><div class="vexe-rock-tags">${r.quarters?.length?`<span class="tag t-n">${r.quarters.join('/')}${r.year?' '+r.year:''}</span>`:''}</div>${gn?`<div class="vexe-rock-goal">→ ${trunc(gn,70)}</div>`:''}<div class="vexe-rock-hint">tap to expand</div></div>`});h+=`</div>`}
+  if(qRocks.length){h+=`<div class="vexe-grid">`;qRocks.forEach(r=>{const gn=r.goalIds?.[0]?gm[r.goalIds[0]]?.name:'';h+=`<div class="vexe-rock" style="--pc:${r.pc}" onclick="this.classList.toggle('expanded')"><div class="vexe-rock-k">Rock</div><div class="vexe-rock-n"><span class="rk-short">${trunc(r.name,55)}</span><span class="rk-full">${r.name}</span></div><div class="vexe-rock-tags">${r.quarters?.length?`<span class="tag t-n">${r.quarters.join('/')}${r.year?' '+r.year:''}</span>`:''}</div>${gn?`<div class="vexe-rock-goal"><span class="rk-goal-short">→ ${trunc(gn,60)}</span><span class="rk-goal-full">→ ${gn}</span></div>`:''}<div class="vexe-rock-hint">tap to expand</div></div>`});h+=`</div>`}
   else h+=`<div style="font-size:12px;color:var(--tx3);font-style:italic;margin-bottom:16px">No rocks for ${cQ} ${cY}.</div>`
   h+=`<div class="sec-hdr"><span class="sec-lbl">Active Projects</span><div class="sec-line"></div><span class="sec-cnt">${active.length}</span></div>`
   if(active.length){h+=`<div class="vexe-grid">`;active.forEach(p=>{h+=`<div class="vexe-proj" style="--pc:${p.pc}"><div class="vexe-proj-k">Project</div><div class="vexe-proj-n">${p.name}</div><div class="vexe-proj-tags">${stag(p.status)}</div>${p.nextAction?`<div class="vexe-proj-next">→ ${trunc(p.nextAction,80)}</div>`:''}</div>`});h+=`</div>`}
