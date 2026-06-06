@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-05T23:53:49.870Z",
+  "generated": "2026-06-06T09:14:32.950Z",
   "meta": {
     "currentQuarter": "Q2",
     "currentYear": "2026",
@@ -511,6 +511,26 @@
     }
   ],
   "tasks": [
+    {
+      "id": "377c57494859804c9503ef82bdafbbf0",
+      "type": "task",
+      "name": "Add something in vision and maybe OS philosophy about strength from god in dark times. And that we won’t be destroyed when things don’t go as planned.  We will persist ",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": null,
+      "hours": null,
+      "projectIds": []
+    },
+    {
+      "id": "377c5749485980d18b09d97ff1f21176",
+      "type": "task",
+      "name": "(Untitled)",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": null,
+      "hours": null,
+      "projectIds": []
+    },
     {
       "id": "375c5749485980d8b4decf741753f0bf",
       "type": "task",
@@ -1173,6 +1193,40 @@
     }
   ],
   "wipTasks": [
+    {
+      "id": "377c57494859804c9503ef82bdafbbf0",
+      "type": "task",
+      "name": "Add something in vision and maybe OS philosophy about strength from god in dark times. And that we won’t be destroyed when things don’t go as planned.  We will persist ",
+      "status": "In progress (WIP)",
+      "pillarIds": [],
+      "domain": null,
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": "2026-06-05T23:34:00.000-05:00",
+      "completeDate": null
+    },
+    {
+      "id": "377c5749485980d18b09d97ff1f21176",
+      "type": "task",
+      "name": "(Untitled)",
+      "status": "In progress (WIP)",
+      "pillarIds": [],
+      "domain": null,
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": "2026-06-05T23:32:00.000-05:00",
+      "completeDate": null
+    },
     {
       "id": "375c5749485980d8b4decf741753f0bf",
       "type": "task",
@@ -4544,23 +4598,23 @@
             "Call One Friend": false,
             "No Caffeine": false,
             "No Bread / Chips / Pasta": false,
-            "Play with Owen": false,
+            "Play with Owen": true,
             "8 Hour Eating Window": false,
             "Move": false,
             "Minimum 1/2 Gallon Water": false,
             "Plan Tomorrow Before Bed": false,
-            "Breath Strip for Sleep": false,
-            "Minimal Dairy": false,
+            "Breath Strip for Sleep": true,
+            "Minimal Dairy": true,
             "5am Wake": false,
             "Reflect": false,
-            "Daily Supplements": false,
+            "Daily Supplements": true,
             "No Cell Phone in Bedroom": false,
             "No Gluten": false,
-            "Grow": false
+            "Grow": true
           },
-          "completed": 0,
+          "completed": 5,
           "possible": 16,
-          "pct": 0
+          "pct": 31
         }
       ]
     },
