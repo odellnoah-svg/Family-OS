@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-06T16:17:25.926Z",
+  "generated": "2026-06-06T21:37:03.956Z",
   "meta": {
     "currentQuarter": "Q2",
     "currentYear": "2026",
@@ -82,8 +82,7 @@
       "name": "Adventure & Community",
       "status": null,
       "goalIds": [
-        "371c574948598089aa98c04a6d1d9c5f",
-        "371c574948598003ba9fc841e25ac551"
+        "377c57494859811087ffdfc53ceef4a1"
       ],
       "rockIds": []
     },
@@ -93,14 +92,11 @@
       "name": "Systems & Simplicity",
       "status": null,
       "goalIds": [
-        "371c57494859802ba8b1f3ef319fe2d0",
-        "371c5749485980fd9652fe1d95bfd506",
-        "371c574948598057b2fad969568b7813"
+        "377c574948598140a0cfcdae3f7697fc",
+        "377c5749485981d89883f0896cc974cf"
       ],
       "rockIds": [
-        "371c57494859806e9e57e23a6d97f6d5",
-        "371c5749485980149509d54121fd2ba1",
-        "371c5749485980299fcfd34e5b96071c"
+        "377c5749485981a7a422dc94f0af555f"
       ]
     },
     {
@@ -109,11 +105,12 @@
       "name": "Freedom & Ownership",
       "status": null,
       "goalIds": [
-        "371c574948598023980fc9e708ae4854",
-        "371c574948598098842ee8e64192b4db",
-        "371c5749485980d8b960d2f20651758d"
+        "377c57494859814faa0ffdd8e66784ef",
+        "377c5749485981719753feff3374b406"
       ],
-      "rockIds": []
+      "rockIds": [
+        "377c57494859812889a4dd717fe95ca2"
+      ]
     },
     {
       "id": "2fb60975ef4e4b0fbd56793fba264939",
@@ -121,15 +118,11 @@
       "name": "Health & Energy",
       "status": null,
       "goalIds": [
-        "371c5749485980b6912dead2b91ef7bf",
-        "371c57494859800d929ec7c31183b8b0",
-        "371c57494859806fb06de3b6549ceadf",
-        "371c5749485980e4a63ec0e22521b4d1"
+        "377c5749485981c09a49e9d155e1aa8e",
+        "377c5749485981628785ce8cf275c91e"
       ],
       "rockIds": [
-        "371c5749485980eaa3c9c7354eed9b5a",
-        "371c5749485980b298a1d58b2138d197",
-        "371c574948598099ac9bc443aeaef36a"
+        "377c57494859811aa303e31aa2fa0c22"
       ]
     },
     {
@@ -138,12 +131,13 @@
       "name": "Marriage & Family",
       "status": null,
       "goalIds": [
-        "371c574948598047bdfcc6a49fec96b8",
-        "371c5749485980e4a63ec0e22521b4d1",
-        "371c5749485980a98b21d813d8c820e7",
-        "371c5749485980b392b8f37690635474"
+        "377c5749485981bc8291e85c91623b70",
+        "377c574948598180b88ad2957a778bf6"
       ],
-      "rockIds": []
+      "rockIds": [
+        "377c574948598198a9f0e04219c83b50",
+        "377c57494859817083b1ddc5ffb3d1f0"
+      ]
     },
     {
       "id": "2f43207e861543bb8c72d04d16a27f53",
@@ -151,14 +145,9 @@
       "name": "Faith & Character",
       "status": null,
       "goalIds": [
-        "371c57494859806fb06de3b6549ceadf",
-        "371c5749485980a98b21d813d8c820e7",
-        "371c5749485980b392b8f37690635474",
-        "371c5749485980579dcfc826a75e944c"
+        "377c5749485981c6bf13edd20999359a"
       ],
-      "rockIds": [
-        "371c57494859803c9b22c1506b027558"
-      ]
+      "rockIds": []
     },
     {
       "id": "683e3c08456247dea6168f9329c85470",
@@ -166,334 +155,238 @@
       "name": "Home/Homestead",
       "status": null,
       "goalIds": [
-        "371c574948598047bdfcc6a49fec96b8",
-        "371c574948598002b425f35ef1f730be"
+        "377c5749485981f28140cbdfe9f3d5e7",
+        "377c5749485981f4a6fbfe1483df9a20"
       ],
       "rockIds": [
-        "371c5749485980eaa3c9c7354eed9b5a"
+        "377c574948598198a9f0e04219c83b50"
       ]
     }
   ],
   "goals": [
     {
-      "id": "371c574948598057b2fad969568b7813",
+      "id": "377c57494859811087ffdfc53ceef4a1",
       "type": "goal",
-      "name": "AI agent utilization—- 3 fully functional applications implimented  ",
-      "status": null,
-      "horizon": null,
-      "priority": null,
+      "name": "Create at least one intentional family memory or shared experience each month",
+      "status": "Active",
+      "horizon": "1-Year",
+      "priority": "High",
       "pillarIds": [
-        "76181932d64d40de88929de677bdf7c2"
-      ],
-      "rockIds": [
-        "371c5749485980299fcfd34e5b96071c"
-      ]
-    },
-    {
-      "id": "371c5749485980fd9652fe1d95bfd506",
-      "type": "goal",
-      "name": "make sure that the AI report looks at all pillars and makes suggestions for rhythms ",
-      "status": null,
-      "horizon": null,
-      "priority": null,
-      "pillarIds": [
-        "76181932d64d40de88929de677bdf7c2"
+        "cb4375f148b64a2e8a0ecd0f0e0e4962"
       ],
       "rockIds": []
     },
     {
-      "id": "371c574948598002b425f35ef1f730be",
+      "id": "377c5749485981628785ce8cf275c91e",
       "type": "goal",
-      "name": "Create weekly family quick light cleaning event ",
-      "status": null,
-      "horizon": null,
-      "priority": null,
+      "name": "Build and sustain simple, consistent physical and emotional health routines that protect our capacity through the baby year",
+      "status": "Active",
+      "horizon": "1-Year",
+      "priority": "High",
+      "pillarIds": [
+        "2fb60975ef4e4b0fbd56793fba264939"
+      ],
+      "rockIds": [
+        "377c57494859811aa303e31aa2fa0c22"
+      ]
+    },
+    {
+      "id": "377c5749485981719753feff3374b406",
+      "type": "goal",
+      "name": "Grow non-W-2 income and create a clear, written financial roadmap toward W-2 independence",
+      "status": "Active",
+      "horizon": "1-Year",
+      "priority": "High",
+      "pillarIds": [
+        "fa5c3f6312394f09b07566f455dac82d"
+      ],
+      "rockIds": [
+        "377c57494859812889a4dd717fe95ca2"
+      ]
+    },
+    {
+      "id": "377c574948598180b88ad2957a778bf6",
+      "type": "goal",
+      "name": "Welcome the new baby with preparation and intention, while protecting our marriage and each child during this major transition",
+      "status": "Active",
+      "horizon": "1-Year",
+      "priority": "High",
+      "pillarIds": [
+        "62f10d5c983944388542d9b1db866b1a"
+      ],
+      "rockIds": [
+        "377c574948598198a9f0e04219c83b50",
+        "377c57494859817083b1ddc5ffb3d1f0"
+      ]
+    },
+    {
+      "id": "377c5749485981c6bf13edd20999359a",
+      "type": "goal",
+      "name": "Establish a simple, consistent weekly faith and character rhythm for our family",
+      "status": "Active",
+      "horizon": "1-Year",
+      "priority": "High",
+      "pillarIds": [
+        "2f43207e861543bb8c72d04d16a27f53"
+      ],
+      "rockIds": []
+    },
+    {
+      "id": "377c5749485981d89883f0896cc974cf",
+      "type": "goal",
+      "name": "Fully activate and consistently use the Family OS in Notion, with the weekly review rhythm running reliably",
+      "status": "Active",
+      "horizon": "1-Year",
+      "priority": "High",
+      "pillarIds": [
+        "76181932d64d40de88929de677bdf7c2"
+      ],
+      "rockIds": [
+        "377c5749485981a7a422dc94f0af555f"
+      ]
+    },
+    {
+      "id": "377c5749485981f4a6fbfe1483df9a20",
+      "type": "goal",
+      "name": "Prepare the home and homestead for the baby’s arrival and complete the highest-impact improvements that reduce daily friction",
+      "status": "Active",
+      "horizon": "1-Year",
+      "priority": "High",
       "pillarIds": [
         "683e3c08456247dea6168f9329c85470"
       ],
       "rockIds": []
     },
     {
-      "id": "371c574948598003ba9fc841e25ac551",
+      "id": "377c574948598140a0cfcdae3f7697fc",
       "type": "goal",
-      "name": "Create a menu of adventure /community ideas  (maybe just a list inside a notion page) ",
-      "status": null,
-      "horizon": null,
-      "priority": null,
-      "pillarIds": [
-        "cb4375f148b64a2e8a0ecd0f0e0e4962"
-      ],
-      "rockIds": []
-    },
-    {
-      "id": "371c5749485980579dcfc826a75e944c",
-      "type": "goal",
-      "name": "Establish a weekly dinner bible verse discussion ",
-      "status": null,
-      "horizon": null,
-      "priority": null,
-      "pillarIds": [
-        "2f43207e861543bb8c72d04d16a27f53"
-      ],
-      "rockIds": []
-    },
-    {
-      "id": "371c5749485980b392b8f37690635474",
-      "type": "goal",
-      "name": "Finish watching the house of David ",
-      "status": null,
-      "horizon": null,
-      "priority": null,
-      "pillarIds": [
-        "2f43207e861543bb8c72d04d16a27f53",
-        "62f10d5c983944388542d9b1db866b1a"
-      ],
-      "rockIds": [
-        "371c57494859803c9b22c1506b027558"
-      ]
-    },
-    {
-      "id": "371c5749485980d8b960d2f20651758d",
-      "type": "goal",
-      "name": "Complete a 1st draft roadmap to “financial freedom”",
-      "status": null,
-      "horizon": null,
-      "priority": null,
-      "pillarIds": [
-        "fa5c3f6312394f09b07566f455dac82d"
-      ],
-      "rockIds": []
-    },
-    {
-      "id": "371c5749485980a98b21d813d8c820e7",
-      "type": "goal",
-      "name": "Pray together nightly  (added to daily habit tracker for reminder) ",
-      "status": null,
-      "horizon": null,
-      "priority": null,
-      "pillarIds": [
-        "62f10d5c983944388542d9b1db866b1a",
-        "2f43207e861543bb8c72d04d16a27f53"
-      ],
-      "rockIds": []
-    },
-    {
-      "id": "371c5749485980e4a63ec0e22521b4d1",
-      "type": "goal",
-      "name": "Minimum of 1 day per quarter for Tricia to be alone or girls day, while Noah has Owen ",
-      "status": null,
-      "horizon": null,
-      "priority": null,
-      "pillarIds": [
-        "62f10d5c983944388542d9b1db866b1a",
-        "2fb60975ef4e4b0fbd56793fba264939"
-      ],
-      "rockIds": []
-    },
-    {
-      "id": "371c57494859806fb06de3b6549ceadf",
-      "type": "goal",
-      "name": "Fully embrace habit trackers (80% score) ",
-      "status": null,
-      "horizon": null,
-      "priority": null,
-      "pillarIds": [
-        "2f43207e861543bb8c72d04d16a27f53",
-        "2fb60975ef4e4b0fbd56793fba264939"
-      ],
-      "rockIds": [
-        "371c574948598099ac9bc443aeaef36a"
-      ]
-    },
-    {
-      "id": "371c574948598089aa98c04a6d1d9c5f",
-      "type": "goal",
-      "name": "Vacation? ",
-      "status": null,
-      "horizon": null,
-      "priority": null,
-      "pillarIds": [
-        "cb4375f148b64a2e8a0ecd0f0e0e4962"
-      ],
-      "rockIds": []
-    },
-    {
-      "id": "371c574948598047bdfcc6a49fec96b8",
-      "type": "goal",
-      "name": "Barndominium completed (livable condition) ",
-      "status": null,
-      "horizon": null,
-      "priority": null,
-      "pillarIds": [
-        "683e3c08456247dea6168f9329c85470",
-        "62f10d5c983944388542d9b1db866b1a"
-      ],
-      "rockIds": []
-    },
-    {
-      "id": "371c574948598098842ee8e64192b4db",
-      "type": "goal",
-      "name": "Create semi-automated financial report with associated scorecard ",
-      "status": null,
-      "horizon": null,
-      "priority": null,
-      "pillarIds": [
-        "fa5c3f6312394f09b07566f455dac82d"
-      ],
-      "rockIds": []
-    },
-    {
-      "id": "371c574948598023980fc9e708ae4854",
-      "type": "goal",
-      "name": "Minimum of 1 more rental “door”",
-      "status": null,
-      "horizon": null,
-      "priority": null,
-      "pillarIds": [
-        "fa5c3f6312394f09b07566f455dac82d"
-      ],
-      "rockIds": []
-    },
-    {
-      "id": "371c57494859802ba8b1f3ef319fe2d0",
-      "type": "goal",
-      "name": "Family OS framework completed and fully functional ",
-      "status": null,
-      "horizon": null,
-      "priority": null,
+      "name": "The Family OS Is Alive and Working",
+      "status": "Active",
+      "horizon": "3-Year",
+      "priority": "High",
       "pillarIds": [
         "76181932d64d40de88929de677bdf7c2"
       ],
-      "rockIds": [
-        "371c57494859806e9e57e23a6d97f6d5",
-        "371c5749485980149509d54121fd2ba1"
-      ]
+      "rockIds": []
     },
     {
-      "id": "371c5749485980b6912dead2b91ef7bf",
+      "id": "377c57494859814faa0ffdd8e66784ef",
       "type": "goal",
-      "name": "Owen adjusted to baby (less dependent on mom, allowing her to focus on baby)",
-      "status": null,
-      "horizon": "1-Year",
-      "priority": null,
+      "name": "Financial Momentum is Real and Measurable",
+      "status": "Active",
+      "horizon": "3-Year",
+      "priority": "High",
+      "pillarIds": [
+        "fa5c3f6312394f09b07566f455dac82d"
+      ],
+      "rockIds": []
+    },
+    {
+      "id": "377c5749485981bc8291e85c91623b70",
+      "type": "goal",
+      "name": "Each Child Is in an Actively Protected and Intentional Season",
+      "status": "Active",
+      "horizon": "3-Year",
+      "priority": "High",
+      "pillarIds": [
+        "62f10d5c983944388542d9b1db866b1a"
+      ],
+      "rockIds": []
+    },
+    {
+      "id": "377c5749485981c09a49e9d155e1aa8e",
+      "type": "goal",
+      "name": "Health Is Our Foundation, Not an Afterthought",
+      "status": "Active",
+      "horizon": "3-Year",
+      "priority": "High",
       "pillarIds": [
         "2fb60975ef4e4b0fbd56793fba264939"
       ],
       "rockIds": []
     },
     {
-      "id": "371c57494859800d929ec7c31183b8b0",
+      "id": "377c5749485981f28140cbdfe9f3d5e7",
       "type": "goal",
-      "name": "Mom & baby settled (breast feeding, healthy, sleeping)",
-      "status": null,
-      "horizon": "1-Year",
-      "priority": null,
+      "name": "The Ranch Runs Without Overwhelming the Family",
+      "status": "Active",
+      "horizon": "3-Year",
+      "priority": "High",
       "pillarIds": [
-        "2fb60975ef4e4b0fbd56793fba264939"
+        "683e3c08456247dea6168f9329c85470"
       ],
-      "rockIds": [
-        "371c5749485980eaa3c9c7354eed9b5a",
-        "371c5749485980b298a1d58b2138d197"
-      ]
+      "rockIds": []
     }
   ],
   "rocks": [
     {
-      "id": "371c574948598099ac9bc443aeaef36a",
+      "id": "377c57494859811aa303e31aa2fa0c22",
       "type": "rock",
-      "name": "Take habit trackers seriously (should see daily entries even if poor scores)",
-      "quarter": "Q2",
+      "name": "Simple health baseline maintained for both Noah and Tricia",
+      "quarter": "Q3",
       "year": "2026",
       "pillarIds": [
         "2fb60975ef4e4b0fbd56793fba264939"
       ],
       "goalIds": [
-        "371c57494859806fb06de3b6549ceadf"
+        "377c5749485981628785ce8cf275c91e"
       ],
       "projectIds": []
     },
     {
-      "id": "371c5749485980299fcfd34e5b96071c",
+      "id": "377c57494859812889a4dd717fe95ca2",
       "type": "rock",
-      "name": "Claude reading Notion accurately/reliably ",
-      "quarter": "Q2",
+      "name": "Financial clarity report created and next rental door decision made",
+      "quarter": "Q3",
       "year": "2026",
       "pillarIds": [
-        "76181932d64d40de88929de677bdf7c2"
+        "fa5c3f6312394f09b07566f455dac82d"
       ],
       "goalIds": [
-        "371c574948598057b2fad969568b7813"
+        "377c5749485981719753feff3374b406"
       ],
       "projectIds": []
     },
     {
-      "id": "371c57494859803c9b22c1506b027558",
+      "id": "377c57494859817083b1ddc5ffb3d1f0",
       "type": "rock",
-      "name": "Weekly movie night to watch house of david ",
-      "quarter": "Q2",
+      "name": "Owen’s transition is intentionally supported",
+      "quarter": "Q3",
       "year": "2026",
       "pillarIds": [
-        "2f43207e861543bb8c72d04d16a27f53"
+        "62f10d5c983944388542d9b1db866b1a"
       ],
       "goalIds": [
-        "371c5749485980b392b8f37690635474"
+        "377c574948598180b88ad2957a778bf6"
       ],
       "projectIds": []
     },
     {
-      "id": "371c5749485980149509d54121fd2ba1",
+      "id": "377c574948598198a9f0e04219c83b50",
       "type": "rock",
-      "name": "Complete weekly family OS review every week ",
-      "quarter": "Q2",
+      "name": "Welcome the baby into a prepared home and a protected postpartum rhythm",
+      "quarter": "Q3",
       "year": "2026",
       "pillarIds": [
-        "76181932d64d40de88929de677bdf7c2"
-      ],
-      "goalIds": [
-        "371c57494859802ba8b1f3ef319fe2d0"
-      ],
-      "projectIds": []
-    },
-    {
-      "id": "371c5749485980b298a1d58b2138d197",
-      "type": "rock",
-      "name": "Create a baby preparation checklist and satisfy ALL before end of June ",
-      "quarter": "Q2",
-      "year": "2026",
-      "pillarIds": [
-        "2fb60975ef4e4b0fbd56793fba264939"
-      ],
-      "goalIds": [
-        "371c57494859800d929ec7c31183b8b0"
-      ],
-      "projectIds": []
-    },
-    {
-      "id": "371c5749485980eaa3c9c7354eed9b5a",
-      "type": "rock",
-      "name": "Cabin and Cottage both set-up for baby/toddler/sleeping ",
-      "quarter": "Q2",
-      "year": "2026",
-      "pillarIds": [
-        "2fb60975ef4e4b0fbd56793fba264939",
+        "62f10d5c983944388542d9b1db866b1a",
         "683e3c08456247dea6168f9329c85470"
       ],
       "goalIds": [
-        "371c57494859800d929ec7c31183b8b0"
+        "377c574948598180b88ad2957a778bf6"
       ],
       "projectIds": []
     },
     {
-      "id": "371c57494859806e9e57e23a6d97f6d5",
+      "id": "377c5749485981a7a422dc94f0af555f",
       "type": "rock",
-      "name": "VTO/Family OS Roadmap— needs to be an output of other pages/databases ",
-      "quarter": "Q2",
+      "name": "Weekly Family OS review maintained — 8 of 13 weeks",
+      "quarter": "Q3",
       "year": "2026",
       "pillarIds": [
         "76181932d64d40de88929de677bdf7c2"
       ],
       "goalIds": [
-        "371c57494859802ba8b1f3ef319fe2d0"
+        "377c5749485981d89883f0896cc974cf"
       ],
       "projectIds": []
     }
@@ -1464,9 +1357,7 @@
       "domain": "Personal Admin",
       "hours": 2,
       "projectIds": [],
-      "rockIds": [
-        "371c57494859806e9e57e23a6d97f6d5"
-      ],
+      "rockIds": [],
       "person": [
         "Noah Eubanks"
       ],
