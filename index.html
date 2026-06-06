@@ -472,7 +472,7 @@ function vStrategic(){
   h+=`</div><div class="vstr-sidebar"><div class="vstr-side-title">Pillar Stewardship</div>`
   D.pillars.forEach(p=>{
     const pg=goalsOf(p).length,meta2=D.meta||{},cQ=meta2.currentQuarter||'Q2',cY=meta2.currentYear||'2026'
-    const pr=D.rocks.filter(r=>r.quarter===cQ&&r.year===cY&&(r.pillarIds?.includes(p.id)||goalsOf(p).some(g=>r.goalIds?.includes(g.id)||g.rockIds?.includes(r.id)))).length
+    const pr=D.rocks.filter(r=>r.quarters?.includes(cQ)&&r.year===cY&&(r.pillarIds?.includes(p.id)||goalsOf(p).some(g=>r.goalIds?.includes(g.id)||g.rockIds?.includes(r.id)))).length
     h+=`<div class="vstr-p-card" style="--pc:${p.color};border-left-color:${p.color}"><div class="vstr-p-name"><span class="vstr-p-pip" style="background:${p.color}"></span>${p.name}</div><div class="vstr-p-meta">${pg} goal${pg!==1?'s':''} · ${pr} rock${pr!==1?'s':''} ${stag(p.status)}</div></div>`
   })
   h+=`</div></div></div></div>`
@@ -491,13 +491,13 @@ function vsBlocks(blocks){
 // ── EXECUTION ──────────────────────────────────────────────
 function vExe(){
   const meta=D.meta||{},cQ=meta.currentQuarter||'Q2',cY=meta.currentYear||'2026'
-  const qRocks=D.rocks.filter(r=>r.quarter===cQ&&r.year===cY)
+  const qRocks=D.rocks.filter(r=>r.quarters?.includes(cQ)&&r.year===cY)
   const active=D.projects.filter(p=>p.status==='Active'||p.status==='Not Started')
   const wip=D.tasks.filter(t=>t.status==='In progress (WIP)'),next=D.tasks.filter(t=>t.status==='Up Next (Sprint Backlog)')
   const gm=by(D.goals)
   let h=`<div class="vexe"><div class="vexe-inner">`
   h+=`<div class="sec-hdr"><span class="sec-lbl">Quarterly Rocks</span><div class="sec-line"></div><span class="sec-cnt">${cQ} ${cY} · ${qRocks.length} rock${qRocks.length!==1?'s':''}</span></div>`
-  if(qRocks.length){h+=`<div class="vexe-grid">`;qRocks.forEach(r=>{const gn=r.goalIds?.[0]?gm[r.goalIds[0]]?.name:'';h+=`<div class="vexe-rock" style="--pc:${r.pc}"><div class="vexe-rock-k">Rock</div><div class="vexe-rock-n">${r.name}</div><div class="vexe-rock-tags">${r.quarter?`<span class="tag t-n">${r.quarter}${r.year?' '+r.year:''}</span>`:''}</div>${gn?`<div class="vexe-rock-goal">→ ${trunc(gn,60)}</div>`:''}</div>`});h+=`</div>`}
+  if(qRocks.length){h+=`<div class="vexe-grid">`;qRocks.forEach(r=>{const gn=r.goalIds?.[0]?gm[r.goalIds[0]]?.name:'';h+=`<div class="vexe-rock" style="--pc:${r.pc}"><div class="vexe-rock-k">Rock</div><div class="vexe-rock-n">${r.name}</div><div class="vexe-rock-tags">${r.quarters?.length?`<span class="tag t-n">${r.quarters.join('/')}${r.year?' '+r.year:''}</span>`:''}</div>${gn?`<div class="vexe-rock-goal">→ ${trunc(gn,60)}</div>`:''}</div>`});h+=`</div>`}
   else h+=`<div style="font-size:12px;color:var(--tx3);font-style:italic;margin-bottom:16px">No rocks for ${cQ} ${cY}.</div>`
   h+=`<div class="sec-hdr"><span class="sec-lbl">Active Projects</span><div class="sec-line"></div><span class="sec-cnt">${active.length}</span></div>`
   if(active.length){h+=`<div class="vexe-grid">`;active.forEach(p=>{h+=`<div class="vexe-proj" style="--pc:${p.pc}"><div class="vexe-proj-k">Project</div><div class="vexe-proj-n">${p.name}</div><div class="vexe-proj-tags">${stag(p.status)}</div>${p.nextAction?`<div class="vexe-proj-next">→ ${trunc(p.nextAction,80)}</div>`:''}</div>`});h+=`</div>`}
@@ -517,7 +517,7 @@ function vExe(){
 function vPil(){
   const meta=D.meta||{},cQ=meta.currentQuarter||'Q2',cY=meta.currentYear||'2026'
   const outcomes=D.goals.filter(g=>g.horizon==='3-Year'),annual=D.goals.filter(g=>g.horizon==='1-Year')
-  const qRocks=D.rocks.filter(r=>r.quarter===cQ&&r.year===cY)
+  const qRocks=D.rocks.filter(r=>r.quarters?.includes(cQ)&&r.year===cY)
   let h=`<div class="vpil">`
   D.pillars.forEach(p=>{
     const pOut=outcomes.filter(g=>g.pillarIds?.includes(p.id)||p.goalIds?.includes(g.id))
