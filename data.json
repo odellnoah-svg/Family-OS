@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-06T21:42:26.131Z",
+  "generated": "2026-06-06T21:48:44.419Z",
   "meta": {
     "currentQuarter": "Q2",
     "currentYear": "2026",
@@ -323,7 +323,10 @@
       "id": "377c57494859811aa303e31aa2fa0c22",
       "type": "rock",
       "name": "Simple health baseline maintained for both Noah and Tricia",
-      "quarter": null,
+      "quarters": [
+        "Q2",
+        "Q3"
+      ],
       "year": "2026",
       "pillarIds": [
         "2fb60975ef4e4b0fbd56793fba264939"
@@ -337,7 +340,10 @@
       "id": "377c57494859812889a4dd717fe95ca2",
       "type": "rock",
       "name": "Financial clarity report created and next rental door decision made",
-      "quarter": null,
+      "quarters": [
+        "Q3",
+        "Q2"
+      ],
       "year": "2026",
       "pillarIds": [
         "fa5c3f6312394f09b07566f455dac82d"
@@ -351,7 +357,10 @@
       "id": "377c57494859817083b1ddc5ffb3d1f0",
       "type": "rock",
       "name": "Owen’s transition is intentionally supported",
-      "quarter": null,
+      "quarters": [
+        "Q3",
+        "Q2"
+      ],
       "year": "2026",
       "pillarIds": [
         "62f10d5c983944388542d9b1db866b1a"
@@ -365,7 +374,10 @@
       "id": "377c574948598198a9f0e04219c83b50",
       "type": "rock",
       "name": "Welcome the baby into a prepared home and a protected postpartum rhythm",
-      "quarter": null,
+      "quarters": [
+        "Q3",
+        "Q2"
+      ],
       "year": "2026",
       "pillarIds": [
         "62f10d5c983944388542d9b1db866b1a",
@@ -380,7 +392,10 @@
       "id": "377c5749485981a7a422dc94f0af555f",
       "type": "rock",
       "name": "Weekly Family OS review maintained — 8 of 13 weeks",
-      "quarter": null,
+      "quarters": [
+        "Q3",
+        "Q2"
+      ],
       "year": "2026",
       "pillarIds": [
         "76181932d64d40de88929de677bdf7c2"
