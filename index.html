@@ -528,10 +528,10 @@ function vPil(){
     const pProjs=D.projects.filter(pr=>pr.rockIds?.some(rid=>pRockIds.has(rid)))
     const has=pOut.length||pGoals.length||pRocks.length||pProjs.length
     h+=`<div class="vpil-lane" style="--pc:${p.color}"><div class="vpil-hdr"><div class="vpil-name"><span class="vpil-pip" style="background:${p.color}"></span>${p.name}</div></div><div class="vpil-body">`
-    if(pOut.length)h+=`<div class="vpil-grp"><div class="vpil-glbl">3-Yr Outcomes</div>${pOut.map(g=>`<div class="vpil-item outcome" style="--pc:${p.color}">${trunc(g.name,55)}</div>`).join('')}</div>`
-    if(pGoals.length)h+=`<div class="vpil-grp"><div class="vpil-glbl">Annual Goals</div>${pGoals.map(g=>`<div class="vpil-item">${trunc(g.name,55)}</div>`).join('')}</div>`
-    if(pRocks.length)h+=`<div class="vpil-grp"><div class="vpil-glbl">Rocks · ${cQ}</div>${pRocks.map(r=>`<div class="vpil-item-sm">${trunc(r.name,52)}</div>`).join('')}</div>`
-    if(pProjs.length)h+=`<div class="vpil-grp"><div class="vpil-glbl">Projects</div>${pProjs.map(pr=>`<div class="vpil-item-sm">${trunc(pr.name,52)}</div>`).join('')}</div>`
+    if(pOut.length)h+=`<div class="vpil-grp"><div class="vpil-glbl">3-Yr Outcomes</div>${pOut.map(g=>`<div class="vpil-item outcome" style="--pc:${p.color}">${g.name}</div>`).join('')}</div>`
+    if(pGoals.length)h+=`<div class="vpil-grp"><div class="vpil-glbl">Annual Goals</div>${pGoals.map(g=>`<div class="vpil-item">${g.name}</div>`).join('')}</div>`
+    if(pRocks.length)h+=`<div class="vpil-grp"><div class="vpil-glbl">Rocks · ${cQ}</div>${pRocks.map(r=>`<div class="vpil-item-sm">${r.name}</div>`).join('')}</div>`
+    if(pProjs.length)h+=`<div class="vpil-grp"><div class="vpil-glbl">Projects</div>${pProjs.map(pr=>`<div class="vpil-item-sm">${pr.name}</div>`).join('')}</div>`
     if(!has)h+=`<div class="vpil-empty">Nothing this quarter</div>`
     h+=`</div></div>`
   })
