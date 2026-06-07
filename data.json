@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-07T01:23:40.515Z",
+  "generated": "2026-06-07T10:15:32.424Z",
   "meta": {
     "currentQuarter": "Q2",
     "currentYear": "2026",
@@ -2313,7 +2313,9 @@
       "type": "task",
       "name": "Layout slab corners with string and paint ",
       "status": "Up Next (Sprint Backlog)",
-      "pillarIds": [],
+      "pillarIds": [
+        "683e3c08456247dea6168f9329c85470"
+      ],
       "domain": "Barndo",
       "hours": 2,
       "projectIds": [],
@@ -4607,6 +4609,30 @@
             "Move": false,
             "Minimum 1/2 Gallon Water": false,
             "Plan Tomorrow Before Bed": false,
+            "Breath Strip for Sleep": true,
+            "Minimal Dairy": false,
+            "5am Wake": false,
+            "Reflect": false,
+            "Daily Supplements": true,
+            "No Cell Phone in Bedroom": false,
+            "No Gluten": false,
+            "Grow": true
+          },
+          "completed": 3,
+          "possible": 16,
+          "pct": 19
+        },
+        {
+          "date": "2026-06-07",
+          "habits": {
+            "Call One Friend": false,
+            "No Caffeine": false,
+            "No Bread / Chips / Pasta": false,
+            "Play with Owen": false,
+            "8 Hour Eating Window": false,
+            "Move": false,
+            "Minimum 1/2 Gallon Water": false,
+            "Plan Tomorrow Before Bed": false,
             "Breath Strip for Sleep": false,
             "Minimal Dairy": false,
             "5am Wake": false,
@@ -4867,6 +4893,19 @@
         },
         {
           "date": "2026-06-06",
+          "habits": {
+            "Laundry": false,
+            "Supplements": false,
+            "Leucovorin": false,
+            "Take care of baby": false,
+            "Feed dogs": false
+          },
+          "completed": 0,
+          "possible": 5,
+          "pct": 0
+        },
+        {
+          "date": "2026-06-07",
           "habits": {
             "Laundry": false,
             "Supplements": false,
