@@ -1,12 +1,16 @@
 {
-  "generated": "2026-06-06T23:43:31.281Z",
+  "generated": "2026-06-07T01:20:14.929Z",
   "meta": {
     "currentQuarter": "Q2",
     "currentYear": "2026",
     "tenYearTarget": [
       {
+        "type": "paragraph",
+        "text": "Target: December 31, 2036 — W-2 income optional, homestead complete, and an ownership-based life on our land."
+      },
+      {
         "type": "bulleted_list_item",
-        "text": "$20,000/month net non-W-2 income — W-2 income optional by December 31, 2036"
+        "text": "$20,000/month net non-W-2 income — W-2 income optional"
       },
       {
         "type": "bulleted_list_item",
