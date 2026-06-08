@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-08T14:51:54.013Z",
+  "generated": "2026-06-08T22:12:54.539Z",
   "meta": {
     "currentQuarter": "Q2",
     "currentYear": "2026",
@@ -413,22 +413,32 @@
   "projects": [],
   "tasks": [
     {
+      "id": "379c57494859808fa0d0fe0ccdf8fc00",
+      "type": "task",
+      "name": "Feed Snake",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": null,
+      "hours": null,
+      "projectIds": []
+    },
+    {
+      "id": "379c5749485980e3bb4be0ffc4f14949",
+      "type": "task",
+      "name": "Call abstract/title company for estimates without loan on duplexes ",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": null,
+      "hours": null,
+      "projectIds": []
+    },
+    {
       "id": "377c5749485980f3bac9e7d4df6abbc5",
       "type": "task",
       "name": "Prepare for PC Meeting",
       "status": "In progress (WIP)",
       "pillar": null,
       "domain": "Girls",
-      "hours": null,
-      "projectIds": []
-    },
-    {
-      "id": "377c57494859805dbf31cb3a89197bbf",
-      "type": "task",
-      "name": "fix visitation calendar",
-      "status": "In progress (WIP)",
-      "pillar": null,
-      "domain": "Personal Admin",
       "hours": null,
       "projectIds": []
     },
@@ -523,16 +533,6 @@
       "projectIds": []
     },
     {
-      "id": "373c574948598009960deadd867ff0cb",
-      "type": "task",
-      "name": "Move washer to driveway ",
-      "status": "In progress (WIP)",
-      "pillar": null,
-      "domain": "Real Estate",
-      "hours": null,
-      "projectIds": []
-    },
-    {
       "id": "373c5749485980e68a16fa00e0e43209",
       "type": "task",
       "name": "Order water test kit ",
@@ -565,7 +565,7 @@
     {
       "id": "370c5749485980dbb48cd280b9f8b8ae",
       "type": "task",
-      "name": "Inspect Wanda’s diswasher",
+      "name": "Rental repairs",
       "status": "In progress (WIP)",
       "pillar": null,
       "domain": "Real Estate",
@@ -703,16 +703,6 @@
       "projectIds": []
     },
     {
-      "id": "367c57494859802f8e96eccb8613b0ee",
-      "type": "task",
-      "name": "Move washer from Kimalee’s ",
-      "status": "In progress (WIP)",
-      "pillar": null,
-      "domain": "Real Estate",
-      "hours": null,
-      "projectIds": []
-    },
-    {
       "id": "366c57494859808db073cf30173283c2",
       "type": "task",
       "name": "Layout for Tietz ",
@@ -796,7 +786,7 @@
       "id": "363c574948598082ad1ff5164dd91437",
       "type": "task",
       "name": "brush out dogs",
-      "status": "In progress (WIP)",
+      "status": "Up Next (Sprint Backlog)",
       "pillar": null,
       "domain": "Ranch",
       "hours": null,
@@ -880,16 +870,6 @@
       "pillar": null,
       "domain": "Personal Admin",
       "hours": 2,
-      "projectIds": []
-    },
-    {
-      "id": "35fc5749485980acba2af155b8f9edcc",
-      "type": "task",
-      "name": "Garage door opener for 106B",
-      "status": "In progress (WIP)",
-      "pillar": null,
-      "domain": "Real Estate",
-      "hours": 4,
       "projectIds": []
     },
     {
@@ -993,16 +973,6 @@
       "projectIds": []
     },
     {
-      "id": "358c5749485980f89d2ed1f90de1a4f0",
-      "type": "task",
-      "name": "Install blinds @ 1108",
-      "status": "In progress (WIP)",
-      "pillar": null,
-      "domain": "Real Estate",
-      "hours": 4,
-      "projectIds": []
-    },
-    {
       "id": "355c57494859809fafbcd066a7c6d77b",
       "type": "task",
       "name": "Update Security Deposits",
@@ -1036,7 +1006,7 @@
       "id": "354c574948598010a4a5e40a0c476772",
       "type": "task",
       "name": "Shave Sammy",
-      "status": "In progress (WIP)",
+      "status": "Up Next (Sprint Backlog)",
       "pillar": null,
       "domain": "Ranch",
       "hours": 2,
@@ -1125,12 +1095,12 @@
   ],
   "wipTasks": [
     {
-      "id": "377c5749485980f3bac9e7d4df6abbc5",
+      "id": "379c57494859808fa0d0fe0ccdf8fc00",
       "type": "task",
-      "name": "Prepare for PC Meeting",
+      "name": "Feed Snake",
       "status": "In progress (WIP)",
       "pillarIds": [],
-      "domain": "Girls",
+      "domain": null,
       "hours": null,
       "projectIds": [],
       "rockIds": [],
@@ -1138,16 +1108,33 @@
         "Patricia Eubanks"
       ],
       "velocity": 0,
-      "startDate": "2026-06-06T09:43:00.000-05:00",
+      "startDate": "2026-06-08T13:26:00.000-05:00",
       "completeDate": null
     },
     {
-      "id": "377c57494859805dbf31cb3a89197bbf",
+      "id": "379c5749485980e3bb4be0ffc4f14949",
       "type": "task",
-      "name": "fix visitation calendar",
+      "name": "Call abstract/title company for estimates without loan on duplexes ",
       "status": "In progress (WIP)",
       "pillarIds": [],
-      "domain": "Personal Admin",
+      "domain": null,
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Patricia Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": "2026-06-08T09:54:00.000-05:00",
+      "completeDate": null
+    },
+    {
+      "id": "377c5749485980f3bac9e7d4df6abbc5",
+      "type": "task",
+      "name": "Prepare for PC Meeting",
+      "status": "In progress (WIP)",
+      "pillarIds": [],
+      "domain": "Girls",
       "hours": null,
       "projectIds": [],
       "rockIds": [],
@@ -1320,24 +1307,6 @@
       "completeDate": null
     },
     {
-      "id": "373c574948598009960deadd867ff0cb",
-      "type": "task",
-      "name": "Move washer to driveway ",
-      "status": "In progress (WIP)",
-      "pillarIds": [],
-      "domain": "Real Estate",
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks",
-        "Patricia Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-06-02T17:24:00.000-05:00",
-      "completeDate": null
-    },
-    {
       "id": "373c5749485980e68a16fa00e0e43209",
       "type": "task",
       "name": "Order water test kit ",
@@ -1393,7 +1362,7 @@
     {
       "id": "370c5749485980dbb48cd280b9f8b8ae",
       "type": "task",
-      "name": "Inspect Wanda’s diswasher",
+      "name": "Rental repairs",
       "status": "In progress (WIP)",
       "pillarIds": [],
       "domain": "Real Estate",
@@ -1626,23 +1595,6 @@
       "completeDate": null
     },
     {
-      "id": "367c57494859802f8e96eccb8613b0ee",
-      "type": "task",
-      "name": "Move washer from Kimalee’s ",
-      "status": "In progress (WIP)",
-      "pillarIds": [],
-      "domain": "Real Estate",
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Patricia Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-05-30T11:12:00.000-05:00",
-      "completeDate": null
-    },
-    {
       "id": "366c57494859808db073cf30173283c2",
       "type": "task",
       "name": "Layout for Tietz ",
@@ -1781,7 +1733,7 @@
       "id": "363c574948598082ad1ff5164dd91437",
       "type": "task",
       "name": "brush out dogs",
-      "status": "In progress (WIP)",
+      "status": "Up Next (Sprint Backlog)",
       "pillarIds": [],
       "domain": "Ranch",
       "hours": null,
@@ -1928,23 +1880,6 @@
       ],
       "velocity": 0,
       "startDate": "2026-05-13T23:39:00.000-05:00",
-      "completeDate": null
-    },
-    {
-      "id": "35fc5749485980acba2af155b8f9edcc",
-      "type": "task",
-      "name": "Garage door opener for 106B",
-      "status": "In progress (WIP)",
-      "pillarIds": [],
-      "domain": "Real Estate",
-      "hours": 4,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Patricia Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-05-20T14:21:00.000-05:00",
       "completeDate": null
     },
     {
@@ -2120,23 +2055,6 @@
       "completeDate": null
     },
     {
-      "id": "358c5749485980f89d2ed1f90de1a4f0",
-      "type": "task",
-      "name": "Install blinds @ 1108",
-      "status": "In progress (WIP)",
-      "pillarIds": [],
-      "domain": "Real Estate",
-      "hours": 4,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Patricia Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-05-30T11:12:00.000-05:00",
-      "completeDate": null
-    },
-    {
       "id": "355c57494859809fafbcd066a7c6d77b",
       "type": "task",
       "name": "Update Security Deposits",
@@ -2191,7 +2109,7 @@
       "id": "354c574948598010a4a5e40a0c476772",
       "type": "task",
       "name": "Shave Sammy",
-      "status": "In progress (WIP)",
+      "status": "Up Next (Sprint Backlog)",
       "pillarIds": [],
       "domain": "Ranch",
       "hours": 2,
@@ -2345,6 +2263,40 @@
       "completeDate": null
     },
     {
+      "id": "379c5749485980c08be2f0c91efe4706",
+      "type": "task",
+      "name": "Feed snake",
+      "status": "Done",
+      "pillarIds": [],
+      "domain": "Girls",
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Patricia Eubanks"
+      ],
+      "velocity": 0.041666666667,
+      "startDate": "2026-06-08T11:52:00.000-05:00",
+      "completeDate": "2026-06-08T13:25:00.000-05:00"
+    },
+    {
+      "id": "377c57494859805dbf31cb3a89197bbf",
+      "type": "task",
+      "name": "fix visitation calendar",
+      "status": "Done",
+      "pillarIds": [],
+      "domain": "Personal Admin",
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Patricia Eubanks"
+      ],
+      "velocity": 2.125,
+      "startDate": "2026-06-06T09:43:00.000-05:00",
+      "completeDate": "2026-06-08T13:25:00.000-05:00"
+    },
+    {
       "id": "375c574948598042a898f3e01901fbe3",
       "type": "task",
       "name": "Add accounts balances to Claude?",
@@ -2489,6 +2441,24 @@
       "velocity": 0.833333333333,
       "startDate": "2026-06-02T20:41:00.000-05:00",
       "completeDate": "2026-06-03T17:03:00.000-05:00"
+    },
+    {
+      "id": "373c574948598009960deadd867ff0cb",
+      "type": "task",
+      "name": "Move washer to driveway ",
+      "status": "Done",
+      "pillarIds": [],
+      "domain": "Real Estate",
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks",
+        "Patricia Eubanks"
+      ],
+      "velocity": 5.833333333333,
+      "startDate": "2026-06-02T17:24:00.000-05:00",
+      "completeDate": "2026-06-08T13:24:00.000-05:00"
     },
     {
       "id": "373c57494859803a8d2cff4ccd25cff6",
@@ -2743,6 +2713,23 @@
       "velocity": 14.291666666667,
       "startDate": "2026-05-22T06:49:00.000-05:00",
       "completeDate": "2026-06-05T14:44:00.000-05:00"
+    },
+    {
+      "id": "367c57494859802f8e96eccb8613b0ee",
+      "type": "task",
+      "name": "Move washer from Kimalee’s ",
+      "status": "Done",
+      "pillarIds": [],
+      "domain": "Real Estate",
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Patricia Eubanks"
+      ],
+      "velocity": 9.041666666667,
+      "startDate": "2026-05-30T11:12:00.000-05:00",
+      "completeDate": "2026-06-08T13:09:00.000-05:00"
     },
     {
       "id": "367c5749485980e494c3f158a5a4ff56",
@@ -3979,74 +3966,6 @@
       "velocity": 7,
       "startDate": "2026-05-17T09:47:00.000-05:00",
       "completeDate": "2026-05-24T10:00:00.000-05:00"
-    },
-    {
-      "id": "354c5749485980049357ccbdef3a5c74",
-      "type": "task",
-      "name": "Remove Noah from calendar events that he does not have to actually be attending",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": null,
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Patricia Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": null,
-      "completeDate": null
-    },
-    {
-      "id": "354c5749485980f5a46feea64ab3a0e1",
-      "type": "task",
-      "name": "Purchase Flea and Tick meds for dogs",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": "Ranch",
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Patricia Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": null,
-      "completeDate": "2026-05-13T18:26:00.000-05:00"
-    },
-    {
-      "id": "354c5749485980af960ad2605195bc0f",
-      "type": "task",
-      "name": "Talk to kyle about FHA loan for 1 duplex ",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": "Real Estate",
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Patricia Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": null,
-      "completeDate": null
-    },
-    {
-      "id": "354c5749485980908e32caede18616cc",
-      "type": "task",
-      "name": "Refinance the Rowe duplex? ",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": "Real Estate",
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Patricia Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": null,
-      "completeDate": null
     }
   ],
   "habitData": {
