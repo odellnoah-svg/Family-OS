@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-09T11:46:14.417Z",
+  "generated": "2026-06-09T19:35:54.506Z",
   "meta": {
     "currentQuarter": "Q2",
     "currentYear": "2026",
@@ -413,6 +413,16 @@
   "projects": [],
   "tasks": [
     {
+      "id": "37ac5749485980a89f45d40622707c3a",
+      "type": "task",
+      "name": "Print move out docs and deliver to 611",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": "Real Estate",
+      "hours": null,
+      "projectIds": []
+    },
+    {
       "id": "37ac574948598042bff5c726e2c1a05d",
       "type": "task",
       "name": "Order ear tags",
@@ -426,16 +436,6 @@
       "id": "379c57494859808fa0d0fe0ccdf8fc00",
       "type": "task",
       "name": "Feed Snake",
-      "status": "In progress (WIP)",
-      "pillar": null,
-      "domain": null,
-      "hours": null,
-      "projectIds": []
-    },
-    {
-      "id": "379c5749485980e3bb4be0ffc4f14949",
-      "type": "task",
-      "name": "Call abstract/title company for estimates without loan on duplexes ",
       "status": "In progress (WIP)",
       "pillar": null,
       "domain": null,
@@ -469,16 +469,6 @@
       "status": "In progress (WIP)",
       "pillar": null,
       "domain": null,
-      "hours": null,
-      "projectIds": []
-    },
-    {
-      "id": "377c5749485980d18b09d97ff1f21176",
-      "type": "task",
-      "name": "Feed hiefers ",
-      "status": "In progress (WIP)",
-      "pillar": null,
-      "domain": "Ranch",
       "hours": null,
       "projectIds": []
     },
@@ -535,7 +525,7 @@
     {
       "id": "374c5749485980729acfeab618a7ecc2",
       "type": "task",
-      "name": "call new insurance guyand get new quotes",
+      "name": "call new property insurance guy and get new quotes",
       "status": "Up Next (Sprint Backlog)",
       "pillar": null,
       "domain": "Real Estate",
@@ -1105,6 +1095,23 @@
   ],
   "wipTasks": [
     {
+      "id": "37ac5749485980a89f45d40622707c3a",
+      "type": "task",
+      "name": "Print move out docs and deliver to 611",
+      "status": "In progress (WIP)",
+      "pillarIds": [],
+      "domain": "Real Estate",
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Patricia Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": "2026-06-09T10:33:00.000-06:00",
+      "completeDate": null
+    },
+    {
       "id": "37ac574948598042bff5c726e2c1a05d",
       "type": "task",
       "name": "Order ear tags",
@@ -1136,23 +1143,6 @@
       ],
       "velocity": 0,
       "startDate": "2026-06-08T13:26:00.000-05:00",
-      "completeDate": null
-    },
-    {
-      "id": "379c5749485980e3bb4be0ffc4f14949",
-      "type": "task",
-      "name": "Call abstract/title company for estimates without loan on duplexes ",
-      "status": "In progress (WIP)",
-      "pillarIds": [],
-      "domain": null,
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Patricia Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-06-08T09:54:00.000-05:00",
       "completeDate": null
     },
     {
@@ -1204,23 +1194,6 @@
       ],
       "velocity": 0,
       "startDate": "2026-06-05T23:34:00.000-05:00",
-      "completeDate": null
-    },
-    {
-      "id": "377c5749485980d18b09d97ff1f21176",
-      "type": "task",
-      "name": "Feed hiefers ",
-      "status": "In progress (WIP)",
-      "pillarIds": [],
-      "domain": "Ranch",
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Patricia Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-06-05T23:32:00.000-05:00",
       "completeDate": null
     },
     {
@@ -1319,7 +1292,7 @@
     {
       "id": "374c5749485980729acfeab618a7ecc2",
       "type": "task",
-      "name": "call new insurance guyand get new quotes",
+      "name": "call new property insurance guy and get new quotes",
       "status": "Up Next (Sprint Backlog)",
       "pillarIds": [],
       "domain": "Real Estate",
@@ -2307,6 +2280,23 @@
       "completeDate": "2026-06-08T13:25:00.000-05:00"
     },
     {
+      "id": "379c5749485980e3bb4be0ffc4f14949",
+      "type": "task",
+      "name": "Call abstract/title company for estimates without loan on duplexes ",
+      "status": "Done",
+      "pillarIds": [],
+      "domain": null,
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Patricia Eubanks"
+      ],
+      "velocity": 1.083333333333,
+      "startDate": "2026-06-08T09:54:00.000-05:00",
+      "completeDate": "2026-06-09T11:24:00.000-06:00"
+    },
+    {
       "id": "377c57494859805dbf31cb3a89197bbf",
       "type": "task",
       "name": "fix visitation calendar",
@@ -2322,6 +2312,23 @@
       "velocity": 2.125,
       "startDate": "2026-06-06T09:43:00.000-05:00",
       "completeDate": "2026-06-08T13:25:00.000-05:00"
+    },
+    {
+      "id": "377c5749485980d18b09d97ff1f21176",
+      "type": "task",
+      "name": "Feed hiefers ",
+      "status": "Done",
+      "pillarIds": [],
+      "domain": "Ranch",
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Patricia Eubanks"
+      ],
+      "velocity": 3.5,
+      "startDate": "2026-06-05T23:32:00.000-05:00",
+      "completeDate": "2026-06-09T11:24:00.000-06:00"
     },
     {
       "id": "375c574948598042a898f3e01901fbe3",
@@ -3959,40 +3966,6 @@
       "velocity": 0,
       "startDate": null,
       "completeDate": null
-    },
-    {
-      "id": "354c5749485980f59ccdd1a9d576eb9a",
-      "type": "task",
-      "name": "Move sheep and goats",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": "Ranch",
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Patricia Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": null,
-      "completeDate": null
-    },
-    {
-      "id": "354c574948598095940fdd4dea8706f3",
-      "type": "task",
-      "name": "Stool sample test",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": "Owen",
-      "hours": 8,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Patricia Eubanks"
-      ],
-      "velocity": 7,
-      "startDate": "2026-05-17T09:47:00.000-05:00",
-      "completeDate": "2026-05-24T10:00:00.000-05:00"
     }
   ],
   "habitData": {
