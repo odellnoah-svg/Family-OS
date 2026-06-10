@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-10T11:03:31.971Z",
+  "generated": "2026-06-10T21:24:51.843Z",
   "meta": {
     "currentQuarter": "Q2",
     "currentYear": "2026",
@@ -443,20 +443,10 @@
       "projectIds": []
     },
     {
-      "id": "377c5749485980f3bac9e7d4df6abbc5",
-      "type": "task",
-      "name": "Prepare for PC Meeting",
-      "status": "In progress (WIP)",
-      "pillar": null,
-      "domain": "Girls",
-      "hours": null,
-      "projectIds": []
-    },
-    {
       "id": "377c57494859805b87ccf93fb4605e61",
       "type": "task",
       "name": "buy CD in fidelity",
-      "status": "In progress (WIP)",
+      "status": "Up Next (Sprint Backlog)",
       "pillar": null,
       "domain": "Personal Admin",
       "hours": null,
@@ -740,16 +730,6 @@
       "pillar": null,
       "domain": "RAE",
       "hours": 0.25,
-      "projectIds": []
-    },
-    {
-      "id": "365c574948598033ac24df4bf3af9e27",
-      "type": "task",
-      "name": "list madison’s books",
-      "status": "In progress (WIP)",
-      "pillar": null,
-      "domain": "Personal Admin",
-      "hours": null,
       "projectIds": []
     },
     {
@@ -1146,27 +1126,10 @@
       "completeDate": null
     },
     {
-      "id": "377c5749485980f3bac9e7d4df6abbc5",
-      "type": "task",
-      "name": "Prepare for PC Meeting",
-      "status": "In progress (WIP)",
-      "pillarIds": [],
-      "domain": "Girls",
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Patricia Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-06-06T09:43:00.000-05:00",
-      "completeDate": null
-    },
-    {
       "id": "377c57494859805b87ccf93fb4605e61",
       "type": "task",
       "name": "buy CD in fidelity",
-      "status": "In progress (WIP)",
+      "status": "Up Next (Sprint Backlog)",
       "pillarIds": [],
       "domain": "Personal Admin",
       "hours": null,
@@ -1658,23 +1621,6 @@
       "person": [],
       "velocity": 0,
       "startDate": "2026-05-19T10:25:00.000-05:00",
-      "completeDate": null
-    },
-    {
-      "id": "365c574948598033ac24df4bf3af9e27",
-      "type": "task",
-      "name": "list madison’s books",
-      "status": "In progress (WIP)",
-      "pillarIds": [],
-      "domain": "Personal Admin",
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Patricia Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-05-19T08:50:00.000-05:00",
       "completeDate": null
     },
     {
@@ -2314,6 +2260,23 @@
       "completeDate": "2026-06-09T11:24:00.000-06:00"
     },
     {
+      "id": "377c5749485980f3bac9e7d4df6abbc5",
+      "type": "task",
+      "name": "Prepare for PC Meeting",
+      "status": "Done",
+      "pillarIds": [],
+      "domain": "Girls",
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Patricia Eubanks"
+      ],
+      "velocity": 4,
+      "startDate": "2026-06-06T09:43:00.000-05:00",
+      "completeDate": "2026-06-10T10:27:00.000-05:00"
+    },
+    {
       "id": "377c57494859805dbf31cb3a89197bbf",
       "type": "task",
       "name": "fix visitation calendar",
@@ -2815,6 +2778,23 @@
       "velocity": 1.208333333333,
       "startDate": "2026-05-19T09:11:00.000-05:00",
       "completeDate": "2026-05-20T14:20:00.000-05:00"
+    },
+    {
+      "id": "365c574948598033ac24df4bf3af9e27",
+      "type": "task",
+      "name": "list madison’s books",
+      "status": "Done",
+      "pillarIds": [],
+      "domain": "Personal Admin",
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Patricia Eubanks"
+      ],
+      "velocity": 22.166666666667,
+      "startDate": "2026-05-19T08:50:00.000-05:00",
+      "completeDate": "2026-06-10T12:51:00.000-05:00"
     },
     {
       "id": "365c57494859804cb564eb28becea2d1",
@@ -3932,40 +3912,6 @@
       "velocity": 7,
       "startDate": "2026-05-17T09:51:00.000-05:00",
       "completeDate": "2026-05-24T10:14:00.000-05:00"
-    },
-    {
-      "id": "355c5749485980b9a419c31d71a6a026",
-      "type": "task",
-      "name": "Feed dogs",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": "Ranch",
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Patricia Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": null,
-      "completeDate": null
-    },
-    {
-      "id": "355c5749485980b1bbe4e3e3fe13d05b",
-      "type": "task",
-      "name": "Pay bills and insurance ",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": "Personal Admin",
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Patricia Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": null,
-      "completeDate": null
     }
   ],
   "habitData": {
