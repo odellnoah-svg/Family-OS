@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-09T19:35:54.506Z",
+  "generated": "2026-06-10T11:03:31.971Z",
   "meta": {
     "currentQuarter": "Q2",
     "currentYear": "2026",
@@ -413,10 +413,10 @@
   "projects": [],
   "tasks": [
     {
-      "id": "37ac5749485980a89f45d40622707c3a",
+      "id": "37ac574948598091adcfcfedb90204e0",
       "type": "task",
-      "name": "Print move out docs and deliver to 611",
-      "status": "In progress (WIP)",
+      "name": "611 moving out",
+      "status": "Up Next (Sprint Backlog)",
       "pillar": null,
       "domain": "Real Estate",
       "hours": null,
@@ -1095,10 +1095,10 @@
   ],
   "wipTasks": [
     {
-      "id": "37ac5749485980a89f45d40622707c3a",
+      "id": "37ac574948598091adcfcfedb90204e0",
       "type": "task",
-      "name": "Print move out docs and deliver to 611",
-      "status": "In progress (WIP)",
+      "name": "611 moving out",
+      "status": "Up Next (Sprint Backlog)",
       "pillarIds": [],
       "domain": "Real Estate",
       "hours": null,
@@ -1108,7 +1108,7 @@
         "Patricia Eubanks"
       ],
       "velocity": 0,
-      "startDate": "2026-06-09T10:33:00.000-06:00",
+      "startDate": null,
       "completeDate": null
     },
     {
@@ -2261,6 +2261,23 @@
       "velocity": 0,
       "startDate": null,
       "completeDate": null
+    },
+    {
+      "id": "37ac5749485980a89f45d40622707c3a",
+      "type": "task",
+      "name": "Print move out docs and deliver to 611",
+      "status": "Done",
+      "pillarIds": [],
+      "domain": "Real Estate",
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Patricia Eubanks"
+      ],
+      "velocity": 0.25,
+      "startDate": "2026-06-09T10:33:00.000-06:00",
+      "completeDate": "2026-06-09T16:42:00.000-06:00"
     },
     {
       "id": "379c5749485980c08be2f0c91efe4706",
@@ -3949,23 +3966,6 @@
       "velocity": 0,
       "startDate": null,
       "completeDate": null
-    },
-    {
-      "id": "355c57494859804b8640e8ba3672f1f4",
-      "type": "task",
-      "name": "Steam Paige’s dress",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": null,
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Patricia Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": null,
-      "completeDate": null
     }
   ],
   "habitData": {
@@ -4612,6 +4612,30 @@
           "completed": 0,
           "possible": 16,
           "pct": 0
+        },
+        {
+          "date": "2026-06-10",
+          "habits": {
+            "Call One Friend": false,
+            "No Caffeine": false,
+            "No Bread / Chips / Pasta": false,
+            "Play with Owen": false,
+            "8 Hour Eating Window": false,
+            "Move": false,
+            "Minimum 1/2 Gallon Water": false,
+            "Plan Tomorrow Before Bed": false,
+            "Breath Strip for Sleep": false,
+            "Minimal Dairy": false,
+            "5am Wake": false,
+            "Reflect": false,
+            "Daily Supplements": false,
+            "No Cell Phone in Bedroom": false,
+            "No Gluten": false,
+            "Grow": false
+          },
+          "completed": 0,
+          "possible": 16,
+          "pct": 0
         }
       ]
     },
@@ -4899,6 +4923,19 @@
         },
         {
           "date": "2026-06-09",
+          "habits": {
+            "Laundry": false,
+            "Supplements": true,
+            "Leucovorin": true,
+            "Take care of baby": true,
+            "Feed dogs": true
+          },
+          "completed": 4,
+          "possible": 5,
+          "pct": 80
+        },
+        {
+          "date": "2026-06-10",
           "habits": {
             "Laundry": false,
             "Supplements": false,
