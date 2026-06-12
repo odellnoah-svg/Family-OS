@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-12T12:40:36.232Z",
+  "generated": "2026-06-12T22:08:49.487Z",
   "meta": {
     "currentQuarter": "Q2",
     "currentYear": "2026",
@@ -413,6 +413,56 @@
   "projects": [],
   "tasks": [
     {
+      "id": "37dc5749485980eebb30e7a125ff6346",
+      "type": "task",
+      "name": "Faceboo",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": null,
+      "hours": null,
+      "projectIds": []
+    },
+    {
+      "id": "37dc5749485980c4ad5aedd3cb47e7ed",
+      "type": "task",
+      "name": "Respond to Ron regarding test tank",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": "RAE",
+      "hours": null,
+      "projectIds": []
+    },
+    {
+      "id": "37dc57494859808c81c8c2365bcd013b",
+      "type": "task",
+      "name": "Revise AI agent for task prioritization ",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": null,
+      "hours": null,
+      "projectIds": []
+    },
+    {
+      "id": "37dc5749485980a6ab9dc6557530691e",
+      "type": "task",
+      "name": "Complete RFP spreadsheet ",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": "Ranch",
+      "hours": 2,
+      "projectIds": []
+    },
+    {
+      "id": "37dc574948598002823ccaf23437cb9a",
+      "type": "task",
+      "name": "Coordinate with Roy to cut grass at Pryor house",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": "Real Estate",
+      "hours": null,
+      "projectIds": []
+    },
+    {
       "id": "37ac574948598091adcfcfedb90204e0",
       "type": "task",
       "name": "611 moving out",
@@ -463,56 +513,6 @@
       "projectIds": []
     },
     {
-      "id": "375c5749485980d8b4decf741753f0bf",
-      "type": "task",
-      "name": "Email blane Stacy map",
-      "status": "In progress (WIP)",
-      "pillar": null,
-      "domain": "Ranch",
-      "hours": 1,
-      "projectIds": []
-    },
-    {
-      "id": "375c574948598075ae12c19dc8678177",
-      "type": "task",
-      "name": "Mark up test tank drawing ",
-      "status": "In progress (WIP)",
-      "pillar": null,
-      "domain": "RAE",
-      "hours": 2,
-      "projectIds": []
-    },
-    {
-      "id": "375c57494859800d8d4bc97aeb815d9b",
-      "type": "task",
-      "name": "Review goals and rocks ",
-      "status": "In progress (WIP)",
-      "pillar": null,
-      "domain": "Personal Admin",
-      "hours": 1,
-      "projectIds": []
-    },
-    {
-      "id": "375c5749485980b78f7ce97361bc40a3",
-      "type": "task",
-      "name": "Add a finance tab to the metric view in the dashboard",
-      "status": "In progress (WIP)",
-      "pillar": null,
-      "domain": "Personal Admin",
-      "hours": 1,
-      "projectIds": []
-    },
-    {
-      "id": "375c57494859804b88a8c62c0a1e8dd8",
-      "type": "task",
-      "name": "Create 3 year outcomes and add to goals database ",
-      "status": "In progress (WIP)",
-      "pillar": null,
-      "domain": "Personal Admin",
-      "hours": 1.5,
-      "projectIds": []
-    },
-    {
       "id": "374c5749485980729acfeab618a7ecc2",
       "type": "task",
       "name": "call new property insurance guy and get new quotes",
@@ -530,16 +530,6 @@
       "pillar": null,
       "domain": "RAE",
       "hours": null,
-      "projectIds": []
-    },
-    {
-      "id": "373c5749485980c28f68e3377ad323f7",
-      "type": "task",
-      "name": "Turn VTO into strategic roadmap (ref chat convo)",
-      "status": "In progress (WIP)",
-      "pillar": null,
-      "domain": "Personal Admin",
-      "hours": 2,
       "projectIds": []
     },
     {
@@ -653,16 +643,6 @@
       "projectIds": []
     },
     {
-      "id": "368c5749485980a1b7f8cad41106a590",
-      "type": "task",
-      "name": "Bulls moved to goat pasture and mineral ",
-      "status": "In progress (WIP)",
-      "pillar": null,
-      "domain": "Ranch",
-      "hours": 2,
-      "projectIds": []
-    },
-    {
       "id": "368c5749485980f39b09d6a0b8e48586",
       "type": "task",
       "name": "Spray fence line and around houses",
@@ -670,16 +650,6 @@
       "pillar": null,
       "domain": "Ranch",
       "hours": 2,
-      "projectIds": []
-    },
-    {
-      "id": "368c574948598071b1badb89164f6e61",
-      "type": "task",
-      "name": "Unhook blue truck ",
-      "status": "In progress (WIP)",
-      "pillar": null,
-      "domain": "Ranch",
-      "hours": 0.5,
       "projectIds": []
     },
     {
@@ -1075,6 +1045,93 @@
   ],
   "wipTasks": [
     {
+      "id": "37dc5749485980eebb30e7a125ff6346",
+      "type": "task",
+      "name": "Faceboo",
+      "status": "In progress (WIP)",
+      "pillarIds": [],
+      "domain": null,
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": "2026-06-12T10:37:00.000-05:00",
+      "completeDate": null
+    },
+    {
+      "id": "37dc5749485980c4ad5aedd3cb47e7ed",
+      "type": "task",
+      "name": "Respond to Ron regarding test tank",
+      "status": "In progress (WIP)",
+      "pillarIds": [],
+      "domain": "RAE",
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": "2026-06-12T10:34:00.000-05:00",
+      "completeDate": null
+    },
+    {
+      "id": "37dc57494859808c81c8c2365bcd013b",
+      "type": "task",
+      "name": "Revise AI agent for task prioritization ",
+      "status": "In progress (WIP)",
+      "pillarIds": [],
+      "domain": null,
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": "2026-06-12T10:32:00.000-05:00",
+      "completeDate": null
+    },
+    {
+      "id": "37dc5749485980a6ab9dc6557530691e",
+      "type": "task",
+      "name": "Complete RFP spreadsheet ",
+      "status": "In progress (WIP)",
+      "pillarIds": [
+        "fa5c3f6312394f09b07566f455dac82d"
+      ],
+      "domain": "Ranch",
+      "hours": 2,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": "2026-06-12T10:29:00.000-05:00",
+      "completeDate": null
+    },
+    {
+      "id": "37dc574948598002823ccaf23437cb9a",
+      "type": "task",
+      "name": "Coordinate with Roy to cut grass at Pryor house",
+      "status": "In progress (WIP)",
+      "pillarIds": [],
+      "domain": "Real Estate",
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Patricia Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": "2026-06-12T09:13:00.000-05:00",
+      "completeDate": null
+    },
+    {
       "id": "37ac574948598091adcfcfedb90204e0",
       "type": "task",
       "name": "611 moving out",
@@ -1160,99 +1217,6 @@
       "completeDate": null
     },
     {
-      "id": "375c5749485980d8b4decf741753f0bf",
-      "type": "task",
-      "name": "Email blane Stacy map",
-      "status": "In progress (WIP)",
-      "pillarIds": [
-        "fa5c3f6312394f09b07566f455dac82d"
-      ],
-      "domain": "Ranch",
-      "hours": 1,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-06-04T08:10:00.000-05:00",
-      "completeDate": null
-    },
-    {
-      "id": "375c574948598075ae12c19dc8678177",
-      "type": "task",
-      "name": "Mark up test tank drawing ",
-      "status": "In progress (WIP)",
-      "pillarIds": [],
-      "domain": "RAE",
-      "hours": 2,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-06-04T00:52:00.000-05:00",
-      "completeDate": null
-    },
-    {
-      "id": "375c57494859800d8d4bc97aeb815d9b",
-      "type": "task",
-      "name": "Review goals and rocks ",
-      "status": "In progress (WIP)",
-      "pillarIds": [
-        "76181932d64d40de88929de677bdf7c2"
-      ],
-      "domain": "Personal Admin",
-      "hours": 1,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-06-04T00:51:00.000-05:00",
-      "completeDate": null
-    },
-    {
-      "id": "375c5749485980b78f7ce97361bc40a3",
-      "type": "task",
-      "name": "Add a finance tab to the metric view in the dashboard",
-      "status": "In progress (WIP)",
-      "pillarIds": [
-        "fa5c3f6312394f09b07566f455dac82d"
-      ],
-      "domain": "Personal Admin",
-      "hours": 1,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-06-04T00:49:00.000-05:00",
-      "completeDate": null
-    },
-    {
-      "id": "375c57494859804b88a8c62c0a1e8dd8",
-      "type": "task",
-      "name": "Create 3 year outcomes and add to goals database ",
-      "status": "In progress (WIP)",
-      "pillarIds": [
-        "76181932d64d40de88929de677bdf7c2"
-      ],
-      "domain": "Personal Admin",
-      "hours": 1.5,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-06-03T22:27:00.000-05:00",
-      "completeDate": null
-    },
-    {
       "id": "374c5749485980729acfeab618a7ecc2",
       "type": "task",
       "name": "call new property insurance guy and get new quotes",
@@ -1284,25 +1248,6 @@
       ],
       "velocity": 0,
       "startDate": "2026-06-02T09:08:00.000-05:00",
-      "completeDate": null
-    },
-    {
-      "id": "373c5749485980c28f68e3377ad323f7",
-      "type": "task",
-      "name": "Turn VTO into strategic roadmap (ref chat convo)",
-      "status": "In progress (WIP)",
-      "pillarIds": [
-        "76181932d64d40de88929de677bdf7c2"
-      ],
-      "domain": "Personal Admin",
-      "hours": 2,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-06-01T22:09:00.000-05:00",
       "completeDate": null
     },
     {
@@ -1490,23 +1435,6 @@
       "completeDate": null
     },
     {
-      "id": "368c5749485980a1b7f8cad41106a590",
-      "type": "task",
-      "name": "Bulls moved to goat pasture and mineral ",
-      "status": "In progress (WIP)",
-      "pillarIds": [],
-      "domain": "Ranch",
-      "hours": 2,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-05-22T16:46:00.000-05:00",
-      "completeDate": null
-    },
-    {
       "id": "368c5749485980f39b09d6a0b8e48586",
       "type": "task",
       "name": "Spray fence line and around houses",
@@ -1514,23 +1442,6 @@
       "pillarIds": [],
       "domain": "Ranch",
       "hours": 2,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-05-22T16:45:00.000-05:00",
-      "completeDate": null
-    },
-    {
-      "id": "368c574948598071b1badb89164f6e61",
-      "type": "task",
-      "name": "Unhook blue truck ",
-      "status": "In progress (WIP)",
-      "pillarIds": [],
-      "domain": "Ranch",
-      "hours": 0.5,
       "projectIds": [],
       "rockIds": [],
       "person": [
@@ -2349,6 +2260,99 @@
       "completeDate": "2026-06-04T21:13:00.000-05:00"
     },
     {
+      "id": "375c5749485980d8b4decf741753f0bf",
+      "type": "task",
+      "name": "Email blane Stacy map",
+      "status": "Done",
+      "pillarIds": [
+        "fa5c3f6312394f09b07566f455dac82d"
+      ],
+      "domain": "Ranch",
+      "hours": 1,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 8.083333333333,
+      "startDate": "2026-06-04T08:10:00.000-05:00",
+      "completeDate": "2026-06-12T10:33:00.000-05:00"
+    },
+    {
+      "id": "375c574948598075ae12c19dc8678177",
+      "type": "task",
+      "name": "Mark up test tank drawing ",
+      "status": "Done",
+      "pillarIds": [],
+      "domain": "RAE",
+      "hours": 2,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 8.375,
+      "startDate": "2026-06-04T00:52:00.000-05:00",
+      "completeDate": "2026-06-12T10:34:00.000-05:00"
+    },
+    {
+      "id": "375c57494859800d8d4bc97aeb815d9b",
+      "type": "task",
+      "name": "Review goals and rocks ",
+      "status": "Done",
+      "pillarIds": [
+        "76181932d64d40de88929de677bdf7c2"
+      ],
+      "domain": "Personal Admin",
+      "hours": 1,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 8.375,
+      "startDate": "2026-06-04T00:51:00.000-05:00",
+      "completeDate": "2026-06-12T10:32:00.000-05:00"
+    },
+    {
+      "id": "375c5749485980b78f7ce97361bc40a3",
+      "type": "task",
+      "name": "Add a finance tab to the metric view in the dashboard",
+      "status": "Done",
+      "pillarIds": [
+        "fa5c3f6312394f09b07566f455dac82d"
+      ],
+      "domain": "Personal Admin",
+      "hours": 1,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 8.375,
+      "startDate": "2026-06-04T00:49:00.000-05:00",
+      "completeDate": "2026-06-12T10:32:00.000-05:00"
+    },
+    {
+      "id": "375c57494859804b88a8c62c0a1e8dd8",
+      "type": "task",
+      "name": "Create 3 year outcomes and add to goals database ",
+      "status": "Done",
+      "pillarIds": [
+        "76181932d64d40de88929de677bdf7c2"
+      ],
+      "domain": "Personal Admin",
+      "hours": 1.5,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 8.5,
+      "startDate": "2026-06-03T22:27:00.000-05:00",
+      "completeDate": "2026-06-12T10:32:00.000-05:00"
+    },
+    {
       "id": "375c5749485980378a7edcc4e2b1d755",
       "type": "task",
       "name": "Add Habits Tracker to dashboard ",
@@ -2509,6 +2513,25 @@
       "completeDate": "2026-06-03T10:39:00.000-05:00"
     },
     {
+      "id": "373c5749485980c28f68e3377ad323f7",
+      "type": "task",
+      "name": "Turn VTO into strategic roadmap (ref chat convo)",
+      "status": "Done",
+      "pillarIds": [
+        "76181932d64d40de88929de677bdf7c2"
+      ],
+      "domain": "Personal Admin",
+      "hours": 2,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 10.5,
+      "startDate": "2026-06-01T22:09:00.000-05:00",
+      "completeDate": "2026-06-12T10:32:00.000-05:00"
+    },
+    {
       "id": "373c5749485980c08534c1ffdf707422",
       "type": "task",
       "name": "Fix door at 214",
@@ -2659,6 +2682,40 @@
       "velocity": 2.25,
       "startDate": "2026-05-24T10:17:00.000-05:00",
       "completeDate": "2026-05-26T17:07:00.000-05:00"
+    },
+    {
+      "id": "368c5749485980a1b7f8cad41106a590",
+      "type": "task",
+      "name": "Bulls moved to goat pasture",
+      "status": "Done",
+      "pillarIds": [],
+      "domain": "Ranch",
+      "hours": 2,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 20.708333333333,
+      "startDate": "2026-05-22T16:46:00.000-05:00",
+      "completeDate": "2026-06-12T10:35:00.000-05:00"
+    },
+    {
+      "id": "368c574948598071b1badb89164f6e61",
+      "type": "task",
+      "name": "Unhook blue truck ",
+      "status": "Done",
+      "pillarIds": [],
+      "domain": "Ranch",
+      "hours": 0.5,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 20.708333333333,
+      "startDate": "2026-05-22T16:45:00.000-05:00",
+      "completeDate": "2026-06-12T10:35:00.000-05:00"
     },
     {
       "id": "368c5749485980f38013df40bbc55e87",
@@ -3776,142 +3833,6 @@
       "velocity": 0,
       "startDate": null,
       "completeDate": null
-    },
-    {
-      "id": "359c5749485980079eb1e58b88d66308",
-      "type": "task",
-      "name": "Pickup stool sample test from DLO",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": "Owen",
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Patricia Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": null,
-      "completeDate": null
-    },
-    {
-      "id": "358c574948598089abdcc0d1df9fc560",
-      "type": "task",
-      "name": "Share calendar with Paige ",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": "Personal Admin",
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Patricia Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": null,
-      "completeDate": null
-    },
-    {
-      "id": "356c5749485980bfba6cdba6229e31c7",
-      "type": "task",
-      "name": "Pay Roy for grass cutting",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": "Real Estate",
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Patricia Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": null,
-      "completeDate": "2026-05-12T15:52:00.000-05:00"
-    },
-    {
-      "id": "355c5749485980779787d577de7a5489",
-      "type": "task",
-      "name": "Pay Monty for work done on 613",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": null,
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Patricia Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": null,
-      "completeDate": null
-    },
-    {
-      "id": "355c5749485980d0844dcc65ec526ddd",
-      "type": "task",
-      "name": "Email Harold about refi",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": "Real Estate",
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Patricia Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": null,
-      "completeDate": null
-    },
-    {
-      "id": "355c5749485980158367db8fdc8a11b4",
-      "type": "task",
-      "name": "Get blue truck ready for Trish this week",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": "Ranch",
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": null,
-      "completeDate": null
-    },
-    {
-      "id": "355c57494859808fb6d6cce1d43e6763",
-      "type": "task",
-      "name": "Find goats and ginger",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": "Ranch",
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Patricia Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": null,
-      "completeDate": null
-    },
-    {
-      "id": "355c5749485980c38e4fcb89040c8c97",
-      "type": "task",
-      "name": "Blood work",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": "Health",
-      "hours": 1.5,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 7,
-      "startDate": "2026-05-17T09:51:00.000-05:00",
-      "completeDate": "2026-05-24T10:14:00.000-05:00"
     }
   ],
   "habitData": {
