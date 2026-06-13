@@ -603,7 +603,7 @@ function renderWip(){
   const scaleW=daysForTarget/7
   const wipTarget=(isCount?WIP_TASKS:WIP_HRS)*personMult
   const compTarget=(isCount?Math.round(COMP_TASKS*scaleW):Math.round(COMP_HRS*scaleW))*personMult
-  const allActive=wt.filter(t=>t.status==='In progress (WIP)'||t.status==='Current Sprint (this week)')
+  const allActive=completed  // rock-linked % based on completed tasks in range
   const rockLinked=allActive.filter(t=>t.rockIds?.length>0||t.projectIds?.some(pid=>prm[pid]?.rockIds?.length>0))
   const rockPct=allActive.length>0?Math.round(rockLinked.length/allActive.length*100):0
   // Daily data
@@ -633,7 +633,7 @@ function renderWip(){
   <div class="vwip"><div class="vwip-inner">
     <div class="vwip-person-tabs">
       ${(()=>{
-        const all=D.wipTasks,noah=all.filter(t=>t.person?.some(n=>n.toLowerCase().includes('noah'))),tricia=all.filter(t=>t.person?.some(n=>n.toLowerCase().includes('tricia')))
+        const allWip=D.wipTasks.filter(t=>t.status==='In progress (WIP)'||t.status==='Current Sprint (this week)'),all=allWip,noah=all.filter(t=>t.person?.some(n=>n.toLowerCase().includes('noah'))),tricia=all.filter(t=>t.person?.some(n=>n.toLowerCase().includes('tricia')))
         const noPersonData=all.length>0&&all.every(t=>!t.person?.length)
         const diag=noPersonData?`<span class="vwip-diag">⚠ Person field empty — re-run GitHub Action, or assign tasks to Noah/Tricia in Notion</span>`:''
         return `<button class="vwip-ptab ${WIP_PERSON==='all'?'on':''}" onclick="setWipPerson('all')">Total WIP <span class="vwip-ptab-ct">${all.length}</span></button>
@@ -649,9 +649,9 @@ function renderWip(){
     </div>
     <div class="vwip-metrics">
       <div class="vwip-metric">
-        <div class="vwip-mval ${!isCount&&wipHrs>wipTarget?'over':''}">${isCount?wipVal:wipHrs.toFixed(1)} <span class="vwip-mtgt">/ ${wipTarget} ${valUnit}</span></div>
+        <div class="vwip-mval ${wipVal>wipTarget?'over':''}">${isCount?wipVal:wipHrs.toFixed(1)} <span class="vwip-mtgt">/ ${wipTarget} ${valUnit}</span></div>
         <div class="vwip-mlbl">Current WIP</div>
-        <div class="vwip-prog-track"><div class="vwip-prog-fill ${!isCount&&wipHrs>wipTarget?'over':''}" style="width:${Math.min(wipVal/wipTarget*100,100).toFixed(0)}%"></div></div>
+        <div class="vwip-prog-track"><div class="vwip-prog-fill ${wipVal>wipTarget?'over':''}" style="width:${Math.min(wipVal/wipTarget*100,100).toFixed(0)}%"></div></div>
       </div>
       <div class="vwip-metric">
         <div class="vwip-mval ${compVal>=compTarget?'hit':'under'}">${isCount?compVal:compHrs.toFixed(1)} <span class="vwip-mtgt">/ ${compTarget} ${valUnit}</span></div>
@@ -691,7 +691,7 @@ function renderWip(){
       <div class="vwip-stat-box">
         <div class="vwip-stat-big">${rockPct}%</div>
         <div class="vwip-stat-lbl">Rock-linked</div>
-        <div class="vwip-stat-sub">${rockLinked.length} of ${allActive.length} active tasks tied to a Rock</div>
+        <div class="vwip-stat-sub">${rockLinked.length} of ${allActive.length} completed tasks tied to a Rock</div>
       </div>
     </div>
     ${stagnant.length>0?`
