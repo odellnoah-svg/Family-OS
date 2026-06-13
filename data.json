@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-13T10:14:53.938Z",
+  "generated": "2026-06-13T17:02:44.067Z",
   "meta": {
     "currentQuarter": "Q2",
     "currentYear": "2026",
@@ -413,6 +413,46 @@
   "projects": [],
   "tasks": [
     {
+      "id": "37ec57494859806ea6b0ea6424ddcfc0",
+      "type": "task",
+      "name": "Method to seeing top 3 priorities ",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": "Baby Girl",
+      "hours": 2,
+      "projectIds": []
+    },
+    {
+      "id": "37ec5749485980a4a700d94b0d2cf56e",
+      "type": "task",
+      "name": "make offer on duplexes",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": "Real Estate",
+      "hours": null,
+      "projectIds": []
+    },
+    {
+      "id": "37ec5749485980bf9186fda996cc0ab7",
+      "type": "task",
+      "name": "create habits list",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": "Personal Admin",
+      "hours": null,
+      "projectIds": []
+    },
+    {
+      "id": "37ec5749485980c0b35fcd8057f08515",
+      "type": "task",
+      "name": "Scan Receipts for taxes",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": "Ranch",
+      "hours": null,
+      "projectIds": []
+    },
+    {
       "id": "37dc5749485980c4ad5aedd3cb47e7ed",
       "type": "task",
       "name": "Respond to Ron regarding test tank",
@@ -443,29 +483,9 @@
       "projectIds": []
     },
     {
-      "id": "37dc574948598002823ccaf23437cb9a",
-      "type": "task",
-      "name": "Coordinate with Roy to cut grass at Pryor house",
-      "status": "In progress (WIP)",
-      "pillar": null,
-      "domain": "Real Estate",
-      "hours": null,
-      "projectIds": []
-    },
-    {
-      "id": "37ac574948598091adcfcfedb90204e0",
-      "type": "task",
-      "name": "611 moving out",
-      "status": "Up Next (Sprint Backlog)",
-      "pillar": null,
-      "domain": "Real Estate",
-      "hours": null,
-      "projectIds": []
-    },
-    {
       "id": "37ac574948598042bff5c726e2c1a05d",
       "type": "task",
-      "name": "Order ear tags",
+      "name": "Order ear tags - 150",
       "status": "In progress (WIP)",
       "pillar": null,
       "domain": "Ranch",
@@ -486,7 +506,7 @@
       "id": "377c57494859805b87ccf93fb4605e61",
       "type": "task",
       "name": "buy CD in fidelity",
-      "status": "Up Next (Sprint Backlog)",
+      "status": "In progress (WIP)",
       "pillar": null,
       "domain": "Personal Admin",
       "hours": null,
@@ -525,7 +545,7 @@
     {
       "id": "371c57494859807f86afccfb6d5b32e5",
       "type": "task",
-      "name": "Create AI Agent per chat gpt",
+      "name": "Update AI use case database",
       "status": "In progress (WIP)",
       "pillar": null,
       "domain": "Personal Admin",
@@ -576,30 +596,10 @@
       "id": "370c57494859807c866fd89712b8a17b",
       "type": "task",
       "name": "tig torch rigs",
-      "status": "Up Next (Sprint Backlog)",
+      "status": "In progress (WIP)",
       "pillar": null,
       "domain": "RAE",
       "hours": 2,
-      "projectIds": []
-    },
-    {
-      "id": "36ec57494859803ab1b9f293adef2e5e",
-      "type": "task",
-      "name": "More micro torches and accessories ",
-      "status": "In progress (WIP)",
-      "pillar": null,
-      "domain": "RAE",
-      "hours": null,
-      "projectIds": []
-    },
-    {
-      "id": "36cc57494859808b85e3f648684def84",
-      "type": "task",
-      "name": "Wanda’s dishwasher repaired/diagnosed ",
-      "status": "In progress (WIP)",
-      "pillar": null,
-      "domain": null,
-      "hours": null,
       "projectIds": []
     },
     {
@@ -607,16 +607,6 @@
       "type": "task",
       "name": "Take pics of bulls to market/sell",
       "status": "Up Next (Sprint Backlog)",
-      "pillar": null,
-      "domain": null,
-      "hours": null,
-      "projectIds": []
-    },
-    {
-      "id": "36ac5749485980ed86f1e9dfe81b63d7",
-      "type": "task",
-      "name": "Let bulls into goat and sheep pastures",
-      "status": "In progress (WIP)",
       "pillar": null,
       "domain": null,
       "hours": null,
@@ -663,16 +653,6 @@
       "projectIds": []
     },
     {
-      "id": "366c5749485980529cd5c39bcedd436c",
-      "type": "task",
-      "name": "Update dot compliance actions again",
-      "status": "Up Next (Sprint Backlog)",
-      "pillar": null,
-      "domain": "RAE",
-      "hours": 1,
-      "projectIds": []
-    },
-    {
       "id": "366c5749485980d79779dd9475ada042",
       "type": "task",
       "name": "Call Mertain and ask why coverage is inconsistent ",
@@ -680,16 +660,6 @@
       "pillar": null,
       "domain": "Owen",
       "hours": null,
-      "projectIds": []
-    },
-    {
-      "id": "365c57494859803280abe7ea77f76ca2",
-      "type": "task",
-      "name": "Adp ask off Friday ",
-      "status": "In progress (WIP)",
-      "pillar": null,
-      "domain": "RAE",
-      "hours": 0.25,
       "projectIds": []
     },
     {
@@ -743,26 +713,6 @@
       "projectIds": []
     },
     {
-      "id": "363c57494859809184bdc5982ba0ff23",
-      "type": "task",
-      "name": "Plan for pulling males from goats and sheep",
-      "status": "In progress (WIP)",
-      "pillar": null,
-      "domain": "Ranch",
-      "hours": null,
-      "projectIds": []
-    },
-    {
-      "id": "363c5749485980a6b41cdcf6db10f541",
-      "type": "task",
-      "name": "Pickup/sweep cabin by 5/27",
-      "status": "Up Next (Sprint Backlog)",
-      "pillar": null,
-      "domain": null,
-      "hours": null,
-      "projectIds": []
-    },
-    {
       "id": "362c57494859805887a6f4693b53043e",
       "type": "task",
       "name": "Move sheep and goats to 3rd area to eat thistles",
@@ -775,7 +725,7 @@
     {
       "id": "361c5749485980ff8ffae15d55c7cb62",
       "type": "task",
-      "name": "document core processes and core values? ",
+      "name": "document core processes ",
       "status": "Up Next (Sprint Backlog)",
       "pillar": null,
       "domain": "Personal Admin",
@@ -793,30 +743,10 @@
       "projectIds": []
     },
     {
-      "id": "361c574948598022a956d713cc25854d",
-      "type": "task",
-      "name": "Add scorecards for each pillar and then have a high level scorecard for overall family OS (data entry during weekly meeting or monthly?)",
-      "status": "Up Next (Sprint Backlog)",
-      "pillar": null,
-      "domain": "Personal Admin",
-      "hours": 3,
-      "projectIds": []
-    },
-    {
-      "id": "360c57494859807b93d8c18c4ad390b1",
-      "type": "task",
-      "name": "Dress up the page organizaiton within the command center . Should everything be inside the command center ",
-      "status": "Up Next (Sprint Backlog)",
-      "pillar": null,
-      "domain": "Personal Admin",
-      "hours": 2,
-      "projectIds": []
-    },
-    {
       "id": "35dc574948598092ba64e20189b5ea21",
       "type": "task",
       "name": "Credit cards for different areas",
-      "status": "Up Next (Sprint Backlog)",
+      "status": "In progress (WIP)",
       "pillar": null,
       "domain": "Personal Admin",
       "hours": 8,
@@ -843,30 +773,10 @@
       "projectIds": []
     },
     {
-      "id": "35cc5749485980d192fbca84e855b63a",
-      "type": "task",
-      "name": "Experiment with Claude connections to Notion.. especially Claude Coworker",
-      "status": "Up Next (Sprint Backlog)",
-      "pillar": null,
-      "domain": "Personal Admin",
-      "hours": 2,
-      "projectIds": []
-    },
-    {
       "id": "35bc5749485980a188bafb70c6f3c5e8",
       "type": "task",
       "name": "Everyone in the family take personality tests and save results in google drive",
-      "status": "Up Next (Sprint Backlog)",
-      "pillar": null,
-      "domain": "Personal Admin",
-      "hours": 3,
-      "projectIds": []
-    },
-    {
-      "id": "35bc57494859805a99e7e1eb25d78800",
-      "type": "task",
-      "name": "research subtask options ",
-      "status": "Up Next (Sprint Backlog)",
+      "status": "In progress (WIP)",
       "pillar": null,
       "domain": "Personal Admin",
       "hours": 3,
@@ -906,7 +816,7 @@
       "id": "35bc5749485980ad9bb1c4e4a793ce15",
       "type": "task",
       "name": "Get FMLA paperwork signed ",
-      "status": "Up Next (Sprint Backlog)",
+      "status": "In progress (WIP)",
       "pillar": null,
       "domain": "Health",
       "hours": 8,
@@ -953,36 +863,6 @@
       "projectIds": []
     },
     {
-      "id": "354c5749485980d8a27ddaf5188f9a6e",
-      "type": "task",
-      "name": "Start using a self feeder for the guard dogs",
-      "status": "Up Next (Sprint Backlog)",
-      "pillar": null,
-      "domain": "Ranch",
-      "hours": 80,
-      "projectIds": []
-    },
-    {
-      "id": "354c5749485980d8a6c9c462dbfe3937",
-      "type": "task",
-      "name": "1 more conventional loan rental property ",
-      "status": "Up Next (Sprint Backlog)",
-      "pillar": null,
-      "domain": "Real Estate",
-      "hours": null,
-      "projectIds": []
-    },
-    {
-      "id": "354c57494859807e9419d16f07fec557",
-      "type": "task",
-      "name": "create calendar event for financial review with agenda ",
-      "status": "Up Next (Sprint Backlog)",
-      "pillar": null,
-      "domain": "Personal Admin",
-      "hours": 0.25,
-      "projectIds": []
-    },
-    {
       "id": "33ec5749485980ad905ac079787cfed2",
       "type": "task",
       "name": "Requisition for SS tube bender ",
@@ -1024,6 +904,74 @@
     }
   ],
   "wipTasks": [
+    {
+      "id": "37ec57494859806ea6b0ea6424ddcfc0",
+      "type": "task",
+      "name": "Method to seeing top 3 priorities ",
+      "status": "In progress (WIP)",
+      "pillarIds": [],
+      "domain": "Baby Girl",
+      "hours": 2,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": "2026-06-13T11:16:00.000-05:00",
+      "completeDate": null
+    },
+    {
+      "id": "37ec5749485980a4a700d94b0d2cf56e",
+      "type": "task",
+      "name": "make offer on duplexes",
+      "status": "In progress (WIP)",
+      "pillarIds": [],
+      "domain": "Real Estate",
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": "2026-06-13T11:06:00.000-05:00",
+      "completeDate": null
+    },
+    {
+      "id": "37ec5749485980bf9186fda996cc0ab7",
+      "type": "task",
+      "name": "create habits list",
+      "status": "In progress (WIP)",
+      "pillarIds": [],
+      "domain": "Personal Admin",
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Patricia Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": "2026-06-13T11:04:00.000-05:00",
+      "completeDate": null
+    },
+    {
+      "id": "37ec5749485980c0b35fcd8057f08515",
+      "type": "task",
+      "name": "Scan Receipts for taxes",
+      "status": "In progress (WIP)",
+      "pillarIds": [],
+      "domain": "Ranch",
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Patricia Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": "2026-06-13T11:02:00.000-05:00",
+      "completeDate": null
+    },
     {
       "id": "37dc5749485980c4ad5aedd3cb47e7ed",
       "type": "task",
@@ -1078,43 +1026,9 @@
       "completeDate": null
     },
     {
-      "id": "37dc574948598002823ccaf23437cb9a",
-      "type": "task",
-      "name": "Coordinate with Roy to cut grass at Pryor house",
-      "status": "In progress (WIP)",
-      "pillarIds": [],
-      "domain": "Real Estate",
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Patricia Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-06-12T09:13:00.000-05:00",
-      "completeDate": null
-    },
-    {
-      "id": "37ac574948598091adcfcfedb90204e0",
-      "type": "task",
-      "name": "611 moving out",
-      "status": "Up Next (Sprint Backlog)",
-      "pillarIds": [],
-      "domain": "Real Estate",
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Patricia Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": null,
-      "completeDate": null
-    },
-    {
       "id": "37ac574948598042bff5c726e2c1a05d",
       "type": "task",
-      "name": "Order ear tags",
+      "name": "Order ear tags - 150",
       "status": "In progress (WIP)",
       "pillarIds": [],
       "domain": "Ranch",
@@ -1149,7 +1063,7 @@
       "id": "377c57494859805b87ccf93fb4605e61",
       "type": "task",
       "name": "buy CD in fidelity",
-      "status": "Up Next (Sprint Backlog)",
+      "status": "In progress (WIP)",
       "pillarIds": [],
       "domain": "Personal Admin",
       "hours": null,
@@ -1159,7 +1073,7 @@
         "Patricia Eubanks"
       ],
       "velocity": 0,
-      "startDate": "2026-06-06T09:42:00.000-05:00",
+      "startDate": "2026-06-13T10:42:00.000-05:00",
       "completeDate": null
     },
     {
@@ -1216,7 +1130,7 @@
     {
       "id": "371c57494859807f86afccfb6d5b32e5",
       "type": "task",
-      "name": "Create AI Agent per chat gpt",
+      "name": "Update AI use case database",
       "status": "In progress (WIP)",
       "pillarIds": [],
       "domain": "Personal Admin",
@@ -1303,7 +1217,7 @@
       "id": "370c57494859807c866fd89712b8a17b",
       "type": "task",
       "name": "tig torch rigs",
-      "status": "Up Next (Sprint Backlog)",
+      "status": "In progress (WIP)",
       "pillarIds": [],
       "domain": "RAE",
       "hours": 2,
@@ -1313,41 +1227,7 @@
         "Noah Eubanks"
       ],
       "velocity": 0,
-      "startDate": null,
-      "completeDate": null
-    },
-    {
-      "id": "36ec57494859803ab1b9f293adef2e5e",
-      "type": "task",
-      "name": "More micro torches and accessories ",
-      "status": "In progress (WIP)",
-      "pillarIds": [],
-      "domain": "RAE",
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-05-28T15:49:00.000-05:00",
-      "completeDate": null
-    },
-    {
-      "id": "36cc57494859808b85e3f648684def84",
-      "type": "task",
-      "name": "Wanda’s dishwasher repaired/diagnosed ",
-      "status": "In progress (WIP)",
-      "pillarIds": [],
-      "domain": null,
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-05-26T17:09:00.000-05:00",
+      "startDate": "2026-06-13T10:52:00.000-05:00",
       "completeDate": null
     },
     {
@@ -1360,24 +1240,11 @@
       "hours": null,
       "projectIds": [],
       "rockIds": [],
-      "person": [],
+      "person": [
+        "Noah Eubanks"
+      ],
       "velocity": 0,
       "startDate": null,
-      "completeDate": null
-    },
-    {
-      "id": "36ac5749485980ed86f1e9dfe81b63d7",
-      "type": "task",
-      "name": "Let bulls into goat and sheep pastures",
-      "status": "In progress (WIP)",
-      "pillarIds": [],
-      "domain": null,
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [],
-      "velocity": 0,
-      "startDate": "2026-05-24T10:30:00.000-05:00",
       "completeDate": null
     },
     {
@@ -1449,23 +1316,6 @@
       "completeDate": null
     },
     {
-      "id": "366c5749485980529cd5c39bcedd436c",
-      "type": "task",
-      "name": "Update dot compliance actions again",
-      "status": "Up Next (Sprint Backlog)",
-      "pillarIds": [],
-      "domain": "RAE",
-      "hours": 1,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-05-20T12:51:00.000-05:00",
-      "completeDate": null
-    },
-    {
       "id": "366c5749485980d79779dd9475ada042",
       "type": "task",
       "name": "Call Mertain and ask why coverage is inconsistent ",
@@ -1480,21 +1330,6 @@
       ],
       "velocity": 0,
       "startDate": "2026-05-20T11:30:00.000-05:00",
-      "completeDate": null
-    },
-    {
-      "id": "365c57494859803280abe7ea77f76ca2",
-      "type": "task",
-      "name": "Adp ask off Friday ",
-      "status": "In progress (WIP)",
-      "pillarIds": [],
-      "domain": "RAE",
-      "hours": 0.25,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [],
-      "velocity": 0,
-      "startDate": "2026-05-19T10:25:00.000-05:00",
       "completeDate": null
     },
     {
@@ -1584,40 +1419,6 @@
       "completeDate": null
     },
     {
-      "id": "363c57494859809184bdc5982ba0ff23",
-      "type": "task",
-      "name": "Plan for pulling males from goats and sheep",
-      "status": "In progress (WIP)",
-      "pillarIds": [],
-      "domain": "Ranch",
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Patricia Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-05-17T09:54:00.000-05:00",
-      "completeDate": null
-    },
-    {
-      "id": "363c5749485980a6b41cdcf6db10f541",
-      "type": "task",
-      "name": "Pickup/sweep cabin by 5/27",
-      "status": "Up Next (Sprint Backlog)",
-      "pillarIds": [],
-      "domain": null,
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Patricia Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": null,
-      "completeDate": null
-    },
-    {
       "id": "362c57494859805887a6f4693b53043e",
       "type": "task",
       "name": "Move sheep and goats to 3rd area to eat thistles",
@@ -1637,7 +1438,7 @@
     {
       "id": "361c5749485980ff8ffae15d55c7cb62",
       "type": "task",
-      "name": "document core processes and core values? ",
+      "name": "document core processes ",
       "status": "Up Next (Sprint Backlog)",
       "pillarIds": [],
       "domain": "Personal Admin",
@@ -1669,44 +1470,10 @@
       "completeDate": null
     },
     {
-      "id": "361c574948598022a956d713cc25854d",
-      "type": "task",
-      "name": "Add scorecards for each pillar and then have a high level scorecard for overall family OS (data entry during weekly meeting or monthly?)",
-      "status": "Up Next (Sprint Backlog)",
-      "pillarIds": [],
-      "domain": "Personal Admin",
-      "hours": 3,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-05-15T11:38:00.000-05:00",
-      "completeDate": null
-    },
-    {
-      "id": "360c57494859807b93d8c18c4ad390b1",
-      "type": "task",
-      "name": "Dress up the page organizaiton within the command center . Should everything be inside the command center ",
-      "status": "Up Next (Sprint Backlog)",
-      "pillarIds": [],
-      "domain": "Personal Admin",
-      "hours": 2,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-05-13T23:39:00.000-05:00",
-      "completeDate": null
-    },
-    {
       "id": "35dc574948598092ba64e20189b5ea21",
       "type": "task",
       "name": "Credit cards for different areas",
-      "status": "Up Next (Sprint Backlog)",
+      "status": "In progress (WIP)",
       "pillarIds": [],
       "domain": "Personal Admin",
       "hours": 8,
@@ -1716,7 +1483,7 @@
         "Patricia Eubanks"
       ],
       "velocity": 0,
-      "startDate": "2026-05-11T16:10:00.000-05:00",
+      "startDate": "2026-06-13T10:53:00.000-05:00",
       "completeDate": null
     },
     {
@@ -1754,27 +1521,10 @@
       "completeDate": null
     },
     {
-      "id": "35cc5749485980d192fbca84e855b63a",
-      "type": "task",
-      "name": "Experiment with Claude connections to Notion.. especially Claude Coworker",
-      "status": "Up Next (Sprint Backlog)",
-      "pillarIds": [],
-      "domain": "Personal Admin",
-      "hours": 2,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": null,
-      "completeDate": null
-    },
-    {
       "id": "35bc5749485980a188bafb70c6f3c5e8",
       "type": "task",
       "name": "Everyone in the family take personality tests and save results in google drive",
-      "status": "Up Next (Sprint Backlog)",
+      "status": "In progress (WIP)",
       "pillarIds": [],
       "domain": "Personal Admin",
       "hours": 3,
@@ -1785,24 +1535,7 @@
         "Patricia Eubanks"
       ],
       "velocity": 0,
-      "startDate": null,
-      "completeDate": null
-    },
-    {
-      "id": "35bc57494859805a99e7e1eb25d78800",
-      "type": "task",
-      "name": "research subtask options ",
-      "status": "Up Next (Sprint Backlog)",
-      "pillarIds": [],
-      "domain": "Personal Admin",
-      "hours": 3,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Patricia Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": null,
+      "startDate": "2026-06-13T11:06:00.000-05:00",
       "completeDate": null
     },
     {
@@ -1860,7 +1593,7 @@
       "id": "35bc5749485980ad9bb1c4e4a793ce15",
       "type": "task",
       "name": "Get FMLA paperwork signed ",
-      "status": "Up Next (Sprint Backlog)",
+      "status": "In progress (WIP)",
       "pillarIds": [],
       "domain": "Health",
       "hours": 8,
@@ -1871,7 +1604,7 @@
         "Patricia Eubanks"
       ],
       "velocity": 0,
-      "startDate": "2026-05-17T09:48:00.000-05:00",
+      "startDate": "2026-06-13T10:42:00.000-05:00",
       "completeDate": null
     },
     {
@@ -1933,58 +1666,6 @@
       "pillarIds": [],
       "domain": "Ranch",
       "hours": 2,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Patricia Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": null,
-      "completeDate": null
-    },
-    {
-      "id": "354c5749485980d8a27ddaf5188f9a6e",
-      "type": "task",
-      "name": "Start using a self feeder for the guard dogs",
-      "status": "Up Next (Sprint Backlog)",
-      "pillarIds": [],
-      "domain": "Ranch",
-      "hours": 80,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Patricia Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": null,
-      "completeDate": null
-    },
-    {
-      "id": "354c5749485980d8a6c9c462dbfe3937",
-      "type": "task",
-      "name": "1 more conventional loan rental property ",
-      "status": "Up Next (Sprint Backlog)",
-      "pillarIds": [],
-      "domain": "Real Estate",
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks",
-        "Patricia Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": null,
-      "completeDate": null
-    },
-    {
-      "id": "354c57494859807e9419d16f07fec557",
-      "type": "task",
-      "name": "create calendar event for financial review with agenda ",
-      "status": "Up Next (Sprint Backlog)",
-      "pillarIds": [],
-      "domain": "Personal Admin",
-      "hours": 0.25,
       "projectIds": [],
       "rockIds": [],
       "person": [
@@ -2063,6 +1744,23 @@
       "velocity": 0,
       "startDate": null,
       "completeDate": null
+    },
+    {
+      "id": "37dc574948598002823ccaf23437cb9a",
+      "type": "task",
+      "name": "Coordinate with Roy to cut grass at Pryor house",
+      "status": "Done",
+      "pillarIds": [],
+      "domain": "Real Estate",
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Patricia Eubanks"
+      ],
+      "velocity": 1.041666666667,
+      "startDate": "2026-06-12T09:13:00.000-05:00",
+      "completeDate": "2026-06-13T10:36:00.000-05:00"
     },
     {
       "id": "37ac5749485980a89f45d40622707c3a",
@@ -2597,6 +2295,23 @@
       "completeDate": "2026-06-01T11:34:00.000-05:00"
     },
     {
+      "id": "36cc57494859808b85e3f648684def84",
+      "type": "task",
+      "name": "Wanda’s dishwasher repaired/diagnosed ",
+      "status": "Done",
+      "pillarIds": [],
+      "domain": null,
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 17.708333333333,
+      "startDate": "2026-05-26T17:09:00.000-05:00",
+      "completeDate": "2026-06-13T10:58:00.000-05:00"
+    },
+    {
       "id": "36cc57494859806f9e48d7fc8198c633",
       "type": "task",
       "name": "Hay to heifers",
@@ -2612,6 +2327,23 @@
       "velocity": 1,
       "startDate": "2026-05-26T16:42:00.000-05:00",
       "completeDate": "2026-05-27T16:44:00.000-05:00"
+    },
+    {
+      "id": "36ac5749485980ed86f1e9dfe81b63d7",
+      "type": "task",
+      "name": "Let bulls into goat and sheep pastures",
+      "status": "Done",
+      "pillarIds": [],
+      "domain": null,
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Patricia Eubanks"
+      ],
+      "velocity": 20,
+      "startDate": "2026-05-24T10:30:00.000-05:00",
+      "completeDate": "2026-06-13T10:58:00.000-05:00"
     },
     {
       "id": "36ac5749485980e8b73ae6612a5e538a",
@@ -2765,6 +2497,23 @@
       "completeDate": "2026-05-26T16:21:00.000-05:00"
     },
     {
+      "id": "365c57494859803280abe7ea77f76ca2",
+      "type": "task",
+      "name": "Adp ask off Friday ",
+      "status": "Done",
+      "pillarIds": [],
+      "domain": "RAE",
+      "hours": 0.25,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 25,
+      "startDate": "2026-05-19T10:25:00.000-05:00",
+      "completeDate": "2026-06-13T10:58:00.000-05:00"
+    },
+    {
       "id": "365c574948598077bc39fe62e97c4d34",
       "type": "task",
       "name": "gas issue at 1108",
@@ -2849,6 +2598,40 @@
       "velocity": 7,
       "startDate": "2026-05-17T10:04:00.000-05:00",
       "completeDate": "2026-05-24T10:18:00.000-05:00"
+    },
+    {
+      "id": "363c57494859809184bdc5982ba0ff23",
+      "type": "task",
+      "name": "Plan for pulling males from goats and sheep",
+      "status": "Done",
+      "pillarIds": [],
+      "domain": "Ranch",
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Patricia Eubanks"
+      ],
+      "velocity": 27,
+      "startDate": "2026-05-17T09:54:00.000-05:00",
+      "completeDate": "2026-06-13T10:42:00.000-05:00"
+    },
+    {
+      "id": "363c5749485980a6b41cdcf6db10f541",
+      "type": "task",
+      "name": "Pickup/sweep cabin by 5/27",
+      "status": "Done",
+      "pillarIds": [],
+      "domain": null,
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Patricia Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": null,
+      "completeDate": "2026-06-13T10:54:00.000-05:00"
     },
     {
       "id": "363c5749485980058c2bf0add81ef6b4",
@@ -3053,6 +2836,23 @@
       "velocity": 1.5,
       "startDate": "2026-05-14T08:22:00.000-05:00",
       "completeDate": "2026-05-15T20:27:00.000-05:00"
+    },
+    {
+      "id": "360c57494859807b93d8c18c4ad390b1",
+      "type": "task",
+      "name": "Dress up the page organizaiton within the command center . Should everything be inside the command center ",
+      "status": "Done",
+      "pillarIds": [],
+      "domain": "Personal Admin",
+      "hours": 2,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 30.458333333333,
+      "startDate": "2026-05-13T23:39:00.000-05:00",
+      "completeDate": "2026-06-13T10:50:00.000-05:00"
     },
     {
       "id": "360c5749485980c5821ce2fc7a83539c",
@@ -3463,6 +3263,23 @@
       "completeDate": "2026-05-10T21:13:00.000-05:00"
     },
     {
+      "id": "35cc5749485980d192fbca84e855b63a",
+      "type": "task",
+      "name": "Experiment with Claude connections to Notion.. especially Claude Coworker",
+      "status": "Done",
+      "pillarIds": [],
+      "domain": "Personal Admin",
+      "hours": 2,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": null,
+      "completeDate": "2026-06-13T10:51:00.000-05:00"
+    },
+    {
       "id": "35cc574948598002b427cd0598ae79fb",
       "type": "task",
       "name": "Remove material from Paige’s door ",
@@ -3650,134 +3467,6 @@
       "velocity": 0,
       "startDate": null,
       "completeDate": "2026-05-10"
-    },
-    {
-      "id": "35bc574948598051b487e55cdfc85719",
-      "type": "task",
-      "name": "Make ABA spreadsheet outlining options",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": "Owen",
-      "hours": 0.5,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": null,
-      "completeDate": "2026-05-11T19:39:00.000-05:00"
-    },
-    {
-      "id": "35bc57494859801d8c06db4331f9470e",
-      "type": "task",
-      "name": "Termite treatment on 14th",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": "Real Estate",
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Patricia Eubanks"
-      ],
-      "velocity": 7,
-      "startDate": "2026-05-17T09:47:00.000-05:00",
-      "completeDate": "2026-05-24T10:00:00.000-05:00"
-    },
-    {
-      "id": "359c5749485980468f82e1509ab173b1",
-      "type": "task",
-      "name": "Follow up with dad’s tax accountant ",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": "Personal Admin",
-      "hours": 0.25,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 1.416666666667,
-      "startDate": "2026-05-17T09:51:00.000-05:00",
-      "completeDate": "2026-05-18T20:41:00.000-05:00"
-    },
-    {
-      "id": "359c5749485980138c80d5ab80ce160a",
-      "type": "task",
-      "name": "Take bulls and calf to vet",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": "Ranch",
-      "hours": 3,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": null,
-      "completeDate": "2026-05-11T14:12:00.000-05:00"
-    },
-    {
-      "id": "359c57494859807d9cb7ceec4807aeb2",
-      "type": "task",
-      "name": "Move cattle to goat pasture? ",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": null,
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [],
-      "velocity": 0,
-      "startDate": null,
-      "completeDate": null
-    },
-    {
-      "id": "359c5749485980698831f3d392af2dc1",
-      "type": "task",
-      "name": "Call Army Corp",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": "Personal Admin",
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [],
-      "velocity": 0,
-      "startDate": null,
-      "completeDate": null
-    },
-    {
-      "id": "359c5749485980689c2cc23a262d578d",
-      "type": "task",
-      "name": "Adjust flow meter and respond to Mason",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": "RAE",
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [],
-      "velocity": 0,
-      "startDate": null,
-      "completeDate": null
-    },
-    {
-      "id": "359c5749485980e397caf2f67e9f14fa",
-      "type": "task",
-      "name": "test tank scope of work",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": null,
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [],
-      "velocity": 0,
-      "startDate": null,
-      "completeDate": null
     }
   ],
   "habitData": {
