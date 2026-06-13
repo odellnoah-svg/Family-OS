@@ -244,7 +244,7 @@ async function main() {
     filter: {
       or: [
         { property: 'Status', status: { equals: 'In progress (WIP)' } },
-        { property: 'Status', status: { equals: 'Up Next (Sprint Backlog)' } },
+        { property: 'Status', status: { equals: 'Current Sprint (this week)' } },
       ]
     }
   })).map(parseTask)
@@ -256,7 +256,7 @@ async function main() {
   const wipActive = (await queryAll(DBS.tasks, {
     filter: { or: [
       { property: 'Status', status: { equals: 'In progress (WIP)' } },
-      { property: 'Status', status: { equals: 'Up Next (Sprint Backlog)' } },
+      { property: 'Status', status: { equals: 'Current Sprint (this week)' } },
     ]}
   })).map(parseWipTask)
   // Recent Done tasks — latest 100 sorted by last edited (avoids formula field name issues)
