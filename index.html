@@ -536,10 +536,12 @@ function vExe(){
     if(extra>0)out+=`<button class="vexe-expand-btn" data-exp="0" data-more="${extra}" onclick="toggleExeTasks(this)">Show all · ${extra} more</button>`
     return out
   }
-  const cfg=D.meta?.wipTargets||{},wipTaskTarget=(cfg.wip_tasks_per_person||3)*2,wipOver=wip.length>wipTaskTarget
-  h+=`<div class="vexe-tasks-row"><div class="vexe-col"><div class="vexe-tasks-col-hdr"><span>Current Sprint (${next.length})</span><span class="vexe-col-target">backlog</span></div>`
+  const cfg=D.meta?.wipTargets||{},wipLimit=cfg.wip_tasks_per_person||3,noahWip=wip.filter(t=>t.person?.some(p=>p.toLowerCase().includes('noah'))),triciaWip=wip.filter(t=>t.person?.some(p=>p.toLowerCase().includes('tricia')))
+  const noahOver=noahWip.length>wipLimit,triciaOver=triciaWip.length>wipLimit
+  const wipStatus=`Noah ${noahWip.length} tasks/${wipLimit} max${noahOver?' ⚠':''} · Tricia ${triciaWip.length} tasks/${wipLimit} max${triciaOver?' ⚠':''}`
+  h+=`<div class="vexe-tasks-row"><div class="vexe-col"><div class="vexe-tasks-col-hdr"><span>Current Sprint (${next.length})</span></div>`
   h+=renderTaskCol(next,'col-next')
-  h+=`</div><div class="vexe-col"><div class="vexe-tasks-col-hdr"><span>In WIP (${wip.length})</span><span class="vexe-col-target ${wipOver?'over':''}">target ${wipTaskTarget} · ${wipOver?'over by '+(wip.length-wipTaskTarget):'within limit'}</span></div>`
+  h+=`</div><div class="vexe-col"><div class="vexe-tasks-col-hdr"><span>In WIP (${wip.length})</span><span class="vexe-col-target ${noahOver||triciaOver?'over':''}">${wipStatus}</span></div>`
   h+=renderTaskCol(wip,'col-wip')
   h+=`</div></div></div></div>`
   document.getElementById('vc').innerHTML=h
