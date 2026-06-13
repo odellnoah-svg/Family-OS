@@ -636,9 +636,9 @@ function renderWip(){
         const allWip=D.wipTasks.filter(t=>t.status==='In progress (WIP)'||t.status==='Current Sprint (this week)'),all=allWip,noah=all.filter(t=>t.person?.some(n=>n.toLowerCase().includes('noah'))),tricia=all.filter(t=>t.person?.some(n=>n.toLowerCase().includes('tricia')))
         const noPersonData=all.length>0&&all.every(t=>!t.person?.length)
         const diag=noPersonData?`<span class="vwip-diag">⚠ Person field empty — re-run GitHub Action, or assign tasks to Noah/Tricia in Notion</span>`:''
-        return `<button class="vwip-ptab ${WIP_PERSON==='all'?'on':''}" onclick="setWipPerson('all')">Total WIP <span class="vwip-ptab-ct">${all.length}</span></button>
-        <button class="vwip-ptab ${WIP_PERSON==='noah'?'on':''}" onclick="setWipPerson('noah')">Noah <span class="vwip-ptab-ct">${noah.length}</span></button>
-        <button class="vwip-ptab ${WIP_PERSON==='tricia'?'on':''}" onclick="setWipPerson('tricia')">Tricia <span class="vwip-ptab-ct">${tricia.length}</span></button>${diag}`
+        return `<button class="vwip-ptab ${WIP_PERSON==='all'?'on':''}" onclick="setWipPerson('all')">Total WIP</button>
+        <button class="vwip-ptab ${WIP_PERSON==='noah'?'on':''}" onclick="setWipPerson('noah')">Noah</button>
+        <button class="vwip-ptab ${WIP_PERSON==='tricia'?'on':''}" onclick="setWipPerson('tricia')">Tricia</button>${diag}`
       })()}
     </div>
     <div class="vwip-toolbar">
