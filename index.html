@@ -586,7 +586,7 @@ function renderWip(){
   const started=wt.filter(t=>inRange(t.startDate,start,end))
   const compHrs=completed.reduce((s,t)=>s+(t.hours||0),0)
   const startHrs=started.reduce((s,t)=>s+(t.hours||0),0)
-  const stagnant=wipActive.filter(t=>{if(!t.startDate)return false;return Math.floor((Date.now()-new Date(ds2d(t.startDate)+'T12:00:00'))/86400000)>=7})
+  const stagnant=wipActive.filter(t=>{if(!t.startDate)return false;return Math.floor((Date.now()-new Date(ds2d(t.startDate)+'T12:00:00'))/86400000)>=2})
   const isCount=WIP_MODE==='count'
   const wipVal=isCount?wipActive.length:wipHrs
   const compVal=isCount?completed.length:compHrs
@@ -667,7 +667,7 @@ function renderWip(){
       <div class="vwip-metric ${stagnant.length>0?'warn':''}">
         <div class="vwip-mval">${stagnant.length}</div>
         <div class="vwip-mlbl">Stagnant Tasks</div>
-        <div class="vwip-msub">7+ days in WIP</div>
+        <div class="vwip-msub">2+ days in WIP</div>
       </div>
       <div class="vwip-metric">
         <div class="vwip-mval">${avgVelocity} <span class="vwip-mtgt">${avgVelocity!=='—'?'days':''}</span></div>
@@ -695,7 +695,7 @@ function renderWip(){
       </div>
     </div>
     ${stagnant.length>0?`
-    <div class="sec-hdr"><span class="sec-lbl">Stagnant Tasks</span><div class="sec-line"></div><span class="sec-cnt">${stagnant.length} task${stagnant.length!==1?'s':''} · 7+ days without progress</span></div>
+    <div class="sec-hdr"><span class="sec-lbl">Stagnant Tasks</span><div class="sec-line"></div><span class="sec-cnt">${stagnant.length} task${stagnant.length!==1?'s':''} · 2+ days without progress</span></div>
     <div class="vwip-stag-list">${stagnant.map(t=>{const days=Math.floor((Date.now()-new Date(ds2d(t.startDate)+'T12:00:00'))/86400000);return`<div class="vwip-stag-row"><div class="vwip-stag-pip" style="background:${t.pc}"></div><div class="vwip-stag-name">${t.name}</div><div class="vwip-stag-meta"><span class="tag t-r">${days}d</span>${t.domain?`<span class="tag t-n">${trunc(t.domain,16)}</span>`:''}</div></div>`}).join('')}</div>`:''}
   </div></div>`
 
