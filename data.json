@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-13T19:36:28.445Z",
+  "generated": "2026-06-13T23:49:13.112Z",
   "meta": {
     "currentQuarter": "Q2",
     "currentYear": "2026",
@@ -413,6 +413,46 @@
   "projects": [],
   "tasks": [
     {
+      "id": "37ec57494859800eb51ec378e3b7256a",
+      "type": "task",
+      "name": "Revise any language/descriptions related to WIP/task management flow ",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": "Personal Admin",
+      "hours": 1,
+      "projectIds": []
+    },
+    {
+      "id": "37ec57494859804d81cae788eb669744",
+      "type": "task",
+      "name": "Document financial summary framework with progress bars, etc.  tell Claude we will decide sources later ",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": "Personal Admin",
+      "hours": 2,
+      "projectIds": []
+    },
+    {
+      "id": "37ec574948598022903eda7e3150b46a",
+      "type": "task",
+      "name": "Feed bulls/heifers",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": "Ranch",
+      "hours": 1,
+      "projectIds": []
+    },
+    {
+      "id": "37ec5749485980d8beefeca623dfa92d",
+      "type": "task",
+      "name": "Mineral to bulls in goat area ",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": "Ranch",
+      "hours": 0.5,
+      "projectIds": []
+    },
+    {
       "id": "37ec5749485980a4a700d94b0d2cf56e",
       "type": "task",
       "name": "make offer on duplexes (email and then call)",
@@ -446,7 +486,7 @@
       "id": "37dc5749485980c4ad5aedd3cb47e7ed",
       "type": "task",
       "name": "Respond to Ron regarding test tank",
-      "status": "In progress (WIP)",
+      "status": "Current Sprint (this week)",
       "pillar": null,
       "domain": "RAE",
       "hours": null,
@@ -506,7 +546,7 @@
       "id": "373c5749485980e68a16fa00e0e43209",
       "type": "task",
       "name": "Order water test kit ",
-      "status": "In progress (WIP)",
+      "status": "Current Sprint (this week)",
       "pillar": null,
       "domain": "RAE",
       "hours": null,
@@ -556,7 +596,7 @@
       "id": "370c57494859807c866fd89712b8a17b",
       "type": "task",
       "name": "tig torch rigs",
-      "status": "In progress (WIP)",
+      "status": "Current Sprint (this week)",
       "pillar": null,
       "domain": "RAE",
       "hours": 2,
@@ -606,7 +646,7 @@
       "id": "366c57494859808db073cf30173283c2",
       "type": "task",
       "name": "Layout for Tietz ",
-      "status": "In progress (WIP)",
+      "status": "Current Sprint (this week)",
       "pillar": null,
       "domain": "RAE",
       "hours": 3,
@@ -649,16 +689,6 @@
       "status": "Current Sprint (this week)",
       "pillar": null,
       "domain": "Ranch",
-      "hours": null,
-      "projectIds": []
-    },
-    {
-      "id": "363c57494859802e8890d462a273a831",
-      "type": "task",
-      "name": "how to identify top 3 priorities in WIP",
-      "status": "In progress (WIP)",
-      "pillar": null,
-      "domain": null,
       "hours": null,
       "projectIds": []
     },
@@ -855,6 +885,82 @@
   ],
   "wipTasks": [
     {
+      "id": "37ec57494859800eb51ec378e3b7256a",
+      "type": "task",
+      "name": "Revise any language/descriptions related to WIP/task management flow ",
+      "status": "In progress (WIP)",
+      "pillarIds": [
+        "76181932d64d40de88929de677bdf7c2"
+      ],
+      "domain": "Personal Admin",
+      "hours": 1,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": "2026-06-13T17:51:00.000-05:00",
+      "completeDate": null
+    },
+    {
+      "id": "37ec57494859804d81cae788eb669744",
+      "type": "task",
+      "name": "Document financial summary framework with progress bars, etc.  tell Claude we will decide sources later ",
+      "status": "In progress (WIP)",
+      "pillarIds": [
+        "fa5c3f6312394f09b07566f455dac82d"
+      ],
+      "domain": "Personal Admin",
+      "hours": 2,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": "2026-06-13T17:26:00.000-05:00",
+      "completeDate": null
+    },
+    {
+      "id": "37ec574948598022903eda7e3150b46a",
+      "type": "task",
+      "name": "Feed bulls/heifers",
+      "status": "In progress (WIP)",
+      "pillarIds": [
+        "683e3c08456247dea6168f9329c85470"
+      ],
+      "domain": "Ranch",
+      "hours": 1,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": "2026-06-13T17:11:00.000-05:00",
+      "completeDate": null
+    },
+    {
+      "id": "37ec5749485980d8beefeca623dfa92d",
+      "type": "task",
+      "name": "Mineral to bulls in goat area ",
+      "status": "In progress (WIP)",
+      "pillarIds": [
+        "683e3c08456247dea6168f9329c85470"
+      ],
+      "domain": "Ranch",
+      "hours": 0.5,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": "2026-06-13T16:04:00.000-05:00",
+      "completeDate": null
+    },
+    {
       "id": "37ec5749485980a4a700d94b0d2cf56e",
       "type": "task",
       "name": "make offer on duplexes (email and then call)",
@@ -909,7 +1015,7 @@
       "id": "37dc5749485980c4ad5aedd3cb47e7ed",
       "type": "task",
       "name": "Respond to Ron regarding test tank",
-      "status": "In progress (WIP)",
+      "status": "Current Sprint (this week)",
       "pillarIds": [],
       "domain": "RAE",
       "hours": null,
@@ -1013,7 +1119,7 @@
       "id": "373c5749485980e68a16fa00e0e43209",
       "type": "task",
       "name": "Order water test kit ",
-      "status": "In progress (WIP)",
+      "status": "Current Sprint (this week)",
       "pillarIds": [],
       "domain": "RAE",
       "hours": null,
@@ -1099,7 +1205,7 @@
       "id": "370c57494859807c866fd89712b8a17b",
       "type": "task",
       "name": "tig torch rigs",
-      "status": "In progress (WIP)",
+      "status": "Current Sprint (this week)",
       "pillarIds": [],
       "domain": "RAE",
       "hours": 2,
@@ -1184,7 +1290,7 @@
       "id": "366c57494859808db073cf30173283c2",
       "type": "task",
       "name": "Layout for Tietz ",
-      "status": "In progress (WIP)",
+      "status": "Current Sprint (this week)",
       "pillarIds": [],
       "domain": "RAE",
       "hours": 3,
@@ -1264,23 +1370,6 @@
       ],
       "velocity": 0,
       "startDate": "2026-05-30T11:12:00.000-05:00",
-      "completeDate": null
-    },
-    {
-      "id": "363c57494859802e8890d462a273a831",
-      "type": "task",
-      "name": "how to identify top 3 priorities in WIP",
-      "status": "In progress (WIP)",
-      "pillarIds": [],
-      "domain": null,
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-05-17T09:57:00.000-05:00",
       "completeDate": null
     },
     {
@@ -2533,6 +2622,23 @@
       "completeDate": "2026-05-24T10:18:00.000-05:00"
     },
     {
+      "id": "363c57494859802e8890d462a273a831",
+      "type": "task",
+      "name": "how to identify top 3 priorities in WIP",
+      "status": "Done",
+      "pillarIds": [],
+      "domain": null,
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 27.291666666667,
+      "startDate": "2026-05-17T09:57:00.000-05:00",
+      "completeDate": "2026-06-13T17:20:00.000-05:00"
+    },
+    {
       "id": "363c57494859809184bdc5982ba0ff23",
       "type": "task",
       "name": "Plan for pulling males from goats and sheep",
@@ -3314,24 +3420,6 @@
       "velocity": 0,
       "startDate": null,
       "completeDate": null
-    },
-    {
-      "id": "35bc574948598022ac4bceb3700596f5",
-      "type": "task",
-      "name": "Calves to Sale",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": "Ranch",
-      "hours": 6,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks",
-        "Patricia Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": null,
-      "completeDate": "2026-05-17T09:40:00.000-05:00"
     }
   ],
   "habitData": {
