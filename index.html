@@ -500,7 +500,7 @@ function vExe(){
   const meta=D.meta||{},cQ=meta.currentQuarter||'Q2',cY=meta.currentYear||'2026'
   const qRocks=D.rocks.filter(r=>r.quarters?.includes(cQ)&&r.year===cY)
   const active=D.projects.filter(p=>p.status==='Active'||p.status==='Not Started')
-  const wip=D.tasks.filter(t=>t.status==='In progress (WIP)'),next=D.tasks.filter(t=>t.status==='Current Sprint (this week)')
+  const wip=D.wipTasks.filter(t=>t.status==='In progress (WIP)'),next=D.wipTasks.filter(t=>t.status==='Current Sprint (this week)')
   const gm=by(D.goals)
   let h=`<div class="vexe"><div class="vexe-inner">`
   h+=`<div class="sec-hdr"><span class="sec-lbl">Quarterly Rocks</span><div class="sec-line"></div><span class="sec-cnt">${cQ} ${cY} · ${qRocks.length} rock${qRocks.length!==1?'s':''}</span></div>`
