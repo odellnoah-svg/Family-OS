@@ -157,6 +157,12 @@ header{flex-shrink:0;}
 .vexe-person-hdr{font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;padding:10px 0 4px;color:var(--tx3);}
 .vexe-person-hdr.p-noah{color:#4A7BAD;}
 .vexe-person-hdr.p-tricia{color:#B5695A;}
+.vexe-task-hidden{display:none;}
+.vexe-task-hidden.shown{display:flex;}
+.vexe-person-hdr-hidden{display:none;}
+.vexe-person-hdr-hidden.shown{display:block;}
+.vexe-expand-btn{width:100%;margin-top:8px;padding:6px;border:1px dashed var(--bdr);border-radius:7px;background:transparent;font-family:'DM Sans',sans-serif;font-size:11px;color:var(--tx3);cursor:pointer;text-align:center;}
+.vexe-expand-btn:hover{background:var(--surf2);color:var(--tx);}
 .vexe-task-pip{width:7px;height:7px;border-radius:50%;flex-shrink:0;}
 .vexe-task-n{font-size:12px;color:var(--tx);flex:1;line-height:1.35;}
 .vexe-task-tags{display:flex;gap:3px;flex-shrink:0;}
@@ -510,26 +516,28 @@ function vExe(){
   if(active.length){h+=`<div class="vexe-grid">`;active.forEach(p=>{h+=`<div class="vexe-proj" style="--pc:${p.pc}"><div class="vexe-proj-k">Project</div><div class="vexe-proj-n">${p.name}</div><div class="vexe-proj-tags">${stag(p.status)}</div>${p.nextAction?`<div class="vexe-proj-next">→ ${trunc(p.nextAction,80)}</div>`:''}</div>`});h+=`</div>`}
   const SHOW=20
   h+=`<div class="sec-hdr"><span class="sec-lbl">Active Tasks</span><div class="sec-line"></div><span class="sec-cnt">${wip.length} in WIP · ${next.length} current sprint</span></div>`
-  h+=`<div class="vexe-tasks-row"><div><div class="vexe-tasks-col-hdr">In WIP (${wip.length})</div>`
-  const renderTaskGroup=(tasks,limit)=>{
-    const isPerson=(t,n)=>t.person?.some(p=>p.toLowerCase().includes(n))
+  const isPerson=(t,n)=>t.person?.some(p=>p.toLowerCase().includes(n))
+  const renderTaskCol=(tasks,colId)=>{
     const noah=tasks.filter(t=>isPerson(t,'noah')),tricia=tasks.filter(t=>isPerson(t,'tricia'))
     const none=tasks.filter(t=>!isPerson(t,'noah')&&!isPerson(t,'tricia'))
-    let out='',shown=0
+    let out='',total=0
     const addGroup=(grp,cls,lbl)=>{
       if(!grp.length)return
-      out+=`<div class="vexe-person-hdr ${cls}">${lbl} · ${grp.length}</div>`
-      grp.forEach(t=>{if(shown>=limit)return;shown++;out+=`<div class="vexe-task ${cls}"><div class="vexe-task-pip" style="background:${t.pc}"></div><div class="vexe-task-n">${t.name}</div><div class="vexe-task-tags">${t.domain?`<span class="tag t-n">${trunc(t.domain,14)}</span>`:''} ${t.hours?`<span class="tag t-s">${t.hours}h</span>`:''}</div></div>`})
+      const hdrHidden=total>=SHOW?'vexe-person-hdr-hidden':''
+      out+=`<div class="vexe-person-hdr ${cls} ${hdrHidden}">${lbl} · ${grp.length}</div>`
+      grp.forEach(t=>{const hidden=total>=SHOW?'vexe-task-hidden':'';total++;out+=`<div class="vexe-task ${cls} ${hidden}"><div class="vexe-task-pip" style="background:${t.pc}"></div><div class="vexe-task-n">${t.name}</div><div class="vexe-task-tags">${t.domain?`<span class="tag t-n">${trunc(t.domain,14)}</span>`:''} ${t.hours?`<span class="tag t-s">${t.hours}h</span>`:''}</div></div>`})
     }
     addGroup(noah,'p-noah','Noah')
     addGroup(tricia,'p-tricia','Tricia')
     addGroup(none,'p-none','Unassigned')
-    if(tasks.length>limit)out+=`<div class="vexe-more">+${tasks.length-limit} more</div>`
+    const extra=tasks.length-Math.min(tasks.length,SHOW)
+    if(extra>0)out+=`<button class="vexe-expand-btn" data-exp="0" data-more="${extra}" onclick="toggleExeTasks(this)">Show all · ${extra} more</button>`
     return out
   }
-  h+=renderTaskGroup(wip,SHOW)
-  h+=`</div><div><div class="vexe-tasks-col-hdr">Current Sprint (${next.length})</div>`
-  h+=renderTaskGroup(next,SHOW)
+  h+=`<div class="vexe-tasks-row"><div class="vexe-col"><div class="vexe-tasks-col-hdr">Current Sprint (${next.length})</div>`
+  h+=renderTaskCol(next,'col-next')
+  h+=`</div><div class="vexe-col"><div class="vexe-tasks-col-hdr">In WIP (${wip.length})</div>`
+  h+=renderTaskCol(wip,'col-wip')
   h+=`</div></div></div></div>`
   document.getElementById('vc').innerHTML=h
 }
@@ -560,6 +568,15 @@ function vPil(){
 
 // ── WIP DASHBOARD ──────────────────────────────────────────
 function setWipRange(r){WIP_RANGE=r;vWip()}
+function toggleExeTasks(btn){
+  const col=btn.closest('.vexe-col')
+  const hidden=[...col.querySelectorAll('.vexe-task-hidden,.vexe-person-hdr-hidden')]
+  const expanded=btn.dataset.exp==='1'
+  hidden.forEach(el=>el.classList.toggle('shown',!expanded))
+  btn.dataset.exp=expanded?'0':'1'
+  const more=parseInt(btn.dataset.more||0)
+  btn.textContent=expanded?`Show all · ${more} more`:'Show less ↑'
+}
 function setWipPerson(p){WIP_PERSON=p;vWip()}
 function setWipMode(m){WIP_MODE=m;vWip()}
 function setHabPerson(p){HAB_PERSON=p;vHab()}
