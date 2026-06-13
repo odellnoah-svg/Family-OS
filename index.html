@@ -517,7 +517,7 @@ function vExe(){
   h+=`<div class="sec-hdr"><span class="sec-lbl">Active Projects</span><div class="sec-line"></div><span class="sec-cnt">${active.length}</span></div>`
   if(active.length){h+=`<div class="vexe-grid">`;active.forEach(p=>{h+=`<div class="vexe-proj" style="--pc:${p.pc}"><div class="vexe-proj-k">Project</div><div class="vexe-proj-n">${p.name}</div><div class="vexe-proj-tags">${stag(p.status)}</div>${p.nextAction?`<div class="vexe-proj-next">→ ${trunc(p.nextAction,80)}</div>`:''}</div>`});h+=`</div>`}
   const SHOW=20
-  h+=`<div class="sec-hdr"><span class="sec-lbl">Active Tasks</span><div class="sec-line"></div><span class="sec-cnt">${wip.length} in WIP · ${next.length} current sprint</span></div>`
+  h+=`<div class="sec-hdr"><span class="sec-lbl">Active Tasks</span><div class="sec-line"></div></div>`
   const isPerson=(t,n)=>t.person?.some(p=>p.toLowerCase().includes(n))
   const renderTaskCol=(tasks,colId)=>{
     const noah=tasks.filter(t=>isPerson(t,'noah')),tricia=tasks.filter(t=>isPerson(t,'tricia'))
