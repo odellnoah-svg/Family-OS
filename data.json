@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-14T17:01:42.033Z",
+  "generated": "2026-06-14T23:56:54.853Z",
   "meta": {
     "currentQuarter": "Q2",
     "currentYear": "2026",
@@ -413,6 +413,26 @@
   "projects": [],
   "tasks": [
     {
+      "id": "37fc5749485980b8b2b8f240cf7ba649",
+      "type": "task",
+      "name": "Create a complete financial metrics page for dashboard",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": "Personal Admin",
+      "hours": 2,
+      "projectIds": []
+    },
+    {
+      "id": "37fc5749485980f1b463fe8ae9dda6d3",
+      "type": "task",
+      "name": "Review RFP notes spreadsheet and add to folder ",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": "Ranch",
+      "hours": 1.5,
+      "projectIds": []
+    },
+    {
       "id": "37fc5749485980fea2feed34d45ac0a1",
       "type": "task",
       "name": "Amazon business account options (convert existing account?)",
@@ -546,7 +566,7 @@
       "id": "370c5749485980dbb48cd280b9f8b8ae",
       "type": "task",
       "name": "Rental repairs",
-      "status": "In progress (WIP)",
+      "status": "Current Sprint (this week)",
       "pillar": null,
       "domain": "Real Estate",
       "hours": null,
@@ -865,6 +885,44 @@
   ],
   "wipTasks": [
     {
+      "id": "37fc5749485980b8b2b8f240cf7ba649",
+      "type": "task",
+      "name": "Create a complete financial metrics page for dashboard",
+      "status": "In progress (WIP)",
+      "pillarIds": [
+        "fa5c3f6312394f09b07566f455dac82d"
+      ],
+      "domain": "Personal Admin",
+      "hours": 2,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": "2026-06-14T14:36:00.000-05:00",
+      "completeDate": null
+    },
+    {
+      "id": "37fc5749485980f1b463fe8ae9dda6d3",
+      "type": "task",
+      "name": "Review RFP notes spreadsheet and add to folder ",
+      "status": "In progress (WIP)",
+      "pillarIds": [
+        "fa5c3f6312394f09b07566f455dac82d"
+      ],
+      "domain": "Ranch",
+      "hours": 1.5,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": "2026-06-14T12:48:00.000-05:00",
+      "completeDate": null
+    },
+    {
       "id": "37fc5749485980fea2feed34d45ac0a1",
       "type": "task",
       "name": "Amazon business account options (convert existing account?)",
@@ -1099,7 +1157,7 @@
       "id": "370c5749485980dbb48cd280b9f8b8ae",
       "type": "task",
       "name": "Rental repairs",
-      "status": "In progress (WIP)",
+      "status": "Current Sprint (this week)",
       "pillarIds": [],
       "domain": "Real Estate",
       "hours": null,
@@ -2846,6 +2904,23 @@
       "completeDate": "2026-05-20T16:01:00.000-05:00"
     },
     {
+      "id": "360c57494859802a84fbc6065d4575b6",
+      "type": "task",
+      "name": "Get a  bed, a.k.a. either twin or queen to add to existing",
+      "status": "Done",
+      "pillarIds": [],
+      "domain": "Baby Girl",
+      "hours": 8,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Patricia Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": null,
+      "completeDate": "2026-06-14T14:34:00.000-05:00"
+    },
+    {
       "id": "360c5749485980178910d6277dd6164b",
       "type": "task",
       "name": "Send email to Tommy with die/press compatibility spreadsheet ",
@@ -3354,23 +3429,6 @@
       "velocity": 0,
       "startDate": null,
       "completeDate": "2026-05-10T23:55:00.000-05:00"
-    },
-    {
-      "id": "35bc57494859809ba439db9ddac3aa32",
-      "type": "task",
-      "name": "Build out the OS guidelines based on recent chat gpt and reference podcast link",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": "Personal Admin",
-      "hours": 2,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": null,
-      "completeDate": null
     }
   ],
   "habitData": {
