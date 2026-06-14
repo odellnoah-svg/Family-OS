@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-13T23:49:13.112Z",
+  "generated": "2026-06-14T10:54:28.170Z",
   "meta": {
     "currentQuarter": "Q2",
     "currentYear": "2026",
@@ -413,39 +413,19 @@
   "projects": [],
   "tasks": [
     {
-      "id": "37ec57494859800eb51ec378e3b7256a",
+      "id": "37fc5749485980128851df84e4f26e5a",
       "type": "task",
-      "name": "Revise any language/descriptions related to WIP/task management flow ",
-      "status": "In progress (WIP)",
-      "pillar": null,
-      "domain": "Personal Admin",
-      "hours": 1,
-      "projectIds": []
-    },
-    {
-      "id": "37ec57494859804d81cae788eb669744",
-      "type": "task",
-      "name": "Document financial summary framework with progress bars, etc.  tell Claude we will decide sources later ",
-      "status": "In progress (WIP)",
-      "pillar": null,
-      "domain": "Personal Admin",
-      "hours": 2,
-      "projectIds": []
-    },
-    {
-      "id": "37ec574948598022903eda7e3150b46a",
-      "type": "task",
-      "name": "Feed bulls/heifers",
+      "name": "Hay to cow and calves in ",
       "status": "In progress (WIP)",
       "pillar": null,
       "domain": "Ranch",
-      "hours": 1,
+      "hours": 0.5,
       "projectIds": []
     },
     {
       "id": "37ec5749485980d8beefeca623dfa92d",
       "type": "task",
-      "name": "Mineral to bulls in goat area ",
+      "name": "Mineral to bulls & fly spray (water gun) in goat area ",
       "status": "In progress (WIP)",
       "pillar": null,
       "domain": "Ranch",
@@ -456,10 +436,10 @@
       "id": "37ec5749485980a4a700d94b0d2cf56e",
       "type": "task",
       "name": "make offer on duplexes (email and then call)",
-      "status": "Current Sprint (this week)",
+      "status": "In progress (WIP)",
       "pillar": null,
       "domain": "Real Estate",
-      "hours": null,
+      "hours": 2,
       "projectIds": []
     },
     {
@@ -556,7 +536,7 @@
       "id": "370c5749485980dbb48cd280b9f8b8ae",
       "type": "task",
       "name": "Rental repairs",
-      "status": "Current Sprint (this week)",
+      "status": "In progress (WIP)",
       "pillar": null,
       "domain": "Real Estate",
       "hours": null,
@@ -600,16 +580,6 @@
       "pillar": null,
       "domain": "RAE",
       "hours": 2,
-      "projectIds": []
-    },
-    {
-      "id": "36ac57494859807ebc1bf3efb2588a82",
-      "type": "task",
-      "name": "Take pics of bulls to market/sell",
-      "status": "In progress (WIP)",
-      "pillar": null,
-      "domain": null,
-      "hours": null,
       "projectIds": []
     },
     {
@@ -885,66 +855,28 @@
   ],
   "wipTasks": [
     {
-      "id": "37ec57494859800eb51ec378e3b7256a",
+      "id": "37fc5749485980128851df84e4f26e5a",
       "type": "task",
-      "name": "Revise any language/descriptions related to WIP/task management flow ",
-      "status": "In progress (WIP)",
-      "pillarIds": [
-        "76181932d64d40de88929de677bdf7c2"
-      ],
-      "domain": "Personal Admin",
-      "hours": 1,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-06-13T17:51:00.000-05:00",
-      "completeDate": null
-    },
-    {
-      "id": "37ec57494859804d81cae788eb669744",
-      "type": "task",
-      "name": "Document financial summary framework with progress bars, etc.  tell Claude we will decide sources later ",
-      "status": "In progress (WIP)",
-      "pillarIds": [
-        "fa5c3f6312394f09b07566f455dac82d"
-      ],
-      "domain": "Personal Admin",
-      "hours": 2,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-06-13T17:26:00.000-05:00",
-      "completeDate": null
-    },
-    {
-      "id": "37ec574948598022903eda7e3150b46a",
-      "type": "task",
-      "name": "Feed bulls/heifers",
+      "name": "Hay to cow and calves in ",
       "status": "In progress (WIP)",
       "pillarIds": [
         "683e3c08456247dea6168f9329c85470"
       ],
       "domain": "Ranch",
-      "hours": 1,
+      "hours": 0.5,
       "projectIds": [],
       "rockIds": [],
       "person": [
         "Noah Eubanks"
       ],
       "velocity": 0,
-      "startDate": "2026-06-13T17:11:00.000-05:00",
+      "startDate": "2026-06-13T23:50:00.000-05:00",
       "completeDate": null
     },
     {
       "id": "37ec5749485980d8beefeca623dfa92d",
       "type": "task",
-      "name": "Mineral to bulls in goat area ",
+      "name": "Mineral to bulls & fly spray (water gun) in goat area ",
       "status": "In progress (WIP)",
       "pillarIds": [
         "683e3c08456247dea6168f9329c85470"
@@ -964,17 +896,19 @@
       "id": "37ec5749485980a4a700d94b0d2cf56e",
       "type": "task",
       "name": "make offer on duplexes (email and then call)",
-      "status": "Current Sprint (this week)",
-      "pillarIds": [],
+      "status": "In progress (WIP)",
+      "pillarIds": [
+        "fa5c3f6312394f09b07566f455dac82d"
+      ],
       "domain": "Real Estate",
-      "hours": null,
+      "hours": 2,
       "projectIds": [],
       "rockIds": [],
       "person": [
         "Noah Eubanks"
       ],
       "velocity": 0,
-      "startDate": "2026-06-13T11:06:00.000-05:00",
+      "startDate": "2026-06-14T00:20:00.000-05:00",
       "completeDate": null
     },
     {
@@ -1136,7 +1070,7 @@
       "id": "370c5749485980dbb48cd280b9f8b8ae",
       "type": "task",
       "name": "Rental repairs",
-      "status": "Current Sprint (this week)",
+      "status": "In progress (WIP)",
       "pillarIds": [],
       "domain": "Real Estate",
       "hours": null,
@@ -1147,7 +1081,7 @@
         "Noah Eubanks"
       ],
       "velocity": 0,
-      "startDate": "2026-05-30T11:12:00.000-05:00",
+      "startDate": "2026-06-13T23:41:00.000-05:00",
       "completeDate": null
     },
     {
@@ -1216,23 +1150,6 @@
       ],
       "velocity": 0,
       "startDate": "2026-06-13T10:52:00.000-05:00",
-      "completeDate": null
-    },
-    {
-      "id": "36ac57494859807ebc1bf3efb2588a82",
-      "type": "task",
-      "name": "Take pics of bulls to market/sell",
-      "status": "In progress (WIP)",
-      "pillarIds": [],
-      "domain": null,
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-06-13T13:12:00.000-05:00",
       "completeDate": null
     },
     {
@@ -1698,6 +1615,63 @@
       "velocity": 0,
       "startDate": null,
       "completeDate": null
+    },
+    {
+      "id": "37ec57494859800eb51ec378e3b7256a",
+      "type": "task",
+      "name": "Revise any language/descriptions related to WIP/task management flow ",
+      "status": "Done",
+      "pillarIds": [
+        "76181932d64d40de88929de677bdf7c2"
+      ],
+      "domain": "Personal Admin",
+      "hours": 1,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 0.083333333333,
+      "startDate": "2026-06-13T17:51:00.000-05:00",
+      "completeDate": "2026-06-13T20:21:00.000-05:00"
+    },
+    {
+      "id": "37ec57494859804d81cae788eb669744",
+      "type": "task",
+      "name": "Document financial summary framework with progress bars, etc.  tell Claude we will decide data sources later ",
+      "status": "Done",
+      "pillarIds": [
+        "fa5c3f6312394f09b07566f455dac82d"
+      ],
+      "domain": "Personal Admin",
+      "hours": 2,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 0.25,
+      "startDate": "2026-06-13T17:26:00.000-05:00",
+      "completeDate": "2026-06-13T23:41:00.000-05:00"
+    },
+    {
+      "id": "37ec574948598022903eda7e3150b46a",
+      "type": "task",
+      "name": "Feed bulls/heifers",
+      "status": "Done",
+      "pillarIds": [
+        "683e3c08456247dea6168f9329c85470"
+      ],
+      "domain": "Ranch",
+      "hours": 1,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 0.083333333333,
+      "startDate": "2026-06-13T17:11:00.000-05:00",
+      "completeDate": "2026-06-13T19:14:00.000-05:00"
     },
     {
       "id": "37dc574948598002823ccaf23437cb9a",
@@ -2332,6 +2306,23 @@
       "velocity": 1,
       "startDate": "2026-05-26T16:42:00.000-05:00",
       "completeDate": "2026-05-27T16:44:00.000-05:00"
+    },
+    {
+      "id": "36ac57494859807ebc1bf3efb2588a82",
+      "type": "task",
+      "name": "Take pics of bulls to market/sell",
+      "status": "Done",
+      "pillarIds": [],
+      "domain": null,
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 0.25,
+      "startDate": "2026-06-13T13:12:00.000-05:00",
+      "completeDate": "2026-06-13T19:15:00.000-05:00"
     },
     {
       "id": "36ac5749485980ed86f1e9dfe81b63d7",
@@ -3351,75 +3342,6 @@
       "velocity": 0,
       "startDate": null,
       "completeDate": null
-    },
-    {
-      "id": "35bc57494859809fb6cbe2a3b8e6f1af",
-      "type": "task",
-      "name": "Finish building out goals, rocks, and projects databases with databases inside pages with descriptions (view chat)",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": "Personal Admin",
-      "hours": 4,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": null,
-      "completeDate": "2026-05-10T23:55:00.000-05:00"
-    },
-    {
-      "id": "35bc574948598015acbfe8054d8ba3c3",
-      "type": "task",
-      "name": "Create detailed 3 year *family* vision ",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": "Personal Admin",
-      "hours": 8,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks",
-        "Patricia Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": null,
-      "completeDate": null
-    },
-    {
-      "id": "35bc5749485980a0806edbbadfce37e9",
-      "type": "task",
-      "name": "Sign girls up for college classes for next year",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": "Girls",
-      "hours": 4,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Patricia Eubanks"
-      ],
-      "velocity": 7.083333333333,
-      "startDate": "2026-05-13T18:27:00.000-05:00",
-      "completeDate": "2026-05-20T21:04:00.000-05:00"
-    },
-    {
-      "id": "35bc5749485980a6a2d1dd937dc50a01",
-      "type": "task",
-      "name": "Clean out corral",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": "Ranch",
-      "hours": 6,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": null,
-      "completeDate": null
     }
   ],
   "habitData": {
@@ -4145,6 +4067,30 @@
             "Call One Friend": false,
             "No Caffeine": false,
             "No Bread / Chips / Pasta": false,
+            "Play with Owen": true,
+            "8 Hour Eating Window": false,
+            "Move": false,
+            "Minimum 1/2 Gallon Water": false,
+            "Time Block Tomorrow  Before Bed": true,
+            "Breath Strip for Sleep": false,
+            "Minimal Dairy": false,
+            "5am Wake": false,
+            "Reflect": true,
+            "Daily Supplements": true,
+            "No Cell Phone in Bedroom": false,
+            "No Gluten": false,
+            "Grow": true
+          },
+          "completed": 5,
+          "possible": 16,
+          "pct": 31
+        },
+        {
+          "date": "2026-06-14",
+          "habits": {
+            "Call One Friend": false,
+            "No Caffeine": false,
+            "No Bread / Chips / Pasta": false,
             "Play with Owen": false,
             "8 Hour Eating Window": false,
             "Move": false,
@@ -4501,6 +4447,19 @@
         },
         {
           "date": "2026-06-13",
+          "habits": {
+            "Laundry": false,
+            "Supplements": false,
+            "Leucovorin": false,
+            "Take care of baby": false,
+            "Feed dogs": false
+          },
+          "completed": 0,
+          "possible": 5,
+          "pct": 0
+        },
+        {
+          "date": "2026-06-14",
           "habits": {
             "Laundry": false,
             "Supplements": false,
