@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-14T23:56:54.853Z",
+  "generated": "2026-06-15T18:11:39.102Z",
   "meta": {
     "currentQuarter": "Q2",
     "currentYear": "2026",
@@ -413,6 +413,66 @@
   "projects": [],
   "tasks": [
     {
+      "id": "380c5749485980d1aaa1e0271cc4cbb8",
+      "type": "task",
+      "name": "Deworm heifers and turn out the ones we’re keeping ",
+      "status": "Current Sprint (this week)",
+      "pillar": null,
+      "domain": "Ranch",
+      "hours": 2,
+      "projectIds": []
+    },
+    {
+      "id": "380c574948598049bb5fd6f874439aa7",
+      "type": "task",
+      "name": "(Untitled)",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": null,
+      "hours": null,
+      "projectIds": []
+    },
+    {
+      "id": "380c5749485980a98857d6bee3a4a9bd",
+      "type": "task",
+      "name": "Let bulls in with cows ",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": "Ranch",
+      "hours": 1,
+      "projectIds": []
+    },
+    {
+      "id": "380c5749485980f2b616fe36e44a4734",
+      "type": "task",
+      "name": "Numbers for FSA meeting ",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": "Ranch",
+      "hours": 1,
+      "projectIds": []
+    },
+    {
+      "id": "380c57494859804eb11ef1be037ec566",
+      "type": "task",
+      "name": "Build Ranch Profit Planning App",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": "Ranch",
+      "hours": 2,
+      "projectIds": []
+    },
+    {
+      "id": "380c5749485980cc97fdf6b2e8c7f09f",
+      "type": "task",
+      "name": "spray bulls with fly spray and dart wormer",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": null,
+      "hours": null,
+      "projectIds": []
+    },
+    {
       "id": "37fc5749485980b8b2b8f240cf7ba649",
       "type": "task",
       "name": "Create a complete financial metrics page for dashboard",
@@ -420,46 +480,6 @@
       "pillar": null,
       "domain": "Personal Admin",
       "hours": 2,
-      "projectIds": []
-    },
-    {
-      "id": "37fc5749485980f1b463fe8ae9dda6d3",
-      "type": "task",
-      "name": "Review RFP notes spreadsheet and add to folder ",
-      "status": "In progress (WIP)",
-      "pillar": null,
-      "domain": "Ranch",
-      "hours": 1.5,
-      "projectIds": []
-    },
-    {
-      "id": "37fc5749485980fea2feed34d45ac0a1",
-      "type": "task",
-      "name": "Amazon business account options (convert existing account?)",
-      "status": "In progress (WIP)",
-      "pillar": null,
-      "domain": "Personal Admin",
-      "hours": 1,
-      "projectIds": []
-    },
-    {
-      "id": "37fc5749485980128851df84e4f26e5a",
-      "type": "task",
-      "name": "Hay to cow and calves in ",
-      "status": "In progress (WIP)",
-      "pillar": null,
-      "domain": "Ranch",
-      "hours": 0.5,
-      "projectIds": []
-    },
-    {
-      "id": "37ec5749485980d8beefeca623dfa92d",
-      "type": "task",
-      "name": "Mineral to bulls & fly spray (water gun) in goat area ",
-      "status": "In progress (WIP)",
-      "pillar": null,
-      "domain": "Ranch",
-      "hours": 0.5,
       "projectIds": []
     },
     {
@@ -510,16 +530,6 @@
       "pillar": null,
       "domain": null,
       "hours": null,
-      "projectIds": []
-    },
-    {
-      "id": "37dc5749485980a6ab9dc6557530691e",
-      "type": "task",
-      "name": "Complete RFP spreadsheet ",
-      "status": "In progress (WIP)",
-      "pillar": null,
-      "domain": "Ranch",
-      "hours": 2,
       "projectIds": []
     },
     {
@@ -885,6 +895,116 @@
   ],
   "wipTasks": [
     {
+      "id": "380c5749485980d1aaa1e0271cc4cbb8",
+      "type": "task",
+      "name": "Deworm heifers and turn out the ones we’re keeping ",
+      "status": "Current Sprint (this week)",
+      "pillarIds": [
+        "fa5c3f6312394f09b07566f455dac82d"
+      ],
+      "domain": "Ranch",
+      "hours": 2,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": null,
+      "completeDate": null
+    },
+    {
+      "id": "380c574948598049bb5fd6f874439aa7",
+      "type": "task",
+      "name": "(Untitled)",
+      "status": "In progress (WIP)",
+      "pillarIds": [],
+      "domain": null,
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": "2026-06-15T12:24:00.000-05:00",
+      "completeDate": null
+    },
+    {
+      "id": "380c5749485980a98857d6bee3a4a9bd",
+      "type": "task",
+      "name": "Let bulls in with cows ",
+      "status": "In progress (WIP)",
+      "pillarIds": [
+        "683e3c08456247dea6168f9329c85470"
+      ],
+      "domain": "Ranch",
+      "hours": 1,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": "2026-06-15T12:17:00.000-05:00",
+      "completeDate": null
+    },
+    {
+      "id": "380c5749485980f2b616fe36e44a4734",
+      "type": "task",
+      "name": "Numbers for FSA meeting ",
+      "status": "In progress (WIP)",
+      "pillarIds": [
+        "fa5c3f6312394f09b07566f455dac82d"
+      ],
+      "domain": "Ranch",
+      "hours": 1,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": "2026-06-15T12:05:00.000-05:00",
+      "completeDate": null
+    },
+    {
+      "id": "380c57494859804eb11ef1be037ec566",
+      "type": "task",
+      "name": "Build Ranch Profit Planning App",
+      "status": "In progress (WIP)",
+      "pillarIds": [
+        "fa5c3f6312394f09b07566f455dac82d"
+      ],
+      "domain": "Ranch",
+      "hours": 2,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": "2026-06-14T23:15:00.000-05:00",
+      "completeDate": null
+    },
+    {
+      "id": "380c5749485980cc97fdf6b2e8c7f09f",
+      "type": "task",
+      "name": "spray bulls with fly spray and dart wormer",
+      "status": "In progress (WIP)",
+      "pillarIds": [],
+      "domain": null,
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": "2026-06-14T21:30:00.000-05:00",
+      "completeDate": null
+    },
+    {
       "id": "37fc5749485980b8b2b8f240cf7ba649",
       "type": "task",
       "name": "Create a complete financial metrics page for dashboard",
@@ -901,82 +1021,6 @@
       ],
       "velocity": 0,
       "startDate": "2026-06-14T14:36:00.000-05:00",
-      "completeDate": null
-    },
-    {
-      "id": "37fc5749485980f1b463fe8ae9dda6d3",
-      "type": "task",
-      "name": "Review RFP notes spreadsheet and add to folder ",
-      "status": "In progress (WIP)",
-      "pillarIds": [
-        "fa5c3f6312394f09b07566f455dac82d"
-      ],
-      "domain": "Ranch",
-      "hours": 1.5,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-06-14T12:48:00.000-05:00",
-      "completeDate": null
-    },
-    {
-      "id": "37fc5749485980fea2feed34d45ac0a1",
-      "type": "task",
-      "name": "Amazon business account options (convert existing account?)",
-      "status": "In progress (WIP)",
-      "pillarIds": [
-        "fa5c3f6312394f09b07566f455dac82d"
-      ],
-      "domain": "Personal Admin",
-      "hours": 1,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-06-14T11:34:00.000-05:00",
-      "completeDate": null
-    },
-    {
-      "id": "37fc5749485980128851df84e4f26e5a",
-      "type": "task",
-      "name": "Hay to cow and calves in ",
-      "status": "In progress (WIP)",
-      "pillarIds": [
-        "683e3c08456247dea6168f9329c85470"
-      ],
-      "domain": "Ranch",
-      "hours": 0.5,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-06-13T23:50:00.000-05:00",
-      "completeDate": null
-    },
-    {
-      "id": "37ec5749485980d8beefeca623dfa92d",
-      "type": "task",
-      "name": "Mineral to bulls & fly spray (water gun) in goat area ",
-      "status": "In progress (WIP)",
-      "pillarIds": [
-        "683e3c08456247dea6168f9329c85470"
-      ],
-      "domain": "Ranch",
-      "hours": 0.5,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-06-13T16:04:00.000-05:00",
       "completeDate": null
     },
     {
@@ -1064,25 +1108,6 @@
       ],
       "velocity": 0,
       "startDate": "2026-06-12T10:32:00.000-05:00",
-      "completeDate": null
-    },
-    {
-      "id": "37dc5749485980a6ab9dc6557530691e",
-      "type": "task",
-      "name": "Complete RFP spreadsheet ",
-      "status": "In progress (WIP)",
-      "pillarIds": [
-        "fa5c3f6312394f09b07566f455dac82d"
-      ],
-      "domain": "Ranch",
-      "hours": 2,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-06-12T10:29:00.000-05:00",
       "completeDate": null
     },
     {
@@ -1704,6 +1729,63 @@
       "completeDate": null
     },
     {
+      "id": "37fc5749485980f1b463fe8ae9dda6d3",
+      "type": "task",
+      "name": "Review RFP notes spreadsheet and add to folder ",
+      "status": "Done",
+      "pillarIds": [
+        "fa5c3f6312394f09b07566f455dac82d"
+      ],
+      "domain": "Ranch",
+      "hours": 1.5,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 0.416666666667,
+      "startDate": "2026-06-14T12:48:00.000-05:00",
+      "completeDate": "2026-06-14T23:13:00.000-05:00"
+    },
+    {
+      "id": "37fc5749485980fea2feed34d45ac0a1",
+      "type": "task",
+      "name": "Amazon business account created",
+      "status": "Done",
+      "pillarIds": [
+        "fa5c3f6312394f09b07566f455dac82d"
+      ],
+      "domain": "Personal Admin",
+      "hours": 1,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 1,
+      "startDate": "2026-06-14T11:34:00.000-05:00",
+      "completeDate": "2026-06-15T11:40:00.000-05:00"
+    },
+    {
+      "id": "37fc5749485980128851df84e4f26e5a",
+      "type": "task",
+      "name": "Hay to cow and calves in ",
+      "status": "Done",
+      "pillarIds": [
+        "683e3c08456247dea6168f9329c85470"
+      ],
+      "domain": "Ranch",
+      "hours": 0.5,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 0.875,
+      "startDate": "2026-06-13T23:50:00.000-05:00",
+      "completeDate": "2026-06-14T21:30:00.000-05:00"
+    },
+    {
       "id": "37ec57494859800eb51ec378e3b7256a",
       "type": "task",
       "name": "Revise any language/descriptions related to WIP/task management flow ",
@@ -1759,6 +1841,44 @@
       "velocity": 0.083333333333,
       "startDate": "2026-06-13T17:11:00.000-05:00",
       "completeDate": "2026-06-13T19:14:00.000-05:00"
+    },
+    {
+      "id": "37ec5749485980d8beefeca623dfa92d",
+      "type": "task",
+      "name": "Mineral to bulls ",
+      "status": "Done",
+      "pillarIds": [
+        "683e3c08456247dea6168f9329c85470"
+      ],
+      "domain": "Ranch",
+      "hours": 0.5,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 1.208333333333,
+      "startDate": "2026-06-13T16:04:00.000-05:00",
+      "completeDate": "2026-06-14T21:30:00.000-05:00"
+    },
+    {
+      "id": "37dc5749485980a6ab9dc6557530691e",
+      "type": "task",
+      "name": "Finish RFP spreadsheet ",
+      "status": "Done",
+      "pillarIds": [
+        "fa5c3f6312394f09b07566f455dac82d"
+      ],
+      "domain": "Ranch",
+      "hours": 2,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 2.5,
+      "startDate": "2026-06-12T10:29:00.000-05:00",
+      "completeDate": "2026-06-14T23:15:00.000-05:00"
     },
     {
       "id": "37dc574948598002823ccaf23437cb9a",
@@ -3344,91 +3464,6 @@
       "velocity": 0,
       "startDate": null,
       "completeDate": "2026-05-12T09:27:00.000-05:00"
-    },
-    {
-      "id": "35cc5749485980b7a577d3bcad10de6a",
-      "type": "task",
-      "name": "Pay anesthesiologist ",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": "Baby Girl",
-      "hours": 0.5,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Patricia Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": null,
-      "completeDate": "2026-05-14T18:46:00.000-05:00"
-    },
-    {
-      "id": "35cc5749485980e5a23ad0ae2155a2e8",
-      "type": "task",
-      "name": "Request off Monday in ADP",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": null,
-      "hours": 0.25,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": null,
-      "completeDate": "2026-05-10T23:55:00.000-05:00"
-    },
-    {
-      "id": "35cc574948598049ba9df0e651a32a06",
-      "type": "task",
-      "name": "Mother’s day- clean house, feed dogs, take owen out to roll hay out for cows, refill mineral",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": null,
-      "hours": 2,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": null,
-      "completeDate": "2026-05-10T21:13:00.000-05:00"
-    },
-    {
-      "id": "35cc5749485980d192fbca84e855b63a",
-      "type": "task",
-      "name": "Experiment with Claude connections to Notion.. especially Claude Coworker",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": "Personal Admin",
-      "hours": 2,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": null,
-      "completeDate": "2026-06-13T10:51:00.000-05:00"
-    },
-    {
-      "id": "35cc574948598002b427cd0598ae79fb",
-      "type": "task",
-      "name": "Remove material from Paige’s door ",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": "Girls",
-      "hours": 1.5,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": null,
-      "completeDate": "2026-05-10T23:55:00.000-05:00"
     }
   ],
   "habitData": {
@@ -4195,6 +4230,30 @@
           "completed": 0,
           "possible": 16,
           "pct": 0
+        },
+        {
+          "date": "2026-06-15",
+          "habits": {
+            "Call One Friend": false,
+            "No Caffeine": false,
+            "No Bread / Chips / Pasta": false,
+            "Play with Owen": false,
+            "8 Hour Eating Window": false,
+            "Move": false,
+            "Minimum 1/2 Gallon Water": false,
+            "Time Block Tomorrow  Before Bed": false,
+            "Breath Strip for Sleep": false,
+            "Minimal Dairy": false,
+            "5am Wake": false,
+            "Reflect": false,
+            "Daily Supplements": false,
+            "No Cell Phone in Bedroom": false,
+            "No Gluten": false,
+            "Grow": false
+          },
+          "completed": 0,
+          "possible": 16,
+          "pct": 0
         }
       ]
     },
@@ -4547,6 +4606,19 @@
         },
         {
           "date": "2026-06-14",
+          "habits": {
+            "Laundry": false,
+            "Supplements": false,
+            "Leucovorin": false,
+            "Take care of baby": false,
+            "Feed dogs": false
+          },
+          "completed": 0,
+          "possible": 5,
+          "pct": 0
+        },
+        {
+          "date": "2026-06-15",
           "habits": {
             "Laundry": false,
             "Supplements": false,
