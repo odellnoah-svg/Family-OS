@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-15T18:11:39.102Z",
+  "generated": "2026-06-16T15:29:13.743Z",
   "meta": {
     "currentQuarter": "Q2",
     "currentYear": "2026",
@@ -413,19 +413,9 @@
   "projects": [],
   "tasks": [
     {
-      "id": "380c5749485980d1aaa1e0271cc4cbb8",
+      "id": "381c57494859808987adc619c982dbdd",
       "type": "task",
-      "name": "Deworm heifers and turn out the ones we’re keeping ",
-      "status": "Current Sprint (this week)",
-      "pillar": null,
-      "domain": "Ranch",
-      "hours": 2,
-      "projectIds": []
-    },
-    {
-      "id": "380c574948598049bb5fd6f874439aa7",
-      "type": "task",
-      "name": "(Untitled)",
+      "name": "Revise high level flow diagram .. include grazing chart (forage projections—- lbs of forage,,, cow days, etc) and how to flows into Ranch Profit Planner… maybe a separate forage inventory tracker later",
       "status": "In progress (WIP)",
       "pillar": null,
       "domain": null,
@@ -433,13 +423,23 @@
       "projectIds": []
     },
     {
-      "id": "380c5749485980a98857d6bee3a4a9bd",
+      "id": "381c57494859808c9945cb9600c3984d",
       "type": "task",
-      "name": "Let bulls in with cows ",
+      "name": "Hay to heifers ",
       "status": "In progress (WIP)",
       "pillar": null,
       "domain": "Ranch",
       "hours": 1,
+      "projectIds": []
+    },
+    {
+      "id": "380c5749485980d1aaa1e0271cc4cbb8",
+      "type": "task",
+      "name": "Deworm heifers and turn out the ones we’re keeping ",
+      "status": "Current Sprint (this week)",
+      "pillar": null,
+      "domain": "Ranch",
+      "hours": 2,
       "projectIds": []
     },
     {
@@ -455,7 +455,7 @@
     {
       "id": "380c57494859804eb11ef1be037ec566",
       "type": "task",
-      "name": "Build Ranch Profit Planning App",
+      "name": "Finish Ranch Profit Planning App in GitHub",
       "status": "In progress (WIP)",
       "pillar": null,
       "domain": "Ranch",
@@ -465,7 +465,7 @@
     {
       "id": "380c5749485980cc97fdf6b2e8c7f09f",
       "type": "task",
-      "name": "spray bulls with fly spray and dart wormer",
+      "name": "spray bulls with fly spray again",
       "status": "In progress (WIP)",
       "pillar": null,
       "domain": null,
@@ -479,16 +479,6 @@
       "status": "In progress (WIP)",
       "pillar": null,
       "domain": "Personal Admin",
-      "hours": 2,
-      "projectIds": []
-    },
-    {
-      "id": "37ec5749485980a4a700d94b0d2cf56e",
-      "type": "task",
-      "name": "make offer on duplexes (email and then call)",
-      "status": "In progress (WIP)",
-      "pillar": null,
-      "domain": "Real Estate",
       "hours": 2,
       "projectIds": []
     },
@@ -676,7 +666,7 @@
       "id": "364c57494859800389d2f3c822f2e542",
       "type": "task",
       "name": "TEFRA application process completed",
-      "status": "Current Sprint (this week)",
+      "status": "In progress (WIP)",
       "pillar": null,
       "domain": "Owen",
       "hours": 8,
@@ -813,16 +803,6 @@
       "projectIds": []
     },
     {
-      "id": "355c57494859809fafbcd066a7c6d77b",
-      "type": "task",
-      "name": "Update Security Deposits",
-      "status": "Current Sprint (this week)",
-      "pillar": null,
-      "domain": "Real Estate",
-      "hours": 4,
-      "projectIds": []
-    },
-    {
       "id": "354c5749485980009d57fd7925ba6f9c",
       "type": "task",
       "name": "Vonner Test, pee catch",
@@ -895,6 +875,42 @@
   ],
   "wipTasks": [
     {
+      "id": "381c57494859808987adc619c982dbdd",
+      "type": "task",
+      "name": "Revise high level flow diagram .. include grazing chart (forage projections—- lbs of forage,,, cow days, etc) and how to flows into Ranch Profit Planner… maybe a separate forage inventory tracker later",
+      "status": "In progress (WIP)",
+      "pillarIds": [],
+      "domain": null,
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": "2026-06-16T00:00:00.000-05:00",
+      "completeDate": null
+    },
+    {
+      "id": "381c57494859808c9945cb9600c3984d",
+      "type": "task",
+      "name": "Hay to heifers ",
+      "status": "In progress (WIP)",
+      "pillarIds": [
+        "683e3c08456247dea6168f9329c85470"
+      ],
+      "domain": "Ranch",
+      "hours": 1,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": "2026-06-15T23:40:00.000-05:00",
+      "completeDate": null
+    },
+    {
       "id": "380c5749485980d1aaa1e0271cc4cbb8",
       "type": "task",
       "name": "Deworm heifers and turn out the ones we’re keeping ",
@@ -911,42 +927,6 @@
       ],
       "velocity": 0,
       "startDate": null,
-      "completeDate": null
-    },
-    {
-      "id": "380c574948598049bb5fd6f874439aa7",
-      "type": "task",
-      "name": "(Untitled)",
-      "status": "In progress (WIP)",
-      "pillarIds": [],
-      "domain": null,
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-06-15T12:24:00.000-05:00",
-      "completeDate": null
-    },
-    {
-      "id": "380c5749485980a98857d6bee3a4a9bd",
-      "type": "task",
-      "name": "Let bulls in with cows ",
-      "status": "In progress (WIP)",
-      "pillarIds": [
-        "683e3c08456247dea6168f9329c85470"
-      ],
-      "domain": "Ranch",
-      "hours": 1,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-06-15T12:17:00.000-05:00",
       "completeDate": null
     },
     {
@@ -971,7 +951,7 @@
     {
       "id": "380c57494859804eb11ef1be037ec566",
       "type": "task",
-      "name": "Build Ranch Profit Planning App",
+      "name": "Finish Ranch Profit Planning App in GitHub",
       "status": "In progress (WIP)",
       "pillarIds": [
         "fa5c3f6312394f09b07566f455dac82d"
@@ -990,7 +970,7 @@
     {
       "id": "380c5749485980cc97fdf6b2e8c7f09f",
       "type": "task",
-      "name": "spray bulls with fly spray and dart wormer",
+      "name": "spray bulls with fly spray again",
       "status": "In progress (WIP)",
       "pillarIds": [],
       "domain": null,
@@ -1021,25 +1001,6 @@
       ],
       "velocity": 0,
       "startDate": "2026-06-14T14:36:00.000-05:00",
-      "completeDate": null
-    },
-    {
-      "id": "37ec5749485980a4a700d94b0d2cf56e",
-      "type": "task",
-      "name": "make offer on duplexes (email and then call)",
-      "status": "In progress (WIP)",
-      "pillarIds": [
-        "fa5c3f6312394f09b07566f455dac82d"
-      ],
-      "domain": "Real Estate",
-      "hours": 2,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-06-14T00:20:00.000-05:00",
       "completeDate": null
     },
     {
@@ -1353,7 +1314,7 @@
       "id": "364c57494859800389d2f3c822f2e542",
       "type": "task",
       "name": "TEFRA application process completed",
-      "status": "Current Sprint (this week)",
+      "status": "In progress (WIP)",
       "pillarIds": [],
       "domain": "Owen",
       "hours": 8,
@@ -1364,7 +1325,7 @@
         "Patricia Eubanks"
       ],
       "velocity": 0,
-      "startDate": "2026-05-18T13:19:00.000-05:00",
+      "startDate": "2026-06-15T18:03:00.000-05:00",
       "completeDate": null
     },
     {
@@ -1591,23 +1552,6 @@
       "completeDate": null
     },
     {
-      "id": "355c57494859809fafbcd066a7c6d77b",
-      "type": "task",
-      "name": "Update Security Deposits",
-      "status": "Current Sprint (this week)",
-      "pillarIds": [],
-      "domain": "Real Estate",
-      "hours": 4,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Patricia Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": null,
-      "completeDate": null
-    },
-    {
       "id": "354c5749485980009d57fd7925ba6f9c",
       "type": "task",
       "name": "Vonner Test, pee catch",
@@ -1727,6 +1671,25 @@
       "velocity": 0,
       "startDate": null,
       "completeDate": null
+    },
+    {
+      "id": "380c5749485980a98857d6bee3a4a9bd",
+      "type": "task",
+      "name": "Let bulls in with cows ",
+      "status": "Done",
+      "pillarIds": [
+        "683e3c08456247dea6168f9329c85470"
+      ],
+      "domain": "Ranch",
+      "hours": 1,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 0.458333333333,
+      "startDate": "2026-06-15T12:17:00.000-05:00",
+      "completeDate": "2026-06-15T23:37:00.000-05:00"
     },
     {
       "id": "37fc5749485980f1b463fe8ae9dda6d3",
@@ -1860,6 +1823,25 @@
       "velocity": 1.208333333333,
       "startDate": "2026-06-13T16:04:00.000-05:00",
       "completeDate": "2026-06-14T21:30:00.000-05:00"
+    },
+    {
+      "id": "37ec5749485980a4a700d94b0d2cf56e",
+      "type": "task",
+      "name": "make offer on duplexes (email and then call)",
+      "status": "Done",
+      "pillarIds": [
+        "fa5c3f6312394f09b07566f455dac82d"
+      ],
+      "domain": "Real Estate",
+      "hours": 2,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 1.958333333333,
+      "startDate": "2026-06-14T00:20:00.000-05:00",
+      "completeDate": "2026-06-15T23:37:00.000-05:00"
     },
     {
       "id": "37dc5749485980a6ab9dc6557530691e",
@@ -3430,40 +3412,6 @@
       "velocity": 0,
       "startDate": null,
       "completeDate": "2026-05-10T23:57:00.000-05:00"
-    },
-    {
-      "id": "35cc574948598056b799f53b6d9a7d29",
-      "type": "task",
-      "name": "Cancel canva subscription ",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": "Personal Admin",
-      "hours": 0.25,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Patricia Eubanks"
-      ],
-      "velocity": 1.625,
-      "startDate": "2026-05-13T18:27:00.000-05:00",
-      "completeDate": "2026-05-15T09:30:00.000-05:00"
-    },
-    {
-      "id": "35cc5749485980698008dce32108edf6",
-      "type": "task",
-      "name": "Time block for bills, reconciling businesses, and taxes",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": "Personal Admin",
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Patricia Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": null,
-      "completeDate": "2026-05-12T09:27:00.000-05:00"
     }
   ],
   "habitData": {
@@ -4254,6 +4202,30 @@
           "completed": 0,
           "possible": 16,
           "pct": 0
+        },
+        {
+          "date": "2026-06-16",
+          "habits": {
+            "Call One Friend": false,
+            "No Caffeine": false,
+            "No Bread / Chips / Pasta": false,
+            "Play with Owen": false,
+            "8 Hour Eating Window": false,
+            "Move": false,
+            "Minimum 1/2 Gallon Water": false,
+            "Time Block Tomorrow  Before Bed": false,
+            "Breath Strip for Sleep": false,
+            "Minimal Dairy": false,
+            "5am Wake": false,
+            "Reflect": false,
+            "Daily Supplements": false,
+            "No Cell Phone in Bedroom": false,
+            "No Gluten": false,
+            "Grow": false
+          },
+          "completed": 0,
+          "possible": 16,
+          "pct": 0
         }
       ]
     },
@@ -4619,6 +4591,19 @@
         },
         {
           "date": "2026-06-15",
+          "habits": {
+            "Laundry": false,
+            "Supplements": false,
+            "Leucovorin": false,
+            "Take care of baby": false,
+            "Feed dogs": false
+          },
+          "completed": 0,
+          "possible": 5,
+          "pct": 0
+        },
+        {
+          "date": "2026-06-16",
           "habits": {
             "Laundry": false,
             "Supplements": false,
