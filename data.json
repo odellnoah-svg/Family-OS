@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-16T22:56:47.422Z",
+  "generated": "2026-06-17T13:03:04.484Z",
   "meta": {
     "currentQuarter": "Q2",
     "currentYear": "2026",
@@ -413,6 +413,16 @@
   "projects": [],
   "tasks": [
     {
+      "id": "382c574948598007a015c6b1a6e1ddf9",
+      "type": "task",
+      "name": "Fill out RFP profile and see if spreadsheets are available ",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": null,
+      "hours": null,
+      "projectIds": []
+    },
+    {
       "id": "381c57494859808987adc619c982dbdd",
       "type": "task",
       "name": "Revise high level flow diagram .. include grazing chart (forage projections—- lbs of forage,,, cow days, etc) and how to flows into Ranch Profit Planner… maybe a separate forage inventory tracker later",
@@ -423,16 +433,6 @@
       "projectIds": []
     },
     {
-      "id": "381c57494859808c9945cb9600c3984d",
-      "type": "task",
-      "name": "Hay to heifers ",
-      "status": "In progress (WIP)",
-      "pillar": null,
-      "domain": "Ranch",
-      "hours": 1,
-      "projectIds": []
-    },
-    {
       "id": "380c5749485980d1aaa1e0271cc4cbb8",
       "type": "task",
       "name": "Deworm heifers and turn out the ones we’re keeping ",
@@ -440,16 +440,6 @@
       "pillar": null,
       "domain": "Ranch",
       "hours": 2,
-      "projectIds": []
-    },
-    {
-      "id": "380c5749485980f2b616fe36e44a4734",
-      "type": "task",
-      "name": "Numbers for FSA meeting ",
-      "status": "In progress (WIP)",
-      "pillar": null,
-      "domain": "Ranch",
-      "hours": 1,
       "projectIds": []
     },
     {
@@ -875,6 +865,23 @@
   ],
   "wipTasks": [
     {
+      "id": "382c574948598007a015c6b1a6e1ddf9",
+      "type": "task",
+      "name": "Fill out RFP profile and see if spreadsheets are available ",
+      "status": "In progress (WIP)",
+      "pillarIds": [],
+      "domain": null,
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": "2026-06-16T20:52:00.000-05:00",
+      "completeDate": null
+    },
+    {
       "id": "381c57494859808987adc619c982dbdd",
       "type": "task",
       "name": "Revise high level flow diagram .. include grazing chart (forage projections—- lbs of forage,,, cow days, etc) and how to flows into Ranch Profit Planner… maybe a separate forage inventory tracker later",
@@ -889,25 +896,6 @@
       ],
       "velocity": 0,
       "startDate": "2026-06-16T00:00:00.000-05:00",
-      "completeDate": null
-    },
-    {
-      "id": "381c57494859808c9945cb9600c3984d",
-      "type": "task",
-      "name": "Hay to heifers ",
-      "status": "In progress (WIP)",
-      "pillarIds": [
-        "683e3c08456247dea6168f9329c85470"
-      ],
-      "domain": "Ranch",
-      "hours": 1,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-06-15T23:40:00.000-05:00",
       "completeDate": null
     },
     {
@@ -927,25 +915,6 @@
       ],
       "velocity": 0,
       "startDate": null,
-      "completeDate": null
-    },
-    {
-      "id": "380c5749485980f2b616fe36e44a4734",
-      "type": "task",
-      "name": "Numbers for FSA meeting ",
-      "status": "In progress (WIP)",
-      "pillarIds": [
-        "fa5c3f6312394f09b07566f455dac82d"
-      ],
-      "domain": "Ranch",
-      "hours": 1,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-06-15T12:05:00.000-05:00",
       "completeDate": null
     },
     {
@@ -1673,6 +1642,25 @@
       "completeDate": null
     },
     {
+      "id": "381c57494859808c9945cb9600c3984d",
+      "type": "task",
+      "name": "Hay to heifers ",
+      "status": "Done",
+      "pillarIds": [
+        "683e3c08456247dea6168f9329c85470"
+      ],
+      "domain": "Ranch",
+      "hours": 1,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 0.875,
+      "startDate": "2026-06-15T23:40:00.000-05:00",
+      "completeDate": "2026-06-16T20:53:00.000-05:00"
+    },
+    {
       "id": "380c5749485980a98857d6bee3a4a9bd",
       "type": "task",
       "name": "Let bulls in with cows ",
@@ -1690,6 +1678,25 @@
       "velocity": 0.458333333333,
       "startDate": "2026-06-15T12:17:00.000-05:00",
       "completeDate": "2026-06-15T23:37:00.000-05:00"
+    },
+    {
+      "id": "380c5749485980f2b616fe36e44a4734",
+      "type": "task",
+      "name": "Numbers for FSA meeting ",
+      "status": "Done",
+      "pillarIds": [
+        "fa5c3f6312394f09b07566f455dac82d"
+      ],
+      "domain": "Ranch",
+      "hours": 1,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 1.333333333333,
+      "startDate": "2026-06-15T12:05:00.000-05:00",
+      "completeDate": "2026-06-16T20:53:00.000-05:00"
     },
     {
       "id": "37fc5749485980f1b463fe8ae9dda6d3",
@@ -3378,40 +3385,6 @@
       "velocity": 21.666666666667,
       "startDate": "2026-05-10T23:57:00.000-05:00",
       "completeDate": "2026-06-01T16:55:00.000-05:00"
-    },
-    {
-      "id": "35cc57494859809b8875c466b77ded06",
-      "type": "task",
-      "name": "Books for CC next year ",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": "Girls",
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Patricia Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-05-13T18:27:00.000-05:00",
-      "completeDate": "2026-05-13T18:27:00.000-05:00"
-    },
-    {
-      "id": "35cc57494859806baa00f24c90cf6ce2",
-      "type": "task",
-      "name": "Create an AI ideas database (what does it make sense to automate)",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": "Personal Admin",
-      "hours": 2,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": null,
-      "completeDate": "2026-05-10T23:57:00.000-05:00"
     }
   ],
   "habitData": {
@@ -4226,6 +4199,30 @@
           "completed": 0,
           "possible": 16,
           "pct": 0
+        },
+        {
+          "date": "2026-06-17",
+          "habits": {
+            "Call One Friend": false,
+            "No Caffeine": false,
+            "No Bread / Chips / Pasta": false,
+            "Play with Owen": false,
+            "8 Hour Eating Window": false,
+            "Move": false,
+            "Minimum 1/2 Gallon Water": false,
+            "Time Block Tomorrow  Before Bed": false,
+            "Breath Strip for Sleep": false,
+            "Minimal Dairy": false,
+            "5am Wake": false,
+            "Reflect": false,
+            "Daily Supplements": false,
+            "No Cell Phone in Bedroom": false,
+            "No Gluten": false,
+            "Grow": false
+          },
+          "completed": 0,
+          "possible": 16,
+          "pct": 0
         }
       ]
     },
@@ -4604,6 +4601,19 @@
         },
         {
           "date": "2026-06-16",
+          "habits": {
+            "Laundry": false,
+            "Supplements": false,
+            "Leucovorin": false,
+            "Take care of baby": false,
+            "Feed dogs": false
+          },
+          "completed": 0,
+          "possible": 5,
+          "pct": 0
+        },
+        {
+          "date": "2026-06-17",
           "habits": {
             "Laundry": false,
             "Supplements": false,
