@@ -14,8 +14,7 @@
     ::-webkit-scrollbar { width: 6px; height: 6px; }
     ::-webkit-scrollbar-thumb { background: #C4A882; border-radius: 3px; }
     #loading { padding: 40px; text-align: center; font-size: 16px; color: #3D2B1A; }
-    #error { display:none; padding: 24px; margin: 24px; background: #fee; border: 1px solid #c00;
-             border-radius: 8px; font-family: monospace; font-size: 13px; white-space: pre-wrap; }
+    #error { display:none; padding: 24px; margin: 24px; background: #fee; border: 1px solid #c00; border-radius: 8px; font-family: monospace; font-size: 13px; white-space: pre-wrap; }
   </style>
 </head>
 <body>
@@ -23,11 +22,10 @@
   <div id="error"></div>
   <div id="root"></div>
   <script>
-    window.onerror = function(msg, src, line, col, err) {
-      document.getElementById("loading").style.display = "none";
-      var el = document.getElementById("error");
-      el.style.display = "block";
-      el.textContent = "Error: " + msg + "\nLine: " + line + "\n" + (err ? err.stack : "");
+    window.onerror = function(msg,src,line,col,err) {
+      document.getElementById("loading").style.display="none";
+      var el=document.getElementById("error"); el.style.display="block";
+      el.textContent="Error: "+msg+"\nLine: "+line+"\n"+(err?err.stack:"");
     };
   </script>
   <script>
@@ -813,7 +811,8 @@ function EntCard(_ref11) {
       cursor: "pointer",
       textAlign: "left",
       width: "100%",
-      display: "block"
+      display: "block",
+      position: "relative"
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: {
@@ -910,113 +909,27 @@ function HomeScreen(_ref12) {
   var combinedGMStr = fmt(r.allGM) + " . " + pfmt(r.gmr);
   return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
     style: {
-      background: T,
-      borderRadius: 8,
-      padding: "12px 16px",
-      marginBottom: 12,
-      display: "grid",
-      gridTemplateColumns: "repeat(7,1fr)",
-      gap: 12,
-      alignItems: "center"
+      display: "flex",
+      justifyContent: "flex-end",
+      alignItems: "center",
+      marginBottom: 10,
+      gap: 8
     }
-  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement("span", {
     style: {
-      fontSize: 9,
-      color: "rgba(255,255,255,0.55)",
+      fontSize: 11,
+      color: "#8B6437",
+      fontWeight: 600,
       textTransform: "uppercase",
-      marginBottom: 2,
-      letterSpacing: "0.06em"
-    }
-  }, "All GP"), /*#__PURE__*/React.createElement("div", {
-    style: {
-      fontSize: 13,
-      fontWeight: 500,
-      color: "white"
-    }
-  }, fmt(r.allGP))), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
-    style: {
-      fontSize: 9,
-      color: "rgba(255,255,255,0.55)",
-      textTransform: "uppercase",
-      marginBottom: 2,
-      letterSpacing: "0.06em"
-    }
-  }, "All GM"), /*#__PURE__*/React.createElement("div", {
-    style: {
-      fontSize: 13,
-      fontWeight: 500,
-      color: "white"
-    }
-  }, fmt(r.allGM))), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
-    style: {
-      fontSize: 9,
-      color: "rgba(255,255,255,0.55)",
-      textTransform: "uppercase",
-      marginBottom: 2,
-      letterSpacing: "0.06em"
-    }
-  }, "GMR"), /*#__PURE__*/React.createElement("div", {
-    style: {
-      fontSize: 13,
-      fontWeight: 500,
-      color: "white"
-    }
-  }, pfmt(r.gmr))), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
-    style: {
-      fontSize: 9,
-      color: "rgba(255,255,255,0.55)",
-      textTransform: "uppercase",
-      marginBottom: 2,
-      letterSpacing: "0.06em"
-    }
-  }, "Ovhd Ratio"), /*#__PURE__*/React.createElement("div", {
-    style: {
-      fontSize: 13,
-      fontWeight: 500,
-      color: "white"
-    }
-  }, pfmt(r.orate))), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
-    style: {
-      fontSize: 9,
-      color: "rgba(255,255,255,0.55)",
-      textTransform: "uppercase",
-      marginBottom: 2,
-      letterSpacing: "0.06em"
-    }
-  }, "Business P(L)"), /*#__PURE__*/React.createElement("div", {
-    style: {
-      fontSize: 13,
-      fontWeight: 500,
-      color: "white"
-    }
-  }, fmt(r.bizPL))), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
-    style: {
-      fontSize: 9,
-      color: "rgba(255,255,255,0.55)",
-      textTransform: "uppercase",
-      marginBottom: 2,
-      letterSpacing: "0.06em"
-    }
-  }, "Cash contrib"), /*#__PURE__*/React.createElement("div", {
-    style: {
-      fontSize: 13,
-      fontWeight: 500,
-      color: "white"
-    }
-  }, fmt(r.cashNI))), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
-    style: {
-      fontSize: 9,
-      color: "rgba(255,255,255,0.55)",
-      textTransform: "uppercase",
-      marginBottom: 4,
       letterSpacing: "0.06em"
     }
   }, "Profit View"), /*#__PURE__*/React.createElement("div", {
     style: {
       display: "flex",
-      borderRadius: 4,
+      borderRadius: 20,
       overflow: "hidden",
-      border: "1px solid rgba(255,255,255,0.3)"
+      border: "2px solid #C4993B",
+      background: "#F0E4C8"
     }
   }, /*#__PURE__*/React.createElement("button", {
     type: "button",
@@ -1024,15 +937,15 @@ function HomeScreen(_ref12) {
       return setProfitView("economic");
     },
     style: {
-      flex: 1,
-      background: profitView === "economic" ? "rgba(255,255,255,0.25)" : "transparent",
-      color: "white",
+      background: profitView === "economic" ? T : "transparent",
+      color: profitView === "economic" ? "white" : "#3D2B1A",
       border: "none",
-      padding: "3px 6px",
-      fontSize: 10,
-      fontWeight: profitView === "economic" ? 700 : 400,
+      padding: "4px 14px",
+      fontSize: 11,
+      fontWeight: 700,
       cursor: "pointer",
-      letterSpacing: "0.02em"
+      borderRadius: 20,
+      transition: "all 0.15s"
     }
   }, "Economic"), /*#__PURE__*/React.createElement("button", {
     type: "button",
@@ -1040,17 +953,194 @@ function HomeScreen(_ref12) {
       return setProfitView("accounting");
     },
     style: {
-      flex: 1,
-      background: profitView === "accounting" ? "rgba(255,255,255,0.25)" : "transparent",
-      color: "white",
+      background: profitView === "accounting" ? T : "transparent",
+      color: profitView === "accounting" ? "white" : "#3D2B1A",
       border: "none",
-      padding: "3px 6px",
-      fontSize: 10,
-      fontWeight: profitView === "accounting" ? 700 : 400,
+      padding: "4px 14px",
+      fontSize: 11,
+      fontWeight: 700,
       cursor: "pointer",
-      letterSpacing: "0.02em"
+      borderRadius: 20,
+      transition: "all 0.15s"
     }
-  }, "Accounting")))), /*#__PURE__*/React.createElement("div", {
+  }, "Accounting"))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "grid",
+      gridTemplateColumns: "repeat(6,1fr)",
+      gap: 10,
+      marginBottom: 12
+    }
+  }, [{
+    label: "All GP",
+    value: fmt(r.allGP),
+    icon: /*#__PURE__*/React.createElement("svg", {
+      width: "18",
+      height: "18",
+      viewBox: "0 0 18 18"
+    }, /*#__PURE__*/React.createElement("circle", {
+      cx: "9",
+      cy: "9",
+      r: "8",
+      fill: "#8B6437"
+    }), /*#__PURE__*/React.createElement("text", {
+      x: "9",
+      y: "14",
+      textAnchor: "middle",
+      fontSize: "12",
+      fontWeight: "800",
+      fill: "white"
+    }, "$"))
+  }, {
+    label: "All GM",
+    value: fmt(r.allGM),
+    icon: /*#__PURE__*/React.createElement("svg", {
+      width: "18",
+      height: "18",
+      viewBox: "0 0 18 18"
+    }, /*#__PURE__*/React.createElement("rect", {
+      x: "1",
+      y: "10",
+      width: "4",
+      height: "7",
+      rx: "1",
+      fill: "#8B6437"
+    }), /*#__PURE__*/React.createElement("rect", {
+      x: "7",
+      y: "6",
+      width: "4",
+      height: "11",
+      rx: "1",
+      fill: "#8B6437"
+    }), /*#__PURE__*/React.createElement("rect", {
+      x: "13",
+      y: "2",
+      width: "4",
+      height: "15",
+      rx: "1",
+      fill: "#8B6437"
+    }))
+  }, {
+    label: "GMR",
+    value: pfmt(r.gmr),
+    icon: /*#__PURE__*/React.createElement("svg", {
+      width: "18",
+      height: "18",
+      viewBox: "0 0 18 18"
+    }, /*#__PURE__*/React.createElement("circle", {
+      cx: "9",
+      cy: "9",
+      r: "8",
+      fill: "none",
+      stroke: "#8B6437",
+      strokeWidth: "2"
+    }), /*#__PURE__*/React.createElement("text", {
+      x: "9",
+      y: "13",
+      textAnchor: "middle",
+      fontSize: "9",
+      fontWeight: "700",
+      fill: "#8B6437"
+    }, "%"))
+  }, {
+    label: "Ovhd Ratio",
+    value: pfmt(r.orate),
+    icon: /*#__PURE__*/React.createElement("svg", {
+      width: "18",
+      height: "18",
+      viewBox: "0 0 18 18"
+    }, /*#__PURE__*/React.createElement("path", {
+      d: "M9 9 L9 1 A8 8 0 0 1 17 9 Z",
+      fill: "#8B6437"
+    }), /*#__PURE__*/React.createElement("path", {
+      d: "M9 9 L17 9 A8 8 0 0 1 9 17 Z",
+      fill: "#C4993B"
+    }), /*#__PURE__*/React.createElement("path", {
+      d: "M9 9 L9 17 A8 8 0 0 1 1 9 Z",
+      fill: "#DEC99A"
+    }))
+  }, {
+    label: "Business P(L)",
+    value: fmt(r.bizPL),
+    neg: r.bizPL < 0,
+    icon: /*#__PURE__*/React.createElement("svg", {
+      width: "18",
+      height: "18",
+      viewBox: "0 0 18 18"
+    }, /*#__PURE__*/React.createElement("polyline", {
+      points: "1,13 6,7 11,10 17,4",
+      fill: "none",
+      stroke: r.bizPL >= 0 ? "#5A8030" : "#B91C1C",
+      strokeWidth: "2.5",
+      strokeLinecap: "round",
+      strokeLinejoin: "round"
+    }))
+  }, {
+    label: "Cash Contrib",
+    value: fmt(r.cashNI),
+    icon: /*#__PURE__*/React.createElement("svg", {
+      width: "18",
+      height: "18",
+      viewBox: "0 0 18 18"
+    }, /*#__PURE__*/React.createElement("ellipse", {
+      cx: "9",
+      cy: "5",
+      rx: "8",
+      ry: "3",
+      fill: "#8B6437"
+    }), /*#__PURE__*/React.createElement("path", {
+      d: "M1 5 Q1 10 9 10 Q17 10 17 5",
+      fill: "#8B6437"
+    }), /*#__PURE__*/React.createElement("path", {
+      d: "M1 8 Q1 13 9 13 Q17 13 17 8",
+      fill: "none",
+      stroke: "#8B6437",
+      strokeWidth: "1.5"
+    }))
+  }].map(function (_ref13) {
+    var label = _ref13.label,
+      value = _ref13.value,
+      icon = _ref13.icon,
+      neg = _ref13.neg;
+    return /*#__PURE__*/React.createElement("div", {
+      key: label,
+      style: {
+        background: "#FFFBF4",
+        borderRadius: 10,
+        padding: "10px 12px",
+        border: "1px solid #E8D9B4",
+        display: "flex",
+        alignItems: "center",
+        gap: 10
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        width: 36,
+        height: 36,
+        borderRadius: "50%",
+        background: "#F0E4C8",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        flexShrink: 0
+      }
+    }, icon), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontSize: 9,
+        color: "#8B6437",
+        textTransform: "uppercase",
+        letterSpacing: "0.08em",
+        marginBottom: 2,
+        fontWeight: 600
+      }
+    }, label), /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontSize: 14,
+        fontWeight: 700,
+        color: neg ? "#B91C1C" : "#3D2B1A",
+        fontVariantNumeric: "tabular-nums"
+      }
+    }, value)));
+  })), /*#__PURE__*/React.createElement("div", {
     style: {
       display: "grid",
       gridTemplateColumns: "1fr 1fr 1fr",
@@ -1637,10 +1727,10 @@ function HomeScreen(_ref12) {
 }
 
 // ── Cattle Form ───────────────────────────────────────────────────────────────
-function CattleForm(_ref13) {
-  var d = _ref13.d,
-    r = _ref13.r,
-    set = _ref13.set;
+function CattleForm(_ref14) {
+  var d = _ref14.d,
+    r = _ref14.r,
+    set = _ref14.set;
   var h = d.herd;
   var setH = function setH(f) {
     return function (v) {
@@ -1883,19 +1973,19 @@ function CattleForm(_ref13) {
 }
 
 // ── Small Ruminant Form ───────────────────────────────────────────────────────
-function SRForm(_ref14) {
-  var d = _ref14.d,
-    r = _ref14.r,
-    set = _ref14.set,
-    ent = _ref14.ent,
-    nm = _ref14.nm,
-    femLbl = _ref14.femLbl,
-    maleLbl = _ref14.maleLbl,
-    offLbl = _ref14.offLbl,
-    entR = _ref14.entR,
-    entOH = _ref14.entOH,
-    entShare = _ref14.entShare,
-    entPL = _ref14.entPL;
+function SRForm(_ref15) {
+  var d = _ref15.d,
+    r = _ref15.r,
+    set = _ref15.set,
+    ent = _ref15.ent,
+    nm = _ref15.nm,
+    femLbl = _ref15.femLbl,
+    maleLbl = _ref15.maleLbl,
+    offLbl = _ref15.offLbl,
+    entR = _ref15.entR,
+    entOH = _ref15.entOH,
+    entShare = _ref15.entShare,
+    entPL = _ref15.entPL;
   var sr = d[ent];
   var setH = function setH(f) {
     return function (v) {
@@ -2104,10 +2194,10 @@ function SRForm(_ref14) {
 }
 
 // ── Overheads Form ────────────────────────────────────────────────────────────
-function OHForm(_ref15) {
-  var d = _ref15.d,
-    r = _ref15.r,
-    set = _ref15.set;
+function OHForm(_ref16) {
+  var d = _ref16.d,
+    r = _ref16.r,
+    set = _ref16.set;
   var o = function o(f) {
     return function (v) {
       return set("oh", f, v);
@@ -2268,8 +2358,8 @@ function DualHdr() {
     }
   }, "Closing"));
 }
-function DualGrp(_ref16) {
-  var label = _ref16.label;
+function DualGrp(_ref17) {
+  var label = _ref17.label;
   return /*#__PURE__*/React.createElement("div", {
     style: {
       fontSize: 10,
@@ -2285,13 +2375,13 @@ function DualGrp(_ref16) {
     }
   }, label);
 }
-function DualField(_ref17) {
-  var label = _ref17.label,
-    field = _ref17.field,
-    open = _ref17.open,
-    close = _ref17.close,
-    so = _ref17.so,
-    sc = _ref17.sc;
+function DualField(_ref18) {
+  var label = _ref18.label,
+    field = _ref18.field,
+    open = _ref18.open,
+    close = _ref18.close,
+    so = _ref18.so,
+    sc = _ref18.sc;
   var inp = function inp(val, _onChange) {
     return /*#__PURE__*/React.createElement("div", {
       style: {
@@ -2344,12 +2434,12 @@ function DualField(_ref17) {
     return sc(field, v);
   }));
 }
-function DualRow(_ref18) {
-  var label = _ref18.label,
-    open = _ref18.open,
-    close = _ref18.close,
-    bold = _ref18.bold,
-    divider = _ref18.divider;
+function DualRow(_ref19) {
+  var label = _ref19.label,
+    open = _ref19.open,
+    close = _ref19.close,
+    bold = _ref19.bold,
+    divider = _ref19.divider;
   var bb = divider ? "2px solid var(--color-border-secondary)" : "1px solid var(--color-border-tertiary)";
   var cs = {
     fontSize: 12,
@@ -2387,11 +2477,11 @@ function DualRow(_ref18) {
     })
   }, fmt(close)));
 }
-function BSForm(_ref19) {
-  var d = _ref19.d,
-    r = _ref19.r,
-    set = _ref19.set,
-    copyOpenToClose = _ref19.copyOpenToClose;
+function BSForm(_ref20) {
+  var d = _ref20.d,
+    r = _ref20.r,
+    set = _ref20.set,
+    copyOpenToClose = _ref20.copyOpenToClose;
   var o = d.bsOpen,
     c = d.bsClose;
   var so = function so(f, v) {
@@ -2643,9 +2733,9 @@ function BSForm(_ref19) {
 }
 
 // ── Results Form ──────────────────────────────────────────────────────────────
-function ResultsForm(_ref20) {
-  var d = _ref20.d,
-    r = _ref20.r;
+function ResultsForm(_ref21) {
+  var d = _ref21.d,
+    r = _ref21.r;
   var gmrC = r.gmr >= 0.70 ? "#15803d" : r.gmr >= 0.50 ? "#b45309" : "#b91c1c";
   var roaC = r.roa == null ? "var(--color-text-primary)" : r.roa >= 0.10 ? "#15803d" : "#b91c1c";
   var atrC = r.atr == null ? "var(--color-text-primary)" : r.atr >= 0.25 ? "#15803d" : "#b45309";
@@ -2893,10 +2983,10 @@ function GlossaryContent() {
       background: "#F0E4C8",
       borderRadius: 6
     }
-  }, terms.length, " terms defined. These same definitions appear as hover tooltips (the ? icons) throughout the app."), terms.map(function (_ref21) {
-    var _ref22 = _slicedToArray(_ref21, 2),
-      term = _ref22[0],
-      def = _ref22[1];
+  }, terms.length, " terms defined. These same definitions appear as hover tooltips (the ? icons) throughout the app."), terms.map(function (_ref22) {
+    var _ref23 = _slicedToArray(_ref22, 2),
+      term = _ref23[0],
+      def = _ref23[1];
     return /*#__PURE__*/React.createElement("div", {
       key: term,
       style: {
@@ -2920,8 +3010,8 @@ function GlossaryContent() {
     }, def));
   }));
 }
-function GuideModal(_ref23) {
-  var onClose = _ref23.onClose;
+function GuideModal(_ref24) {
+  var onClose = _ref24.onClose;
   var _useState5 = useState("guide"),
     _useState6 = _slicedToArray(_useState5, 2),
     tab = _useState6[0],
@@ -2981,10 +3071,10 @@ function GuideModal(_ref23) {
       borderBottom: "1px solid var(--color-border-tertiary)",
       flexShrink: 0
     }
-  }, [["guide", "How to Use"], ["glossary", "Glossary"]].map(function (_ref24) {
-    var _ref25 = _slicedToArray(_ref24, 2),
-      key = _ref25[0],
-      lbl = _ref25[1];
+  }, [["guide", "How to Use"], ["glossary", "Glossary"]].map(function (_ref25) {
+    var _ref26 = _slicedToArray(_ref25, 2),
+      key = _ref26[0],
+      lbl = _ref26[1];
     return /*#__PURE__*/React.createElement("button", {
       key: key,
       type: "button",
@@ -3013,10 +3103,10 @@ function GuideModal(_ref23) {
 }
 
 // ── Leases & Hunting Form ─────────────────────────────────────────────────────
-function LeasesForm(_ref26) {
-  var d = _ref26.d,
-    r = _ref26.r,
-    set = _ref26.set;
+function LeasesForm(_ref27) {
+  var d = _ref27.d,
+    r = _ref27.r,
+    set = _ref27.set;
   var l = d.leases;
   var sI = function sI(f) {
     return function (v) {
@@ -3391,12 +3481,11 @@ function App() {
 }
 ReactDOM.createRoot(document.getElementById("root")).render(React.createElement(App));
 
-  document.getElementById("loading").style.display = "none";
+  document.getElementById("loading").style.display="none";
 } catch(e) {
-  document.getElementById("loading").style.display = "none";
-  var el = document.getElementById("error");
-  el.style.display = "block";
-  el.textContent = "Runtime error: " + e.message + "\n" + e.stack;
+  document.getElementById("loading").style.display="none";
+  var el=document.getElementById("error"); el.style.display="block";
+  el.textContent="Runtime error: "+e.message+"\n"+e.stack;
 }
   </script>
 </body>
