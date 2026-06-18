@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-18T12:33:35.699Z",
+  "generated": "2026-06-18T23:05:30.571Z",
   "meta": {
     "currentQuarter": "Q2",
     "currentYear": "2026",
@@ -412,6 +412,16 @@
   ],
   "projects": [],
   "tasks": [
+    {
+      "id": "383c5749485980fb8d7ec821a6f99663",
+      "type": "task",
+      "name": "Finish closet organizing ",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": "Baby Girl",
+      "hours": null,
+      "projectIds": []
+    },
     {
       "id": "382c574948598007a015c6b1a6e1ddf9",
       "type": "task",
@@ -864,6 +874,23 @@
     }
   ],
   "wipTasks": [
+    {
+      "id": "383c5749485980fb8d7ec821a6f99663",
+      "type": "task",
+      "name": "Finish closet organizing ",
+      "status": "In progress (WIP)",
+      "pillarIds": [],
+      "domain": "Baby Girl",
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Patricia Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": "2026-06-18T11:14:00.000-05:00",
+      "completeDate": null
+    },
     {
       "id": "382c574948598007a015c6b1a6e1ddf9",
       "type": "task",
