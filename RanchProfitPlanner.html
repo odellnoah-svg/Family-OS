@@ -343,39 +343,97 @@ var BSI = {
   longTermLiab: 0
 };
 var INIT = {
-  herd: {
-    cows: 86,
-    h2: 0,
-    h1: 10,
-    bulls: 3,
-    deathPct: 1,
-    dryPct: 3,
-    cullPct: 3,
-    openPct: 5,
-    h1Kept: 10
-  },
-  val: {
-    cowPreg: 1600,
-    bull: 4500,
-    h1: 0,
-    h2: 0
-  },
-  sales: {
-    steersSold: 25,
-    heifersSold: 35,
-    openCow: 1500,
-    cullCow: 1500,
-    steerWt: 350,
-    steerPPLb: 3.75,
-    hfWt: 350,
-    hfPPLb: 3.75,
-    other: 3000
-  },
-  dc: {
-    oppPct: 10,
-    feed: 13500,
-    vet: 2000,
-    freight: 2000
+  cattle: {
+    open: {
+      pregCows: 86,
+      pregCowsVal: 1600,
+      openCows: 0,
+      openCowsVal: 1200,
+      h2: 0,
+      h2Val: 1200,
+      h1: 10,
+      h1Val: 900,
+      femCalves: 0,
+      femCalvesVal: 600,
+      malCalves: 0,
+      malCalvesVal: 650,
+      stockerHfrs: 0,
+      stockerHfrsVal: 800,
+      stockerStrs: 0,
+      stockerStrsVal: 850,
+      bulls: 3,
+      bullsVal: 4500
+    },
+    births: {
+      femCalves: 0,
+      malCalves: 0
+    },
+    purch: {
+      bulls: 0,
+      bullsPerHead: 4500,
+      heifers: 0,
+      heiferPerHead: 900,
+      stockerHfrs: 0,
+      stockerHfrsPerHead: 800,
+      stockerStrs: 0,
+      stockerStrsPerHead: 850
+    },
+    deaths: {
+      pregCows: 1,
+      openCows: 0,
+      h2: 0,
+      h1: 1,
+      femCalves: 0,
+      malCalves: 0,
+      stockerHfrs: 0,
+      stockerStrs: 0,
+      bulls: 0
+    },
+    xfer: {
+      femToH1: 10,
+      femToStocker: 0,
+      malToStocker: 0,
+      h1ToH2: 0,
+      h2ToPreg: 0
+    },
+    sales: {
+      pregHead: 5,
+      pregPrice: 1500,
+      openHead: 4,
+      openPrice: 1200,
+      dryHead: 3,
+      dryPrice: 1300,
+      h2Head: 0,
+      h2Price: 1200,
+      h1Head: 0,
+      h1Price: 900,
+      femCalfHead: 35,
+      femCalfPrice: 800,
+      malCalfHead: 25,
+      malCalfPrice: 900,
+      stockerHfrHead: 0,
+      stockerHfrPrice: 1000,
+      stockerStrHead: 0,
+      stockerStrPrice: 1100,
+      bullHead: 0,
+      bullPrice: 3000
+    },
+    closeVal: {
+      pregCows: 1600,
+      h2: 1200,
+      h1: 900,
+      femCalves: 600,
+      malCalves: 650,
+      stockerHfrs: 800,
+      stockerStrs: 850,
+      bulls: 4500
+    },
+    dc: {
+      oppPct: 10,
+      feed: 13500,
+      vet: 2000,
+      freight: 2000
+    }
   },
   sheep: {
     herd: {
@@ -471,6 +529,78 @@ var INIT = {
   bsClose: _objectSpread({}, BSI)
 };
 
+// ── Cattle Stock Flow Compute ─────────────────────────────────────────────────
+function computeCattle(c, econ) {
+  var o = c.open,
+    b = c.births,
+    p = c.purch,
+    dt = c.deaths,
+    x = c.xfer,
+    s = c.sales,
+    cv = c.closeVal,
+    dc = c.dc;
+
+  // BIV
+  var biv = o.pregCows * o.pregCowsVal + o.openCows * o.openCowsVal + o.h2 * o.h2Val + o.h1 * o.h1Val + o.femCalves * o.femCalvesVal + o.malCalves * o.malCalvesVal + o.stockerHfrs * o.stockerHfrsVal + o.stockerStrs * o.stockerStrsVal + o.bulls * o.bullsVal;
+
+  // Closing head per class
+  var clPreg = o.pregCows + x.h2ToPreg - dt.pregCows - s.pregHead - s.dryHead;
+  var clOpen = o.openCows - dt.openCows - s.openHead;
+  var clH2 = o.h2 + x.h1ToH2 - dt.h2 - s.h2Head - x.h2ToPreg;
+  var clH1 = o.h1 + x.femToH1 + p.heifers - dt.h1 - s.h1Head - x.h1ToH2;
+  var clFemCalf = o.femCalves + b.femCalves - dt.femCalves - s.femCalfHead - x.femToH1 - x.femToStocker;
+  var clMalCalf = o.malCalves + b.malCalves - dt.malCalves - s.malCalfHead - x.malToStocker;
+  var clStkHfr = o.stockerHfrs + x.femToStocker + p.stockerHfrs - dt.stockerHfrs - s.stockerHfrHead;
+  var clStkStr = o.stockerStrs + x.malToStocker + p.stockerStrs - dt.stockerStrs - s.stockerStrHead;
+  var clBulls = o.bulls + p.bulls - dt.bulls - s.bullHead;
+  var close = {
+    pregCows: clPreg,
+    openCows: clOpen,
+    h2: clH2,
+    h1: clH1,
+    femCalves: clFemCalf,
+    malCalves: clMalCalf,
+    stockerHfrs: clStkHfr,
+    stockerStrs: clStkStr,
+    bulls: clBulls
+  };
+
+  // CIV (open cows all assumed sold; use max 0 for safety)
+  var civ = Math.max(0, clPreg) * cv.pregCows + Math.max(0, clH2) * cv.h2 + Math.max(0, clH1) * cv.h1 + Math.max(0, clFemCalf) * cv.femCalves + Math.max(0, clMalCalf) * cv.malCalves + Math.max(0, clStkHfr) * cv.stockerHfrs + Math.max(0, clStkStr) * cv.stockerStrs + Math.max(0, clBulls) * cv.bulls;
+
+  // Sales
+  var totalSales = s.pregHead * s.pregPrice + s.openHead * s.openPrice + s.dryHead * s.dryPrice + s.h2Head * s.h2Price + s.h1Head * s.h1Price + s.femCalfHead * s.femCalfPrice + s.malCalfHead * s.malCalfPrice + s.stockerHfrHead * s.stockerHfrPrice + s.stockerStrHead * s.stockerStrPrice + s.bullHead * s.bullPrice;
+
+  // Purchase cost
+  var purchCost = p.bulls * p.bullsPerHead + p.heifers * p.heiferPerHead + p.stockerHfrs * p.stockerHfrsPerHead + p.stockerStrs * p.stockerStrsPerHead;
+
+  // GP, DC, GM
+  var gp = civ + totalSales - purchCost - biv;
+  var oppCost = econ ? biv * dc.oppPct / 100 : 0;
+  var cashDC = dc.feed + dc.vet + dc.freight;
+  var totalDC = oppCost + cashDC;
+  var gm = gp - totalDC;
+
+  // SAU (opening headcount basis)
+  var sau = o.pregCows * 1.0 + o.openCows * 1.0 + o.h2 * 0.8 + o.h1 * 0.7 + o.femCalves * 0.3 + o.malCalves * 0.3 + o.stockerHfrs * 0.6 + o.stockerStrs * 0.6 + o.bulls * 1.5;
+  return {
+    biv: biv,
+    civ: civ,
+    close: close,
+    totalSales: totalSales,
+    purchCost: purchCost,
+    gp: gp,
+    oppCost: oppCost,
+    cashDC: cashDC,
+    totalDC: totalDC,
+    gm: gm,
+    sau: sau,
+    gmr: gp ? gm / gp : 0,
+    lsSales: totalSales,
+    revenue: totalSales
+  };
+}
+
 // ── Compute ───────────────────────────────────────────────────────────────────
 function computeSR(sr, sauF, sauM) {
   var econ = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : true;
@@ -555,10 +685,7 @@ function bsCalc(b, ls) {
 function compute(data) {
   var profitView = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "economic";
   var econ = profitView === "economic";
-  var h = data.herd,
-    v = data.val,
-    s = data.sales,
-    dc = data.dc,
+  var cattle = data.cattle,
     sheep = data.sheep,
     goats = data.goats,
     leases = data.leases,
@@ -566,27 +693,29 @@ function compute(data) {
     prop = data.prop,
     bsOpen = data.bsOpen,
     bsClose = data.bsClose;
-  var deaths = Math.ceil(h.cows * h.deathPct / 100),
-    live = h.cows - deaths;
-  var dry = Math.ceil(live * h.dryPct / 100),
-    wet = live - dry;
-  var culls = Math.ceil(wet * h.cullPct / 100),
-    exposed = wet - culls;
-  var open = Math.ceil(exposed * h.openPct / 100),
-    pregKept = exposed - open;
-  var bioSteers = Math.round(wet / 2),
-    bioHfSold = Math.max(0, wet - bioSteers - h.h1Kept);
-  var biv = h.cows * v.cowPreg + h.bulls * v.bull + h.h1 * v.h1 + h.h2 * v.h2;
-  var civ = pregKept * v.cowPreg + h.bulls * v.bull;
-  var cowSales = (open + dry) * s.openCow + culls * s.cullCow;
-  var calfSales = s.steersSold * s.steerWt * s.steerPPLb + s.heifersSold * s.hfWt * s.hfPPLb;
-  var lsSales = cowSales + calfSales,
-    revenue = lsSales;
-  var gp = civ + lsSales - biv,
-    oppCost = econ ? biv * dc.oppPct / 100 : 0;
-  var totalDC = oppCost + dc.feed + dc.vet + dc.freight,
-    gm = gp - totalDC;
-  var cattleSAU = h.cows + h.h1 * 0.7 + h.h2 * 0.8 + h.bulls * 1.5;
+  var catR = computeCattle(cattle, econ);
+  var biv = catR.biv,
+    civ = catR.civ,
+    lsSales = catR.lsSales,
+    revenue = catR.revenue,
+    gp = catR.gp,
+    oppCost = catR.oppCost,
+    totalDC = catR.totalDC,
+    gm = catR.gm;
+  var cattleSAU = catR.sau;
+  // backward-compat aliases for flow diagram
+  var o = cattle.open,
+    s = cattle.sales,
+    x = cattle.xfer,
+    dt = cattle.deaths;
+  var wet = o.pregCows + o.h2,
+    culls = s.pregHead,
+    open = s.openHead,
+    dry = s.dryHead;
+  var deaths = dt.pregCows + dt.h2 + dt.h1 + dt.femCalves + dt.malCalves + dt.bulls;
+  var pregKept = Math.max(0, catR.close.pregCows);
+  var cowSales = s.pregHead * s.pregPrice + s.openHead * s.openPrice + s.dryHead * s.dryPrice;
+  var calfSales = s.femCalfHead * s.femCalfPrice + s.malCalfHead * s.malCalfPrice;
   var sr_s = computeSR(sheep, 0.20, 0.25, econ),
     sr_g = computeSR(goats, 0.17, 0.20, econ),
     lr = computeLeases(leases);
@@ -619,14 +748,13 @@ function compute(data) {
     atr = bso.ops > 0 ? allGP / bso.ops : null;
   var acres = prop.acresGrazed || prop.acresOwned;
   return {
+    cattle: catR,
     deaths: deaths,
     dry: dry,
     wet: wet,
     culls: culls,
     open: open,
     pregKept: pregKept,
-    bioSteers: bioSteers,
-    bioHfSold: bioHfSold,
     biv: biv,
     civ: civ,
     cowSales: cowSales,
@@ -2210,38 +2338,67 @@ function CattleForm(_ref17) {
     onNav = _ref17.onNav,
     profitView = _ref17.profitView,
     setProfitView = _ref17.setProfitView;
-  var h = d.herd;
-  var setH = function setH(f) {
+  var c = d.cattle;
+  var o = c.open,
+    b = c.births,
+    p = c.purch,
+    dt = c.deaths,
+    x = c.xfer,
+    s = c.sales,
+    cv = c.closeVal,
+    dc = c.dc;
+  var cr = r.cattle;
+  var setO = function setO(f) {
     return function (v) {
-      return set("herd", f, v);
+      return set("cattle", f, v, "open");
     };
   };
-  var setV = function setV(f) {
+  var setB = function setB(f) {
     return function (v) {
-      return set("val", f, v);
+      return set("cattle", f, v, "births");
     };
   };
-  var setS = function setS(f) {
+  var setP = function setP(f) {
     return function (v) {
-      return set("sales", f, v);
+      return set("cattle", f, v, "purch");
     };
   };
-  var setD = function setD(f) {
+  var setDt = function setDt(f) {
     return function (v) {
-      return set("dc", f, v);
+      return set("cattle", f, v, "deaths");
+    };
+  };
+  var setX = function setX(f) {
+    return function (v) {
+      return set("cattle", f, v, "xfer");
+    };
+  };
+  var setSl = function setSl(f) {
+    return function (v) {
+      return set("cattle", f, v, "sales");
+    };
+  };
+  var setCV = function setCV(f) {
+    return function (v) {
+      return set("cattle", f, v, "closeVal");
+    };
+  };
+  var setDc = function setDc(f) {
+    return function (v) {
+      return set("cattle", f, v, "dc");
     };
   };
   var ohPctStr = (r.cattleShare * 100).toFixed(1) + "% share";
   var kpis = [{
     label: "Gross Product",
-    value: fmt(r.gp),
+    value: fmt(cr.gp),
     icon: "$",
     neg: false
   }, {
     label: "Gross Margin",
-    value: fmt(r.gm),
+    value: fmt(cr.gm),
     icon: "📊",
-    neg: false
+    neg: cr.gm < 0
   }, {
     label: "Enterprise P(L)",
     value: fmt(r.cattlePL),
@@ -2249,12 +2406,12 @@ function CattleForm(_ref17) {
     neg: r.cattlePL < 0
   }, {
     label: "GMR",
-    value: pfmt(r.gp ? r.gm / r.gp : 0),
+    value: pfmt(cr.gmr),
     icon: "%",
     neg: false
   }, {
     label: "Cattle SAU",
-    value: r.cattleSAU.toFixed(1),
+    value: cr.sau.toFixed(1),
     icon: "🐄",
     neg: false
   }, {
@@ -2263,35 +2420,110 @@ function CattleForm(_ref17) {
     icon: "🏦",
     neg: false
   }];
-  var rHdr = /*#__PURE__*/React.createElement("div", {
-    style: {
-      display: "grid",
-      gridTemplateColumns: "1fr 68px 68px",
-      gap: 6,
-      padding: "6px 0 2px",
-      borderBottom: "1px solid #F0EBE3"
-    }
-  }, /*#__PURE__*/React.createElement("div", null), /*#__PURE__*/React.createElement("div", {
-    style: {
-      fontSize: 10,
-      color: "#8B6437",
-      textAlign: "center",
-      fontWeight: 600
-    }
-  }, "Head"), /*#__PURE__*/React.createElement("div", {
-    style: {
-      fontSize: 10,
-      color: "#8B6437",
-      textAlign: "center",
-      fontWeight: 600
-    }
-  }, "Rate %"));
+
+  // Stock flow reconciliation rows
+  var sfRows = [{
+    cls: "Preg Cows",
+    open: o.pregCows,
+    inflow: x.h2ToPreg,
+    outflow: dt.pregCows + s.pregHead + s.dryHead,
+    close: cr.close.pregCows
+  }, {
+    cls: "Open Cows",
+    open: o.openCows,
+    inflow: 0,
+    outflow: dt.openCows + s.openHead,
+    close: cr.close.openCows
+  }, {
+    cls: "H2 Heifers",
+    open: o.h2,
+    inflow: x.h1ToH2,
+    outflow: dt.h2 + s.h2Head + x.h2ToPreg,
+    close: cr.close.h2
+  }, {
+    cls: "H1 Heifers",
+    open: o.h1,
+    inflow: x.femToH1 + p.heifers,
+    outflow: dt.h1 + s.h1Head + x.h1ToH2,
+    close: cr.close.h1
+  }, {
+    cls: "Fem Calves",
+    open: o.femCalves,
+    inflow: b.femCalves,
+    outflow: dt.femCalves + s.femCalfHead + x.femToH1 + x.femToStocker,
+    close: cr.close.femCalves
+  }, {
+    cls: "Mal Calves",
+    open: o.malCalves,
+    inflow: b.malCalves,
+    outflow: dt.malCalves + s.malCalfHead + x.malToStocker,
+    close: cr.close.malCalves
+  }, {
+    cls: "Stk Heifers",
+    open: o.stockerHfrs,
+    inflow: x.femToStocker + p.stockerHfrs,
+    outflow: dt.stockerHfrs + s.stockerHfrHead,
+    close: cr.close.stockerHfrs
+  }, {
+    cls: "Stk Steers",
+    open: o.stockerStrs,
+    inflow: x.malToStocker + p.stockerStrs,
+    outflow: dt.stockerStrs + s.stockerStrHead,
+    close: cr.close.stockerStrs
+  }, {
+    cls: "Bulls",
+    open: o.bulls,
+    inflow: p.bulls,
+    outflow: dt.bulls + s.bullHead,
+    close: cr.close.bulls
+  }];
+  var C4 = "1fr 58px 70px 72px";
+  var TblHdr = function TblHdr(_ref18) {
+    var cols = _ref18.cols,
+      _ref18$a = _ref18.a,
+      a = _ref18$a === void 0 ? "center" : _ref18$a,
+      _ref18$b = _ref18.b,
+      b = _ref18$b === void 0 ? "center" : _ref18$b,
+      _ref18$c = _ref18.c,
+      c = _ref18$c === void 0 ? "right" : _ref18$c;
+    return /*#__PURE__*/React.createElement("div", {
+      style: {
+        display: "grid",
+        gridTemplateColumns: cols || C4,
+        gap: 4,
+        padding: "4px 0 3px",
+        borderBottom: "1px solid #E8DFD0",
+        marginBottom: 3
+      }
+    }, /*#__PURE__*/React.createElement("div", null), /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontSize: 10,
+        color: "#9B8B7A",
+        fontWeight: 600,
+        textAlign: a
+      }
+    }, "Head"), /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontSize: 10,
+        color: "#9B8B7A",
+        fontWeight: 600,
+        textAlign: b
+      }
+    }, "$/Head"), /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontSize: 10,
+        color: "#9B8B7A",
+        fontWeight: 600,
+        textAlign: c
+      }
+    }, "Total"));
+  };
   return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(ProfitViewToggle, {
     profitView: profitView,
     setProfitView: setProfitView
   }), /*#__PURE__*/React.createElement(EntHdr, {
     nm: "Cattle",
-    subtitle: "Enterprise Performance & Financial Summary",
+    subtitle: "Cattle Enterprise \xB7 Stock Flow & Financial Summary",
     AnimalIcon: CowIcon,
     kpis: kpis,
     onNav: onNav
@@ -2304,180 +2536,653 @@ function CattleForm(_ref17) {
   }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(ColBanner, {
     inputs: true
   }), /*#__PURE__*/React.createElement(Section, {
-    icon: "\uD83D\uDC04",
-    label: "Herd Composition"
-  }, /*#__PURE__*/React.createElement(Field, {
-    label: "Mature Cows",
-    val: h.cows,
-    set: setH("cows")
-  }), /*#__PURE__*/React.createElement(Field, {
-    label: "H2 Heifers (first-calf)",
-    val: h.h2,
-    set: setH("h2")
-  }), /*#__PURE__*/React.createElement(Field, {
-    label: "H1 Heifers (virgin)",
-    val: h.h1,
-    set: setH("h1")
-  }), /*#__PURE__*/React.createElement(Field, {
-    label: "Bulls",
-    val: h.bulls,
-    set: setH("bulls")
+    icon: "\uD83D\uDCCB",
+    label: "Opening Inventory (BIV)"
+  }, /*#__PURE__*/React.createElement(TblHdr, {
+    a: "center",
+    b: "center",
+    c: "right"
+  }), [{
+    lbl: "Preg Cows",
+    hK: "pregCows",
+    vK: "pregCowsVal"
+  }, {
+    lbl: "Open Cows",
+    hK: "openCows",
+    vK: "openCowsVal"
+  }, {
+    lbl: "H2 Heifers",
+    hK: "h2",
+    vK: "h2Val"
+  }, {
+    lbl: "H1 Heifers",
+    hK: "h1",
+    vK: "h1Val"
+  }, {
+    lbl: "Female Calves",
+    hK: "femCalves",
+    vK: "femCalvesVal"
+  }, {
+    lbl: "Male Calves",
+    hK: "malCalves",
+    vK: "malCalvesVal"
+  }, {
+    lbl: "Stk Heifers",
+    hK: "stockerHfrs",
+    vK: "stockerHfrsVal"
+  }, {
+    lbl: "Stk Steers",
+    hK: "stockerStrs",
+    vK: "stockerStrsVal"
+  }, {
+    lbl: "Bulls",
+    hK: "bulls",
+    vK: "bullsVal"
+  }].map(function (_ref19) {
+    var lbl = _ref19.lbl,
+      hK = _ref19.hK,
+      vK = _ref19.vK;
+    return /*#__PURE__*/React.createElement("div", {
+      key: hK,
+      style: {
+        display: "grid",
+        gridTemplateColumns: C4,
+        gap: 4,
+        padding: "5px 0",
+        borderBottom: "1px solid #F0EBE3",
+        alignItems: "center"
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontSize: 12,
+        color: "#5A4A38"
+      }
+    }, lbl), /*#__PURE__*/React.createElement(Inp, {
+      val: o[hK],
+      onChange: setO(hK)
+    }), /*#__PURE__*/React.createElement(Inp, {
+      val: o[vK],
+      onChange: setO(vK),
+      pre: "$"
+    }), /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontSize: 12,
+        fontWeight: 600,
+        color: "#1A1208",
+        textAlign: "right"
+      }
+    }, fmt(o[hK] * o[vK])));
+  }), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "grid",
+      gridTemplateColumns: C4,
+      gap: 4,
+      padding: "7px 0 0",
+      borderTop: "2px solid #E5DDD0"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 12,
+      fontWeight: 700,
+      color: T,
+      gridColumn: "1/4"
+    }
+  }, "Total BIV"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 13,
+      fontWeight: 700,
+      color: "#1A1208",
+      textAlign: "right"
+    }
+  }, fmt(cr.biv)))), /*#__PURE__*/React.createElement(Section, {
+    icon: "\uD83D\uDC23",
+    label: "Births"
+  }, [{
+    lbl: "Female calves born",
+    f: "femCalves"
+  }, {
+    lbl: "Male calves born",
+    f: "malCalves"
+  }].map(function (_ref20) {
+    var lbl = _ref20.lbl,
+      f = _ref20.f;
+    return /*#__PURE__*/React.createElement("div", {
+      key: f,
+      style: {
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+        padding: "5px 0",
+        borderBottom: "1px solid #F0EBE3"
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontSize: 12,
+        color: "#5A4A38"
+      }
+    }, lbl), /*#__PURE__*/React.createElement(Inp, {
+      val: b[f],
+      onChange: setB(f)
+    }));
+  }), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 11,
+      color: "#8B6437",
+      marginTop: 6,
+      fontStyle: "italic"
+    }
+  }, "Biology: ~" + Math.round((o.pregCows + o.h2) / 2) + " of each sex from " + (o.pregCows + o.h2) + " breeding females")), /*#__PURE__*/React.createElement(Section, {
+    icon: "\uD83D\uDED2",
+    label: "Purchases (from outside)"
+  }, /*#__PURE__*/React.createElement(TblHdr, {
+    a: "center",
+    b: "center",
+    c: "right"
+  }), [{
+    lbl: "Bulls",
+    hK: "bulls",
+    pK: "bullsPerHead"
+  }, {
+    lbl: "H1 Heifers",
+    hK: "heifers",
+    pK: "heiferPerHead"
+  }, {
+    lbl: "Stk Heifers",
+    hK: "stockerHfrs",
+    pK: "stockerHfrsPerHead"
+  }, {
+    lbl: "Stk Steers",
+    hK: "stockerStrs",
+    pK: "stockerStrsPerHead"
+  }].map(function (_ref21) {
+    var lbl = _ref21.lbl,
+      hK = _ref21.hK,
+      pK = _ref21.pK;
+    return /*#__PURE__*/React.createElement("div", {
+      key: hK,
+      style: {
+        display: "grid",
+        gridTemplateColumns: C4,
+        gap: 4,
+        padding: "5px 0",
+        borderBottom: "1px solid #F0EBE3",
+        alignItems: "center"
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontSize: 12,
+        color: "#5A4A38"
+      }
+    }, lbl), /*#__PURE__*/React.createElement(Inp, {
+      val: p[hK],
+      onChange: setP(hK)
+    }), /*#__PURE__*/React.createElement(Inp, {
+      val: p[pK],
+      onChange: setP(pK),
+      pre: "$"
+    }), /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontSize: 12,
+        fontWeight: 600,
+        color: "#1A1208",
+        textAlign: "right"
+      }
+    }, fmt(p[hK] * p[pK])));
   })), /*#__PURE__*/React.createElement(Section, {
-    icon: "\uD83D\uDCC8",
-    label: "Performance Rates"
-  }, rHdr, /*#__PURE__*/React.createElement(RateField, {
-    label: "Death loss",
-    pctVal: h.deathPct,
-    setPct: setH("deathPct"),
-    count: r.deaths,
-    base: h.cows
-  }), /*#__PURE__*/React.createElement(RateField, {
-    label: "Dry rate",
-    pctVal: h.dryPct,
-    setPct: setH("dryPct"),
-    count: r.dry,
-    base: h.cows - r.deaths
-  }), /*#__PURE__*/React.createElement(RateField, {
-    label: "Cull rate",
-    pctVal: h.cullPct,
-    setPct: setH("cullPct"),
-    count: r.culls,
-    base: r.wet
-  }), /*#__PURE__*/React.createElement(RateField, {
-    label: "Open rate",
-    pctVal: h.openPct,
-    setPct: setH("openPct"),
-    count: r.open,
-    base: r.wet - r.culls
-  }), /*#__PURE__*/React.createElement(Field, {
-    label: "H1 heifers to retain",
-    val: h.h1Kept,
-    set: setH("h1Kept")
-  })), /*#__PURE__*/React.createElement(Section, {
-    icon: "\uD83D\uDCB5",
-    label: "Livestock Values"
-  }, /*#__PURE__*/React.createElement(Field, {
-    label: "Preg cow / head",
-    val: d.val.cowPreg,
-    set: setV("cowPreg"),
-    pre: "$"
-  }), /*#__PURE__*/React.createElement(Field, {
-    label: "Bull / head",
-    val: d.val.bull,
-    set: setV("bull"),
-    pre: "$"
-  }), /*#__PURE__*/React.createElement(Field, {
-    label: "H2 heifer / head",
-    val: d.val.h2,
-    set: setV("h2"),
-    pre: "$"
-  }), /*#__PURE__*/React.createElement(Field, {
-    label: "H1 heifer / head",
-    val: d.val.h1,
-    set: setV("h1"),
-    pre: "$"
+    icon: "\uD83D\uDC80",
+    label: "Deaths"
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "grid",
+      gridTemplateColumns: "1fr 1fr",
+      gap: 4
+    }
+  }, [{
+    lbl: "Preg Cows",
+    f: "pregCows"
+  }, {
+    lbl: "Open Cows",
+    f: "openCows"
+  }, {
+    lbl: "H2 Heifers",
+    f: "h2"
+  }, {
+    lbl: "H1 Heifers",
+    f: "h1"
+  }, {
+    lbl: "Fem Calves",
+    f: "femCalves"
+  }, {
+    lbl: "Mal Calves",
+    f: "malCalves"
+  }, {
+    lbl: "Stk Heifers",
+    f: "stockerHfrs"
+  }, {
+    lbl: "Stk Steers",
+    f: "stockerStrs"
+  }, {
+    lbl: "Bulls",
+    f: "bulls"
+  }].map(function (_ref22) {
+    var lbl = _ref22.lbl,
+      f = _ref22.f;
+    return /*#__PURE__*/React.createElement("div", {
+      key: f,
+      style: {
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+        padding: "5px 6px",
+        borderBottom: "1px solid #F0EBE3"
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontSize: 12,
+        color: "#5A4A38"
+      }
+    }, lbl), /*#__PURE__*/React.createElement(Inp, {
+      val: dt[f],
+      onChange: setDt(f)
+    }));
+  }))), /*#__PURE__*/React.createElement(Section, {
+    icon: "\uD83D\uDD00",
+    label: "Class Transfers (Retained)"
+  }, [{
+    lbl: "Fem Calves → H1 Replacements",
+    f: "femToH1"
+  }, {
+    lbl: "Fem Calves → Stk Heifers",
+    f: "femToStocker"
+  }, {
+    lbl: "Mal Calves → Stk Steers",
+    f: "malToStocker"
+  }, {
+    lbl: "H1 → H2 (graduating)",
+    f: "h1ToH2"
+  }, {
+    lbl: "H2 → Preg Cows (graduating)",
+    f: "h2ToPreg"
+  }].map(function (_ref23) {
+    var lbl = _ref23.lbl,
+      f = _ref23.f;
+    return /*#__PURE__*/React.createElement("div", {
+      key: f,
+      style: {
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+        padding: "5px 0",
+        borderBottom: "1px solid #F0EBE3"
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontSize: 12,
+        color: "#5A4A38"
+      }
+    }, lbl), /*#__PURE__*/React.createElement(Inp, {
+      val: x[f],
+      onChange: setX(f)
+    }));
   })), /*#__PURE__*/React.createElement(Section, {
     icon: "\uD83C\uDFF7\uFE0F",
-    label: "Livestock Sales"
-  }, /*#__PURE__*/React.createElement(Field, {
-    label: "Steers sold",
-    val: d.sales.steersSold,
-    set: setS("steersSold")
-  }), /*#__PURE__*/React.createElement(Hint, null, "Biology ~" + r.bioSteers + " from " + r.wet + " wet cows"), /*#__PURE__*/React.createElement(Field, {
-    label: "Heifers sold",
-    val: d.sales.heifersSold,
-    set: setS("heifersSold")
-  }), /*#__PURE__*/React.createElement(Hint, null, "Biology ~" + r.bioHfSold + " after " + h.h1Kept + " retained"), /*#__PURE__*/React.createElement(Field, {
-    label: "Steer weight (lbs)",
-    val: d.sales.steerWt,
-    set: setS("steerWt")
-  }), /*#__PURE__*/React.createElement(Field, {
-    label: "Steer price ($/lb)",
-    val: d.sales.steerPPLb,
-    set: setS("steerPPLb"),
-    pre: "$"
-  }), /*#__PURE__*/React.createElement(Field, {
-    label: "Heifer weight (lbs)",
-    val: d.sales.hfWt,
-    set: setS("hfWt")
-  }), /*#__PURE__*/React.createElement(Field, {
-    label: "Heifer price ($/lb)",
-    val: d.sales.hfPPLb,
-    set: setS("hfPPLb"),
-    pre: "$"
-  }), /*#__PURE__*/React.createElement(Field, {
-    label: "Cull/open cow / head",
-    val: d.sales.cullCow,
-    set: setS("cullCow"),
-    pre: "$"
-  })), /*#__PURE__*/React.createElement(Section, {
+    label: "Sales"
+  }, /*#__PURE__*/React.createElement(TblHdr, {
+    a: "center",
+    b: "center",
+    c: "right"
+  }), [{
+    lbl: "Cull Cows",
+    hK: "pregHead",
+    pK: "pregPrice"
+  }, {
+    lbl: "Open Cows",
+    hK: "openHead",
+    pK: "openPrice"
+  }, {
+    lbl: "Dry Cows",
+    hK: "dryHead",
+    pK: "dryPrice"
+  }, {
+    lbl: "H2 Heifers",
+    hK: "h2Head",
+    pK: "h2Price"
+  }, {
+    lbl: "H1 Heifers",
+    hK: "h1Head",
+    pK: "h1Price"
+  }, {
+    lbl: "Female Calves",
+    hK: "femCalfHead",
+    pK: "femCalfPrice"
+  }, {
+    lbl: "Male Calves",
+    hK: "malCalfHead",
+    pK: "malCalfPrice"
+  }, {
+    lbl: "Stk Heifers",
+    hK: "stockerHfrHead",
+    pK: "stockerHfrPrice"
+  }, {
+    lbl: "Stk Steers",
+    hK: "stockerStrHead",
+    pK: "stockerStrPrice"
+  }, {
+    lbl: "Bulls",
+    hK: "bullHead",
+    pK: "bullPrice"
+  }].map(function (_ref24) {
+    var lbl = _ref24.lbl,
+      hK = _ref24.hK,
+      pK = _ref24.pK;
+    return /*#__PURE__*/React.createElement("div", {
+      key: hK,
+      style: {
+        display: "grid",
+        gridTemplateColumns: C4,
+        gap: 4,
+        padding: "5px 0",
+        borderBottom: "1px solid #F0EBE3",
+        alignItems: "center"
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontSize: 12,
+        color: "#5A4A38"
+      }
+    }, lbl), /*#__PURE__*/React.createElement(Inp, {
+      val: s[hK],
+      onChange: setSl(hK)
+    }), /*#__PURE__*/React.createElement(Inp, {
+      val: s[pK],
+      onChange: setSl(pK),
+      pre: "$"
+    }), /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontSize: 12,
+        fontWeight: 600,
+        color: "#1A1208",
+        textAlign: "right"
+      }
+    }, fmt(s[hK] * s[pK])));
+  }), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "grid",
+      gridTemplateColumns: C4,
+      gap: 4,
+      padding: "7px 0 0",
+      borderTop: "2px solid #E5DDD0"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 12,
+      fontWeight: 700,
+      color: T,
+      gridColumn: "1/4"
+    }
+  }, "Total Sales"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 13,
+      fontWeight: 700,
+      color: "#1A1208",
+      textAlign: "right"
+    }
+  }, fmt(cr.totalSales)))), /*#__PURE__*/React.createElement(Section, {
+    icon: "\uD83D\uDCC5",
+    label: "Closing Value / Head"
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 11,
+      color: "#8B6437",
+      marginBottom: 8,
+      fontStyle: "italic"
+    }
+  }, "Closing head is calculated from stock flow. Enter $/head to compute CIV."), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "grid",
+      gridTemplateColumns: C4,
+      gap: 4,
+      padding: "4px 0 3px",
+      borderBottom: "1px solid #E8DFD0",
+      marginBottom: 3
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 10,
+      color: "#9B8B7A",
+      fontWeight: 600
+    }
+  }, "Class"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 10,
+      color: "#9B8B7A",
+      fontWeight: 600,
+      textAlign: "center"
+    }
+  }, "Head"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 10,
+      color: "#9B8B7A",
+      fontWeight: 600,
+      textAlign: "center"
+    }
+  }, "$/Head"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 10,
+      color: "#9B8B7A",
+      fontWeight: 600,
+      textAlign: "right"
+    }
+  }, "CIV")), [{
+    lbl: "Preg Cows",
+    cK: "pregCows",
+    n: cr.close.pregCows
+  }, {
+    lbl: "H2 Heifers",
+    cK: "h2",
+    n: cr.close.h2
+  }, {
+    lbl: "H1 Heifers",
+    cK: "h1",
+    n: cr.close.h1
+  }, {
+    lbl: "Fem Calves",
+    cK: "femCalves",
+    n: cr.close.femCalves
+  }, {
+    lbl: "Mal Calves",
+    cK: "malCalves",
+    n: cr.close.malCalves
+  }, {
+    lbl: "Stk Heifers",
+    cK: "stockerHfrs",
+    n: cr.close.stockerHfrs
+  }, {
+    lbl: "Stk Steers",
+    cK: "stockerStrs",
+    n: cr.close.stockerStrs
+  }, {
+    lbl: "Bulls",
+    cK: "bulls",
+    n: cr.close.bulls
+  }].map(function (_ref25) {
+    var lbl = _ref25.lbl,
+      cK = _ref25.cK,
+      n = _ref25.n;
+    return /*#__PURE__*/React.createElement("div", {
+      key: cK,
+      style: {
+        display: "grid",
+        gridTemplateColumns: C4,
+        gap: 4,
+        padding: "5px 0",
+        borderBottom: "1px solid #F0EBE3",
+        alignItems: "center"
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontSize: 12,
+        color: "#5A4A38"
+      }
+    }, lbl), /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontSize: 12,
+        fontWeight: 700,
+        color: n < 0 ? "#DC2626" : T,
+        textAlign: "center"
+      }
+    }, Math.max(0, n)), /*#__PURE__*/React.createElement(Inp, {
+      val: cv[cK],
+      onChange: setCV(cK),
+      pre: "$"
+    }), /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontSize: 12,
+        fontWeight: 600,
+        color: "#1A1208",
+        textAlign: "right"
+      }
+    }, fmt(Math.max(0, n) * cv[cK])));
+  }), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "grid",
+      gridTemplateColumns: C4,
+      gap: 4,
+      padding: "7px 0 0",
+      borderTop: "2px solid #E5DDD0"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 12,
+      fontWeight: 700,
+      color: T,
+      gridColumn: "1/4"
+    }
+  }, "Total CIV"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 13,
+      fontWeight: 700,
+      color: "#1A1208",
+      textAlign: "right"
+    }
+  }, fmt(cr.civ)))), /*#__PURE__*/React.createElement(Section, {
     icon: "\uD83D\uDCB8",
     label: "Direct Costs"
   }, /*#__PURE__*/React.createElement(Field, {
     label: "Opportunity rate",
-    val: d.dc.oppPct,
-    set: setD("oppPct"),
+    val: dc.oppPct,
+    set: setDc("oppPct"),
     suf: "%"
   }), /*#__PURE__*/React.createElement(Field, {
     label: "Feed and mineral",
-    val: d.dc.feed,
-    set: setD("feed"),
+    val: dc.feed,
+    set: setDc("feed"),
     pre: "$"
   }), /*#__PURE__*/React.createElement(Field, {
     label: "Vet and medicine",
-    val: d.dc.vet,
-    set: setD("vet"),
+    val: dc.vet,
+    set: setDc("vet"),
     pre: "$"
   }), /*#__PURE__*/React.createElement(Field, {
     label: "Freight and marketing",
-    val: d.dc.freight,
-    set: setD("freight"),
+    val: dc.freight,
+    set: setDc("freight"),
     pre: "$"
   }))), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(ColBanner, {
     inputs: false
   }), /*#__PURE__*/React.createElement(Section, {
     icon: "\uD83D\uDD04",
-    label: "Stock Flow"
-  }, /*#__PURE__*/React.createElement(Row, {
-    label: "Wet cows (weaned a calf)",
-    value: r.wet,
-    bold: true
-  }), /*#__PURE__*/React.createElement(Row, {
-    label: "Preg cows at close",
-    value: r.pregKept,
-    bold: true,
-    hi: true
-  }), /*#__PURE__*/React.createElement(Row, {
-    label: "Deaths",
-    value: r.deaths
-  }), /*#__PURE__*/React.createElement(Row, {
-    label: "Culls",
-    value: r.culls
-  }), /*#__PURE__*/React.createElement(Row, {
-    label: "Open",
-    value: r.open
-  }), /*#__PURE__*/React.createElement(Row, {
-    label: "Dry",
-    value: r.dry
-  }), /*#__PURE__*/React.createElement(Row, {
-    label: "Cattle SAU",
-    value: r.cattleSAU.toFixed(1)
-  })), /*#__PURE__*/React.createElement(Section, {
+    label: "Stock Flow Reconciliation"
+  }, /*#__PURE__*/React.createElement("table", {
+    style: {
+      width: "100%",
+      borderCollapse: "collapse",
+      fontSize: 11
+    }
+  }, /*#__PURE__*/React.createElement("thead", null, /*#__PURE__*/React.createElement("tr", {
+    style: {
+      borderBottom: "2px solid #E5DDD0"
+    }
+  }, [["Class", "left"], ["Open", "right"], ["+In", "right"], ["−Out", "right"], ["Close", "right"]].map(function (_ref26) {
+    var _ref27 = _slicedToArray(_ref26, 2),
+      h = _ref27[0],
+      a = _ref27[1];
+    return /*#__PURE__*/React.createElement("th", {
+      key: h,
+      style: {
+        textAlign: a,
+        padding: "4px 3px",
+        color: "#9B8B7A",
+        fontWeight: 600,
+        fontSize: 10
+      }
+    }, h);
+  }))), /*#__PURE__*/React.createElement("tbody", null, sfRows.map(function (_ref28, i) {
+    var cls = _ref28.cls,
+      open = _ref28.open,
+      inflow = _ref28.inflow,
+      outflow = _ref28.outflow,
+      close = _ref28.close;
+    return /*#__PURE__*/React.createElement("tr", {
+      key: cls,
+      style: {
+        borderBottom: "1px solid #F0EBE3",
+        background: i % 2 === 0 ? "transparent" : "#FAFAF8"
+      }
+    }, /*#__PURE__*/React.createElement("td", {
+      style: {
+        padding: "5px 3px",
+        color: "#5A4A38",
+        fontSize: 11
+      }
+    }, cls), /*#__PURE__*/React.createElement("td", {
+      style: {
+        padding: "5px 3px",
+        textAlign: "right",
+        fontVariantNumeric: "tabular-nums"
+      }
+    }, open || "—"), /*#__PURE__*/React.createElement("td", {
+      style: {
+        padding: "5px 3px",
+        textAlign: "right",
+        color: "#22863A",
+        fontVariantNumeric: "tabular-nums"
+      }
+    }, inflow > 0 ? "+" + inflow : "—"), /*#__PURE__*/React.createElement("td", {
+      style: {
+        padding: "5px 3px",
+        textAlign: "right",
+        color: "#DC2626",
+        fontVariantNumeric: "tabular-nums"
+      }
+    }, outflow > 0 ? "−" + outflow : "—"), /*#__PURE__*/React.createElement("td", {
+      style: {
+        padding: "5px 3px",
+        textAlign: "right",
+        fontWeight: 700,
+        color: close < 0 ? "#DC2626" : T,
+        fontVariantNumeric: "tabular-nums"
+      }
+    }, close));
+  })))), /*#__PURE__*/React.createElement(Section, {
     icon: "\uD83C\uDFE6",
     label: "Trading Account"
   }, /*#__PURE__*/React.createElement(Row, {
     label: "BIV",
-    value: fmt(r.biv)
+    value: fmt(cr.biv)
+  }), cr.purchCost > 0 && /*#__PURE__*/React.createElement(Row, {
+    label: "Purchases",
+    value: "(" + fmt(cr.purchCost) + ")"
   }), /*#__PURE__*/React.createElement(Row, {
     label: "CIV",
-    value: fmt(r.civ)
+    value: fmt(cr.civ)
   }), /*#__PURE__*/React.createElement(Row, {
-    label: "Livestock sales",
-    value: fmt(r.lsSales),
+    label: "Livestock Sales",
+    value: fmt(cr.totalSales),
     bold: true
   }), /*#__PURE__*/React.createElement(Row, {
     label: "Gross Product",
-    value: fmt(r.gp),
+    value: fmt(cr.gp),
     bold: true,
     hi: true
   })), /*#__PURE__*/React.createElement(Section, {
@@ -2485,14 +3190,14 @@ function CattleForm(_ref17) {
     label: "Enterprise P&L"
   }, /*#__PURE__*/React.createElement(Row, {
     label: "Gross Product",
-    value: fmt(r.gp)
+    value: fmt(cr.gp)
   }), /*#__PURE__*/React.createElement(Row, {
     label: "Direct Costs",
-    value: "(" + fmt(r.totalDC) + ")",
+    value: "(" + fmt(cr.totalDC) + ")",
     indent: true
   }), /*#__PURE__*/React.createElement(Row, {
     label: "Gross Margin",
-    value: fmt(r.gm),
+    value: fmt(cr.gm),
     bold: true
   }), /*#__PURE__*/React.createElement(Row, {
     label: "OH (" + ohPctStr + ")",
@@ -2505,28 +3210,31 @@ function CattleForm(_ref17) {
     hi: true
   }), /*#__PURE__*/React.createElement(Row, {
     label: "GMR",
-    value: pfmt(r.gp ? r.gm / r.gp : 0)
+    value: pfmt(cr.gmr)
+  }), /*#__PURE__*/React.createElement(Row, {
+    label: "Cattle SAU",
+    value: cr.sau.toFixed(1)
   })))));
 }
 
 // ── Small Ruminant Form ───────────────────────────────────────────────────────
-function SRForm(_ref18) {
-  var d = _ref18.d,
-    r = _ref18.r,
-    set = _ref18.set,
-    ent = _ref18.ent,
-    nm = _ref18.nm,
-    femLbl = _ref18.femLbl,
-    maleLbl = _ref18.maleLbl,
-    offLbl = _ref18.offLbl,
-    entR = _ref18.entR,
-    entOH = _ref18.entOH,
-    entShare = _ref18.entShare,
-    entPL = _ref18.entPL,
-    AnimalIcon = _ref18.AnimalIcon,
-    onNav = _ref18.onNav,
-    profitView = _ref18.profitView,
-    setProfitView = _ref18.setProfitView;
+function SRForm(_ref29) {
+  var d = _ref29.d,
+    r = _ref29.r,
+    set = _ref29.set,
+    ent = _ref29.ent,
+    nm = _ref29.nm,
+    femLbl = _ref29.femLbl,
+    maleLbl = _ref29.maleLbl,
+    offLbl = _ref29.offLbl,
+    entR = _ref29.entR,
+    entOH = _ref29.entOH,
+    entShare = _ref29.entShare,
+    entPL = _ref29.entPL,
+    AnimalIcon = _ref29.AnimalIcon,
+    onNav = _ref29.onNav,
+    profitView = _ref29.profitView,
+    setProfitView = _ref29.setProfitView;
   var sr = d[ent];
   var setH = function setH(f) {
     return function (v) {
@@ -2811,10 +3519,10 @@ function SRForm(_ref18) {
   })))));
 }
 // ── Overheads Form ────────────────────────────────────────────────────────────
-function OHForm(_ref19) {
-  var d = _ref19.d,
-    r = _ref19.r,
-    set = _ref19.set;
+function OHForm(_ref30) {
+  var d = _ref30.d,
+    r = _ref30.r,
+    set = _ref30.set;
   var o = function o(f) {
     return function (v) {
       return set("oh", f, v);
@@ -3002,8 +3710,8 @@ function DualHdr() {
     }
   }, "Closing"));
 }
-function DualGrp(_ref20) {
-  var label = _ref20.label;
+function DualGrp(_ref31) {
+  var label = _ref31.label;
   return /*#__PURE__*/React.createElement("div", {
     style: {
       fontSize: 10,
@@ -3019,13 +3727,13 @@ function DualGrp(_ref20) {
     }
   }, label);
 }
-function DualField(_ref21) {
-  var label = _ref21.label,
-    field = _ref21.field,
-    open = _ref21.open,
-    close = _ref21.close,
-    so = _ref21.so,
-    sc = _ref21.sc;
+function DualField(_ref32) {
+  var label = _ref32.label,
+    field = _ref32.field,
+    open = _ref32.open,
+    close = _ref32.close,
+    so = _ref32.so,
+    sc = _ref32.sc;
   var inp = function inp(val, _onChange) {
     return /*#__PURE__*/React.createElement("div", {
       style: {
@@ -3087,12 +3795,12 @@ function DualField(_ref21) {
     return sc(field, v);
   }));
 }
-function DualRow(_ref22) {
-  var label = _ref22.label,
-    open = _ref22.open,
-    close = _ref22.close,
-    bold = _ref22.bold,
-    divider = _ref22.divider;
+function DualRow(_ref33) {
+  var label = _ref33.label,
+    open = _ref33.open,
+    close = _ref33.close,
+    bold = _ref33.bold,
+    divider = _ref33.divider;
   var bb = divider ? "2px solid var(--color-border-secondary)" : "1px solid var(--color-border-tertiary)";
   var cs = {
     fontSize: 12,
@@ -3130,11 +3838,11 @@ function DualRow(_ref22) {
     })
   }, fmt(close)));
 }
-function BSForm(_ref23) {
-  var d = _ref23.d,
-    r = _ref23.r,
-    set = _ref23.set,
-    copyOpenToClose = _ref23.copyOpenToClose;
+function BSForm(_ref34) {
+  var d = _ref34.d,
+    r = _ref34.r,
+    set = _ref34.set,
+    copyOpenToClose = _ref34.copyOpenToClose;
   var o = d.bsOpen,
     c = d.bsClose;
   var so = function so(f, v) {
@@ -3398,9 +4106,9 @@ function BSForm(_ref23) {
 }
 
 // ── Results Form ──────────────────────────────────────────────────────────────
-function ResultsForm(_ref24) {
-  var d = _ref24.d,
-    r = _ref24.r;
+function ResultsForm(_ref35) {
+  var d = _ref35.d,
+    r = _ref35.r;
   var gmrC = r.gmr >= 0.70 ? "#15803d" : r.gmr >= 0.50 ? "#b45309" : "#b91c1c";
   var roaC = r.roa == null ? "#1A1208" : r.roa >= 0.10 ? "#15803d" : "#b91c1c";
   var atrC = r.atr == null ? "#1A1208" : r.atr >= 0.25 ? "#15803d" : "#b45309";
@@ -3603,12 +4311,12 @@ function ResultsForm(_ref24) {
 
 // ── Guide Modal ───────────────────────────────────────────────────────────────
 // ── Scenario Manager ──────────────────────────────────────────────────────────
-function ScenarioManager(_ref25) {
-  var currentData = _ref25.currentData,
-    onLoad = _ref25.onLoad,
-    onClose = _ref25.onClose,
-    token = _ref25.token,
-    setToken = _ref25.setToken;
+function ScenarioManager(_ref36) {
+  var currentData = _ref36.currentData,
+    onLoad = _ref36.onLoad,
+    onClose = _ref36.onClose,
+    token = _ref36.token,
+    setToken = _ref36.setToken;
   var tcRef = useRef(null);
   var _useState5 = useState([]),
     _useState6 = _slicedToArray(_useState5, 2),
@@ -3914,8 +4622,8 @@ function ScenarioManager(_ref25) {
       }
     }, s.lbl);
   };
-  var ScenarioCard = function ScenarioCard(_ref26) {
-    var s = _ref26.s;
+  var ScenarioCard = function ScenarioCard(_ref37) {
+    var s = _ref37.s;
     return /*#__PURE__*/React.createElement("div", {
       style: {
         background: "#FAFAF8",
@@ -4120,10 +4828,10 @@ function ScenarioManager(_ref25) {
       borderBottom: "1px solid #E8DFD0",
       flexShrink: 0
     }
-  }, [["list", "📋 Saved"], ["save", "💾 Save"], ["compare", "📊 Compare"]].map(function (_ref27) {
-    var _ref28 = _slicedToArray(_ref27, 2),
-      k = _ref28[0],
-      lbl = _ref28[1];
+  }, [["list", "📋 Saved"], ["save", "💾 Save"], ["compare", "📊 Compare"]].map(function (_ref38) {
+    var _ref39 = _slicedToArray(_ref38, 2),
+      k = _ref39[0],
+      lbl = _ref39[1];
     return /*#__PURE__*/React.createElement("button", {
       key: k,
       type: "button",
@@ -4482,10 +5190,10 @@ function ScenarioManager(_ref25) {
         fontWeight: 700,
         fontSize: 11
       }
-    }, nameB))), /*#__PURE__*/React.createElement("tbody", null, rows.map(function (_ref29, i) {
-      var label = _ref29.label,
-        a = _ref29.a,
-        b = _ref29.b;
+    }, nameB))), /*#__PURE__*/React.createElement("tbody", null, rows.map(function (_ref40, i) {
+      var label = _ref40.label,
+        a = _ref40.a,
+        b = _ref40.b;
       return /*#__PURE__*/React.createElement("tr", {
         key: i,
         style: {
@@ -4591,28 +5299,28 @@ function GlossaryContent() {
   });
   var pinned = PINNED_TERMS.map(function (k) {
     return [k, TIPS[k]];
-  }).filter(function (_ref30) {
-    var _ref31 = _slicedToArray(_ref30, 2),
-      v = _ref31[1];
+  }).filter(function (_ref41) {
+    var _ref42 = _slicedToArray(_ref41, 2),
+      v = _ref42[1];
     return v;
   });
   var pinnedSet = new Set(PINNED_TERMS);
-  var financial = allTerms.filter(function (_ref32) {
-    var _ref33 = _slicedToArray(_ref32, 1),
-      k = _ref33[0];
+  var financial = allTerms.filter(function (_ref43) {
+    var _ref44 = _slicedToArray(_ref43, 1),
+      k = _ref44[0];
     return !LIVESTOCK_TERMS.has(k) && !pinnedSet.has(k);
   });
-  var livestock = allTerms.filter(function (_ref34) {
-    var _ref35 = _slicedToArray(_ref34, 1),
-      k = _ref35[0];
+  var livestock = allTerms.filter(function (_ref45) {
+    var _ref46 = _slicedToArray(_ref45, 1),
+      k = _ref46[0];
     return LIVESTOCK_TERMS.has(k);
   });
-  var TermList = function TermList(_ref36) {
-    var terms = _ref36.terms;
-    return /*#__PURE__*/React.createElement(React.Fragment, null, terms.map(function (_ref37) {
-      var _ref38 = _slicedToArray(_ref37, 2),
-        term = _ref38[0],
-        def = _ref38[1];
+  var TermList = function TermList(_ref47) {
+    var terms = _ref47.terms;
+    return /*#__PURE__*/React.createElement(React.Fragment, null, terms.map(function (_ref48) {
+      var _ref49 = _slicedToArray(_ref48, 2),
+        term = _ref49[0],
+        def = _ref49[1];
       return /*#__PURE__*/React.createElement("div", {
         key: term,
         style: {
@@ -4636,10 +5344,10 @@ function GlossaryContent() {
       }, def));
     }));
   };
-  var CatHeader = function CatHeader(_ref39) {
-    var icon = _ref39.icon,
-      label = _ref39.label,
-      pinTop = _ref39.pinTop;
+  var CatHeader = function CatHeader(_ref50) {
+    var icon = _ref50.icon,
+      label = _ref50.label,
+      pinTop = _ref50.pinTop;
     return /*#__PURE__*/React.createElement("div", {
       style: {
         fontSize: 12,
@@ -4683,8 +5391,8 @@ function GlossaryContent() {
     terms: livestock
   }));
 }
-function GuideModal(_ref40) {
-  var onClose = _ref40.onClose;
+function GuideModal(_ref51) {
+  var onClose = _ref51.onClose;
   var _useState23 = useState("guide"),
     _useState24 = _slicedToArray(_useState23, 2),
     tab = _useState24[0],
@@ -4744,10 +5452,10 @@ function GuideModal(_ref40) {
       borderBottom: "1px solid var(--color-border-tertiary)",
       flexShrink: 0
     }
-  }, [["guide", "How to Use"], ["glossary", "Glossary"]].map(function (_ref41) {
-    var _ref42 = _slicedToArray(_ref41, 2),
-      key = _ref42[0],
-      lbl = _ref42[1];
+  }, [["guide", "How to Use"], ["glossary", "Glossary"]].map(function (_ref52) {
+    var _ref53 = _slicedToArray(_ref52, 2),
+      key = _ref53[0],
+      lbl = _ref53[1];
     return /*#__PURE__*/React.createElement("button", {
       key: key,
       type: "button",
@@ -4776,13 +5484,13 @@ function GuideModal(_ref40) {
 }
 
 // ── Leases & Hunting Form ─────────────────────────────────────────────────────
-function LeasesForm(_ref43) {
-  var d = _ref43.d,
-    r = _ref43.r,
-    set = _ref43.set,
-    profitView = _ref43.profitView,
-    setProfitView = _ref43.setProfitView,
-    onNav = _ref43.onNav;
+function LeasesForm(_ref54) {
+  var d = _ref54.d,
+    r = _ref54.r,
+    set = _ref54.set,
+    profitView = _ref54.profitView,
+    setProfitView = _ref54.setProfitView,
+    onNav = _ref54.onNav;
   var l = d.leases;
   var sI = function sI(f) {
     return function (v) {
