@@ -260,7 +260,7 @@ function compute(data, profitView="economic") {
   const allGP=gp+sr_s.gp+sr_g.gp+lr.gp, allGM=gm+sr_s.gm+sr_g.gm+lr.gm;
   const allRev=revenue+sr_s.revenue+sr_g.revenue+lr.revenue;
   const opPL=allGM-totalOH, bizPL=opPL;
-  const cashNI=allRev-(dc.feed+dc.vet+dc.freight)-(sheep.dc.feed+sheep.dc.vet+sheep.dc.freight)-(goats.dc.feed+goats.dc.vet+goats.dc.freight)-lr.cashDC-trueCashOH;
+  const cashNI=allRev-catR.cashDC-(sheep.dc.feed+sheep.dc.vet+sheep.dc.freight)-(goats.dc.feed+goats.dc.vet+goats.dc.freight)-lr.cashDC-trueCashOH;
   const allBIV=biv+sr_s.biv+sr_g.biv, allCIV=civ+sr_s.civ+sr_g.civ;
   const bso=bsCalc(bsOpen,allBIV), bsc=bsCalc(bsClose,allCIV);
   const wc=bso.ca-bsOpen.currentLiab, wcd=cashOH>0?(wc/cashOH)*365:null;
