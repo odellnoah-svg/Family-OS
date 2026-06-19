@@ -117,10 +117,16 @@ function TipIcon({text}) {
 // ── State ────────────────────────────────────────────────────────────────────
 const BSI = {cash:0,ar:0,hayCrops:0,otherCurrent:0,vehicles:0,machinery:0,equipment:0,land:0,buildings:0,improvements:0,offFarm:0,currentLiab:0,intermediateLiab:0,longTermLiab:0};
 const INIT = {
-  herd:  {cows:86,h2:0,h1:10,bulls:3,deathPct:1,dryPct:3,cullPct:3,openPct:5,h1Kept:10},
-  val:   {cowPreg:1600,bull:4500,h1:0,h2:0},
-  sales: {steersSold:25,heifersSold:35,openCow:1500,cullCow:1500,steerWt:350,steerPPLb:3.75,hfWt:350,hfPPLb:3.75,other:3000},
-  dc:    {oppPct:10,feed:13500,vet:2000,freight:2000},
+  cattle: {
+    open:     {pregCows:86,pregCowsVal:1600, openCows:0,openCowsVal:1200, h2:0,h2Val:1200, h1:10,h1Val:900, femCalves:0,femCalvesVal:600, malCalves:0,malCalvesVal:650, stockerHfrs:0,stockerHfrsVal:800, stockerStrs:0,stockerStrsVal:850, bulls:3,bullsVal:4500},
+    births:   {femCalves:0, malCalves:0},
+    purch:    {bulls:0,bullsPerHead:4500, heifers:0,heiferPerHead:900, stockerHfrs:0,stockerHfrsPerHead:800, stockerStrs:0,stockerStrsPerHead:850},
+    deaths:   {pregCows:1, openCows:0, h2:0, h1:1, femCalves:0, malCalves:0, stockerHfrs:0, stockerStrs:0, bulls:0},
+    xfer:     {femToH1:10, femToStocker:0, malToStocker:0, h1ToH2:0, h2ToPreg:0},
+    sales:    {pregHead:5,pregPrice:1500, openHead:4,openPrice:1200, dryHead:3,dryPrice:1300, h2Head:0,h2Price:1200, h1Head:0,h1Price:900, femCalfHead:35,femCalfPrice:800, malCalfHead:25,malCalfPrice:900, stockerHfrHead:0,stockerHfrPrice:1000, stockerStrHead:0,stockerStrPrice:1100, bullHead:0,bullPrice:3000},
+    closeVal: {pregCows:1600, h2:1200, h1:900, femCalves:600, malCalves:650, stockerHfrs:800, stockerStrs:850, bulls:4500},
+    dc:       {oppPct:10, feed:13500, vet:2000, freight:2000},
+  },
   sheep: {
     herd:  {females:115,males:5,deathPct:3,dryPct:5,cullPct:10,openPct:8,litterRate:1.5,replacementsKept:15},
     val:   {femalePerHead:200,malePerHead:400},
@@ -142,6 +148,60 @@ const INIT = {
   bsOpen:  {...BSI},
   bsClose: {...BSI},
 };
+
+// ── Cattle Stock Flow Compute ─────────────────────────────────────────────────
+function computeCattle(c, econ) {
+  const o=c.open, b=c.births, p=c.purch, dt=c.deaths, x=c.xfer, s=c.sales, cv=c.closeVal, dc=c.dc;
+
+  // BIV
+  const biv = o.pregCows*o.pregCowsVal + o.openCows*o.openCowsVal + o.h2*o.h2Val + o.h1*o.h1Val
+            + o.femCalves*o.femCalvesVal + o.malCalves*o.malCalvesVal
+            + o.stockerHfrs*o.stockerHfrsVal + o.stockerStrs*o.stockerStrsVal + o.bulls*o.bullsVal;
+
+  // Closing head per class
+  const clPreg    = o.pregCows   + x.h2ToPreg                    - dt.pregCows    - s.pregHead  - s.dryHead;
+  const clOpen    = o.openCows                                    - dt.openCows    - s.openHead;
+  const clH2      = o.h2         + x.h1ToH2                      - dt.h2          - s.h2Head    - x.h2ToPreg;
+  const clH1      = o.h1         + x.femToH1 + p.heifers         - dt.h1          - s.h1Head    - x.h1ToH2;
+  const clFemCalf = o.femCalves  + b.femCalves                   - dt.femCalves   - s.femCalfHead  - x.femToH1 - x.femToStocker;
+  const clMalCalf = o.malCalves  + b.malCalves                   - dt.malCalves   - s.malCalfHead  - x.malToStocker;
+  const clStkHfr  = o.stockerHfrs + x.femToStocker + p.stockerHfrs - dt.stockerHfrs - s.stockerHfrHead;
+  const clStkStr  = o.stockerStrs + x.malToStocker  + p.stockerStrs - dt.stockerStrs - s.stockerStrHead;
+  const clBulls   = o.bulls      + p.bulls                       - dt.bulls       - s.bullHead;
+
+  const close = {pregCows:clPreg, openCows:clOpen, h2:clH2, h1:clH1, femCalves:clFemCalf,
+                 malCalves:clMalCalf, stockerHfrs:clStkHfr, stockerStrs:clStkStr, bulls:clBulls};
+
+  // CIV (open cows all assumed sold; use max 0 for safety)
+  const civ = Math.max(0,clPreg)*cv.pregCows + Math.max(0,clH2)*cv.h2 + Math.max(0,clH1)*cv.h1
+            + Math.max(0,clFemCalf)*cv.femCalves + Math.max(0,clMalCalf)*cv.malCalves
+            + Math.max(0,clStkHfr)*cv.stockerHfrs + Math.max(0,clStkStr)*cv.stockerStrs
+            + Math.max(0,clBulls)*cv.bulls;
+
+  // Sales
+  const totalSales = s.pregHead*s.pregPrice + s.openHead*s.openPrice + s.dryHead*s.dryPrice
+    + s.h2Head*s.h2Price + s.h1Head*s.h1Price + s.femCalfHead*s.femCalfPrice
+    + s.malCalfHead*s.malCalfPrice + s.stockerHfrHead*s.stockerHfrPrice
+    + s.stockerStrHead*s.stockerStrPrice + s.bullHead*s.bullPrice;
+
+  // Purchase cost
+  const purchCost = p.bulls*p.bullsPerHead + p.heifers*p.heiferPerHead
+                  + p.stockerHfrs*p.stockerHfrsPerHead + p.stockerStrs*p.stockerStrsPerHead;
+
+  // GP, DC, GM
+  const gp = civ + totalSales - purchCost - biv;
+  const oppCost = econ ? biv * dc.oppPct / 100 : 0;
+  const cashDC = dc.feed + dc.vet + dc.freight;
+  const totalDC = oppCost + cashDC;
+  const gm = gp - totalDC;
+
+  // SAU (opening headcount basis)
+  const sau = o.pregCows*1.0 + o.openCows*1.0 + o.h2*0.8 + o.h1*0.7
+            + o.femCalves*0.3 + o.malCalves*0.3 + o.stockerHfrs*0.6 + o.stockerStrs*0.6 + o.bulls*1.5;
+
+  return {biv, civ, close, totalSales, purchCost, gp, oppCost, cashDC, totalDC, gm, sau,
+          gmr: gp ? gm/gp : 0, lsSales:totalSales, revenue:totalSales};
+}
 
 // ── Compute ───────────────────────────────────────────────────────────────────
 function computeSR(sr, sauF, sauM, econ=true) {
@@ -176,20 +236,17 @@ function bsCalc(b, ls) {
 }
 function compute(data, profitView="economic") {
   const econ = profitView === "economic";
-  const {herd:h,val:v,sales:s,dc,sheep,goats,leases,oh,prop,bsOpen,bsClose}=data;
-  const deaths=Math.ceil(h.cows*h.deathPct/100), live=h.cows-deaths;
-  const dry=Math.ceil(live*h.dryPct/100), wet=live-dry;
-  const culls=Math.ceil(wet*h.cullPct/100), exposed=wet-culls;
-  const open=Math.ceil(exposed*h.openPct/100), pregKept=exposed-open;
-  const bioSteers=Math.round(wet/2), bioHfSold=Math.max(0,wet-bioSteers-h.h1Kept);
-  const biv=h.cows*v.cowPreg+h.bulls*v.bull+h.h1*v.h1+h.h2*v.h2;
-  const civ=pregKept*v.cowPreg+h.bulls*v.bull;
-  const cowSales=(open+dry)*s.openCow+culls*s.cullCow;
-  const calfSales=s.steersSold*s.steerWt*s.steerPPLb+s.heifersSold*s.hfWt*s.hfPPLb;
-  const lsSales=cowSales+calfSales, revenue=lsSales;
-  const gp=civ+lsSales-biv, oppCost=econ?biv*dc.oppPct/100:0;
-  const totalDC=oppCost+dc.feed+dc.vet+dc.freight, gm=gp-totalDC;
-  const cattleSAU=h.cows+h.h1*0.7+h.h2*0.8+h.bulls*1.5;
+  const {cattle,sheep,goats,leases,oh,prop,bsOpen,bsClose}=data;
+  const catR = computeCattle(cattle, econ);
+  const {biv,civ,lsSales,revenue,gp,oppCost,totalDC,gm} = catR;
+  const cattleSAU = catR.sau;
+  // backward-compat aliases for flow diagram
+  const o=cattle.open, s=cattle.sales, x=cattle.xfer, dt=cattle.deaths;
+  const wet=o.pregCows+o.h2, culls=s.pregHead, open=s.openHead, dry=s.dryHead;
+  const deaths=dt.pregCows+dt.h2+dt.h1+dt.femCalves+dt.malCalves+dt.bulls;
+  const pregKept=Math.max(0,catR.close.pregCows);
+  const cowSales=s.pregHead*s.pregPrice+s.openHead*s.openPrice+s.dryHead*s.dryPrice;
+  const calfSales=s.femCalfHead*s.femCalfPrice+s.malCalfHead*s.malCalfPrice;
   const sr_s=computeSR(sheep,0.20,0.25,econ), sr_g=computeSR(goats,0.17,0.20,econ), lr=computeLeases(leases);
   const landOH=(econ?oh.oppRent:0)+oh.util+oh.upkeep+oh.impr;
   const laborOH=(econ?oh.unpaid:0)+oh.hired;
@@ -210,7 +267,8 @@ function compute(data, profitView="economic") {
   const roa=bso.ops>0?opPL/bso.ops:null, atr=bso.ops>0?allGP/bso.ops:null;
   const acres=prop.acresGrazed||prop.acresOwned;
   return {
-    deaths,dry,wet,culls,open,pregKept,bioSteers,bioHfSold,
+    cattle:catR,
+    deaths,dry,wet,culls,open,pregKept,
     biv,civ,cowSales,calfSales,lsSales,revenue,gp,oppCost,totalDC,gm,cattleSAU,
     leases:lr,
     sheep:sr_s,sheepOH:sOH,sheepShare:sShare,sheepPL:sr_s.gm-sOH,
@@ -694,96 +752,275 @@ function ColBanner({inputs}) {
 
 // ── Cattle Form ───────────────────────────────────────────────────────────────
 function CattleForm({d, r, set, onNav, profitView, setProfitView}) {
-  const h = d.herd;
-  const setH = (f) => (v) => set("herd", f, v);
-  const setV = (f) => (v) => set("val", f, v);
-  const setS = (f) => (v) => set("sales", f, v);
-  const setD = (f) => (v) => set("dc", f, v);
+  const c = d.cattle;
+  const o=c.open, b=c.births, p=c.purch, dt=c.deaths, x=c.xfer, s=c.sales, cv=c.closeVal, dc=c.dc;
+  const cr = r.cattle;
+
+  const setO  = (f) => (v) => set("cattle", f, v, "open");
+  const setB  = (f) => (v) => set("cattle", f, v, "births");
+  const setP  = (f) => (v) => set("cattle", f, v, "purch");
+  const setDt = (f) => (v) => set("cattle", f, v, "deaths");
+  const setX  = (f) => (v) => set("cattle", f, v, "xfer");
+  const setSl = (f) => (v) => set("cattle", f, v, "sales");
+  const setCV = (f) => (v) => set("cattle", f, v, "closeVal");
+  const setDc = (f) => (v) => set("cattle", f, v, "dc");
+
   const ohPctStr = (r.cattleShare * 100).toFixed(1) + "% share";
   const kpis = [
-    {label:"Gross Product",   value:fmt(r.gp),              icon:"$",  neg:false},
-    {label:"Gross Margin",    value:fmt(r.gm),              icon:"📊", neg:false},
+    {label:"Gross Product",   value:fmt(cr.gp),             icon:"$",  neg:false},
+    {label:"Gross Margin",    value:fmt(cr.gm),             icon:"📊", neg:cr.gm<0},
     {label:"Enterprise P(L)", value:fmt(r.cattlePL),        icon:r.cattlePL>=0?"↑":"↓", neg:r.cattlePL<0},
-    {label:"GMR",             value:pfmt(r.gp?r.gm/r.gp:0),icon:"%",  neg:false},
-    {label:"Cattle SAU",      value:r.cattleSAU.toFixed(1), icon:"🐄", neg:false},
+    {label:"GMR",             value:pfmt(cr.gmr),           icon:"%",  neg:false},
+    {label:"Cattle SAU",      value:cr.sau.toFixed(1),      icon:"🐄", neg:false},
     {label:"OH Allocation",   value:fmt(r.cattleOH),        icon:"🏦", neg:false},
   ];
-  const rHdr = (<div style={{display:"grid",gridTemplateColumns:"1fr 68px 68px",gap:6,padding:"6px 0 2px",borderBottom:"1px solid #F0EBE3"}}><div/><div style={{fontSize:10,color:"#8B6437",textAlign:"center",fontWeight:600}}>Head</div><div style={{fontSize:10,color:"#8B6437",textAlign:"center",fontWeight:600}}>Rate %</div></div>);
+
+  // Stock flow reconciliation rows
+  const sfRows = [
+    {cls:"Preg Cows",   open:o.pregCows,    inflow:x.h2ToPreg,                    outflow:dt.pregCows+s.pregHead+s.dryHead,                     close:cr.close.pregCows},
+    {cls:"Open Cows",   open:o.openCows,    inflow:0,                              outflow:dt.openCows+s.openHead,                               close:cr.close.openCows},
+    {cls:"H2 Heifers",  open:o.h2,          inflow:x.h1ToH2,                      outflow:dt.h2+s.h2Head+x.h2ToPreg,                           close:cr.close.h2},
+    {cls:"H1 Heifers",  open:o.h1,          inflow:x.femToH1+p.heifers,           outflow:dt.h1+s.h1Head+x.h1ToH2,                             close:cr.close.h1},
+    {cls:"Fem Calves",  open:o.femCalves,   inflow:b.femCalves,                   outflow:dt.femCalves+s.femCalfHead+x.femToH1+x.femToStocker, close:cr.close.femCalves},
+    {cls:"Mal Calves",  open:o.malCalves,   inflow:b.malCalves,                   outflow:dt.malCalves+s.malCalfHead+x.malToStocker,           close:cr.close.malCalves},
+    {cls:"Stk Heifers", open:o.stockerHfrs, inflow:x.femToStocker+p.stockerHfrs,  outflow:dt.stockerHfrs+s.stockerHfrHead,                     close:cr.close.stockerHfrs},
+    {cls:"Stk Steers",  open:o.stockerStrs, inflow:x.malToStocker+p.stockerStrs,  outflow:dt.stockerStrs+s.stockerStrHead,                     close:cr.close.stockerStrs},
+    {cls:"Bulls",       open:o.bulls,       inflow:p.bulls,                       outflow:dt.bulls+s.bullHead,                                 close:cr.close.bulls},
+  ];
+
+  const C4 = "1fr 58px 70px 72px";
+  const TblHdr = ({cols, a="center", b="center", c="right"}) => (
+    <div style={{display:"grid",gridTemplateColumns:cols||C4,gap:4,padding:"4px 0 3px",borderBottom:"1px solid #E8DFD0",marginBottom:3}}>
+      <div/><div style={{fontSize:10,color:"#9B8B7A",fontWeight:600,textAlign:a}}>Head</div>
+      <div style={{fontSize:10,color:"#9B8B7A",fontWeight:600,textAlign:b}}>$/Head</div>
+      <div style={{fontSize:10,color:"#9B8B7A",fontWeight:600,textAlign:c}}>Total</div>
+    </div>
+  );
+
   return (
     <div>
       <ProfitViewToggle profitView={profitView} setProfitView={setProfitView}/>
-      <EntHdr nm="Cattle" subtitle="Enterprise Performance & Financial Summary" AnimalIcon={CowIcon} kpis={kpis} onNav={onNav}/>
+      <EntHdr nm="Cattle" subtitle="Cattle Enterprise · Stock Flow & Financial Summary" AnimalIcon={CowIcon} kpis={kpis} onNav={onNav}/>
       <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:16}}>
+
+        {/* ── LEFT: INPUTS ── */}
         <div>
           <ColBanner inputs={true}/>
-          <Section icon="🐄" label="Herd Composition">
-            <Field label="Mature Cows"             val={h.cows}   set={setH("cows")}/>
-            <Field label="H2 Heifers (first-calf)" val={h.h2}    set={setH("h2")}/>
-            <Field label="H1 Heifers (virgin)"     val={h.h1}    set={setH("h1")}/>
-            <Field label="Bulls"                   val={h.bulls}  set={setH("bulls")}/>
+
+          {/* Opening Inventory */}
+          <Section icon="📋" label="Opening Inventory (BIV)">
+            <TblHdr a="center" b="center" c="right"/>
+            {[
+              {lbl:"Preg Cows",     hK:"pregCows",    vK:"pregCowsVal"},
+              {lbl:"Open Cows",     hK:"openCows",    vK:"openCowsVal"},
+              {lbl:"H2 Heifers",    hK:"h2",          vK:"h2Val"},
+              {lbl:"H1 Heifers",    hK:"h1",          vK:"h1Val"},
+              {lbl:"Female Calves", hK:"femCalves",   vK:"femCalvesVal"},
+              {lbl:"Male Calves",   hK:"malCalves",   vK:"malCalvesVal"},
+              {lbl:"Stk Heifers",   hK:"stockerHfrs", vK:"stockerHfrsVal"},
+              {lbl:"Stk Steers",    hK:"stockerStrs", vK:"stockerStrsVal"},
+              {lbl:"Bulls",         hK:"bulls",       vK:"bullsVal"},
+            ].map(({lbl,hK,vK}) => (
+              <div key={hK} style={{display:"grid",gridTemplateColumns:C4,gap:4,padding:"5px 0",borderBottom:"1px solid #F0EBE3",alignItems:"center"}}>
+                <div style={{fontSize:12,color:"#5A4A38"}}>{lbl}</div>
+                <Inp val={o[hK]} onChange={setO(hK)}/>
+                <Inp val={o[vK]} onChange={setO(vK)} pre="$"/>
+                <div style={{fontSize:12,fontWeight:600,color:"#1A1208",textAlign:"right"}}>{fmt(o[hK]*o[vK])}</div>
+              </div>
+            ))}
+            <div style={{display:"grid",gridTemplateColumns:C4,gap:4,padding:"7px 0 0",borderTop:"2px solid #E5DDD0"}}>
+              <div style={{fontSize:12,fontWeight:700,color:T,gridColumn:"1/4"}}>Total BIV</div>
+              <div style={{fontSize:13,fontWeight:700,color:"#1A1208",textAlign:"right"}}>{fmt(cr.biv)}</div>
+            </div>
           </Section>
-          <Section icon="📈" label="Performance Rates">
-            {rHdr}
-            <RateField label="Death loss" pctVal={h.deathPct} setPct={setH("deathPct")} count={r.deaths}        base={h.cows}/>
-            <RateField label="Dry rate"   pctVal={h.dryPct}   setPct={setH("dryPct")}   count={r.dry}           base={h.cows - r.deaths}/>
-            <RateField label="Cull rate"  pctVal={h.cullPct}  setPct={setH("cullPct")}  count={r.culls}         base={r.wet}/>
-            <RateField label="Open rate"  pctVal={h.openPct}  setPct={setH("openPct")}  count={r.open}          base={r.wet - r.culls}/>
-            <Field label="H1 heifers to retain" val={h.h1Kept} set={setH("h1Kept")}/>
+
+          {/* Births */}
+          <Section icon="🐣" label="Births">
+            {[{lbl:"Female calves born",f:"femCalves"},{lbl:"Male calves born",f:"malCalves"}].map(({lbl,f})=>(
+              <div key={f} style={{display:"flex",alignItems:"center",justifyContent:"space-between",padding:"5px 0",borderBottom:"1px solid #F0EBE3"}}>
+                <div style={{fontSize:12,color:"#5A4A38"}}>{lbl}</div>
+                <Inp val={b[f]} onChange={setB(f)}/>
+              </div>
+            ))}
+            <div style={{fontSize:11,color:"#8B6437",marginTop:6,fontStyle:"italic"}}>
+              {"Biology: ~"+(Math.round((o.pregCows+o.h2)/2))+" of each sex from "+(o.pregCows+o.h2)+" breeding females"}
+            </div>
           </Section>
-          <Section icon="💵" label="Livestock Values">
-            <Field label="Preg cow / head"   val={d.val.cowPreg} set={setV("cowPreg")} pre="$"/>
-            <Field label="Bull / head"       val={d.val.bull}    set={setV("bull")} pre="$"/>
-            <Field label="H2 heifer / head"  val={d.val.h2}      set={setV("h2")} pre="$"/>
-            <Field label="H1 heifer / head"  val={d.val.h1}      set={setV("h1")} pre="$"/>
+
+          {/* Purchases */}
+          <Section icon="🛒" label="Purchases (from outside)">
+            <TblHdr a="center" b="center" c="right"/>
+            {[
+              {lbl:"Bulls",        hK:"bulls",       pK:"bullsPerHead"},
+              {lbl:"H1 Heifers",   hK:"heifers",     pK:"heiferPerHead"},
+              {lbl:"Stk Heifers",  hK:"stockerHfrs", pK:"stockerHfrsPerHead"},
+              {lbl:"Stk Steers",   hK:"stockerStrs", pK:"stockerStrsPerHead"},
+            ].map(({lbl,hK,pK})=>(
+              <div key={hK} style={{display:"grid",gridTemplateColumns:C4,gap:4,padding:"5px 0",borderBottom:"1px solid #F0EBE3",alignItems:"center"}}>
+                <div style={{fontSize:12,color:"#5A4A38"}}>{lbl}</div>
+                <Inp val={p[hK]} onChange={setP(hK)}/>
+                <Inp val={p[pK]} onChange={setP(pK)} pre="$"/>
+                <div style={{fontSize:12,fontWeight:600,color:"#1A1208",textAlign:"right"}}>{fmt(p[hK]*p[pK])}</div>
+              </div>
+            ))}
           </Section>
-          <Section icon="🏷️" label="Livestock Sales">
-            <Field label="Steers sold"           val={d.sales.steersSold}   set={setS("steersSold")}/>
-            <Hint>{"Biology ~" + r.bioSteers + " from " + r.wet + " wet cows"}</Hint>
-            <Field label="Heifers sold"          val={d.sales.heifersSold}  set={setS("heifersSold")}/>
-            <Hint>{"Biology ~" + r.bioHfSold + " after " + h.h1Kept + " retained"}</Hint>
-            <Field label="Steer weight (lbs)"    val={d.sales.steerWt}      set={setS("steerWt")}/>
-            <Field label="Steer price ($/lb)"    val={d.sales.steerPPLb}    set={setS("steerPPLb")} pre="$"/>
-            <Field label="Heifer weight (lbs)"   val={d.sales.hfWt}         set={setS("hfWt")}/>
-            <Field label="Heifer price ($/lb)"   val={d.sales.hfPPLb}       set={setS("hfPPLb")} pre="$"/>
-            <Field label="Cull/open cow / head"  val={d.sales.cullCow}      set={setS("cullCow")} pre="$"/>
+
+          {/* Deaths */}
+          <Section icon="💀" label="Deaths">
+            <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:4}}>
+              {[
+                {lbl:"Preg Cows",f:"pregCows"},{lbl:"Open Cows",f:"openCows"},
+                {lbl:"H2 Heifers",f:"h2"},{lbl:"H1 Heifers",f:"h1"},
+                {lbl:"Fem Calves",f:"femCalves"},{lbl:"Mal Calves",f:"malCalves"},
+                {lbl:"Stk Heifers",f:"stockerHfrs"},{lbl:"Stk Steers",f:"stockerStrs"},
+                {lbl:"Bulls",f:"bulls"},
+              ].map(({lbl,f})=>(
+                <div key={f} style={{display:"flex",alignItems:"center",justifyContent:"space-between",padding:"5px 6px",borderBottom:"1px solid #F0EBE3"}}>
+                  <div style={{fontSize:12,color:"#5A4A38"}}>{lbl}</div>
+                  <Inp val={dt[f]} onChange={setDt(f)}/>
+                </div>
+              ))}
+            </div>
           </Section>
+
+          {/* Class Transfers */}
+          <Section icon="🔀" label="Class Transfers (Retained)">
+            {[
+              {lbl:"Fem Calves → H1 Replacements",  f:"femToH1"},
+              {lbl:"Fem Calves → Stk Heifers",       f:"femToStocker"},
+              {lbl:"Mal Calves → Stk Steers",        f:"malToStocker"},
+              {lbl:"H1 → H2 (graduating)",           f:"h1ToH2"},
+              {lbl:"H2 → Preg Cows (graduating)",    f:"h2ToPreg"},
+            ].map(({lbl,f})=>(
+              <div key={f} style={{display:"flex",alignItems:"center",justifyContent:"space-between",padding:"5px 0",borderBottom:"1px solid #F0EBE3"}}>
+                <div style={{fontSize:12,color:"#5A4A38"}}>{lbl}</div>
+                <Inp val={x[f]} onChange={setX(f)}/>
+              </div>
+            ))}
+          </Section>
+
+          {/* Sales */}
+          <Section icon="🏷️" label="Sales">
+            <TblHdr a="center" b="center" c="right"/>
+            {[
+              {lbl:"Cull Cows",      hK:"pregHead",       pK:"pregPrice"},
+              {lbl:"Open Cows",      hK:"openHead",       pK:"openPrice"},
+              {lbl:"Dry Cows",       hK:"dryHead",        pK:"dryPrice"},
+              {lbl:"H2 Heifers",     hK:"h2Head",         pK:"h2Price"},
+              {lbl:"H1 Heifers",     hK:"h1Head",         pK:"h1Price"},
+              {lbl:"Female Calves",  hK:"femCalfHead",    pK:"femCalfPrice"},
+              {lbl:"Male Calves",    hK:"malCalfHead",    pK:"malCalfPrice"},
+              {lbl:"Stk Heifers",    hK:"stockerHfrHead", pK:"stockerHfrPrice"},
+              {lbl:"Stk Steers",     hK:"stockerStrHead", pK:"stockerStrPrice"},
+              {lbl:"Bulls",          hK:"bullHead",       pK:"bullPrice"},
+            ].map(({lbl,hK,pK})=>(
+              <div key={hK} style={{display:"grid",gridTemplateColumns:C4,gap:4,padding:"5px 0",borderBottom:"1px solid #F0EBE3",alignItems:"center"}}>
+                <div style={{fontSize:12,color:"#5A4A38"}}>{lbl}</div>
+                <Inp val={s[hK]} onChange={setSl(hK)}/>
+                <Inp val={s[pK]} onChange={setSl(pK)} pre="$"/>
+                <div style={{fontSize:12,fontWeight:600,color:"#1A1208",textAlign:"right"}}>{fmt(s[hK]*s[pK])}</div>
+              </div>
+            ))}
+            <div style={{display:"grid",gridTemplateColumns:C4,gap:4,padding:"7px 0 0",borderTop:"2px solid #E5DDD0"}}>
+              <div style={{fontSize:12,fontWeight:700,color:T,gridColumn:"1/4"}}>Total Sales</div>
+              <div style={{fontSize:13,fontWeight:700,color:"#1A1208",textAlign:"right"}}>{fmt(cr.totalSales)}</div>
+            </div>
+          </Section>
+
+          {/* Closing $/Head */}
+          <Section icon="📅" label="Closing Value / Head">
+            <div style={{fontSize:11,color:"#8B6437",marginBottom:8,fontStyle:"italic"}}>Closing head is calculated from stock flow. Enter $/head to compute CIV.</div>
+            <div style={{display:"grid",gridTemplateColumns:C4,gap:4,padding:"4px 0 3px",borderBottom:"1px solid #E8DFD0",marginBottom:3}}>
+              <div style={{fontSize:10,color:"#9B8B7A",fontWeight:600}}>Class</div>
+              <div style={{fontSize:10,color:"#9B8B7A",fontWeight:600,textAlign:"center"}}>Head</div>
+              <div style={{fontSize:10,color:"#9B8B7A",fontWeight:600,textAlign:"center"}}>$/Head</div>
+              <div style={{fontSize:10,color:"#9B8B7A",fontWeight:600,textAlign:"right"}}>CIV</div>
+            </div>
+            {[
+              {lbl:"Preg Cows",   cK:"pregCows",    n:cr.close.pregCows},
+              {lbl:"H2 Heifers",  cK:"h2",          n:cr.close.h2},
+              {lbl:"H1 Heifers",  cK:"h1",          n:cr.close.h1},
+              {lbl:"Fem Calves",  cK:"femCalves",   n:cr.close.femCalves},
+              {lbl:"Mal Calves",  cK:"malCalves",   n:cr.close.malCalves},
+              {lbl:"Stk Heifers", cK:"stockerHfrs", n:cr.close.stockerHfrs},
+              {lbl:"Stk Steers",  cK:"stockerStrs", n:cr.close.stockerStrs},
+              {lbl:"Bulls",       cK:"bulls",       n:cr.close.bulls},
+            ].map(({lbl,cK,n})=>(
+              <div key={cK} style={{display:"grid",gridTemplateColumns:C4,gap:4,padding:"5px 0",borderBottom:"1px solid #F0EBE3",alignItems:"center"}}>
+                <div style={{fontSize:12,color:"#5A4A38"}}>{lbl}</div>
+                <div style={{fontSize:12,fontWeight:700,color:n<0?"#DC2626":T,textAlign:"center"}}>{Math.max(0,n)}</div>
+                <Inp val={cv[cK]} onChange={setCV(cK)} pre="$"/>
+                <div style={{fontSize:12,fontWeight:600,color:"#1A1208",textAlign:"right"}}>{fmt(Math.max(0,n)*cv[cK])}</div>
+              </div>
+            ))}
+            <div style={{display:"grid",gridTemplateColumns:C4,gap:4,padding:"7px 0 0",borderTop:"2px solid #E5DDD0"}}>
+              <div style={{fontSize:12,fontWeight:700,color:T,gridColumn:"1/4"}}>Total CIV</div>
+              <div style={{fontSize:13,fontWeight:700,color:"#1A1208",textAlign:"right"}}>{fmt(cr.civ)}</div>
+            </div>
+          </Section>
+
+          {/* Direct Costs */}
           <Section icon="💸" label="Direct Costs">
-            <Field label="Opportunity rate"      val={d.dc.oppPct}   set={setD("oppPct")} suf="%"/>
-            <Field label="Feed and mineral"      val={d.dc.feed}     set={setD("feed")} pre="$"/>
-            <Field label="Vet and medicine"      val={d.dc.vet}      set={setD("vet")} pre="$"/>
-            <Field label="Freight and marketing" val={d.dc.freight}  set={setD("freight")} pre="$"/>
+            <Field label="Opportunity rate"      val={dc.oppPct}  set={setDc("oppPct")} suf="%"/>
+            <Field label="Feed and mineral"      val={dc.feed}    set={setDc("feed")}   pre="$"/>
+            <Field label="Vet and medicine"      val={dc.vet}     set={setDc("vet")}    pre="$"/>
+            <Field label="Freight and marketing" val={dc.freight} set={setDc("freight")} pre="$"/>
           </Section>
         </div>
+
+        {/* ── RIGHT: CALCULATED ── */}
         <div>
           <ColBanner inputs={false}/>
-          <Section icon="🔄" label="Stock Flow">
-            <Row label="Wet cows (weaned a calf)" value={r.wet} bold/>
-            <Row label="Preg cows at close"        value={r.pregKept} bold hi/>
-            <Row label="Deaths"     value={r.deaths}/>
-            <Row label="Culls"      value={r.culls}/>
-            <Row label="Open"       value={r.open}/>
-            <Row label="Dry"        value={r.dry}/>
-            <Row label="Cattle SAU" value={r.cattleSAU.toFixed(1)}/>
+
+          {/* Stock Flow Reconciliation */}
+          <Section icon="🔄" label="Stock Flow Reconciliation">
+            <table style={{width:"100%",borderCollapse:"collapse",fontSize:11}}>
+              <thead>
+                <tr style={{borderBottom:"2px solid #E5DDD0"}}>
+                  {[["Class","left"],["Open","right"],["+In","right"],["−Out","right"],["Close","right"]].map(([h,a])=>(
+                    <th key={h} style={{textAlign:a,padding:"4px 3px",color:"#9B8B7A",fontWeight:600,fontSize:10}}>{h}</th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {sfRows.map(({cls,open,inflow,outflow,close},i)=>(
+                  <tr key={cls} style={{borderBottom:"1px solid #F0EBE3",background:i%2===0?"transparent":"#FAFAF8"}}>
+                    <td style={{padding:"5px 3px",color:"#5A4A38",fontSize:11}}>{cls}</td>
+                    <td style={{padding:"5px 3px",textAlign:"right",fontVariantNumeric:"tabular-nums"}}>{open||"—"}</td>
+                    <td style={{padding:"5px 3px",textAlign:"right",color:"#22863A",fontVariantNumeric:"tabular-nums"}}>{inflow>0?"+"+inflow:"—"}</td>
+                    <td style={{padding:"5px 3px",textAlign:"right",color:"#DC2626",fontVariantNumeric:"tabular-nums"}}>{outflow>0?"−"+outflow:"—"}</td>
+                    <td style={{padding:"5px 3px",textAlign:"right",fontWeight:700,color:close<0?"#DC2626":T,fontVariantNumeric:"tabular-nums"}}>{close}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </Section>
+
+          {/* Trading Account */}
           <Section icon="🏦" label="Trading Account">
-            <Row label="BIV"             value={fmt(r.biv)}/>
-            <Row label="CIV"             value={fmt(r.civ)}/>
-            <Row label="Livestock sales" value={fmt(r.lsSales)} bold/>
-            <Row label="Gross Product"   value={fmt(r.gp)} bold hi/>
+            <Row label="BIV"             value={fmt(cr.biv)}/>
+            {cr.purchCost>0 && <Row label="Purchases"    value={"("+fmt(cr.purchCost)+")"}/>}
+            <Row label="CIV"             value={fmt(cr.civ)}/>
+            <Row label="Livestock Sales" value={fmt(cr.totalSales)} bold/>
+            <Row label="Gross Product"   value={fmt(cr.gp)} bold hi/>
           </Section>
+
+          {/* Enterprise P&L */}
           <Section icon="🧮" label="Enterprise P&L">
-            <Row label="Gross Product"           value={fmt(r.gp)}/>
-            <Row label="Direct Costs"            value={"(" + fmt(r.totalDC) + ")"} indent/>
-            <Row label="Gross Margin"            value={fmt(r.gm)} bold/>
-            <Row label={"OH (" + ohPctStr + ")"} value={"(" + fmt(r.cattleOH) + ")"} indent/>
+            <Row label="Gross Product"           value={fmt(cr.gp)}/>
+            <Row label="Direct Costs"            value={"("+fmt(cr.totalDC)+")"} indent/>
+            <Row label="Gross Margin"            value={fmt(cr.gm)} bold/>
+            <Row label={"OH ("+ohPctStr+")"}     value={"("+fmt(r.cattleOH)+")"} indent/>
             <Row label="Enterprise P(L)"         value={fmt(r.cattlePL)} bold hi/>
-            <Row label="GMR"                     value={pfmt(r.gp ? r.gm/r.gp : 0)}/>
+            <Row label="GMR"                     value={pfmt(cr.gmr)}/>
+            <Row label="Cattle SAU"              value={cr.sau.toFixed(1)}/>
           </Section>
         </div>
       </div>
     </div>
   );
 }
+
 
 // ── Small Ruminant Form ───────────────────────────────────────────────────────
 function SRForm({d, r, set, ent, nm, femLbl, maleLbl, offLbl, entR, entOH, entShare, entPL, AnimalIcon, onNav, profitView, setProfitView}) {
