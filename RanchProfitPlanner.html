@@ -1504,8 +1504,8 @@ function HomeScreen(_ref12) {
   };
   var allBIVStr = fmt(r.allBIV),
     allCIVStr = fmt(r.allCIV);
-  var cattleHd = d.herd.cows + " cows . " + r.wet + " weaned";
-  var sfStr = r.pregKept + " preg . " + d.sales.steersSold + "s/" + d.sales.heifersSold + "h";
+  var cattleHd = d.cattle.open.pregCows + " cows . " + r.wet + " weaned";
+  var sfStr = r.pregKept + " preg . " + d.cattle.sales.malCalfHead + "s/" + d.cattle.sales.femCalfHead + "h";
   var gpStr = "C:" + kfmt(r.gp) + "  S:" + kfmt(r.sheep.gp) + "  G:" + kfmt(r.goats.gp);
   var gmStr = "C:" + kfmt(r.gm) + "  S:" + kfmt(r.sheep.gm) + "  G:" + kfmt(r.goats.gm);
   var plStr = "C:" + kfmt(r.cattlePL) + "  S:" + kfmt(r.sheepPL) + "  G:" + kfmt(r.goatPL);
