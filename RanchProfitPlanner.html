@@ -737,7 +737,7 @@ function compute(data) {
   var allRev = revenue + sr_s.revenue + sr_g.revenue + lr.revenue;
   var opPL = allGM - totalOH,
     bizPL = opPL;
-  var cashNI = allRev - (dc.feed + dc.vet + dc.freight) - (sheep.dc.feed + sheep.dc.vet + sheep.dc.freight) - (goats.dc.feed + goats.dc.vet + goats.dc.freight) - lr.cashDC - trueCashOH;
+  var cashNI = allRev - catR.cashDC - (sheep.dc.feed + sheep.dc.vet + sheep.dc.freight) - (goats.dc.feed + goats.dc.vet + goats.dc.freight) - lr.cashDC - trueCashOH;
   var allBIV = biv + sr_s.biv + sr_g.biv,
     allCIV = civ + sr_s.civ + sr_g.civ;
   var bso = bsCalc(bsOpen, allBIV),
