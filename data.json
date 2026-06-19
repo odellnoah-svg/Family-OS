@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-19T13:01:11.072Z",
+  "generated": "2026-06-19T20:53:33.395Z",
   "meta": {
     "currentQuarter": "Q2",
     "currentYear": "2026",
@@ -413,6 +413,16 @@
   "projects": [],
   "tasks": [
     {
+      "id": "384c574948598079831bcf2be683ea72",
+      "type": "task",
+      "name": "Send phones in",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": "Personal Admin",
+      "hours": null,
+      "projectIds": []
+    },
+    {
       "id": "383c5749485980fb8d7ec821a6f99663",
       "type": "task",
       "name": "Finish closet organizing ",
@@ -517,16 +527,6 @@
       "type": "task",
       "name": "Revise AI agent for task prioritization ",
       "status": "Current Sprint (this week)",
-      "pillar": null,
-      "domain": null,
-      "hours": null,
-      "projectIds": []
-    },
-    {
-      "id": "379c57494859808fa0d0fe0ccdf8fc00",
-      "type": "task",
-      "name": "Feed Snake",
-      "status": "In progress (WIP)",
       "pillar": null,
       "domain": null,
       "hours": null,
@@ -875,6 +875,23 @@
   ],
   "wipTasks": [
     {
+      "id": "384c574948598079831bcf2be683ea72",
+      "type": "task",
+      "name": "Send phones in",
+      "status": "In progress (WIP)",
+      "pillarIds": [],
+      "domain": "Personal Admin",
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Patricia Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": "2026-06-19T09:42:00.000-05:00",
+      "completeDate": null
+    },
+    {
       "id": "383c5749485980fb8d7ec821a6f99663",
       "type": "task",
       "name": "Finish closet organizing ",
@@ -1065,23 +1082,6 @@
       ],
       "velocity": 0,
       "startDate": "2026-06-12T10:32:00.000-05:00",
-      "completeDate": null
-    },
-    {
-      "id": "379c57494859808fa0d0fe0ccdf8fc00",
-      "type": "task",
-      "name": "Feed Snake",
-      "status": "In progress (WIP)",
-      "pillarIds": [],
-      "domain": null,
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Patricia Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-06-08T13:26:00.000-05:00",
       "completeDate": null
     },
     {
@@ -1946,6 +1946,23 @@
       "velocity": 4.75,
       "startDate": "2026-06-08T18:46:00.000-06:00",
       "completeDate": "2026-06-13T13:55:00.000-05:00"
+    },
+    {
+      "id": "379c57494859808fa0d0fe0ccdf8fc00",
+      "type": "task",
+      "name": "Feed Snake",
+      "status": "Done",
+      "pillarIds": [],
+      "domain": null,
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Patricia Eubanks"
+      ],
+      "velocity": 10.833333333333,
+      "startDate": "2026-06-08T13:26:00.000-05:00",
+      "completeDate": "2026-06-19T09:42:00.000-05:00"
     },
     {
       "id": "379c5749485980c08be2f0c91efe4706",
@@ -3395,23 +3412,6 @@
       "velocity": 0.25,
       "startDate": "2026-05-11T07:28:00.000-05:00",
       "completeDate": "2026-05-11T14:13:00.000-05:00"
-    },
-    {
-      "id": "35dc5749485980e9b408c4d43bae92b6",
-      "type": "task",
-      "name": "Finish connecting relationships between databases to make sure it works correctly.  Create a project also.  ",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": "Personal Admin",
-      "hours": 2,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 21.666666666667,
-      "startDate": "2026-05-10T23:57:00.000-05:00",
-      "completeDate": "2026-06-01T16:55:00.000-05:00"
     }
   ],
   "habitData": {
