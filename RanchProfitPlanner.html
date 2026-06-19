@@ -4,6 +4,7 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Ranch Profit Planner — Eubanks Cattle Co</title>
+  <script src="https://accounts.google.com/gsi/client" async></script>
   <script crossorigin src="https://unpkg.com/react@18.2.0/umd/react.production.min.js"></script>
   <script crossorigin src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
   <style>
@@ -32,6 +33,15 @@
   <script>"use strict";
 
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+var _react = require("react");
+function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
+function _arrayWithoutHoles(r) { if (Array.isArray(r)) return _arrayLikeToArray(r); }
+function _regenerator() { /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */ var e, t, r = "function" == typeof Symbol ? Symbol : {}, n = r.iterator || "@@iterator", o = r.toStringTag || "@@toStringTag"; function i(r, n, o, i) { var c = n && n.prototype instanceof Generator ? n : Generator, u = Object.create(c.prototype); return _regeneratorDefine2(u, "_invoke", function (r, n, o) { var i, c, u, f = 0, p = o || [], y = !1, G = { p: 0, n: 0, v: e, a: d, f: d.bind(e, 4), d: function d(t, r) { return i = t, c = 0, u = e, G.n = r, a; } }; function d(r, n) { for (c = r, u = n, t = 0; !y && f && !o && t < p.length; t++) { var o, i = p[t], d = G.p, l = i[2]; r > 3 ? (o = l === n) && (u = i[(c = i[4]) ? 5 : (c = 3, 3)], i[4] = i[5] = e) : i[0] <= d && ((o = r < 2 && d < i[1]) ? (c = 0, G.v = n, G.n = i[1]) : d < l && (o = r < 3 || i[0] > n || n > l) && (i[4] = r, i[5] = n, G.n = l, c = 0)); } if (o || r > 1) return a; throw y = !0, n; } return function (o, p, l) { if (f > 1) throw TypeError("Generator is already running"); for (y && 1 === p && d(p, l), c = p, u = l; (t = c < 2 ? e : u) || !y;) { i || (c ? c < 3 ? (c > 1 && (G.n = -1), d(c, u)) : G.n = u : G.v = u); try { if (f = 2, i) { if (c || (o = "next"), t = i[o]) { if (!(t = t.call(i, u))) throw TypeError("iterator result is not an object"); if (!t.done) return t; u = t.value, c < 2 && (c = 0); } else 1 === c && (t = i.return) && t.call(i), c < 2 && (u = TypeError("The iterator does not provide a '" + o + "' method"), c = 1); i = e; } else if ((t = (y = G.n < 0) ? u : r.call(n, G)) !== a) break; } catch (t) { i = e, c = 1, u = t; } finally { f = 1; } } return { value: t, done: y }; }; }(r, o, i), !0), u; } var a = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} t = Object.getPrototypeOf; var c = [][n] ? t(t([][n]())) : (_regeneratorDefine2(t = {}, n, function () { return this; }), t), u = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(c); function f(e) { return Object.setPrototypeOf ? Object.setPrototypeOf(e, GeneratorFunctionPrototype) : (e.__proto__ = GeneratorFunctionPrototype, _regeneratorDefine2(e, o, "GeneratorFunction")), e.prototype = Object.create(u), e; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, _regeneratorDefine2(u, "constructor", GeneratorFunctionPrototype), _regeneratorDefine2(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = "GeneratorFunction", _regeneratorDefine2(GeneratorFunctionPrototype, o, "GeneratorFunction"), _regeneratorDefine2(u), _regeneratorDefine2(u, o, "Generator"), _regeneratorDefine2(u, n, function () { return this; }), _regeneratorDefine2(u, "toString", function () { return "[object Generator]"; }), (_regenerator = function _regenerator() { return { w: i, m: f }; })(); }
+function _regeneratorDefine2(e, r, n, t) { var i = Object.defineProperty; try { i({}, "", {}); } catch (e) { i = 0; } _regeneratorDefine2 = function _regeneratorDefine(e, r, n, t) { function o(r, n) { _regeneratorDefine2(e, r, function (e) { return this._invoke(r, n, e); }); } r ? i ? i(e, r, { value: n, enumerable: !t, configurable: !t, writable: !t }) : e[r] = n : (o("next", 0), o("throw", 1), o("return", 2)); }, _regeneratorDefine2(e, r, n, t); }
+function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
+function _asyncToGenerator(n) { return function () { var t = this, e = arguments; return new Promise(function (r, o) { var a = n.apply(t, e); function _next(n) { asyncGeneratorStep(a, r, o, _next, _throw, "next", n); } function _throw(n) { asyncGeneratorStep(a, r, o, _next, _throw, "throw", n); } _next(void 0); }); }; }
 function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
 function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
 function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
@@ -43,9 +53,6 @@ function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) 
 function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
 function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t.return && (u = t.return(), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
 function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
-var _React = React,
-  useState = _React.useState,
-  useMemo = _React.useMemo;
 var fmt = function fmt(n) {
   return n == null ? "—" : (n < 0 ? "-$" : "$") + Math.round(Math.abs(n)).toLocaleString("en-US");
 };
@@ -98,7 +105,7 @@ var TIPS = {
 };
 function TipIcon(_ref) {
   var text = _ref.text;
-  var _useState = useState(false),
+  var _useState = (0, _react.useState)(false),
     _useState2 = _slicedToArray(_useState, 2),
     show = _useState2[0],
     setShow = _useState2[1];
@@ -524,7 +531,7 @@ function Inp(_ref2) {
     onChange = _ref2.onChange,
     pre = _ref2.pre,
     suf = _ref2.suf;
-  var _useState3 = useState(null),
+  var _useState3 = (0, _react.useState)(null),
     _useState4 = _slicedToArray(_useState3, 2),
     raw = _useState4[0],
     setRaw = _useState4[1];
@@ -3439,6 +3446,947 @@ function ResultsForm(_ref24) {
 }
 
 // ── Guide Modal ───────────────────────────────────────────────────────────────
+// ── Scenario Manager ──────────────────────────────────────────────────────────
+function ScenarioManager(_ref25) {
+  var currentData = _ref25.currentData,
+    onLoad = _ref25.onLoad,
+    onClose = _ref25.onClose,
+    token = _ref25.token,
+    setToken = _ref25.setToken;
+  var tcRef = useRef(null);
+  var _useState5 = (0, _react.useState)([]),
+    _useState6 = _slicedToArray(_useState5, 2),
+    scenarios = _useState6[0],
+    setScenarios = _useState6[1];
+  var _useState7 = (0, _react.useState)(false),
+    _useState8 = _slicedToArray(_useState7, 2),
+    loading = _useState8[0],
+    setLoading = _useState8[1];
+  var _useState9 = (0, _react.useState)(false),
+    _useState0 = _slicedToArray(_useState9, 2),
+    opBusy = _useState0[0],
+    setOpBusy = _useState0[1];
+  var _useState1 = (0, _react.useState)(""),
+    _useState10 = _slicedToArray(_useState1, 2),
+    err = _useState10[0],
+    setErr = _useState10[1];
+  var _useState11 = (0, _react.useState)("list"),
+    _useState12 = _slicedToArray(_useState11, 2),
+    tab = _useState12[0],
+    setTab = _useState12[1];
+  var _useState13 = (0, _react.useState)(""),
+    _useState14 = _slicedToArray(_useState13, 2),
+    saveName = _useState14[0],
+    setSaveName = _useState14[1];
+  var _useState15 = (0, _react.useState)(new Date().getFullYear()),
+    _useState16 = _slicedToArray(_useState15, 2),
+    saveYear = _useState16[0],
+    setSaveYear = _useState16[1];
+  var _useState17 = (0, _react.useState)("actual"),
+    _useState18 = _slicedToArray(_useState17, 2),
+    saveType = _useState18[0],
+    setSaveType = _useState18[1];
+  var _useState19 = (0, _react.useState)([]),
+    _useState20 = _slicedToArray(_useState19, 2),
+    compareIds = _useState20[0],
+    setCompareIds = _useState20[1];
+  var _useState21 = (0, _react.useState)([]),
+    _useState22 = _slicedToArray(_useState21, 2),
+    cmpData = _useState22[0],
+    setCmpData = _useState22[1];
+  useEffect(function () {
+    var _window$google;
+    var init = function init() {
+      tcRef.current = window.google.accounts.oauth2.initTokenClient({
+        client_id: CLIENT_ID,
+        scope: SCOPES,
+        callback: function callback(resp) {
+          if (resp.access_token) setToken(resp.access_token);
+        }
+      });
+    };
+    if ((_window$google = window.google) !== null && _window$google !== void 0 && (_window$google = _window$google.accounts) !== null && _window$google !== void 0 && _window$google.oauth2) {
+      init();
+    } else {
+      var iv = setInterval(function () {
+        var _window$google2;
+        if ((_window$google2 = window.google) !== null && _window$google2 !== void 0 && (_window$google2 = _window$google2.accounts) !== null && _window$google2 !== void 0 && _window$google2.oauth2) {
+          clearInterval(iv);
+          init();
+        }
+      }, 300);
+      return function () {
+        return clearInterval(iv);
+      };
+    }
+  }, []);
+  useEffect(function () {
+    if (token) fetchList();
+  }, [token]);
+  var signIn = function signIn() {
+    var _tcRef$current;
+    return (_tcRef$current = tcRef.current) === null || _tcRef$current === void 0 ? void 0 : _tcRef$current.requestAccessToken();
+  };
+  var fetchList = /*#__PURE__*/function () {
+    var _fetchList = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee() {
+      var _t, _t2;
+      return _regenerator().w(function (_context) {
+        while (1) switch (_context.p = _context.n) {
+          case 0:
+            setLoading(true);
+            setErr("");
+            _context.p = 1;
+            _t = setScenarios;
+            _context.n = 2;
+            return driveAPI.list(token);
+          case 2:
+            _t(_context.v);
+            _context.n = 4;
+            break;
+          case 3:
+            _context.p = 3;
+            _t2 = _context.v;
+            setErr("Could not reach Drive — try signing in again.");
+          case 4:
+            setLoading(false);
+          case 5:
+            return _context.a(2);
+        }
+      }, _callee, null, [[1, 3]]);
+    }));
+    function fetchList() {
+      return _fetchList.apply(this, arguments);
+    }
+    return fetchList;
+  }();
+  var handleLoad = /*#__PURE__*/function () {
+    var _handleLoad = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee2(fileId) {
+      var s, _t3;
+      return _regenerator().w(function (_context2) {
+        while (1) switch (_context2.p = _context2.n) {
+          case 0:
+            setOpBusy(true);
+            setErr("");
+            _context2.p = 1;
+            _context2.n = 2;
+            return driveAPI.load(token, fileId);
+          case 2:
+            s = _context2.v;
+            onLoad(s.data);
+            onClose();
+            _context2.n = 4;
+            break;
+          case 3:
+            _context2.p = 3;
+            _t3 = _context2.v;
+            setErr("Load failed.");
+          case 4:
+            setOpBusy(false);
+          case 5:
+            return _context2.a(2);
+        }
+      }, _callee2, null, [[1, 3]]);
+    }));
+    function handleLoad(_x) {
+      return _handleLoad.apply(this, arguments);
+    }
+    return handleLoad;
+  }();
+  var handleSave = /*#__PURE__*/function () {
+    var _handleSave = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee3() {
+      var _t4;
+      return _regenerator().w(function (_context3) {
+        while (1) switch (_context3.p = _context3.n) {
+          case 0:
+            if (saveName.trim()) {
+              _context3.n = 1;
+              break;
+            }
+            setErr("Please enter a name.");
+            return _context3.a(2);
+          case 1:
+            setOpBusy(true);
+            setErr("");
+            _context3.p = 2;
+            _context3.n = 3;
+            return driveAPI.save(token, saveName.trim(), saveType, saveYear, currentData);
+          case 3:
+            setSaveName("");
+            setTab("list");
+            _context3.n = 4;
+            return fetchList();
+          case 4:
+            _context3.n = 6;
+            break;
+          case 5:
+            _context3.p = 5;
+            _t4 = _context3.v;
+            setErr("Save failed.");
+          case 6:
+            setOpBusy(false);
+          case 7:
+            return _context3.a(2);
+        }
+      }, _callee3, null, [[2, 5]]);
+    }));
+    function handleSave() {
+      return _handleSave.apply(this, arguments);
+    }
+    return handleSave;
+  }();
+  var handleDelete = /*#__PURE__*/function () {
+    var _handleDelete = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee4(fileId, name) {
+      var _t5;
+      return _regenerator().w(function (_context4) {
+        while (1) switch (_context4.p = _context4.n) {
+          case 0:
+            if (confirm("Delete \"".concat(name, "\"?"))) {
+              _context4.n = 1;
+              break;
+            }
+            return _context4.a(2);
+          case 1:
+            setOpBusy(true);
+            _context4.p = 2;
+            _context4.n = 3;
+            return driveAPI.remove(token, fileId);
+          case 3:
+            setScenarios(function (s) {
+              return s.filter(function (x) {
+                return x.id !== fileId;
+              });
+            });
+            _context4.n = 5;
+            break;
+          case 4:
+            _context4.p = 4;
+            _t5 = _context4.v;
+            setErr("Delete failed.");
+          case 5:
+            setOpBusy(false);
+          case 6:
+            return _context4.a(2);
+        }
+      }, _callee4, null, [[2, 4]]);
+    }));
+    function handleDelete(_x2, _x3) {
+      return _handleDelete.apply(this, arguments);
+    }
+    return handleDelete;
+  }();
+  var toggleCompare = function toggleCompare(id) {
+    setCompareIds(function (prev) {
+      return prev.includes(id) ? prev.filter(function (x) {
+        return x !== id;
+      }) : prev.length >= 2 ? [prev[1], id] : [].concat(_toConsumableArray(prev), [id]);
+    });
+  };
+  var runCompare = /*#__PURE__*/function () {
+    var _runCompare = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee5() {
+      var _yield$Promise$all, _yield$Promise$all2, a, b, _t6;
+      return _regenerator().w(function (_context5) {
+        while (1) switch (_context5.p = _context5.n) {
+          case 0:
+            if (!(compareIds.length !== 2)) {
+              _context5.n = 1;
+              break;
+            }
+            setErr("Select exactly 2 scenarios.");
+            return _context5.a(2);
+          case 1:
+            setOpBusy(true);
+            setErr("");
+            _context5.p = 2;
+            _context5.n = 3;
+            return Promise.all(compareIds.map(function (id) {
+              return driveAPI.load(token, id);
+            }));
+          case 3:
+            _yield$Promise$all = _context5.v;
+            _yield$Promise$all2 = _slicedToArray(_yield$Promise$all, 2);
+            a = _yield$Promise$all2[0];
+            b = _yield$Promise$all2[1];
+            setCmpData([a, b]);
+            setTab("compare");
+            _context5.n = 5;
+            break;
+          case 4:
+            _context5.p = 4;
+            _t6 = _context5.v;
+            setErr("Could not load scenarios.");
+          case 5:
+            setOpBusy(false);
+          case 6:
+            return _context5.a(2);
+        }
+      }, _callee5, null, [[2, 4]]);
+    }));
+    function runCompare() {
+      return _runCompare.apply(this, arguments);
+    }
+    return runCompare;
+  }();
+  var typeBadge = function typeBadge(type) {
+    var cfg = {
+      actual: {
+        bg: "#DCFCE7",
+        c: "#166534",
+        lbl: "Actual"
+      },
+      plan: {
+        bg: "#DBEAFE",
+        c: "#1D4ED8",
+        lbl: "Plan"
+      },
+      theoretical: {
+        bg: "#FEF3C7",
+        c: "#92400E",
+        lbl: "Theoretical"
+      }
+    };
+    var s = cfg[type] || cfg.plan;
+    return /*#__PURE__*/React.createElement("span", {
+      style: {
+        background: s.bg,
+        color: s.c,
+        fontSize: 10,
+        fontWeight: 700,
+        padding: "2px 8px",
+        borderRadius: 10,
+        textTransform: "uppercase",
+        letterSpacing: "0.05em"
+      }
+    }, s.lbl);
+  };
+  var ScenarioCard = function ScenarioCard(_ref26) {
+    var s = _ref26.s;
+    return /*#__PURE__*/React.createElement("div", {
+      style: {
+        background: "#FAFAF8",
+        border: "1px solid #E5DDD0",
+        borderRadius: 8,
+        padding: "12px 14px",
+        marginBottom: 8
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        display: "flex",
+        alignItems: "flex-start",
+        justifyContent: "space-between",
+        gap: 8,
+        marginBottom: 8
+      }
+    }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontSize: 13,
+        fontWeight: 600,
+        color: T,
+        marginBottom: 4
+      }
+    }, s.meta.name || s.name), /*#__PURE__*/React.createElement("div", {
+      style: {
+        display: "flex",
+        gap: 6,
+        alignItems: "center",
+        flexWrap: "wrap"
+      }
+    }, typeBadge(s.meta.type), s.meta.year && /*#__PURE__*/React.createElement("span", {
+      style: {
+        fontSize: 11,
+        color: "#9B8B7A"
+      }
+    }, s.meta.year), /*#__PURE__*/React.createElement("span", {
+      style: {
+        fontSize: 11,
+        color: "#9B8B7A"
+      }
+    }, s.modifiedTime ? new Date(s.modifiedTime).toLocaleDateString() : ""))), /*#__PURE__*/React.createElement("label", {
+      style: {
+        display: "flex",
+        alignItems: "center",
+        gap: 5,
+        cursor: "pointer",
+        flexShrink: 0
+      }
+    }, /*#__PURE__*/React.createElement("input", {
+      type: "checkbox",
+      checked: compareIds.includes(s.id),
+      onChange: function onChange() {
+        return toggleCompare(s.id);
+      },
+      style: {
+        width: 14,
+        height: 14,
+        accentColor: T,
+        cursor: "pointer"
+      }
+    }), /*#__PURE__*/React.createElement("span", {
+      style: {
+        fontSize: 11,
+        color: "#9B8B7A"
+      }
+    }, "Compare"))), /*#__PURE__*/React.createElement("div", {
+      style: {
+        display: "flex",
+        gap: 8
+      }
+    }, /*#__PURE__*/React.createElement("button", {
+      type: "button",
+      onClick: function onClick() {
+        return handleLoad(s.id);
+      },
+      disabled: opBusy,
+      style: {
+        flex: 1,
+        background: T,
+        color: "white",
+        border: "none",
+        borderRadius: 6,
+        padding: "6px 0",
+        fontSize: 12,
+        cursor: opBusy ? "not-allowed" : "pointer",
+        fontWeight: 600
+      }
+    }, "Load"), /*#__PURE__*/React.createElement("button", {
+      type: "button",
+      onClick: function onClick() {
+        return handleDelete(s.id, s.meta.name || s.name);
+      },
+      disabled: opBusy,
+      style: {
+        background: "#FEE2E2",
+        color: "#DC2626",
+        border: "1px solid #FECACA",
+        borderRadius: 6,
+        padding: "6px 12px",
+        fontSize: 12,
+        cursor: opBusy ? "not-allowed" : "pointer",
+        fontWeight: 600
+      }
+    }, "Delete")));
+  };
+  return /*#__PURE__*/React.createElement("div", {
+    style: {
+      position: "fixed",
+      inset: 0,
+      zIndex: 200,
+      display: "flex",
+      justifyContent: "flex-end"
+    },
+    onClick: onClose
+  }, /*#__PURE__*/React.createElement("div", {
+    onClick: function onClick(e) {
+      return e.stopPropagation();
+    },
+    style: {
+      width: 420,
+      maxWidth: "95vw",
+      background: "white",
+      height: "100vh",
+      display: "flex",
+      flexDirection: "column",
+      boxShadow: "-4px 0 24px rgba(0,0,0,0.18)"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      background: T,
+      padding: "14px 18px",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "space-between",
+      flexShrink: 0
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      color: "white",
+      fontWeight: 700,
+      fontSize: 15
+    }
+  }, "\uD83D\uDCBE Scenarios"), /*#__PURE__*/React.createElement("button", {
+    type: "button",
+    onClick: onClose,
+    style: {
+      background: "rgba(255,255,255,0.2)",
+      border: "none",
+      borderRadius: 6,
+      padding: "5px 12px",
+      color: "white",
+      fontSize: 12,
+      cursor: "pointer"
+    }
+  }, "Close")), !token ? /*#__PURE__*/React.createElement("div", {
+    style: {
+      flex: 1,
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      justifyContent: "center",
+      padding: 32,
+      gap: 16,
+      textAlign: "center"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 40
+    }
+  }, "\u2601\uFE0F"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 15,
+      fontWeight: 600,
+      color: T
+    }
+  }, "Connect to Google Drive"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 13,
+      color: "#6B5744",
+      lineHeight: 1.6,
+      maxWidth: 280
+    }
+  }, "Scenarios save to your \"Claude Financial\" Drive folder and are accessible from any device."), /*#__PURE__*/React.createElement("button", {
+    type: "button",
+    onClick: signIn,
+    style: {
+      background: T,
+      color: "white",
+      border: "none",
+      borderRadius: 8,
+      padding: "10px 28px",
+      fontSize: 14,
+      fontWeight: 600,
+      cursor: "pointer",
+      display: "flex",
+      alignItems: "center",
+      gap: 8
+    }
+  }, "\uD83D\uDD11 Sign in with Google")) : /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      borderBottom: "1px solid #E8DFD0",
+      flexShrink: 0
+    }
+  }, [["list", "📋 Saved"], ["save", "💾 Save"], ["compare", "📊 Compare"]].map(function (_ref27) {
+    var _ref28 = _slicedToArray(_ref27, 2),
+      k = _ref28[0],
+      lbl = _ref28[1];
+    return /*#__PURE__*/React.createElement("button", {
+      key: k,
+      type: "button",
+      onClick: function onClick() {
+        setTab(k);
+        setErr("");
+      },
+      style: {
+        flex: 1,
+        padding: "10px 0",
+        border: "none",
+        background: "transparent",
+        cursor: "pointer",
+        fontSize: 12,
+        fontWeight: tab === k ? 700 : 400,
+        color: tab === k ? T : "#8B7060",
+        borderBottom: tab === k ? "2px solid " + T : "2px solid transparent"
+      }
+    }, lbl);
+  })), err && /*#__PURE__*/React.createElement("div", {
+    style: {
+      margin: "10px 16px 0",
+      padding: "8px 12px",
+      background: "#FEF2F2",
+      border: "1px solid #FECACA",
+      borderRadius: 6,
+      fontSize: 12,
+      color: "#DC2626"
+    }
+  }, err), /*#__PURE__*/React.createElement("div", {
+    style: {
+      flex: 1,
+      overflowY: "auto",
+      padding: 16
+    }
+  }, tab === "list" && /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      justifyContent: "space-between",
+      alignItems: "center",
+      marginBottom: 12
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 12,
+      color: "#9B8B7A"
+    }
+  }, scenarios.length, " scenario", scenarios.length !== 1 ? "s" : ""), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 8
+    }
+  }, compareIds.length === 2 && /*#__PURE__*/React.createElement("button", {
+    type: "button",
+    onClick: runCompare,
+    disabled: opBusy,
+    style: {
+      background: "#DBEAFE",
+      color: "#1D4ED8",
+      border: "1px solid #BFDBFE",
+      borderRadius: 6,
+      padding: "5px 12px",
+      fontSize: 11,
+      fontWeight: 700,
+      cursor: "pointer"
+    }
+  }, "Compare \u2713\u2713"), /*#__PURE__*/React.createElement("button", {
+    type: "button",
+    onClick: fetchList,
+    disabled: loading,
+    style: {
+      background: "#F0E4C8",
+      color: T,
+      border: "none",
+      borderRadius: 6,
+      padding: "5px 12px",
+      fontSize: 11,
+      fontWeight: 600,
+      cursor: "pointer"
+    }
+  }, loading ? "…" : "↻"))), loading && /*#__PURE__*/React.createElement("div", {
+    style: {
+      textAlign: "center",
+      padding: 32,
+      color: "#9B8B7A",
+      fontSize: 13
+    }
+  }, "Loading\u2026"), !loading && scenarios.length === 0 && /*#__PURE__*/React.createElement("div", {
+    style: {
+      textAlign: "center",
+      padding: 32,
+      color: "#9B8B7A",
+      fontSize: 13
+    }
+  }, "No scenarios yet. Use the Save tab to save your first one."), scenarios.map(function (s) {
+    return /*#__PURE__*/React.createElement(ScenarioCard, {
+      key: s.id,
+      s: s
+    });
+  }), compareIds.length > 0 && /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginTop: 8,
+      padding: "8px 12px",
+      background: "#EBF5FF",
+      border: "1px solid #93C5FD",
+      borderRadius: 6,
+      fontSize: 12,
+      color: "#1A3A6B"
+    }
+  }, compareIds.length === 1 ? "Select 1 more scenario to compare" : "Click Compare ✓✓ above to run")), tab === "save" && /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      flexDirection: "column",
+      gap: 14
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 12,
+      color: "#6B5744",
+      lineHeight: 1.6,
+      padding: "8px 12px",
+      background: "#FFF8EC",
+      borderRadius: 6,
+      border: "1px solid #E8D9BE"
+    }
+  }, "Saves all current inputs as a named snapshot in your Drive folder."), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("label", {
+    style: {
+      fontSize: 12,
+      fontWeight: 600,
+      color: T,
+      display: "block",
+      marginBottom: 5
+    }
+  }, "Scenario Name"), /*#__PURE__*/React.createElement("input", {
+    type: "text",
+    value: saveName,
+    onChange: function onChange(e) {
+      return setSaveName(e.target.value);
+    },
+    placeholder: "e.g. 2025 Actual, 2026 Budget\u2026",
+    style: {
+      width: "100%",
+      border: "1px solid #93C5FD",
+      borderRadius: 6,
+      padding: "8px 10px",
+      fontSize: 13,
+      background: "#EBF5FF",
+      color: "#1A3A6B",
+      fontWeight: 600,
+      outline: "none",
+      boxSizing: "border-box"
+    }
+  })), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "grid",
+      gridTemplateColumns: "1fr 1fr",
+      gap: 12
+    }
+  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("label", {
+    style: {
+      fontSize: 12,
+      fontWeight: 600,
+      color: T,
+      display: "block",
+      marginBottom: 5
+    }
+  }, "Year"), /*#__PURE__*/React.createElement("input", {
+    type: "number",
+    value: saveYear,
+    onChange: function onChange(e) {
+      return setSaveYear(+e.target.value);
+    },
+    style: {
+      width: "100%",
+      border: "1px solid #93C5FD",
+      borderRadius: 6,
+      padding: "8px 10px",
+      fontSize: 13,
+      background: "#EBF5FF",
+      color: "#1A3A6B",
+      fontWeight: 600,
+      outline: "none",
+      boxSizing: "border-box"
+    }
+  })), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("label", {
+    style: {
+      fontSize: 12,
+      fontWeight: 600,
+      color: T,
+      display: "block",
+      marginBottom: 5
+    }
+  }, "Type"), /*#__PURE__*/React.createElement("select", {
+    value: saveType,
+    onChange: function onChange(e) {
+      return setSaveType(e.target.value);
+    },
+    style: {
+      width: "100%",
+      border: "1px solid #93C5FD",
+      borderRadius: 6,
+      padding: "8px 10px",
+      fontSize: 13,
+      background: "#EBF5FF",
+      color: "#1A3A6B",
+      fontWeight: 600,
+      outline: "none",
+      boxSizing: "border-box"
+    }
+  }, /*#__PURE__*/React.createElement("option", {
+    value: "actual"
+  }, "Actual"), /*#__PURE__*/React.createElement("option", {
+    value: "plan"
+  }, "Plan / Budget"), /*#__PURE__*/React.createElement("option", {
+    value: "theoretical"
+  }, "Theoretical")))), /*#__PURE__*/React.createElement("button", {
+    type: "button",
+    onClick: handleSave,
+    disabled: opBusy,
+    style: {
+      background: T,
+      color: "white",
+      border: "none",
+      borderRadius: 8,
+      padding: "11px 0",
+      fontSize: 14,
+      fontWeight: 700,
+      cursor: opBusy ? "not-allowed" : "pointer"
+    }
+  }, opBusy ? "Saving…" : "💾 Save to Drive")), tab === "compare" && cmpData.length === 2 && function (_cmpData$0$meta, _cmpData$1$meta) {
+    var ra = compute(cmpData[0].data, "economic");
+    var rb = compute(cmpData[1].data, "economic");
+    var nameA = ((_cmpData$0$meta = cmpData[0].meta) === null || _cmpData$0$meta === void 0 ? void 0 : _cmpData$0$meta.name) || "A";
+    var nameB = ((_cmpData$1$meta = cmpData[1].meta) === null || _cmpData$1$meta === void 0 ? void 0 : _cmpData$1$meta.name) || "B";
+    var rows = [{
+      label: "Gross Product",
+      a: fmt(ra.allGP),
+      b: fmt(rb.allGP)
+    }, {
+      label: "Gross Margin",
+      a: fmt(ra.allGM),
+      b: fmt(rb.allGM)
+    }, {
+      label: "GMR",
+      a: pfmt(ra.gmr),
+      b: pfmt(rb.gmr)
+    }, {
+      label: "Business P(L)",
+      a: fmt(ra.bizPL),
+      b: fmt(rb.bizPL)
+    }, {
+      label: "Cash Contrib",
+      a: fmt(ra.cashNI),
+      b: fmt(rb.cashNI)
+    }, {
+      label: "─ Cattle GP",
+      a: fmt(ra.gp),
+      b: fmt(rb.gp)
+    }, {
+      label: "─ Sheep GP",
+      a: fmt(ra.sheep.gp),
+      b: fmt(rb.sheep.gp)
+    }, {
+      label: "─ Goats GP",
+      a: fmt(ra.goats.gp),
+      b: fmt(rb.goats.gp)
+    }, {
+      label: "─ Leases GP",
+      a: fmt(ra.leases.gp),
+      b: fmt(rb.leases.gp)
+    }, {
+      label: "Total Overheads",
+      a: fmt(ra.totalOH),
+      b: fmt(rb.totalOH)
+    }, {
+      label: "Cattle SAU",
+      a: ra.cattleSAU.toFixed(1),
+      b: rb.cattleSAU.toFixed(1)
+    }, {
+      label: "Net Worth Δ",
+      a: fmt(ra.nwChange),
+      b: fmt(rb.nwChange)
+    }];
+    return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+      style: {
+        display: "grid",
+        gridTemplateColumns: "1fr 1fr",
+        gap: 8,
+        marginBottom: 14
+      }
+    }, [cmpData[0], cmpData[1]].map(function (s, i) {
+      var _s$meta, _s$meta2, _s$meta3;
+      return /*#__PURE__*/React.createElement("div", {
+        key: i,
+        style: {
+          padding: "8px 10px",
+          borderRadius: 7,
+          background: i === 0 ? "#FFF8EC" : "#EBF5FF",
+          border: "1px solid ".concat(i === 0 ? "#E8D9BE" : "#93C5FD")
+        }
+      }, /*#__PURE__*/React.createElement("div", {
+        style: {
+          fontSize: 10,
+          fontWeight: 700,
+          color: "#9B8B7A",
+          textTransform: "uppercase"
+        }
+      }, i === 0 ? "A" : "B"), /*#__PURE__*/React.createElement("div", {
+        style: {
+          fontSize: 12,
+          fontWeight: 700,
+          color: T,
+          marginTop: 2
+        }
+      }, (_s$meta = s.meta) === null || _s$meta === void 0 ? void 0 : _s$meta.name), /*#__PURE__*/React.createElement("div", {
+        style: {
+          marginTop: 3
+        }
+      }, typeBadge((_s$meta2 = s.meta) === null || _s$meta2 === void 0 ? void 0 : _s$meta2.type), " ", /*#__PURE__*/React.createElement("span", {
+        style: {
+          fontSize: 11,
+          color: "#9B8B7A"
+        }
+      }, (_s$meta3 = s.meta) === null || _s$meta3 === void 0 ? void 0 : _s$meta3.year)));
+    })), /*#__PURE__*/React.createElement("table", {
+      style: {
+        width: "100%",
+        borderCollapse: "collapse",
+        fontSize: 12
+      }
+    }, /*#__PURE__*/React.createElement("thead", null, /*#__PURE__*/React.createElement("tr", {
+      style: {
+        borderBottom: "2px solid #E5DDD0"
+      }
+    }, /*#__PURE__*/React.createElement("th", {
+      style: {
+        textAlign: "left",
+        padding: "5px 4px",
+        color: "#9B8B7A",
+        fontWeight: 600,
+        fontSize: 11
+      }
+    }, "Metric"), /*#__PURE__*/React.createElement("th", {
+      style: {
+        textAlign: "right",
+        padding: "5px 4px",
+        color: T,
+        fontWeight: 700,
+        fontSize: 11
+      }
+    }, nameA), /*#__PURE__*/React.createElement("th", {
+      style: {
+        textAlign: "right",
+        padding: "5px 4px",
+        color: "#1D4ED8",
+        fontWeight: 700,
+        fontSize: 11
+      }
+    }, nameB))), /*#__PURE__*/React.createElement("tbody", null, rows.map(function (_ref29, i) {
+      var label = _ref29.label,
+        a = _ref29.a,
+        b = _ref29.b;
+      return /*#__PURE__*/React.createElement("tr", {
+        key: i,
+        style: {
+          borderBottom: "1px solid #F0EBE3",
+          background: i % 2 === 0 ? "transparent" : "#FAFAF8"
+        }
+      }, /*#__PURE__*/React.createElement("td", {
+        style: {
+          padding: "6px 4px",
+          color: "#5A4A38"
+        }
+      }, label), /*#__PURE__*/React.createElement("td", {
+        style: {
+          padding: "6px 4px",
+          textAlign: "right",
+          fontVariantNumeric: "tabular-nums",
+          fontWeight: 600,
+          color: T
+        }
+      }, a), /*#__PURE__*/React.createElement("td", {
+        style: {
+          padding: "6px 4px",
+          textAlign: "right",
+          fontVariantNumeric: "tabular-nums",
+          fontWeight: 600,
+          color: "#1D4ED8"
+        }
+      }, b));
+    }))), /*#__PURE__*/React.createElement("button", {
+      type: "button",
+      onClick: function onClick() {
+        setTab("list");
+        setCompareIds([]);
+        setCmpData([]);
+      },
+      style: {
+        marginTop: 14,
+        width: "100%",
+        background: "#F0E4C8",
+        color: T,
+        border: "none",
+        borderRadius: 6,
+        padding: "8px 0",
+        fontSize: 12,
+        fontWeight: 600,
+        cursor: "pointer"
+      }
+    }, "\u2190 Back to list"));
+  }(), tab === "compare" && cmpData.length === 0 && /*#__PURE__*/React.createElement("div", {
+    style: {
+      textAlign: "center",
+      padding: 32,
+      color: "#9B8B7A",
+      fontSize: 13
+    }
+  }, "Go to the Saved tab, check two scenarios, then click Compare.")))));
+}
 function GuideContent() {
   var S = function S(title, body) {
     return /*#__PURE__*/React.createElement("div", {
@@ -3487,28 +4435,28 @@ function GlossaryContent() {
   });
   var pinned = PINNED_TERMS.map(function (k) {
     return [k, TIPS[k]];
-  }).filter(function (_ref25) {
-    var _ref26 = _slicedToArray(_ref25, 2),
-      v = _ref26[1];
+  }).filter(function (_ref30) {
+    var _ref31 = _slicedToArray(_ref30, 2),
+      v = _ref31[1];
     return v;
   });
   var pinnedSet = new Set(PINNED_TERMS);
-  var financial = allTerms.filter(function (_ref27) {
-    var _ref28 = _slicedToArray(_ref27, 1),
-      k = _ref28[0];
+  var financial = allTerms.filter(function (_ref32) {
+    var _ref33 = _slicedToArray(_ref32, 1),
+      k = _ref33[0];
     return !LIVESTOCK_TERMS.has(k) && !pinnedSet.has(k);
   });
-  var livestock = allTerms.filter(function (_ref29) {
-    var _ref30 = _slicedToArray(_ref29, 1),
-      k = _ref30[0];
+  var livestock = allTerms.filter(function (_ref34) {
+    var _ref35 = _slicedToArray(_ref34, 1),
+      k = _ref35[0];
     return LIVESTOCK_TERMS.has(k);
   });
-  var TermList = function TermList(_ref31) {
-    var terms = _ref31.terms;
-    return /*#__PURE__*/React.createElement(React.Fragment, null, terms.map(function (_ref32) {
-      var _ref33 = _slicedToArray(_ref32, 2),
-        term = _ref33[0],
-        def = _ref33[1];
+  var TermList = function TermList(_ref36) {
+    var terms = _ref36.terms;
+    return /*#__PURE__*/React.createElement(React.Fragment, null, terms.map(function (_ref37) {
+      var _ref38 = _slicedToArray(_ref37, 2),
+        term = _ref38[0],
+        def = _ref38[1];
       return /*#__PURE__*/React.createElement("div", {
         key: term,
         style: {
@@ -3532,10 +4480,10 @@ function GlossaryContent() {
       }, def));
     }));
   };
-  var CatHeader = function CatHeader(_ref34) {
-    var icon = _ref34.icon,
-      label = _ref34.label,
-      pinTop = _ref34.pinTop;
+  var CatHeader = function CatHeader(_ref39) {
+    var icon = _ref39.icon,
+      label = _ref39.label,
+      pinTop = _ref39.pinTop;
     return /*#__PURE__*/React.createElement("div", {
       style: {
         fontSize: 12,
@@ -3579,12 +4527,12 @@ function GlossaryContent() {
     terms: livestock
   }));
 }
-function GuideModal(_ref35) {
-  var onClose = _ref35.onClose;
-  var _useState5 = useState("guide"),
-    _useState6 = _slicedToArray(_useState5, 2),
-    tab = _useState6[0],
-    setTab = _useState6[1];
+function GuideModal(_ref40) {
+  var onClose = _ref40.onClose;
+  var _useState23 = (0, _react.useState)("guide"),
+    _useState24 = _slicedToArray(_useState23, 2),
+    tab = _useState24[0],
+    setTab = _useState24[1];
   return /*#__PURE__*/React.createElement("div", {
     style: {
       position: "fixed",
@@ -3640,10 +4588,10 @@ function GuideModal(_ref35) {
       borderBottom: "1px solid var(--color-border-tertiary)",
       flexShrink: 0
     }
-  }, [["guide", "How to Use"], ["glossary", "Glossary"]].map(function (_ref36) {
-    var _ref37 = _slicedToArray(_ref36, 2),
-      key = _ref37[0],
-      lbl = _ref37[1];
+  }, [["guide", "How to Use"], ["glossary", "Glossary"]].map(function (_ref41) {
+    var _ref42 = _slicedToArray(_ref41, 2),
+      key = _ref42[0],
+      lbl = _ref42[1];
     return /*#__PURE__*/React.createElement("button", {
       key: key,
       type: "button",
@@ -3672,13 +4620,13 @@ function GuideModal(_ref35) {
 }
 
 // ── Leases & Hunting Form ─────────────────────────────────────────────────────
-function LeasesForm(_ref38) {
-  var d = _ref38.d,
-    r = _ref38.r,
-    set = _ref38.set,
-    profitView = _ref38.profitView,
-    setProfitView = _ref38.setProfitView,
-    onNav = _ref38.onNav;
+function LeasesForm(_ref43) {
+  var d = _ref43.d,
+    r = _ref43.r,
+    set = _ref43.set,
+    profitView = _ref43.profitView,
+    setProfitView = _ref43.setProfitView,
+    onNav = _ref43.onNav;
   var l = d.leases;
   var sI = function sI(f) {
     return function (v) {
@@ -3865,23 +4813,31 @@ var TABS = [{
   label: "Results"
 }];
 function App() {
-  var _useState7 = useState(INIT),
-    _useState8 = _slicedToArray(_useState7, 2),
-    data = _useState8[0],
-    setData = _useState8[1];
-  var _useState9 = useState("home"),
-    _useState0 = _slicedToArray(_useState9, 2),
-    view = _useState0[0],
-    setView = _useState0[1];
-  var _useState1 = useState("economic"),
-    _useState10 = _slicedToArray(_useState1, 2),
-    profitView = _useState10[0],
-    setProfitView = _useState10[1];
-  var _useState11 = useState(false),
-    _useState12 = _slicedToArray(_useState11, 2),
-    showGuide = _useState12[0],
-    setShowGuide = _useState12[1];
-  var r = useMemo(function () {
+  var _useState25 = (0, _react.useState)(INIT),
+    _useState26 = _slicedToArray(_useState25, 2),
+    data = _useState26[0],
+    setData = _useState26[1];
+  var _useState27 = (0, _react.useState)("home"),
+    _useState28 = _slicedToArray(_useState27, 2),
+    view = _useState28[0],
+    setView = _useState28[1];
+  var _useState29 = (0, _react.useState)("economic"),
+    _useState30 = _slicedToArray(_useState29, 2),
+    profitView = _useState30[0],
+    setProfitView = _useState30[1];
+  var _useState31 = (0, _react.useState)(false),
+    _useState32 = _slicedToArray(_useState31, 2),
+    showGuide = _useState32[0],
+    setShowGuide = _useState32[1];
+  var _useState33 = (0, _react.useState)(false),
+    _useState34 = _slicedToArray(_useState33, 2),
+    showScenarios = _useState34[0],
+    setShowScenarios = _useState34[1];
+  var _useState35 = (0, _react.useState)(null),
+    _useState36 = _slicedToArray(_useState35, 2),
+    driveToken = _useState36[0],
+    setDriveToken = _useState36[1];
+  var r = (0, _react.useMemo)(function () {
     return compute(data, profitView);
   }, [data, profitView]);
   var set = function set(sec, field, val, sub) {
@@ -4011,6 +4967,16 @@ function App() {
     onClose: function onClose() {
       return setShowGuide(false);
     }
+  }), showScenarios && /*#__PURE__*/React.createElement(ScenarioManager, {
+    currentData: data,
+    onLoad: function onLoad(d) {
+      return setData(d);
+    },
+    onClose: function onClose() {
+      return setShowScenarios(false);
+    },
+    token: driveToken,
+    setToken: setDriveToken
   }), /*#__PURE__*/React.createElement("div", {
     style: {
       background: T,
@@ -4063,6 +5029,28 @@ function App() {
       flexShrink: 0
     }
   }, /*#__PURE__*/React.createElement("button", {
+    type: "button",
+    onClick: function onClick() {
+      return setShowScenarios(true);
+    },
+    style: {
+      background: "rgba(255,255,255,0.12)",
+      border: "1px solid rgba(255,255,255,0.35)",
+      borderRadius: 7,
+      padding: "6px 14px",
+      color: "white",
+      fontSize: 12,
+      cursor: "pointer",
+      whiteSpace: "nowrap",
+      display: "flex",
+      alignItems: "center",
+      gap: 6
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 14
+    }
+  }, "\uD83D\uDCBE"), " Scenarios"), /*#__PURE__*/React.createElement("button", {
     type: "button",
     onClick: function onClick() {
       return setShowGuide(true);
