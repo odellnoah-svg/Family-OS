@@ -1,10 +1,59 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect, useRef, useCallback } from "react";
 
 const fmt = n => n == null ? "—" : (n < 0 ? "-$" : "$") + Math.round(Math.abs(n)).toLocaleString("en-US");
 const kfmt = n => n == null ? "—" : (n < 0 ? "-$" : "$") + (Math.abs(n) >= 10000 ? Math.round(Math.abs(n)/1000) + "K" : Math.round(Math.abs(n)).toLocaleString("en-US"));
 const pfmt = n => (n * 100).toFixed(1) + "%";
 const T = "#3D2B1A";
 const WS = {padding:20};
+
+// ── Scenario / Drive constants ────────────────────────────────────────────────
+const CLIENT_ID = "521715334457-q7nj2n1s1puocusm8d69rdh09mf4u19f.apps.googleusercontent.com";
+const FOLDER_ID = "1r-PPHMSRWSRauQSlB9Mz4hgs_tEcaQSY";
+const RPP_TAG   = "rpp-planner-v1";
+const SCOPES    = "https://www.googleapis.com/auth/drive.file";
+
+const driveAPI = {
+  async list(token) {
+    const q = encodeURIComponent("'" + FOLDER_ID + "' in parents and name contains '" + RPP_TAG + "' and trashed=false");
+    const r = await fetch("https://www.googleapis.com/drive/v3/files?q=" + q + "&fields=files(id,name,description,modifiedTime)&orderBy=modifiedTime%20desc",
+      { headers:{ Authorization:"Bearer " + token } });
+    const d = await r.json();
+    if (!r.ok) throw new Error(d.error ? d.error.message : "list failed");
+    return (d.files||[]).map(function(f) {
+      var m = {}; try { m = JSON.parse(f.description||"{}"); } catch(e) {}
+      return Object.assign({}, f, {meta:m});
+    });
+  },
+  async load(token, fileId) {
+    const r = await fetch("https://www.googleapis.com/drive/v3/files/" + fileId + "?alt=media",
+      { headers:{ Authorization:"Bearer " + token } });
+    if (!r.ok) throw new Error("load failed");
+    return r.json();
+  },
+  async save(token, name, type, year, data, existingId) {
+    const meta = { name:name, type:type, year:year, savedAt:new Date().toISOString() };
+    const slug = name.replace(/[^a-zA-Z0-9]/g,"-").toLowerCase();
+    const fileName = RPP_TAG + "-" + year + "-" + slug + ".json";
+    const fileMeta = existingId
+      ? { name:fileName, description:JSON.stringify(meta) }
+      : { name:fileName, description:JSON.stringify(meta), parents:[FOLDER_ID] };
+    const form = new FormData();
+    form.append("metadata", new Blob([JSON.stringify(fileMeta)], {type:"application/json"}));
+    form.append("file",     new Blob([JSON.stringify({meta:meta,data:data})], {type:"application/json"}));
+    const url = existingId
+      ? "https://www.googleapis.com/upload/drive/v3/files/" + existingId + "?uploadType=multipart"
+      : "https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart";
+    const r = await fetch(url, { method: existingId ? "PATCH" : "POST",
+      headers:{ Authorization:"Bearer " + token }, body:form });
+    if (!r.ok) throw new Error("save failed");
+    return r.json();
+  },
+  async remove(token, fileId) {
+    const r = await fetch("https://www.googleapis.com/drive/v3/files/" + fileId,
+      { method:"DELETE", headers:{ Authorization:"Bearer " + token } });
+    if (!r.ok) throw new Error("delete failed");
+  },
+};
 
 const TIPS = {
   "BIV": "Beginning Inventory Value — the dollar value of all your livestock at the start of the year. Feeds into the Gross Product formula.",
