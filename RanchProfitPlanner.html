@@ -6391,6 +6391,7 @@ function ResultsForm(_ref49) {
 // ── Scenario Manager ──────────────────────────────────────────────────────────
 function ScenarioManager(_ref50) {
   var currentData = _ref50.currentData,
+    initialTab = _ref50.initialTab,
     onLoad = _ref50.onLoad,
     onSaved = _ref50.onSaved,
     onClose = _ref50.onClose,
@@ -6413,7 +6414,7 @@ function ScenarioManager(_ref50) {
     _useState20 = _slicedToArray(_useState19, 2),
     err = _useState20[0],
     setErr = _useState20[1];
-  var _useState21 = useState("list"),
+  var _useState21 = useState(initialTab || "list"),
     _useState22 = _slicedToArray(_useState21, 2),
     tab = _useState22[0],
     setTab = _useState22[1];
@@ -7818,6 +7819,10 @@ function App() {
     _useState52 = _slicedToArray(_useState51, 2),
     quickSaving = _useState52[0],
     setQuickSaving = _useState52[1];
+  var _useState53 = useState("list"),
+    _useState54 = _slicedToArray(_useState53, 2),
+    scenarioTab = _useState54[0],
+    setScenarioTab = _useState54[1];
   var r = useMemo(function () {
     return compute(data, profitView);
   }, [data, profitView]);
@@ -7999,6 +8004,7 @@ function App() {
     }
   }), showScenarios && /*#__PURE__*/React.createElement(ScenarioManager, {
     currentData: data,
+    initialTab: scenarioTab,
     onLoad: function onLoad(d, scen) {
       setData(d);
       setActiveScenario(scen);
@@ -8009,7 +8015,8 @@ function App() {
       setSavedDataJson(JSON.stringify(data));
     },
     onClose: function onClose() {
-      return setShowScenarios(false);
+      setShowScenarios(false);
+      setScenarioTab("list");
     },
     token: driveToken,
     setToken: setDriveToken
@@ -8064,39 +8071,68 @@ function App() {
       alignItems: "center",
       flexShrink: 0
     }
-  }, activeScenario && /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      flexDirection: "column",
+      gap: 4,
+      background: "rgba(255,255,255,0.08)",
+      border: "1px solid rgba(255,255,255,0.22)",
+      borderRadius: 10,
+      padding: "7px 12px",
+      minWidth: 230
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 9,
+      fontWeight: 700,
+      color: "rgba(255,255,255,0.45)",
+      textTransform: "uppercase",
+      letterSpacing: "0.12em"
+    }
+  }, "Working Scenario"), /*#__PURE__*/React.createElement("div", {
     style: {
       display: "flex",
       alignItems: "center",
       gap: 7,
-      background: "rgba(255,255,255,0.1)",
-      borderRadius: 8,
-      padding: "5px 10px",
-      maxWidth: 280
+      flexWrap: "wrap"
     }
   }, /*#__PURE__*/React.createElement("span", {
     style: {
-      fontSize: 11,
-      color: "rgba(255,255,255,0.7)",
+      fontSize: 12,
+      fontWeight: 600,
+      color: "white",
+      maxWidth: 155,
       overflow: "hidden",
       textOverflow: "ellipsis",
-      whiteSpace: "nowrap",
-      maxWidth: 140
+      whiteSpace: "nowrap"
     }
-  }, "\uD83D\uDCC1 ", activeScenario.name), isDirty ? /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("span", {
+  }, activeScenario ? "📁 " + activeScenario.name : "Working Draft"), !activeScenario && /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 10,
+      color: "rgba(255,255,255,0.45)"
+    }
+  }, "\xB7 browser only"), activeScenario && !isDirty && /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 10,
+      color: "#86efac",
+      fontWeight: 600,
+      flexShrink: 0
+    }
+  }, "\u2713 Saved"), activeScenario && isDirty && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("span", {
     style: {
       fontSize: 10,
       color: "#fbbf24",
       fontWeight: 700,
       flexShrink: 0
     }
-  }, "\u25CF unsaved"), /*#__PURE__*/React.createElement("button", {
+  }, "\u25CF Unsaved changes"), /*#__PURE__*/React.createElement("button", {
     type: "button",
     onClick: quickSave,
     disabled: quickSaving,
     style: {
-      background: "rgba(255,255,255,0.18)",
-      border: "1px solid rgba(255,255,255,0.35)",
+      background: "#C4993B",
+      border: "none",
       borderRadius: 6,
       padding: "3px 10px",
       fontSize: 11,
@@ -8106,17 +8142,29 @@ function App() {
       flexShrink: 0,
       opacity: quickSaving ? 0.6 : 1
     }
-  }, quickSaving ? "Saving…" : "💾 Save")) : /*#__PURE__*/React.createElement("span", {
-    style: {
-      fontSize: 10,
-      color: "#86efac",
-      fontWeight: 600,
-      flexShrink: 0
-    }
-  }, "\u2713 saved")), /*#__PURE__*/React.createElement("button", {
+  }, quickSaving ? "Saving…" : "💾 Save"))), !activeScenario && /*#__PURE__*/React.createElement("button", {
     type: "button",
     onClick: function onClick() {
-      return setShowScenarios(true);
+      setScenarioTab("save");
+      setShowScenarios(true);
+    },
+    style: {
+      background: "#C4993B",
+      border: "none",
+      borderRadius: 6,
+      padding: "4px 10px",
+      fontSize: 11,
+      fontWeight: 700,
+      color: "white",
+      cursor: "pointer",
+      alignSelf: "flex-start",
+      marginTop: 1
+    }
+  }, "\uD83D\uDCBE Save to Drive \u2192")), /*#__PURE__*/React.createElement("button", {
+    type: "button",
+    onClick: function onClick() {
+      setScenarioTab("list");
+      setShowScenarios(true);
     },
     style: {
       background: "rgba(255,255,255,0.12)",
@@ -8135,7 +8183,7 @@ function App() {
     style: {
       fontSize: 14
     }
-  }, "\uD83D\uDCBE"), " Scenarios"), /*#__PURE__*/React.createElement("button", {
+  }, "\uD83D\uDCC2"), " Manage Scenarios"), /*#__PURE__*/React.createElement("button", {
     type: "button",
     onClick: function onClick() {
       return setShowGuide(true);
