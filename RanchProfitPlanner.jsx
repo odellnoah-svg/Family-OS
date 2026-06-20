@@ -3,6 +3,7 @@ import { useState, useMemo, useEffect, useRef, useCallback } from "react";
 const fmt = n => n == null ? "—" : (n < 0 ? "-$" : "$") + Math.round(Math.abs(n)).toLocaleString("en-US");
 const kfmt = n => n == null ? "—" : (n < 0 ? "-$" : "$") + (Math.abs(n) >= 10000 ? Math.round(Math.abs(n)/1000) + "K" : Math.round(Math.abs(n)).toLocaleString("en-US"));
 const pfmt = n => (n * 100).toFixed(1) + "%";
+const acfmt = n => n==null?"—":(n<0?"-$":"$")+Math.round(Math.abs(n))+"/ac";
 const T = "#3D2B1A";
 const WS = {padding:20};
 
@@ -56,42 +57,63 @@ const driveAPI = {
 };
 
 const TIPS = {
-  "BIV": "Beginning Inventory Value — the dollar value of all your livestock at the start of the year. Feeds into the Gross Product formula.",
-  "CIV": "Closing Inventory Value — the dollar value of livestock at year end. A higher CIV than BIV means the herd grew in value.",
-  "Gross Product": "CIV + Livestock Sales - BIV. Total economic output of the enterprise — what was produced, not just what was sold. The RFP equivalent of revenue.",
-  "Combined Gross Product": "Sum of Gross Product across all enterprises (Cattle + Sheep + Goats).",
-  "Gross Margin": "Gross Product minus Direct Costs. What the enterprise contributes before overhead is deducted. Target: as high as possible.",
-  "Combined Gross Margin": "Sum of Gross Margin across all enterprises. Used to cover shared overhead.",
-  "Gross Margin Ratio": "Gross Margin Ratio = GM / GP. Target >= 70%. Shows what percentage of output survives direct costs. Below 70% means direct costs are eating too much of the enterprise.",
-  "GMR (Combined)": "Gross Margin Ratio across all enterprises combined. Target >= 70%.",
-  "Direct Costs": "Costs that vary directly with the enterprise: feed, vet, freight, and opportunity cost on inventory. If you shut down this enterprise, these costs disappear.",
-  "Opportunity cost": "A charge of ~10% on Beginning Inventory Value. Treats the capital tied up in livestock as a real cost — what that money could have earned elsewhere.",
-  "Operating P(L)": "All Enterprises Gross Margin minus Total Overheads. The operation's profit or loss before other income.",
-  "Business P(L)": "Operating P(L) plus other income such as hunting leases or land leases. The full business bottom line.",
-  "Enterprise P(L)": "This enterprise's Gross Margin minus its SAU-allocated share of shared overhead. Shows whether this enterprise is pulling its weight.",
-  "Overhead Ratio": "Total Overheads / Gross Product. Target <= 40%. Measures the overhead burden. Above 100% means overheads exceed all enterprise output.",
-  "Cash Overheads": "Total overheads minus non-cash items (opportunity rent, improvement budget, depreciation). Closer to the actual cash leaving the operation.",
-  "Total Overheads": "All overhead costs — land, labor, and machinery. These exist regardless of how each enterprise performs.",
-  "Working Capital Days": "Working Capital / Cash Overheads x 365. Target > 150 days. How many days the operation can cover its cash overheads from current liquid assets.",
-  "ROA": "Return on Assets = Operating P(L) / Total Operating Assets. Target >= 10%. Are the assets working hard enough?",
-  "Asset Turnover": "Asset Turnover Ratio = GP / Total Operating Assets. Target >= 25%. How much gross output each dollar of assets generates.",
-  "SAU": "Standard Animal Unit. A common measure to compare different livestock classes. Mature cow = 1.0 SAU. Used to allocate shared overheads fairly.",
-  "Cattle SAU": "Total Standard Animal Units for cattle. Cows = 1.0, H1 heifers = 0.7, H2 heifers = 0.8, bulls = 1.5.",
-  "Hunting / lease / other": "Non-livestock income that flows through the trading account — hunting leases, hay sales, custom grazing, or any other ranch income. It adds to Total Revenue and Business P(L) but is not included in Gross Product (which is livestock-only).",
-  "Livestock sales": "Cash received from selling livestock — calves, cull cows, open cows, etc. Does not include non-livestock income.",
-  "GP per FTE": "Gross Product per Full-Time Employee. Target > $400K. A measure of labor productivity across the whole operation.",
-  "Wet cows (weaned a calf)": "Cows that successfully nursed and weaned a calf this cycle. The productive core of the breeding herd.",
-  "Preg cows at close": "Cows confirmed pregnant at year end. These become next year's opening breeding inventory.",
-  "Open": "Females exposed to a male but failed to conceive — not pregnant at pregnancy check.",
-  "Dry": "Live females that failed to wean any offspring despite being in the herd during the breeding season.",
-  "Culls": "Females removed from the breeding herd for performance or structural reasons.",
-  "Change in net worth": "Closing Net Worth minus Opening Net Worth. The truest measure of whether the year grew or shrank family wealth — more honest than cash flow alone.",
-  "Net Worth": "Total Assets minus Total Liabilities. What the family actually owns free and clear.",
-  "Working capital": "Current Assets minus Current Liabilities. The liquid cushion available to run day-to-day operations.",
-  "Bred and kept at close": "Females confirmed bred/pregnant at year end — next year's opening breeding stock.",
-  "Profit / Acre": "Business P(L) divided by total grazed acres (or owned acres if grazed not set). A land productivity metric — how much profit the operation generates per acre of country. Negative means overheads are consuming all enterprise output.",
-  "Cash Contribution": "Total Revenue minus all actual cash costs (cash direct costs + cash overheads, excluding opportunity cost, depreciation, and unpaid labour). Shows how much real cash the operation generated. Displayed in the top bar as Cash Contrib.",
+  // ── Core Concepts ──────────────────────────────────────────────────────────
+  "Gross Product":        "CIV + Livestock Sales − Purchases − BIV. Total economic output of the enterprise — what was produced, not just what was sold. The RFP equivalent of revenue.",
+  "Gross Margin":         "Gross Product minus Direct Costs. What the enterprise contributes before overhead is deducted. The higher the better.",
+  "Gross Margin Ratio":   "GM ÷ GP. Target ≥ 70%. Shows what percentage of output survives direct costs. Below 70% means direct costs are eating too much of the enterprise.",
+  "GMR":                  "Gross Margin Ratio = GM ÷ GP. Target ≥ 70%. Shows what percentage of gross output survives after paying direct costs (feed, vet, freight, opportunity cost). Below 70% means direct costs are consuming too much of the enterprise. The single most useful enterprise efficiency benchmark in the RFP model.",
+  "GM / Acre":            "Gross Margin divided by grazed acres (total acres for cattle; sheep/goat acres for small ruminants). Measures land productivity — how much gross margin the enterprise generates per acre of country. Allows direct comparison across enterprises regardless of enterprise size. Cattle, sheep, and goats may use different acreage denominators if set in the Overheads tab.",
+  "Cash Contribution":    "Total Revenue minus all actual cash costs (cash direct costs + cash overheads). Excludes opportunity cost, depreciation, and unpaid labour. Shows how much real cash the operation generated.",
+  // ── Trading Account ────────────────────────────────────────────────────────
+  "BIV":                  "Beginning Inventory Value — opening head count × opening $/head for each class. Feeds into the Gross Product formula.",
+  "CIV":                  "Closing Inventory Value — calculated closing head count × closing $/head for each class. A higher CIV than BIV means the herd grew in value.",
+  "Livestock sales":      "Cash received from selling livestock — calves, cull cows, dry cows, open cows, etc. Does not include lease or hunting income.",
+  "FY Open":              "Beginning-of-year head count for this class. Your actual on-hand inventory at the start of the fiscal year.",
+  "FY Close":             "Calculated: FY Open − Deaths + Births + Purchases − Sales − Transfers Out + Transfers In. A red FY Close means the numbers don't balance — check entries for that row.",
+  // ── Stock Flow ─────────────────────────────────────────────────────────────
+  "C / O / D (Sales)":    "The three sale columns in the Stock Flow Plan. C = Culls (removed for age or performance). O = Opens (failed to conceive). D = Dry (failed to wean an offspring). Calves, lambs and kids use the C column since they can't be dry.",
+  "Class Transfers":      "Movement of animals between classes within the same enterprise. Out = animals leaving this class; In = animals arriving. Enter direct head counts — e.g., female calves retained as H1 heifers: Out from Female Calves, In to H1 Heifers.",
+  "Open":                 "Females exposed to a male but failed to conceive — not pregnant at pregnancy check. Tracked as a separate class in the stock flow.",
+  "Dry":                  "Live breeding females that failed to wean any offspring. Different from Open — a dry cow did produce a calf but it died before weaning.",
+  "Culls":                "Animals removed from the breeding herd for age, poor performance, or structural reasons. Tracked in the C sales column.",
+  "Wet cows (weaned a calf)": "Females that successfully nursed and weaned offspring. The productive core of the breeding herd. Shown in Herd Performance Summary as Number Wet.",
+  "Preg & Kept at Close": "Breeding females confirmed pregnant at year end. These become next year's opening preg inventory.",
+  // ── Herd Performance ───────────────────────────────────────────────────────
+  "Death Rate":           "Deaths ÷ Opening head × 100. Target ≤ 1–2%. Edit the benchmark % cell to set your own target. Green = on or below target; Red = above target.",
+  "Dry Rate":             "Dry females ÷ Live head × 100. Target ≤ 3–5% for mature cows. Dry animals consumed feed and overhead without producing a saleable offspring.",
+  "Cull Rate":            "Culls ÷ Wet head × 100. Target 3–5%. Controlled culling for performance improvement is desirable; high cull rates from structural problems are not.",
+  "Open Rate":            "Open females ÷ Exposed head × 100. Target ≤ 5% mature cows, ≤ 10% for H2 heifers. High open rates reduce next year's breeding inventory.",
+  "Litter Rate":          "Average offspring per breeding female per season. Cattle ≈ 1.0. Sheep typically 1.3–1.6. Goats 1.5–1.8. Used to calculate the biology hint under the stock flow table.",
+  // ── Enterprise Performance ─────────────────────────────────────────────────
+  "Direct Costs":         "Costs that vary directly with the enterprise: hay, protein, mineral, vet, freight, and opportunity cost on inventory. If you shut down this enterprise, these costs disappear.",
+  "Opportunity cost":     "A charge (~10%) on BIV. Treats the capital tied up in livestock as a real cost — what that money could earn elsewhere. Only appears in Economic profit view, not Accounting view.",
+  "Enterprise P(L)":      "This enterprise's Gross Margin minus its SAU-allocated share of shared overhead. Shows whether this enterprise is covering its fair share of the ranch's fixed costs.",
+  "GMR (Combined)":       "Gross Margin Ratio across all enterprises combined. Target ≥ 70%.",
+  "Combined Gross Product": "Sum of Gross Product across all enterprises (Cattle + Sheep + Goats + Leases).",
+  "Combined Gross Margin":  "Sum of Gross Margin across all enterprises. This pool must cover all shared overheads.",
+  // ── Overheads & Overhead Ratios ────────────────────────────────────────────
+  "SAU":                  "Standard Animal Unit. A common measure to compare different livestock classes on a grazing-equivalent basis. Mature cow = 1.0 SAU. Used to allocate shared overheads fairly between enterprises.",
+  "Cattle SAU":           "Total Standard Animal Units for the cattle enterprise. Preg/Open cows = 1.0 each, H2 = 0.8, H1 = 0.7, calves = 0.3, stockers = 0.6, bulls = 1.5.",
+  "Total Overheads":      "All overhead costs — land (rent, utilities, upkeep), labor, machinery, and other. These exist regardless of how each enterprise performs.",
+  "Cash Overheads":       "Total overheads minus non-cash items (opportunity rent, improvement budget, depreciation). Closer to the actual cash leaving the operation.",
+  "Overhead Ratio":       "Total Overheads ÷ Gross Product. Target ≤ 40%. Above 100% means overheads exceed all enterprise output.",
+  "OVHD Ratio":           "Overhead Ratio = Total Overheads ÷ Combined Gross Product. Target ≤ 40%. Measures the overhead burden relative to what all enterprises produce. Amber zone 40–56%; red above 56%. If this ratio is high, the fix is either growing gross product (more animals, better prices, lower direct costs) or cutting overheads — not simply working harder.",
+  "Operating P(L)":       "All Enterprises Gross Margin minus Total Overheads. The operation's profit or loss before other income.",
+  "Business P(L)":        "Operating P(L) plus lease and hunting income. The full business bottom line.",
+  "Hunting / lease / other": "Non-livestock income — hunting leases, grazing leases, hay sales, etc. Adds to Business P(L) but is not included in Gross Product (which is livestock-only).",
+  // ── Balance Sheet & Results ────────────────────────────────────────────────
+  "Net Worth":            "Total Assets minus Total Liabilities. What the family actually owns free and clear.",
+  "Working capital":      "Current Assets minus Current Liabilities. The liquid cushion available to run day-to-day operations.",
+  "Working Capital Days": "Working Capital ÷ Cash Overheads × 365. Target > 150 days. How many days the operation can cover its cash overheads from current liquid assets.",
+  "ROA":                  "Return on Assets = Operating P(L) ÷ Total Operating Assets. Target ≥ 10%. Measures whether assets are working hard enough.",
+  "Asset Turnover":       "GP ÷ Total Operating Assets. Target ≥ 25%. How much gross output each dollar of assets generates.",
+  "GP per FTE":           "Gross Product per Full-Time Employee. Target > $400K. A measure of labor productivity across the whole operation.",
+  "Change in net worth":  "Closing Net Worth minus Opening Net Worth. The truest measure of whether the year grew or shrank family wealth — more honest than cash flow alone.",
+  "Return on Breed. Stock": "Gross Margin divided by the opening value of breeding females (preg cows + open cows + H2 + H1 for cattle; ewes/does + open + replacements for sheep/goats). Measures the return the enterprise earns on its core breeding stock investment — the working capital tied up in the mother animals. Higher is better. Compare across enterprises to see which species is most efficiently converting breeding stock value into gross margin.",
+  "Profit / Acre":        "Business P(L) ÷ grazed acres. A land productivity metric — how much profit the operation generates per acre. Negative means overheads are consuming all enterprise output.",
 };
+
+const LOGO_SRC = "data:image/png;base64,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";
 
 function TipIcon({text}) {
   const [show, setShow] = useState(false);
@@ -118,108 +140,140 @@ function TipIcon({text}) {
 const BSI = {cash:0,ar:0,hayCrops:0,otherCurrent:0,vehicles:0,machinery:0,equipment:0,land:0,buildings:0,improvements:0,offFarm:0,currentLiab:0,intermediateLiab:0,longTermLiab:0};
 const INIT = {
   cattle: {
-    open:     {pregCows:86,pregCowsVal:1600, openCows:0,openCowsVal:1200, h2:0,h2Val:1200, h1:10,h1Val:900, femCalves:0,femCalvesVal:600, malCalves:0,malCalvesVal:650, stockerHfrs:0,stockerHfrsVal:800, stockerStrs:0,stockerStrsVal:850, bulls:3,bullsVal:4500},
-    births:   {femCalves:0, malCalves:0},
-    purch:    {bulls:0,bullsPerHead:4500, heifers:0,heiferPerHead:900, stockerHfrs:0,stockerHfrsPerHead:800, stockerStrs:0,stockerStrsPerHead:850},
-    deaths:   {pregCows:1, openCows:0, h2:0, h1:1, femCalves:0, malCalves:0, stockerHfrs:0, stockerStrs:0, bulls:0},
-    xfer:     {femToH1:10, femToStocker:0, malToStocker:0, h1ToH2:0, h2ToPreg:0},
-    sales:    {pregHead:5,pregPrice:1500, openHead:4,openPrice:1200, dryHead:3,dryPrice:1300, h2Head:0,h2Price:1200, h1Head:0,h1Price:900, femCalfHead:35,femCalfPrice:800, malCalfHead:25,malCalfPrice:900, stockerHfrHead:0,stockerHfrPrice:1000, stockerStrHead:0,stockerStrPrice:1100, bullHead:0,bullPrice:3000},
-    closeVal: {pregCows:1600, h2:1200, h1:900, femCalves:600, malCalves:650, stockerHfrs:800, stockerStrs:850, bulls:4500},
-    dc:       {oppPct:10, feed:13500, vet:2000, freight:2000},
+    open:    {pregCows:86,pregCowsVal:1600, openCows:0,openCowsVal:1200, h2:0,h2Val:1200, h1:10,h1Val:900, femCalves:0,femCalvesVal:600, malCalves:0,malCalvesVal:650, stockerHfrs:0,stockerHfrsVal:800, stockerStrs:0,stockerStrsVal:850, bulls:3,bullsVal:4500},
+    births:  {femCalves:0, malCalves:0},
+    purch:   {pregCows:0, openCows:0, h2:0, h1:0, femCalves:0, malCalves:0, stockerHfrs:0, stockerStrs:0, bulls:0},
+    deaths:  {pregCows:1, openCows:0, h2:0, h1:1, femCalves:0, malCalves:0, stockerHfrs:0, stockerStrs:0, bulls:0},
+    xferOut: {pregCows:0, openCows:0, h2:0, h1:0, femCalves:10, malCalves:0, stockerHfrs:0, stockerStrs:0, bulls:0},
+    xferIn:  {pregCows:0, openCows:0, h2:0, h1:10, femCalves:0, malCalves:0, stockerHfrs:0, stockerStrs:0, bulls:0},
+    sales:   {pregHead:5,pregPrice:1500, pregHeadO:0,pregPriceO:1200, openHead:4,openPrice:1200, openHeadC:0,openPriceC:1200, openHeadD:0,openPriceD:1300, dryHead:3,dryPrice:1300, h2Head:0,h2Price:1200, h2HeadO:0,h2PriceO:1100, h2HeadD:0,h2PriceD:1100, h1Head:0,h1Price:900, femCalfHead:35,femCalfPrice:800, malCalfHead:25,malCalfPrice:900, stockerHfrHead:0,stockerHfrPrice:1000, stockerStrHead:0,stockerStrPrice:1100, bullHead:0,bullPrice:3000},
+    closeVal:    {pregCows:1600, openCows:1200, h2:1200, h1:900, femCalves:600, malCalves:650, stockerHfrs:800, stockerStrs:850, bulls:4500},
+    benchmarks:  {death_mc:1, death_h2:1, death_h1:1, dry_mc:3, dry_h2:5, cull_mc:3, cull_h2:2, cull_h1:4, open_mc:5, open_h2:10},
+    dc:      {oppPct:10, hay:8000, protein:3500, mineral:2000, vet:2000, freight:2000},
   },
   sheep: {
-    herd:  {females:115,males:5,deathPct:3,dryPct:5,cullPct:10,openPct:8,litterRate:1.5,replacementsKept:15},
-    val:   {femalePerHead:200,malePerHead:400},
-    sales: {offspringSold:120,offspringWt:65,offspringPPLb:2.50,cullPerHead:150,other:0},
-    dc:    {oppPct:10,feed:3000,vet:800,freight:800},
+    open:       {females:115,femalesVal:200, openFemales:0,openFemalesVal:150, replacements:15,replacementsVal:150, femOff:0,femOffVal:100, malOff:0,malOffVal:100, sires:5,siresVal:400},
+    births:     {femOff:0, malOff:0},
+    purch:      {females:0, openFemales:0, replacements:0, femOff:0, malOff:0, sires:0},
+    deaths:     {females:0, openFemales:0, replacements:0, femOff:0, malOff:0, sires:0},
+    xferOut:    {females:0, openFemales:0, replacements:0, femOff:0, malOff:0, sires:0},
+    xferIn:     {females:0, openFemales:0, replacements:0, femOff:0, malOff:0, sires:0},
+    sales:      {femHead:0,femPrice:150, femHeadO:0,femPriceO:130, dryHead:0,dryPrice:130, repHead:0,repPrice:150, femOffHead:120,femOffPrice:100, malOffHead:0,malOffPrice:100, sireHead:0,sirePrice:300},
+    closeVal:   {females:200, openFemales:150, replacements:150, femOff:100, malOff:100, sires:400},
+    benchmarks: {death_f:2, death_rep:2, death_l:5, dry_f:3, cull_f:3, open_f:5},
+    dc:         {oppPct:10, hay:3000, protein:0, mineral:500, vet:800, freight:800, dogFood:0},
+    litterRate: 1.5,
   },
   goats: {
-    herd:  {females:35,males:3,deathPct:3,dryPct:8,cullPct:10,openPct:10,litterRate:1.8,replacementsKept:5},
-    val:   {femalePerHead:175,malePerHead:350},
-    sales: {offspringSold:40,offspringWt:50,offspringPPLb:1.75,cullPerHead:120,other:0},
-    dc:    {oppPct:10,feed:1000,vet:400,freight:400},
+    open:       {females:35,femalesVal:175, openFemales:0,openFemalesVal:150, replacements:5,replacementsVal:150, femOff:0,femOffVal:100, malOff:0,malOffVal:100, sires:3,siresVal:350},
+    births:     {femOff:0, malOff:0},
+    purch:      {females:0, openFemales:0, replacements:0, femOff:0, malOff:0, sires:0},
+    deaths:     {females:0, openFemales:0, replacements:0, femOff:0, malOff:0, sires:0},
+    xferOut:    {females:0, openFemales:0, replacements:0, femOff:0, malOff:0, sires:0},
+    xferIn:     {females:0, openFemales:0, replacements:0, femOff:0, malOff:0, sires:0},
+    sales:      {femHead:0,femPrice:120, femHeadO:0,femPriceO:100, dryHead:0,dryPrice:100, repHead:0,repPrice:150, femOffHead:40,femOffPrice:100, malOffHead:0,malOffPrice:100, sireHead:0,sirePrice:250},
+    closeVal:   {females:175, openFemales:150, replacements:150, femOff:100, malOff:100, sires:350},
+    benchmarks: {death_f:2, death_rep:2, death_l:5, dry_f:3, cull_f:3, open_f:5},
+    dc:         {oppPct:10, hay:1000, protein:0, mineral:200, vet:400, freight:400, dogFood:0},
+    litterRate: 1.8,
   },
   leases: {
     income: { hunting:0, grazing:0, camping:0, other:0 },
     dc:     { maintenance:0, wildlife:0, other:0 },
   },
-  oh:    {oppRent:6000,util:1000,upkeep:2000,impr:2000,unpaid:37000,hired:0,depr:10000,fuel:2000,repairs:700,ins:2000,supplies:1000,other:100},
-  prop:  {acresOwned:525,acresGrazed:655,ftes:1},
+  oh:    {oppRent:6000,leaseRent:0,util:1000,upkeep:2000,impr:2000,unpaid:37000,hired:0,depr:10000,fuel:2000,repairs:700,ins:2000,supplies:1000,other:100},
+  prop:  {acresOwned:525,leasedAcres:130,acresGrazed:655,srAcresGrazed:0,ftes:1},
   bsOpen:  {...BSI},
   bsClose: {...BSI},
 };
 
 // ── Cattle Stock Flow Compute ─────────────────────────────────────────────────
 function computeCattle(c, econ) {
-  const o=c.open, b=c.births, p=c.purch, dt=c.deaths, x=c.xfer, s=c.sales, cv=c.closeVal, dc=c.dc;
+  const o=c.open, b=c.births, p=c.purch, dt=c.deaths, xo=c.xferOut, xi=c.xferIn, s=c.sales, cv=c.closeVal, dc=c.dc;
 
   // BIV
   const biv = o.pregCows*o.pregCowsVal + o.openCows*o.openCowsVal + o.h2*o.h2Val + o.h1*o.h1Val
             + o.femCalves*o.femCalvesVal + o.malCalves*o.malCalvesVal
             + o.stockerHfrs*o.stockerHfrsVal + o.stockerStrs*o.stockerStrsVal + o.bulls*o.bullsVal;
 
-  // Closing head per class
-  const clPreg    = o.pregCows   + x.h2ToPreg                    - dt.pregCows    - s.pregHead  - s.dryHead;
-  const clOpen    = o.openCows                                    - dt.openCows    - s.openHead;
-  const clH2      = o.h2         + x.h1ToH2                      - dt.h2          - s.h2Head    - x.h2ToPreg;
-  const clH1      = o.h1         + x.femToH1 + p.heifers         - dt.h1          - s.h1Head    - x.h1ToH2;
-  const clFemCalf = o.femCalves  + b.femCalves                   - dt.femCalves   - s.femCalfHead  - x.femToH1 - x.femToStocker;
-  const clMalCalf = o.malCalves  + b.malCalves                   - dt.malCalves   - s.malCalfHead  - x.malToStocker;
-  const clStkHfr  = o.stockerHfrs + x.femToStocker + p.stockerHfrs - dt.stockerHfrs - s.stockerHfrHead;
-  const clStkStr  = o.stockerStrs + x.malToStocker  + p.stockerStrs - dt.stockerStrs - s.stockerStrHead;
-  const clBulls   = o.bulls      + p.bulls                       - dt.bulls       - s.bullHead;
+  // Purchase cost (using opening value per head as purchase price)
+  const purchCost = p.pregCows*o.pregCowsVal + p.openCows*o.openCowsVal + p.h2*o.h2Val
+                  + p.h1*o.h1Val + p.femCalves*o.femCalvesVal + p.malCalves*o.malCalvesVal
+                  + p.stockerHfrs*o.stockerHfrsVal + p.stockerStrs*o.stockerStrsVal + p.bulls*o.bullsVal;
 
-  const close = {pregCows:clPreg, openCows:clOpen, h2:clH2, h1:clH1, femCalves:clFemCalf,
-                 malCalves:clMalCalf, stockerHfrs:clStkHfr, stockerStrs:clStkStr, bulls:clBulls};
+  // Closing = Open - Deaths + Births + Purch - Sales - XferOut + XferIn
+  const cl = (key, births, sold) =>
+    (o[key]||0) - (dt[key]||0) + (births||0) + (p[key]||0) - (sold||0) - (xo[key]||0) + (xi[key]||0);
 
-  // CIV (open cows all assumed sold; use max 0 for safety)
-  const civ = Math.max(0,clPreg)*cv.pregCows + Math.max(0,clH2)*cv.h2 + Math.max(0,clH1)*cv.h1
-            + Math.max(0,clFemCalf)*cv.femCalves + Math.max(0,clMalCalf)*cv.malCalves
-            + Math.max(0,clStkHfr)*cv.stockerHfrs + Math.max(0,clStkStr)*cv.stockerStrs
-            + Math.max(0,clBulls)*cv.bulls;
+  const close = {
+    pregCows:    cl("pregCows",   0,             s.pregHead+(s.pregHeadO||0)+s.dryHead),
+    openCows:    cl("openCows",   0,             s.openHead+(s.openHeadC||0)+(s.openHeadD||0)),
+    h2:          cl("h2",         0,             s.h2Head+(s.h2HeadO||0)+(s.h2HeadD||0)),
+    h1:          cl("h1",         0,             s.h1Head),
+    femCalves:   cl("femCalves",  b.femCalves,   s.femCalfHead),
+    malCalves:   cl("malCalves",  b.malCalves,   s.malCalfHead),
+    stockerHfrs: cl("stockerHfrs",0,             s.stockerHfrHead),
+    stockerStrs: cl("stockerStrs",0,             s.stockerStrHead),
+    bulls:       cl("bulls",      0,             s.bullHead),
+  };
 
-  // Sales
-  const totalSales = s.pregHead*s.pregPrice + s.openHead*s.openPrice + s.dryHead*s.dryPrice
-    + s.h2Head*s.h2Price + s.h1Head*s.h1Price + s.femCalfHead*s.femCalfPrice
-    + s.malCalfHead*s.malCalfPrice + s.stockerHfrHead*s.stockerHfrPrice
-    + s.stockerStrHead*s.stockerStrPrice + s.bullHead*s.bullPrice;
+  // CIV
+  const civ = Math.max(0,close.pregCows)*cv.pregCows + Math.max(0,close.h2)*cv.h2
+            + Math.max(0,close.h1)*cv.h1 + Math.max(0,close.femCalves)*cv.femCalves
+            + Math.max(0,close.malCalves)*cv.malCalves + Math.max(0,close.stockerHfrs)*cv.stockerHfrs
+            + Math.max(0,close.stockerStrs)*cv.stockerStrs + Math.max(0,close.bulls)*cv.bulls;
 
-  // Purchase cost
-  const purchCost = p.bulls*p.bullsPerHead + p.heifers*p.heiferPerHead
-                  + p.stockerHfrs*p.stockerHfrsPerHead + p.stockerStrs*p.stockerStrsPerHead;
+  // Total livestock sales
+  const totalSales = s.pregHead*s.pregPrice + (s.pregHeadO||0)*(s.pregPriceO||0)
+    + s.openHead*s.openPrice + (s.openHeadC||0)*(s.openPriceC||0) + (s.openHeadD||0)*(s.openPriceD||0)
+    + s.dryHead*s.dryPrice + s.h2Head*s.h2Price + (s.h2HeadO||0)*(s.h2PriceO||0) + (s.h2HeadD||0)*(s.h2PriceD||0)
+    + s.h1Head*s.h1Price + s.femCalfHead*s.femCalfPrice + s.malCalfHead*s.malCalfPrice
+    + s.stockerHfrHead*s.stockerHfrPrice + s.stockerStrHead*s.stockerStrPrice + s.bullHead*s.bullPrice;
 
-  // GP, DC, GM
   const gp = civ + totalSales - purchCost - biv;
   const oppCost = econ ? biv * dc.oppPct / 100 : 0;
-  const cashDC = dc.feed + dc.vet + dc.freight;
+  const cashDC = dc.hay + dc.protein + dc.mineral + dc.vet + dc.freight;
   const totalDC = oppCost + cashDC;
   const gm = gp - totalDC;
-
-  // SAU (opening headcount basis)
   const sau = o.pregCows*1.0 + o.openCows*1.0 + o.h2*0.8 + o.h1*0.7
             + o.femCalves*0.3 + o.malCalves*0.3 + o.stockerHfrs*0.6 + o.stockerStrs*0.6 + o.bulls*1.5;
+  const bivBreedFem = o.pregCows*o.pregCowsVal + o.openCows*o.openCowsVal + o.h2*o.h2Val + o.h1*o.h1Val;
 
-  return {biv, civ, close, totalSales, purchCost, gp, oppCost, cashDC, totalDC, gm, sau,
+  return {biv, civ, close, totalSales, purchCost, gp, oppCost, cashDC, totalDC, gm, sau, bivBreedFem,
           gmr: gp ? gm/gp : 0, lsSales:totalSales, revenue:totalSales};
 }
 
 // ── Compute ───────────────────────────────────────────────────────────────────
 function computeSR(sr, sauF, sauM, econ=true) {
-  const h=sr.herd, v=sr.val, s=sr.sales, d=sr.dc;
-  const deaths=Math.ceil(h.females*h.deathPct/100), live=h.females-deaths;
-  const dry=Math.ceil(live*h.dryPct/100), wet=live-dry;
-  const culls=Math.ceil(wet*h.cullPct/100), exposed=wet-culls;
-  const open=Math.ceil(exposed*h.openPct/100), bred=exposed-open;
-  const bioOffspring=Math.round(wet*h.litterRate);
-  const biv=h.females*v.femalePerHead+h.males*v.malePerHead;
-  const civ=bred*v.femalePerHead+h.males*v.malePerHead;
-  const cullSales=(culls+open+dry)*s.cullPerHead;
-  const offspringSales=s.offspringSold*s.offspringWt*s.offspringPPLb;
-  const lsSales=cullSales+offspringSales, revenue=lsSales+s.other;
-  const gp=civ+lsSales-biv, oppCost=econ?biv*d.oppPct/100:0;
-  const totalDC=oppCost+d.feed+d.vet+d.freight, gm=gp-totalDC;
-  const sau=h.females*sauF+h.males*sauM;
-  return {deaths,dry,wet,culls,open,bred,bioOffspring,biv,civ,cullSales,offspringSales,lsSales,revenue,gp,oppCost,totalDC,gm,sau,gmr:gp?gm/gp:0};
+  const o=sr.open, b=sr.births, p=sr.purch, dt=sr.deaths, xo=sr.xferOut, xi=sr.xferIn, s=sr.sales, cv=sr.closeVal, dc=sr.dc;
+  const biv = o.females*o.femalesVal + o.openFemales*o.openFemalesVal + o.replacements*o.replacementsVal
+            + o.femOff*o.femOffVal + o.malOff*o.malOffVal + o.sires*o.siresVal;
+  const purchCost = p.females*o.femalesVal + p.openFemales*o.openFemalesVal + p.replacements*o.replacementsVal
+                  + p.femOff*o.femOffVal + p.malOff*o.malOffVal + p.sires*o.siresVal;
+  const cl=(key,births,sold)=>(o[key]||0)-(dt[key]||0)+(births||0)+(p[key]||0)-(sold||0)-(xo[key]||0)+(xi[key]||0);
+  const close = {
+    females:     cl("females",    0,           (s.femHead||0)+(s.dryHead||0)),
+    openFemales: cl("openFemales",0,           s.femHeadO||0),
+    replacements:cl("replacements",0,          s.repHead||0),
+    femOff:      cl("femOff",     b.femOff||0, s.femOffHead||0),
+    malOff:      cl("malOff",     b.malOff||0, s.malOffHead||0),
+    sires:       cl("sires",      0,           s.sireHead||0),
+  };
+  const civ = Math.max(0,close.females)*cv.females + Math.max(0,close.openFemales)*cv.openFemales
+            + Math.max(0,close.replacements)*cv.replacements + Math.max(0,close.femOff)*cv.femOff
+            + Math.max(0,close.malOff)*cv.malOff + Math.max(0,close.sires)*cv.sires;
+  const totalSales = (s.femHead||0)*s.femPrice + (s.femHeadO||0)*(s.femPriceO||0)
+    + (s.dryHead||0)*s.dryPrice + (s.repHead||0)*s.repPrice
+    + (s.femOffHead||0)*s.femOffPrice + (s.malOffHead||0)*s.malOffPrice + (s.sireHead||0)*s.sirePrice;
+  const gp=civ+totalSales-purchCost-biv, oppCost=econ?biv*dc.oppPct/100:0;
+  const cashDC=dc.hay+dc.protein+dc.mineral+dc.vet+dc.freight+(dc.dogFood||0);
+  const totalDC=oppCost+cashDC, gm=gp-totalDC;
+  const sau=o.females*sauF+o.openFemales*sauF+o.replacements*sauF*0.7+o.sires*sauM;
+  const wet=Math.max(0,o.females-(dt.females||0)-(s.dryHead||0)-(s.femHead||0));
+  const bioOffspring=Math.round(wet*(sr.litterRate||1.5));
+  const bivBreedFem = o.females*o.femalesVal + o.openFemales*o.openFemalesVal + o.replacements*o.replacementsVal;
+  return {biv,civ,close,totalSales,purchCost,gp,oppCost,cashDC,totalDC,gm,sau,bivBreedFem,
+          gmr:gp?gm/gp:0,wet,bioOffspring,lsSales:totalSales,revenue:totalSales};
 }
 function computeLeases(l) {
   const gp = l.income.hunting + l.income.grazing + l.income.camping + l.income.other;
@@ -241,14 +295,14 @@ function compute(data, profitView="economic") {
   const {biv,civ,lsSales,revenue,gp,oppCost,totalDC,gm} = catR;
   const cattleSAU = catR.sau;
   // backward-compat aliases for flow diagram
-  const o=cattle.open, s=cattle.sales, x=cattle.xfer, dt=cattle.deaths;
+  const o=cattle.open, s=cattle.sales, dt=cattle.deaths;
   const wet=o.pregCows+o.h2, culls=s.pregHead, open=s.openHead, dry=s.dryHead;
   const deaths=dt.pregCows+dt.h2+dt.h1+dt.femCalves+dt.malCalves+dt.bulls;
   const pregKept=Math.max(0,catR.close.pregCows);
   const cowSales=s.pregHead*s.pregPrice+s.openHead*s.openPrice+s.dryHead*s.dryPrice;
   const calfSales=s.femCalfHead*s.femCalfPrice+s.malCalfHead*s.malCalfPrice;
   const sr_s=computeSR(sheep,0.20,0.25,econ), sr_g=computeSR(goats,0.17,0.20,econ), lr=computeLeases(leases);
-  const landOH=(econ?oh.oppRent:0)+oh.util+oh.upkeep+oh.impr;
+  const landOH=(econ?oh.oppRent:0)+(oh.leaseRent||0)+oh.util+oh.upkeep+oh.impr;
   const laborOH=(econ?oh.unpaid:0)+oh.hired;
   const thingsOH=oh.depr+oh.fuel+oh.repairs+oh.ins+oh.supplies;
   const totalOH=landOH+laborOH+thingsOH+oh.other;
@@ -260,7 +314,12 @@ function compute(data, profitView="economic") {
   const allGP=gp+sr_s.gp+sr_g.gp+lr.gp, allGM=gm+sr_s.gm+sr_g.gm+lr.gm;
   const allRev=revenue+sr_s.revenue+sr_g.revenue+lr.revenue;
   const opPL=allGM-totalOH, bizPL=opPL;
-  const cashNI=allRev-catR.cashDC-(sheep.dc.feed+sheep.dc.vet+sheep.dc.freight)-(goats.dc.feed+goats.dc.vet+goats.dc.freight)-lr.cashDC-trueCashOH;
+  const cashNI=allRev-catR.cashDC-sr_s.cashDC-sr_g.cashDC-lr.cashDC-trueCashOH;
+  const _ac=Math.max(1,prop.acresGrazed||prop.acresOwned||1);
+  const _srAc=Math.max(1,prop.srAcresGrazed||_ac);
+  const cattleGmAc=gm/_ac,     cattleGmBr=catR.bivBreedFem>0?gm/catR.bivBreedFem:0;
+  const sheepGmAc=sr_s.gm/_srAc, sheepGmBr=sr_s.bivBreedFem>0?sr_s.gm/sr_s.bivBreedFem:0;
+  const goatGmAc=sr_g.gm/_srAc,  goatGmBr=sr_g.bivBreedFem>0?sr_g.gm/sr_g.bivBreedFem:0;
   const allBIV=biv+sr_s.biv+sr_g.biv, allCIV=civ+sr_s.civ+sr_g.civ;
   const bso=bsCalc(bsOpen,allBIV), bsc=bsCalc(bsClose,allCIV);
   const wc=bso.ca-bsOpen.currentLiab, wcd=cashOH>0?(wc/cashOH)*365:null;
@@ -274,6 +333,7 @@ function compute(data, profitView="economic") {
     sheep:sr_s,sheepOH:sOH,sheepShare:sShare,sheepPL:sr_s.gm-sOH,
     goats:sr_g,goatOH:gOH,goatShare:gShare,goatPL:sr_g.gm-gOH,
     cattleOH:cOH,cattleShare:cShare,cattlePL:gm-cOH,
+    cattleGmAc,cattleGmBr,sheepGmAc,sheepGmBr,goatGmAc,goatGmBr,
     landOH,laborOH,thingsOH,totalOH,cashOH,trueCashOH,totalSAU,
     allGP,allGM,allRev,opPL,bizPL,cashNI,profitView,
     gmr:allGP?allGM/allGP:0, orate:allGP?totalOH/allGP:0, gpFte:allGP/(prop.ftes||1),
@@ -377,12 +437,17 @@ function EntHdr({nm, subtitle, AnimalIcon, kpis, onNav, largeIcon}) {
         </div>
       </div>
       <div style={{display:"grid",gridTemplateColumns:"repeat(6,1fr)",gap:10,marginBottom:4}}>
-        {kpis.map(({label,value,neg}) => (
-          <div key={label} style={{background:"white",borderRadius:8,padding:"12px 14px",border:"1px solid #E5DDD0",borderTop:`3px solid ${neg?"#DC2626":"#2A5F1A"}`,boxShadow:"0 1px 3px rgba(0,0,0,0.04)"}}>
-            <div style={{fontSize:10,color:"#9B8B7A",textTransform:"uppercase",letterSpacing:"0.07em",marginBottom:5,fontWeight:600}}>{label}</div>
-            <div style={{fontSize:17,fontWeight:700,color:neg?"#DC2626":"#1A1208",fontVariantNumeric:"tabular-nums"}}>{value}</div>
-          </div>
-        ))}
+        {kpis.map(({label,value,neg}) => {
+          const tip = TIPS[label];
+          return (
+            <div key={label} style={{background:"white",borderRadius:8,padding:"12px 14px",border:"1px solid #E5DDD0",borderTop:`3px solid ${neg?"#DC2626":"#2A5F1A"}`,boxShadow:"0 1px 3px rgba(0,0,0,0.04)"}}>
+              <div style={{fontSize:10,color:"#9B8B7A",textTransform:"uppercase",letterSpacing:"0.07em",marginBottom:5,fontWeight:600,display:"flex",alignItems:"center",gap:3}}>
+                {label}{tip && <TipIcon text={tip}/>}
+              </div>
+              <div style={{fontSize:17,fontWeight:700,color:neg?"#DC2626":"#1A1208",fontVariantNumeric:"tabular-nums"}}>{value}</div>
+            </div>
+          );
+        })}
       </div>
     </div>
   );
@@ -421,14 +486,17 @@ function DeerIcon() {
 }
 
 // ── Enterprise Card ───────────────────────────────────────────────────────────
-function EntCard({name, nav, onNav, gp, gm, gmr, oh, pl, sau, color, bg, border, Icon}) {
-  const plC = pl >= 0 ? "#15803d" : "#b91c1c";
-  const MR = (lbl, val, hilite) => (
-    <div style={{display:"flex",justifyContent:"space-between",padding:"5px 0",borderBottom:"1px solid rgba(0,0,0,0.05)"}}>
-      <span style={{fontSize:11,color:"rgba(0,0,0,0.42)"}}>{lbl}</span>
-      <span style={{fontSize:12,fontWeight:hilite?600:400,color:hilite?plC:color,fontVariantNumeric:"tabular-nums"}}>{val}</span>
-    </div>
-  );
+function EntCard({name, nav, onNav, gp, gm, gmr, gmPerAcre, gmPerBreedVal, sau, color, bg, border, Icon}) {
+  const gmC = gm >= 0 ? "#15803d" : "#b91c1c";
+  const MR = (lbl, val, hilite) => {
+    const tip = TIPS[lbl];
+    return (
+      <div style={{display:"flex",justifyContent:"space-between",padding:"5px 0",borderBottom:"1px solid rgba(0,0,0,0.05)",alignItems:"center"}}>
+        <span style={{fontSize:11,color:"rgba(0,0,0,0.42)",display:"flex",alignItems:"center",gap:2}}>{lbl}{tip && <TipIcon text={tip}/>}</span>
+        <span style={{fontSize:12,fontWeight:hilite?600:400,color:hilite?gmC:color,fontVariantNumeric:"tabular-nums"}}>{val}</span>
+      </div>
+    );
+  };
   return (
     <button type="button" onClick={() => onNav(nav)} style={{
       background:"white", borderLeft:`4px solid ${border}`, borderTop:"none",
@@ -444,14 +512,14 @@ function EntCard({name, nav, onNav, gp, gm, gmr, oh, pl, sau, color, bg, border,
                    borderBottom:`1px solid rgba(0,0,0,0.08)`}}>{name}</div>
       <div style={{flex:1}}>
         {MR("Gross Product", fmt(gp))}
-        {MR("Gross Margin", fmt(gm))}
+        {MR("Gross Margin", fmt(gm), true)}
         {MR("GMR", pfmt(gmr))}
-        {MR("OH Allocation", fmt(oh))}
-        {MR("Enterprise P(L)", fmt(pl), true)}
-        <div style={{display:"flex",justifyContent:"space-between",padding:"5px 0"}}>
+        {gmPerAcre!=null && MR("GM / Acre", acfmt(gmPerAcre))}
+        {gmPerBreedVal!=null && MR("Return on Breed. Stock", pfmt(gmPerBreedVal))}
+        {sau>0 && <div style={{display:"flex",justifyContent:"space-between",padding:"5px 0"}}>
           <span style={{fontSize:11,color:"rgba(0,0,0,0.42)"}}>SAU</span>
           <span style={{fontSize:12,color,fontVariantNumeric:"tabular-nums"}}>{sau.toFixed(1)}</span>
-        </div>
+        </div>}
       </div>
     </button>
   );
@@ -461,12 +529,15 @@ function EntCard({name, nav, onNav, gp, gm, gmr, oh, pl, sau, color, bg, border,
 // ── Combined Ranch Card ─────────────────────────────────────────────────────
 function CombinedCard({r, onNav}) {
   const plC = r.bizPL >= 0 ? "#15803d" : "#b91c1c";
-  const MR = (lbl, val, hilite) => (
-    <div style={{display:"flex",justifyContent:"space-between",padding:"5px 0",borderBottom:"1px solid rgba(255,255,255,0.15)"}}>
-      <span style={{fontSize:11,color:"rgba(255,255,255,0.65)"}}>{lbl}</span>
-      <span style={{fontSize:12,fontWeight:hilite?700:400,color:hilite?( r.bizPL>=0?"#86efac":"#fca5a5"):"white",fontVariantNumeric:"tabular-nums"}}>{val}</span>
-    </div>
-  );
+  const MR = (lbl, val, hilite) => {
+    const tip = TIPS[lbl];
+    return (
+      <div style={{display:"flex",justifyContent:"space-between",padding:"5px 0",borderBottom:"1px solid rgba(255,255,255,0.15)",alignItems:"center"}}>
+        <span style={{fontSize:11,color:"rgba(255,255,255,0.65)",display:"flex",alignItems:"center",gap:3}}>{lbl}{tip && <TipIcon text={tip}/>}</span>
+        <span style={{fontSize:12,fontWeight:hilite?700:400,color:hilite?(r.bizPL>=0?"#86efac":"#fca5a5"):"white",fontVariantNumeric:"tabular-nums"}}>{val}</span>
+      </div>
+    );
+  };
   const totalSAU = (r.cattleSAU + r.sheep.sau + r.goats.sau).toFixed(1);
   return (
     <button type="button" onClick={() => onNav("results")} style={{
@@ -475,14 +546,7 @@ function CombinedCard({r, onNav}) {
       width:"100%", height:"100%", display:"flex", flexDirection:"column",
       boxShadow:"0 2px 8px rgba(0,0,0,0.15)"}}>
       <div style={{height:72,width:"100%",display:"flex",alignItems:"center",justifyContent:"center",marginBottom:8}}>
-        <svg width="52" height="52" viewBox="0 0 52 52">
-          <polygon points="26,4 50,20 50,50 2,50 2,20" fill="rgba(255,255,255,0.12)"/>
-          <polygon points="0,21 26,3 52,21" fill="rgba(255,255,255,0.2)"/>
-          <rect x="20" y="32" width="12" height="18" rx="1" fill="rgba(255,255,255,0.9)"/>
-          <rect x="5" y="27" width="10" height="10" rx="1" fill="rgba(255,255,255,0.7)"/>
-          <rect x="37" y="27" width="10" height="10" rx="1" fill="rgba(255,255,255,0.7)"/>
-          <line x1="26" y1="32" x2="26" y2="50" stroke={T} strokeWidth="1"/>
-        </svg>
+        <img src={LOGO_SRC} alt="Eubanks Cattle Co" style={{height:62,width:"auto",objectFit:"contain",filter:"brightness(0) invert(1)",opacity:0.92,borderRadius:4}}/>
       </div>
       <div style={{fontSize:15,fontWeight:700,color:"white",textAlign:"center",
                    marginBottom:10,paddingBottom:8,
@@ -507,17 +571,17 @@ function CombinedCard({r, onNav}) {
 function HomeScreen({r, d, onNav, profitView, setProfitView}) {
   const cs = {cursor:"pointer"};
   const allBIVStr = fmt(r.allBIV), allCIVStr = fmt(r.allCIV);
-  const cattleHd = d.herd.cows + " cows . " + r.wet + " weaned";
-  const sfStr = r.pregKept + " preg . " + d.sales.steersSold + "s/" + d.sales.heifersSold + "h";
+  const cattleHd = d.cattle.open.pregCows + " cows . " + r.wet + " weaned";
+  const sfStr = r.pregKept + " preg . " + d.cattle.sales.malCalfHead + "s/" + d.cattle.sales.femCalfHead + "h";
   const gpStr = "C:" + kfmt(r.gp) + "  S:" + kfmt(r.sheep.gp) + "  G:" + kfmt(r.goats.gp);
   const gmStr = "C:" + kfmt(r.gm) + "  S:" + kfmt(r.sheep.gm) + "  G:" + kfmt(r.goats.gm);
-  const plStr = "C:" + kfmt(r.cattlePL) + "  S:" + kfmt(r.sheepPL) + "  G:" + kfmt(r.goatPL);
+  const plStr = "C:" + pfmt(r.gp?r.gm/r.gp:0) + "  S:" + pfmt(r.sheep.gmr) + "  G:" + pfmt(r.goats.gmr);
   const valOpenStr = "C:" + kfmt(r.biv) + "  S:" + kfmt(r.sheep.biv) + "  G:" + kfmt(r.goats.biv);
   const valCloseStr = "C:" + kfmt(r.civ) + "  S:" + kfmt(r.sheep.civ) + "  G:" + kfmt(r.goats.civ);
   const dcAll = r.totalDC + r.sheep.totalDC + r.goats.totalDC;
   const acresBase = d.prop.acresGrazed || d.prop.acresOwned;
   const plAcre = acresBase ? r.bizPL / acresBase : null;
-  const sheepHd = d.sheep.herd.females + " ewes . " + d.goats.herd.females + " does";
+  const sheepHd = d.sheep.open.females + " ewes . " + d.goats.open.females + " does";
   const combinedGMStr = fmt(r.allGM) + " . " + pfmt(r.gmr);
   const Op = ({sym}) => (
     <div style={{display:"flex",alignItems:"center",justifyContent:"center",
@@ -563,28 +627,28 @@ function HomeScreen({r, d, onNav, profitView, setProfitView}) {
         <div style={{flex:1,display:"flex"}}>
           <EntCard name="Cattle" nav="cattle" onNav={onNav} Icon={CowIcon}
             gp={r.gp} gm={r.gm} gmr={r.gp?r.gm/r.gp:0}
-            oh={r.cattleOH} pl={r.cattlePL} sau={r.cattleSAU}
+            gmPerAcre={r.cattleGmAc} gmPerBreedVal={r.cattleGmBr} sau={r.cattleSAU}
             color="#5C3016" bg="#FEF6EE" border="#A0612A"/>
         </div>
         <Op sym="+"/>
         <div style={{flex:1,display:"flex"}}>
           <EntCard name="Sheep" nav="sheep" onNav={onNav} Icon={SheepIcon}
             gp={r.sheep.gp} gm={r.sheep.gm} gmr={r.sheep.gmr}
-            oh={r.sheepOH} pl={r.sheepPL} sau={r.sheep.sau}
+            gmPerAcre={r.sheepGmAc} gmPerBreedVal={r.sheepGmBr} sau={r.sheep.sau}
             color="#5C4A32" bg="#FAF5EC" border="#A89070"/>
         </div>
         <Op sym="+"/>
         <div style={{flex:1,display:"flex"}}>
           <EntCard name="Goats" nav="goats" onNav={onNav} Icon={GoatIcon}
             gp={r.goats.gp} gm={r.goats.gm} gmr={r.goats.gmr}
-            oh={r.goatOH} pl={r.goatPL} sau={r.goats.sau}
+            gmPerAcre={r.goatGmAc} gmPerBreedVal={r.goatGmBr} sau={r.goats.sau}
             color="#3A5028" bg="#EFF3E8" border="#6B8A52"/>
         </div>
         <Op sym="+"/>
         <div style={{flex:1,display:"flex"}}>
           <EntCard name="Leases & Hunting" nav="leases" onNav={onNav} Icon={DeerIcon}
             gp={r.leases.gp} gm={r.leases.gm} gmr={r.leases.gmr}
-            oh={0} pl={r.leases.gm} sau={0}
+            gmPerAcre={null} gmPerBreedVal={null} sau={0}
             color="#2D4818" bg="#EDF2E0" border="#6B8A52"/>
         </div>
         <Op sym="="/>
@@ -683,7 +747,7 @@ function HomeScreen({r, d, onNav, profitView, setProfitView}) {
           <g style={cs} onClick={() => onNav("results")}>
             <rect x="825" y="175" width="150" height="72" rx="8" fill="#EDE4D6" stroke="#7A5A3A" strokeWidth="1"/>
             <text x="900" y="197" textAnchor="middle" fontSize="11" fontWeight="700" fill="#3D2B1A">Profit / loss</text>
-            <text x="900" y="213" textAnchor="middle" fontSize="10" fill="#8A7060">{plStr}</text>
+            <text x="900" y="213" textAnchor="middle" fontSize="10" fill="#8A7060">{"GMR  " + plStr}</text>
             <text x="900" y="228" textAnchor="middle" fontSize="10" fill="#8A7060">{"Biz: " + fmt(r.bizPL)}</text>
           </g>
 
@@ -713,7 +777,7 @@ function HomeScreen({r, d, onNav, profitView, setProfitView}) {
 
           {/* ── OH: FROM Cash Flow → UP to junction ● (between GM and P/L) ── */}
           <line x1="816" y1="330" x2="816" y2="217" stroke="#C0392B" strokeWidth="2" strokeDasharray="5,3" markerEnd="url(#ah2)"/>
-          <text x="821" y="280" textAnchor="start" fontSize="11" fontWeight="700" fill="#C0392B">{"OH: " + kfmt(r.totalOH) + " (SAU-alloc)"}</text>
+          <text x="821" y="280" textAnchor="start" fontSize="11" fontWeight="700" fill="#C0392B">{"OH: " + kfmt(r.totalOH)}</text>
         </svg>
       </div>
     </div>
@@ -723,11 +787,11 @@ function HomeScreen({r, d, onNav, profitView, setProfitView}) {
 // ── Profit View Toggle (reusable) ────────────────────────────────────────────
 function ProfitViewToggle({profitView, setProfitView}) {
   return (
-    <div style={{display:"flex",justifyContent:"flex-end",alignItems:"center",marginBottom:12,gap:8}}>
-      <span style={{fontSize:11,color:"#8B6437",fontWeight:600,textTransform:"uppercase",letterSpacing:"0.06em"}}>Profit View</span>
-      <div style={{display:"flex",borderRadius:20,overflow:"hidden",border:"2px solid #C4993B",background:"#F0E4C8"}}>
-        <button type="button" onClick={() => setProfitView("economic")} style={{background:profitView==="economic"?T:"transparent",color:profitView==="economic"?"white":"#3D2B1A",border:"none",padding:"4px 14px",fontSize:11,fontWeight:700,cursor:"pointer",borderRadius:20}}>Economic</button>
-        <button type="button" onClick={() => setProfitView("accounting")} style={{background:profitView==="accounting"?T:"transparent",color:profitView==="accounting"?"white":"#3D2B1A",border:"none",padding:"4px 14px",fontSize:11,fontWeight:700,cursor:"pointer",borderRadius:20}}>Accounting</button>
+    <div style={{display:"flex",justifyContent:"flex-end",alignItems:"center",marginBottom:14,gap:10}}>
+      <span style={{fontSize:13,color:"#8B6437",fontWeight:600,textTransform:"uppercase",letterSpacing:"0.06em"}}>Profit View</span>
+      <div style={{display:"flex",borderRadius:22,overflow:"hidden",border:"2px solid #C4993B",background:"#F0E4C8"}}>
+        <button type="button" onClick={() => setProfitView("economic")} style={{background:profitView==="economic"?T:"transparent",color:profitView==="economic"?"white":"#3D2B1A",border:"none",padding:"7px 20px",fontSize:13,fontWeight:700,cursor:"pointer",borderRadius:22}}>Economic</button>
+        <button type="button" onClick={() => setProfitView("accounting")} style={{background:profitView==="accounting"?T:"transparent",color:profitView==="accounting"?"white":"#3D2B1A",border:"none",padding:"7px 20px",fontSize:13,fontWeight:700,cursor:"pointer",borderRadius:22}}>Accounting</button>
       </div>
     </div>
   );
@@ -751,269 +815,442 @@ function ColBanner({inputs}) {
 }
 
 // ── Cattle Form ───────────────────────────────────────────────────────────────
-function CattleForm({d, r, set, onNav, profitView, setProfitView}) {
-  const c = d.cattle;
-  const o=c.open, b=c.births, p=c.purch, dt=c.deaths, x=c.xfer, s=c.sales, cv=c.closeVal, dc=c.dc;
-  const cr = r.cattle;
-
-  const setO  = (f) => (v) => set("cattle", f, v, "open");
-  const setB  = (f) => (v) => set("cattle", f, v, "births");
-  const setP  = (f) => (v) => set("cattle", f, v, "purch");
-  const setDt = (f) => (v) => set("cattle", f, v, "deaths");
-  const setX  = (f) => (v) => set("cattle", f, v, "xfer");
-  const setSl = (f) => (v) => set("cattle", f, v, "sales");
-  const setCV = (f) => (v) => set("cattle", f, v, "closeVal");
-  const setDc = (f) => (v) => set("cattle", f, v, "dc");
-
-  const ohPctStr = (r.cattleShare * 100).toFixed(1) + "% share";
-  const kpis = [
-    {label:"Gross Product",   value:fmt(cr.gp),             icon:"$",  neg:false},
-    {label:"Gross Margin",    value:fmt(cr.gm),             icon:"📊", neg:cr.gm<0},
-    {label:"Enterprise P(L)", value:fmt(r.cattlePL),        icon:r.cattlePL>=0?"↑":"↓", neg:r.cattlePL<0},
-    {label:"GMR",             value:pfmt(cr.gmr),           icon:"%",  neg:false},
-    {label:"Cattle SAU",      value:cr.sau.toFixed(1),      icon:"🐄", neg:false},
-    {label:"OH Allocation",   value:fmt(r.cattleOH),        icon:"🏦", neg:false},
-  ];
-
-  // Stock flow reconciliation rows
-  const sfRows = [
-    {cls:"Preg Cows",   open:o.pregCows,    inflow:x.h2ToPreg,                    outflow:dt.pregCows+s.pregHead+s.dryHead,                     close:cr.close.pregCows},
-    {cls:"Open Cows",   open:o.openCows,    inflow:0,                              outflow:dt.openCows+s.openHead,                               close:cr.close.openCows},
-    {cls:"H2 Heifers",  open:o.h2,          inflow:x.h1ToH2,                      outflow:dt.h2+s.h2Head+x.h2ToPreg,                           close:cr.close.h2},
-    {cls:"H1 Heifers",  open:o.h1,          inflow:x.femToH1+p.heifers,           outflow:dt.h1+s.h1Head+x.h1ToH2,                             close:cr.close.h1},
-    {cls:"Fem Calves",  open:o.femCalves,   inflow:b.femCalves,                   outflow:dt.femCalves+s.femCalfHead+x.femToH1+x.femToStocker, close:cr.close.femCalves},
-    {cls:"Mal Calves",  open:o.malCalves,   inflow:b.malCalves,                   outflow:dt.malCalves+s.malCalfHead+x.malToStocker,           close:cr.close.malCalves},
-    {cls:"Stk Heifers", open:o.stockerHfrs, inflow:x.femToStocker+p.stockerHfrs,  outflow:dt.stockerHfrs+s.stockerHfrHead,                     close:cr.close.stockerHfrs},
-    {cls:"Stk Steers",  open:o.stockerStrs, inflow:x.malToStocker+p.stockerStrs,  outflow:dt.stockerStrs+s.stockerStrHead,                     close:cr.close.stockerStrs},
-    {cls:"Bulls",       open:o.bulls,       inflow:p.bulls,                       outflow:dt.bulls+s.bullHead,                                 close:cr.close.bulls},
-  ];
-
-  const C4 = "1fr 58px 70px 72px";
-  const TblHdr = ({cols, a="center", b="center", c="right"}) => (
-    <div style={{display:"grid",gridTemplateColumns:cols||C4,gap:4,padding:"4px 0 3px",borderBottom:"1px solid #E8DFD0",marginBottom:3}}>
-      <div/><div style={{fontSize:10,color:"#9B8B7A",fontWeight:600,textAlign:a}}>Head</div>
-      <div style={{fontSize:10,color:"#9B8B7A",fontWeight:600,textAlign:b}}>$/Head</div>
-      <div style={{fontSize:10,color:"#9B8B7A",fontWeight:600,textAlign:c}}>Total</div>
+// ── Table Input (width:100% for stock flow table) ────────────────────────────
+// ── Pricing mode helpers ──────────────────────────────────────────────────────
+// Per-row lb/head helpers
+function LbPriceInput({curVal, onChange}) {
+  const [wt,   setWt]   = useState(500);
+  const [rate, setRate] = useState(0);
+  const update = (w, r) => onChange(Math.round(w * r));
+  return (
+    <div style={{display:"flex",alignItems:"center",gap:3,flexWrap:"wrap",justifyContent:"flex-end"}}>
+      <div style={{display:"flex",alignItems:"center",gap:2}}>
+        <Inp val={wt}   onChange={v=>{setWt(v);   update(v,rate);}}/>
+        <span style={{fontSize:10,color:"#9B8B7A"}}>lb</span>
+      </div>
+      <span style={{fontSize:11,color:"#9B8B7A"}}>×</span>
+      <div style={{display:"flex",alignItems:"center",gap:2}}>
+        <span style={{fontSize:11,color:"#4A7CC5",fontWeight:700}}>$</span>
+        <Inp val={rate} onChange={v=>{setRate(v); update(wt,v);}}/>
+        <span style={{fontSize:10,color:"#9B8B7A"}}>/lb</span>
+      </div>
+      <div style={{fontSize:11,fontWeight:700,color:"#1A3A6B",minWidth:52,textAlign:"right"}}>= {fmt(Math.round(wt*rate))}</div>
     </div>
   );
+}
+
+// Small per-row toggle pill
+function ModeBtn({mode, setMode}) {
+  const perHead = mode === "perHead";
+  return (
+    <button type="button" onClick={() => setMode(perHead ? "perLb" : "perHead")}
+      style={{fontSize:9,fontWeight:700,padding:"2px 6px",border:"1px solid",borderRadius:4,
+              cursor:"pointer",whiteSpace:"nowrap",flexShrink:0,lineHeight:"1.4",
+              background: perHead?"#EBF5FF":"#FFF8EC",
+              color:       perHead?"#1A3A6B":"#7C4E1A",
+              borderColor: perHead?"#93C5FD":"#D4A033"}}>
+      {perHead ? "$/hd" : "$/lb"}
+    </button>
+  );
+}
+
+// Single-value row with per-row toggle (Sale Prices)
+function PriceRowInput({val, onChange}) {
+  const [mode, setMode] = useState("perHead");
+  return (
+    <div style={{display:"flex",alignItems:"center",gap:5,justifyContent:"flex-end",flexWrap:"wrap"}}>
+      <ModeBtn mode={mode} setMode={setMode}/>
+      {mode === "perHead"
+        ? <Inp val={val} onChange={onChange} pre="$"/>
+        : <LbPriceInput curVal={val} onChange={onChange}/>}
+    </div>
+  );
+}
+
+// Two-value row with shared per-row toggle (Livestock Values open+close)
+function LiveValRow({lbl, openVal, onOpenChange, closeVal, onCloseChange}) {
+  const [mode, setMode] = useState("perHead");
+  const perHead = mode === "perHead";
+  return (
+    <div style={{padding:"5px 0",borderBottom:"1px solid #F0EBE3"}}>
+      {perHead ? (
+        <div style={{display:"grid",gridTemplateColumns:"1fr auto 84px 84px",gap:4,alignItems:"center"}}>
+          <div style={{fontSize:12,color:"#5A4A38"}}>{lbl}</div>
+          <ModeBtn mode={mode} setMode={setMode}/>
+          <Inp val={openVal} onChange={onOpenChange} pre="$"/>
+          {onCloseChange
+            ? <Inp val={closeVal} onChange={onCloseChange} pre="$"/>
+            : <div style={{fontSize:11,color:"#C0B0A0",textAlign:"center"}}>sold</div>}
+        </div>
+      ) : (
+        <div>
+          <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:4}}>
+            <div style={{fontSize:12,fontWeight:600,color:T}}>{lbl}</div>
+            <ModeBtn mode={mode} setMode={setMode}/>
+          </div>
+          <div style={{display:"flex",alignItems:"center",gap:6,marginBottom:3}}>
+            <span style={{fontSize:11,color:"#9B8B7A",minWidth:44}}>Open:</span>
+            <LbPriceInput curVal={openVal} onChange={onOpenChange}/>
+          </div>
+          {onCloseChange
+            ? <div style={{display:"flex",alignItems:"center",gap:6}}>
+                <span style={{fontSize:11,color:"#9B8B7A",minWidth:44}}>Close:</span>
+                <LbPriceInput curVal={closeVal} onChange={onCloseChange}/>
+              </div>
+            : <div style={{fontSize:11,color:"#C0B0A0",paddingLeft:44}}>sold — no closing value</div>}
+        </div>
+      )}
+    </div>
+  );
+}
+
+function TblInp({val, onChange}) {
+  const [raw, setRaw] = useState(null);
+  const num = val != null ? Number(val) : 0;
+  const display = raw !== null ? raw : (num === 0 ? "0" : num.toLocaleString("en-US"));
+  return (
+    <input type="text" inputMode="decimal" value={display}
+      onFocus={e => { setRaw(String(num)); e.target.style.outline="2px solid #3B82F6"; e.target.style.outlineOffset="1px"; }}
+      onBlur={e => { setRaw(null); e.target.style.outline="none"; const n=parseFloat(e.target.value.replace(/,/g,"")); if (!isNaN(n)) onChange(n); else onChange(0); }}
+      onChange={e => setRaw(e.target.value)}
+      style={{width:"100%",border:"1px solid #93C5FD",borderRadius:4,padding:"3px 5px",
+              textAlign:"right",fontSize:12,fontWeight:600,background:"#EBF5FF",
+              color:"#1A3A6B",outline:"none",boxSizing:"border-box"}}/>
+  );
+}
+
+
+// ── Herd Performance Summary Panel ───────────────────────────────────────────
+function HerdPerfPanel({o, dt, s, bm, setBm, onApply}) {
+  const bmCalc = (open, dPct, drPct, cPct, oPct) => {
+    const d=Math.round(open*(dPct||0)/100), live=Math.max(0,open-d);
+    const dry=Math.round(live*(drPct||0)/100), wet=Math.max(0,live-dry);
+    const cull=Math.round(wet*(cPct||0)/100), exp=Math.max(0,wet-cull);
+    const opn=Math.round(exp*(oPct||0)/100);
+    return {d,live,dry,wet,cull,exp,opn,preg:Math.max(0,exp-opn)};
+  };
+  const mc_bm=bmCalc(o.pregCows,bm.death_mc,bm.dry_mc,bm.cull_mc,bm.open_mc);
+  const h2_bm=bmCalc(o.h2,bm.death_h2,bm.dry_h2,bm.cull_h2,bm.open_h2);
+  const h1_bm=bmCalc(o.h1,bm.death_h1,0,bm.cull_h1,0);
+  const mc_d=dt.pregCows, mc_live=o.pregCows-mc_d, mc_dry=s.dryHead;
+  const mc_wet=Math.max(0,mc_live-mc_dry), mc_culls=s.pregHead;
+  const mc_exp=Math.max(0,mc_wet-mc_culls), mc_opens=o.openCows;
+  const h2_d=dt.h2, h2_live=o.h2-h2_d, h2_dry=s.h2HeadD||0;
+  const h2_wet=Math.max(0,h2_live-h2_dry), h2_culls=s.h2Head;
+  const h2_exp=Math.max(0,h2_wet-h2_culls), h2_opens=s.h2HeadO||0;
+  const h1_d=dt.h1, h1_live=o.h1-h1_d, h1_culls=s.h1Head;
+  const h1_kept=Math.max(0,h1_live-h1_culls);
+  const weaned_act=mc_wet+h2_wet, weaned_bm=mc_bm.wet+h2_bm.wet;
+  const totalBreed=o.pregCows+o.h2;
+  const pct=(n,d)=>d>0?(n/d*100).toFixed(1):null;
+  const hdr1={background:"#2A4A1A",color:"white",fontWeight:700,fontSize:10,textAlign:"center",padding:"5px 3px",letterSpacing:"0.03em"};
+  const hdr2={background:"#3D6B22",color:"white",fontWeight:600,fontSize:9,textAlign:"center",padding:"3px 2px"};
+  const hdrBm={background:"#4A3A10",color:"white",fontWeight:600,fontSize:9,textAlign:"center",padding:"3px 2px"};
+  const tdl=(italic)=>({padding:"4px 8px",borderBottom:"1px solid #F0EBE3",fontSize:11,fontStyle:italic?"italic":"normal",color:italic?"#8B7060":"#3D2B1A"});
+  const tdr=(bold,clr)=>({padding:"3px 5px",borderBottom:"1px solid #F0EBE3",textAlign:"right",fontSize:11,fontWeight:bold?700:400,color:clr||T,fontVariantNumeric:"tabular-nums"});
+  const naCell={padding:"3px 5px",borderBottom:"1px solid #F0EBE3",background:"#EEEAE4",textAlign:"center",color:"#C0B8B0",fontSize:10};
+  const BmInp=({fk})=>(
+    <td style={{padding:"2px 3px",borderBottom:"1px solid #F0EBE3",textAlign:"right"}}>
+      <div style={{display:"flex",alignItems:"center",justifyContent:"flex-end",gap:1}}>
+        <input type="text" inputMode="decimal" defaultValue={bm[fk]}
+          onBlur={e=>{const v=parseFloat(e.target.value);if(!isNaN(v))setBm(fk)(v);}}
+          style={{width:32,border:"1px solid #93C5FD",borderRadius:3,padding:"2px 3px",textAlign:"right",fontSize:10,fontWeight:600,background:"#EBF5FF",color:"#1A3A6B",outline:"none"}}/>
+        <span style={{fontSize:9,color:"#9B8B7A"}}>%</span>
+      </div>
+    </td>
+  );
+  const NaC=()=><td style={naCell}>—</td>;
+  const BmN=({n})=><td style={tdr(false,"#7C5A1A")}>{n!=null?n:"—"}</td>;
+  const Act=({a,bm_v,lo=true})=>{
+    if(a===null||bm_v==null)return <td style={{...tdr(),color:"#C0B8B0"}}>—</td>;
+    const ok=lo?parseFloat(a)<=bm_v:parseFloat(a)>=bm_v;
+    return <td style={tdr(true,ok?"#166534":"#DC2626")}>{a}%</td>;
+  };
+  const AN=({n,bold})=><td style={tdr(bold)}>{n!=null?n:"—"}</td>;
+  const Row=({lbl,italic,mc_bi,mc_bn,mc_a,mc_n,h2_bi,h2_bn,h2_a,h2_n,h1_bi,h1_bn,h1_a,h1_n,lo=true,bold})=>(
+    <tr>
+      <td style={tdl(italic)}>{lbl}</td>
+      {mc_bi?<BmInp fk={mc_bi}/>:<NaC/>}<BmN n={mc_bn}/><Act a={mc_a} bm_v={bm[mc_bi]} lo={lo}/><AN n={mc_n} bold={bold}/>
+      {h2_bi?<BmInp fk={h2_bi}/>:<NaC/>}<BmN n={h2_bn}/><Act a={h2_a} bm_v={bm[h2_bi]} lo={lo}/><AN n={h2_n} bold={bold}/>
+      {h1_bi?<BmInp fk={h1_bi}/>:<NaC/>}<BmN n={h1_bn}/><Act a={h1_a} bm_v={bm[h1_bi]} lo={lo}/><AN n={h1_n} bold={bold}/>
+    </tr>
+  );
+  const NRRow=({lbl,italic,mc_n,mc_bn,h2_n,h2_bn,h1_n,h1_bn,bold})=>(
+    <tr style={{background:"#FAFAF5"}}>
+      <td style={tdl(italic)}>{lbl}</td>
+      <NaC/><BmN n={mc_bn}/><NaC/><AN n={mc_n} bold={bold}/>
+      <NaC/><BmN n={h2_bn}/><NaC/><AN n={h2_n} bold={bold}/>
+      <NaC/><BmN n={h1_bn}/><NaC/><AN n={h1_n} bold={bold}/>
+    </tr>
+  );
+  return (
+    <div style={{marginTop:14,paddingTop:12,borderTop:"2px solid #E5DDD0"}}>
+      <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:8}}>
+        <div style={{fontSize:13,fontWeight:700,color:T,textTransform:"uppercase",letterSpacing:"0.08em"}}>Herd Performance Summary</div>
+        <button type="button" onClick={onApply}
+          style={{background:"#7C5A1A",color:"white",border:"none",borderRadius:7,padding:"7px 14px",fontSize:12,fontWeight:700,cursor:"pointer"}}>
+          📋 Apply Benchmarks → Stock Flow
+        </button>
+      </div>
+      <div style={{fontSize:11,color:"#8B6437",marginBottom:8,fontStyle:"italic"}}>
+        Edit blue % cells to set benchmarks. Green = meeting benchmark · Red = below.
+      </div>
+      <div style={{overflowX:"auto"}}>
+        <table style={{width:"100%",borderCollapse:"collapse",tableLayout:"fixed",minWidth:740}}>
+          <colgroup>
+            <col style={{width:"18%"}}/>
+            <col style={{width:"6%"}}/><col style={{width:"6%"}}/><col style={{width:"6%"}}/><col style={{width:"6%"}}/>
+            <col style={{width:"6%"}}/><col style={{width:"6%"}}/><col style={{width:"6%"}}/><col style={{width:"6%"}}/>
+            <col style={{width:"6%"}}/><col style={{width:"6%"}}/><col style={{width:"6%"}}/><col style={{width:"6%"}}/>
+          </colgroup>
+          <thead>
+            <tr>
+              <th rowSpan={2} style={{...hdr1,textAlign:"left",paddingLeft:8}}>Metric</th>
+              <th colSpan={4} style={{...hdr1,borderBottom:"1px solid #3D6B22"}}>Mature Cows</th>
+              <th colSpan={4} style={{...hdr1,borderBottom:"1px solid #3D6B22"}}>H2 Heifers</th>
+              <th colSpan={4} style={{...hdr1,borderBottom:"1px solid #3D6B22"}}>H1 Heifers</th>
+            </tr>
+            <tr>
+              {["Bench%","Bench#","Act%","Act#","Bench%","Bench#","Act%","Act#","Bench%","Bench#","Act%","Act#"].map((h,i)=>(
+                <th key={i} style={i%4<2?hdrBm:hdr2}>{h}</th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            <NRRow lbl="Preg & Kept at Start" bold mc_n={o.pregCows} mc_bn={o.pregCows} h2_n={o.h2} h2_bn={o.h2} h1_n={o.h1} h1_bn={o.h1}/>
+            <Row lbl="Death Loss" mc_bi="death_mc" mc_bn={mc_bm.d} mc_a={pct(mc_d,o.pregCows)} mc_n={mc_d}
+              h2_bi="death_h2" h2_bn={h2_bm.d} h2_a={pct(h2_d,o.h2)} h2_n={h2_d}
+              h1_bi="death_h1" h1_bn={h1_bm.d} h1_a={pct(h1_d,o.h1)} h1_n={h1_d}/>
+            <NRRow lbl="Number Live" italic bold mc_n={mc_live} mc_bn={mc_bm.live} h2_n={h2_live} h2_bn={h2_bm.live} h1_n={h1_live} h1_bn={h1_bm.live}/>
+            <Row lbl="Dry Rate" mc_bi="dry_mc" mc_bn={mc_bm.dry} mc_a={pct(mc_dry,mc_live)} mc_n={mc_dry}
+              h2_bi="dry_h2" h2_bn={h2_bm.dry} h2_a={pct(h2_dry,h2_live)} h2_n={h2_dry}
+              h1_bi={null} h1_bn={null} h1_a={null} h1_n={null}/>
+            <NRRow lbl="Number Wet" italic bold mc_n={mc_wet} mc_bn={mc_bm.wet} h2_n={h2_wet} h2_bn={h2_bm.wet} h1_n={null} h1_bn={null}/>
+            <Row lbl="Cull Rate" mc_bi="cull_mc" mc_bn={mc_bm.cull} mc_a={pct(mc_culls,mc_wet)} mc_n={mc_culls}
+              h2_bi="cull_h2" h2_bn={h2_bm.cull} h2_a={pct(h2_culls,h2_wet)} h2_n={h2_culls}
+              h1_bi="cull_h1" h1_bn={h1_bm.cull} h1_a={pct(h1_culls,h1_live)} h1_n={h1_culls}/>
+            <NRRow lbl="Number Exposed" italic bold mc_n={mc_exp} mc_bn={mc_bm.exp} h2_n={h2_exp} h2_bn={h2_bm.exp} h1_n={h1_kept} h1_bn={h1_bm.preg}/>
+            <Row lbl="Open Rate" mc_bi="open_mc" mc_bn={mc_bm.opn} mc_a={pct(mc_opens,o.pregCows+mc_opens)} mc_n={mc_opens}
+              h2_bi="open_h2" h2_bn={h2_bm.opn} h2_a={pct(h2_opens,h2_exp)} h2_n={h2_opens}
+              h1_bi={null} h1_bn={null} h1_a={null} h1_n={null}/>
+            <NRRow lbl="Preg & Kept (Close)" italic bold
+              mc_n={Math.max(0,mc_live-mc_dry)} mc_bn={mc_bm.preg}
+              h2_n={Math.max(0,h2_exp-h2_opens)} h2_bn={h2_bm.preg}
+              h1_n={h1_kept} h1_bn={h1_bm.preg}/>
+            <tr style={{background:"#F5F0E8"}}>
+              <td style={{...tdl(),fontWeight:700}}>Calves Weaned</td>
+              <td style={naCell}/><td style={tdr(true,"#7C5A1A")}>{weaned_bm}</td><td style={naCell}/>
+              <td style={tdr(true)}>{weaned_act}{" "}<span style={{fontSize:9,fontWeight:400,color:totalBreed>0&&weaned_act/totalBreed>=0.85?"#166534":"#DC2626"}}>{totalBreed>0?`(${(weaned_act/totalBreed*100).toFixed(0)}%)`:"" }</span></td>
+              <td colSpan={8} style={{...tdr(),color:"#8B7060",fontSize:10,textAlign:"left",paddingLeft:8}}>Bench: {weaned_bm} · {totalBreed>0?(weaned_bm/totalBreed*100).toFixed(0)+"% of breed. females":""}</td>
+            </tr>
+            <tr>
+              <td style={tdl()}>Bulls</td>
+              <td colSpan={12} style={{...tdr(),textAlign:"left",paddingLeft:8}}>{o.bulls} bulls{o.bulls>0&&totalBreed>0?` · ${(totalBreed/o.bulls).toFixed(0)} cows/bull`:""}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+}
+
+// ── Cattle Form ───────────────────────────────────────────────────────────────
+function CattleForm({d, r, set, onNav, profitView, setProfitView}) {
+  const c=d.cattle;
+  const o=c.open,b=c.births,p=c.purch,dt=c.deaths,xo=c.xferOut,xi=c.xferIn,s=c.sales,cv=c.closeVal,dc=c.dc;
+  const cr=r.cattle;
+  const bm=c.benchmarks;
+  const setBm=(f)=>(v)=>set("cattle",f,v,"benchmarks");
+  const setO=(f)=>(v)=>set("cattle",f,v,"open");
+  const setB=(f)=>(v)=>set("cattle",f,v,"births");
+  const setP=(f)=>(v)=>set("cattle",f,v,"purch");
+  const setDt=(f)=>(v)=>set("cattle",f,v,"deaths");
+  const setXO=(f)=>(v)=>set("cattle",f,v,"xferOut");
+  const setXI=(f)=>(v)=>set("cattle",f,v,"xferIn");
+  const setSl=(f)=>(v)=>set("cattle",f,v,"sales");
+  const setCV=(f)=>(v)=>set("cattle",f,v,"closeVal");
+  const setDc=(f)=>(v)=>set("cattle",f,v,"dc");
+
+  const applyBenchmarks=()=>{
+    const mc_d=Math.round(o.pregCows*bm.death_mc/100);
+    const mc_live=o.pregCows-mc_d, mc_dry=Math.round(mc_live*bm.dry_mc/100);
+    const mc_wet=Math.max(0,mc_live-mc_dry), mc_cull=Math.round(mc_wet*bm.cull_mc/100);
+    const mc_exp=Math.max(0,mc_wet-mc_cull), mc_opn=Math.round(mc_exp*bm.open_mc/100);
+    const h2_d=Math.round(o.h2*bm.death_h2/100), h2_live=o.h2-h2_d;
+    const h2_dry=Math.round(h2_live*bm.dry_h2/100), h2_wet=Math.max(0,h2_live-h2_dry);
+    const h2_cull=Math.round(h2_wet*bm.cull_h2/100), h2_exp=Math.max(0,h2_wet-h2_cull);
+    const h2_opn=Math.round(h2_exp*bm.open_h2/100);
+    const h1_d=Math.round(o.h1*bm.death_h1/100), h1_cull=Math.round((o.h1-h1_d)*bm.cull_h1/100);
+    setDt("pregCows")(mc_d); setDt("h2")(h2_d); setDt("h1")(h1_d);
+    setSl("dryHead")(mc_dry); setSl("pregHead")(mc_cull);
+    setSl("h2Head")(h2_cull); setSl("h2HeadD")(h2_dry); setSl("h2HeadO")(h2_opn);
+    setSl("h1Head")(h1_cull); setSl("openHead")(mc_opn);
+  };
+
+  const kpis=[
+    {label:"Gross Product",      value:fmt(cr.gp),          icon:"$",  neg:false},
+    {label:"Gross Margin",       value:fmt(cr.gm),          icon:"📊", neg:cr.gm<0},
+    {label:"GMR",                value:pfmt(cr.gmr),        icon:"%",  neg:false},
+    {label:"GM / Acre",          value:acfmt(r.cattleGmAc), icon:"🌾", neg:r.cattleGmAc<0},
+    {label:"Return on Breed. Stock", value:pfmt(r.cattleGmBr),  icon:"💰", neg:r.cattleGmBr<0},
+    {label:"Cattle SAU",         value:cr.sau.toFixed(1),   icon:"🐄", neg:false},
+  ];
+  const CLASSES=[
+    {key:"pregCows",    lbl:"Preg Cows",    cK:"pregHead",      oK:"pregHeadO",   dK:"dryHead",        bK:null},
+    {key:"openCows",    lbl:"Open Cows",    cK:"openHeadC",     oK:"openHead",    dK:"openHeadD",      bK:null},
+    {key:"h2",          lbl:"H2 Heifers",   cK:"h2Head",        oK:"h2HeadO",     dK:"h2HeadD",        bK:null},
+    {key:"h1",          lbl:"H1 Heifers",   cK:"h1Head",        oK:null,          dK:null,             bK:null},
+    {key:"femCalves",   lbl:"Female Calves",cK:"femCalfHead",   oK:null,          dK:null,             bK:"femCalves"},
+    {key:"malCalves",   lbl:"Male Calves",  cK:"malCalfHead",   oK:null,          dK:null,             bK:"malCalves"},
+    {key:"stockerHfrs", lbl:"Stk Heifers",  cK:"stockerHfrHead",oK:null,          dK:null,             bK:null, stk:true},
+    {key:"stockerStrs", lbl:"Stk Steers",   cK:"stockerStrHead",oK:null,          dK:null,             bK:null, stk:true},
+    {key:"bulls",       lbl:"Bulls",        cK:"bullHead",      oK:null,          dK:null,             bK:null},
+  ];
+  const hdr1={background:"#2A4A1A",color:"white",fontWeight:700,fontSize:10,textAlign:"center",padding:"6px 4px",letterSpacing:"0.04em"};
+  const hdrSale={background:"#3A7D2A",color:"white",fontWeight:700,fontSize:10,textAlign:"center",padding:"6px 4px"};
+  const hdrXfer={background:"#B05C1A",color:"white",fontWeight:700,fontSize:10,textAlign:"center",padding:"6px 4px"};
+  const hdrClose={background:"#1A3A4A",color:"white",fontWeight:700,fontSize:10,textAlign:"center",padding:"6px 4px"};
 
   return (
     <div>
       <ProfitViewToggle profitView={profitView} setProfitView={setProfitView}/>
       <EntHdr nm="Cattle" subtitle="Cattle Enterprise · Stock Flow & Financial Summary" AnimalIcon={CowIcon} kpis={kpis} onNav={onNav}/>
-      <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:16}}>
 
-        {/* ── LEFT: INPUTS ── */}
+      {/* Stock Flow Table */}
+      <div style={{background:"white",borderRadius:10,padding:"14px 16px",boxShadow:"0 1px 4px rgba(0,0,0,0.06)",marginBottom:14}}>
+        <div style={{fontSize:13,fontWeight:700,color:T,textAlign:"center",letterSpacing:"0.08em",textTransform:"uppercase",marginBottom:10,paddingBottom:8,borderBottom:"2px solid #E5DDD0"}}>
+          Stock Flow Plan
+        </div>
+        <div style={{overflowX:"auto"}}>
+          <table style={{width:"100%",borderCollapse:"collapse",tableLayout:"fixed",minWidth:760}}>
+            <colgroup>
+              <col style={{width:"14%"}}/><col style={{width:"8%"}}/><col style={{width:"7%"}}/><col style={{width:"7%"}}/><col style={{width:"7%"}}/>
+              <col style={{width:"7%"}}/><col style={{width:"7%"}}/><col style={{width:"7%"}}/>
+              <col style={{width:"7%"}}/><col style={{width:"7%"}}/><col style={{width:"9%"}}/>
+            </colgroup>
+            <thead>
+              <tr>
+                <th rowSpan={2} style={{...hdr1,textAlign:"left",paddingLeft:8}}>Class of Stock</th>
+                <th rowSpan={2} style={hdr1}>FY Open</th>
+                <th rowSpan={2} style={hdr1}>Deaths</th>
+                <th rowSpan={2} style={hdr1}>Births</th>
+                <th rowSpan={2} style={hdr1}>Purch</th>
+                <th colSpan={3} style={{...hdrSale,borderBottom:"1px solid #5A9E40"}}>Sales</th>
+                <th colSpan={2} style={{...hdrXfer,borderBottom:"1px solid #C87430"}}>Class Transfers</th>
+                <th rowSpan={2} style={hdrClose}>FY Close</th>
+              </tr>
+              <tr>
+                <th style={hdrSale}>C</th><th style={hdrSale}>O</th><th style={hdrSale}>D</th>
+                <th style={hdrXfer}>Out</th><th style={hdrXfer}>In</th>
+              </tr>
+            </thead>
+            <tbody>
+              {CLASSES.map(({key,lbl,cK,oK,dK,bK,stk},ri)=>{
+                const rowBg=stk?"#EBF3FF":ri%2===0?"white":"#FAFAF8";
+                const bd="1px solid #E5DDD0";
+                const close=cr.close[key];
+                const td=(extra)=>({padding:"3px 4px",borderBottom:bd,background:rowBg,verticalAlign:"middle",...(extra||{})});
+                const naS={padding:"3px 4px",borderBottom:bd,background:"#EEEAE4",textAlign:"center",color:"#C0B8B0",fontSize:11,verticalAlign:"middle"};
+                return (
+                  <tr key={key}>
+                    <td style={td({paddingLeft:8,fontSize:12,fontWeight:600,color:stk?"#1D4ED8":T})}>{lbl}</td>
+                    <td style={td()}><TblInp val={o[key]} onChange={setO(key)}/></td>
+                    <td style={td()}><TblInp val={dt[key]} onChange={setDt(key)}/></td>
+                    {bK?<td style={td()}><TblInp val={b[bK]} onChange={setB(bK)}/></td>:<td style={naS}>—</td>}
+                    <td style={td()}><TblInp val={p[key]} onChange={setP(key)}/></td>
+                    {cK?<td style={{...td(),background:stk?"#EBF3FF":"#F2FAF0"}}><TblInp val={s[cK]} onChange={setSl(cK)}/></td>:<td style={naS}>—</td>}
+                    {oK?<td style={{...td(),background:"#F2FAF0"}}><TblInp val={s[oK]} onChange={setSl(oK)}/></td>:<td style={naS}>—</td>}
+                    {dK?<td style={{...td(),background:"#F2FAF0"}}><TblInp val={s[dK]} onChange={setSl(dK)}/></td>:<td style={naS}>—</td>}
+                    <td style={{...td(),background:"#FFF8F0"}}><TblInp val={xo[key]||0} onChange={setXO(key)}/></td>
+                    <td style={{...td(),background:"#F0FDF4"}}><TblInp val={xi[key]||0} onChange={setXI(key)}/></td>
+                    <td style={{padding:"3px 6px",borderBottom:bd,textAlign:"right",fontWeight:700,fontSize:13,fontVariantNumeric:"tabular-nums",color:close<0?"#DC2626":T,background:close<0?"#FEF2F2":"#F0EBE3"}}>{close}</td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+          <div style={{fontSize:11,color:"#8B6437",fontStyle:"italic",marginTop:6}}>
+            {"Biology: ~"+Math.round((o.pregCows+o.h2)/2)+" female + "+Math.round((o.pregCows+o.h2)/2)+" male calves from "+(o.pregCows+o.h2)+" breeding females"}
+          </div>
+          <HerdPerfPanel o={o} dt={dt} s={s} bm={bm} setBm={setBm} onApply={applyBenchmarks}/>
+        </div>
+      </div>
+
+      {/* Below table: Sale Prices + Livestock Values */}
+      <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:14}}>
         <div>
-          <ColBanner inputs={true}/>
-
-          {/* Opening Inventory */}
-          <Section icon="📋" label="Opening Inventory (BIV)">
-            <TblHdr a="center" b="center" c="right"/>
+          <Section icon="💲" label="Sale Prices">
             {[
-              {lbl:"Preg Cows",     hK:"pregCows",    vK:"pregCowsVal"},
-              {lbl:"Open Cows",     hK:"openCows",    vK:"openCowsVal"},
-              {lbl:"H2 Heifers",    hK:"h2",          vK:"h2Val"},
-              {lbl:"H1 Heifers",    hK:"h1",          vK:"h1Val"},
-              {lbl:"Female Calves", hK:"femCalves",   vK:"femCalvesVal"},
-              {lbl:"Male Calves",   hK:"malCalves",   vK:"malCalvesVal"},
-              {lbl:"Stk Heifers",   hK:"stockerHfrs", vK:"stockerHfrsVal"},
-              {lbl:"Stk Steers",    hK:"stockerStrs", vK:"stockerStrsVal"},
-              {lbl:"Bulls",         hK:"bulls",       vK:"bullsVal"},
-            ].map(({lbl,hK,vK}) => (
-              <div key={hK} style={{display:"grid",gridTemplateColumns:C4,gap:4,padding:"5px 0",borderBottom:"1px solid #F0EBE3",alignItems:"center"}}>
-                <div style={{fontSize:12,color:"#5A4A38"}}>{lbl}</div>
-                <Inp val={o[hK]} onChange={setO(hK)}/>
-                <Inp val={o[vK]} onChange={setO(vK)} pre="$"/>
-                <div style={{fontSize:12,fontWeight:600,color:"#1A1208",textAlign:"right"}}>{fmt(o[hK]*o[vK])}</div>
-              </div>
-            ))}
-            <div style={{display:"grid",gridTemplateColumns:C4,gap:4,padding:"7px 0 0",borderTop:"2px solid #E5DDD0"}}>
-              <div style={{fontSize:12,fontWeight:700,color:T,gridColumn:"1/4"}}>Total BIV</div>
-              <div style={{fontSize:13,fontWeight:700,color:"#1A1208",textAlign:"right"}}>{fmt(cr.biv)}</div>
-            </div>
-          </Section>
-
-          {/* Births */}
-          <Section icon="🐣" label="Births">
-            {[{lbl:"Female calves born",f:"femCalves"},{lbl:"Male calves born",f:"malCalves"}].map(({lbl,f})=>(
-              <div key={f} style={{display:"flex",alignItems:"center",justifyContent:"space-between",padding:"5px 0",borderBottom:"1px solid #F0EBE3"}}>
-                <div style={{fontSize:12,color:"#5A4A38"}}>{lbl}</div>
-                <Inp val={b[f]} onChange={setB(f)}/>
-              </div>
-            ))}
-            <div style={{fontSize:11,color:"#8B6437",marginTop:6,fontStyle:"italic"}}>
-              {"Biology: ~"+(Math.round((o.pregCows+o.h2)/2))+" of each sex from "+(o.pregCows+o.h2)+" breeding females"}
-            </div>
-          </Section>
-
-          {/* Purchases */}
-          <Section icon="🛒" label="Purchases (from outside)">
-            <TblHdr a="center" b="center" c="right"/>
-            {[
-              {lbl:"Bulls",        hK:"bulls",       pK:"bullsPerHead"},
-              {lbl:"H1 Heifers",   hK:"heifers",     pK:"heiferPerHead"},
-              {lbl:"Stk Heifers",  hK:"stockerHfrs", pK:"stockerHfrsPerHead"},
-              {lbl:"Stk Steers",   hK:"stockerStrs", pK:"stockerStrsPerHead"},
-            ].map(({lbl,hK,pK})=>(
-              <div key={hK} style={{display:"grid",gridTemplateColumns:C4,gap:4,padding:"5px 0",borderBottom:"1px solid #F0EBE3",alignItems:"center"}}>
-                <div style={{fontSize:12,color:"#5A4A38"}}>{lbl}</div>
-                <Inp val={p[hK]} onChange={setP(hK)}/>
-                <Inp val={p[pK]} onChange={setP(pK)} pre="$"/>
-                <div style={{fontSize:12,fontWeight:600,color:"#1A1208",textAlign:"right"}}>{fmt(p[hK]*p[pK])}</div>
+              {lbl:"Cull Cows (C)",        pK:"pregPrice"},
+              {lbl:"Preg Cows — Open (O)", pK:"pregPriceO"},
+              {lbl:"Open Cows (O)",        pK:"openPrice"},
+              {lbl:"Open Cows — Cull (C)", pK:"openPriceC"},
+              {lbl:"Open Cows — Dry (D)",  pK:"openPriceD"},
+              {lbl:"Dry Cows (D)",         pK:"dryPrice"},
+              {lbl:"H2 Heifers (C)",       pK:"h2Price"},
+              {lbl:"H2 Heifers — Open (O)",pK:"h2PriceO"},
+              {lbl:"H2 Heifers — Dry (D)", pK:"h2PriceD"},
+              {lbl:"H1 Heifers",           pK:"h1Price"},
+              {lbl:"Female Calves",        pK:"femCalfPrice"},
+              {lbl:"Male Calves",          pK:"malCalfPrice"},
+              {lbl:"Stk Heifers",          pK:"stockerHfrPrice"},
+              {lbl:"Stk Steers",           pK:"stockerStrPrice"},
+              {lbl:"Bulls",                pK:"bullPrice"},
+            ].map(({lbl,pK})=>(
+              <div key={pK} style={{display:"flex",alignItems:"center",justifyContent:"space-between",gap:8,padding:"5px 0",borderBottom:"1px solid #F0EBE3",flexWrap:"wrap"}}>
+                <div style={{fontSize:12,color:"#5A4A38",flexShrink:0}}>{lbl}</div>
+                <PriceRowInput val={s[pK]} onChange={setSl(pK)}/>
               </div>
             ))}
           </Section>
-
-          {/* Deaths */}
-          <Section icon="💀" label="Deaths">
-            <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:4}}>
-              {[
-                {lbl:"Preg Cows",f:"pregCows"},{lbl:"Open Cows",f:"openCows"},
-                {lbl:"H2 Heifers",f:"h2"},{lbl:"H1 Heifers",f:"h1"},
-                {lbl:"Fem Calves",f:"femCalves"},{lbl:"Mal Calves",f:"malCalves"},
-                {lbl:"Stk Heifers",f:"stockerHfrs"},{lbl:"Stk Steers",f:"stockerStrs"},
-                {lbl:"Bulls",f:"bulls"},
-              ].map(({lbl,f})=>(
-                <div key={f} style={{display:"flex",alignItems:"center",justifyContent:"space-between",padding:"5px 6px",borderBottom:"1px solid #F0EBE3"}}>
-                  <div style={{fontSize:12,color:"#5A4A38"}}>{lbl}</div>
-                  <Inp val={dt[f]} onChange={setDt(f)}/>
-                </div>
-              ))}
-            </div>
-          </Section>
-
-          {/* Class Transfers */}
-          <Section icon="🔀" label="Class Transfers (Retained)">
-            {[
-              {lbl:"Fem Calves → H1 Replacements",  f:"femToH1"},
-              {lbl:"Fem Calves → Stk Heifers",       f:"femToStocker"},
-              {lbl:"Mal Calves → Stk Steers",        f:"malToStocker"},
-              {lbl:"H1 → H2 (graduating)",           f:"h1ToH2"},
-              {lbl:"H2 → Preg Cows (graduating)",    f:"h2ToPreg"},
-            ].map(({lbl,f})=>(
-              <div key={f} style={{display:"flex",alignItems:"center",justifyContent:"space-between",padding:"5px 0",borderBottom:"1px solid #F0EBE3"}}>
-                <div style={{fontSize:12,color:"#5A4A38"}}>{lbl}</div>
-                <Inp val={x[f]} onChange={setX(f)}/>
-              </div>
-            ))}
-          </Section>
-
-          {/* Sales */}
-          <Section icon="🏷️" label="Sales">
-            <TblHdr a="center" b="center" c="right"/>
-            {[
-              {lbl:"Cull Cows",      hK:"pregHead",       pK:"pregPrice"},
-              {lbl:"Open Cows",      hK:"openHead",       pK:"openPrice"},
-              {lbl:"Dry Cows",       hK:"dryHead",        pK:"dryPrice"},
-              {lbl:"H2 Heifers",     hK:"h2Head",         pK:"h2Price"},
-              {lbl:"H1 Heifers",     hK:"h1Head",         pK:"h1Price"},
-              {lbl:"Female Calves",  hK:"femCalfHead",    pK:"femCalfPrice"},
-              {lbl:"Male Calves",    hK:"malCalfHead",    pK:"malCalfPrice"},
-              {lbl:"Stk Heifers",    hK:"stockerHfrHead", pK:"stockerHfrPrice"},
-              {lbl:"Stk Steers",     hK:"stockerStrHead", pK:"stockerStrPrice"},
-              {lbl:"Bulls",          hK:"bullHead",       pK:"bullPrice"},
-            ].map(({lbl,hK,pK})=>(
-              <div key={hK} style={{display:"grid",gridTemplateColumns:C4,gap:4,padding:"5px 0",borderBottom:"1px solid #F0EBE3",alignItems:"center"}}>
-                <div style={{fontSize:12,color:"#5A4A38"}}>{lbl}</div>
-                <Inp val={s[hK]} onChange={setSl(hK)}/>
-                <Inp val={s[pK]} onChange={setSl(pK)} pre="$"/>
-                <div style={{fontSize:12,fontWeight:600,color:"#1A1208",textAlign:"right"}}>{fmt(s[hK]*s[pK])}</div>
-              </div>
-            ))}
-            <div style={{display:"grid",gridTemplateColumns:C4,gap:4,padding:"7px 0 0",borderTop:"2px solid #E5DDD0"}}>
-              <div style={{fontSize:12,fontWeight:700,color:T,gridColumn:"1/4"}}>Total Sales</div>
-              <div style={{fontSize:13,fontWeight:700,color:"#1A1208",textAlign:"right"}}>{fmt(cr.totalSales)}</div>
-            </div>
-          </Section>
-
-          {/* Closing $/Head */}
-          <Section icon="📅" label="Closing Value / Head">
-            <div style={{fontSize:11,color:"#8B6437",marginBottom:8,fontStyle:"italic"}}>Closing head is calculated from stock flow. Enter $/head to compute CIV.</div>
-            <div style={{display:"grid",gridTemplateColumns:C4,gap:4,padding:"4px 0 3px",borderBottom:"1px solid #E8DFD0",marginBottom:3}}>
-              <div style={{fontSize:10,color:"#9B8B7A",fontWeight:600}}>Class</div>
-              <div style={{fontSize:10,color:"#9B8B7A",fontWeight:600,textAlign:"center"}}>Head</div>
-              <div style={{fontSize:10,color:"#9B8B7A",fontWeight:600,textAlign:"center"}}>$/Head</div>
-              <div style={{fontSize:10,color:"#9B8B7A",fontWeight:600,textAlign:"right"}}>CIV</div>
-            </div>
-            {[
-              {lbl:"Preg Cows",   cK:"pregCows",    n:cr.close.pregCows},
-              {lbl:"H2 Heifers",  cK:"h2",          n:cr.close.h2},
-              {lbl:"H1 Heifers",  cK:"h1",          n:cr.close.h1},
-              {lbl:"Fem Calves",  cK:"femCalves",   n:cr.close.femCalves},
-              {lbl:"Mal Calves",  cK:"malCalves",   n:cr.close.malCalves},
-              {lbl:"Stk Heifers", cK:"stockerHfrs", n:cr.close.stockerHfrs},
-              {lbl:"Stk Steers",  cK:"stockerStrs", n:cr.close.stockerStrs},
-              {lbl:"Bulls",       cK:"bulls",       n:cr.close.bulls},
-            ].map(({lbl,cK,n})=>(
-              <div key={cK} style={{display:"grid",gridTemplateColumns:C4,gap:4,padding:"5px 0",borderBottom:"1px solid #F0EBE3",alignItems:"center"}}>
-                <div style={{fontSize:12,color:"#5A4A38"}}>{lbl}</div>
-                <div style={{fontSize:12,fontWeight:700,color:n<0?"#DC2626":T,textAlign:"center"}}>{Math.max(0,n)}</div>
-                <Inp val={cv[cK]} onChange={setCV(cK)} pre="$"/>
-                <div style={{fontSize:12,fontWeight:600,color:"#1A1208",textAlign:"right"}}>{fmt(Math.max(0,n)*cv[cK])}</div>
-              </div>
-            ))}
-            <div style={{display:"grid",gridTemplateColumns:C4,gap:4,padding:"7px 0 0",borderTop:"2px solid #E5DDD0"}}>
-              <div style={{fontSize:12,fontWeight:700,color:T,gridColumn:"1/4"}}>Total CIV</div>
-              <div style={{fontSize:13,fontWeight:700,color:"#1A1208",textAlign:"right"}}>{fmt(cr.civ)}</div>
-            </div>
-          </Section>
-
-          {/* Direct Costs */}
           <Section icon="💸" label="Direct Costs">
             <Field label="Opportunity rate"      val={dc.oppPct}  set={setDc("oppPct")} suf="%"/>
-            <Field label="Feed and mineral"      val={dc.feed}    set={setDc("feed")}   pre="$"/>
+            <Field label="Hay"                   val={dc.hay}     set={setDc("hay")}    pre="$"/>
+            <Field label="Protein supplement"    val={dc.protein} set={setDc("protein")} pre="$"/>
+            <Field label="Mineral"               val={dc.mineral} set={setDc("mineral")} pre="$"/>
             <Field label="Vet and medicine"      val={dc.vet}     set={setDc("vet")}    pre="$"/>
             <Field label="Freight and marketing" val={dc.freight} set={setDc("freight")} pre="$"/>
           </Section>
         </div>
-
-        {/* ── RIGHT: CALCULATED ── */}
         <div>
-          <ColBanner inputs={false}/>
-
-          {/* Stock Flow Reconciliation */}
-          <Section icon="🔄" label="Stock Flow Reconciliation">
-            <table style={{width:"100%",borderCollapse:"collapse",fontSize:11}}>
-              <thead>
-                <tr style={{borderBottom:"2px solid #E5DDD0"}}>
-                  {[["Class","left"],["Open","right"],["+In","right"],["−Out","right"],["Close","right"]].map(([h,a])=>(
-                    <th key={h} style={{textAlign:a,padding:"4px 3px",color:"#9B8B7A",fontWeight:600,fontSize:10}}>{h}</th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                {sfRows.map(({cls,open,inflow,outflow,close},i)=>(
-                  <tr key={cls} style={{borderBottom:"1px solid #F0EBE3",background:i%2===0?"transparent":"#FAFAF8"}}>
-                    <td style={{padding:"5px 3px",color:"#5A4A38",fontSize:11}}>{cls}</td>
-                    <td style={{padding:"5px 3px",textAlign:"right",fontVariantNumeric:"tabular-nums"}}>{open||"—"}</td>
-                    <td style={{padding:"5px 3px",textAlign:"right",color:"#22863A",fontVariantNumeric:"tabular-nums"}}>{inflow>0?"+"+inflow:"—"}</td>
-                    <td style={{padding:"5px 3px",textAlign:"right",color:"#DC2626",fontVariantNumeric:"tabular-nums"}}>{outflow>0?"−"+outflow:"—"}</td>
-                    <td style={{padding:"5px 3px",textAlign:"right",fontWeight:700,color:close<0?"#DC2626":T,fontVariantNumeric:"tabular-nums"}}>{close}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+          <Section icon="💰" label="Livestock Values">
+            <div style={{display:"grid",gridTemplateColumns:"1fr auto 84px 84px",gap:4,padding:"4px 0 2px",borderBottom:"1px solid #E8DFD0",marginBottom:2}}>
+              <div style={{fontSize:10,color:"#9B8B7A",fontWeight:600}}>Class</div>
+              <div/>
+              <div style={{fontSize:10,color:"#9B8B7A",fontWeight:600,textAlign:"center"}}>Open $/hd</div>
+              <div style={{fontSize:10,color:"#9B8B7A",fontWeight:600,textAlign:"center"}}>Close $/hd</div>
+            </div>
+            <LiveValRow lbl="Preg Cows"   openVal={o.pregCowsVal}    onOpenChange={setO("pregCowsVal")}   closeVal={cv.pregCows}    onCloseChange={setCV("pregCows")}/>
+            <LiveValRow lbl="Open Cows"   openVal={o.openCowsVal}    onOpenChange={setO("openCowsVal")}   closeVal={cv.openCows}    onCloseChange={setCV("openCows")}/>
+            <LiveValRow lbl="H2 Heifers"  openVal={o.h2Val}          onOpenChange={setO("h2Val")}         closeVal={cv.h2}          onCloseChange={setCV("h2")}/>
+            <LiveValRow lbl="H1 Heifers"  openVal={o.h1Val}          onOpenChange={setO("h1Val")}         closeVal={cv.h1}          onCloseChange={setCV("h1")}/>
+            <LiveValRow lbl="Fem Calves"  openVal={o.femCalvesVal}   onOpenChange={setO("femCalvesVal")}  closeVal={cv.femCalves}   onCloseChange={setCV("femCalves")}/>
+            <LiveValRow lbl="Mal Calves"  openVal={o.malCalvesVal}   onOpenChange={setO("malCalvesVal")}  closeVal={cv.malCalves}   onCloseChange={setCV("malCalves")}/>
+            <LiveValRow lbl="Stk Heifers" openVal={o.stockerHfrsVal} onOpenChange={setO("stockerHfrsVal")} closeVal={cv.stockerHfrs} onCloseChange={setCV("stockerHfrs")}/>
+            <LiveValRow lbl="Stk Steers"  openVal={o.stockerStrsVal} onOpenChange={setO("stockerStrsVal")} closeVal={cv.stockerStrs} onCloseChange={setCV("stockerStrs")}/>
+            <LiveValRow lbl="Bulls"       openVal={o.bullsVal}       onOpenChange={setO("bullsVal")}       closeVal={cv.bulls}       onCloseChange={setCV("bulls")}/>
+            <div style={{display:"grid",gridTemplateColumns:"1fr auto 84px 84px",gap:4,padding:"7px 0 0",borderTop:"2px solid #E5DDD0",marginTop:4}}>
+              <div style={{fontSize:12,fontWeight:700,color:T}}>BIV / CIV</div>
+              <div/>
+              <div style={{fontSize:12,fontWeight:700,color:"#1A1208",textAlign:"center"}}>{fmt(cr.biv)}</div>
+              <div style={{fontSize:12,fontWeight:700,color:"#1A1208",textAlign:"center"}}>{fmt(cr.civ)}</div>
+            </div>
           </Section>
-
-          {/* Trading Account */}
           <Section icon="🏦" label="Trading Account">
             <Row label="BIV"             value={fmt(cr.biv)}/>
-            {cr.purchCost>0 && <Row label="Purchases"    value={"("+fmt(cr.purchCost)+")"}/>}
+            {cr.purchCost>0 && <Row label="Purchases" value={"("+fmt(cr.purchCost)+")"}/>}
             <Row label="CIV"             value={fmt(cr.civ)}/>
             <Row label="Livestock Sales" value={fmt(cr.totalSales)} bold/>
             <Row label="Gross Product"   value={fmt(cr.gp)} bold hi/>
           </Section>
-
-          {/* Enterprise P&L */}
-          <Section icon="🧮" label="Enterprise P&L">
-            <Row label="Gross Product"           value={fmt(cr.gp)}/>
-            <Row label="Direct Costs"            value={"("+fmt(cr.totalDC)+")"} indent/>
-            <Row label="Gross Margin"            value={fmt(cr.gm)} bold/>
-            <Row label={"OH ("+ohPctStr+")"}     value={"("+fmt(r.cattleOH)+")"} indent/>
-            <Row label="Enterprise P(L)"         value={fmt(r.cattlePL)} bold hi/>
-            <Row label="GMR"                     value={pfmt(cr.gmr)}/>
-            <Row label="Cattle SAU"              value={cr.sau.toFixed(1)}/>
+          <Section icon="🧮" label="Enterprise Summary">
+            <Row label="Gross Product"      value={fmt(cr.gp)}/>
+            <Row label="Direct Costs"       value={"("+fmt(cr.totalDC)+")"} indent/>
+            <Row label="Gross Margin"       value={fmt(cr.gm)} bold/>
+            <Row label="GMR"                value={pfmt(cr.gmr)}/>
+            <Row label="GM / Acre"          value={acfmt(r.cattleGmAc)}/>
+            <Row label="Return on Breed. Stock" value={pfmt(r.cattleGmBr)}/>
+            <Row label="Cattle SAU"         value={cr.sau.toFixed(1)}/>
           </Section>
         </div>
       </div>
@@ -1021,6 +1258,313 @@ function CattleForm({d, r, set, onNav, profitView, setProfitView}) {
   );
 }
 
+
+// ── SR Herd Performance Panel ─────────────────────────────────────────────────
+function SRHerdPerfPanel({sr, entR, bm, setBm, onApply, femLbl, offLbl}) {
+  const o=sr.open, dt=sr.deaths, s=sr.sales, lR=sr.litterRate||1.5;
+  const br_d=dt.females||0, br_live=o.females-br_d, br_dry=s.dryHead||0;
+  const br_wet=Math.max(0,br_live-br_dry), br_cull=s.femHead||0;
+  const br_exp=Math.max(0,br_wet-br_cull), br_open=o.openFemales||0;
+  const br_preg=Math.max(0,br_exp-br_open);
+  const rep_d=dt.replacements||0, rep_live=Math.max(0,o.replacements-rep_d);
+  const rep_cull=s.repHead||0, rep_kept=Math.max(0,rep_live-rep_cull);
+  const weaned=br_wet;
+  const bm_d=Math.round(o.females*bm.death_f/100), bm_live=o.females-bm_d;
+  const bm_dry=Math.round(bm_live*bm.dry_f/100), bm_wet=Math.max(0,bm_live-bm_dry);
+  const bm_cull=Math.round(bm_wet*bm.cull_f/100), bm_exp=Math.max(0,bm_wet-bm_cull);
+  const bm_opn=Math.round(bm_exp*bm.open_f/100), bm_preg=Math.max(0,bm_exp-bm_opn);
+  const bm_rep_d=Math.round(o.replacements*bm.death_rep/100), bm_rep_live=Math.max(0,o.replacements-bm_rep_d);
+  const pct=(n,d)=>d>0?(n/d*100).toFixed(1):null;
+  const hdr1={background:"#2A4A1A",color:"white",fontWeight:700,fontSize:10,textAlign:"center",padding:"5px 3px"};
+  const hdr2={background:"#3D6B22",color:"white",fontWeight:600,fontSize:9,textAlign:"center",padding:"3px 2px"};
+  const hdrBm={background:"#4A3A10",color:"white",fontWeight:600,fontSize:9,textAlign:"center",padding:"3px 2px"};
+  const tdl=(italic)=>({padding:"4px 8px",borderBottom:"1px solid #F0EBE3",fontSize:11,fontStyle:italic?"italic":"normal",color:italic?"#8B7060":"#3D2B1A"});
+  const tdr=(bold,clr)=>({padding:"3px 5px",borderBottom:"1px solid #F0EBE3",textAlign:"right",fontSize:11,fontWeight:bold?700:400,color:clr||T,fontVariantNumeric:"tabular-nums"});
+  const naCell={padding:"3px 5px",borderBottom:"1px solid #F0EBE3",background:"#EEEAE4",textAlign:"center",color:"#C0B8B0",fontSize:10};
+  const BmInp=({fk})=>(
+    <td style={{padding:"2px 3px",borderBottom:"1px solid #F0EBE3",textAlign:"right"}}>
+      <div style={{display:"flex",alignItems:"center",justifyContent:"flex-end",gap:1}}>
+        <input type="text" inputMode="decimal" defaultValue={bm[fk]}
+          onBlur={e=>{const v=parseFloat(e.target.value);if(!isNaN(v))setBm(fk)(v);}}
+          style={{width:32,border:"1px solid #93C5FD",borderRadius:3,padding:"2px 3px",textAlign:"right",fontSize:10,fontWeight:600,background:"#EBF5FF",color:"#1A3A6B",outline:"none"}}/>
+        <span style={{fontSize:9,color:"#9B8B7A"}}>%</span>
+      </div>
+    </td>
+  );
+  const NaC=()=><td style={naCell}>—</td>;
+  const BmN=({n})=><td style={tdr(false,"#7C5A1A")}>{n!=null?n:"—"}</td>;
+  const Act=({a,bm_v,lo=true})=>{
+    if(a===null||bm_v==null)return <td style={{...tdr(),color:"#C0B8B0"}}>—</td>;
+    const ok=lo?parseFloat(a)<=bm_v:parseFloat(a)>=bm_v;
+    return <td style={tdr(true,ok?"#166534":"#DC2626")}>{a}%</td>;
+  };
+  const AN=({n,bold})=><td style={tdr(bold)}>{n!=null?n:"—"}</td>;
+  const Row=({lbl,italic,br_bi,br_bn,br_a,br_n,rep_bi,rep_bn,rep_a,rep_n,lo=true,bold})=>(
+    <tr>
+      <td style={tdl(italic)}>{lbl}</td>
+      {br_bi?<BmInp fk={br_bi}/>:<NaC/>}<BmN n={br_bn}/><Act a={br_a} bm_v={bm[br_bi]} lo={lo}/><AN n={br_n} bold={bold}/>
+      {rep_bi?<BmInp fk={rep_bi}/>:<NaC/>}<BmN n={rep_bn}/><Act a={rep_a} bm_v={bm[rep_bi]} lo={lo}/><AN n={rep_n} bold={bold}/>
+    </tr>
+  );
+  const NRRow=({lbl,italic,br_n,br_bn,rep_n,rep_bn,bold})=>(
+    <tr style={{background:"#FAFAF5"}}>
+      <td style={tdl(italic)}>{lbl}</td>
+      <NaC/><BmN n={br_bn}/><NaC/><AN n={br_n} bold={bold}/>
+      <NaC/><BmN n={rep_bn}/><NaC/><AN n={rep_n} bold={bold}/>
+    </tr>
+  );
+  return (
+    <div style={{marginTop:14,paddingTop:12,borderTop:"2px solid #E5DDD0"}}>
+      <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:8}}>
+        <div style={{fontSize:13,fontWeight:700,color:T,textTransform:"uppercase",letterSpacing:"0.08em"}}>Herd Performance Summary</div>
+        <button type="button" onClick={onApply}
+          style={{background:"#7C5A1A",color:"white",border:"none",borderRadius:7,padding:"7px 14px",fontSize:12,fontWeight:700,cursor:"pointer"}}>
+          📋 Apply Benchmarks → Stock Flow
+        </button>
+      </div>
+      <div style={{fontSize:11,color:"#8B6437",marginBottom:8,fontStyle:"italic"}}>
+        Edit blue % cells to set benchmarks. Green = meeting · Red = below.
+      </div>
+      <div style={{overflowX:"auto"}}>
+        <table style={{width:"100%",borderCollapse:"collapse",tableLayout:"fixed",minWidth:480}}>
+          <colgroup>
+            <col style={{width:"26%"}}/>
+            <col style={{width:"7%"}}/><col style={{width:"8%"}}/><col style={{width:"8%"}}/><col style={{width:"8%"}}/>
+            <col style={{width:"7%"}}/><col style={{width:"8%"}}/><col style={{width:"8%"}}/><col style={{width:"8%"}}/>
+          </colgroup>
+          <thead>
+            <tr>
+              <th rowSpan={2} style={{...hdr1,textAlign:"left",paddingLeft:8}}>Metric</th>
+              <th colSpan={4} style={{...hdr1,borderBottom:"1px solid #3D6B22"}}>Breeding {femLbl}</th>
+              <th colSpan={4} style={{...hdr1,borderBottom:"1px solid #3D6B22"}}>Replacements</th>
+            </tr>
+            <tr>{["Bench%","Bench#","Act%","Act#","Bench%","Bench#","Act%","Act#"].map((h,i)=><th key={i} style={i%4<2?hdrBm:hdr2}>{h}</th>)}</tr>
+          </thead>
+          <tbody>
+            <NRRow lbl="Head at Start" bold br_n={o.females} br_bn={o.females} rep_n={o.replacements} rep_bn={o.replacements}/>
+            <Row lbl="Death Loss" lo={true}
+              br_bi="death_f"   br_bn={bm_d}      br_a={pct(br_d,o.females)}   br_n={br_d}
+              rep_bi="death_rep" rep_bn={bm_rep_d} rep_a={pct(rep_d,o.replacements)} rep_n={rep_d}/>
+            <NRRow lbl="Number Live" italic bold br_n={br_live} br_bn={bm_live} rep_n={rep_live} rep_bn={bm_rep_live}/>
+            <Row lbl="Dry Rate" lo={true}
+              br_bi="dry_f" br_bn={bm_dry} br_a={pct(br_dry,br_live)} br_n={br_dry}
+              rep_bi={null}   rep_bn={null}  rep_a={null}              rep_n={null}/>
+            <NRRow lbl="Number Wet" italic bold br_n={br_wet} br_bn={bm_wet} rep_n={null} rep_bn={null}/>
+            <Row lbl="Cull Rate" lo={true}
+              br_bi="cull_f" br_bn={bm_cull} br_a={pct(br_cull,br_wet)} br_n={br_cull}
+              rep_bi={null}  rep_bn={null}   rep_a={pct(rep_cull,rep_live)} rep_n={rep_cull}/>
+            <NRRow lbl="Number Exposed" italic bold br_n={br_exp} br_bn={bm_exp} rep_n={rep_kept} rep_bn={bm_rep_live}/>
+            <Row lbl="Open Rate" lo={true}
+              br_bi="open_f" br_bn={bm_opn} br_a={pct(br_open,o.females+br_open)} br_n={br_open}
+              rep_bi={null}  rep_bn={null}  rep_a={null}                           rep_n={null}/>
+            <NRRow lbl="Preg & Kept" italic bold br_n={br_preg} br_bn={bm_preg} rep_n={rep_kept} rep_bn={bm_rep_live}/>
+            <tr style={{background:"#F5F0E8"}}>
+              <td style={{...tdl(),fontWeight:700}}>{offLbl} Weaned</td>
+              <td style={naCell}/><td style={tdr(true,"#7C5A1A")}>{Math.round(o.females*lR)}</td><td style={naCell}/>
+              <td style={tdr(true)}>{weaned}{" "}<span style={{fontSize:9,fontWeight:400,color:o.females>0&&weaned/(o.females*lR)>=0.85?"#166534":"#DC2626"}}>{o.females>0?`(${(weaned/o.females*100).toFixed(0)}% of ewes/does)`:""}</span></td>
+              <td colSpan={4} style={{...tdr(),color:"#8B7060",fontSize:10,textAlign:"left",paddingLeft:8}}>Litter rate: {lR} · Bench target: {Math.round(o.females*lR)} {offLbl.toLowerCase()}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+}
+
+// ── Small Ruminant Stock Flow Form ────────────────────────────────────────────
+function SRStockForm({d, r, set, ent, nm, femLbl, maleLbl, offLbl, entR, AnimalIcon, onNav, profitView, setProfitView}) {
+  const sr=d[ent];
+  const o=sr.open, b=sr.births, p=sr.purch, dt=sr.deaths, xo=sr.xferOut, xi=sr.xferIn, s=sr.sales, cv=sr.closeVal, dc=sr.dc, bm=sr.benchmarks, lR=sr.litterRate||1.5;
+  const setO=(f)=>(v)=>set(ent,f,v,"open");
+  const setB=(f)=>(v)=>set(ent,f,v,"births");
+  const setP=(f)=>(v)=>set(ent,f,v,"purch");
+  const setDt=(f)=>(v)=>set(ent,f,v,"deaths");
+  const setXO=(f)=>(v)=>set(ent,f,v,"xferOut");
+  const setXI=(f)=>(v)=>set(ent,f,v,"xferIn");
+  const setSl=(f)=>(v)=>set(ent,f,v,"sales");
+  const setCV=(f)=>(v)=>set(ent,f,v,"closeVal");
+  const setDc=(f)=>(v)=>set(ent,f,v,"dc");
+  const setBm=(f)=>(v)=>set(ent,f,v,"benchmarks");
+  const applyBenchmarks=()=>{
+    const br_d=Math.round(o.females*bm.death_f/100), live=o.females-br_d;
+    const dry=Math.round(live*bm.dry_f/100), wet=Math.max(0,live-dry);
+    const cull=Math.round(wet*bm.cull_f/100), exp=Math.max(0,wet-cull);
+    const opn=Math.round(exp*bm.open_f/100);
+    const rep_d=Math.round(o.replacements*bm.death_rep/100);
+    setDt("females")(br_d); setDt("replacements")(rep_d);
+    setSl("dryHead")(dry); setSl("femHead")(cull); setSl("femHeadO")(opn);
+  };
+  const gmPerAcre = ent==="sheep" ? r.sheepGmAc : r.goatGmAc;
+  const gmPerBreedVal = ent==="sheep" ? r.sheepGmBr : r.goatGmBr;
+  const kpis=[
+    {label:"Gross Product",      value:fmt(entR.gp),         icon:"$",  neg:false},
+    {label:"Gross Margin",       value:fmt(entR.gm),         icon:"📊", neg:entR.gm<0},
+    {label:"GMR",                value:pfmt(entR.gmr),       icon:"%",  neg:false},
+    {label:"GM / Acre",          value:acfmt(gmPerAcre),     icon:"🌾", neg:gmPerAcre<0},
+    {label:"Return on Breed. Stock", value:pfmt(gmPerBreedVal),  icon:"💰", neg:gmPerBreedVal<0},
+    {label:nm+" SAU",            value:entR.sau.toFixed(1),  icon:"🐑", neg:false},
+  ];
+  const isGoat=ent==="goats";
+  const CLASSES=[
+    {key:"females",     lbl:femLbl,                              cK:"femHead",    oK:null,       dK:"dryHead",  bK:null},
+    {key:"openFemales", lbl:"Open "+femLbl,                      cK:null,         oK:"femHeadO", dK:null,       bK:null},
+    {key:"replacements",lbl:isGoat?"Retained Doe Kids":"Retained Ewe Lambs", cK:"repHead", oK:null, dK:null, bK:null},
+    {key:"femOff",      lbl:isGoat?"Doe Kids":"Ewe Lambs",       cK:"femOffHead", oK:null,       dK:null,       bK:"femOff"},
+    {key:"malOff",      lbl:isGoat?"Buck Kids":"Ram Lambs",      cK:"malOffHead", oK:null,       dK:null,       bK:"malOff"},
+    {key:"sires",       lbl:maleLbl,                             cK:"sireHead",   oK:null,       dK:null,       bK:null},
+  ];
+  const hdr1={background:"#2A4A1A",color:"white",fontWeight:700,fontSize:10,textAlign:"center",padding:"6px 4px",letterSpacing:"0.04em"};
+  const hdrSale={background:"#3A7D2A",color:"white",fontWeight:700,fontSize:10,textAlign:"center",padding:"6px 4px"};
+  const hdrXfer={background:"#B05C1A",color:"white",fontWeight:700,fontSize:10,textAlign:"center",padding:"6px 4px"};
+  const hdrClose={background:"#1A3A4A",color:"white",fontWeight:700,fontSize:10,textAlign:"center",padding:"6px 4px"};
+  return (
+    <div>
+      <ProfitViewToggle profitView={profitView} setProfitView={setProfitView}/>
+      <EntHdr nm={nm} subtitle={nm+" Enterprise · Stock Flow & Financial Summary"} AnimalIcon={AnimalIcon} kpis={kpis} onNav={onNav}/>
+      <div style={{background:"white",borderRadius:10,padding:"14px 16px",boxShadow:"0 1px 4px rgba(0,0,0,0.06)",marginBottom:14}}>
+        <div style={{fontSize:13,fontWeight:700,color:T,textAlign:"center",letterSpacing:"0.08em",textTransform:"uppercase",marginBottom:10,paddingBottom:8,borderBottom:"2px solid #E5DDD0"}}>
+          Stock Flow Plan
+        </div>
+        <div style={{overflowX:"auto"}}>
+          <table style={{width:"100%",borderCollapse:"collapse",tableLayout:"fixed",minWidth:720}}>
+            <colgroup>
+              <col style={{width:"15%"}}/><col style={{width:"8%"}}/><col style={{width:"7%"}}/><col style={{width:"7%"}}/><col style={{width:"7%"}}/>
+              <col style={{width:"7%"}}/><col style={{width:"7%"}}/><col style={{width:"7%"}}/>
+              <col style={{width:"7%"}}/><col style={{width:"7%"}}/><col style={{width:"9%"}}/>
+            </colgroup>
+            <thead>
+              <tr>
+                <th rowSpan={2} style={{...hdr1,textAlign:"left",paddingLeft:8}}>Class of Stock</th>
+                <th rowSpan={2} style={hdr1}>FY Open</th>
+                <th rowSpan={2} style={hdr1}>Deaths</th>
+                <th rowSpan={2} style={hdr1}>Births</th>
+                <th rowSpan={2} style={hdr1}>Purch</th>
+                <th colSpan={3} style={{...hdrSale,borderBottom:"1px solid #5A9E40"}}>Sales</th>
+                <th colSpan={2} style={{...hdrXfer,borderBottom:"1px solid #C87430"}}>Class Transfers</th>
+                <th rowSpan={2} style={hdrClose}>FY Close</th>
+              </tr>
+              <tr>
+                <th style={hdrSale}>C</th><th style={hdrSale}>O</th><th style={hdrSale}>D</th>
+                <th style={hdrXfer}>Out</th><th style={hdrXfer}>In</th>
+              </tr>
+            </thead>
+            <tbody>
+              {CLASSES.map(({key,lbl,cK,oK,dK,bK},ri)=>{
+                const rowBg=ri%2===0?"white":"#FAFAF8";
+                const bd="1px solid #E5DDD0";
+                const close=(entR.close&&entR.close[key])||0;
+                const td=(extra)=>({padding:"3px 4px",borderBottom:bd,background:rowBg,verticalAlign:"middle",...(extra||{})});
+                const naS={padding:"3px 4px",borderBottom:bd,background:"#EEEAE4",textAlign:"center",color:"#C0B8B0",fontSize:11,verticalAlign:"middle"};
+                return (
+                  <tr key={key}>
+                    <td style={td({paddingLeft:8,fontSize:12,fontWeight:600,color:T})}>{lbl}</td>
+                    <td style={td()}><TblInp val={o[key]||0} onChange={setO(key)}/></td>
+                    <td style={td()}><TblInp val={dt[key]||0} onChange={setDt(key)}/></td>
+                    {bK?<td style={td()}><TblInp val={b[bK]||0} onChange={setB(bK)}/></td>:<td style={naS}>—</td>}
+                    <td style={td()}><TblInp val={p[key]||0} onChange={setP(key)}/></td>
+                    {cK?<td style={{...td(),background:"#F2FAF0"}}><TblInp val={s[cK]||0} onChange={setSl(cK)}/></td>:<td style={naS}>—</td>}
+                    {oK?<td style={{...td(),background:"#F2FAF0"}}><TblInp val={s[oK]||0} onChange={setSl(oK)}/></td>:<td style={naS}>—</td>}
+                    {dK?<td style={{...td(),background:"#F2FAF0"}}><TblInp val={s[dK]||0} onChange={setSl(dK)}/></td>:<td style={naS}>—</td>}
+                    <td style={{...td(),background:"#FFF8F0"}}><TblInp val={xo[key]||0} onChange={setXO(key)}/></td>
+                    <td style={{...td(),background:"#F0FDF4"}}><TblInp val={xi[key]||0} onChange={setXI(key)}/></td>
+                    <td style={{padding:"3px 6px",borderBottom:bd,textAlign:"right",fontWeight:700,fontSize:13,fontVariantNumeric:"tabular-nums",color:close<0?"#DC2626":T,background:close<0?"#FEF2F2":"#F0EBE3"}}>{close}</td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+          <div style={{fontSize:11,color:"#8B6437",fontStyle:"italic",marginTop:6}}>
+            {"Biology: ~"+Math.round(o.females*lR/2)+" "+(isGoat?"doe kids":"ewe lambs")+" + ~"+Math.round(o.females*lR/2)+" "+(isGoat?"buck kids":"ram lambs")+" from "+o.females+" "+femLbl.toLowerCase()+" at "+lR+" litter rate"}
+          </div>
+          <SRHerdPerfPanel sr={sr} entR={entR} bm={bm} setBm={setBm} onApply={applyBenchmarks} femLbl={femLbl} offLbl={offLbl}/>
+        </div>
+      </div>
+      <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:14}}>
+        <div>
+          <Section icon="💲" label="Sale Prices">
+            {[
+              {lbl:`Cull ${femLbl} (C)`,                         pK:"femPrice"},
+              {lbl:`Open ${femLbl} (O)`,                         pK:"femPriceO"},
+              {lbl:`Dry ${femLbl} (D)`,                          pK:"dryPrice"},
+              {lbl:(isGoat?"Retained Doe Kids":"Retained Ewe Lambs")+" (cull)", pK:"repPrice"},
+              {lbl:isGoat?"Doe Kids (C)":"Ewe Lambs (C)",        pK:"femOffPrice"},
+              {lbl:isGoat?"Buck Kids (C)":"Ram Lambs (C)",       pK:"malOffPrice"},
+              {lbl:maleLbl+" (C)",                                pK:"sirePrice"},
+            ].map(({lbl,pK})=>(
+              <div key={pK} style={{display:"flex",alignItems:"center",justifyContent:"space-between",gap:8,padding:"5px 0",borderBottom:"1px solid #F0EBE3",flexWrap:"wrap"}}>
+                <div style={{fontSize:12,color:"#5A4A38",flexShrink:0}}>{lbl}</div>
+                <PriceRowInput val={s[pK]||0} onChange={setSl(pK)}/>
+              </div>
+            ))}
+          </Section>
+          <Section icon="💸" label="Direct Costs">
+            <Field label="Opportunity rate"      val={dc.oppPct||10}  set={setDc("oppPct")} suf="%"/>
+            <Field label="Hay"                   val={dc.hay||0}       set={setDc("hay")}    pre="$"/>
+            <Field label="Protein supplement"    val={dc.protein||0}   set={setDc("protein")} pre="$"/>
+            <Field label="Mineral"               val={dc.mineral||0}   set={setDc("mineral")} pre="$"/>
+            <Field label="Vet and medicine"      val={dc.vet||0}       set={setDc("vet")}    pre="$"/>
+            <Field label="Freight and marketing" val={dc.freight||0}   set={setDc("freight")} pre="$"/>
+            {(() => {
+              const totalSRSAU = (r.sheep ? r.sheep.sau : 0) + (r.goats ? r.goats.sau : 0);
+              const pct = totalSRSAU > 0 ? Math.round(entR.sau / totalSRSAU * 100) : 50;
+              return (
+                <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",padding:"6px 0",borderBottom:"1px solid #F0EBE3",gap:8,flexWrap:"wrap"}}>
+                  <div style={{display:"flex",alignItems:"center",gap:7,flexShrink:0}}>
+                    <span style={{fontSize:12,color:"#5A4A38"}}>Dog food (LGD)</span>
+                    <span style={{fontSize:11,color:"#B0A090",fontStyle:"italic"}}>~{pct}% of total · SAU-based</span>
+                  </div>
+                  <Inp val={dc.dogFood||0} onChange={setDc("dogFood")} pre="$"/>
+                </div>
+              );
+            })()}
+          </Section>
+        </div>
+        <div>
+          <Section icon="💰" label="Livestock Values">
+            <div style={{display:"grid",gridTemplateColumns:"1fr auto 84px 84px",gap:4,padding:"4px 0 2px",borderBottom:"1px solid #E8DFD0",marginBottom:2}}>
+              <div style={{fontSize:10,color:"#9B8B7A",fontWeight:600}}>Class</div><div/>
+              <div style={{fontSize:10,color:"#9B8B7A",fontWeight:600,textAlign:"center"}}>Open $/hd</div>
+              <div style={{fontSize:10,color:"#9B8B7A",fontWeight:600,textAlign:"center"}}>Close $/hd</div>
+            </div>
+            {[
+              {lbl:femLbl,         oK:"femalesVal",     cK:"females"},
+              {lbl:"Open "+femLbl, oK:"openFemalesVal", cK:"openFemales"},
+              {lbl:isGoat?"Retained Doe Kids":"Retained Ewe Lambs", oK:"replacementsVal",cK:"replacements"},
+              {lbl:isGoat?"Doe Kids":"Ewe Lambs",   oK:"femOffVal", cK:"femOff"},
+              {lbl:isGoat?"Buck Kids":"Ram Lambs",  oK:"malOffVal", cK:"malOff"},
+              {lbl:maleLbl,        oK:"siresVal",       cK:"sires"},
+            ].map(({lbl,oK,cK})=>(
+              <LiveValRow key={oK} lbl={lbl}
+                openVal={o[oK]||0}  onOpenChange={setO(oK)}
+                closeVal={cv[cK]||0} onCloseChange={setCV(cK)}/>
+            ))}
+            <div style={{display:"grid",gridTemplateColumns:"1fr auto 84px 84px",gap:4,padding:"7px 0 0",borderTop:"2px solid #E5DDD0",marginTop:4}}>
+              <div style={{fontSize:12,fontWeight:700,color:T}}>BIV / CIV</div><div/>
+              <div style={{fontSize:12,fontWeight:700,color:"#1A1208",textAlign:"center"}}>{fmt(entR.biv)}</div>
+              <div style={{fontSize:12,fontWeight:700,color:"#1A1208",textAlign:"center"}}>{fmt(entR.civ)}</div>
+            </div>
+          </Section>
+          <Section icon="🏦" label="Trading Account">
+            <Row label="BIV"             value={fmt(entR.biv)}/>
+            {(entR.purchCost||0)>0 && <Row label="Purchases" value={"("+fmt(entR.purchCost)+")"}/>}
+            <Row label="CIV"             value={fmt(entR.civ)}/>
+            <Row label="Livestock Sales" value={fmt(entR.totalSales)} bold/>
+            <Row label="Gross Product"   value={fmt(entR.gp)} bold hi/>
+          </Section>
+          <Section icon="🧮" label="Enterprise Summary">
+            <Row label="Gross Product"      value={fmt(entR.gp)}/>
+            <Row label="Direct Costs"       value={"("+fmt(entR.totalDC)+")"} indent/>
+            <Row label="Gross Margin"       value={fmt(entR.gm)} bold/>
+            <Row label="GMR"                value={pfmt(entR.gmr)}/>
+            <Row label="GM / Acre"          value={acfmt(gmPerAcre)}/>
+            <Row label="Return on Breed. Stock" value={pfmt(gmPerBreedVal)}/>
+            <Row label={nm+" SAU"}          value={entR.sau.toFixed(1)}/>
+          </Section>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 // ── Small Ruminant Form ───────────────────────────────────────────────────────
 function SRForm({d, r, set, ent, nm, femLbl, maleLbl, offLbl, entR, entOH, entShare, entPL, AnimalIcon, onNav, profitView, setProfitView}) {
@@ -1050,7 +1594,6 @@ function SRForm({d, r, set, ent, nm, femLbl, maleLbl, offLbl, entR, entOH, entSh
       <EntHdr nm={nm} subtitle={"Enterprise Performance & Financial Summary"} AnimalIcon={AnimalIcon} kpis={kpis} onNav={onNav}/>
       <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:16}}>
         <div>
-          <ColBanner inputs={true}/>
           <Section icon="🐑" label={nm + " Herd"}>
             <Field label={"Breeding " + femLbl} val={sr.herd.females}    set={setH("females")}/>
             <Field label={maleLbl}              val={sr.herd.males}      set={setH("males")}/>
@@ -1127,11 +1670,13 @@ function OHForm({d, r, set}) {
   return (
     <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:16}}>
       <div>
-        <ColBanner inputs={true}/>
         <Section icon="🌾" label="Land">
-          <Field label="Acres owned"                  val={d.prop.acresOwned}  set={setP("acresOwned")} suf="ac"/>
-          <Field label="Acres grazed (owned + leased)" val={d.prop.acresGrazed} set={setP("acresGrazed")} suf="ac"/>
-          <Field label="Opportunity rent"             val={d.oh.oppRent}       set={o("oppRent")} pre="$"/>
+          <Field label="Acres owned"                  val={d.prop.acresOwned}   set={setP("acresOwned")} suf="ac"/>
+          <Field label="Leased acres"                  val={d.prop.leasedAcres}  set={setP("leasedAcres")} suf="ac"/>
+          <Field label="Total acres grazed"             val={d.prop.acresGrazed}    set={setP("acresGrazed")} suf="ac"/>
+          <Field label="Total acres grazed by goats/sheep" val={d.prop.srAcresGrazed||0} set={setP("srAcresGrazed")} suf="ac"/>
+          <Field label="Lease rent"                    val={d.oh.leaseRent||0}     set={o("leaseRent")} pre="$"/>
+          <Field label="Opportunity rent"              val={d.oh.oppRent}        set={o("oppRent")} pre="$"/>
           <Field label="Utilities"                    val={d.oh.util}          set={o("util")} pre="$"/>
           <Field label="Annual upkeep"                val={d.oh.upkeep}        set={o("upkeep")} pre="$"/>
           <Field label="Improvement budget"           val={d.oh.impr}          set={o("impr")} pre="$"/>
@@ -1240,7 +1785,6 @@ function BSForm({d, r, set, copyOpenToClose}) {
       </div>
       <div style={{display:"grid",gridTemplateColumns:"1fr auto",gap:24}}>
         <div>
-          <ColBanner inputs={true}/>
           <DualHdr/>
           <DualGrp label="Current Assets"/>
           <DualField label="Cash and bank" field="cash" open={o} close={c} so={so} sc={sc}/>
@@ -1260,7 +1804,6 @@ function BSForm({d, r, set, copyOpenToClose}) {
           <DualField label="Current liabilities" field="currentLiab" open={o} close={c} so={so} sc={sc}/>
           <DualField label="Intermediate liabilities" field="intermediateLiab" open={o} close={c} so={so} sc={sc}/>
           <DualField label="Long-term liabilities" field="longTermLiab" open={o} close={c} so={so} sc={sc}/>
-          <ColBanner inputs={false}/>
           <div style={{marginTop:8}}>
             <DualHdr/>
             <DualRow label="Current Assets" open={r.bso.ca} close={r.bsc.ca}/>
@@ -1306,28 +1849,29 @@ function ResultsForm({d, r}) {
         <BC label="ROA"                  display={r.roa != null ? pfmt(r.roa) : "— (enter land value)"} color={roaC}/>
         <BC label="Asset Turnover"       display={r.atr != null ? pfmt(r.atr) : "—"} color={atrC}/>
       </div>
-      <Section icon="📋" label="Enterprise P&L — SAU-Allocated Overhead">
-        <div style={{display:"grid",gridTemplateColumns:"1.4fr 1fr 1fr 1fr 1fr",gap:8,padding:"8px 0 4px"}}>
-          {["Enterprise","GP","GM","OH Share","Ent P(L)"].map(h => (
+      <Section icon="📋" label="Enterprise Comparison">
+        <div style={{display:"grid",gridTemplateColumns:"1.2fr 1fr 1fr 1fr 1fr 1fr",gap:6,padding:"8px 0 4px"}}>
+          {["Enterprise","Gross Product","Gross Margin","GMR","GM / Acre","Return on Breed. Stock"].map(h => (
             <div key={h} style={{fontSize:10,fontWeight:600,color:"#9B8B7A",textTransform:"uppercase"}}>{h}</div>
           ))}
         </div>
         {[
-          {name:"Cattle", gp:r.gp,       gm:r.gm,       oh:r.cattleOH, pl:r.cattlePL},
-          {name:"Sheep",  gp:r.sheep.gp, gm:r.sheep.gm, oh:r.sheepOH,  pl:r.sheepPL},
-          {name:"Goats",  gp:r.goats.gp, gm:r.goats.gm, oh:r.goatOH,   pl:r.goatPL},
-          {name:"Leases", gp:r.leases.gp,gm:r.leases.gm,oh:0,           pl:r.leases.gm},
+          {name:"Cattle", gp:r.gp,        gm:r.gm,        gmr:r.gp?r.gm/r.gp:0,  gmAc:r.cattleGmAc, gmBr:r.cattleGmBr},
+          {name:"Sheep",  gp:r.sheep.gp,  gm:r.sheep.gm,  gmr:r.sheep.gmr,         gmAc:r.sheepGmAc,  gmBr:r.sheepGmBr},
+          {name:"Goats",  gp:r.goats.gp,  gm:r.goats.gm,  gmr:r.goats.gmr,         gmAc:r.goatGmAc,   gmBr:r.goatGmBr},
+          {name:"Leases", gp:r.leases.gp, gm:r.leases.gm, gmr:r.leases.gmr,        gmAc:null,          gmBr:null},
         ].map(e => (
-          <div key={e.name} style={{display:"grid",gridTemplateColumns:"1.4fr 1fr 1fr 1fr 1fr",gap:8,padding:"7px 0",borderBottom:"1px solid #F0EBE3"}}>
+          <div key={e.name} style={{display:"grid",gridTemplateColumns:"1.2fr 1fr 1fr 1fr 1fr 1fr",gap:6,padding:"7px 0",borderBottom:"1px solid #F0EBE3",alignItems:"center"}}>
             <span style={{fontSize:13,color:"#5A4A38"}}>{e.name}</span>
             <span style={{fontSize:13,fontVariantNumeric:"tabular-nums",color:"#1A1208"}}>{fmt(e.gp)}</span>
-            <span style={{fontSize:13,fontVariantNumeric:"tabular-nums",color:"#1A1208"}}>{fmt(e.gm)}</span>
-            <span style={{fontSize:13,fontVariantNumeric:"tabular-nums",color:"#1A1208"}}>{fmt(e.oh)}</span>
-            <span style={{fontSize:13,fontVariantNumeric:"tabular-nums",fontWeight:600,color:e.pl>=0?"#15803d":"#b91c1c"}}>{fmt(e.pl)}</span>
+            <span style={{fontSize:13,fontVariantNumeric:"tabular-nums",fontWeight:600,color:e.gm>=0?"#15803d":"#b91c1c"}}>{fmt(e.gm)}</span>
+            <span style={{fontSize:13,fontVariantNumeric:"tabular-nums",color:"#1A1208"}}>{pfmt(e.gmr)}</span>
+            <span style={{fontSize:13,fontVariantNumeric:"tabular-nums",color:"#1A1208"}}>{e.gmAc!=null?acfmt(e.gmAc):"—"}</span>
+            <span style={{fontSize:13,fontVariantNumeric:"tabular-nums",color:"#1A1208"}}>{e.gmBr!=null?pfmt(e.gmBr):"—"}</span>
           </div>
         ))}
-        <div style={{display:"grid",gridTemplateColumns:"1.4fr 1fr 1fr 1fr 1fr",gap:8,padding:"8px 0",borderTop:"2px solid #E8DFD0"}}>
-          {["Total",fmt(r.allGP),fmt(r.allGM),fmt(r.totalOH),fmt(r.opPL)].map((v,i) => (
+        <div style={{display:"grid",gridTemplateColumns:"1.2fr 1fr 1fr 1fr 1fr 1fr",gap:6,padding:"8px 0",borderTop:"2px solid #E8DFD0"}}>
+          {["Total",fmt(r.allGP),fmt(r.allGM),pfmt(r.allGM?r.allGM/r.allGP:0),"",""].map((v,i) => (
             <span key={i} style={{fontSize:13,fontWeight:600,fontVariantNumeric:"tabular-nums",color:"#1A1208"}}>{v}</span>
           ))}
         </div>
@@ -1657,35 +2201,59 @@ function ScenarioManager({currentData, onLoad, onClose, token, setToken}) {
 }
 
 function GuideContent() {
-  const S = (title, body) => (
-    <div style={{marginBottom:22}}>
-      <div style={{fontSize:13,fontWeight:600,color:T,marginBottom:6,paddingBottom:5,borderBottom:"2px solid #DEC99A"}}>{title}</div>
-      <div style={{fontSize:13,color:"var(--color-text-secondary)",lineHeight:1.75}}>{body}</div>
+  const S = (icon, title, body) => (
+    <div style={{marginBottom:24}}>
+      <div style={{fontSize:13,fontWeight:700,color:T,marginBottom:6,paddingBottom:5,borderBottom:"2px solid #DEC99A",display:"flex",gap:7,alignItems:"center"}}>
+        <span>{icon}</span><span>{title}</span>
+      </div>
+      <div style={{fontSize:13,color:"var(--color-text-secondary)",lineHeight:1.8}}>{body}</div>
     </div>
   );
+  const B = (t) => <strong style={{color:T}}>{t}</strong>;
   const tips = [
-    "The small ? icons next to any term show its definition on hover while you work.",
-    "The header bar always shows GMR (Gross Margin Ratio) and Business P(L) — the two most useful at-a-glance numbers.",
-    "Values update live as you type — there is no save button.",
-    "Livestock BIV and CIV flow automatically into the Balance Sheet — no double entry needed.",
-    "GMR and Overhead Ratio are the two most important benchmarks to watch. Target GMR >= 70%, OR <= 40%.",
-    "SAU allocation means each enterprise carries its fair share of shared overhead. Changing herd size shifts the allocation automatically.",
-    "When you click into an input field showing a comma-formatted number, it temporarily shows the raw number for easy editing. The comma returns when you click away.",
+    "FY Close turns red when a class has a negative closing count — it means the stock flow math doesn't balance. Check Deaths, Sales, and Transfers for that row.",
+    "The 'Apply Benchmarks → Stock Flow' button is most useful for building a plan scenario — set your target % rates, click Apply, and see what GP and GM result.",
+    "The Economic / Accounting toggle matters most for the land-heavy side of overhead. In Economic view, opportunity rent shows the true cost of owning the land; Accounting view shows cash-only costs.",
+    "In $/lb pricing mode, the computed $/head updates live as you type weight and rate. The stored value is always $/head regardless of which mode you used.",
+    "The Herd Performance benchmark % cells are editable — type in targets appropriate for your breed, climate, and operation. They default to common RFP benchmarks.",
+    "SAU allocation recalculates live — adding or removing livestock shifts each enterprise's share of overhead automatically.",
+    "Scenarios save the entire plan (all tabs, all fields) to your Google Drive. Tag as Actual, Plan, or Theoretical, then Compare any two to see a side-by-side summary of 12 key metrics.",
+    "Values update live as you type — there is no Save button inside the planner. Only Scenarios need to be explicitly saved.",
   ];
   return (
     <div>
-      {S("Overview", "The Ranch Profit Planner follows the Ranching for Profit (RFP) model. It tracks three enterprises — Cattle, Sheep, and Goats — each with its own trading account and direct costs, all sharing a common overhead pool. The cascade flows: Gross Product → Gross Margin → Enterprise P(L) → Business P(L).")}
-      {S("Home Screen", "Shows all three enterprises at a glance with key metrics per enterprise and combined totals. Tap any enterprise card to enter or edit data for that enterprise. The flow diagram shows the full RFP cascade with live values for all three enterprises at each step.")}
-      {S("Cattle / Sheep / Goats", "Each enterprise section contains herd stats, livestock values, actual sale quantities, and direct costs. The right column shows computed results immediately. Biological suggestions (from herd stats) are shown as hints beneath sale quantity fields — these are guides only, not locked values.")}
-      {S("Overheads", "Enter shared costs once: land (opportunity rent, utilities, upkeep), labor (unpaid and hired), and machinery (depreciation, fuel, repairs). These are automatically split between all three enterprises in proportion to their SAU count. The Overheads tab shows the exact dollar allocation per enterprise.")}
-      {S("Balance Sheet", "Enter opening and closing values for assets and liabilities. All livestock values flow in automatically from each enterprise's trading account — no double entry. Use 'Copy Opening to Closing' to pre-fill the closing side, then adjust for anything that changed during the year (equipment sold, debt paid down, etc.). ROA and ATR benchmarks in Results require land and equipment values here.")}
-      {S("Results & Benchmarks", "Shows all RFP benchmarks: GMR, Overhead Ratio, GP/FTE, Working Capital Days, ROA, and ATR. Also shows the enterprise P(L) comparison table (how each enterprise performed after overhead allocation) and the combined business P(L). Green = on target, amber = close, red = needs attention.")}
-      {S("Tips for Getting the Most Out of It",
-        <div>{tips.map((t,i) => <div key={i} style={{marginBottom:7,display:"flex",gap:8}}><span style={{color:T,flexShrink:0}}>•</span><span>{t}</span></div>)}</div>
+      {S("📖", "Overview",
+        <span>The Ranch Profit Planner follows the <B>Ranching for Profit (RFP)</B> framework. It tracks up to three livestock enterprises — Cattle, Sheep, and Goats — each with its own stock flow plan and trading account, plus a Leases & Hunting enterprise for non-livestock income. All enterprises share a single overhead pool. The financial cascade flows: <B>Stock Flow → Trading Account → Gross Product → Gross Margin → Business P(L)</B>. Enterprises are compared on Gross Margin, GMR, GM per Acre, and Return on Breeding Stock — without overhead allocation.</span>
+      )}
+      {S("🐄", "Stock Flow Plan",
+        <span>The heart of each enterprise tab is the <B>Stock Flow Plan</B> — a table with one row per class of stock. Columns run left to right in formula order: <B>FY Open → Deaths → Births → Purchases → Sales (C / O / D) → Class Transfers (Out / In) → FY Close</B>. FY Close calculates automatically. A red FY Close means the math doesn't balance — check the entries for that row.<br/><br/>The <B>C / O / D sales columns</B> stand for Culls, Opens, and Drys. Calves, lambs, and kids use the C column since they can't be dry. The <B>Out and In transfer columns</B> track movement between classes (e.g., female calves retained as replacement heifers).<br/><br/>Below the table, the <B>Herd Performance Summary</B> compares actual performance percentages against your benchmark targets — editable in the blue % cells. Click <B>"Apply Benchmarks → Stock Flow"</B> to auto-fill Deaths and Sales with benchmark-derived counts based on your opening inventory.</span>
+      )}
+      {S("💲", "Pricing Modes",
+        <span>Every sale price and livestock value row has a small toggle button — <B>$/hd</B> (per head) or <B>$/lb</B> (per pound). In $/lb mode, enter the average live weight and price per pound; the app computes $/head for you. Each row toggles independently — cattle might price by the pound while bulls price per head. The stored value is always $/head regardless of which mode you used.</span>
+      )}
+      {S("📊", "Profit View Toggle",
+        <span>The <B>Economic / Accounting</B> toggle at the top of each enterprise tab controls what counts as a cost:<br/>• <B>Economic</B> — includes opportunity cost on inventory (~10% of BIV) and opportunity rent on land. Shows the true economic cost of running the enterprise.<br/>• <B>Accounting</B> — cash costs only. What actually left the bank account.</span>
+      )}
+      {S("🏛", "Overheads",
+        <span>Enter shared costs once in the <B>Overheads</B> tab: Land (opportunity rent, lease rent, utilities, upkeep, improvement budget), Labor (unpaid/imputed and hired), Machinery (depreciation, fuel, repairs, insurance, supplies), and Other. These are automatically split between all enterprises in proportion to their <B>SAU count</B>. Opportunity rent is economic-only; lease rent and all other costs appear in both views.</span>
+      )}
+      {S("💰", "Balance Sheet",
+        <span>Enter opening and closing values for assets and liabilities. <B>Livestock values flow in automatically</B> from each enterprise's trading account — no double entry needed. Use <B>"Copy Opening to Closing"</B> to pre-fill the closing side, then adjust for anything that changed (equipment sold, debt paid down, etc.). Land and equipment values here power the ROA and ATR benchmarks in Results.</span>
+      )}
+      {S("📈", "Results & Benchmarks",
+        <span>Shows all key RFP benchmarks: <B>GMR</B> (target &ge; 70%), <B>Overhead Ratio</B> (target &le; 40%), <B>GP/FTE</B> (target &gt; $400K), <B>Working Capital Days</B> (target &gt; 150), <B>ROA</B> (target &ge; 10%), and <B>ATR</B> (target &ge; 25%). Also shows the enterprise P(L) comparison table and the combined Business P(L). Green = on target · Amber = close · Red = needs attention.</span>
+      )}
+      {S("💾", "Scenarios",
+        <span>Click <B>"💾 Scenarios"</B> in the top bar to save and load full planning scenarios to Google Drive (requires sign-in). Tag each scenario as <B>Actual</B>, <B>Plan</B>, or <B>Theoretical</B>. Select exactly two scenarios and click <B>Compare</B> to see a side-by-side summary of 12 key metrics.</span>
+      )}
+      {S("💡", "Tips",
+        <div>{tips.map((t,i) => <div key={i} style={{marginBottom:8,display:"flex",gap:8}}><span style={{color:T,flexShrink:0}}>•</span><span>{t}</span></div>)}</div>
       )}
     </div>
   );
 }
+
+
 
 const LIVESTOCK_TERMS = new Set(["SAU","Cattle SAU","Wet cows (weaned a calf)","Preg cows at close","Open","Dry","Culls","Bred and kept at close"]);
 const PINNED_TERMS = ["Gross Product","Gross Margin","Gross Margin Ratio","Cash Contribution"];
@@ -1777,7 +2345,6 @@ function LeasesForm({d, r, set, profitView, setProfitView, onNav}) {
       <EntHdr nm="Leases & Hunting" subtitle="Enterprise Performance & Financial Summary" AnimalIcon={DeerIcon} kpis={kpis} onNav={onNav} largeIcon={true}/>
       <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:16}}>
       <div>
-        <ColBanner inputs={true}/>
         <Section icon="🏕️" label="Lease Income">
           <Field label="Hunting lease"             val={l.income.hunting} set={sI("hunting")} pre="$"/>
           <Field label="Grazing lease (third party)" val={l.income.grazing} set={sI("grazing")} pre="$"/>
@@ -1794,7 +2361,6 @@ function LeasesForm({d, r, set, profitView, setProfitView, onNav}) {
         </div>
       </div>
       <div>
-        <ColBanner inputs={false}/>
         <Section icon="🧮" label="Enterprise Summary">
           <Row label="Hunting income"          value={fmt(l.income.hunting)} indent/>
           <Row label="Grazing income"          value={fmt(l.income.grazing)} indent/>
@@ -1848,8 +2414,8 @@ export default function App() {
   const renderMain = () => {
     if (view === "home")    return <HomeScreen r={r} d={data} onNav={setView} profitView={profitView} setProfitView={setProfitView}/>;
     if (view === "cattle")  return <div style={WS}><CattleForm d={data} r={r} set={set} onNav={setView} profitView={profitView} setProfitView={setProfitView}/></div>;
-    if (view === "sheep")   return <div style={WS}><SRForm d={data} r={r} set={set} ent="sheep" nm="Sheep" femLbl="Ewes" maleLbl="Rams" offLbl="Lambs" entR={r.sheep} entOH={r.sheepOH} entShare={r.sheepShare} entPL={r.sheepPL} AnimalIcon={SheepIcon} onNav={setView} profitView={profitView} setProfitView={setProfitView}/></div>;
-    if (view === "goats")   return <div style={WS}><SRForm d={data} r={r} set={set} ent="goats" nm="Goats" femLbl="Does" maleLbl="Bucks" offLbl="Kids" entR={r.goats} entOH={r.goatOH} entShare={r.goatShare} entPL={r.goatPL} AnimalIcon={GoatIcon} onNav={setView} profitView={profitView} setProfitView={setProfitView}/></div>;
+    if (view === "sheep")   return <div style={WS}><SRStockForm d={data} r={r} set={set} ent="sheep" nm="Sheep" femLbl="Ewes" maleLbl="Rams" offLbl="Lambs" entR={r.sheep} AnimalIcon={SheepIcon} onNav={setView} profitView={profitView} setProfitView={setProfitView}/></div>;
+    if (view === "goats")   return <div style={WS}><SRStockForm d={data} r={r} set={set} ent="goats" nm="Goats" femLbl="Does" maleLbl="Bucks" offLbl="Kids" entR={r.goats} AnimalIcon={GoatIcon} onNav={setView} profitView={profitView} setProfitView={setProfitView}/></div>;
     if (view === "leases")  return <div style={WS}><LeasesForm d={data} r={r} set={set} profitView={profitView} setProfitView={setProfitView} onNav={setView}/></div>;
     if (view === "oh")      return <div style={WS}><OHForm d={data} r={r} set={set}/></div>;
     if (view === "bs")      return <div style={WS}><BSForm d={data} r={r} set={set} copyOpenToClose={copyOtoC}/></div>;
@@ -1870,7 +2436,7 @@ export default function App() {
         />
       )}
       <div style={{background:T,padding:"12px 24px",display:"flex",alignItems:"center",gap:14,position:"sticky",top:0,zIndex:10,boxShadow:"0 2px 8px rgba(0,0,0,0.25)"}}>
-        <img src="data:image/png;base64,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" alt="Eubanks Cattle Co" style={{height:58,width:"auto",flexShrink:0,borderRadius:4}}/>
+        <img src={LOGO_SRC} alt="Eubanks Cattle Co" style={{height:58,width:"auto",flexShrink:0,borderRadius:4}}/>
         <div style={{display:"flex",flexDirection:"column",gap:1}}>
           <div style={{fontSize:19,fontWeight:700,color:"white",letterSpacing:"-0.02em",lineHeight:1.1}}>Ranch Profit Planner</div>
           <div style={{fontSize:11,color:"rgba(255,255,255,0.65)",fontWeight:500,letterSpacing:"0.03em",textTransform:"uppercase"}}>Eubanks Cattle Co · RFP Model</div>
@@ -1886,24 +2452,23 @@ export default function App() {
           </button>
         </div>
       </div>
-      {view !== "home" && (
-        <div style={{background:"white",borderBottom:"1px solid #E8DFD0",padding:"0 20px",display:"flex",overflowX:"auto",boxShadow:"0 1px 3px rgba(0,0,0,0.06)"}}>
-          <button type="button" onClick={() => setView("home")}
-            style={{padding:"10px 14px",border:"none",borderBottom:"2px solid transparent",background:"transparent",color:"#8B7060",fontSize:13,cursor:"pointer",fontWeight:400,whiteSpace:"nowrap",flexShrink:0,display:"flex",alignItems:"center",gap:5}}>
-            🏠 Home
+      <div style={{background:"white",borderBottom:"2px solid #E8DFD0",padding:"0 24px",display:"flex",overflowX:"auto",boxShadow:"0 2px 6px rgba(0,0,0,0.08)"}}>
+        <button type="button" onClick={() => setView("home")}
+          style={{padding:"14px 18px",border:"none",borderBottom:view==="home"?"3px solid "+T:"3px solid transparent",background:"transparent",color:view==="home"?T:"#8B7060",fontSize:14,cursor:"pointer",fontWeight:view==="home"?700:500,whiteSpace:"nowrap",flexShrink:0,display:"flex",alignItems:"center",gap:6}}>
+          🏠 Home
+        </button>
+        <div style={{width:1,background:"#E8DFD0",margin:"8px 4px"}}/>
+        {TABS.map(t => (
+          <button key={t.key} type="button" onClick={() => setView(t.key)}
+            style={{padding:"14px 18px",border:"none",borderBottom:view===t.key?"3px solid "+T:"3px solid transparent",background:"transparent",color:view===t.key?T:"#8B7060",fontSize:14,cursor:"pointer",fontWeight:view===t.key?700:500,whiteSpace:"nowrap",flexShrink:0}}>
+            {t.label}
           </button>
-          <div style={{width:1,background:"#E8DFD0",margin:"8px 4px"}}/>
-          {TABS.map(t => (
-            <button key={t.key} type="button" onClick={() => setView(t.key)}
-              style={{padding:"10px 14px",border:"none",borderBottom:view===t.key?"2px solid " + T:"2px solid transparent",background:"transparent",color:view===t.key?T:"#8B7060",fontSize:13,cursor:"pointer",fontWeight:view===t.key?600:400,whiteSpace:"nowrap",flexShrink:0}}>
-              {t.label}
-            </button>
-          ))}
-        </div>
-      )}
+        ))}
+      </div>
       <div style={{padding:16,maxWidth:1100,margin:"0 auto"}}>
         {renderMain()}
       </div>
     </div>
   );
 }
+      
