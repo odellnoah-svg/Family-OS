@@ -1907,7 +1907,7 @@ function ResultsForm({d, r}) {
 
 // ── Guide Modal ───────────────────────────────────────────────────────────────
 // ── Scenario Manager ──────────────────────────────────────────────────────────
-function ScenarioManager({currentData, onLoad, onClose, token, setToken}) {
+function ScenarioManager({currentData, onLoad, onSaved, onClose, token, setToken}) {
   const tcRef    = useRef(null);
   const [scenarios,   setScenarios]   = useState([]);
   const [loading,     setLoading]     = useState(false);
@@ -1945,9 +1945,14 @@ function ScenarioManager({currentData, onLoad, onClose, token, setToken}) {
     setLoading(false);
   };
 
-  const handleLoad = async (fileId) => {
+  const handleLoad = async (sc) => {
     setOpBusy(true); setErr("");
-    try { const s = await driveAPI.load(token, fileId); onLoad(s.data); onClose(); }
+    try {
+      const s = await driveAPI.load(token, sc.id);
+      const scen = { fileId:sc.id, name:sc.meta?.name||sc.name, type:sc.meta?.type||"actual", year:sc.meta?.year||new Date().getFullYear() };
+      onLoad(s.data, scen);
+      onClose();
+    }
     catch(e) { setErr("Load failed."); }
     setOpBusy(false);
   };
@@ -1956,7 +1961,9 @@ function ScenarioManager({currentData, onLoad, onClose, token, setToken}) {
     if (!saveName.trim()) { setErr("Please enter a name."); return; }
     setOpBusy(true); setErr("");
     try {
-      await driveAPI.save(token, saveName.trim(), saveType, saveYear, currentData);
+      const result = await driveAPI.save(token, saveName.trim(), saveType, saveYear, currentData);
+      const scen = { fileId:result.id, name:saveName.trim(), type:saveType, year:saveYear };
+      if (onSaved) onSaved(scen);
       setSaveName(""); setTab("list"); await fetchList();
     } catch(e) { setErr("Save failed."); }
     setOpBusy(false);
@@ -2015,7 +2022,7 @@ function ScenarioManager({currentData, onLoad, onClose, token, setToken}) {
         </label>
       </div>
       <div style={{display:"flex",gap:8}}>
-        <button type="button" onClick={()=>handleLoad(s.id)} disabled={opBusy}
+        <button type="button" onClick={()=>handleLoad(s)} disabled={opBusy}
           style={{flex:1,background:T,color:"white",border:"none",borderRadius:6,padding:"6px 0",fontSize:12,cursor:opBusy?"not-allowed":"pointer",fontWeight:600}}>
           Load
         </button>
@@ -2392,12 +2399,21 @@ const TABS = [
 ];
 
 export default function App() {
-  const [data, setData] = useState(INIT);
+  const [data, setData] = useState(() => {
+    try {
+      const draft = localStorage.getItem('efos_rpp_draft');
+      if (draft) return JSON.parse(draft);
+    } catch(e) {}
+    return INIT;
+  });
   const [view, setView] = useState("home");
   const [profitView, setProfitView] = useState("economic");
   const [showGuide, setShowGuide] = useState(false);
   const [showScenarios, setShowScenarios] = useState(false);
-  const [driveToken, setDriveToken] = useState(null);
+  const [driveToken,      setDriveToken]      = useState(null);
+  const [activeScenario,  setActiveScenario]  = useState(null);  // {fileId,name,type,year}
+  const [savedDataJson,   setSavedDataJson]   = useState(null);  // JSON at last save
+  const [quickSaving,     setQuickSaving]     = useState(false);
   const r = useMemo(() => compute(data, profitView), [data, profitView]);
 
   const set = (sec, field, val, sub) => {
@@ -2408,6 +2424,27 @@ export default function App() {
     }
   };
   const copyOtoC = () => setData(p => ({...p, bsClose: {...p.bsOpen}}));
+
+  // Auto-save working draft to localStorage on every change
+  useEffect(() => {
+    try { localStorage.setItem('efos_rpp_draft', JSON.stringify(data)); } catch(e) {}
+  }, [data]);
+
+  // Dirty = loaded/saved snapshot differs from current data
+  const isDirty = savedDataJson !== null && savedDataJson !== JSON.stringify(data);
+
+  // Quick-save back to the active Drive scenario
+  const quickSave = async () => {
+    if (!activeScenario || !driveToken) return;
+    setQuickSaving(true);
+    try {
+      const result = await driveAPI.save(driveToken, activeScenario.name, activeScenario.type, activeScenario.year, data, activeScenario.fileId);
+      const fid = result.id || activeScenario.fileId;
+      setActiveScenario(prev => ({...prev, fileId:fid}));
+      setSavedDataJson(JSON.stringify(data));
+    } catch(e) { alert("Quick-save failed — check your Drive connection."); }
+    setQuickSaving(false);
+  };
 
   const tabLabel = TABS.find(t => t.key === view);
 
@@ -2429,7 +2466,8 @@ export default function App() {
       {showScenarios && (
         <ScenarioManager
           currentData={data}
-          onLoad={(d) => setData(d)}
+          onLoad={(d, scen) => { setData(d); setActiveScenario(scen); setSavedDataJson(JSON.stringify(d)); }}
+          onSaved={(scen) => { setActiveScenario(scen); setSavedDataJson(JSON.stringify(data)); }}
           onClose={() => setShowScenarios(false)}
           token={driveToken}
           setToken={setDriveToken}
@@ -2441,7 +2479,25 @@ export default function App() {
           <div style={{fontSize:19,fontWeight:700,color:"white",letterSpacing:"-0.02em",lineHeight:1.1}}>Ranch Profit Planner</div>
           <div style={{fontSize:11,color:"rgba(255,255,255,0.65)",fontWeight:500,letterSpacing:"0.03em",textTransform:"uppercase"}}>Eubanks Cattle Co · RFP Model</div>
         </div>
-        <div style={{marginLeft:"auto",display:"flex",gap:12,alignItems:"center",flexShrink:0}}>
+        <div style={{marginLeft:"auto",display:"flex",gap:10,alignItems:"center",flexShrink:0}}>
+          {activeScenario && (
+            <div style={{display:"flex",alignItems:"center",gap:7,background:"rgba(255,255,255,0.1)",borderRadius:8,padding:"5px 10px",maxWidth:280}}>
+              <span style={{fontSize:11,color:"rgba(255,255,255,0.7)",overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap",maxWidth:140}}>
+                📁 {activeScenario.name}
+              </span>
+              {isDirty ? (
+                <>
+                  <span style={{fontSize:10,color:"#fbbf24",fontWeight:700,flexShrink:0}}>● unsaved</span>
+                  <button type="button" onClick={quickSave} disabled={quickSaving}
+                    style={{background:"rgba(255,255,255,0.18)",border:"1px solid rgba(255,255,255,0.35)",borderRadius:6,padding:"3px 10px",fontSize:11,fontWeight:700,color:"white",cursor:"pointer",flexShrink:0,opacity:quickSaving?0.6:1}}>
+                    {quickSaving ? "Saving…" : "💾 Save"}
+                  </button>
+                </>
+              ) : (
+                <span style={{fontSize:10,color:"#86efac",fontWeight:600,flexShrink:0}}>✓ saved</span>
+              )}
+            </div>
+          )}
           <button type="button" onClick={() => setShowScenarios(true)}
             style={{background:"rgba(255,255,255,0.12)",border:"1px solid rgba(255,255,255,0.35)",borderRadius:7,padding:"6px 14px",color:"white",fontSize:12,cursor:"pointer",whiteSpace:"nowrap",display:"flex",alignItems:"center",gap:6}}>
             <span style={{fontSize:14}}>💾</span> Scenarios
@@ -2471,4 +2527,3 @@ export default function App() {
     </div>
   );
 }
-      
