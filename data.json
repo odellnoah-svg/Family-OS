@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-20T10:20:16.824Z",
+  "generated": "2026-06-20T17:09:10.836Z",
   "meta": {
     "currentQuarter": "Q2",
     "currentYear": "2026",
@@ -413,6 +413,16 @@
   "projects": [],
   "tasks": [
     {
+      "id": "385c5749485980f6839ecd2aad40bb9c",
+      "type": "task",
+      "name": "make appointment with Dr Boyles",
+      "status": "Current Sprint (this week)",
+      "pillar": null,
+      "domain": "Owen",
+      "hours": null,
+      "projectIds": []
+    },
+    {
       "id": "384c574948598079831bcf2be683ea72",
       "type": "task",
       "name": "Send phones in",
@@ -426,19 +436,9 @@
       "id": "383c5749485980fb8d7ec821a6f99663",
       "type": "task",
       "name": "Finish closet organizing ",
-      "status": "In progress (WIP)",
+      "status": "Current Sprint (this week)",
       "pillar": null,
       "domain": "Baby Girl",
-      "hours": null,
-      "projectIds": []
-    },
-    {
-      "id": "382c574948598007a015c6b1a6e1ddf9",
-      "type": "task",
-      "name": "Fill out RFP profile and see if spreadsheets are available ",
-      "status": "In progress (WIP)",
-      "pillar": null,
-      "domain": null,
       "hours": null,
       "projectIds": []
     },
@@ -460,26 +460,6 @@
       "pillar": null,
       "domain": "Ranch",
       "hours": 2,
-      "projectIds": []
-    },
-    {
-      "id": "380c57494859804eb11ef1be037ec566",
-      "type": "task",
-      "name": "Finish Ranch Profit Planning App in GitHub",
-      "status": "In progress (WIP)",
-      "pillar": null,
-      "domain": "Ranch",
-      "hours": 2,
-      "projectIds": []
-    },
-    {
-      "id": "380c5749485980cc97fdf6b2e8c7f09f",
-      "type": "task",
-      "name": "spray bulls with fly spray again",
-      "status": "In progress (WIP)",
-      "pillar": null,
-      "domain": null,
-      "hours": null,
       "projectIds": []
     },
     {
@@ -683,16 +663,6 @@
       "projectIds": []
     },
     {
-      "id": "363c574948598082ad1ff5164dd91437",
-      "type": "task",
-      "name": "brush out dogs",
-      "status": "Current Sprint (this week)",
-      "pillar": null,
-      "domain": "Ranch",
-      "hours": null,
-      "projectIds": []
-    },
-    {
       "id": "362c57494859805887a6f4693b53043e",
       "type": "task",
       "name": "Move sheep and goats to 3rd area to eat thistles",
@@ -753,16 +723,6 @@
       "projectIds": []
     },
     {
-      "id": "35bc5749485980a188bafb70c6f3c5e8",
-      "type": "task",
-      "name": "Everyone in the family take personality tests and save results in google drive",
-      "status": "Current Sprint (this week)",
-      "pillar": null,
-      "domain": "Personal Admin",
-      "hours": 3,
-      "projectIds": []
-    },
-    {
       "id": "35bc57494859807fb701c064f98054aa",
       "type": "task",
       "name": "Backup computer to external hard drive ",
@@ -799,16 +759,6 @@
       "status": "Current Sprint (this week)",
       "pillar": null,
       "domain": "Health",
-      "hours": 8,
-      "projectIds": []
-    },
-    {
-      "id": "354c5749485980009d57fd7925ba6f9c",
-      "type": "task",
-      "name": "Vonner Test, pee catch",
-      "status": "Current Sprint (this week)",
-      "pillar": null,
-      "domain": "Owen",
       "hours": 8,
       "projectIds": []
     },
@@ -875,6 +825,23 @@
   ],
   "wipTasks": [
     {
+      "id": "385c5749485980f6839ecd2aad40bb9c",
+      "type": "task",
+      "name": "make appointment with Dr Boyles",
+      "status": "Current Sprint (this week)",
+      "pillarIds": [],
+      "domain": "Owen",
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Patricia Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": null,
+      "completeDate": null
+    },
+    {
       "id": "384c574948598079831bcf2be683ea72",
       "type": "task",
       "name": "Send phones in",
@@ -895,7 +862,7 @@
       "id": "383c5749485980fb8d7ec821a6f99663",
       "type": "task",
       "name": "Finish closet organizing ",
-      "status": "In progress (WIP)",
+      "status": "Current Sprint (this week)",
       "pillarIds": [],
       "domain": "Baby Girl",
       "hours": null,
@@ -906,23 +873,6 @@
       ],
       "velocity": 0,
       "startDate": "2026-06-18T11:14:00.000-05:00",
-      "completeDate": null
-    },
-    {
-      "id": "382c574948598007a015c6b1a6e1ddf9",
-      "type": "task",
-      "name": "Fill out RFP profile and see if spreadsheets are available ",
-      "status": "In progress (WIP)",
-      "pillarIds": [],
-      "domain": null,
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-06-16T20:52:00.000-05:00",
       "completeDate": null
     },
     {
@@ -959,42 +909,6 @@
       ],
       "velocity": 0,
       "startDate": null,
-      "completeDate": null
-    },
-    {
-      "id": "380c57494859804eb11ef1be037ec566",
-      "type": "task",
-      "name": "Finish Ranch Profit Planning App in GitHub",
-      "status": "In progress (WIP)",
-      "pillarIds": [
-        "fa5c3f6312394f09b07566f455dac82d"
-      ],
-      "domain": "Ranch",
-      "hours": 2,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-06-14T23:15:00.000-05:00",
-      "completeDate": null
-    },
-    {
-      "id": "380c5749485980cc97fdf6b2e8c7f09f",
-      "type": "task",
-      "name": "spray bulls with fly spray again",
-      "status": "In progress (WIP)",
-      "pillarIds": [],
-      "domain": null,
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-06-14T21:30:00.000-05:00",
       "completeDate": null
     },
     {
@@ -1342,23 +1256,6 @@
       "completeDate": null
     },
     {
-      "id": "363c574948598082ad1ff5164dd91437",
-      "type": "task",
-      "name": "brush out dogs",
-      "status": "Current Sprint (this week)",
-      "pillarIds": [],
-      "domain": "Ranch",
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Patricia Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-05-30T11:12:00.000-05:00",
-      "completeDate": null
-    },
-    {
       "id": "362c57494859805887a6f4693b53043e",
       "type": "task",
       "name": "Move sheep and goats to 3rd area to eat thistles",
@@ -1461,24 +1358,6 @@
       "completeDate": null
     },
     {
-      "id": "35bc5749485980a188bafb70c6f3c5e8",
-      "type": "task",
-      "name": "Everyone in the family take personality tests and save results in google drive",
-      "status": "Current Sprint (this week)",
-      "pillarIds": [],
-      "domain": "Personal Admin",
-      "hours": 3,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks",
-        "Patricia Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-06-13T11:06:00.000-05:00",
-      "completeDate": null
-    },
-    {
       "id": "35bc57494859807fb701c064f98054aa",
       "type": "task",
       "name": "Backup computer to external hard drive ",
@@ -1545,23 +1424,6 @@
       ],
       "velocity": 0,
       "startDate": "2026-06-13T10:42:00.000-05:00",
-      "completeDate": null
-    },
-    {
-      "id": "354c5749485980009d57fd7925ba6f9c",
-      "type": "task",
-      "name": "Vonner Test, pee catch",
-      "status": "Current Sprint (this week)",
-      "pillarIds": [],
-      "domain": "Owen",
-      "hours": 8,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Patricia Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": null,
       "completeDate": null
     },
     {
@@ -1669,6 +1531,23 @@
       "completeDate": null
     },
     {
+      "id": "382c574948598007a015c6b1a6e1ddf9",
+      "type": "task",
+      "name": "Fill out RFP profile and see if spreadsheets are available ",
+      "status": "Done",
+      "pillarIds": [],
+      "domain": null,
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 3.541666666667,
+      "startDate": "2026-06-16T20:52:00.000-05:00",
+      "completeDate": "2026-06-20T10:36:00.000-05:00"
+    },
+    {
       "id": "381c57494859808c9945cb9600c3984d",
       "type": "task",
       "name": "Hay to heifers ",
@@ -1724,6 +1603,42 @@
       "velocity": 1.333333333333,
       "startDate": "2026-06-15T12:05:00.000-05:00",
       "completeDate": "2026-06-16T20:53:00.000-05:00"
+    },
+    {
+      "id": "380c57494859804eb11ef1be037ec566",
+      "type": "task",
+      "name": "Finish Ranch Profit Planning App in GitHub",
+      "status": "Done",
+      "pillarIds": [
+        "fa5c3f6312394f09b07566f455dac82d"
+      ],
+      "domain": "Ranch",
+      "hours": 2,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 5.458333333333,
+      "startDate": "2026-06-14T23:15:00.000-05:00",
+      "completeDate": "2026-06-20T10:36:00.000-05:00"
+    },
+    {
+      "id": "380c5749485980cc97fdf6b2e8c7f09f",
+      "type": "task",
+      "name": "spray bulls with fly spray again",
+      "status": "Done",
+      "pillarIds": [],
+      "domain": null,
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 5.541666666667,
+      "startDate": "2026-06-14T21:30:00.000-05:00",
+      "completeDate": "2026-06-20T10:36:00.000-05:00"
     },
     {
       "id": "37fc5749485980f1b463fe8ae9dda6d3",
@@ -3361,57 +3276,6 @@
       "velocity": 0.958333333333,
       "startDate": "2026-05-11T16:20:00.000-05:00",
       "completeDate": "2026-05-12T15:52:00.000-05:00"
-    },
-    {
-      "id": "35dc5749485980098b07d397c968d441",
-      "type": "task",
-      "name": "Create a page for the knowledge vault and then consult chatgpt about the way the database is constructed ",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": "Personal Admin",
-      "hours": 1,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 1.541666666667,
-      "startDate": "2026-05-11T10:31:00.000-05:00",
-      "completeDate": "2026-05-12T23:40:00.000-05:00"
-    },
-    {
-      "id": "35dc574948598027a65cf408df7aef1b",
-      "type": "task",
-      "name": "Create a projects database ",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": "Personal Admin",
-      "hours": 1,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 0.416666666667,
-      "startDate": "2026-05-11T10:30:00.000-05:00",
-      "completeDate": "2026-05-11T20:52:00.000-05:00"
-    },
-    {
-      "id": "35dc57494859809aa903ec88897bef81",
-      "type": "task",
-      "name": "Signed unclaimed property doc",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": "Health",
-      "hours": 0.1,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 0.25,
-      "startDate": "2026-05-11T07:28:00.000-05:00",
-      "completeDate": "2026-05-11T14:13:00.000-05:00"
     }
   ],
   "habitData": {
