@@ -1907,13 +1907,13 @@ function ResultsForm({d, r}) {
 
 // ── Guide Modal ───────────────────────────────────────────────────────────────
 // ── Scenario Manager ──────────────────────────────────────────────────────────
-function ScenarioManager({currentData, onLoad, onSaved, onClose, token, setToken}) {
+function ScenarioManager({currentData, initialTab, onLoad, onSaved, onClose, token, setToken}) {
   const tcRef    = useRef(null);
   const [scenarios,   setScenarios]   = useState([]);
   const [loading,     setLoading]     = useState(false);
   const [opBusy,      setOpBusy]      = useState(false);
   const [err,         setErr]         = useState("");
-  const [tab,         setTab]         = useState("list");
+  const [tab,         setTab]         = useState(initialTab||"list");
   const [saveName,    setSaveName]    = useState("");
   const [saveYear,    setSaveYear]    = useState(new Date().getFullYear());
   const [saveType,    setSaveType]    = useState("actual");
@@ -2414,6 +2414,7 @@ export default function App() {
   const [activeScenario,  setActiveScenario]  = useState(null);  // {fileId,name,type,year}
   const [savedDataJson,   setSavedDataJson]   = useState(null);  // JSON at last save
   const [quickSaving,     setQuickSaving]     = useState(false);
+  const [scenarioTab,     setScenarioTab]     = useState("list");
   const r = useMemo(() => compute(data, profitView), [data, profitView]);
 
   const set = (sec, field, val, sub) => {
@@ -2466,9 +2467,10 @@ export default function App() {
       {showScenarios && (
         <ScenarioManager
           currentData={data}
+          initialTab={scenarioTab}
           onLoad={(d, scen) => { setData(d); setActiveScenario(scen); setSavedDataJson(JSON.stringify(d)); }}
           onSaved={(scen) => { setActiveScenario(scen); setSavedDataJson(JSON.stringify(data)); }}
-          onClose={() => setShowScenarios(false)}
+          onClose={() => { setShowScenarios(false); setScenarioTab("list"); }}
           token={driveToken}
           setToken={setDriveToken}
         />
@@ -2480,27 +2482,45 @@ export default function App() {
           <div style={{fontSize:11,color:"rgba(255,255,255,0.65)",fontWeight:500,letterSpacing:"0.03em",textTransform:"uppercase"}}>Eubanks Cattle Co · RFP Model</div>
         </div>
         <div style={{marginLeft:"auto",display:"flex",gap:10,alignItems:"center",flexShrink:0}}>
-          {activeScenario && (
-            <div style={{display:"flex",alignItems:"center",gap:7,background:"rgba(255,255,255,0.1)",borderRadius:8,padding:"5px 10px",maxWidth:280}}>
-              <span style={{fontSize:11,color:"rgba(255,255,255,0.7)",overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap",maxWidth:140}}>
-                📁 {activeScenario.name}
+
+          {/* ── Always-visible Working Scenario panel ── */}
+          <div style={{display:"flex",flexDirection:"column",gap:4,background:"rgba(255,255,255,0.08)",border:"1px solid rgba(255,255,255,0.22)",borderRadius:10,padding:"7px 12px",minWidth:230}}>
+            <div style={{fontSize:9,fontWeight:700,color:"rgba(255,255,255,0.45)",textTransform:"uppercase",letterSpacing:"0.12em"}}>
+              Working Scenario
+            </div>
+            <div style={{display:"flex",alignItems:"center",gap:7,flexWrap:"wrap"}}>
+              <span style={{fontSize:12,fontWeight:600,color:"white",maxWidth:155,overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>
+                {activeScenario ? ("📁 " + activeScenario.name) : "Working Draft"}
               </span>
-              {isDirty ? (
+              {!activeScenario && (
+                <span style={{fontSize:10,color:"rgba(255,255,255,0.45)"}}>· browser only</span>
+              )}
+              {activeScenario && !isDirty && (
+                <span style={{fontSize:10,color:"#86efac",fontWeight:600,flexShrink:0}}>✓ Saved</span>
+              )}
+              {activeScenario && isDirty && (
                 <>
-                  <span style={{fontSize:10,color:"#fbbf24",fontWeight:700,flexShrink:0}}>● unsaved</span>
+                  <span style={{fontSize:10,color:"#fbbf24",fontWeight:700,flexShrink:0}}>● Unsaved changes</span>
                   <button type="button" onClick={quickSave} disabled={quickSaving}
-                    style={{background:"rgba(255,255,255,0.18)",border:"1px solid rgba(255,255,255,0.35)",borderRadius:6,padding:"3px 10px",fontSize:11,fontWeight:700,color:"white",cursor:"pointer",flexShrink:0,opacity:quickSaving?0.6:1}}>
+                    style={{background:"#C4993B",border:"none",borderRadius:6,padding:"3px 10px",fontSize:11,fontWeight:700,color:"white",cursor:"pointer",flexShrink:0,opacity:quickSaving?0.6:1}}>
                     {quickSaving ? "Saving…" : "💾 Save"}
                   </button>
                 </>
-              ) : (
-                <span style={{fontSize:10,color:"#86efac",fontWeight:600,flexShrink:0}}>✓ saved</span>
               )}
             </div>
-          )}
-          <button type="button" onClick={() => setShowScenarios(true)}
+            {!activeScenario && (
+              <button type="button"
+                onClick={() => { setScenarioTab("save"); setShowScenarios(true); }}
+                style={{background:"#C4993B",border:"none",borderRadius:6,padding:"4px 10px",fontSize:11,fontWeight:700,color:"white",cursor:"pointer",alignSelf:"flex-start",marginTop:1}}>
+                💾 Save to Drive →
+              </button>
+            )}
+          </div>
+
+          {/* ── Manage Scenarios button ── */}
+          <button type="button" onClick={() => { setScenarioTab("list"); setShowScenarios(true); }}
             style={{background:"rgba(255,255,255,0.12)",border:"1px solid rgba(255,255,255,0.35)",borderRadius:7,padding:"6px 14px",color:"white",fontSize:12,cursor:"pointer",whiteSpace:"nowrap",display:"flex",alignItems:"center",gap:6}}>
-            <span style={{fontSize:14}}>💾</span> Scenarios
+            <span style={{fontSize:14}}>📂</span> Manage Scenarios
           </button>
           <button type="button" onClick={() => setShowGuide(true)}
             style={{background:"rgba(255,255,255,0.12)",border:"1px solid rgba(255,255,255,0.35)",borderRadius:7,padding:"6px 14px",color:"white",fontSize:12,cursor:"pointer",whiteSpace:"nowrap",display:"flex",alignItems:"center",gap:6}}>
