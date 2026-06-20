@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-20T17:09:10.836Z",
+  "generated": "2026-06-20T23:54:17.384Z",
   "meta": {
     "currentQuarter": "Q2",
     "currentYear": "2026",
@@ -413,6 +413,16 @@
   "projects": [],
   "tasks": [
     {
+      "id": "385c574948598007abddc033fd85fb23",
+      "type": "task",
+      "name": "Enroll in motor mouth ",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": "Owen",
+      "hours": 1,
+      "projectIds": []
+    },
+    {
       "id": "385c5749485980f6839ecd2aad40bb9c",
       "type": "task",
       "name": "make appointment with Dr Boyles",
@@ -824,6 +834,27 @@
     }
   ],
   "wipTasks": [
+    {
+      "id": "385c574948598007abddc033fd85fb23",
+      "type": "task",
+      "name": "Enroll in motor mouth ",
+      "status": "In progress (WIP)",
+      "pillarIds": [
+        "2fb60975ef4e4b0fbd56793fba264939"
+      ],
+      "domain": "Owen",
+      "hours": 1,
+      "projectIds": [],
+      "rockIds": [
+        "377c57494859817083b1ddc5ffb3d1f0"
+      ],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": "2026-06-20T14:25:00.000-05:00",
+      "completeDate": null
+    },
     {
       "id": "385c5749485980f6839ecd2aad40bb9c",
       "type": "task",
