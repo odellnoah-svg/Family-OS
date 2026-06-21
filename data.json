@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-21T11:33:47.532Z",
+  "generated": "2026-06-21T17:12:08.754Z",
   "meta": {
     "currentQuarter": "Q2",
     "currentYear": "2026",
@@ -1437,11 +1437,15 @@
       "type": "task",
       "name": "A progress tracking system for owen… milestones.. or something.. Pyramid?",
       "status": "Current Sprint (this week)",
-      "pillarIds": [],
+      "pillarIds": [
+        "62f10d5c983944388542d9b1db866b1a"
+      ],
       "domain": "Owen",
       "hours": 8,
       "projectIds": [],
-      "rockIds": [],
+      "rockIds": [
+        "377c57494859817083b1ddc5ffb3d1f0"
+      ],
       "person": [
         "Patricia Eubanks"
       ],
