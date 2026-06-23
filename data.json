@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-22T23:56:47.677Z",
+  "generated": "2026-06-23T11:44:36.598Z",
   "meta": {
     "currentQuarter": "Q2",
     "currentYear": "2026",
@@ -412,6 +412,16 @@
   ],
   "projects": [],
   "tasks": [
+    {
+      "id": "388c5749485980d0ada1f040fe8aad19",
+      "type": "task",
+      "name": "Message Kendrick property manager ",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": null,
+      "hours": null,
+      "projectIds": []
+    },
     {
       "id": "386c5749485980be8e94d58fb4e47d99",
       "type": "task",
@@ -844,6 +854,23 @@
     }
   ],
   "wipTasks": [
+    {
+      "id": "388c5749485980d0ada1f040fe8aad19",
+      "type": "task",
+      "name": "Message Kendrick property manager ",
+      "status": "In progress (WIP)",
+      "pillarIds": [],
+      "domain": null,
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": "2026-06-22T22:39:00.000-05:00",
+      "completeDate": null
+    },
     {
       "id": "386c5749485980be8e94d58fb4e47d99",
       "type": "task",
@@ -4296,6 +4323,30 @@
           "completed": 0,
           "possible": 16,
           "pct": 0
+        },
+        {
+          "date": "2026-06-23",
+          "habits": {
+            "Call One Friend": false,
+            "No Caffeine": false,
+            "No Bread / Chips / Pasta": false,
+            "Play with Owen": false,
+            "8 Hour Eating Window": false,
+            "Move": false,
+            "Minimum 1/2 Gallon Water": false,
+            "Time Block Tomorrow  Before Bed": false,
+            "Breath Strip for Sleep": false,
+            "Minimal Dairy": false,
+            "5am Wake": false,
+            "Reflect": false,
+            "Daily Supplements": false,
+            "No Cell Phone in Bedroom": false,
+            "No Gluten": false,
+            "Grow": false
+          },
+          "completed": 0,
+          "possible": 16,
+          "pct": 0
         }
       ]
     },
@@ -4752,6 +4803,19 @@
         },
         {
           "date": "2026-06-22",
+          "habits": {
+            "Laundry": false,
+            "Supplements": false,
+            "Leucovorin": false,
+            "Take care of baby": false,
+            "Feed dogs": false
+          },
+          "completed": 0,
+          "possible": 5,
+          "pct": 0
+        },
+        {
+          "date": "2026-06-23",
           "habits": {
             "Laundry": false,
             "Supplements": false,
