@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-23T19:28:13.159Z",
+  "generated": "2026-06-23T23:38:51.831Z",
   "meta": {
     "currentQuarter": "Q2",
     "currentYear": "2026",
@@ -413,16 +413,6 @@
   "projects": [],
   "tasks": [
     {
-      "id": "388c5749485980d0ada1f040fe8aad19",
-      "type": "task",
-      "name": "Message Kendrick property manager ",
-      "status": "In progress (WIP)",
-      "pillar": null,
-      "domain": null,
-      "hours": null,
-      "projectIds": []
-    },
-    {
       "id": "386c5749485980be8e94d58fb4e47d99",
       "type": "task",
       "name": "Add “write down 3 wins for the day at end of day and write 3 wins for tomorrow”",
@@ -430,16 +420,6 @@
       "pillar": null,
       "domain": null,
       "hours": null,
-      "projectIds": []
-    },
-    {
-      "id": "385c574948598007abddc033fd85fb23",
-      "type": "task",
-      "name": "Enroll in motor mouth ",
-      "status": "In progress (WIP)",
-      "pillar": null,
-      "domain": "Owen",
-      "hours": 1,
       "projectIds": []
     },
     {
@@ -855,23 +835,6 @@
   ],
   "wipTasks": [
     {
-      "id": "388c5749485980d0ada1f040fe8aad19",
-      "type": "task",
-      "name": "Message Kendrick property manager ",
-      "status": "In progress (WIP)",
-      "pillarIds": [],
-      "domain": null,
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-06-22T22:39:00.000-05:00",
-      "completeDate": null
-    },
-    {
       "id": "386c5749485980be8e94d58fb4e47d99",
       "type": "task",
       "name": "Add “write down 3 wins for the day at end of day and write 3 wins for tomorrow”",
@@ -886,27 +849,6 @@
       ],
       "velocity": 0,
       "startDate": "2026-06-20T19:44:00.000-05:00",
-      "completeDate": null
-    },
-    {
-      "id": "385c574948598007abddc033fd85fb23",
-      "type": "task",
-      "name": "Enroll in motor mouth ",
-      "status": "In progress (WIP)",
-      "pillarIds": [
-        "2fb60975ef4e4b0fbd56793fba264939"
-      ],
-      "domain": "Owen",
-      "hours": 1,
-      "projectIds": [],
-      "rockIds": [
-        "377c57494859817083b1ddc5ffb3d1f0"
-      ],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-06-20T14:25:00.000-05:00",
       "completeDate": null
     },
     {
@@ -1618,6 +1560,44 @@
       "velocity": 0,
       "startDate": null,
       "completeDate": null
+    },
+    {
+      "id": "388c5749485980d0ada1f040fe8aad19",
+      "type": "task",
+      "name": "Message Kendrick property manager ",
+      "status": "Done",
+      "pillarIds": [],
+      "domain": null,
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 0.75,
+      "startDate": "2026-06-22T22:39:00.000-05:00",
+      "completeDate": "2026-06-23T16:40:00.000-05:00"
+    },
+    {
+      "id": "385c574948598007abddc033fd85fb23",
+      "type": "task",
+      "name": "Enroll in motor mouth ",
+      "status": "Done",
+      "pillarIds": [
+        "2fb60975ef4e4b0fbd56793fba264939"
+      ],
+      "domain": "Owen",
+      "hours": 1,
+      "projectIds": [],
+      "rockIds": [
+        "377c57494859817083b1ddc5ffb3d1f0"
+      ],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 3.083333333333,
+      "startDate": "2026-06-20T14:25:00.000-05:00",
+      "completeDate": "2026-06-23T16:39:00.000-05:00"
     },
     {
       "id": "382c574948598007a015c6b1a6e1ddf9",
@@ -3331,40 +3311,6 @@
       "velocity": 2.75,
       "startDate": "2026-05-11T22:35:00.000-05:00",
       "completeDate": "2026-05-14T17:23:00.000-05:00"
-    },
-    {
-      "id": "35dc57494859803ba7c7f6abd868c385",
-      "type": "task",
-      "name": "Breakdown last 12 mos of expenditures ",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": "Personal Admin",
-      "hours": 20,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Patricia Eubanks"
-      ],
-      "velocity": 24.916666666667,
-      "startDate": "2026-05-11T16:21:00.000-05:00",
-      "completeDate": "2026-06-05T14:27:00.000-05:00"
-    },
-    {
-      "id": "35dc57494859802dbacbf1f246103965",
-      "type": "task",
-      "name": "Health Insurance ",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": null,
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Patricia Eubanks"
-      ],
-      "velocity": 0.958333333333,
-      "startDate": "2026-05-11T16:20:00.000-05:00",
-      "completeDate": "2026-05-12T15:52:00.000-05:00"
     }
   ],
   "habitData": {
@@ -3385,7 +3331,8 @@
         "No Gluten",
         "Play with Owen",
         "Reflect",
-        "Time Block Tomorrow  Before Bed"
+        "Time Block Tomorrow  Before Bed",
+        "Write down 3 wins for today"
       ],
       "entries": [
         {
@@ -3406,10 +3353,11 @@
             "Daily Supplements": false,
             "No Cell Phone in Bedroom": false,
             "No Gluten": false,
+            "Write down 3 wins for today": false,
             "Grow": false
           },
           "completed": 0,
-          "possible": 16,
+          "possible": 17,
           "pct": 0
         },
         {
@@ -3430,11 +3378,12 @@
             "Daily Supplements": true,
             "No Cell Phone in Bedroom": false,
             "No Gluten": false,
+            "Write down 3 wins for today": false,
             "Grow": false
           },
           "completed": 2,
-          "possible": 16,
-          "pct": 13
+          "possible": 17,
+          "pct": 12
         },
         {
           "date": "2026-05-17",
@@ -3454,10 +3403,11 @@
             "Daily Supplements": false,
             "No Cell Phone in Bedroom": false,
             "No Gluten": false,
+            "Write down 3 wins for today": false,
             "Grow": false
           },
           "completed": 0,
-          "possible": 16,
+          "possible": 17,
           "pct": 0
         },
         {
@@ -3478,10 +3428,11 @@
             "Daily Supplements": false,
             "No Cell Phone in Bedroom": false,
             "No Gluten": false,
+            "Write down 3 wins for today": false,
             "Grow": false
           },
           "completed": 0,
-          "possible": 16,
+          "possible": 17,
           "pct": 0
         },
         {
@@ -3502,10 +3453,11 @@
             "Daily Supplements": false,
             "No Cell Phone in Bedroom": false,
             "No Gluten": false,
+            "Write down 3 wins for today": false,
             "Grow": false
           },
           "completed": 0,
-          "possible": 16,
+          "possible": 17,
           "pct": 0
         },
         {
@@ -3526,11 +3478,12 @@
             "Daily Supplements": true,
             "No Cell Phone in Bedroom": false,
             "No Gluten": false,
+            "Write down 3 wins for today": false,
             "Grow": true
           },
           "completed": 4,
-          "possible": 16,
-          "pct": 25
+          "possible": 17,
+          "pct": 24
         },
         {
           "date": "2026-05-21",
@@ -3550,10 +3503,11 @@
             "Daily Supplements": false,
             "No Cell Phone in Bedroom": false,
             "No Gluten": false,
+            "Write down 3 wins for today": false,
             "Grow": false
           },
           "completed": 0,
-          "possible": 16,
+          "possible": 17,
           "pct": 0
         },
         {
@@ -3574,10 +3528,11 @@
             "Daily Supplements": false,
             "No Cell Phone in Bedroom": false,
             "No Gluten": false,
+            "Write down 3 wins for today": false,
             "Grow": false
           },
           "completed": 0,
-          "possible": 16,
+          "possible": 17,
           "pct": 0
         },
         {
@@ -3598,10 +3553,11 @@
             "Daily Supplements": false,
             "No Cell Phone in Bedroom": false,
             "No Gluten": false,
+            "Write down 3 wins for today": false,
             "Grow": false
           },
           "completed": 0,
-          "possible": 16,
+          "possible": 17,
           "pct": 0
         },
         {
@@ -3622,10 +3578,11 @@
             "Daily Supplements": false,
             "No Cell Phone in Bedroom": false,
             "No Gluten": false,
+            "Write down 3 wins for today": false,
             "Grow": false
           },
           "completed": 0,
-          "possible": 16,
+          "possible": 17,
           "pct": 0
         },
         {
@@ -3646,10 +3603,11 @@
             "Daily Supplements": false,
             "No Cell Phone in Bedroom": false,
             "No Gluten": false,
+            "Write down 3 wins for today": false,
             "Grow": false
           },
           "completed": 0,
-          "possible": 16,
+          "possible": 17,
           "pct": 0
         },
         {
@@ -3670,10 +3628,11 @@
             "Daily Supplements": false,
             "No Cell Phone in Bedroom": false,
             "No Gluten": false,
+            "Write down 3 wins for today": false,
             "Grow": false
           },
           "completed": 0,
-          "possible": 16,
+          "possible": 17,
           "pct": 0
         },
         {
@@ -3694,11 +3653,12 @@
             "Daily Supplements": true,
             "No Cell Phone in Bedroom": false,
             "No Gluten": false,
+            "Write down 3 wins for today": false,
             "Grow": true
           },
           "completed": 6,
-          "possible": 16,
-          "pct": 38
+          "possible": 17,
+          "pct": 35
         },
         {
           "date": "2026-05-28",
@@ -3718,10 +3678,11 @@
             "Daily Supplements": false,
             "No Cell Phone in Bedroom": false,
             "No Gluten": false,
+            "Write down 3 wins for today": false,
             "Grow": false
           },
           "completed": 0,
-          "possible": 16,
+          "possible": 17,
           "pct": 0
         },
         {
@@ -3742,10 +3703,11 @@
             "Daily Supplements": false,
             "No Cell Phone in Bedroom": false,
             "No Gluten": false,
+            "Write down 3 wins for today": false,
             "Grow": false
           },
           "completed": 0,
-          "possible": 16,
+          "possible": 17,
           "pct": 0
         },
         {
@@ -3766,10 +3728,11 @@
             "Daily Supplements": false,
             "No Cell Phone in Bedroom": false,
             "No Gluten": false,
+            "Write down 3 wins for today": false,
             "Grow": false
           },
           "completed": 0,
-          "possible": 16,
+          "possible": 17,
           "pct": 0
         },
         {
@@ -3790,10 +3753,11 @@
             "Daily Supplements": false,
             "No Cell Phone in Bedroom": false,
             "No Gluten": false,
+            "Write down 3 wins for today": false,
             "Grow": false
           },
           "completed": 0,
-          "possible": 16,
+          "possible": 17,
           "pct": 0
         },
         {
@@ -3814,10 +3778,11 @@
             "Daily Supplements": false,
             "No Cell Phone in Bedroom": false,
             "No Gluten": false,
+            "Write down 3 wins for today": false,
             "Grow": false
           },
           "completed": 0,
-          "possible": 16,
+          "possible": 17,
           "pct": 0
         },
         {
@@ -3838,10 +3803,11 @@
             "Daily Supplements": false,
             "No Cell Phone in Bedroom": false,
             "No Gluten": false,
+            "Write down 3 wins for today": false,
             "Grow": false
           },
           "completed": 0,
-          "possible": 16,
+          "possible": 17,
           "pct": 0
         },
         {
@@ -3862,10 +3828,11 @@
             "Daily Supplements": false,
             "No Cell Phone in Bedroom": false,
             "No Gluten": false,
+            "Write down 3 wins for today": false,
             "Grow": false
           },
           "completed": 0,
-          "possible": 16,
+          "possible": 17,
           "pct": 0
         },
         {
@@ -3886,10 +3853,11 @@
             "Daily Supplements": false,
             "No Cell Phone in Bedroom": false,
             "No Gluten": false,
+            "Write down 3 wins for today": false,
             "Grow": false
           },
           "completed": 0,
-          "possible": 16,
+          "possible": 17,
           "pct": 0
         },
         {
@@ -3910,11 +3878,12 @@
             "Daily Supplements": true,
             "No Cell Phone in Bedroom": false,
             "No Gluten": false,
+            "Write down 3 wins for today": false,
             "Grow": true
           },
           "completed": 5,
-          "possible": 16,
-          "pct": 31
+          "possible": 17,
+          "pct": 29
         },
         {
           "date": "2026-06-06",
@@ -3934,11 +3903,12 @@
             "Daily Supplements": true,
             "No Cell Phone in Bedroom": false,
             "No Gluten": false,
+            "Write down 3 wins for today": false,
             "Grow": true
           },
           "completed": 3,
-          "possible": 16,
-          "pct": 19
+          "possible": 17,
+          "pct": 18
         },
         {
           "date": "2026-06-07",
@@ -3958,10 +3928,11 @@
             "Daily Supplements": false,
             "No Cell Phone in Bedroom": false,
             "No Gluten": false,
+            "Write down 3 wins for today": false,
             "Grow": false
           },
           "completed": 0,
-          "possible": 16,
+          "possible": 17,
           "pct": 0
         },
         {
@@ -3982,10 +3953,11 @@
             "Daily Supplements": false,
             "No Cell Phone in Bedroom": false,
             "No Gluten": false,
+            "Write down 3 wins for today": false,
             "Grow": false
           },
           "completed": 0,
-          "possible": 16,
+          "possible": 17,
           "pct": 0
         },
         {
@@ -4006,10 +3978,11 @@
             "Daily Supplements": false,
             "No Cell Phone in Bedroom": false,
             "No Gluten": false,
+            "Write down 3 wins for today": false,
             "Grow": false
           },
           "completed": 0,
-          "possible": 16,
+          "possible": 17,
           "pct": 0
         },
         {
@@ -4030,10 +4003,11 @@
             "Daily Supplements": false,
             "No Cell Phone in Bedroom": false,
             "No Gluten": false,
+            "Write down 3 wins for today": false,
             "Grow": false
           },
           "completed": 0,
-          "possible": 16,
+          "possible": 17,
           "pct": 0
         },
         {
@@ -4054,10 +4028,11 @@
             "Daily Supplements": false,
             "No Cell Phone in Bedroom": false,
             "No Gluten": false,
+            "Write down 3 wins for today": false,
             "Grow": false
           },
           "completed": 0,
-          "possible": 16,
+          "possible": 17,
           "pct": 0
         },
         {
@@ -4078,10 +4053,11 @@
             "Daily Supplements": false,
             "No Cell Phone in Bedroom": false,
             "No Gluten": false,
+            "Write down 3 wins for today": false,
             "Grow": false
           },
           "completed": 0,
-          "possible": 16,
+          "possible": 17,
           "pct": 0
         },
         {
@@ -4102,11 +4078,12 @@
             "Daily Supplements": true,
             "No Cell Phone in Bedroom": false,
             "No Gluten": false,
+            "Write down 3 wins for today": false,
             "Grow": true
           },
           "completed": 5,
-          "possible": 16,
-          "pct": 31
+          "possible": 17,
+          "pct": 29
         },
         {
           "date": "2026-06-14",
@@ -4126,10 +4103,11 @@
             "Daily Supplements": false,
             "No Cell Phone in Bedroom": false,
             "No Gluten": false,
+            "Write down 3 wins for today": false,
             "Grow": false
           },
           "completed": 0,
-          "possible": 16,
+          "possible": 17,
           "pct": 0
         },
         {
@@ -4150,10 +4128,11 @@
             "Daily Supplements": false,
             "No Cell Phone in Bedroom": false,
             "No Gluten": false,
+            "Write down 3 wins for today": false,
             "Grow": false
           },
           "completed": 0,
-          "possible": 16,
+          "possible": 17,
           "pct": 0
         },
         {
@@ -4174,10 +4153,11 @@
             "Daily Supplements": false,
             "No Cell Phone in Bedroom": false,
             "No Gluten": false,
+            "Write down 3 wins for today": false,
             "Grow": false
           },
           "completed": 0,
-          "possible": 16,
+          "possible": 17,
           "pct": 0
         },
         {
@@ -4198,10 +4178,11 @@
             "Daily Supplements": false,
             "No Cell Phone in Bedroom": false,
             "No Gluten": false,
+            "Write down 3 wins for today": false,
             "Grow": false
           },
           "completed": 0,
-          "possible": 16,
+          "possible": 17,
           "pct": 0
         },
         {
@@ -4222,10 +4203,11 @@
             "Daily Supplements": false,
             "No Cell Phone in Bedroom": false,
             "No Gluten": false,
+            "Write down 3 wins for today": false,
             "Grow": false
           },
           "completed": 0,
-          "possible": 16,
+          "possible": 17,
           "pct": 0
         },
         {
@@ -4246,10 +4228,11 @@
             "Daily Supplements": false,
             "No Cell Phone in Bedroom": false,
             "No Gluten": false,
+            "Write down 3 wins for today": false,
             "Grow": false
           },
           "completed": 0,
-          "possible": 16,
+          "possible": 17,
           "pct": 0
         },
         {
@@ -4270,10 +4253,11 @@
             "Daily Supplements": false,
             "No Cell Phone in Bedroom": false,
             "No Gluten": false,
+            "Write down 3 wins for today": false,
             "Grow": false
           },
           "completed": 0,
-          "possible": 16,
+          "possible": 17,
           "pct": 0
         },
         {
@@ -4294,10 +4278,11 @@
             "Daily Supplements": false,
             "No Cell Phone in Bedroom": false,
             "No Gluten": false,
+            "Write down 3 wins for today": false,
             "Grow": false
           },
           "completed": 0,
-          "possible": 16,
+          "possible": 17,
           "pct": 0
         },
         {
@@ -4318,16 +4303,17 @@
             "Daily Supplements": false,
             "No Cell Phone in Bedroom": false,
             "No Gluten": false,
+            "Write down 3 wins for today": false,
             "Grow": false
           },
           "completed": 0,
-          "possible": 16,
+          "possible": 17,
           "pct": 0
         },
         {
           "date": "2026-06-23",
           "habits": {
-            "Call One Friend": false,
+            "Call One Friend": true,
             "No Caffeine": false,
             "No Bread / Chips / Pasta": false,
             "Play with Owen": false,
@@ -4335,18 +4321,19 @@
             "Move": false,
             "Minimum 1/2 Gallon Water": false,
             "Time Block Tomorrow  Before Bed": false,
-            "Breath Strip for Sleep": false,
+            "Breath Strip for Sleep": true,
             "Minimal Dairy": false,
             "5am Wake": false,
             "Reflect": false,
-            "Daily Supplements": false,
+            "Daily Supplements": true,
             "No Cell Phone in Bedroom": false,
-            "No Gluten": false,
+            "No Gluten": true,
+            "Write down 3 wins for today": false,
             "Grow": false
           },
-          "completed": 0,
-          "possible": 16,
-          "pct": 0
+          "completed": 4,
+          "possible": 17,
+          "pct": 24
         }
       ]
     },
