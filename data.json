@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-25T10:29:45.348Z",
+  "generated": "2026-06-25T19:22:58.755Z",
   "meta": {
     "currentQuarter": "Q2",
     "currentYear": "2026",
@@ -412,6 +412,36 @@
   ],
   "projects": [],
   "tasks": [
+    {
+      "id": "38ac5749485980deb32ffa49d2123d88",
+      "type": "task",
+      "name": "Make dentist appointment ",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": null,
+      "hours": null,
+      "projectIds": []
+    },
+    {
+      "id": "38ac574948598073b4d8fe00398e2913",
+      "type": "task",
+      "name": "Sign papers from grow well",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": null,
+      "hours": null,
+      "projectIds": []
+    },
+    {
+      "id": "38ac5749485980f8a1a0f5b743e19dcd",
+      "type": "task",
+      "name": "Mail off old phones",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": "Personal Admin",
+      "hours": null,
+      "projectIds": []
+    },
     {
       "id": "388c57494859807a80dafa7e763b17b3",
       "type": "task",
@@ -834,6 +864,57 @@
     }
   ],
   "wipTasks": [
+    {
+      "id": "38ac5749485980deb32ffa49d2123d88",
+      "type": "task",
+      "name": "Make dentist appointment ",
+      "status": "In progress (WIP)",
+      "pillarIds": [],
+      "domain": null,
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Patricia Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": "2026-06-25T09:09:00.000-05:00",
+      "completeDate": null
+    },
+    {
+      "id": "38ac574948598073b4d8fe00398e2913",
+      "type": "task",
+      "name": "Sign papers from grow well",
+      "status": "In progress (WIP)",
+      "pillarIds": [],
+      "domain": null,
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Patricia Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": "2026-06-25T08:26:00.000-05:00",
+      "completeDate": null
+    },
+    {
+      "id": "38ac5749485980f8a1a0f5b743e19dcd",
+      "type": "task",
+      "name": "Mail off old phones",
+      "status": "In progress (WIP)",
+      "pillarIds": [],
+      "domain": "Personal Admin",
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Patricia Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": "2026-06-25T05:33:00.000-05:00",
+      "completeDate": null
+    },
     {
       "id": "388c57494859807a80dafa7e763b17b3",
       "type": "task",
