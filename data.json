@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-26T18:13:27.356Z",
+  "generated": "2026-06-26T23:47:57.236Z",
   "meta": {
     "currentQuarter": "Q2",
     "currentYear": "2026",
@@ -413,6 +413,16 @@
   "projects": [],
   "tasks": [
     {
+      "id": "38bc5749485980b0be62fa4e76499c06",
+      "type": "task",
+      "name": "Pay Absolute Extermination $1300",
+      "status": "Current Sprint (this week)",
+      "pillar": null,
+      "domain": "Real Estate",
+      "hours": null,
+      "projectIds": []
+    },
+    {
       "id": "38ac5749485980deb32ffa49d2123d88",
       "type": "task",
       "name": "Make dentist appointment ",
@@ -455,7 +465,7 @@
     {
       "id": "385c5749485980f6839ecd2aad40bb9c",
       "type": "task",
-      "name": "make appointment with Dr Boyles",
+      "name": "make appointment with Dr Boyles - Freedom Pediatrics",
       "status": "Current Sprint (this week)",
       "pillar": null,
       "domain": "Owen",
@@ -865,6 +875,25 @@
   ],
   "wipTasks": [
     {
+      "id": "38bc5749485980b0be62fa4e76499c06",
+      "type": "task",
+      "name": "Pay Absolute Extermination $1300",
+      "status": "Current Sprint (this week)",
+      "pillarIds": [
+        "fa5c3f6312394f09b07566f455dac82d"
+      ],
+      "domain": "Real Estate",
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Patricia Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": null,
+      "completeDate": null
+    },
+    {
       "id": "38ac5749485980deb32ffa49d2123d88",
       "type": "task",
       "name": "Make dentist appointment ",
@@ -935,7 +964,7 @@
     {
       "id": "385c5749485980f6839ecd2aad40bb9c",
       "type": "task",
-      "name": "make appointment with Dr Boyles",
+      "name": "make appointment with Dr Boyles - Freedom Pediatrics",
       "status": "Current Sprint (this week)",
       "pillarIds": [],
       "domain": "Owen",
