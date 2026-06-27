@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-27T15:55:50.404Z",
+  "generated": "2026-06-27T20:17:45.791Z",
   "meta": {
     "currentQuarter": "Q2",
     "currentYear": "2026",
@@ -413,6 +413,16 @@
   "projects": [],
   "tasks": [
     {
+      "id": "38cc574948598031a448c7d62e0b189c",
+      "type": "task",
+      "name": "move cow and calves out of back hay pen",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": "Ranch",
+      "hours": null,
+      "projectIds": []
+    },
+    {
       "id": "38cc5749485980a6be93ffa6a5fa6e8a",
       "type": "task",
       "name": "Complete 3 qtr goal process from freedom accelerator and integrate into our existing system",
@@ -426,7 +436,7 @@
       "id": "38bc5749485980b0be62fa4e76499c06",
       "type": "task",
       "name": "Pay Absolute Extermination $1300",
-      "status": "Current Sprint (this week)",
+      "status": "In progress (WIP)",
       "pillar": null,
       "domain": "Real Estate",
       "hours": null,
@@ -453,16 +463,6 @@
       "projectIds": []
     },
     {
-      "id": "38ac5749485980f8a1a0f5b743e19dcd",
-      "type": "task",
-      "name": "Mail off old phones",
-      "status": "In progress (WIP)",
-      "pillar": null,
-      "domain": "Personal Admin",
-      "hours": null,
-      "projectIds": []
-    },
-    {
       "id": "388c57494859807a80dafa7e763b17b3",
       "type": "task",
       "name": "legal contacts for real estate deals , especially seller finance ",
@@ -479,16 +479,6 @@
       "status": "Current Sprint (this week)",
       "pillar": null,
       "domain": "Owen",
-      "hours": null,
-      "projectIds": []
-    },
-    {
-      "id": "384c574948598079831bcf2be683ea72",
-      "type": "task",
-      "name": "Send phones in",
-      "status": "In progress (WIP)",
-      "pillar": null,
-      "domain": "Personal Admin",
       "hours": null,
       "projectIds": []
     },
@@ -686,7 +676,7 @@
       "id": "362c57494859805887a6f4693b53043e",
       "type": "task",
       "name": "Move sheep and goats to 3rd area to eat thistles",
-      "status": "In progress (WIP)",
+      "status": "Current Sprint (this week)",
       "pillar": null,
       "domain": "Ranch",
       "hours": null,
@@ -845,6 +835,26 @@
   ],
   "wipTasks": [
     {
+      "id": "38cc574948598031a448c7d62e0b189c",
+      "type": "task",
+      "name": "move cow and calves out of back hay pen",
+      "status": "In progress (WIP)",
+      "pillarIds": [
+        "683e3c08456247dea6168f9329c85470"
+      ],
+      "domain": "Ranch",
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Patricia Eubanks",
+        "Noah Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": "2026-06-27T11:06:00.000-05:00",
+      "completeDate": null
+    },
+    {
       "id": "38cc5749485980a6be93ffa6a5fa6e8a",
       "type": "task",
       "name": "Complete 3 qtr goal process from freedom accelerator and integrate into our existing system",
@@ -867,7 +877,7 @@
       "id": "38bc5749485980b0be62fa4e76499c06",
       "type": "task",
       "name": "Pay Absolute Extermination $1300",
-      "status": "Current Sprint (this week)",
+      "status": "In progress (WIP)",
       "pillarIds": [
         "fa5c3f6312394f09b07566f455dac82d"
       ],
@@ -879,7 +889,7 @@
         "Patricia Eubanks"
       ],
       "velocity": 0,
-      "startDate": null,
+      "startDate": "2026-06-27T10:56:00.000-05:00",
       "completeDate": null
     },
     {
@@ -917,23 +927,6 @@
       "completeDate": null
     },
     {
-      "id": "38ac5749485980f8a1a0f5b743e19dcd",
-      "type": "task",
-      "name": "Mail off old phones",
-      "status": "In progress (WIP)",
-      "pillarIds": [],
-      "domain": "Personal Admin",
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Patricia Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-06-25T05:33:00.000-05:00",
-      "completeDate": null
-    },
-    {
       "id": "388c57494859807a80dafa7e763b17b3",
       "type": "task",
       "name": "legal contacts for real estate deals , especially seller finance ",
@@ -965,23 +958,6 @@
       ],
       "velocity": 0,
       "startDate": null,
-      "completeDate": null
-    },
-    {
-      "id": "384c574948598079831bcf2be683ea72",
-      "type": "task",
-      "name": "Send phones in",
-      "status": "In progress (WIP)",
-      "pillarIds": [],
-      "domain": "Personal Admin",
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Patricia Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-06-19T09:42:00.000-05:00",
       "completeDate": null
     },
     {
@@ -1317,7 +1293,7 @@
       "id": "362c57494859805887a6f4693b53043e",
       "type": "task",
       "name": "Move sheep and goats to 3rd area to eat thistles",
-      "status": "In progress (WIP)",
+      "status": "Current Sprint (this week)",
       "pillarIds": [],
       "domain": "Ranch",
       "hours": null,
@@ -1593,6 +1569,23 @@
       "completeDate": null
     },
     {
+      "id": "38ac5749485980f8a1a0f5b743e19dcd",
+      "type": "task",
+      "name": "Mail off old phones",
+      "status": "Done",
+      "pillarIds": [],
+      "domain": "Personal Admin",
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Patricia Eubanks"
+      ],
+      "velocity": 2.208333333333,
+      "startDate": "2026-06-25T05:33:00.000-05:00",
+      "completeDate": "2026-06-27T10:56:00.000-05:00"
+    },
+    {
       "id": "388c5749485980d0ada1f040fe8aad19",
       "type": "task",
       "name": "Message Kendrick property manager ",
@@ -1646,6 +1639,23 @@
       "velocity": 3.083333333333,
       "startDate": "2026-06-20T14:25:00.000-05:00",
       "completeDate": "2026-06-23T16:39:00.000-05:00"
+    },
+    {
+      "id": "384c574948598079831bcf2be683ea72",
+      "type": "task",
+      "name": "Send phones in",
+      "status": "Done",
+      "pillarIds": [],
+      "domain": "Personal Admin",
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Patricia Eubanks"
+      ],
+      "velocity": 8.041666666667,
+      "startDate": "2026-06-19T09:42:00.000-05:00",
+      "completeDate": "2026-06-27T10:56:00.000-05:00"
     },
     {
       "id": "382c574948598007a015c6b1a6e1ddf9",
@@ -3308,40 +3318,6 @@
       "velocity": 0,
       "startDate": null,
       "completeDate": "2026-05-30T09:39:00.000-05:00"
-    },
-    {
-      "id": "35fc57494859801bb76cc916b231556a",
-      "type": "task",
-      "name": "Order VOC testing device ",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": "RAE",
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 1.333333333333,
-      "startDate": "2026-05-13T09:14:00.000-05:00",
-      "completeDate": "2026-05-14T18:03:00.000-05:00"
-    },
-    {
-      "id": "35fc57494859801eac69cb2cdeb8fc60",
-      "type": "task",
-      "name": "Create Claude system for automatically detecting Material cert sheet property value outliers ",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": "RAE",
-      "hours": 6,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 2.041666666667,
-      "startDate": "2026-05-13T00:29:00.000-05:00",
-      "completeDate": "2026-05-15T02:27:00.000-05:00"
     }
   ],
   "habitData": {
