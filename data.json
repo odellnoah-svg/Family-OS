@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-27T09:32:51.868Z",
+  "generated": "2026-06-27T15:55:50.404Z",
   "meta": {
     "currentQuarter": "Q2",
     "currentYear": "2026",
@@ -413,6 +413,16 @@
   "projects": [],
   "tasks": [
     {
+      "id": "38cc5749485980a6be93ffa6a5fa6e8a",
+      "type": "task",
+      "name": "Complete 3 qtr goal process from freedom accelerator and integrate into our existing system",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": "Personal Admin",
+      "hours": 1,
+      "projectIds": []
+    },
+    {
       "id": "38bc5749485980b0be62fa4e76499c06",
       "type": "task",
       "name": "Pay Absolute Extermination $1300",
@@ -543,16 +553,6 @@
       "projectIds": []
     },
     {
-      "id": "37dc5749485980c4ad5aedd3cb47e7ed",
-      "type": "task",
-      "name": "Respond to Ron regarding test tank",
-      "status": "Current Sprint (this week)",
-      "pillar": null,
-      "domain": "RAE",
-      "hours": null,
-      "projectIds": []
-    },
-    {
       "id": "37dc57494859808c81c8c2365bcd013b",
       "type": "task",
       "name": "Revise AI agent for task prioritization ",
@@ -583,16 +583,6 @@
       "projectIds": []
     },
     {
-      "id": "373c5749485980e68a16fa00e0e43209",
-      "type": "task",
-      "name": "Order water test kit ",
-      "status": "Current Sprint (this week)",
-      "pillar": null,
-      "domain": "RAE",
-      "hours": null,
-      "projectIds": []
-    },
-    {
       "id": "370c5749485980dbb48cd280b9f8b8ae",
       "type": "task",
       "name": "Rental repairs",
@@ -613,32 +603,12 @@
       "projectIds": []
     },
     {
-      "id": "370c5749485980738cffca310dd0e182",
-      "type": "task",
-      "name": "Advertise PCC bulls for sale ",
-      "status": "Current Sprint (this week)",
-      "pillar": null,
-      "domain": "Ranch",
-      "hours": 2,
-      "projectIds": []
-    },
-    {
       "id": "370c5749485980bd860ef9479c172f1f",
       "type": "task",
       "name": "Order Goat/Sheep Collars ",
       "status": "Current Sprint (this week)",
       "pillar": null,
       "domain": "Ranch",
-      "hours": 2,
-      "projectIds": []
-    },
-    {
-      "id": "370c57494859807c866fd89712b8a17b",
-      "type": "task",
-      "name": "tig torch rigs",
-      "status": "Current Sprint (this week)",
-      "pillar": null,
-      "domain": "RAE",
       "hours": 2,
       "projectIds": []
     },
@@ -875,6 +845,25 @@
   ],
   "wipTasks": [
     {
+      "id": "38cc5749485980a6be93ffa6a5fa6e8a",
+      "type": "task",
+      "name": "Complete 3 qtr goal process from freedom accelerator and integrate into our existing system",
+      "status": "In progress (WIP)",
+      "pillarIds": [
+        "76181932d64d40de88929de677bdf7c2"
+      ],
+      "domain": "Personal Admin",
+      "hours": 1,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": "2026-06-27T09:56:00.000-05:00",
+      "completeDate": null
+    },
+    {
       "id": "38bc5749485980b0be62fa4e76499c06",
       "type": "task",
       "name": "Pay Absolute Extermination $1300",
@@ -1102,23 +1091,6 @@
       "completeDate": null
     },
     {
-      "id": "37dc5749485980c4ad5aedd3cb47e7ed",
-      "type": "task",
-      "name": "Respond to Ron regarding test tank",
-      "status": "Current Sprint (this week)",
-      "pillarIds": [],
-      "domain": "RAE",
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-06-12T10:34:00.000-05:00",
-      "completeDate": null
-    },
-    {
       "id": "37dc57494859808c81c8c2365bcd013b",
       "type": "task",
       "name": "Revise AI agent for task prioritization ",
@@ -1170,23 +1142,6 @@
       "completeDate": null
     },
     {
-      "id": "373c5749485980e68a16fa00e0e43209",
-      "type": "task",
-      "name": "Order water test kit ",
-      "status": "Current Sprint (this week)",
-      "pillarIds": [],
-      "domain": "RAE",
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-06-02T09:08:00.000-05:00",
-      "completeDate": null
-    },
-    {
       "id": "370c5749485980dbb48cd280b9f8b8ae",
       "type": "task",
       "name": "Rental repairs",
@@ -1222,23 +1177,6 @@
       "completeDate": null
     },
     {
-      "id": "370c5749485980738cffca310dd0e182",
-      "type": "task",
-      "name": "Advertise PCC bulls for sale ",
-      "status": "Current Sprint (this week)",
-      "pillarIds": [],
-      "domain": "Ranch",
-      "hours": 2,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-05-30T10:59:00.000-05:00",
-      "completeDate": null
-    },
-    {
       "id": "370c5749485980bd860ef9479c172f1f",
       "type": "task",
       "name": "Order Goat/Sheep Collars ",
@@ -1253,23 +1191,6 @@
       ],
       "velocity": 0,
       "startDate": "2026-05-30T10:57:00.000-05:00",
-      "completeDate": null
-    },
-    {
-      "id": "370c57494859807c866fd89712b8a17b",
-      "type": "task",
-      "name": "tig torch rigs",
-      "status": "Current Sprint (this week)",
-      "pillarIds": [],
-      "domain": "RAE",
-      "hours": 2,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-06-13T10:52:00.000-05:00",
       "completeDate": null
     },
     {
@@ -1989,6 +1910,23 @@
       "completeDate": "2026-06-15T23:37:00.000-05:00"
     },
     {
+      "id": "37dc5749485980c4ad5aedd3cb47e7ed",
+      "type": "task",
+      "name": "Respond to Ron regarding test tank",
+      "status": "Done",
+      "pillarIds": [],
+      "domain": "RAE",
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 14.958333333333,
+      "startDate": "2026-06-12T10:34:00.000-05:00",
+      "completeDate": "2026-06-27T09:55:00.000-05:00"
+    },
+    {
       "id": "37dc5749485980a6ab9dc6557530691e",
       "type": "task",
       "name": "Finish RFP spreadsheet ",
@@ -2452,6 +2390,23 @@
       "completeDate": "2026-06-03T10:39:00.000-05:00"
     },
     {
+      "id": "373c5749485980e68a16fa00e0e43209",
+      "type": "task",
+      "name": "Order water test kit ",
+      "status": "Done",
+      "pillarIds": [],
+      "domain": "RAE",
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 25,
+      "startDate": "2026-06-02T09:08:00.000-05:00",
+      "completeDate": "2026-06-27T09:55:00.000-05:00"
+    },
+    {
       "id": "373c5749485980fe96c8ef49ff13f958",
       "type": "task",
       "name": "Refill vitamins",
@@ -2606,6 +2561,40 @@
       "velocity": 2.208333333333,
       "startDate": "2026-05-30T15:39:00.000-05:00",
       "completeDate": "2026-06-01T20:49:00.000-05:00"
+    },
+    {
+      "id": "370c5749485980738cffca310dd0e182",
+      "type": "task",
+      "name": "Advertise PCC bulls for sale ",
+      "status": "Done",
+      "pillarIds": [],
+      "domain": "Ranch",
+      "hours": 2,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 27.916666666667,
+      "startDate": "2026-05-30T10:59:00.000-05:00",
+      "completeDate": "2026-06-27T09:56:00.000-05:00"
+    },
+    {
+      "id": "370c57494859807c866fd89712b8a17b",
+      "type": "task",
+      "name": "tig torch rigs",
+      "status": "Done",
+      "pillarIds": [],
+      "domain": "RAE",
+      "hours": 2,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 13.958333333333,
+      "startDate": "2026-06-13T10:52:00.000-05:00",
+      "completeDate": "2026-06-27T10:45:00.000-05:00"
     },
     {
       "id": "36ec5749485980f390c3e9813cb1eb22",
@@ -3353,74 +3342,6 @@
       "velocity": 2.041666666667,
       "startDate": "2026-05-13T00:29:00.000-05:00",
       "completeDate": "2026-05-15T02:27:00.000-05:00"
-    },
-    {
-      "id": "35fc5749485980339b1df60192a6d1d7",
-      "type": "task",
-      "name": "Order shaded brazing glasses for audit",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": "RAE",
-      "hours": 2,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 1.708333333333,
-      "startDate": "2026-05-12T23:48:00.000-05:00",
-      "completeDate": "2026-05-14T17:17:00.000-05:00"
-    },
-    {
-      "id": "35ec57494859805d910bcc9179ab8979",
-      "type": "task",
-      "name": "Create meetings database ",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": "Personal Admin",
-      "hours": 2,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 0.5,
-      "startDate": "2026-05-13T11:17:00.000-05:00",
-      "completeDate": "2026-05-13T23:36:00.000-05:00"
-    },
-    {
-      "id": "35ec574948598032bd16d282bfee2333",
-      "type": "task",
-      "name": "Transfer fidelity card transactions to correct card",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": "Personal Admin",
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Patricia Eubanks"
-      ],
-      "velocity": 2.291666666667,
-      "startDate": "2026-05-12T11:08:00.000-05:00",
-      "completeDate": "2026-05-14T18:45:00.000-05:00"
-    },
-    {
-      "id": "35ec574948598076a173e34903b277f3",
-      "type": "task",
-      "name": "Pest control for all units",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": "Real Estate",
-      "hours": 4,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Patricia Eubanks"
-      ],
-      "velocity": 7,
-      "startDate": "2026-05-17T09:47:00.000-05:00",
-      "completeDate": "2026-05-24T10:00:00.000-05:00"
     }
   ],
   "habitData": {
