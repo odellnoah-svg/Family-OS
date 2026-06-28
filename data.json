@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-28T16:41:22.861Z",
+  "generated": "2026-06-28T23:48:36.169Z",
   "meta": {
     "currentQuarter": "Q2",
     "currentYear": "2026",
@@ -413,6 +413,36 @@
   "projects": [],
   "tasks": [
     {
+      "id": "38dc57494859809a99bcd74fe1419ffd",
+      "type": "task",
+      "name": "Install water filter at faucet",
+      "status": "Current Sprint (this week)",
+      "pillar": null,
+      "domain": "Baby Girl",
+      "hours": null,
+      "projectIds": []
+    },
+    {
+      "id": "38dc57494859801492c1db05b991c199",
+      "type": "task",
+      "name": "Install new water filtration on sink ",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": "Health",
+      "hours": 4,
+      "projectIds": []
+    },
+    {
+      "id": "38dc5749485980eebfd1cc835844aa5b",
+      "type": "task",
+      "name": "Plan meal prep day",
+      "status": "Current Sprint (this week)",
+      "pillar": null,
+      "domain": "Baby Girl",
+      "hours": null,
+      "projectIds": []
+    },
+    {
       "id": "38cc574948598031a448c7d62e0b189c",
       "type": "task",
       "name": "move cow and calves out of back hay pen",
@@ -469,16 +499,6 @@
       "status": "In progress (WIP)",
       "pillar": null,
       "domain": null,
-      "hours": null,
-      "projectIds": []
-    },
-    {
-      "id": "385c5749485980f6839ecd2aad40bb9c",
-      "type": "task",
-      "name": "make appointment with Dr Boyles - Freedom Pediatrics",
-      "status": "Current Sprint (this week)",
-      "pillar": null,
-      "domain": "Owen",
       "hours": null,
       "projectIds": []
     },
@@ -746,7 +766,7 @@
       "id": "35bc5749485980f4a850fdbcdd01132c",
       "type": "task",
       "name": "A progress tracking system for owen… milestones.. or something.. Pyramid?",
-      "status": "Current Sprint (this week)",
+      "status": "In progress (WIP)",
       "pillar": null,
       "domain": "Owen",
       "hours": 8,
@@ -834,6 +854,65 @@
     }
   ],
   "wipTasks": [
+    {
+      "id": "38dc57494859809a99bcd74fe1419ffd",
+      "type": "task",
+      "name": "Install water filter at faucet",
+      "status": "Current Sprint (this week)",
+      "pillarIds": [
+        "62f10d5c983944388542d9b1db866b1a"
+      ],
+      "domain": "Baby Girl",
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [
+        "377c574948598198a9f0e04219c83b50"
+      ],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": null,
+      "completeDate": null
+    },
+    {
+      "id": "38dc57494859801492c1db05b991c199",
+      "type": "task",
+      "name": "Install new water filtration on sink ",
+      "status": "In progress (WIP)",
+      "pillarIds": [
+        "2fb60975ef4e4b0fbd56793fba264939"
+      ],
+      "domain": "Health",
+      "hours": 4,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": "2026-06-28T14:22:00.000-05:00",
+      "completeDate": null
+    },
+    {
+      "id": "38dc5749485980eebfd1cc835844aa5b",
+      "type": "task",
+      "name": "Plan meal prep day",
+      "status": "Current Sprint (this week)",
+      "pillarIds": [],
+      "domain": "Baby Girl",
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [
+        "377c574948598198a9f0e04219c83b50"
+      ],
+      "person": [
+        "Patricia Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": null,
+      "completeDate": null
+    },
     {
       "id": "38cc574948598031a448c7d62e0b189c",
       "type": "task",
@@ -941,23 +1020,6 @@
       ],
       "velocity": 0,
       "startDate": "2026-06-23T18:51:00.000-05:00",
-      "completeDate": null
-    },
-    {
-      "id": "385c5749485980f6839ecd2aad40bb9c",
-      "type": "task",
-      "name": "make appointment with Dr Boyles - Freedom Pediatrics",
-      "status": "Current Sprint (this week)",
-      "pillarIds": [],
-      "domain": "Owen",
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Patricia Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": null,
       "completeDate": null
     },
     {
@@ -1412,7 +1474,7 @@
       "id": "35bc5749485980f4a850fdbcdd01132c",
       "type": "task",
       "name": "A progress tracking system for owen… milestones.. or something.. Pyramid?",
-      "status": "Current Sprint (this week)",
+      "status": "In progress (WIP)",
       "pillarIds": [
         "62f10d5c983944388542d9b1db866b1a"
       ],
@@ -1426,7 +1488,7 @@
         "Patricia Eubanks"
       ],
       "velocity": 0,
-      "startDate": null,
+      "startDate": "2026-06-28T14:02:00.000-05:00",
       "completeDate": null
     },
     {
