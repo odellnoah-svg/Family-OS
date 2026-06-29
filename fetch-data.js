@@ -218,19 +218,19 @@ function parseHabitEntry(p) {
 
 // ── Noah habit display order (matches Notion template sequence) ──────
 const NOAH_HABIT_ORDER = [
-  '5am wake',
-  'Vitamins/supplements',
-  '1/2 gallon water',
-  'No caffeine',
-  'Move!',
-  'Review today's top 3 (what am i doing today)',
-  'Learn (read/listen)',
-  'Play with Owen',
-  'Food recorded (with no unplanned indulgences)',
-  'Review 3 wins from today (stay in the gain)',
-  'Create top 3 priorities for tomorrow',
-  'Gratitude/prayer',
-  'No phone in bed',
+  "5am wake",
+  "Vitamins/supplements",
+  "1/2 gallon water",
+  "No caffeine",
+  "Move!",
+  "Review today's top 3 (what am i doing today)",
+  "Learn (read/listen)",
+  "Play with Owen",
+  "Food recorded (with no unplanned indulgences)",
+  "Review 3 wins from today (stay in the gain)",
+  "Create top 3 priorities for tomorrow",
+  "Gratitude/prayer",
+  "No phone in bed",
 ]
 
 // ── Habit entry builder — new structure (one row per habit per day) ──
