@@ -216,8 +216,25 @@ function parseHabitEntry(p) {
   return { date, habits, completed, possible, pct: possible > 0 ? Math.round(completed / possible * 100) : 0 }
 }
 
+// ── Noah habit display order (matches Notion template sequence) ──────
+const NOAH_HABIT_ORDER = [
+  '5am wake',
+  'Vitamins/supplements',
+  '1/2 gallon water',
+  'No caffeine',
+  'Move!',
+  'Review today's top 3 (what am i doing today)',
+  'Learn (read/listen)',
+  'Play with Owen',
+  'Food recorded (with no unplanned indulgences)',
+  'Review 3 wins from today (stay in the gain)',
+  'Create top 3 priorities for tomorrow',
+  'Gratitude/prayer',
+  'No phone in bed',
+]
+
 // ── Habit entry builder — new structure (one row per habit per day) ──
-function buildHabitEntries(rows) {
+function buildHabitEntries(rows, orderedFields = null) {
   const byDate = {}
   for (const p of rows) {
     const date = p.properties['Date']?.date?.start || null
@@ -230,7 +247,9 @@ function buildHabitEntries(rows) {
   }
   const allFields = new Set()
   Object.values(byDate).forEach(h => Object.keys(h).forEach(k => allFields.add(k)))
-  const fields = [...allFields].sort()
+  const fields = orderedFields
+    ? orderedFields.filter(f => allFields.has(f)).concat([...allFields].filter(f => !orderedFields.includes(f)).sort())
+    : [...allFields].sort()
   const entries = Object.entries(byDate).map(([date, habits]) => {
     const completed = Object.values(habits).filter(v => v).length
     const possible = Object.keys(habits).length
@@ -302,7 +321,7 @@ async function main() {
     filter: { property: 'Date', date: { on_or_after: habitThirtyAgo } },
     sorts: [{ property: 'Date', direction: 'ascending' }]
   })
-  const { fields: noahFields, entries: noahHabitRaw } = buildHabitEntries(noahHabitRows)
+  const { fields: noahFields, entries: noahHabitRaw } = buildHabitEntries(noahHabitRows, NOAH_HABIT_ORDER)
   console.log(`    ✓ ${noahHabitRaw.length} days · ${noahFields.length} habits`)
 
   console.log('  Fetching Tricia habit data...')
