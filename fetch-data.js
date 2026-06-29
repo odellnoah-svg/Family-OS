@@ -26,7 +26,7 @@ const DBS = {
 
 // ── Habit Tracker Database IDs ───────────────────────────────
 const HABIT_DBS = {
-  noah:   '362c574948598029b2e6ffdbcde0fc66',
+  noah:   '38ec574948598058b3b8c5b60651d0d7',
   tricia: '7dc5acf6912142b3a433ac47ab61e29b',
 }
 
@@ -216,6 +216,29 @@ function parseHabitEntry(p) {
   return { date, habits, completed, possible, pct: possible > 0 ? Math.round(completed / possible * 100) : 0 }
 }
 
+// ── Habit entry builder — new structure (one row per habit per day) ──
+function buildHabitEntries(rows) {
+  const byDate = {}
+  for (const p of rows) {
+    const date = p.properties['Date']?.date?.start || null
+    if (!date) continue
+    const name = p.properties['Name']?.title?.[0]?.plain_text?.trim() || null
+    if (!name) continue
+    const checked = p.properties['Checkbox']?.checkbox ?? false
+    if (!byDate[date]) byDate[date] = {}
+    byDate[date][name] = checked
+  }
+  const allFields = new Set()
+  Object.values(byDate).forEach(h => Object.keys(h).forEach(k => allFields.add(k)))
+  const fields = [...allFields].sort()
+  const entries = Object.entries(byDate).map(([date, habits]) => {
+    const completed = Object.values(habits).filter(v => v).length
+    const possible = Object.keys(habits).length
+    return { date, habits, completed, possible, pct: possible > 0 ? Math.round(completed / possible * 100) : 0 }
+  }).sort((a, b) => a.date.localeCompare(b.date))
+  return { fields, entries }
+}
+
 // ── Main ──────────────────────────────────────────────────────
 async function main() {
   console.log('Eubanks Family OS — Notion sync starting')
@@ -274,12 +297,13 @@ async function main() {
 
   // Habit tracker data (last 30 days)
   const habitThirtyAgo = new Date(Date.now() - 62*24*60*60*1000).toISOString().split('T')[0]
-  console.log('  Fetching Noah habit data...')
-  const noahHabitRaw = (await queryAll(HABIT_DBS.noah, {
+  console.log('  Fetching Noah habit data (new structure)...')
+  const noahHabitRows = await queryAll(HABIT_DBS.noah, {
     filter: { property: 'Date', date: { on_or_after: habitThirtyAgo } },
     sorts: [{ property: 'Date', direction: 'ascending' }]
-  })).map(parseHabitEntry).filter(e => e.date)
-  console.log(`    ✓ ${noahHabitRaw.length} entries`)
+  })
+  const { fields: noahFields, entries: noahHabitRaw } = buildHabitEntries(noahHabitRows)
+  console.log(`    ✓ ${noahHabitRaw.length} days · ${noahFields.length} habits`)
 
   console.log('  Fetching Tricia habit data...')
   const triciaHabitRaw = (await queryAll(HABIT_DBS.tricia, {
@@ -288,7 +312,7 @@ async function main() {
   })).map(parseHabitEntry).filter(e => e.date)
   console.log(`    ✓ ${triciaHabitRaw.length} entries`)
 
-  const noahFields  = noahHabitRaw.length  > 0 ? Object.keys(noahHabitRaw[0].habits).sort()  : []
+  // noahFields already set by buildHabitEntries above
   const triciaFields = triciaHabitRaw.length > 0 ? Object.keys(triciaHabitRaw[0].habits).sort() : []
   const habitData = {
     noah:   { fields: noahFields,   entries: noahHabitRaw  },
