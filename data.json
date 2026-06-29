@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-29T14:51:13.564Z",
+  "generated": "2026-06-29T21:13:58.796Z",
   "meta": {
     "currentQuarter": "Q2",
     "currentYear": "2026",
@@ -413,6 +413,76 @@
   "projects": [],
   "tasks": [
     {
+      "id": "38ec57494859809fbd00f17cb6584858",
+      "type": "task",
+      "name": "Upgrade habit tracker",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": "Personal Admin",
+      "hours": 3,
+      "projectIds": []
+    },
+    {
+      "id": "38ec57494859807dabebea2067eed223",
+      "type": "task",
+      "name": "Automated emails for torch tracker ",
+      "status": "Current Sprint (this week)",
+      "pillar": null,
+      "domain": "RAE",
+      "hours": 2,
+      "projectIds": []
+    },
+    {
+      "id": "38ec5749485980eb9846d4cae096e392",
+      "type": "task",
+      "name": "Full implementation of WIP Dashboard/Incentives",
+      "status": "Current Sprint (this week)",
+      "pillar": null,
+      "domain": "RAE",
+      "hours": 120,
+      "projectIds": []
+    },
+    {
+      "id": "38ec57494859804c96ece0e5f31ecc31",
+      "type": "task",
+      "name": "(Untitled)",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": "RAE",
+      "hours": null,
+      "projectIds": []
+    },
+    {
+      "id": "38ec574948598060aef1c25ffc2ae70f",
+      "type": "task",
+      "name": "Root Cause Analysis- falling coils",
+      "status": "Current Sprint (this week)",
+      "pillar": null,
+      "domain": "RAE",
+      "hours": 3,
+      "projectIds": []
+    },
+    {
+      "id": "38ec5749485980ba9853c3e3d02506b4",
+      "type": "task",
+      "name": "Test Tank Updates in Teams ",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": "RAE",
+      "hours": 1,
+      "projectIds": []
+    },
+    {
+      "id": "38ec5749485980379cd9e9214b35ddc8",
+      "type": "task",
+      "name": "VOC email ",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": "RAE",
+      "hours": 1,
+      "projectIds": []
+    },
+    {
       "id": "38dc57494859809a99bcd74fe1419ffd",
       "type": "task",
       "name": "Install water filter at faucet",
@@ -656,7 +726,7 @@
       "id": "366c57494859808db073cf30173283c2",
       "type": "task",
       "name": "Layout for Tietz ",
-      "status": "Current Sprint (this week)",
+      "status": "In progress (WIP)",
       "pillar": null,
       "domain": "RAE",
       "hours": 3,
@@ -854,6 +924,125 @@
     }
   ],
   "wipTasks": [
+    {
+      "id": "38ec57494859809fbd00f17cb6584858",
+      "type": "task",
+      "name": "Upgrade habit tracker",
+      "status": "In progress (WIP)",
+      "pillarIds": [
+        "2fb60975ef4e4b0fbd56793fba264939"
+      ],
+      "domain": "Personal Admin",
+      "hours": 3,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": "2026-06-29T11:13:00.000-05:00",
+      "completeDate": null
+    },
+    {
+      "id": "38ec57494859807dabebea2067eed223",
+      "type": "task",
+      "name": "Automated emails for torch tracker ",
+      "status": "Current Sprint (this week)",
+      "pillarIds": [],
+      "domain": "RAE",
+      "hours": 2,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": null,
+      "completeDate": null
+    },
+    {
+      "id": "38ec5749485980eb9846d4cae096e392",
+      "type": "task",
+      "name": "Full implementation of WIP Dashboard/Incentives",
+      "status": "Current Sprint (this week)",
+      "pillarIds": [],
+      "domain": "RAE",
+      "hours": 120,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": null,
+      "completeDate": null
+    },
+    {
+      "id": "38ec57494859804c96ece0e5f31ecc31",
+      "type": "task",
+      "name": "(Untitled)",
+      "status": "In progress (WIP)",
+      "pillarIds": [],
+      "domain": "RAE",
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [],
+      "velocity": 0,
+      "startDate": "2026-06-29T11:03:00.000-05:00",
+      "completeDate": null
+    },
+    {
+      "id": "38ec574948598060aef1c25ffc2ae70f",
+      "type": "task",
+      "name": "Root Cause Analysis- falling coils",
+      "status": "Current Sprint (this week)",
+      "pillarIds": [],
+      "domain": "RAE",
+      "hours": 3,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": "2026-06-29T10:59:00.000-05:00",
+      "completeDate": null
+    },
+    {
+      "id": "38ec5749485980ba9853c3e3d02506b4",
+      "type": "task",
+      "name": "Test Tank Updates in Teams ",
+      "status": "In progress (WIP)",
+      "pillarIds": [],
+      "domain": "RAE",
+      "hours": 1,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": "2026-06-29T10:57:00.000-05:00",
+      "completeDate": null
+    },
+    {
+      "id": "38ec5749485980379cd9e9214b35ddc8",
+      "type": "task",
+      "name": "VOC email ",
+      "status": "In progress (WIP)",
+      "pillarIds": [],
+      "domain": "RAE",
+      "hours": 1,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": "2026-06-29T10:57:00.000-05:00",
+      "completeDate": null
+    },
     {
       "id": "38dc57494859809a99bcd74fe1419ffd",
       "type": "task",
@@ -1286,7 +1475,7 @@
       "id": "366c57494859808db073cf30173283c2",
       "type": "task",
       "name": "Layout for Tietz ",
-      "status": "Current Sprint (this week)",
+      "status": "In progress (WIP)",
       "pillarIds": [],
       "domain": "RAE",
       "hours": 3,
@@ -1296,7 +1485,7 @@
         "Noah Eubanks"
       ],
       "velocity": 0,
-      "startDate": "2026-05-20T18:33:00.000-05:00",
+      "startDate": "2026-06-29T10:58:00.000-05:00",
       "completeDate": null
     },
     {
