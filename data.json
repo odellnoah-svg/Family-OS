@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-29T22:30:32.795Z",
+  "generated": "2026-06-30T11:29:35.800Z",
   "meta": {
     "currentQuarter": "Q2",
     "currentYear": "2026",
@@ -413,13 +413,33 @@
   "projects": [],
   "tasks": [
     {
-      "id": "38ec57494859809fbd00f17cb6584858",
+      "id": "38fc5749485980809630eb0f52c1db68",
       "type": "task",
-      "name": "Upgrade habit tracker",
-      "status": "In progress (WIP)",
+      "name": "(Untitled)",
+      "status": "Current Sprint (this week)",
       "pillar": null,
-      "domain": "Personal Admin",
-      "hours": 3,
+      "domain": null,
+      "hours": null,
+      "projectIds": []
+    },
+    {
+      "id": "38fc57494859806b8dd0d9b31d605b53",
+      "type": "task",
+      "name": "Create a complete health metrics page in the dashboard based on cronometer/apple-health CSV in Google Drive",
+      "status": "Current Sprint (this week)",
+      "pillar": null,
+      "domain": "Health",
+      "hours": 2,
+      "projectIds": []
+    },
+    {
+      "id": "38fc5749485980e08233c63d2b2ec2b6",
+      "type": "task",
+      "name": "Create spreadsheet for ordering test tank materials",
+      "status": "Current Sprint (this week)",
+      "pillar": null,
+      "domain": "RAE",
+      "hours": 1.5,
       "projectIds": []
     },
     {
@@ -456,7 +476,7 @@
       "id": "38ec574948598060aef1c25ffc2ae70f",
       "type": "task",
       "name": "Root Cause Analysis- falling coils",
-      "status": "Current Sprint (this week)",
+      "status": "In progress (WIP)",
       "pillar": null,
       "domain": "RAE",
       "hours": 3,
@@ -483,20 +503,10 @@
       "projectIds": []
     },
     {
-      "id": "38dc57494859809a99bcd74fe1419ffd",
-      "type": "task",
-      "name": "Install water filter at faucet",
-      "status": "Current Sprint (this week)",
-      "pillar": null,
-      "domain": "Baby Girl",
-      "hours": null,
-      "projectIds": []
-    },
-    {
       "id": "38dc57494859801492c1db05b991c199",
       "type": "task",
       "name": "Install new water filtration on sink ",
-      "status": "In progress (WIP)",
+      "status": "Current Sprint (this week)",
       "pillar": null,
       "domain": "Health",
       "hours": 4,
@@ -516,7 +526,7 @@
       "id": "38cc574948598031a448c7d62e0b189c",
       "type": "task",
       "name": "move cow and calves out of back hay pen",
-      "status": "In progress (WIP)",
+      "status": "Current Sprint (this week)",
       "pillar": null,
       "domain": "Ranch",
       "hours": null,
@@ -526,7 +536,7 @@
       "id": "38cc5749485980a6be93ffa6a5fa6e8a",
       "type": "task",
       "name": "Complete 3 qtr goal process from freedom accelerator and integrate into our existing system",
-      "status": "In progress (WIP)",
+      "status": "Current Sprint (this week)",
       "pillar": null,
       "domain": "Personal Admin",
       "hours": 1,
@@ -565,7 +575,7 @@
     {
       "id": "388c57494859807a80dafa7e763b17b3",
       "type": "task",
-      "name": "legal contacts for real estate deals , especially seller finance ",
+      "name": "Look for legal contacts on freedom accelerator website",
       "status": "In progress (WIP)",
       "pillar": null,
       "domain": null,
@@ -586,27 +596,17 @@
       "id": "381c57494859808987adc619c982dbdd",
       "type": "task",
       "name": "Revise high level flow diagram .. include grazing chart (forage projections—- lbs of forage,,, cow days, etc) and how to flows into Ranch Profit Planner… maybe a separate forage inventory tracker later",
-      "status": "In progress (WIP)",
+      "status": "Current Sprint (this week)",
       "pillar": null,
       "domain": null,
       "hours": null,
       "projectIds": []
     },
     {
-      "id": "380c5749485980d1aaa1e0271cc4cbb8",
-      "type": "task",
-      "name": "Deworm heifers and turn out the ones we’re keeping ",
-      "status": "Current Sprint (this week)",
-      "pillar": null,
-      "domain": "Ranch",
-      "hours": 2,
-      "projectIds": []
-    },
-    {
       "id": "37fc5749485980b8b2b8f240cf7ba649",
       "type": "task",
-      "name": "Create a complete financial metrics page for dashboard",
-      "status": "In progress (WIP)",
+      "name": "Create a complete financial metrics page for dashboard, based on files in google drive folder",
+      "status": "Current Sprint (this week)",
       "pillar": null,
       "domain": "Personal Admin",
       "hours": 2,
@@ -635,7 +635,7 @@
     {
       "id": "37dc57494859808c81c8c2365bcd013b",
       "type": "task",
-      "name": "Revise AI agent for task prioritization ",
+      "name": "Revise AI agent for suggested task prioritization ",
       "status": "Current Sprint (this week)",
       "pillar": null,
       "domain": null,
@@ -673,26 +673,6 @@
       "projectIds": []
     },
     {
-      "id": "370c5749485980cc9b7efad777ba513c",
-      "type": "task",
-      "name": "Print out daily tracker for tricia ",
-      "status": "Current Sprint (this week)",
-      "pillar": null,
-      "domain": "Health",
-      "hours": 1,
-      "projectIds": []
-    },
-    {
-      "id": "370c5749485980bd860ef9479c172f1f",
-      "type": "task",
-      "name": "Order Goat/Sheep Collars ",
-      "status": "Current Sprint (this week)",
-      "pillar": null,
-      "domain": "Ranch",
-      "hours": 2,
-      "projectIds": []
-    },
-    {
       "id": "368c5749485980abb760f105adf069eb",
       "type": "task",
       "name": "Add books/resources into Owen’s google drive folder — AI reference for guidance ",
@@ -713,19 +693,9 @@
       "projectIds": []
     },
     {
-      "id": "368c57494859801b9c89d945888bce44",
-      "type": "task",
-      "name": "cabin fence boards repaired",
-      "status": "Current Sprint (this week)",
-      "pillar": null,
-      "domain": "Ranch",
-      "hours": 2,
-      "projectIds": []
-    },
-    {
       "id": "366c57494859808db073cf30173283c2",
       "type": "task",
-      "name": "Layout for Tietz ",
+      "name": "Layout for Tietz & shared",
       "status": "In progress (WIP)",
       "pillar": null,
       "domain": "RAE",
@@ -773,16 +743,6 @@
       "projectIds": []
     },
     {
-      "id": "361c5749485980ff8ffae15d55c7cb62",
-      "type": "task",
-      "name": "document core processes ",
-      "status": "Current Sprint (this week)",
-      "pillar": null,
-      "domain": "Personal Admin",
-      "hours": 1,
-      "projectIds": []
-    },
-    {
       "id": "361c57494859802393f4cae7af7bfa27",
       "type": "task",
       "name": "Add key manually reported weekly/monthly/quarterly metrics to the meeting database (feeds scorecards and future reports) — see list in body ",
@@ -800,26 +760,6 @@
       "pillar": null,
       "domain": "Personal Admin",
       "hours": 8,
-      "projectIds": []
-    },
-    {
-      "id": "35dc57494859807c8a64c403fad2d317",
-      "type": "task",
-      "name": "Add personality tests to notion ",
-      "status": "Current Sprint (this week)",
-      "pillar": null,
-      "domain": "Personal Admin",
-      "hours": 1,
-      "projectIds": []
-    },
-    {
-      "id": "35cc57494859804289f5c4fdcf7fa93b",
-      "type": "task",
-      "name": "Create a mind map of the OS/workflow with AI integration ",
-      "status": "Current Sprint (this week)",
-      "pillar": null,
-      "domain": "Personal Admin",
-      "hours": 2,
       "projectIds": []
     },
     {
@@ -883,16 +823,6 @@
       "projectIds": []
     },
     {
-      "id": "33ec5749485980ad905ac079787cfed2",
-      "type": "task",
-      "name": "Requisition for SS tube bender ",
-      "status": "Current Sprint (this week)",
-      "pillar": null,
-      "domain": "RAE",
-      "hours": null,
-      "projectIds": []
-    },
-    {
       "id": "33dc574948598084bb5bf0d20e834782",
       "type": "task",
       "name": "Change health insurance after baby is born",
@@ -901,46 +831,63 @@
       "domain": "Personal Admin",
       "hours": 4,
       "projectIds": []
-    },
-    {
-      "id": "33ac57494859808d87d0c84a0101806b",
-      "type": "task",
-      "name": "Layout slab corners with string and paint ",
-      "status": "Current Sprint (this week)",
-      "pillar": null,
-      "domain": "Barndo",
-      "hours": 2,
-      "projectIds": []
-    },
-    {
-      "id": "33ac57494859802181c1e2701ee21897",
-      "type": "task",
-      "name": "Finalize drawings for barndo slab ",
-      "status": "Current Sprint (this week)",
-      "pillar": null,
-      "domain": "Barndo",
-      "hours": 8,
-      "projectIds": []
     }
   ],
   "wipTasks": [
     {
-      "id": "38ec57494859809fbd00f17cb6584858",
+      "id": "38fc5749485980809630eb0f52c1db68",
       "type": "task",
-      "name": "Upgrade habit tracker",
-      "status": "In progress (WIP)",
-      "pillarIds": [
-        "2fb60975ef4e4b0fbd56793fba264939"
-      ],
-      "domain": "Personal Admin",
-      "hours": 3,
+      "name": "(Untitled)",
+      "status": "Current Sprint (this week)",
+      "pillarIds": [],
+      "domain": null,
+      "hours": null,
       "projectIds": [],
       "rockIds": [],
       "person": [
         "Noah Eubanks"
       ],
       "velocity": 0,
-      "startDate": "2026-06-29T11:13:00.000-05:00",
+      "startDate": null,
+      "completeDate": null
+    },
+    {
+      "id": "38fc57494859806b8dd0d9b31d605b53",
+      "type": "task",
+      "name": "Create a complete health metrics page in the dashboard based on cronometer/apple-health CSV in Google Drive",
+      "status": "Current Sprint (this week)",
+      "pillarIds": [
+        "2fb60975ef4e4b0fbd56793fba264939",
+        "76181932d64d40de88929de677bdf7c2"
+      ],
+      "domain": "Health",
+      "hours": 2,
+      "projectIds": [],
+      "rockIds": [
+        "377c57494859811aa303e31aa2fa0c22"
+      ],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": null,
+      "completeDate": null
+    },
+    {
+      "id": "38fc5749485980e08233c63d2b2ec2b6",
+      "type": "task",
+      "name": "Create spreadsheet for ordering test tank materials",
+      "status": "Current Sprint (this week)",
+      "pillarIds": [],
+      "domain": "RAE",
+      "hours": 1.5,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": null,
       "completeDate": null
     },
     {
@@ -996,7 +943,7 @@
       "id": "38ec574948598060aef1c25ffc2ae70f",
       "type": "task",
       "name": "Root Cause Analysis- falling coils",
-      "status": "Current Sprint (this week)",
+      "status": "In progress (WIP)",
       "pillarIds": [],
       "domain": "RAE",
       "hours": 3,
@@ -1006,7 +953,7 @@
         "Noah Eubanks"
       ],
       "velocity": 0,
-      "startDate": "2026-06-29T10:59:00.000-05:00",
+      "startDate": "2026-06-29T21:40:00.000-05:00",
       "completeDate": null
     },
     {
@@ -1044,31 +991,10 @@
       "completeDate": null
     },
     {
-      "id": "38dc57494859809a99bcd74fe1419ffd",
-      "type": "task",
-      "name": "Install water filter at faucet",
-      "status": "Current Sprint (this week)",
-      "pillarIds": [
-        "62f10d5c983944388542d9b1db866b1a"
-      ],
-      "domain": "Baby Girl",
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [
-        "377c574948598198a9f0e04219c83b50"
-      ],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": null,
-      "completeDate": null
-    },
-    {
       "id": "38dc57494859801492c1db05b991c199",
       "type": "task",
       "name": "Install new water filtration on sink ",
-      "status": "In progress (WIP)",
+      "status": "Current Sprint (this week)",
       "pillarIds": [
         "2fb60975ef4e4b0fbd56793fba264939"
       ],
@@ -1106,7 +1032,7 @@
       "id": "38cc574948598031a448c7d62e0b189c",
       "type": "task",
       "name": "move cow and calves out of back hay pen",
-      "status": "In progress (WIP)",
+      "status": "Current Sprint (this week)",
       "pillarIds": [
         "683e3c08456247dea6168f9329c85470"
       ],
@@ -1126,7 +1052,7 @@
       "id": "38cc5749485980a6be93ffa6a5fa6e8a",
       "type": "task",
       "name": "Complete 3 qtr goal process from freedom accelerator and integrate into our existing system",
-      "status": "In progress (WIP)",
+      "status": "Current Sprint (this week)",
       "pillarIds": [
         "76181932d64d40de88929de677bdf7c2"
       ],
@@ -1197,7 +1123,7 @@
     {
       "id": "388c57494859807a80dafa7e763b17b3",
       "type": "task",
-      "name": "legal contacts for real estate deals , especially seller finance ",
+      "name": "Look for legal contacts on freedom accelerator website",
       "status": "In progress (WIP)",
       "pillarIds": [],
       "domain": null,
@@ -1232,7 +1158,7 @@
       "id": "381c57494859808987adc619c982dbdd",
       "type": "task",
       "name": "Revise high level flow diagram .. include grazing chart (forage projections—- lbs of forage,,, cow days, etc) and how to flows into Ranch Profit Planner… maybe a separate forage inventory tracker later",
-      "status": "In progress (WIP)",
+      "status": "Current Sprint (this week)",
       "pillarIds": [],
       "domain": null,
       "hours": null,
@@ -1246,29 +1172,10 @@
       "completeDate": null
     },
     {
-      "id": "380c5749485980d1aaa1e0271cc4cbb8",
-      "type": "task",
-      "name": "Deworm heifers and turn out the ones we’re keeping ",
-      "status": "Current Sprint (this week)",
-      "pillarIds": [
-        "fa5c3f6312394f09b07566f455dac82d"
-      ],
-      "domain": "Ranch",
-      "hours": 2,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": null,
-      "completeDate": null
-    },
-    {
       "id": "37fc5749485980b8b2b8f240cf7ba649",
       "type": "task",
-      "name": "Create a complete financial metrics page for dashboard",
-      "status": "In progress (WIP)",
+      "name": "Create a complete financial metrics page for dashboard, based on files in google drive folder",
+      "status": "Current Sprint (this week)",
       "pillarIds": [
         "fa5c3f6312394f09b07566f455dac82d"
       ],
@@ -1320,7 +1227,7 @@
     {
       "id": "37dc57494859808c81c8c2365bcd013b",
       "type": "task",
-      "name": "Revise AI agent for task prioritization ",
+      "name": "Revise AI agent for suggested task prioritization ",
       "status": "Current Sprint (this week)",
       "pillarIds": [],
       "domain": null,
@@ -1387,40 +1294,6 @@
       "completeDate": null
     },
     {
-      "id": "370c5749485980cc9b7efad777ba513c",
-      "type": "task",
-      "name": "Print out daily tracker for tricia ",
-      "status": "Current Sprint (this week)",
-      "pillarIds": [],
-      "domain": "Health",
-      "hours": 1,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-05-30T11:01:00.000-05:00",
-      "completeDate": null
-    },
-    {
-      "id": "370c5749485980bd860ef9479c172f1f",
-      "type": "task",
-      "name": "Order Goat/Sheep Collars ",
-      "status": "Current Sprint (this week)",
-      "pillarIds": [],
-      "domain": "Ranch",
-      "hours": 2,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-05-30T10:57:00.000-05:00",
-      "completeDate": null
-    },
-    {
       "id": "368c5749485980abb760f105adf069eb",
       "type": "task",
       "name": "Add books/resources into Owen’s google drive folder — AI reference for guidance ",
@@ -1455,26 +1328,9 @@
       "completeDate": null
     },
     {
-      "id": "368c57494859801b9c89d945888bce44",
-      "type": "task",
-      "name": "cabin fence boards repaired",
-      "status": "Current Sprint (this week)",
-      "pillarIds": [],
-      "domain": "Ranch",
-      "hours": 2,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-05-22T16:43:00.000-05:00",
-      "completeDate": null
-    },
-    {
       "id": "366c57494859808db073cf30173283c2",
       "type": "task",
-      "name": "Layout for Tietz ",
+      "name": "Layout for Tietz & shared",
       "status": "In progress (WIP)",
       "pillarIds": [],
       "domain": "RAE",
@@ -1516,7 +1372,6 @@
       "projectIds": [],
       "rockIds": [],
       "person": [
-        "Noah Eubanks",
         "Patricia Eubanks"
       ],
       "velocity": 0,
@@ -1558,23 +1413,6 @@
       "completeDate": null
     },
     {
-      "id": "361c5749485980ff8ffae15d55c7cb62",
-      "type": "task",
-      "name": "document core processes ",
-      "status": "Current Sprint (this week)",
-      "pillarIds": [],
-      "domain": "Personal Admin",
-      "hours": 1,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": null,
-      "completeDate": null
-    },
-    {
       "id": "361c57494859802393f4cae7af7bfa27",
       "type": "task",
       "name": "Add key manually reported weekly/monthly/quarterly metrics to the meeting database (feeds scorecards and future reports) — see list in body ",
@@ -1606,40 +1444,6 @@
       ],
       "velocity": 0,
       "startDate": "2026-06-13T10:53:00.000-05:00",
-      "completeDate": null
-    },
-    {
-      "id": "35dc57494859807c8a64c403fad2d317",
-      "type": "task",
-      "name": "Add personality tests to notion ",
-      "status": "Current Sprint (this week)",
-      "pillarIds": [],
-      "domain": "Personal Admin",
-      "hours": 1,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": null,
-      "completeDate": null
-    },
-    {
-      "id": "35cc57494859804289f5c4fdcf7fa93b",
-      "type": "task",
-      "name": "Create a mind map of the OS/workflow with AI integration ",
-      "status": "Current Sprint (this week)",
-      "pillarIds": [],
-      "domain": "Personal Admin",
-      "hours": 2,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": null,
       "completeDate": null
     },
     {
@@ -1750,23 +1554,6 @@
       "completeDate": null
     },
     {
-      "id": "33ec5749485980ad905ac079787cfed2",
-      "type": "task",
-      "name": "Requisition for SS tube bender ",
-      "status": "Current Sprint (this week)",
-      "pillarIds": [],
-      "domain": "RAE",
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": null,
-      "completeDate": null
-    },
-    {
       "id": "33dc574948598084bb5bf0d20e834782",
       "type": "task",
       "name": "Change health insurance after baby is born",
@@ -1784,40 +1571,23 @@
       "completeDate": null
     },
     {
-      "id": "33ac57494859808d87d0c84a0101806b",
+      "id": "38ec57494859809fbd00f17cb6584858",
       "type": "task",
-      "name": "Layout slab corners with string and paint ",
-      "status": "Current Sprint (this week)",
+      "name": "Upgrade habit tracker",
+      "status": "Done",
       "pillarIds": [
-        "683e3c08456247dea6168f9329c85470"
+        "2fb60975ef4e4b0fbd56793fba264939"
       ],
-      "domain": "Barndo",
-      "hours": 2,
+      "domain": "Personal Admin",
+      "hours": 3,
       "projectIds": [],
       "rockIds": [],
       "person": [
         "Noah Eubanks"
       ],
-      "velocity": 0,
-      "startDate": null,
-      "completeDate": null
-    },
-    {
-      "id": "33ac57494859802181c1e2701ee21897",
-      "type": "task",
-      "name": "Finalize drawings for barndo slab ",
-      "status": "Current Sprint (this week)",
-      "pillarIds": [],
-      "domain": "Barndo",
-      "hours": 8,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": null,
-      "completeDate": null
+      "velocity": 0.416666666667,
+      "startDate": "2026-06-29T11:13:00.000-05:00",
+      "completeDate": "2026-06-29T21:16:00.000-05:00"
     },
     {
       "id": "38ac5749485980f8a1a0f5b743e19dcd",
@@ -1943,6 +1713,25 @@
       "velocity": 0.875,
       "startDate": "2026-06-15T23:40:00.000-05:00",
       "completeDate": "2026-06-16T20:53:00.000-05:00"
+    },
+    {
+      "id": "380c5749485980d1aaa1e0271cc4cbb8",
+      "type": "task",
+      "name": "Deworm heifers and turn out the ones we’re keeping ",
+      "status": "Done",
+      "pillarIds": [
+        "fa5c3f6312394f09b07566f455dac82d"
+      ],
+      "domain": "Ranch",
+      "hours": 2,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": null,
+      "completeDate": "2026-06-29T21:39:00.000-05:00"
     },
     {
       "id": "380c5749485980a98857d6bee3a4a9bd",
@@ -3535,40 +3324,6 @@
       "velocity": 1.083333333333,
       "startDate": "2026-05-13T23:34:00.000-05:00",
       "completeDate": "2026-05-15T02:26:00.000-05:00"
-    },
-    {
-      "id": "35fc5749485980ed918af98a59bf54d6",
-      "type": "task",
-      "name": "Give Tricia Access to yahoo account to fix payment information for  netflix",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": "Personal Admin",
-      "hours": 0.25,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 1.625,
-      "startDate": "2026-05-13T10:47:00.000-05:00",
-      "completeDate": "2026-05-15T01:53:00.000-05:00"
-    },
-    {
-      "id": "35fc57494859807287d5e78d93771df0",
-      "type": "task",
-      "name": "More miller welders ",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": "RAE",
-      "hours": 2,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": null,
-      "completeDate": "2026-05-30T09:39:00.000-05:00"
     }
   ],
   "habitData": {
@@ -3582,22 +3337,25 @@
         "Learn (read/listen)",
         "Play with Owen",
         "Food recorded (with no unplanned indulgences)",
+        "Create top 3 priorities for tomorrow",
         "Gratitude/prayer",
         "No phone in bed",
         "3 wins from today (stay in the gain)",
+        "No phone in bed (previous night)",
         "Review today’s top 3 (what am i doing today)",
-        "Top 3 priorities for tomorrow"
+        "Top 3 priorities for tomorrow",
+        "Write down 3 wins from today (stay in the gain)"
       ],
       "entries": [
         {
           "date": "2026-06-29",
           "habits": {
             "Review today’s top 3 (what am i doing today)": false,
-            "Play with Owen": false,
-            "Learn (read/listen)": false,
+            "Play with Owen": true,
+            "Learn (read/listen)": true,
             "Vitamins/supplements": true,
-            "Top 3 priorities for tomorrow": false,
-            "3 wins from today (stay in the gain)": false,
+            "Top 3 priorities for tomorrow": true,
+            "3 wins from today (stay in the gain)": true,
             "No caffeine": false,
             "No phone in bed": false,
             "Gratitude/prayer": false,
@@ -3606,9 +3364,30 @@
             "Move!": false,
             "1/2 gallon water": false
           },
-          "completed": 1,
+          "completed": 5,
           "possible": 13,
-          "pct": 8
+          "pct": 38
+        },
+        {
+          "date": "2026-06-30",
+          "habits": {
+            "Play with Owen": false,
+            "Review today’s top 3 (what am i doing today)": false,
+            "Create top 3 priorities for tomorrow": false,
+            "Move!": false,
+            "No phone in bed (previous night)": false,
+            "Write down 3 wins from today (stay in the gain)": false,
+            "Vitamins/supplements": false,
+            "No caffeine": false,
+            "Gratitude/prayer": false,
+            "Learn (read/listen)": false,
+            "5am wake": false,
+            "Food recorded (with no unplanned indulgences)": false,
+            "1/2 gallon water": false
+          },
+          "completed": 0,
+          "possible": 13,
+          "pct": 0
         }
       ]
     },
@@ -4156,6 +3935,19 @@
         },
         {
           "date": "2026-06-29",
+          "habits": {
+            "Laundry": false,
+            "Supplements": false,
+            "Leucovorin": false,
+            "Take care of baby": false,
+            "Feed dogs": false
+          },
+          "completed": 0,
+          "possible": 5,
+          "pct": 0
+        },
+        {
+          "date": "2026-06-30",
           "habits": {
             "Laundry": false,
             "Supplements": false,
