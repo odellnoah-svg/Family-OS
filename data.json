@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-30T18:23:57.172Z",
+  "generated": "2026-06-30T23:54:09.825Z",
   "meta": {
     "currentQuarter": "Q2",
     "currentYear": "2026",
@@ -413,6 +413,16 @@
   "projects": [],
   "tasks": [
     {
+      "id": "38fc5749485980ada444d024010bf6d1",
+      "type": "task",
+      "name": "Move cows to Cherokee nation ",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": "Ranch",
+      "hours": 0.5,
+      "projectIds": []
+    },
+    {
       "id": "38fc5749485980809630eb0f52c1db68",
       "type": "task",
       "name": "(Untitled)",
@@ -463,39 +473,9 @@
       "projectIds": []
     },
     {
-      "id": "38ec57494859804c96ece0e5f31ecc31",
-      "type": "task",
-      "name": "(Untitled)",
-      "status": "In progress (WIP)",
-      "pillar": null,
-      "domain": "RAE",
-      "hours": null,
-      "projectIds": []
-    },
-    {
-      "id": "38ec574948598060aef1c25ffc2ae70f",
-      "type": "task",
-      "name": "Root Cause Analysis- falling coils",
-      "status": "In progress (WIP)",
-      "pillar": null,
-      "domain": "RAE",
-      "hours": 3,
-      "projectIds": []
-    },
-    {
       "id": "38ec5749485980ba9853c3e3d02506b4",
       "type": "task",
       "name": "Test Tank Updates in Teams ",
-      "status": "In progress (WIP)",
-      "pillar": null,
-      "domain": "RAE",
-      "hours": 1,
-      "projectIds": []
-    },
-    {
-      "id": "38ec5749485980379cd9e9214b35ddc8",
-      "type": "task",
-      "name": "VOC email ",
       "status": "In progress (WIP)",
       "pillar": null,
       "domain": "RAE",
@@ -815,6 +795,25 @@
   ],
   "wipTasks": [
     {
+      "id": "38fc5749485980ada444d024010bf6d1",
+      "type": "task",
+      "name": "Move cows to Cherokee nation ",
+      "status": "In progress (WIP)",
+      "pillarIds": [
+        "683e3c08456247dea6168f9329c85470"
+      ],
+      "domain": "Ranch",
+      "hours": 0.5,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": "2026-06-30T18:41:00.000-05:00",
+      "completeDate": null
+    },
+    {
       "id": "38fc5749485980809630eb0f52c1db68",
       "type": "task",
       "name": "(Untitled)",
@@ -905,58 +904,9 @@
       "completeDate": null
     },
     {
-      "id": "38ec57494859804c96ece0e5f31ecc31",
-      "type": "task",
-      "name": "(Untitled)",
-      "status": "In progress (WIP)",
-      "pillarIds": [],
-      "domain": "RAE",
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [],
-      "velocity": 0,
-      "startDate": "2026-06-29T11:03:00.000-05:00",
-      "completeDate": null
-    },
-    {
-      "id": "38ec574948598060aef1c25ffc2ae70f",
-      "type": "task",
-      "name": "Root Cause Analysis- falling coils",
-      "status": "In progress (WIP)",
-      "pillarIds": [],
-      "domain": "RAE",
-      "hours": 3,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-06-29T21:40:00.000-05:00",
-      "completeDate": null
-    },
-    {
       "id": "38ec5749485980ba9853c3e3d02506b4",
       "type": "task",
       "name": "Test Tank Updates in Teams ",
-      "status": "In progress (WIP)",
-      "pillarIds": [],
-      "domain": "RAE",
-      "hours": 1,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-06-29T10:57:00.000-05:00",
-      "completeDate": null
-    },
-    {
-      "id": "38ec5749485980379cd9e9214b35ddc8",
-      "type": "task",
-      "name": "VOC email ",
       "status": "In progress (WIP)",
       "pillarIds": [],
       "domain": "RAE",
@@ -1534,6 +1484,40 @@
       "velocity": 0.416666666667,
       "startDate": "2026-06-29T11:13:00.000-05:00",
       "completeDate": "2026-06-29T21:16:00.000-05:00"
+    },
+    {
+      "id": "38ec574948598060aef1c25ffc2ae70f",
+      "type": "task",
+      "name": "Root Cause Analysis- falling coils",
+      "status": "Done",
+      "pillarIds": [],
+      "domain": "RAE",
+      "hours": 3,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 0.75,
+      "startDate": "2026-06-29T21:40:00.000-05:00",
+      "completeDate": "2026-06-30T16:36:00.000-05:00"
+    },
+    {
+      "id": "38ec5749485980379cd9e9214b35ddc8",
+      "type": "task",
+      "name": "VOC email ",
+      "status": "Done",
+      "pillarIds": [],
+      "domain": "RAE",
+      "hours": 1,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 1.291666666667,
+      "startDate": "2026-06-29T10:57:00.000-05:00",
+      "completeDate": "2026-06-30T18:09:00.000-05:00"
     },
     {
       "id": "38ac5749485980f8a1a0f5b743e19dcd",
@@ -3236,40 +3220,6 @@
       "velocity": 30.458333333333,
       "startDate": "2026-05-13T23:39:00.000-05:00",
       "completeDate": "2026-06-13T10:50:00.000-05:00"
-    },
-    {
-      "id": "360c5749485980c5821ce2fc7a83539c",
-      "type": "task",
-      "name": "Decide best AI meeting recorder and tie it to meetings database somehow? or is that needed? ",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": null,
-      "hours": 2,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 0.75,
-      "startDate": "2026-05-13T23:37:00.000-05:00",
-      "completeDate": "2026-05-14T18:02:00.000-05:00"
-    },
-    {
-      "id": "360c5749485980e39d80f0cce165b5a4",
-      "type": "task",
-      "name": "Create dashboard in notion (see notes in body)",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": "Personal Admin",
-      "hours": 3,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 1.083333333333,
-      "startDate": "2026-05-13T23:34:00.000-05:00",
-      "completeDate": "2026-05-15T02:26:00.000-05:00"
     }
   ],
   "habitData": {
@@ -3317,6 +3267,7 @@
         {
           "date": "2026-06-30",
           "habits": {
+            "5am wake": false,
             "Play with Owen": false,
             "Review today’s top 3 (what am i doing today)": false,
             "Create top 3 priorities for tomorrow": false,
@@ -3327,7 +3278,6 @@
             "No caffeine": false,
             "Gratitude/prayer": false,
             "Learn (read/listen)": false,
-            "5am wake": false,
             "Food recorded (with no unplanned indulgences)": false,
             "1/2 gallon water": false
           },
