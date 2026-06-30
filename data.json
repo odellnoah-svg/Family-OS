@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-30T11:29:35.800Z",
+  "generated": "2026-06-30T18:23:57.172Z",
   "meta": {
     "currentQuarter": "Q2",
     "currentYear": "2026",
@@ -563,16 +563,6 @@
       "projectIds": []
     },
     {
-      "id": "38ac574948598073b4d8fe00398e2913",
-      "type": "task",
-      "name": "Sign papers from grow well",
-      "status": "In progress (WIP)",
-      "pillar": null,
-      "domain": null,
-      "hours": null,
-      "projectIds": []
-    },
-    {
       "id": "388c57494859807a80dafa7e763b17b3",
       "type": "task",
       "name": "Look for legal contacts on freedom accelerator website",
@@ -780,16 +770,6 @@
       "pillar": null,
       "domain": "Owen",
       "hours": 8,
-      "projectIds": []
-    },
-    {
-      "id": "35bc5749485980f2b162d58a112c4406",
-      "type": "task",
-      "name": "Create monthly financial meeting",
-      "status": "Current Sprint (this week)",
-      "pillar": null,
-      "domain": null,
-      "hours": 1,
       "projectIds": []
     },
     {
@@ -1101,23 +1081,6 @@
       ],
       "velocity": 0,
       "startDate": "2026-06-25T09:09:00.000-05:00",
-      "completeDate": null
-    },
-    {
-      "id": "38ac574948598073b4d8fe00398e2913",
-      "type": "task",
-      "name": "Sign papers from grow well",
-      "status": "In progress (WIP)",
-      "pillarIds": [],
-      "domain": null,
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Patricia Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-06-25T08:26:00.000-05:00",
       "completeDate": null
     },
     {
@@ -1482,23 +1445,6 @@
       ],
       "velocity": 0,
       "startDate": "2026-06-28T14:02:00.000-05:00",
-      "completeDate": null
-    },
-    {
-      "id": "35bc5749485980f2b162d58a112c4406",
-      "type": "task",
-      "name": "Create monthly financial meeting",
-      "status": "Current Sprint (this week)",
-      "pillarIds": [],
-      "domain": null,
-      "hours": 1,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Patricia Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": null,
       "completeDate": null
     },
     {
@@ -3358,15 +3304,15 @@
             "3 wins from today (stay in the gain)": true,
             "No caffeine": false,
             "No phone in bed": false,
-            "Gratitude/prayer": false,
+            "Gratitude/prayer": true,
             "Food recorded (with no unplanned indulgences)": false,
             "5am wake": false,
             "Move!": false,
             "1/2 gallon water": false
           },
-          "completed": 5,
+          "completed": 6,
           "possible": 13,
-          "pct": 38
+          "pct": 46
         },
         {
           "date": "2026-06-30",
@@ -3375,9 +3321,9 @@
             "Review today’s top 3 (what am i doing today)": false,
             "Create top 3 priorities for tomorrow": false,
             "Move!": false,
-            "No phone in bed (previous night)": false,
+            "No phone in bed (previous night)": true,
             "Write down 3 wins from today (stay in the gain)": false,
-            "Vitamins/supplements": false,
+            "Vitamins/supplements": true,
             "No caffeine": false,
             "Gratitude/prayer": false,
             "Learn (read/listen)": false,
@@ -3385,9 +3331,9 @@
             "Food recorded (with no unplanned indulgences)": false,
             "1/2 gallon water": false
           },
-          "completed": 0,
+          "completed": 2,
           "possible": 13,
-          "pct": 0
+          "pct": 15
         }
       ]
     },
