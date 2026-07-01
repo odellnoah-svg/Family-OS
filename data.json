@@ -1,7 +1,7 @@
 {
-  "generated": "2026-06-30T23:54:09.825Z",
+  "generated": "2026-07-01T11:43:07.688Z",
   "meta": {
-    "currentQuarter": "Q2",
+    "currentQuarter": "Q3",
     "currentYear": "2026",
     "tenYearTarget": [
       {
@@ -413,23 +413,33 @@
   "projects": [],
   "tasks": [
     {
-      "id": "38fc5749485980ada444d024010bf6d1",
+      "id": "390c574948598028b5e7d2d058bf2336",
       "type": "task",
-      "name": "Move cows to Cherokee nation ",
+      "name": "Integrate Tony Robbins principles into our OS (along with quiz results)",
+      "status": "Current Sprint (this week)",
+      "pillar": null,
+      "domain": "Personal Admin",
+      "hours": 2,
+      "projectIds": []
+    },
+    {
+      "id": "390c57494859806bafc4c1b6054da451",
+      "type": "task",
+      "name": "background check",
       "status": "In progress (WIP)",
       "pillar": null,
-      "domain": "Ranch",
-      "hours": 0.5,
+      "domain": null,
+      "hours": null,
       "projectIds": []
     },
     {
       "id": "38fc5749485980809630eb0f52c1db68",
       "type": "task",
-      "name": "(Untitled)",
+      "name": "Generate schedule F with receipts ",
       "status": "Current Sprint (this week)",
       "pillar": null,
-      "domain": null,
-      "hours": null,
+      "domain": "Personal Admin",
+      "hours": 1,
       "projectIds": []
     },
     {
@@ -475,7 +485,7 @@
     {
       "id": "38ec5749485980ba9853c3e3d02506b4",
       "type": "task",
-      "name": "Test Tank Updates in Teams ",
+      "name": "Test Tank Updates in Teams (release to purchasing ?) ",
       "status": "In progress (WIP)",
       "pillar": null,
       "domain": "RAE",
@@ -536,16 +546,6 @@
       "id": "38ac5749485980deb32ffa49d2123d88",
       "type": "task",
       "name": "Make dentist appointment ",
-      "status": "In progress (WIP)",
-      "pillar": null,
-      "domain": null,
-      "hours": null,
-      "projectIds": []
-    },
-    {
-      "id": "388c57494859807a80dafa7e763b17b3",
-      "type": "task",
-      "name": "Look for legal contacts on freedom accelerator website",
       "status": "In progress (WIP)",
       "pillar": null,
       "domain": null,
@@ -795,32 +795,54 @@
   ],
   "wipTasks": [
     {
-      "id": "38fc5749485980ada444d024010bf6d1",
+      "id": "390c574948598028b5e7d2d058bf2336",
       "type": "task",
-      "name": "Move cows to Cherokee nation ",
-      "status": "In progress (WIP)",
+      "name": "Integrate Tony Robbins principles into our OS (along with quiz results)",
+      "status": "Current Sprint (this week)",
       "pillarIds": [
-        "683e3c08456247dea6168f9329c85470"
+        "2fb60975ef4e4b0fbd56793fba264939"
       ],
-      "domain": "Ranch",
-      "hours": 0.5,
+      "domain": "Personal Admin",
+      "hours": 2,
+      "projectIds": [],
+      "rockIds": [
+        "377c5749485981a7a422dc94f0af555f",
+        "377c57494859811aa303e31aa2fa0c22"
+      ],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": null,
+      "completeDate": null
+    },
+    {
+      "id": "390c57494859806bafc4c1b6054da451",
+      "type": "task",
+      "name": "background check",
+      "status": "In progress (WIP)",
+      "pillarIds": [],
+      "domain": null,
+      "hours": null,
       "projectIds": [],
       "rockIds": [],
       "person": [
         "Noah Eubanks"
       ],
       "velocity": 0,
-      "startDate": "2026-06-30T18:41:00.000-05:00",
+      "startDate": "2026-06-30T20:05:00.000-05:00",
       "completeDate": null
     },
     {
       "id": "38fc5749485980809630eb0f52c1db68",
       "type": "task",
-      "name": "(Untitled)",
+      "name": "Generate schedule F with receipts ",
       "status": "Current Sprint (this week)",
-      "pillarIds": [],
-      "domain": null,
-      "hours": null,
+      "pillarIds": [
+        "fa5c3f6312394f09b07566f455dac82d"
+      ],
+      "domain": "Personal Admin",
+      "hours": 1,
       "projectIds": [],
       "rockIds": [],
       "person": [
@@ -906,7 +928,7 @@
     {
       "id": "38ec5749485980ba9853c3e3d02506b4",
       "type": "task",
-      "name": "Test Tank Updates in Teams ",
+      "name": "Test Tank Updates in Teams (release to purchasing ?) ",
       "status": "In progress (WIP)",
       "pillarIds": [],
       "domain": "RAE",
@@ -1031,23 +1053,6 @@
       ],
       "velocity": 0,
       "startDate": "2026-06-25T09:09:00.000-05:00",
-      "completeDate": null
-    },
-    {
-      "id": "388c57494859807a80dafa7e763b17b3",
-      "type": "task",
-      "name": "Look for legal contacts on freedom accelerator website",
-      "status": "In progress (WIP)",
-      "pillarIds": [],
-      "domain": null,
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-06-23T18:51:00.000-05:00",
       "completeDate": null
     },
     {
@@ -1467,6 +1472,25 @@
       "completeDate": null
     },
     {
+      "id": "38fc5749485980ada444d024010bf6d1",
+      "type": "task",
+      "name": "Move cows to Cherokee nation ",
+      "status": "Done",
+      "pillarIds": [
+        "683e3c08456247dea6168f9329c85470"
+      ],
+      "domain": "Ranch",
+      "hours": 0.5,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 0.083333333333,
+      "startDate": "2026-06-30T18:41:00.000-05:00",
+      "completeDate": "2026-06-30T20:53:00.000-05:00"
+    },
+    {
       "id": "38ec57494859809fbd00f17cb6584858",
       "type": "task",
       "name": "Upgrade habit tracker",
@@ -1535,6 +1559,23 @@
       "velocity": 2.208333333333,
       "startDate": "2026-06-25T05:33:00.000-05:00",
       "completeDate": "2026-06-27T10:56:00.000-05:00"
+    },
+    {
+      "id": "388c57494859807a80dafa7e763b17b3",
+      "type": "task",
+      "name": "Look for legal contacts on freedom accelerator website",
+      "status": "Done",
+      "pillarIds": [],
+      "domain": null,
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 7.125,
+      "startDate": "2026-06-23T18:51:00.000-05:00",
+      "completeDate": "2026-06-30T22:37:00.000-05:00"
     },
     {
       "id": "388c5749485980d0ada1f040fe8aad19",
@@ -3186,40 +3227,6 @@
       "velocity": 0.291666666667,
       "startDate": "2026-05-14T10:55:00.000-05:00",
       "completeDate": "2026-05-14T18:46:00.000-05:00"
-    },
-    {
-      "id": "360c574948598076a62dfb9e43b61645",
-      "type": "task",
-      "name": "Figure out how to track history (data over time) in notion ",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": "Personal Admin",
-      "hours": 1,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 1.5,
-      "startDate": "2026-05-14T08:22:00.000-05:00",
-      "completeDate": "2026-05-15T20:27:00.000-05:00"
-    },
-    {
-      "id": "360c57494859807b93d8c18c4ad390b1",
-      "type": "task",
-      "name": "Dress up the page organizaiton within the command center . Should everything be inside the command center ",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": "Personal Admin",
-      "hours": 2,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 30.458333333333,
-      "startDate": "2026-05-13T23:39:00.000-05:00",
-      "completeDate": "2026-06-13T10:50:00.000-05:00"
     }
   ],
   "habitData": {
@@ -3237,6 +3244,7 @@
         "Gratitude/prayer",
         "No phone in bed",
         "3 wins from today (stay in the gain)",
+        "Gratitude/prayer (previous night)",
         "No phone in bed (previous night)",
         "Review today’s top 3 (what am i doing today)",
         "Top 3 priorities for tomorrow",
@@ -3268,22 +3276,43 @@
           "date": "2026-06-30",
           "habits": {
             "5am wake": false,
-            "Play with Owen": false,
-            "Review today’s top 3 (what am i doing today)": false,
-            "Create top 3 priorities for tomorrow": false,
+            "Play with Owen": true,
+            "Review today’s top 3 (what am i doing today)": true,
+            "Create top 3 priorities for tomorrow": true,
             "Move!": false,
             "No phone in bed (previous night)": true,
             "Write down 3 wins from today (stay in the gain)": false,
             "Vitamins/supplements": true,
             "No caffeine": false,
-            "Gratitude/prayer": false,
+            "Gratitude/prayer": true,
+            "Learn (read/listen)": true,
+            "Food recorded (with no unplanned indulgences)": true,
+            "1/2 gallon water": true
+          },
+          "completed": 9,
+          "possible": 13,
+          "pct": 69
+        },
+        {
+          "date": "2026-07-01",
+          "habits": {
+            "Play with Owen": false,
             "Learn (read/listen)": false,
+            "Create top 3 priorities for tomorrow": false,
+            "No phone in bed (previous night)": false,
+            "No caffeine": false,
+            "Write down 3 wins from today (stay in the gain)": false,
+            "Gratitude/prayer (previous night)": false,
+            "5am wake": false,
+            "Review today’s top 3 (what am i doing today)": false,
+            "Move!": false,
+            "Vitamins/supplements": false,
             "Food recorded (with no unplanned indulgences)": false,
             "1/2 gallon water": false
           },
-          "completed": 2,
+          "completed": 0,
           "possible": 13,
-          "pct": 15
+          "pct": 0
         }
       ]
     },
@@ -3844,6 +3873,19 @@
         },
         {
           "date": "2026-06-30",
+          "habits": {
+            "Laundry": false,
+            "Supplements": true,
+            "Leucovorin": true,
+            "Take care of baby": false,
+            "Feed dogs": true
+          },
+          "completed": 3,
+          "possible": 5,
+          "pct": 60
+        },
+        {
+          "date": "2026-07-01",
           "habits": {
             "Laundry": false,
             "Supplements": false,
