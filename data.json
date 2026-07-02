@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-01T21:42:29.962Z",
+  "generated": "2026-07-02T04:12:09.744Z",
   "meta": {
     "currentQuarter": "Q3",
     "currentYear": "2026",
@@ -485,7 +485,7 @@
     {
       "id": "38ec5749485980ba9853c3e3d02506b4",
       "type": "task",
-      "name": "Test Tank Updates in Teams (release to purchasing ?) ",
+      "name": "email jay regarding test tank ",
       "status": "In progress (WIP)",
       "pillar": null,
       "domain": "RAE",
@@ -928,7 +928,7 @@
     {
       "id": "38ec5749485980ba9853c3e3d02506b4",
       "type": "task",
-      "name": "Test Tank Updates in Teams (release to purchasing ?) ",
+      "name": "email jay regarding test tank ",
       "status": "In progress (WIP)",
       "pillarIds": [],
       "domain": "RAE",
@@ -3297,22 +3297,22 @@
           "date": "2026-07-01",
           "habits": {
             "Play with Owen": false,
-            "Learn (read/listen)": false,
-            "Create top 3 priorities for tomorrow": false,
-            "No phone in bed (previous night)": false,
+            "Learn (read/listen)": true,
+            "Create top 3 priorities for tomorrow": true,
+            "No phone in bed (previous night)": true,
             "No caffeine": false,
-            "Write down 3 wins from today (stay in the gain)": false,
-            "Gratitude/prayer (previous night)": false,
+            "Write down 3 wins from today (stay in the gain)": true,
+            "Gratitude/prayer (previous night)": true,
             "5am wake": false,
-            "Review today’s top 3 (what am i doing today)": false,
+            "Review today’s top 3 (what am i doing today)": true,
             "Move!": false,
-            "Vitamins/supplements": false,
+            "Vitamins/supplements": true,
             "Food recorded (with no unplanned indulgences)": false,
             "1/2 gallon water": false
           },
-          "completed": 0,
+          "completed": 7,
           "possible": 13,
-          "pct": 0
+          "pct": 54
         }
       ]
     },
