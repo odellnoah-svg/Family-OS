@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-04T13:51:02.819Z",
+  "generated": "2026-07-04T17:14:36.255Z",
   "meta": {
     "currentQuarter": "Q3",
     "currentYear": "2026",
@@ -773,6 +773,16 @@
       "projectIds": []
     },
     {
+      "id": "35dc57494859807c8a64c403fad2d317",
+      "type": "task",
+      "name": "Add personality tests to notion ",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": "Personal Admin",
+      "hours": 1,
+      "projectIds": []
+    },
+    {
       "id": "35bc57494859807fb701c064f98054aa",
       "type": "task",
       "name": "Backup computer to external hard drive ",
@@ -1478,6 +1488,23 @@
       ],
       "velocity": 0,
       "startDate": "2026-06-13T10:53:00.000-05:00",
+      "completeDate": null
+    },
+    {
+      "id": "35dc57494859807c8a64c403fad2d317",
+      "type": "task",
+      "name": "Add personality tests to notion ",
+      "status": "In progress (WIP)",
+      "pillarIds": [],
+      "domain": "Personal Admin",
+      "hours": 1,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": "2026-07-04T10:17:00.000-05:00",
       "completeDate": null
     },
     {
