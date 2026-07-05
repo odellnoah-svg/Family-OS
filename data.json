@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-05T13:58:05.326Z",
+  "generated": "2026-07-05T17:20:55.031Z",
   "meta": {
     "currentQuarter": "Q3",
     "currentYear": "2026",
@@ -413,6 +413,46 @@
   "projects": [],
   "tasks": [
     {
+      "id": "394c5749485980eaadebfeb9d16f0294",
+      "type": "task",
+      "name": "Deposit checks from unclaimed property immediately ",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": null,
+      "hours": null,
+      "projectIds": []
+    },
+    {
+      "id": "394c57494859805b84b5c2860824b73b",
+      "type": "task",
+      "name": "3 heifers delivered to josh ",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": null,
+      "hours": null,
+      "projectIds": []
+    },
+    {
+      "id": "394c5749485980d18dffc9c2deaeebe7",
+      "type": "task",
+      "name": "Hay to heifers ",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": null,
+      "hours": 1,
+      "projectIds": []
+    },
+    {
+      "id": "394c5749485980da9e14ffdafde29e5b",
+      "type": "task",
+      "name": "Pick up leucovorin",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": "Owen",
+      "hours": 1,
+      "projectIds": []
+    },
+    {
       "id": "392c574948598083b149df644fa478b4",
       "type": "task",
       "name": "Salt into cherokee nation and close gate to heifer pasture ",
@@ -546,7 +586,7 @@
       "id": "38dc5749485980eebfd1cc835844aa5b",
       "type": "task",
       "name": "Plan meal prep day",
-      "status": "Current Sprint (this week)",
+      "status": "In progress (WIP)",
       "pillar": null,
       "domain": "Baby Girl",
       "hours": null,
@@ -593,12 +633,12 @@
       "projectIds": []
     },
     {
-      "id": "383c5749485980fb8d7ec821a6f99663",
+      "id": "387c574948598090bd19cf401a534ed3",
       "type": "task",
-      "name": "Finish closet organizing ",
+      "name": "Move large sheep/goat feeder to back hay pen and fill with feed",
       "status": "Current Sprint (this week)",
       "pillar": null,
-      "domain": "Baby Girl",
+      "domain": "Ranch",
       "hours": null,
       "projectIds": []
     },
@@ -806,7 +846,7 @@
       "id": "35bc5749485980ad9bb1c4e4a793ce15",
       "type": "task",
       "name": "Get FMLA paperwork signed ",
-      "status": "Current Sprint (this week)",
+      "status": "In progress (WIP)",
       "pillar": null,
       "domain": "Health",
       "hours": 8,
@@ -844,6 +884,76 @@
     }
   ],
   "wipTasks": [
+    {
+      "id": "394c5749485980eaadebfeb9d16f0294",
+      "type": "task",
+      "name": "Deposit checks from unclaimed property immediately ",
+      "status": "In progress (WIP)",
+      "pillarIds": [],
+      "domain": null,
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": "2026-07-05T10:53:00.000-05:00",
+      "completeDate": null
+    },
+    {
+      "id": "394c57494859805b84b5c2860824b73b",
+      "type": "task",
+      "name": "3 heifers delivered to josh ",
+      "status": "In progress (WIP)",
+      "pillarIds": [],
+      "domain": null,
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": "2026-07-05T10:53:00.000-05:00",
+      "completeDate": null
+    },
+    {
+      "id": "394c5749485980d18dffc9c2deaeebe7",
+      "type": "task",
+      "name": "Hay to heifers ",
+      "status": "In progress (WIP)",
+      "pillarIds": [],
+      "domain": null,
+      "hours": 1,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": "2026-07-05T10:52:00.000-05:00",
+      "completeDate": null
+    },
+    {
+      "id": "394c5749485980da9e14ffdafde29e5b",
+      "type": "task",
+      "name": "Pick up leucovorin",
+      "status": "In progress (WIP)",
+      "pillarIds": [
+        "2fb60975ef4e4b0fbd56793fba264939"
+      ],
+      "domain": "Owen",
+      "hours": 1,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Patricia Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": "2026-07-05T09:40:00.000-05:00",
+      "completeDate": null
+    },
     {
       "id": "392c574948598083b149df644fa478b4",
       "type": "task",
@@ -1091,7 +1201,7 @@
       "id": "38dc5749485980eebfd1cc835844aa5b",
       "type": "task",
       "name": "Plan meal prep day",
-      "status": "Current Sprint (this week)",
+      "status": "In progress (WIP)",
       "pillarIds": [],
       "domain": "Baby Girl",
       "hours": null,
@@ -1103,7 +1213,7 @@
         "Patricia Eubanks"
       ],
       "velocity": 0,
-      "startDate": null,
+      "startDate": "2026-07-05T10:57:00.000-05:00",
       "completeDate": null
     },
     {
@@ -1182,20 +1292,25 @@
       "completeDate": null
     },
     {
-      "id": "383c5749485980fb8d7ec821a6f99663",
+      "id": "387c574948598090bd19cf401a534ed3",
       "type": "task",
-      "name": "Finish closet organizing ",
+      "name": "Move large sheep/goat feeder to back hay pen and fill with feed",
       "status": "Current Sprint (this week)",
-      "pillarIds": [],
-      "domain": "Baby Girl",
+      "pillarIds": [
+        "683e3c08456247dea6168f9329c85470"
+      ],
+      "domain": "Ranch",
       "hours": null,
       "projectIds": [],
-      "rockIds": [],
+      "rockIds": [
+        "377c574948598198a9f0e04219c83b50"
+      ],
       "person": [
-        "Patricia Eubanks"
+        "Patricia Eubanks",
+        "Noah Eubanks"
       ],
       "velocity": 0,
-      "startDate": "2026-06-18T11:14:00.000-05:00",
+      "startDate": null,
       "completeDate": null
     },
     {
@@ -1549,7 +1664,7 @@
       "id": "35bc5749485980ad9bb1c4e4a793ce15",
       "type": "task",
       "name": "Get FMLA paperwork signed ",
-      "status": "Current Sprint (this week)",
+      "status": "In progress (WIP)",
       "pillarIds": [],
       "domain": "Health",
       "hours": 8,
@@ -1560,7 +1675,7 @@
         "Patricia Eubanks"
       ],
       "velocity": 0,
-      "startDate": "2026-06-13T10:42:00.000-05:00",
+      "startDate": "2026-07-05T10:58:00.000-05:00",
       "completeDate": null
     },
     {
@@ -1738,6 +1853,24 @@
       "completeDate": "2026-06-23T16:40:00.000-05:00"
     },
     {
+      "id": "388c5749485980e6b3daf1174a165464",
+      "type": "task",
+      "name": "Tighten Paige’s bed frame ",
+      "status": "Done",
+      "pillarIds": [],
+      "domain": "Girls",
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Patricia Eubanks",
+        "Noah Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": null,
+      "completeDate": "2026-07-05T10:58:00.000-05:00"
+    },
+    {
       "id": "386c5749485980be8e94d58fb4e47d99",
       "type": "task",
       "name": "Add “write down 3 wins for the day at end of day and write 3 wins for tomorrow”",
@@ -1791,6 +1924,23 @@
       "velocity": 8.041666666667,
       "startDate": "2026-06-19T09:42:00.000-05:00",
       "completeDate": "2026-06-27T10:56:00.000-05:00"
+    },
+    {
+      "id": "383c5749485980fb8d7ec821a6f99663",
+      "type": "task",
+      "name": "Finish closet organizing ",
+      "status": "Done",
+      "pillarIds": [],
+      "domain": "Baby Girl",
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Patricia Eubanks"
+      ],
+      "velocity": 16.958333333333,
+      "startDate": "2026-06-18T11:14:00.000-05:00",
+      "completeDate": "2026-07-05T10:57:00.000-05:00"
     },
     {
       "id": "382c574948598007a015c6b1a6e1ddf9",
@@ -3336,40 +3486,6 @@
       "velocity": 6,
       "startDate": "2026-05-14T15:41:00.000-05:00",
       "completeDate": "2026-05-20T16:01:00.000-05:00"
-    },
-    {
-      "id": "360c57494859802a84fbc6065d4575b6",
-      "type": "task",
-      "name": "Get a  bed, a.k.a. either twin or queen to add to existing",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": "Baby Girl",
-      "hours": 8,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Patricia Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": null,
-      "completeDate": "2026-06-14T14:34:00.000-05:00"
-    },
-    {
-      "id": "360c5749485980178910d6277dd6164b",
-      "type": "task",
-      "name": "Send email to Tommy with die/press compatibility spreadsheet ",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": "RAE",
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 0.208333333333,
-      "startDate": "2026-05-14T11:51:00.000-05:00",
-      "completeDate": "2026-05-14T17:16:00.000-05:00"
     }
   ],
   "habitData": {
