@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-05T17:20:55.031Z",
+  "generated": "2026-07-05T21:11:30.146Z",
   "meta": {
     "currentQuarter": "Q3",
     "currentYear": "2026",
@@ -412,6 +412,26 @@
   ],
   "projects": [],
   "tasks": [
+    {
+      "id": "394c5749485980a6a20ac9111dbe5e5d",
+      "type": "task",
+      "name": "Get receipts from vehicles ",
+      "status": "Current Sprint (this week)",
+      "pillar": null,
+      "domain": "Personal Admin",
+      "hours": 0.5,
+      "projectIds": []
+    },
+    {
+      "id": "394c57494859807995c4f8da956c5e22",
+      "type": "task",
+      "name": "(Untitled)",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": null,
+      "hours": null,
+      "projectIds": []
+    },
     {
       "id": "394c5749485980eaadebfeb9d16f0294",
       "type": "task",
@@ -884,6 +904,42 @@
     }
   ],
   "wipTasks": [
+    {
+      "id": "394c5749485980a6a20ac9111dbe5e5d",
+      "type": "task",
+      "name": "Get receipts from vehicles ",
+      "status": "Current Sprint (this week)",
+      "pillarIds": [
+        "fa5c3f6312394f09b07566f455dac82d"
+      ],
+      "domain": "Personal Admin",
+      "hours": 0.5,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": null,
+      "completeDate": null
+    },
+    {
+      "id": "394c57494859807995c4f8da956c5e22",
+      "type": "task",
+      "name": "(Untitled)",
+      "status": "In progress (WIP)",
+      "pillarIds": [],
+      "domain": null,
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": "2026-07-05T14:02:00.000-05:00",
+      "completeDate": null
+    },
     {
       "id": "394c5749485980eaadebfeb9d16f0294",
       "type": "task",
