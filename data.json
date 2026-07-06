@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-05T21:11:30.146Z",
+  "generated": "2026-07-06T04:18:26.217Z",
   "meta": {
     "currentQuarter": "Q3",
     "currentYear": "2026",
@@ -413,6 +413,16 @@
   "projects": [],
   "tasks": [
     {
+      "id": "394c5749485980c4807ae0612832b0c5",
+      "type": "task",
+      "name": "market reports from Leach, Tahlequah, Coffeyville, Delaware county….  Maybe add to folder every week. ",
+      "status": "Current Sprint (this week)",
+      "pillar": null,
+      "domain": null,
+      "hours": null,
+      "projectIds": []
+    },
+    {
       "id": "394c5749485980a6a20ac9111dbe5e5d",
       "type": "task",
       "name": "Get receipts from vehicles ",
@@ -420,16 +430,6 @@
       "pillar": null,
       "domain": "Personal Admin",
       "hours": 0.5,
-      "projectIds": []
-    },
-    {
-      "id": "394c57494859807995c4f8da956c5e22",
-      "type": "task",
-      "name": "(Untitled)",
-      "status": "In progress (WIP)",
-      "pillar": null,
-      "domain": null,
-      "hours": null,
       "projectIds": []
     },
     {
@@ -905,6 +905,23 @@
   ],
   "wipTasks": [
     {
+      "id": "394c5749485980c4807ae0612832b0c5",
+      "type": "task",
+      "name": "market reports from Leach, Tahlequah, Coffeyville, Delaware county….  Maybe add to folder every week. ",
+      "status": "Current Sprint (this week)",
+      "pillarIds": [],
+      "domain": null,
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": null,
+      "completeDate": null
+    },
+    {
       "id": "394c5749485980a6a20ac9111dbe5e5d",
       "type": "task",
       "name": "Get receipts from vehicles ",
@@ -921,23 +938,6 @@
       ],
       "velocity": 0,
       "startDate": null,
-      "completeDate": null
-    },
-    {
-      "id": "394c57494859807995c4f8da956c5e22",
-      "type": "task",
-      "name": "(Untitled)",
-      "status": "In progress (WIP)",
-      "pillarIds": [],
-      "domain": null,
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-07-05T14:02:00.000-05:00",
       "completeDate": null
     },
     {
@@ -1784,6 +1784,25 @@
       "velocity": 0,
       "startDate": null,
       "completeDate": null
+    },
+    {
+      "id": "394c57494859807995c4f8da956c5e22",
+      "type": "task",
+      "name": "Hay to rams",
+      "status": "Done",
+      "pillarIds": [
+        "fa5c3f6312394f09b07566f455dac82d"
+      ],
+      "domain": "Ranch",
+      "hours": 0.5,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 0.166666666667,
+      "startDate": "2026-07-05T14:02:00.000-05:00",
+      "completeDate": "2026-07-05T18:26:00.000-05:00"
     },
     {
       "id": "38fc5749485980ada444d024010bf6d1",
@@ -3525,23 +3544,6 @@
       "velocity": 10.958333333333,
       "startDate": "2026-05-17T09:58:00.000-05:00",
       "completeDate": "2026-05-28T09:38:00.000-05:00"
-    },
-    {
-      "id": "360c5749485980ebad76fe0cd22c2813",
-      "type": "task",
-      "name": "SS bender info email response ",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": "RAE",
-      "hours": 2,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 6,
-      "startDate": "2026-05-14T15:41:00.000-05:00",
-      "completeDate": "2026-05-20T16:01:00.000-05:00"
     }
   ],
   "habitData": {
