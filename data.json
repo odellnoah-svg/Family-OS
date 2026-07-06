@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-06T18:16:25.855Z",
+  "generated": "2026-07-06T21:42:41.498Z",
   "meta": {
     "currentQuarter": "Q3",
     "currentYear": "2026",
@@ -3726,14 +3726,22 @@
             "Move!": false,
             "1/2 gallon water": false,
             "Create top 3 priorities for tomorrow": false,
-            "Play with Owen": false,
-            "No caffeine": false,
             "Learn (read/listen)": false,
             "Gratitude/prayer (previous night)": false,
             "Review today’s top 3 (what am i doing today)": false
           },
           "completed": 0,
-          "possible": 13,
+          "possible": 11,
+          "pct": 0
+        },
+        {
+          "date": "2026-07-06T12:00:00.000-05:00",
+          "habits": {
+            "Play with Owen": false,
+            "No caffeine": false
+          },
+          "completed": 0,
+          "possible": 2,
           "pct": 0
         }
       ]
