@@ -63,23 +63,23 @@
   #chart{width:100%;height:auto;touch-action:none;}
 
   /* ---------- SLIDER ---------- */
-  .slider-card{padding:14px 18px 16px;margin-top:14px;display:flex;align-items:center;gap:18px;}
-  .slider-lead{flex:0 0 210px;display:flex;gap:12px;align-items:flex-start;}
-  .slider-lead .ic{width:40px;height:40px;border-radius:50%;background:var(--green);flex:0 0 40px;display:flex;align-items:center;justify-content:center;}
-  .slider-lead h3{margin:0 0 3px;font-size:15px;font-weight:700;color:var(--ink);letter-spacing:.05em;}
-  .slider-lead p{margin:0;font-size:12.5px;color:var(--ink-soft);line-height:1.35;}
+  .slider-card{padding:12px 16px 9px;margin-top:9px;display:flex;align-items:center;gap:14px;}
+  .slider-lead{flex:0 0 172px;display:flex;gap:9px;align-items:center;}
+  .slider-lead .ic{width:32px;height:32px;border-radius:50%;background:var(--green);flex:0 0 32px;display:flex;align-items:center;justify-content:center;}
+  .slider-lead h3{margin:0;font-size:13px;font-weight:800;color:var(--ink);letter-spacing:.04em;line-height:1.2;}
+  .slider-lead p{display:none;}
   .slider-body{flex:1;}
-  .track-wrap{position:relative;height:56px;}
-  .track{position:absolute;top:26px;left:0;right:0;height:8px;border-radius:6px;background:#dfe3cf;}
-  .track-fill{position:absolute;top:26px;height:8px;border-radius:6px;background:var(--green);}
-  .handle{position:absolute;top:18px;width:22px;height:24px;border-radius:6px;background:#fff;border:2px solid var(--green-deep);
+  .track-wrap{position:relative;height:44px;touch-action:none;}
+  .track{position:absolute;top:19px;left:0;right:0;height:8px;border-radius:6px;background:#dfe3cf;}
+  .track-fill{position:absolute;top:19px;height:8px;border-radius:6px;background:var(--green);}
+  .handle{position:absolute;top:11px;width:22px;height:24px;border-radius:6px;background:#fff;border:2px solid var(--green-deep);touch-action:none;
     transform:translateX(-50%);cursor:ew-resize;box-shadow:0 1px 3px rgba(0,0,0,.18);display:flex;align-items:center;justify-content:center;}
   .handle::after{content:"";width:2px;height:11px;background:var(--green-deep);border-radius:1px;}
   .bubble{position:absolute;top:-8px;transform:translateX(-50%);background:#fff;border:1.5px solid var(--line-strong);
     border-radius:7px;padding:3px 9px;font-size:12.5px;font-weight:700;color:var(--ink);white-space:nowrap;box-shadow:0 1px 2px rgba(0,0,0,.06);}
-  .ticks{position:absolute;left:0;right:0;top:40px;display:flex;justify-content:space-between;font-size:11px;color:var(--ink-soft);}
+  .ticks{position:absolute;left:0;right:0;top:33px;display:flex;justify-content:space-between;font-size:10px;color:var(--ink-soft);}
   .ticks span{flex:1;text-align:center;}
-  .hint{text-align:center;font-size:12px;color:var(--ink-soft);font-style:italic;margin-top:6px;}
+  .hint{display:none;}
 
   /* ---------- ALT SCENARIO ---------- */
   .alt{display:flex;gap:0;margin-top:14px;border-radius:16px;overflow:hidden;border:1.5px solid var(--line-strong);cursor:pointer;transition:box-shadow .15s;}
@@ -111,9 +111,6 @@
   .wcard .lb small{font-size:14px;font-weight:700;}
   .wcard .desirable{font-size:11px;color:var(--ink-soft);}
 
-  .growth-card{margin-top:14px;padding:12px 14px 8px;}
-  .growth-card .card-title h2{font-size:14px;letter-spacing:.05em;}
-  #growth{width:100%;height:auto;}
 
   .assume{margin-top:14px;background:#f4f7ec;border:2px solid var(--green);border-radius:14px;
     box-shadow:0 3px 16px rgba(76,106,48,.14);overflow:hidden;}
@@ -124,6 +121,17 @@
     font:inherit;font-size:11.5px;font-weight:700;padding:5px 12px;cursor:pointer;white-space:nowrap;display:inline-flex;align-items:center;gap:5px;}
   .ref-chip:hover{background:var(--green);color:#fff;}
   .assume-body{padding:2px 15px 14px;}
+  .assume-cols{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:4px;}
+  @media(max-width:620px){.assume-cols{grid-template-columns:1fr;}}
+  .assume-col{background:#fff;border:2px solid var(--line-strong);border-radius:13px;padding:4px 13px 8px;}
+  .assume-col.goat{border-color:var(--green);}
+  .assume-col.sheep{border-color:var(--purple);}
+  .assume-body .assume-col .grpttl{display:flex;align-items:center;gap:8px;font-size:14.5px;font-weight:800;letter-spacing:.01em;text-transform:none;margin:10px 0 5px;padding-bottom:7px;border-bottom:2px solid;}
+  .assume-col.goat .grpttl{color:var(--green-deep);border-bottom-color:rgba(87,120,58,.28);}
+  .assume-col.sheep .grpttl{color:var(--purple);border-bottom-color:rgba(106,74,140,.28);}
+  .assume-col .grp-sub{font-size:11px;font-weight:700;color:var(--ink-soft);letter-spacing:.03em;}
+  .grp-ic{width:24px;height:24px;display:inline-flex;align-items:center;justify-content:center;flex:0 0 24px;}
+  .grp-ic img,.grp-ic svg{width:24px;height:24px;}
   .assume-body .grpttl{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--green-deep);font-weight:700;margin:11px 0 2px;}
   .assume-body label{display:flex;justify-content:space-between;align-items:center;font-size:12.5px;color:var(--ink);padding:5px 0;}
   .assume-body input{width:74px;font:inherit;font-size:13px;text-align:right;border:1.5px solid var(--line-strong);border-radius:7px;padding:5px 8px;background:#fff;}
@@ -136,7 +144,7 @@
   .legend-inline{display:flex;flex-wrap:wrap;gap:14px;font-size:12px;color:var(--ink-soft);padding:8px 4px 2px;}
   .legend-inline span{display:inline-flex;align-items:center;gap:6px;}
   .sw{width:16px;height:3px;border-radius:2px;display:inline-block;}
-  .sw.dash{height:12px;width:14px;border:1.5px dashed var(--band-breed-edge);background:var(--band-breed);border-radius:3px;}
+  .sw.dash{height:12px;width:14px;border:1.5px dashed var(--navy);background:#e5e7f4;border-radius:3px;}
 
   /* ---------- TABS ---------- */
   .tabs{display:flex;gap:2px;margin:16px 0 0;border-bottom:2px solid var(--line-strong);}
@@ -185,6 +193,99 @@
   .fert-legend span{display:inline-flex;align-items:center;gap:6px;}
   .fdot{width:11px;height:11px;border-radius:3px;display:inline-block;}
   .slider-lead h3 .len-badge{display:inline-block;margin-left:7px;font-size:11.5px;font-weight:800;color:#fff;background:var(--green);border-radius:20px;padding:2px 10px;letter-spacing:0;vertical-align:middle;}
+  .date-entry{display:flex;flex-wrap:wrap;align-items:center;gap:7px 14px;margin-top:7px;padding-top:7px;border-top:1px dashed var(--line);}
+  .de-field{display:inline-flex;align-items:center;gap:7px;}
+  .de-cap{font-size:12px;font-weight:800;color:var(--green-deep);letter-spacing:.02em;}
+  .de-sel,.de-day{font:inherit;font-size:13px;padding:5px 8px;border:1.5px solid var(--line-strong);border-radius:7px;background:#fff;color:var(--ink);}
+  .de-day{width:48px;text-align:center;}
+  .de-sel:focus,.de-day:focus{outline:none;border-color:var(--green);box-shadow:0 0 0 3px rgba(87,120,58,.16);}
+  @media(max-width:640px){.slider-card{flex-direction:column;align-items:stretch}.slider-lead{flex:auto}.de-field{flex:1;justify-content:space-between}}
+  @media(max-width:640px){.handle{width:28px;height:30px;top:7px;}}
+  .salewin{padding:7px 0 2px;}
+  .sw-lab{display:block;font-size:12.5px;color:var(--green-deep);font-weight:700;margin-bottom:6px;}
+  .sw-inputs{display:flex;flex-wrap:wrap;align-items:center;gap:5px;}
+  .sw-to{font-size:12px;color:var(--ink-soft);margin:0 2px;}
+  .salewin .de-sel{font-size:12.5px;padding:6px 6px;}
+  .salewin .de-day{width:46px;font-size:12.5px;padding:6px 4px;}
+  .slider-card.sheep .ic{background:var(--purple);}
+  .slider-card.sheep .track-fill{background:var(--purple);}
+  .slider-card.sheep .handle{border-color:var(--purple);}
+  .slider-card.sheep .len-badge{background:var(--purple);}
+  .slider-card.sheep .de-cap{color:var(--purple);}
+  .slider-card.sheep .de-sel:focus,.slider-card.sheep .de-day:focus{border-color:var(--purple);box-shadow:0 0 0 3px rgba(107,74,140,.18);}
+  .adg-bench{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:4px;}
+  .adg-h{font-weight:800;font-size:13px;margin-bottom:5px;}
+  table.bench{width:100%;border-collapse:collapse;}
+  table.bench td{padding:5px 8px;font-size:12.5px;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.35;}
+  table.bench td.num{white-space:nowrap;font-weight:800;width:70px;border-left:4px solid transparent;}
+  table.bench tr.t-bad td.num{border-left-color:#c1573b;}
+  table.bench tr.t-ok td.num{border-left-color:#c99a2e;}
+  table.bench tr.t-good td.num{border-left-color:#6f9a4a;}
+  table.bench tr.t-great td.num{border-left-color:var(--green-deep);}
+  .help{display:inline-flex;align-items:center;justify-content:center;width:15px;height:15px;border-radius:50%;background:var(--green);color:#fff;font-size:10.5px;font-weight:800;cursor:help;position:relative;margin-left:3px;vertical-align:middle;user-select:none;}
+  .help.sheep{background:var(--purple);}
+  .help .tip{display:none;position:absolute;z-index:60;bottom:160%;left:50%;transform:translateX(-50%);width:236px;background:var(--navy);color:#fff;font-size:11px;font-weight:400;line-height:1.5;padding:9px 11px;border-radius:8px;box-shadow:0 8px 22px rgba(0,0,0,.28);text-align:left;white-space:normal;letter-spacing:0;}
+  .help .tip b{color:#fff;font-size:11.5px;}
+  .help .tip::after{content:"";position:absolute;top:100%;left:50%;transform:translateX(-50%);border:6px solid transparent;border-top-color:var(--navy);}
+  .help:hover .tip,.help:focus .tip{display:block;}
+  @media(max-width:640px){.adg-bench{grid-template-columns:1fr;}.help .tip{width:200px;left:auto;right:-4px;transform:none;}.help .tip::after{left:auto;right:8px;transform:none;}}
+  .mkt-toggle{display:flex;align-items:center;gap:9px;margin:2px 0 4px;flex-wrap:wrap;}
+  .mkt-lab{font-size:12.5px;font-weight:700;color:var(--ink-soft);}
+  .mkt-toggle .seg{font:inherit;font-size:12.5px;font-weight:700;padding:5px 13px;border:1.5px solid var(--blue);border-right-width:0;background:#fff;color:var(--blue);cursor:pointer;}
+  .mkt-toggle .seg:first-of-type{border-radius:8px 0 0 8px;}
+  .mkt-toggle .seg:last-of-type{border-right-width:1.5px;border-radius:0 8px 8px 0;}
+  .mkt-toggle .seg.active{background:var(--blue);color:#fff;}
+  #tab-compare{margin-top:14px;}
+  .cmp-card{margin-bottom:14px;padding:14px 16px 16px;}
+  .cmp-intro{font-size:13px;color:var(--ink-soft);line-height:1.5;margin:2px 0 12px;}
+  .save-bar{display:flex;gap:9px;flex-wrap:wrap;align-items:center;margin-bottom:12px;}
+  .save-bar input{flex:1;min-width:190px;font:inherit;font-size:14px;padding:8px 11px;border:1.5px solid var(--line-strong);border-radius:8px;background:#fff;color:var(--ink);}
+  .btn.ghost{background:#fff;color:var(--green-deep);border:1.5px solid var(--green-deep);}
+  .sc-list{display:flex;flex-direction:column;gap:7px;}
+  .sc-item{display:flex;align-items:center;gap:10px;padding:8px 11px;border:1px solid var(--line-strong);border-radius:8px;background:#fff;flex-wrap:wrap;}
+  .sc-name{font-weight:800;font-size:13.5px;color:var(--ink);flex:1;min-width:120px;}
+  .sc-when{font-size:11.5px;color:var(--ink-soft);}
+  .sc-btns{display:flex;gap:6px;}
+  .mini{font:inherit;font-size:12px;font-weight:700;padding:5px 12px;border-radius:7px;border:1.5px solid var(--green-deep);background:#fff;color:var(--green-deep);cursor:pointer;}
+  .mini.del{border-color:#c1573b;color:#c1573b;}
+  .cmp-actions{display:flex;gap:9px;margin-top:12px;flex-wrap:wrap;}
+  .empty{font-size:13px;color:var(--ink-soft);font-style:italic;margin:4px 0 10px;}
+  .cmp-table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+  table.cmp{border-collapse:collapse;font-size:12.5px;}
+  table.cmp th,table.cmp td{border:1px solid var(--line-strong);padding:7px 11px;text-align:left;vertical-align:top;white-space:nowrap;}
+  table.cmp th{background:var(--paper);font-weight:800;color:var(--ink);}
+  table.cmp td.rk{font-weight:700;color:var(--ink-soft);background:var(--paper);}
+  table.cmp .cur{background:#eef3e6;}
+  table.cmp th.cur{background:var(--green-deep);color:#fff;}
+  .rail-save{font:inherit;font-size:11px;font-weight:800;letter-spacing:.02em;margin-left:auto;padding:4px 10px;border-radius:7px;border:1.5px solid rgba(255,255,255,.55);background:rgba(255,255,255,.16);color:#fff;cursor:pointer;}
+  .rail-save:hover{background:rgba(255,255,255,.28);}
+  .handling{padding:0 0 4px;overflow:hidden;}
+  .hd-head{background:var(--navy);color:#fff;padding:0 16px;height:44px;display:flex;align-items:center;gap:9px;font-weight:700;letter-spacing:.1em;font-size:13.5px;border-radius:14px 14px 0 0;}
+  .hd-sub{font-size:12px;color:var(--ink-soft);padding:9px 15px 2px;line-height:1.45;}
+  .hd-summary{font-size:11.5px;font-weight:800;color:var(--green-deep);padding:2px 15px 8px;letter-spacing:.02em;}
+  .hd-list{padding:0 13px 8px;display:flex;flex-direction:column;gap:8px;}
+  .hd-win{border:1.5px solid var(--line-strong);border-radius:11px;padding:8px 11px;background:#fff;}
+  .hd-win.busy{border-color:var(--gold);background:#fbf4de;}
+  .hd-win-date{font-weight:800;font-size:12.5px;color:var(--ink);margin-bottom:4px;display:flex;align-items:center;gap:7px;flex-wrap:wrap;}
+  .hd-count{font-size:10px;font-weight:800;color:#8a6d1f;background:rgba(201,154,46,.24);padding:1px 8px;border-radius:20px;letter-spacing:.03em;}
+  .hd-ev{display:flex;gap:9px;align-items:baseline;padding-left:9px;border-left:3px solid var(--ink);margin:3px 0;}
+  .hd-ev .d{font-weight:800;font-size:11.5px;min-width:42px;flex:0 0 42px;}
+  .hd-ev .t{font-size:12.5px;color:var(--ink);line-height:1.3;}
+  .hd-cgroup{display:flex;align-items:stretch;gap:5px;}
+  .hd-cgroup-wins{flex:1;min-width:0;display:flex;flex-direction:column;gap:8px;border:1.7px dashed var(--green);border-radius:12px;padding:7px;}
+  .hd-brace-wrap{flex:0 0 13px;display:flex;align-items:stretch;}
+  .hd-brace{width:13px;height:100%;}
+  .hd-cnote{flex:0 0 84px;align-self:center;font-size:11px;line-height:1.4;color:var(--ink-soft);}
+  .hd-cnote b{color:var(--green-deep);font-size:11.5px;}
+  .inputs-group{display:flex;align-items:stretch;gap:7px;}
+  .inputs-gutter{flex:0 0 52px;display:flex;align-items:stretch;gap:3px;}
+  .inputs-tag{flex:0 0 27px;display:flex;align-items:center;justify-content:center;overflow:visible;}
+  .inputs-tag span{transform:rotate(-90deg);white-space:nowrap;font-size:23px;font-weight:800;letter-spacing:.32em;color:var(--green-deep);text-shadow:0 1px 0 rgba(255,255,255,.6);}
+  .inputs-brace-wrap{flex:0 0 22px;display:flex;align-items:stretch;}
+  .inputs-brace{width:22px;height:100%;overflow:visible;}
+  .inputs-content{flex:1;min-width:0;display:flex;flex-direction:column;gap:14px;}
+  .inputs-content>*{margin-top:0!important;}
+  @media(max-width:620px){.inputs-gutter{flex:0 0 42px;}.inputs-tag{flex:0 0 22px;}.inputs-tag span{font-size:19px;letter-spacing:.2em;}.inputs-brace-wrap{flex:0 0 18px;}.inputs-brace{width:18px;}}
 </style>
 </head>
 <body>
@@ -206,6 +307,7 @@
   <div class="tabs">
     <button class="tab on" data-tab="planner">Scenario Planner</button>
     <button class="tab" data-tab="reference">Reference Data</button>
+    <button class="tab" data-tab="compare">Saved &amp; Compare</button>
   </div>
 
   <div id="tab-planner" class="tabpane">
@@ -219,47 +321,55 @@
           <h2>ANNUAL CYCLES OVERVIEW</h2>
           <span class="sub" id="chartSub">(Based on Breeding Season: Nov 1 – Dec 15)</span>
         </div>
-        <svg id="chart" viewBox="0 0 985 470" preserveAspectRatio="xMidYMid meet"></svg>
+        <div class="mkt-toggle" id="mktToggle">
+          <span class="mkt-lab">Seasonal market index:</span>
+          <button type="button" class="seg active" data-mkt="sheep">Sheep / lamb</button>
+          <button type="button" class="seg" data-mkt="goat">Goat / kid</button>
+        </div>
+        <svg id="chart" viewBox="0 0 985 520" preserveAspectRatio="xMidYMid meet"></svg>
         <div class="legend-inline">
-          <span><i class="sw" style="background:var(--blue)"></i>Expected Market Strength</span>
+          <span><i class="sw" style="background:var(--blue)"></i>Seasonal Market Index</span>
           <span><i class="sw" style="background:var(--green)"></i>Natural Forage Availability</span>
           <span><i class="sw" style="background:var(--purple)"></i>Doe/Ewe Nutrient Demand</span>
           <span><i class="sw" style="background:var(--gold)"></i>Natural Fertility</span>
-          <span><i class="sw dash"></i>Biological Windows</span>
         </div>
       </div>
 
-      <!-- SLIDER -->
-      <div class="card slider-card">
-        <div class="slider-lead">
-          <span class="ic" id="calIc"></span>
-          <div>
-            <h3>BREEDING SEASON <span class="len-badge" id="seasonLen"></span></h3>
-            <p>Adjust the range to explore different timing scenarios.</p>
-          </div>
+      <!-- SALE + BREEDING SLIDERS -->
+      <div class="inputs-group">
+        <div class="inputs-gutter">
+          <span class="inputs-tag"><span>INPUTS</span></span>
+          <div class="inputs-brace-wrap"><svg class="inputs-brace" aria-hidden="true"><path fill="none" stroke="var(--green-deep)" stroke-width="3.6" vector-effect="non-scaling-stroke" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         </div>
-        <div class="slider-body">
-          <div class="track-wrap" id="trackWrap">
-            <div class="track"></div>
-            <div class="track-fill" id="trackFill"></div>
-            <div class="bubble" id="bubbleA">Nov 1</div>
-            <div class="bubble" id="bubbleB">Dec 15</div>
-            <div class="handle" id="handleA" tabindex="0" role="slider" aria-label="Breeding start"></div>
-            <div class="handle" id="handleB" tabindex="0" role="slider" aria-label="Breeding end"></div>
-            <div class="ticks" id="ticks"></div>
+        <div class="inputs-content">
+      <div id="sliderStack"></div>
+
+      <div class="assume">
+        <div class="assume-head">
+          <span class="assume-ttl">&#9881; Herd assumptions</span>
+          <button class="ref-chip" id="assumeRef" title="Open the growth-rate reference">&#128214; Reference</button>
+        </div>
+        <div class="assume-sub">Enter your ranch's numbers here &#8212; they drive the whole planner. Unsure what to use? Tap Reference.</div>
+        <div class="assume-body">
+          <div class="assume-cols">
+          <div class="assume-col goat">
+          <div class="grpttl"><span class="grp-ic" id="grpGoatIc"></span>Goats <span class="grp-sub">Kiko / Spanish</span></div>
+          <label><span>Birth weight (lb)</span><input id="gWt" type="number" value="8" step="0.5" min="4" max="14"></label>
+          <label><span>Avg daily gain (lb/d) <span class="help" tabindex="0" role="button" aria-label="Goat ADG benchmarks">?<span class="tip"><b>Goat ADG &#183; lb/day</b><br>&lt; 0.15 &#183; problem (drought / late-season / triplets)<br>0.20&#8211;0.30 &#183; acceptable low-input<br>0.30&#8211;0.40 &#183; good<br>&gt; 0.40 &#183; excellent</span></span></span><input id="gAdg" type="number" value="0.2" step="0.02" min="0.1" max="1"></label>
+          <label><span>Buck puberty (days) <span class="help" tabindex="0" role="button" aria-label="Buck puberty">?<span class="tip"><b>Buck-kid puberty</b><br>Meat-goat bucklings mature fast &#8212; often fertile by ~3 months, some earlier. Sets the latest safe date to band or separate.</span></span></span><input id="gPub" type="number" value="90" step="5" min="45" max="180"></label>
           </div>
-          <div class="hint">Drag handles to adjust breeding season window</div>
+          <div class="assume-col sheep">
+          <div class="grpttl"><span class="grp-ic" id="grpSheepIc"></span>Hair sheep</div>
+          <label><span>Birth weight (lb)</span><input id="sWt" type="number" value="9" step="0.5" min="4" max="14"></label>
+          <label><span>Avg daily gain (lb/d) <span class="help sheep" tabindex="0" role="button" aria-label="Katahdin ADG benchmarks">?<span class="tip"><b>Katahdin ADG &#183; lb/day</b><br>&lt; 0.30 &#183; disappointing (poor forage / high parasites)<br>0.35&#8211;0.55 &#183; acceptable commercial<br>0.55&#8211;0.75 &#183; good<br>&gt; 0.75 &#183; strong (genetics + forage / supplement)</span></span></span><input id="sAdg" type="number" value="0.4" step="0.02" min="0.1" max="1"></label>
+          <label><span>Ram puberty (days) <span class="help sheep" tabindex="0" role="button" aria-label="Ram puberty">?<span class="tip"><b>Ram-lamb puberty</b><br>Hair-breed ram lambs can be fertile by ~4 months. Sets the latest safe date to band or separate.</span></span></span><input id="sPub" type="number" value="120" step="5" min="60" max="210"></label>
+          </div>
+          </div>
+          <div class="grpttl">Shared</div>
+          <label><span>Gestation (days)</span><input id="gest" type="number" value="150" step="1" min="140" max="160"></label>
         </div>
       </div>
-
-      <!-- ALT SCENARIO -->
-      <div class="alt" id="altStrip" title="Load this scenario">
-        <div class="alt-label">
-          <span id="altArrow"></span>
-          <span class="t" id="altTitle">ALTERNATIVE<br>SCENARIO</span>
-          <span class="load">&#9656; tap to load</span>
         </div>
-        <div class="alt-cells" id="altCells"></div>
       </div>
 
       <div class="foot">
@@ -271,50 +381,29 @@
     <!-- RIGHT RAIL -->
     <aside class="col-right">
       <div class="rail">
-        <div class="rail-head"><span id="railClip"></span> SCENARIO OUTPUT</div>
+        <div class="rail-head"><span id="railClip"></span> SCENARIO OUTPUT <button class="rail-save" id="railSaveBtn" title="Save this scenario to compare">Save / compare</button></div>
         <div class="rail-body" id="railBody"></div>
       </div>
 
       <div class="wcards">
         <div class="wcard">
-          <div class="top"><span id="goatIc"></span><span>Goat Buck Kids</span></div>
-          <div class="lb" style="color:var(--green-deep)" id="goatWt">50&#8211;65 <small>lb</small></div>
-          <div class="desirable">desirable</div>
+          <div class="top"><span id="goatIc"></span><span>Goat buck kids</span></div>
+          <div class="lb" style="color:var(--green-deep)" id="goatWt">&#8211; <small>lb</small></div>
+          <div class="desirable" id="goatAge">at sale</div>
         </div>
         <div class="wcard">
-          <div class="top"><span id="sheepIc"></span><span>Hair Sheep Ram Lambs</span></div>
-          <div class="lb" style="color:var(--purple)" id="sheepWt">60&#8211;75 <small>lb</small></div>
-          <div class="desirable">desirable</div>
+          <div class="top"><span id="sheepIc"></span><span>Hair sheep ram lambs</span></div>
+          <div class="lb" style="color:var(--purple)" id="sheepWt">&#8211; <small>lb</small></div>
+          <div class="desirable" id="sheepAge">at sale</div>
         </div>
       </div>
 
-      <div class="card growth-card">
-        <div class="card-title">
-          <span class="badge" id="scaleBadge" style="background:transparent"></span>
-          <h2>PROJECTED LIVE WEIGHT</h2>
-        </div>
-        <svg id="growth" viewBox="0 0 340 210" preserveAspectRatio="xMidYMid meet"></svg>
+      <div class="card handling">
+        <div class="hd-head"><span id="hdIc"></span> HANDLING &amp; LABOR</div>
+        <div class="hd-sub">Every day you'll work animals, in calendar order. Clustered dates are your heavy-labor windows.</div>
+        <div id="hdList" class="hd-list"></div>
       </div>
 
-      <div class="assume">
-        <div class="assume-head">
-          <span class="assume-ttl">&#9881; Herd assumptions</span>
-          <button class="ref-chip" id="assumeRef" title="Open the growth-rate reference">&#128214; Reference</button>
-        </div>
-        <div class="assume-sub">Enter your ranch's numbers here &#8212; they drive the whole planner. Unsure what to use? Tap Reference.</div>
-        <div class="assume-body">
-          <div class="grpttl">Goats (Kiko / Spanish)</div>
-          <label><span>Birth weight (lb)</span><input id="gWt" type="number" value="8" step="0.5" min="4" max="14"></label>
-          <label><span>Avg daily gain (lb/d)</span><input id="gAdg" type="number" value="0.3" step="0.02" min="0.1" max="1"></label>
-          <label><span>Desirable low&#8211;high (lb)</span><span><input id="gLo" type="number" value="50" step="5" style="width:52px"> <input id="gHi" type="number" value="65" step="5" style="width:52px"></span></label>
-          <div class="grpttl">Hair sheep</div>
-          <label><span>Birth weight (lb)</span><input id="sWt" type="number" value="9" step="0.5" min="4" max="14"></label>
-          <label><span>Avg daily gain (lb/d)</span><input id="sAdg" type="number" value="0.55" step="0.02" min="0.1" max="1"></label>
-          <label><span>Desirable low&#8211;high (lb)</span><span><input id="sLo" type="number" value="60" step="5" style="width:52px"> <input id="sHi" type="number" value="75" step="5" style="width:52px"></span></label>
-          <div class="grpttl">Shared</div>
-          <label><span>Gestation (days)</span><input id="gest" type="number" value="150" step="1" min="140" max="160"></label>
-        </div>
-      </div>
     </aside>
   </div>
   </div>
@@ -360,12 +449,27 @@
       </div>
 
       <div class="card ref-card">
-        <h3>Average Daily Gain &#8212; lb/day (birth to market, on forage)</h3>
-        <table class="rt">
-          <tr><th></th><th>Conservative<br><span class="sub">hot summers &#183; twins &#183; parasites</span></th><th>Working default<br><span class="sub">decent forage</span></th><th>Good<br><span class="sub">cool season &#183; singles &#183; supplement</span></th></tr>
-          <tr><td class="goatc">Goats &#8212; Kiko / Spanish</td><td class="num">0.22</td><td class="num">0.30</td><td class="num">0.40</td></tr>
-          <tr><td class="sheepc">Hair sheep &#8212; Katahdin</td><td class="num">0.45</td><td class="num">0.55</td><td class="num">0.75</td></tr>
-        </table>
+        <h3>Average daily gain benchmarks &#8212; lb/day (birth to market, on forage)</h3>
+        <div class="adg-bench">
+          <div>
+            <div class="adg-h goatc">Goats &#8212; Kiko / Spanish</div>
+            <table class="rt bench">
+              <tr class="t-bad"><td class="num">&lt; 0.15</td><td>Problem &#8212; unless drought, late-season, or triplets</td></tr>
+              <tr class="t-ok"><td class="num">0.20&#8211;0.30</td><td>Acceptable low-input commercial</td></tr>
+              <tr class="t-good"><td class="num">0.30&#8211;0.40</td><td>Good</td></tr>
+              <tr class="t-great"><td class="num">&gt; 0.40</td><td>Excellent</td></tr>
+            </table>
+          </div>
+          <div>
+            <div class="adg-h sheepc">Hair sheep &#8212; Katahdin</div>
+            <table class="rt bench">
+              <tr class="t-bad"><td class="num">&lt; 0.30</td><td>Disappointing &#8212; unless forage is poor or parasite load is high</td></tr>
+              <tr class="t-ok"><td class="num">0.35&#8211;0.55</td><td>Acceptable commercial pasture performance</td></tr>
+              <tr class="t-good"><td class="num">0.55&#8211;0.75</td><td>Good</td></tr>
+              <tr class="t-great"><td class="num">&gt; 0.75</td><td>Strong &#8212; likely good genetics plus good forage or supplementation</td></tr>
+            </table>
+          </div>
+        </div>
         <div class="applybar">
           <span>Hair sheep out-gain goats roughly <b>1.5&#8211;2&#215;</b> on the same forage.</span>
           <button class="btn" id="applyADG">Apply to planner &#183; goats 0.30, sheep 0.55</button>
@@ -432,6 +536,26 @@
       </div>
     </div>
   </div>
+  <div id="tab-compare" class="tabpane" hidden>
+    <div class="card cmp-card">
+      <div class="card-title"><span class="badge" id="cmpBadge"></span><h2>SAVED SCENARIOS</h2></div>
+      <p class="cmp-intro">Save the current planner setup so you can compare options side by side and pull them up later. Scenarios are stored on this device &#8212; use <b>Export</b> to back them up or move them to another device or share with Tricia.</p>
+      <div class="save-bar">
+        <input id="scName" type="text" placeholder="Name this setup (e.g. Nov breeding)" maxlength="40">
+        <button class="btn" id="saveScBtn">Save current setup</button>
+      </div>
+      <div id="scList" class="sc-list"></div>
+      <div class="cmp-actions">
+        <button class="btn ghost" id="exportBtn">Export all</button>
+        <button class="btn ghost" id="importBtn">Import</button>
+        <input id="importFile" type="file" accept="application/json" hidden>
+      </div>
+    </div>
+    <div class="card cmp-card">
+      <div class="card-title"><h2>COMPARISON</h2></div>
+      <div id="cmpTableWrap" class="cmp-table-wrap"></div>
+    </div>
+  </div>
 </div>
 
 <script>
@@ -450,9 +574,24 @@ function toDay(month,dom){return MSTART[month]+dom-1}
 function gauss(x,mu,s){return Math.exp(-((x-mu)*(x-mu))/(2*s*s))}
 
 /* ============ seasonal curves (NE Oklahoma) ============ */
-function forageRaw(d){return 0.10+0.92*gauss(d,132,30)+0.44*gauss(d,278,30)}
-function marketRaw(d){return 0.42+0.50*gauss(d,25,58)+0.18*(gauss(d,345,26)+gauss(d,345-YEAR,26)+gauss(d,345+YEAR,26))}
-const FORAGE=[],MARKET=[];{let fm=0,mm=0;for(let d=0;d<YEAR;d++){FORAGE[d]=forageRaw(d);MARKET[d]=marketRaw(d);fm=Math.max(fm,FORAGE[d]);mm=Math.max(mm,MARKET[d])}for(let d=0;d<YEAR;d++){FORAGE[d]/=fm;MARKET[d]/=mm}}
+function forageRaw(d){return 0.20+0.80*gauss(d,122,26)+0.50*gauss(d,205,42)+0.68*gauss(d,286,30)}
+const FORAGE=[];{let fm=0;for(let d=0;d<YEAR;d++){FORAGE[d]=forageRaw(d);fm=Math.max(fm,FORAGE[d])}for(let d=0;d<YEAR;d++)FORAGE[d]/=fm;}
+// real seasonal price index (100=trend) from the Livestock Market Analyzer:
+// Missouri summary, slaughter hair-breed sheep/lambs, 50-100 lb, 5-yr lookback
+function buildIndexCurve(mon){
+  const pts=[];
+  for(let m=-1;m<13;m++){const mm=((m%12)+12)%12;pts.push([MSTART[mm]+MONTHS[mm][1]/2+(m<0?-YEAR:(m>11?YEAR:0)),mon[mm]]);}
+  const raw=new Array(YEAR);
+  for(let d=0;d<YEAR;d++){let i=0;while(i<pts.length-1&&pts[i+1][0]<=d)i++;const t=(d-pts[i][0])/(pts[i+1][0]-pts[i][0]);raw[d]=pts[i][1]+(pts[i+1][1]-pts[i][1])*t;}
+  const sm=new Array(YEAR);for(let d=0;d<YEAR;d++){let s=0;for(let k=-5;k<=5;k++)s+=raw[((d+k)%YEAR+YEAR)%YEAR];sm[d]=s/11;}
+  const mn=Math.min.apply(null,sm),mx=Math.max.apply(null,sm);
+  return sm.map(v=>0.18+0.8*(v-mn)/(mx-mn));
+}
+// real seasonal price indexes (100=trend), Livestock Market Analyzer, Missouri summary, 50-100 lb, 5-yr
+const MKT_SHEEP=[122,118,120,110,98,84,78,82,90,86,99,110]; // slaughter hair lambs
+const MKT_GOAT=[109,107,111,103,112,107,93,89,88,87,89,97];  // slaughter kids
+const MARKET_SHEEP=buildIndexCurve(MKT_SHEEP), MARKET_GOAT=buildIndexCurve(MKT_GOAT);
+function curMkt(){return S.mkt==="goat"?MARKET_GOAT:MARKET_SHEEP;}
 const FERT_SCORES=[80,60,40,20,15,20,35,65,90,100,100,95];
 const FERTILITY=(function(){
   const pts=[];
@@ -464,16 +603,9 @@ const FERTILITY=(function(){
 })();
 
 /* ============ state ============ */
-const PRESETS={
-  ff:{start:toDay(10,1),end:toDay(11,15),name:"Female-Friendly / Low-Stress",short:"Female-Friendly",
-      bestUse:"Herd growth, female retention, lower winter stress",
-      note:"Great for growing the female base, but males miss the strongest spring market."},
-  mt:{start:toDay(7,15),end:toDay(8,30),name:"Market-Timed",short:"Market-Timed Strategy",
-      bestUse:"Spring male sales, better market timing",
-      note:"Better spring market timing, but harder on females and winter management."}
-};
-let S={start:toDay(9,2),end:toDay(11,2),
-  goat:{wt:8,adg:0.30,lo:50,hi:65},sheep:{wt:9,adg:0.55,lo:60,hi:75},gest:150};
+let S={start:toDay(10,19),end:toDay(0,3),mkt:"sheep",
+  goat:{wt:8,adg:0.20,saleDay:toDay(0,2),pub:90},
+  sheep:{wt:9,adg:0.40,saleDay:toDay(0,2),pub:120},gest:150};
 
 /* ============ compute ============ */
 function lenOf(s,e){return wrap(e-s)}
@@ -489,22 +621,19 @@ function scenario(start,end){
   const lact=lactationCurve(bStart,len,90);
   const lactBandS=wrap(bStart+30), lactBandE=wrap(bEnd+35);
   const peak=wrap(bStart+len/2+30);
-  const bAdg=(S.goat.adg+S.sheep.adg)/2, bWt=(S.goat.wt+S.sheep.wt)/2;
-  const loW=(S.goat.lo+S.sheep.lo)/2, hiW=(S.goat.hi+S.sheep.hi)/2;
-  const ageLo=(loW-bWt)/bAdg, ageHi=(hiW-bWt)/bAdg;
-  const saleS=wrap(bStart+ageLo), saleE=wrap(bEnd+ageHi);
+  function saleCalc(sp){
+    let bs=bStart, be=bEnd; if(be<bs)be+=YEAR;
+    let sd=sp.saleDay; while(sd<bs)sd+=YEAR;
+    const ageMin=Math.max(0,sd-be), ageMax=Math.max(0,sd-bs);
+    return {day:sp.saleDay, ageMin, ageMax, wMin:sp.wt+sp.adg*ageMin, wMax:sp.wt+sp.adg*ageMax};
+  }
+  const gSale=saleCalc(S.goat), sSale=saleCalc(S.sheep);
+  const gBand=wrap(bStart+S.goat.pub), sBand=wrap(bStart+S.sheep.pub);
   let wS=0,fS=0;for(let d=0;d<YEAR;d++){wS+=lact.abs[d];fS+=lact.abs[d]*FORAGE[d]}
   const forageFit=wS>0?Math.round(100*fS/wS):0;
-  let mS=0,n=0;for(let i=0;i<=Math.max(1,len);i++){mS+=MARKET[wrap(Math.round(saleS+i))];n++}
+  let mS=0,n=0;const mk=curMkt();for(const w of [gSale,sSale]){mS+=mk[wrap(w.day)];n++;}
   const marketFit=Math.round(100*mS/n);
-  return{start,end,len,bStart,bEnd,lact,lactBandS,lactBandE,peak,saleS,saleE,forageFit,marketFit,forageAtPeak:Math.round(100*FORAGE[wrap(Math.round(peak))])}
-}
-function classify(start){
-  const dist=(a,b)=>Math.min(Math.abs(a-b),YEAR-Math.abs(a-b));
-  const df=dist(start,PRESETS.ff.start), dm=dist(start,PRESETS.mt.start);
-  if(df<=22)return{cur:"ff",alt:"mt"};
-  if(dm<=22)return{cur:"mt",alt:"ff"};
-  return{cur:"custom",alt:df<dm?"mt":"ff",nearest:df<dm?"ff":"mt"}
+  return{start,end,len,bStart,bEnd,lact,lactBandS,lactBandE,peak,gSale,sSale,gBand,sBand,forageFit,marketFit,forageAtPeak:Math.round(100*FORAGE[wrap(Math.round(peak))])}
 }
 
 /* ============ icons ============ */
@@ -571,7 +700,7 @@ function okBadge(){
 
 /* ============ chart geometry ============ */
 const LEFTIMG={market:"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",forage:"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",demand:"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"};
-const CH={x0:200,x1:958,mb:18,mbh:30,labTop:56,y0c:126,y1:408};
+const CH={x0:200,x1:958,mb:16,mbh:32,laneTop:58,lanePitch:26,laneBarH:14,y0c:214,y1:490};
 const X=day=>CH.x0+(clamp(day,0,YEAR)/YEAR)*(CH.x1-CH.x0);
 const Y=v=>CH.y1-v*(CH.y1-CH.y0c);
 function curvePath(arr){let p="";for(let d=0;d<YEAR;d++){const x=CH.x0+(d/YEAR)*(CH.x1-CH.x0);p+=(d?"L":"M")+x.toFixed(1)+" "+Y(arr[d]).toFixed(1)}return p}
@@ -583,46 +712,50 @@ function bandRects(d0,d1){return d1>=d0?[[d0,d1]]:[[d0,YEAR],[0,d1]]}
 function drawChart(){
   const r=scenario(S.start,S.end);
   const demand=scaleTo(smooth(r.lact.norm,9),0.86);
-  const forage=FORAGE.map(v=>v*0.98), market=MARKET.map(v=>v*0.96), fert=FERTILITY.map(v=>v*0.92);
-  let h='<defs>'+
-    grad("gMarket","var(--blue)")+grad("gForage","var(--green)")+grad("gDemand","var(--purple)")+grad("gFert","var(--gold)")+
-    '</defs>';
+  const forage=FORAGE.map(v=>v*0.98), market=curMkt().map(v=>v*0.96), fert=FERTILITY.map(v=>v*0.92);
+  let h='<defs>'+grad("gMarket","var(--blue)")+grad("gForage","var(--green)")+grad("gDemand","var(--purple)")+grad("gFert","var(--gold)")+'</defs>';
   // month bar
   h+='<rect x="'+CH.x0+'" y="'+CH.mb+'" width="'+(CH.x1-CH.x0)+'" height="'+CH.mbh+'" rx="6" fill="var(--navy)"/>';
   for(let m=0;m<12;m++){
     const xs=X(MSTART[m]), xc=X(MSTART[m]+MONTHS[m][1]/2);
     if(m>0)h+='<line x1="'+xs+'" y1="'+(CH.mb+5)+'" x2="'+xs+'" y2="'+(CH.mb+CH.mbh-5)+'" stroke="#3c4e78" stroke-width="1"/>';
-    h+='<text x="'+xc+'" y="'+(CH.mb+CH.mbh/2+4.5)+'" fill="#eef1f7" font-size="12.5" font-weight="700" text-anchor="middle" letter-spacing="1">'+MONTHS[m][0].toUpperCase()+'</text>';
-    h+='<line x1="'+xs+'" y1="'+CH.labTop+'" x2="'+xs+'" y2="'+CH.y1+'" stroke="var(--line)" stroke-width="1" opacity=".6"/>';
+    h+='<text x="'+xc+'" y="'+(CH.mb+CH.mbh/2+4.5)+'" fill="#eef1f7" font-size="14" font-weight="700" text-anchor="middle" letter-spacing="1">'+MONTHS[m][0].toUpperCase()+'</text>';
+    h+='<line x1="'+xs+'" y1="'+CH.laneTop+'" x2="'+xs+'" y2="'+CH.y1+'" stroke="var(--line)" stroke-width="1" opacity=".55"/>';
   }
-  // baseline
   h+='<line x1="'+CH.x0+'" y1="'+CH.y1+'" x2="'+CH.x1+'" y2="'+CH.y1+'" stroke="var(--line-strong)" stroke-width="1.2"/>';
 
-  // biological bands — draw ALL rects first, then ALL labels on top (so labels are never covered)
-  const bands=[
-    {d0:r.bStart,d1:r.bEnd,anc:0.30,fill:"var(--band-lamb)",edge:null,t1:"EXPECTED",t2:"LAMBING/KIDDING",range:fuzzyRange(r.bStart,r.bEnd),tc:"#8a6a2f"},
-    {d0:r.lactBandS,d1:r.lactBandE,anc:0.70,fill:"var(--band-lact)",edge:null,t1:"PEAK",t2:"LACTATION",range:fuzzyRange(r.lactBandS,r.lactBandE),tc:"var(--purple)"},
-    {d0:r.saleS,d1:r.saleE,anc:0.5,fill:"var(--band-sale)",edge:null,t1:"LIKELY SALE",t2:"WINDOW (MALES)",range:fuzzyRange(r.saleS,r.saleE),tc:"var(--blue)"},
-    {d0:r.start,d1:r.end,anc:0.5,fill:"var(--band-breed)",edge:"var(--band-breed-edge)",t1:"BREEDING",t2:"SEASON",range:dateLabel(r.start)+" \u2013 "+dateLabel(r.end),tc:"var(--green-deep)"}
+  // ===== Timeline lanes: one window per row, so overlaps can never hide each other =====
+  const lanes=[
+    {d0:r.start,d1:r.end,fill:"#d7dcf3",edge:"var(--navy)",label:"Breeding season",tc:"var(--navy)",range:dateLabel(r.start)+" – "+dateLabel(r.end)},
+    {d0:r.bStart,d1:r.bEnd,fill:"#ecd9a6",edge:null,label:"Lambing / kidding",tc:"#8a6a2f",range:fuzzyRange(r.bStart,r.bEnd)},
+    {d0:r.lactBandS,d1:r.lactBandE,fill:"#dcc9ee",edge:null,label:"Peak lactation",tc:"var(--purple)",range:fuzzyRange(r.lactBandS,r.lactBandE)},
+    {single:true,day:r.sSale.day,mfill:"#c9bbef",label:"Sheep sale",tc:"var(--purple)",range:dateLabel(r.sSale.day)+"  \u00b7  "+Math.round(r.sSale.wMin)+"\u2013"+Math.round(r.sSale.wMax)+" lb"},
+    {single:true,day:r.gSale.day,mfill:"#bcd398",label:"Goat sale",tc:"var(--green-deep)",range:dateLabel(r.gSale.day)+"  \u00b7  "+Math.round(r.gSale.wMin)+"\u2013"+Math.round(r.gSale.wMax)+" lb"}
   ];
-  bands.forEach(bd=>{
-    for(const seg of bandRects(bd.d0,bd.d1)){const a=seg[0],b=seg[1];
-      h+='<rect x="'+X(a).toFixed(1)+'" y="'+(CH.labTop-2)+'" width="'+Math.max(3,X(b)-X(a)).toFixed(1)+'" height="'+(CH.y1-CH.labTop+2).toFixed(1)+'" fill="'+bd.fill+'" opacity="0.82"'+(bd.edge?' stroke="'+bd.edge+'" stroke-width="1.5" stroke-dasharray="5 4" rx="5"':' rx="0"')+'/>';
+  const laneBot=CH.laneTop+lanes.length*CH.lanePitch;
+  lanes.forEach((ln,i)=>{
+    const cy=CH.laneTop+i*CH.lanePitch+CH.lanePitch/2;
+    h+='<line x1="200" y1="'+cy+'" x2="'+CH.x1+'" y2="'+cy+'" stroke="var(--line)" stroke-width="1" opacity=".45"/>';
+    h+='<text x="192" y="'+(cy+4.5)+'" text-anchor="end" font-size="13.5" font-weight="800" fill="'+ln.tc+'">'+ln.label+'</text>';
+    if(ln.single){
+      const mx=X(ln.day), room=mx<CH.x1-140;
+      h+='<line x1="'+mx.toFixed(1)+'" y1="'+(cy-8)+'" x2="'+mx.toFixed(1)+'" y2="'+(cy+8)+'" stroke="'+ln.tc+'" stroke-width="2.4"/>';
+      h+='<path d="M'+mx.toFixed(1)+' '+(cy-6)+' L'+(mx+5).toFixed(1)+' '+cy+' L'+mx.toFixed(1)+' '+(cy+6)+' L'+(mx-5).toFixed(1)+' '+cy+' Z" fill="'+ln.mfill+'" stroke="'+ln.tc+'" stroke-width="1.4"/>';
+      h+='<text x="'+(room?mx+10:mx-10).toFixed(1)+'" y="'+(cy+4)+'" text-anchor="'+(room?"start":"end")+'" font-size="11.5" font-weight="800" fill="var(--ink)">'+ln.range+'</text>';
+      return;
     }
+    const by=cy-CH.laneBarH/2;
+    for(const seg of bandRects(ln.d0,ln.d1)){const a=seg[0],b=seg[1];const bw=Math.max(3,X(b)-X(a));
+      h+='<rect x="'+X(a).toFixed(1)+'" y="'+by+'" width="'+bw.toFixed(1)+'" height="'+CH.laneBarH+'" rx="4" fill="'+ln.fill+'" stroke="'+(ln.edge||"rgba(40,30,10,.22)")+'" stroke-width="'+(ln.edge?1.4:1)+'"/>';
+    }
+    const span=ln.d1>=ln.d0?(ln.d1-ln.d0):(YEAR-ln.d0+ln.d1);
+    let mid=clamp(X(wrap(ln.d0+span/2)),CH.x0+34,CH.x1-34);
+    h+='<text x="'+mid.toFixed(1)+'" y="'+(cy+4)+'" text-anchor="middle" font-size="11.5" font-weight="700" fill="var(--ink)">'+ln.range+'</text>';
   });
-  bands.forEach(bd=>{
-    const span=bd.d1>=bd.d0?(bd.d1-bd.d0):(YEAR-bd.d0+bd.d1);
-    let midx=X(wrap(bd.d0+span*bd.anc));
-    midx=clamp(midx,CH.x0+40,CH.x1-40);
-    h+='<text x="'+midx.toFixed(1)+'" y="'+(CH.labTop+15)+'" fill="'+bd.tc+'" font-size="9" font-weight="800" text-anchor="middle" letter-spacing=".2">'+bd.t1+'</text>';
-    h+='<text x="'+midx.toFixed(1)+'" y="'+(CH.labTop+26)+'" fill="'+bd.tc+'" font-size="9" font-weight="800" text-anchor="middle" letter-spacing=".2">'+bd.t2+'</text>';
-    h+='<text x="'+midx.toFixed(1)+'" y="'+(CH.labTop+37)+'" fill="'+bd.tc+'" font-size="7.5" text-anchor="middle" opacity=".8">'+bd.range+'</text>';
-  });
+  h+='<line x1="8" y1="'+(laneBot+7)+'" x2="'+CH.x1+'" y2="'+(laneBot+7)+'" stroke="var(--line-strong)" stroke-width="1" opacity=".7"/>';
 
-  // fertility (fixed seasonal pattern) — soft gold zone behind, thin gold line on top
+  // ===== Curves (clean plot, nothing overlapping) =====
   h+='<path d="'+areaPath(fert)+'" fill="url(#gFert)" stroke="none"/>';
-
-  // soft gradient fills, then bold lines on top
   h+='<path d="'+areaPath(market)+'" fill="url(#gMarket)" stroke="none"/>';
   h+='<path d="'+areaPath(forage)+'" fill="url(#gForage)" stroke="none"/>';
   h+='<path d="'+areaPath(demand)+'" fill="url(#gDemand)" stroke="none"/>';
@@ -630,136 +763,126 @@ function drawChart(){
   h+='<path d="'+curvePath(forage)+'" fill="none" stroke="var(--green)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>';
   h+='<path d="'+curvePath(demand)+'" fill="none" stroke="var(--purple)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>';
   h+='<path d="'+curvePath(fert)+'" fill="none" stroke="var(--gold)" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>';
+  // male castration / separation deadlines: dashed markers confined to the calendar/lane band (kept out of the curves)
+  function deadline(day,color,label,side){
+    const x=X(day), top=CH.mb+CH.mbh, bot=CH.laneTop+lanes.length*CH.lanePitch, tx=x+side*7, ty=(top+20+bot)/2;
+    return '<line x1="'+x.toFixed(1)+'" y1="'+top+'" x2="'+x.toFixed(1)+'" y2="'+bot+'" stroke="'+color+'" stroke-width="1.6" stroke-dasharray="6 4" opacity="0.85"/>'
+      +'<text x="'+x.toFixed(1)+'" y="'+(top+11)+'" fill="'+color+'" font-size="9.5" font-weight="800" text-anchor="middle" paint-order="stroke" stroke="#fdfcf7" stroke-width="3.4">'+dateLabel(day)+'</text>'
+      +'<text x="'+tx.toFixed(1)+'" y="'+ty+'" fill="'+color+'" font-size="8.5" font-weight="800" text-anchor="middle" paint-order="stroke" stroke="#fdfcf7" stroke-width="3.1" transform="rotate(-90 '+tx.toFixed(1)+' '+ty+')">'+label+'</text>';
+  }
+  h+=deadline(r.gBand,"var(--green-deep)","Buck castration deadline",-1);
+  h+=deadline(r.sBand,"var(--purple)","Lamb castration deadline",1);
 
-  // left curve labels
   function label(y,ic,color,t1,t2,desc){
     const key={bar:"market",grass:"forage",doe:"demand"}[ic];
-    let o=key?('<image href="data:image/png;base64,'+LEFTIMG[key]+'" x="5" y="'+(y-21)+'" width="42" height="42" preserveAspectRatio="xMidYMid meet"/>')
-            :('<circle cx="26" cy="'+y+'" r="18" fill="'+color+'"/>'+svgIconAt(ic,14,y-11,24,"#fff"));
-    o+='<text x="55" y="'+(y-3)+'" fill="'+color+'" font-size="14" font-weight="800">'+t1+'</text>';
-    o+='<text x="55" y="'+(y+12)+'" fill="'+color+'" font-size="14" font-weight="800">'+t2+'</text>';
-    desc.forEach((ln,i)=>{o+='<text x="55" y="'+(y+30+i*13)+'" fill="var(--ink-soft)" font-size="11">'+ln+'</text>'});
+    let o=key?('<image href="data:image/png;base64,'+LEFTIMG[key]+'" x="4" y="'+(y-22)+'" width="44" height="44" preserveAspectRatio="xMidYMid meet"/>')
+            :('<circle cx="26" cy="'+y+'" r="19" fill="'+color+'"/>'+svgIconAt(ic,13,y-12,26,"#fff"));
+    o+='<text x="57" y="'+(y-4)+'" fill="'+color+'" font-size="15.5" font-weight="800">'+t1+'</text>';
+    o+='<text x="57" y="'+(y+14)+'" fill="'+color+'" font-size="15.5" font-weight="800">'+t2+'</text>';
+    desc.forEach((ln,i)=>{o+='<text x="57" y="'+(y+34+i*15)+'" fill="var(--ink-soft)" font-size="12.5">'+ln+'</text>'});
     return o;
   }
-  h+=label(100,"bar","var(--blue)","Expected","Market Strength",["High in winter/spring,","weakest in summer."]);
-  h+=label(184,"grass","var(--green)","Natural Forage","Availability",["Rises spring, peaks","late spring/summer."]);
-  h+=label(268,"doe","var(--purple)","Doe/Ewe","Nutrient Demand",["Rises after birth,","peaks with lactation."]);
-  h+=label(352,"heart","var(--gold)","Natural","Fertility",["When females naturally","cycle most reliably."]);
+  const mktDesc=S.mkt==="goat"?["Kid index: fairly flat,","weakest Aug\u2013Oct."]:["Lamb index: peaks","winter, low in July."];
+  h+=label(248,"bar","var(--blue)","Seasonal","Market Index",mktDesc);
+  h+=label(320,"grass","var(--green)","Natural Forage","Availability",["Peaks spring & fall,","warm-season summer."]);
+  h+=label(392,"doe","var(--purple)","Doe/Ewe","Nutrient Demand",["Peaks with","lactation."]);
+  h+=label(464,"heart","var(--gold)","Natural","Fertility",["Highest late fall","and winter."]);
 
   document.getElementById("chart").innerHTML=h;
   refreshOutputs(r);
+  renderHandling(r);
 }
+
 function grad(id,color){return '<linearGradient id="'+id+'" x1="0" y1="0" x2="0" y2="1">'+
   '<stop offset="0" stop-color="'+color+'" stop-opacity="0.16"/>'+
   '<stop offset="0.85" stop-color="'+color+'" stop-opacity="0"/></linearGradient>'}
 
-/* ============ growth chart ============ */
-function drawGrowth(){
-  const g={x0:46,x1:322,y0:18,y1:168},maxAge=155,maxW=100;
-  const GX=a=>g.x0+(a/maxAge)*(g.x1-g.x0), GY=w=>g.y1-(w/maxW)*(g.y1-g.y0);
-  let h="";
-  for(let w=0;w<=100;w+=25){h+='<line x1="'+g.x0+'" y1="'+GY(w)+'" x2="'+g.x1+'" y2="'+GY(w)+'" stroke="var(--line)" stroke-width="1"'+(w?' stroke-dasharray="2 4"':'')+'/>';h+='<text x="'+(g.x0-7)+'" y="'+(GY(w)+3)+'" fill="var(--ink-soft)" font-size="9" text-anchor="end">'+w+'</text>'}
-  for(let a=0;a<=150;a+=30){h+='<text x="'+GX(a)+'" y="'+(g.y1+14)+'" fill="var(--ink-soft)" font-size="9" text-anchor="middle">'+a+'</text>'}
-  h+='<text x="'+((g.x0+g.x1)/2)+'" y="'+(g.y1+28)+'" fill="var(--ink-soft)" font-size="10" text-anchor="middle">Age (days)</text>';
-  h+='<text x="13" y="'+((g.y0+g.y1)/2)+'" fill="var(--ink-soft)" font-size="9" text-anchor="middle" transform="rotate(-90 13 '+((g.y0+g.y1)/2)+')">Live Weight (lb)</text>';
-  function line(sp,color,name,ly,dy){
-    let p="";for(let a=0;a<=maxAge;a+=5){const w=Math.min(maxW,sp.wt+sp.adg*a);p+=(a?"L":"M")+GX(a).toFixed(1)+" "+GY(w).toFixed(1)}
-    let o='<path d="'+p+'" fill="none" stroke="'+color+'" stroke-width="2.6" stroke-linecap="round"/>';
-    [10,60,130].forEach(a=>{const w=Math.min(maxW,sp.wt+sp.adg*a);
-      o+='<circle cx="'+GX(a)+'" cy="'+GY(w)+'" r="2.8" fill="'+color+'"/>';
-      o+='<text x="'+GX(a)+'" y="'+(GY(w)+dy)+'" fill="'+color+'" font-size="9" font-weight="700" text-anchor="middle">'+Math.round(w)+'</text>';
-    });
-    o+='<circle cx="'+(g.x0+6)+'" cy="'+ly+'" r="3.2" fill="'+color+'"/><text x="'+(g.x0+13)+'" y="'+(ly+3.5)+'" fill="var(--ink)" font-size="10" font-weight="700">'+name+'</text>';
-    return o;
-  }
-  h+=line(S.goat,"var(--green)","Goat Kids",g.y0+4,13);
-  h+=line(S.sheep,"var(--purple)","Hair Sheep Lambs",g.y0+18,-7);
-  document.getElementById("growth").innerHTML=h;
-}
-
 /* ============ outputs / rail ============ */
-function strategyFor(cls){
-  if(cls.cur==="ff")return PRESETS.ff;
-  if(cls.cur==="mt")return PRESETS.mt;
-  const near=PRESETS[cls.nearest];
-  return{name:"Custom Season",short:"Custom",bestUse:near.bestUse,note:near.note};
-}
 function refreshOutputs(r){
-  const cls=classify(S.start), strat=strategyFor(cls);
   let fS=0,fn=0;const flen=Math.max(1,lenOf(S.start,S.end));for(let i=0;i<=flen;i++){fS+=FERTILITY[wrap(S.start+i)];fn++}
   const fertAvg=fS/fn;
   const fertRating=fertAvg>=0.80?"Strong":fertAvg>=0.55?"Moderate":"Weak";
   const fertColor=fertAvg>=0.80?"var(--green)":fertAvg>=0.55?"var(--gold)":"#c1573b";
   document.getElementById("chartSub").textContent="(Based on Breeding Season: "+dateLabel(S.start)+" \u2013 "+dateLabel(S.end)+" \u00b7 "+lenOf(S.start,S.end)+" days)";
   const rows=[
-    ["people","var(--green-deep)","Current Strategy:",strat.name],
     ["cal","var(--navy)","Breeding Season:",dateLabel(S.start)+" \u2013 "+dateLabel(S.end)+"  \u00b7  "+lenOf(S.start,S.end)+" days"],
     ["heart",fertColor,"Breeding Fertility:","<span style=\"color:"+fertColor+";font-weight:800\">"+fertRating+"</span> <small>&#183; window avg "+Math.round(fertAvg*100)+"%</small>"],
     ["doe","var(--brown)","Expected Birth Window:",fuzzyRange(r.bStart,r.bEnd)],
     ["bottle","var(--purple)","Peak Lactation:",fuzzyRange(r.lactBandS,r.lactBandE)],
-    ["tag","var(--blue)","Likely Male Sale Window:",fuzzyRange(r.saleS,r.saleE)],
-    ["seed","var(--green-deep)","Best Use:",strat.bestUse]
+    ["tag","var(--brown)","Separate / band males by:","<span style=\"color:var(--green-deep);font-weight:800\">"+dateLabel(r.gBand)+"</span> <small>bucks</small>  \u00b7  <span style=\"color:var(--purple);font-weight:800\">"+dateLabel(r.sBand)+"</span> <small>rams</small>"],
+    ["goat","","Goat sale date:","<span style=\"color:var(--green-deep)\">"+dateLabel(r.gSale.day)+"</span>  \u00b7  "+Math.round(r.gSale.wMin)+"\u2013"+Math.round(r.gSale.wMax)+" lb  <small>\u00b7  "+(r.gSale.ageMin/30.4).toFixed(1)+"\u2013"+(r.gSale.ageMax/30.4).toFixed(1)+" mo</small>"],
+    ["sheep","","Sheep sale date:","<span style=\"color:var(--purple)\">"+dateLabel(r.sSale.day)+"</span>  \u00b7  "+Math.round(r.sSale.wMin)+"\u2013"+Math.round(r.sSale.wMax)+" lb  <small>\u00b7  "+(r.sSale.ageMin/30.4).toFixed(1)+"\u2013"+(r.sSale.ageMax/30.4).toFixed(1)+" mo</small>"],
   ];
   document.getElementById("railBody").innerHTML=rows.map(row=>
     '<div class="orow"><span class="oic">'+iconHTML(row[0],24,row[1])+'</span><span><div class="k">'+row[2]+'</div><div class="v">'+row[3]+'</div></span></div>').join("");
-  document.getElementById("goatWt").innerHTML=S.goat.lo+'\u2013'+S.goat.hi+' <small>lb</small>';
-  document.getElementById("sheepWt").innerHTML=S.sheep.lo+'\u2013'+S.sheep.hi+' <small>lb</small>';
-  const alt=PRESETS[cls.alt], ar=scenario(alt.start,alt.end);
-  document.getElementById("altTitle").innerHTML=(cls.cur==="custom")?alt.short.replace(" ","<br>"):"ALTERNATIVE<br>SCENARIO";
-  const altCells=[
-    ["target","var(--navy)","Strategy",alt.short],
-    ["cal","var(--navy)","Breeding Season",dateLabel(alt.start)+" \u2013 "+dateLabel(alt.end)],
-    ["doe","var(--brown)","Birth Window",fuzzyRange(ar.bStart,ar.bEnd)],
-    ["bottle","var(--purple)","Peak Lactation",fuzzyRange(ar.lactBandS,ar.lactBandE)],
-    ["tag","var(--blue)","Likely Sale Window",fuzzyRange(ar.saleS,ar.saleE)],
-    ["doc","var(--ink-soft)","Note",alt.note]
-  ];
-  document.getElementById("altCells").innerHTML=altCells.map(c=>
-    '<div class="alt-cell">'+iconHTML(c[0],18,c[1])+'<span><div class="k">'+c[2]+'</div><div class="v">'+c[3]+'</div></span></div>').join("");
-  document.getElementById("altStrip").dataset.load=cls.alt;
+  const moR=sw=>(sw.ageMin/30.4).toFixed(1)+'\u2013'+(sw.ageMax/30.4).toFixed(1)+' mo old';
+  document.getElementById("goatWt").innerHTML=Math.round(r.gSale.wMin)+'\u2013'+Math.round(r.gSale.wMax)+' <small>lb</small>';
+  document.getElementById("sheepWt").innerHTML=Math.round(r.sSale.wMin)+'\u2013'+Math.round(r.sSale.wMax)+' <small>lb</small>';
+  document.getElementById("goatAge").textContent='at sale \u00b7 '+moR(r.gSale);
+  document.getElementById("sheepAge").textContent='at sale \u00b7 '+moR(r.sSale);
 }
 
-/* ============ slider ============ */
-const trackWrap=document.getElementById("trackWrap");
+/* ============ sliders (reusable) ============ */
 function pct(day){return (day/YEAR)*100}
-function renderSlider(){
-  const a=S.start,b=S.end;
-  document.getElementById("handleA").style.left=pct(a)+"%";
-  document.getElementById("handleB").style.left=pct(b)+"%";
-  document.getElementById("bubbleA").style.left=pct(a)+"%";
-  document.getElementById("bubbleB").style.left=pct(b)+"%";
-  document.getElementById("bubbleA").textContent=dateLabel(a);
-  document.getElementById("bubbleB").textContent=dateLabel(b);
-  const fill=document.getElementById("trackFill");
-  if(b>=a){fill.style.left=pct(a)+"%";fill.style.width=pct(b-a)+"%"}
-  else{fill.style.left=pct(a)+"%";fill.style.width=pct(YEAR-a)+"%"}
-  const len=lenOf(a,b);const sl=document.getElementById("seasonLen");if(sl)sl.textContent=len+" day"+(len===1?"":"s");
+function sliderCardHTML(pfx,title,desc,cls,single,sl){
+  const lenB=single?'':' <span class="len-badge" id="'+pfx+'Len"></span>';
+  const parts=single
+    ?'<div class="bubble" id="'+pfx+'BubbleA"></div><div class="handle" id="'+pfx+'HandleA" tabindex="0" role="slider" aria-label="'+sl+'"></div>'
+    :'<div class="track-fill" id="'+pfx+'Fill"></div><div class="track-fill" id="'+pfx+'Fill2" style="width:0"></div><div class="bubble" id="'+pfx+'BubbleA"></div><div class="bubble" id="'+pfx+'BubbleB"></div><div class="handle" id="'+pfx+'HandleA" tabindex="0" role="slider" aria-label="'+sl+'"></div><div class="handle" id="'+pfx+'HandleB" tabindex="0" role="slider" aria-label="end"></div>';
+  const hint=single?'Drag the marker, or type the exact date below':'Drag the handles, or type exact dates below';
+  const dates=single
+    ?'<div class="date-entry"><span class="de-field"><span class="de-cap">Sale date</span><select id="'+pfx+'StartMon" class="de-sel"></select><input id="'+pfx+'StartDay" class="de-day" type="number" min="1" max="31" inputmode="numeric"></span></div>'
+    :'<div class="date-entry"><span class="de-field"><span class="de-cap">Start</span><select id="'+pfx+'StartMon" class="de-sel"></select><input id="'+pfx+'StartDay" class="de-day" type="number" min="1" max="31" inputmode="numeric"></span><span class="de-field"><span class="de-cap">End</span><select id="'+pfx+'EndMon" class="de-sel"></select><input id="'+pfx+'EndDay" class="de-day" type="number" min="1" max="31" inputmode="numeric"></span></div>';
+  return '<div class="card slider-card '+cls+(single?' single':'')+'"><div class="slider-lead"><span class="ic" id="'+pfx+'Ic"></span>'
+   +'<div><h3>'+title+lenB+'</h3><p>'+desc+'</p></div></div>'
+   +'<div class="slider-body"><div class="track-wrap" id="'+pfx+'TrackWrap"><div class="track"></div>'
+   +parts+'<div class="ticks" id="'+pfx+'Ticks"></div></div>'
+   +'<div class="hint">'+hint+'</div>'+dates+'</div></div>';
 }
-(function ticks(){let h="";for(const m of MONTHS)h+='<span>'+m[0].toUpperCase()+'</span>';document.getElementById("ticks").innerHTML=h})();
+document.getElementById("sliderStack").innerHTML=
+  sliderCardHTML("brd","BREEDING SEASON","Adjust the range to explore different timing scenarios.","",false,"Breeding start")
+ +sliderCardHTML("gsl","GOAT SALE DATE","The day you plan to sell your buck kids.","",true,"Goat sale date")
+ +sliderCardHTML("ssl","SHEEP SALE DATE","The day you plan to sell your ram lambs.","sheep",true,"Sheep sale date");
+document.getElementById("brdIc").innerHTML=svgIcon("cal",22,"#fff");
+document.getElementById("gslIc").innerHTML=svgIcon("tag",22,"#fff");
+document.getElementById("sslIc").innerHTML=svgIcon("tag",22,"#fff");
 
-let dragH=null;
-function dayFromClientX(cx){const rect=trackWrap.getBoundingClientRect();return clamp(Math.round(((cx-rect.left)/rect.width)*YEAR),0,YEAR-1)}
-function startDrag(which){return function(e){e.preventDefault();dragH=which;window.addEventListener("pointermove",onDrag);window.addEventListener("pointerup",endDrag)}}
-function onDrag(e){
-  if(!dragH)return;let day=dayFromClientX(e.clientX);
-  if(dragH==="A"){if(lenOf(day,S.end)<15)day=wrap(S.end-15);if(lenOf(day,S.end)>364)day=wrap(S.end-364);S.start=day}
-  else{if(lenOf(S.start,day)<15)day=wrap(S.start+15);if(lenOf(S.start,day)>364)day=wrap(S.start+364);S.end=day}
-  renderSlider();drawChart();
+function makeSlider(pfx,single,get,set,onChange){
+  const $=s=>document.getElementById(pfx+s);
+  const tw=$("TrackWrap"),hA=$("HandleA"),bA=$("BubbleA"),sMon=$("StartMon"),sDay=$("StartDay");
+  const hB=single?null:$("HandleB"),bB=single?null:$("BubbleB"),f1=single?null:$("Fill"),f2=single?null:$("Fill2"),lenEl=single?null:$("Len"),eMon=single?null:$("EndMon"),eDay=single?null:$("EndDay");
+  MONTHS.forEach((m,i)=>{sMon.insertAdjacentHTML("beforeend",'<option value="'+i+'">'+m[0]+'</option>');if(eMon)eMon.insertAdjacentHTML("beforeend",'<option value="'+i+'">'+m[0]+'</option>');});
+  let th="";for(const m of MONTHS)th+='<span>'+m[0].toUpperCase()+'</span>';$("Ticks").innerHTML=th;
+  function render(){const g=get();
+    if(single){const d=g.d;hA.style.left=pct(d)+"%";bA.style.left=pct(d)+"%";bA.textContent=dateLabel(d);const A=md(d);sMon.value=A.m;sDay.value=A.d;return;}
+    const a=g.s,b=g.e;
+    hA.style.left=pct(a)+"%";hB.style.left=pct(b)+"%";bA.style.left=pct(a)+"%";bB.style.left=pct(b)+"%";
+    bA.textContent=dateLabel(a);bB.textContent=dateLabel(b);
+    if(b>=a){f1.style.left=pct(a)+"%";f1.style.width=pct(b-a)+"%";f2.style.width="0%";}
+    else{f1.style.left=pct(a)+"%";f1.style.width=pct(YEAR-a)+"%";f2.style.left="0%";f2.style.width=pct(b)+"%";}
+    const L=lenOf(a,b);lenEl.textContent=L+" day"+(L===1?"":"s");
+    const A=md(a),B=md(b);sMon.value=A.m;sDay.value=A.d;eMon.value=B.m;eDay.value=B.d;
+  }
+  function dayFromX(cx){const r=tw.getBoundingClientRect();let f=(cx-r.left)/r.width;f=clamp(f,-0.5,1.5);return wrap(Math.round(f*YEAR));}
+  let dh=null;
+  function mv(e){if(!dh)return;const d=dayFromX(e.clientX);if(single){set(d);}else{const g=get();if(dh==="A")set(d,g.e);else set(g.s,d);}render();onChange();}
+  function up(){dh=null;window.removeEventListener("pointermove",mv);window.removeEventListener("pointerup",up);window.removeEventListener("pointercancel",up);}
+  function down(w){return function(e){e.preventDefault();dh=w;try{e.currentTarget.setPointerCapture(e.pointerId);}catch(_){}window.addEventListener("pointermove",mv);window.addEventListener("pointerup",up);window.addEventListener("pointercancel",up);};}
+  hA.addEventListener("pointerdown",down("A"));if(hB)hB.addEventListener("pointerdown",down("B"));
+  hA.addEventListener("keydown",e=>{const g=get();if(single){if(e.key==="ArrowLeft")set(wrap(g.d-1));else if(e.key==="ArrowRight")set(wrap(g.d+1));else return;}else{if(e.key==="ArrowLeft")set(wrap(g.s-1),g.e);else if(e.key==="ArrowRight")set(wrap(g.s+1),g.e);else return;}render();onChange();});
+  if(hB)hB.addEventListener("keydown",e=>{const g=get();if(e.key==="ArrowLeft")set(g.s,wrap(g.e-1));else if(e.key==="ArrowRight")set(g.s,wrap(g.e+1));else return;render();onChange();});
+  function rd(mo,dy){const m=+mo.value;let d=parseInt(dy.value,10);if(isNaN(d)||d<1)d=1;d=clamp(d,1,MONTHS[m][1]);return toDay(m,d);}
+  function ad(){if(single){set(rd(sMon,sDay));}else{set(rd(sMon,sDay),rd(eMon,eDay));}render();onChange();}
+  (single?[sMon,sDay]:[sMon,sDay,eMon,eDay]).forEach(el=>el.addEventListener("change",ad));
+  render();return {render};
 }
-function endDrag(){dragH=null;window.removeEventListener("pointermove",onDrag);window.removeEventListener("pointerup",endDrag)}
-document.getElementById("handleA").addEventListener("pointerdown",startDrag("A"));
-document.getElementById("handleB").addEventListener("pointerdown",startDrag("B"));
-document.getElementById("handleA").addEventListener("keydown",e=>{if(e.key==="ArrowLeft"&&lenOf(wrap(S.start-1),S.end)<=364)S.start=wrap(S.start-1);if(e.key==="ArrowRight"&&lenOf(wrap(S.start+1),S.end)>=15)S.start=wrap(S.start+1);renderSlider();drawChart()});
-document.getElementById("handleB").addEventListener("keydown",e=>{if(e.key==="ArrowRight"&&lenOf(S.start,wrap(S.end+1))<=364)S.end=wrap(S.end+1);if(e.key==="ArrowLeft"&&lenOf(S.start,wrap(S.end-1))>=15)S.end=wrap(S.end-1);renderSlider();drawChart()});
+const brdSlider=makeSlider("brd",false,()=>({s:S.start,e:S.end}),(s,e)=>{S.start=s;S.end=e;},()=>drawChart());
+const gslSlider=makeSlider("gsl",true,()=>({d:S.goat.saleDay}),d=>{S.goat.saleDay=d;},()=>{drawChart();});
+const sslSlider=makeSlider("ssl",true,()=>({d:S.sheep.saleDay}),d=>{S.sheep.saleDay=d;},()=>{drawChart();});
 
-document.getElementById("altStrip").addEventListener("click",()=>{
-  const p=PRESETS[document.getElementById("altStrip").dataset.load||"mt"];
-  S.start=p.start;S.end=p.end;renderSlider();drawChart();
-});
-
-function bindNum(id,setter){document.getElementById(id).addEventListener("input",e=>{const v=parseFloat(e.target.value);if(!isNaN(v)){setter(v);drawChart();drawGrowth()}})}
-bindNum("gWt",v=>S.goat.wt=v);bindNum("gAdg",v=>S.goat.adg=v);bindNum("gLo",v=>S.goat.lo=v);bindNum("gHi",v=>S.goat.hi=v);
-bindNum("sWt",v=>S.sheep.wt=v);bindNum("sAdg",v=>S.sheep.adg=v);bindNum("sLo",v=>S.sheep.lo=v);bindNum("sHi",v=>S.sheep.hi=v);
+function bindNum(id,setter){document.getElementById(id).addEventListener("input",e=>{const v=parseFloat(e.target.value);if(!isNaN(v)){setter(v);drawChart()}})}
+bindNum("gWt",v=>S.goat.wt=v);bindNum("gAdg",v=>S.goat.adg=v);bindNum("gPub",v=>S.goat.pub=v);
+bindNum("sWt",v=>S.sheep.wt=v);bindNum("sAdg",v=>S.sheep.adg=v);bindNum("sPub",v=>S.sheep.pub=v);
 bindNum("gest",v=>S.gest=v);
 
 /* static icon mounts */
@@ -767,16 +890,15 @@ bindNum("gest",v=>S.gest=v);
 /* header uses embedded OK badge */
 document.getElementById("railClip").innerHTML=svgIcon("clip",22,"#fff");
 document.getElementById("chartBadge").innerHTML=svgIcon("chart",22,"#fff");
-document.getElementById("calIc").innerHTML=svgIcon("cal",22,"#fff");
-document.getElementById("altArrow").innerHTML=svgIcon("branch",26,"#fff");
-document.getElementById("scaleBadge").innerHTML=svgIcon("scale",24,"var(--navy)");
 document.getElementById("goatIc").innerHTML=iconHTML("goat",26);
 document.getElementById("sheepIc").innerHTML=iconHTML("sheep",26);
+document.getElementById("grpGoatIc").innerHTML=iconHTML("goat",22);
+document.getElementById("grpSheepIc").innerHTML=iconHTML("sheep",22);
 document.getElementById("footPin").innerHTML=svgIcon("pin",18,"var(--green-deep)")+'<span>Northeast Oklahoma conditions. Use local data and pasture assessments to refine decisions.</span>';
 document.getElementById("footLeaf").innerHTML=svgIcon("leaf",18,"var(--green-deep)");
 
 /* init */
-renderSlider();drawChart();drawGrowth();
+drawChart();
 
 /* ============ tabs + reference ============ */
 document.querySelectorAll(".tab").forEach(t=>t.addEventListener("click",()=>{
@@ -785,15 +907,163 @@ document.querySelectorAll(".tab").forEach(t=>t.addEventListener("click",()=>{
   const nm=t.dataset.tab;
   document.getElementById("tab-planner").hidden=(nm!=="planner");
   document.getElementById("tab-reference").hidden=(nm!=="reference");
+  document.getElementById("tab-compare").hidden=(nm!=="compare");
+  if(nm==="compare")renderScenarios();
+  if(nm==="planner")setTimeout(drawInputBrace,30);
   window.scrollTo({top:0,behavior:"smooth"});
 }));
 function setADG(gv,sv){
   if(gv!=null){S.goat.adg=gv;const e=document.getElementById("gAdg");if(e)e.value=gv;}
   if(sv!=null){S.sheep.adg=sv;const e=document.getElementById("sAdg");if(e)e.value=sv;}
-  drawChart();drawGrowth();
+  drawChart();
 }
+document.querySelectorAll("#mktToggle .seg").forEach(btn=>btn.addEventListener("click",()=>{
+  S.mkt=btn.dataset.mkt;
+  document.querySelectorAll("#mktToggle .seg").forEach(b=>b.classList.toggle("active",b===btn));
+  drawChart();
+}));
 function gotoPlanner(){document.querySelector('.tab[data-tab="planner"]').click();}
 document.getElementById("assumeRef").addEventListener("click",()=>document.querySelector('.tab[data-tab="reference"]').click());
+
+/* ============ inputs bracket (drawn to true height so curves stay clean) ============ */
+function drawInputBrace(){
+  const svg=document.querySelector(".inputs-brace"); if(!svg)return;
+  const H=Math.round(svg.getBoundingClientRect().height); if(H<90)return;
+  const arm=14,pip=4,tip=20,curl=17,W=22,mid=Math.round(H/2);
+  const d="M "+tip+" 3 Q "+arm+" 3 "+arm+" "+(3+curl)+" L "+arm+" "+(mid-curl)
+    +" Q "+arm+" "+mid+" "+pip+" "+mid+" Q "+arm+" "+mid+" "+arm+" "+(mid+curl)
+    +" L "+arm+" "+(H-3-curl)+" Q "+arm+" "+(H-3)+" "+tip+" "+(H-3);
+  svg.setAttribute("viewBox","0 0 "+W+" "+H);
+  svg.setAttribute("preserveAspectRatio","none");
+  svg.querySelector("path").setAttribute("d",d);
+}
+drawInputBrace();
+requestAnimationFrame(drawInputBrace);
+setTimeout(drawInputBrace,250);
+window.addEventListener("resize",()=>{clearTimeout(window.__bt);window.__bt=setTimeout(drawInputBrace,120);});
+
+/* ============ handling & labor days ============ */
+document.getElementById("hdIc").innerHTML=svgIcon("cal",20,"#fff");
+function renderHandling(r){
+  const evs=[
+    {day:r.start,     t:"Turn breeding males in with herd", col:"var(--navy)"},
+    {day:r.end,       t:"Pull breeding males from herd",     col:"var(--navy)"},
+    {day:r.gSale.day, t:"Sell goat buck kids",               col:"var(--green-deep)"},
+    {day:r.sSale.day, t:"Sell hair-sheep ram lambs",         col:"var(--purple)"},
+    {day:r.gBand,     t:"Castrate / separate buck kids",     col:"var(--green-deep)"},
+    {day:r.sBand,     t:"Castrate / separate ram lambs",     col:"var(--purple)"}
+  ];
+  const THR=7;
+  const sorted=evs.slice().sort((a,b)=>a.day-b.day);
+  let groups=[],cur=[sorted[0]];
+  for(let i=1;i<sorted.length;i++){
+    if(sorted[i].day-cur[cur.length-1].day<=THR)cur.push(sorted[i]);
+    else{groups.push(cur);cur=[sorted[i]];}
+  }
+  groups.push(cur);
+  if(groups.length>1){ // merge a window that straddles the year end
+    const f=groups[0],l=groups[groups.length-1];
+    if((YEAR-l[l.length-1].day)+f[0].day<=THR){groups[0]=l.concat(f);groups.pop();}
+  }
+  const wins=groups.map(g=>{
+    const busy=g.length>1;
+    const d0=g[0].day,d1=g[g.length-1].day;
+    const range=(d0===d1)?dateLabel(d0):(dateLabel(d0)+" \u2013 "+dateLabel(d1));
+    let wh='<div class="hd-win'+(busy?' busy':'')+'"><div class="hd-win-date">'+range+(busy?'<span class="hd-count">'+g.length+' tasks</span>':'')+'</div>';
+    g.forEach(e=>{wh+='<div class="hd-ev" style="border-left-color:'+e.col+'"><span class="d" style="color:'+e.col+'">'+dateLabel(e.day)+'</span><span class="t">'+e.t+'</span></div>';});
+    wh+='</div>';
+    return {html:wh, cast:g.every(e=>e.t.indexOf("Castrate")===0)};
+  });
+  const cd=Math.min(Math.abs(r.gBand-r.sBand),YEAR-Math.abs(r.gBand-r.sBand));
+  const offG=wrap(r.gBand-r.bStart), offS=wrap(r.sBand-r.bStart);
+  const earlier=offG<=offS?r.gBand:r.sBand;
+  const BRACE='<div class="hd-brace-wrap"><svg class="hd-brace" viewBox="0 0 12 120" preserveAspectRatio="none" aria-hidden="true"><path d="M3 2 C7 2 7 6 7 30 C7 48 7 54 11 60 C7 66 7 72 7 90 C7 114 7 118 3 118" fill="none" stroke="var(--green-deep)" stroke-width="1.8" vector-effect="non-scaling-stroke" stroke-linecap="round"/></svg></div>';
+  let html="",i=0;
+  while(i<wins.length){
+    if(cd>THR && wins[i].cast && i+1<wins.length && wins[i+1].cast){
+      html+='<div class="hd-cgroup"><div class="hd-cgroup-wins">'+wins[i].html+wins[i+1].html+'</div>'+BRACE+'<div class="hd-cnote">Combine into one working by <b>'+dateLabel(earlier)+'</b></div></div>';
+      i+=2;
+    }else{ html+=wins[i].html; i++; }
+  }
+  const summary=evs.length+' handling tasks \u00b7 '+groups.length+' work window'+(groups.length===1?'':'s');
+  document.getElementById("hdList").innerHTML='<div class="hd-summary">'+summary+'</div>'+html;
+}
+
+/* ============ saved scenarios + comparison ============ */
+const LSKEY="sgbsp_scenarios_v1";
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c]));}
+function loadScenarios(){try{return JSON.parse(localStorage.getItem(LSKEY))||[];}catch(e){return[];}}
+function storeScenarios(a){try{localStorage.setItem(LSKEY,JSON.stringify(a));}catch(e){alert("Couldn't save \u2014 this browser may be blocking local storage (try opening the page normally rather than in a private/preview window).");}}
+function cloneState(o){return JSON.parse(JSON.stringify(o));}
+function withState(st,fn){const saved=S;S=st;try{return fn();}finally{S=saved;}}
+function metricsFor(st){return withState(st,()=>{
+  const r=scenario(st.start,st.end);
+  const mo=(a,b)=>(a/30.4).toFixed(1)+"\u2013"+(b/30.4).toFixed(1)+" mo";
+  const lb=(a,b)=>Math.round(a)+"\u2013"+Math.round(b)+" lb";
+  return {
+    breeding:dateLabel(st.start)+" \u2013 "+dateLabel(st.end),
+    len:lenOf(st.start,st.end)+" days",
+    mkt:st.mkt==="goat"?"Goat / kid":"Sheep / lamb",
+    birth:fuzzyRange(r.bStart,r.bEnd),
+    lact:fuzzyRange(r.lactBandS,r.lactBandE),
+    gBand:dateLabel(r.gBand),sBand:dateLabel(r.sBand),
+    gAdg:(+st.goat.adg).toFixed(2),sAdg:(+st.sheep.adg).toFixed(2),
+    gSale:dateLabel(r.gSale.day),gWt:lb(r.gSale.wMin,r.gSale.wMax),gAge:mo(r.gSale.ageMin,r.gSale.ageMax),
+    sSale:dateLabel(r.sSale.day),sWt:lb(r.sSale.wMin,r.sSale.wMax),sAge:mo(r.sSale.ageMin,r.sSale.ageMax)
+  };
+});}
+function saveCurrentScenario(){
+  const inp=document.getElementById("scName");
+  const nm=(inp.value||"").trim();
+  const a=loadScenarios();
+  a.push({name:nm||("Scenario "+(a.length+1)),ts:Date.now(),st:cloneState(S)});
+  storeScenarios(a);inp.value="";renderScenarios();
+}
+function loadScenario(i){const a=loadScenarios();if(a[i]){applyState(a[i].st);gotoPlanner();}}
+function delScenario(i){const a=loadScenarios();if(a[i]&&confirm("Delete \u201c"+a[i].name+"\u201d?")){a.splice(i,1);storeScenarios(a);renderScenarios();}}
+function applyState(st){
+  S=cloneState(st);
+  const set=(id,v)=>{const e=document.getElementById(id);if(e)e.value=v;};
+  set("gWt",S.goat.wt);set("gAdg",S.goat.adg);set("gPub",S.goat.pub);
+  set("sWt",S.sheep.wt);set("sAdg",S.sheep.adg);set("sPub",S.sheep.pub);set("gest",S.gest);
+  document.querySelectorAll("#mktToggle .seg").forEach(b=>b.classList.toggle("active",b.dataset.mkt===S.mkt));
+  brdSlider.render();gslSlider.render();sslSlider.render();
+  drawChart();
+}
+const CMP_ROWS=[["Breeding season","breeding"],["Length","len"],["Market index","mkt"],["Birth window","birth"],["Peak lactation","lact"],["Band bucks by","gBand"],["Band rams by","sBand"],["Goat ADG","gAdg"],["Goat sale date","gSale"],["Goat weight","gWt"],["Goat age","gAge"],["Sheep ADG","sAdg"],["Sheep sale date","sSale"],["Sheep weight","sWt"],["Sheep age","sAge"]];
+function renderCompare(){
+  const saved=loadScenarios();
+  const cols=[{name:"Current",m:metricsFor(S),cur:true}].concat(saved.map(s=>({name:s.name,m:metricsFor(s.st)})));
+  let h='<table class="cmp"><thead><tr><th></th>';
+  cols.forEach(c=>{h+='<th class="'+(c.cur?"cur":"")+'">'+esc(c.name)+'</th>';});
+  h+='</tr></thead><tbody>';
+  CMP_ROWS.forEach(r=>{h+='<tr><td class="rk">'+r[0]+'</td>';cols.forEach(c=>{h+='<td class="'+(c.cur?"cur":"")+'">'+c.m[r[1]]+'</td>';});h+='</tr>';});
+  h+='</tbody></table>';
+  const note=saved.length?"":'<p class="empty">Only your current setup is shown. Save a scenario above to line them up side by side.</p>';
+  document.getElementById("cmpTableWrap").innerHTML=note+h;
+}
+function renderScenarios(){
+  const a=loadScenarios(),el=document.getElementById("scList");
+  el.innerHTML=a.length?a.map((s,i)=>'<div class="sc-item"><span class="sc-name">'+esc(s.name)+'</span><span class="sc-when">'+new Date(s.ts).toLocaleDateString()+'</span><span class="sc-btns"><button class="mini" onclick="loadScenario('+i+')">Load</button><button class="mini del" onclick="delScenario('+i+')">Delete</button></span></div>').join(""):'<p class="empty">No saved scenarios yet.</p>';
+  renderCompare();
+}
+function exportScenarios(){
+  const data=JSON.stringify({app:"sgbsp",v:1,scenarios:loadScenarios()},null,2);
+  const url=URL.createObjectURL(new Blob([data],{type:"application/json"}));
+  const a=document.createElement("a");a.href=url;a.download="breeding-scenarios.json";document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);
+}
+function importScenarios(file){
+  const rd=new FileReader();
+  rd.onload=()=>{try{const d=JSON.parse(rd.result);const inc=Array.isArray(d)?d:(d.scenarios||[]);const clean=inc.filter(x=>x&&x.st&&x.name);storeScenarios(loadScenarios().concat(clean));renderScenarios();alert("Imported "+clean.length+" scenario(s).");}catch(e){alert("Could not read that file.");}};
+  rd.readAsText(file);
+}
+document.getElementById("cmpBadge").innerHTML=svgIcon("clip",22,"#fff");
+document.getElementById("saveScBtn").addEventListener("click",saveCurrentScenario);
+document.getElementById("scName").addEventListener("keydown",e=>{if(e.key==="Enter")saveCurrentScenario();});
+document.getElementById("exportBtn").addEventListener("click",exportScenarios);
+document.getElementById("importBtn").addEventListener("click",()=>document.getElementById("importFile").click());
+document.getElementById("importFile").addEventListener("change",e=>{if(e.target.files[0])importScenarios(e.target.files[0]);e.target.value="";});
+document.getElementById("railSaveBtn").addEventListener("click",()=>document.querySelector('.tab[data-tab="compare"]').click());
 document.getElementById("applyADG").addEventListener("click",()=>{setADG(0.30,0.55);gotoPlanner();});
 function calcADG(){
   const bw=parseFloat(document.getElementById("cBirth").value),
