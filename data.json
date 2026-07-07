@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-07T18:07:43.389Z",
+  "generated": "2026-07-07T21:35:42.621Z",
   "meta": {
     "currentQuarter": "Q3",
     "currentYear": "2026",
@@ -530,16 +530,6 @@
       "pillar": null,
       "domain": "Health",
       "hours": 2,
-      "projectIds": []
-    },
-    {
-      "id": "38fc5749485980e08233c63d2b2ec2b6",
-      "type": "task",
-      "name": "Create spreadsheet for ordering test tank materials",
-      "status": "Current Sprint (this week)",
-      "pillar": null,
-      "domain": "RAE",
-      "hours": 1.5,
       "projectIds": []
     },
     {
@@ -1105,23 +1095,6 @@
       "rockIds": [
         "377c57494859811aa303e31aa2fa0c22"
       ],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": null,
-      "completeDate": null
-    },
-    {
-      "id": "38fc5749485980e08233c63d2b2ec2b6",
-      "type": "task",
-      "name": "Create spreadsheet for ordering test tank materials",
-      "status": "Current Sprint (this week)",
-      "pillarIds": [],
-      "domain": "RAE",
-      "hours": 1.5,
-      "projectIds": [],
-      "rockIds": [],
       "person": [
         "Noah Eubanks"
       ],
