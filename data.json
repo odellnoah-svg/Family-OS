@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-07T04:07:59.876Z",
+  "generated": "2026-07-07T11:16:24.660Z",
   "meta": {
     "currentQuarter": "Q3",
     "currentYear": "2026",
@@ -453,16 +453,6 @@
       "projectIds": []
     },
     {
-      "id": "394c5749485980d18dffc9c2deaeebe7",
-      "type": "task",
-      "name": "Hay to heifers ",
-      "status": "In progress (WIP)",
-      "pillar": null,
-      "domain": null,
-      "hours": 1,
-      "projectIds": []
-    },
-    {
       "id": "394c5749485980da9e14ffdafde29e5b",
       "type": "task",
       "name": "Pick up leucovorin",
@@ -520,16 +510,6 @@
       "pillar": null,
       "domain": "Personal Admin",
       "hours": 2,
-      "projectIds": []
-    },
-    {
-      "id": "390c57494859806bafc4c1b6054da451",
-      "type": "task",
-      "name": "background check responses",
-      "status": "Current Sprint (this week)",
-      "pillar": null,
-      "domain": null,
-      "hours": null,
       "projectIds": []
     },
     {
@@ -975,23 +955,6 @@
       "completeDate": null
     },
     {
-      "id": "394c5749485980d18dffc9c2deaeebe7",
-      "type": "task",
-      "name": "Hay to heifers ",
-      "status": "In progress (WIP)",
-      "pillarIds": [],
-      "domain": null,
-      "hours": 1,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-07-05T10:52:00.000-05:00",
-      "completeDate": null
-    },
-    {
       "id": "394c5749485980da9e14ffdafde29e5b",
       "type": "task",
       "name": "Pick up leucovorin",
@@ -1106,23 +1069,6 @@
       ],
       "velocity": 0,
       "startDate": null,
-      "completeDate": null
-    },
-    {
-      "id": "390c57494859806bafc4c1b6054da451",
-      "type": "task",
-      "name": "background check responses",
-      "status": "Current Sprint (this week)",
-      "pillarIds": [],
-      "domain": null,
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-06-30T20:05:00.000-05:00",
       "completeDate": null
     },
     {
@@ -1803,6 +1749,40 @@
       "velocity": 0.166666666667,
       "startDate": "2026-07-05T14:02:00.000-05:00",
       "completeDate": "2026-07-05T18:26:00.000-05:00"
+    },
+    {
+      "id": "394c5749485980d18dffc9c2deaeebe7",
+      "type": "task",
+      "name": "Hay to heifers ",
+      "status": "Done",
+      "pillarIds": [],
+      "domain": null,
+      "hours": 1,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 1.541666666667,
+      "startDate": "2026-07-05T10:52:00.000-05:00",
+      "completeDate": "2026-07-07T00:07:00.000-05:00"
+    },
+    {
+      "id": "390c57494859806bafc4c1b6054da451",
+      "type": "task",
+      "name": "background check responses",
+      "status": "Done",
+      "pillarIds": [],
+      "domain": null,
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 6.166666666667,
+      "startDate": "2026-06-30T20:05:00.000-05:00",
+      "completeDate": "2026-07-07T00:07:00.000-05:00"
     },
     {
       "id": "38fc5749485980ada444d024010bf6d1",
@@ -3510,40 +3490,6 @@
       "velocity": 6.041666666667,
       "startDate": "2026-05-24T10:00:00.000-05:00",
       "completeDate": "2026-05-30T11:07:00.000-05:00"
-    },
-    {
-      "id": "361c57494859808ca87dc1d1ba757590",
-      "type": "task",
-      "name": "Upload VTO document into notion and print it off ",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": "Personal Admin",
-      "hours": 1,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 3.541666666667,
-      "startDate": "2026-05-14T20:17:00.000-05:00",
-      "completeDate": "2026-05-18T10:15:00.000-05:00"
-    },
-    {
-      "id": "360c57494859800394e0d13e03b82a99",
-      "type": "task",
-      "name": "Test tank depth specifiied. Existing are 30” and 36” ",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": "RAE",
-      "hours": 2,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 10.958333333333,
-      "startDate": "2026-05-17T09:58:00.000-05:00",
-      "completeDate": "2026-05-28T09:38:00.000-05:00"
     }
   ],
   "habitData": {
@@ -3742,6 +3688,27 @@
           },
           "completed": 0,
           "possible": 2,
+          "pct": 0
+        },
+        {
+          "date": "2026-07-07",
+          "habits": {
+            "5am wake": false,
+            "Write down 3 wins from today (stay in the gain)": false,
+            "No caffeine": false,
+            "No phone in bed (previous night)": false,
+            "Food recorded (with no unplanned indulgences)": false,
+            "Move!": false,
+            "1/2 gallon water": false,
+            "Review today’s top 3 (what am i doing today)": false,
+            "Play with Owen": false,
+            "Vitamins/supplements": false,
+            "Create top 3 priorities for tomorrow": false,
+            "Learn (read/listen)": false,
+            "Gratitude/prayer (previous night)": false
+          },
+          "completed": 0,
+          "possible": 13,
           "pct": 0
         }
       ]
@@ -4381,6 +4348,19 @@
         },
         {
           "date": "2026-07-06",
+          "habits": {
+            "Laundry": false,
+            "Supplements": false,
+            "Leucovorin": false,
+            "Take care of baby": false,
+            "Feed dogs": false
+          },
+          "completed": 0,
+          "possible": 5,
+          "pct": 0
+        },
+        {
+          "date": "2026-07-07",
           "habits": {
             "Laundry": false,
             "Supplements": false,
