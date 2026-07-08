@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-08T10:27:20.190Z",
+  "generated": "2026-07-08T14:32:39.374Z",
   "meta": {
     "currentQuarter": "Q3",
     "currentYear": "2026",
@@ -413,6 +413,16 @@
   "projects": [],
   "tasks": [
     {
+      "id": "397c5749485980a59e6ed4495117021a",
+      "type": "task",
+      "name": "bring all receipts and checkbook in from trucks",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": null,
+      "hours": null,
+      "projectIds": []
+    },
+    {
       "id": "394c5749485980c4807ae0612832b0c5",
       "type": "task",
       "name": "market reports from Leach, Tahlequah, Coffeyville, Delaware county….  Maybe add to folder every week. ",
@@ -573,22 +583,22 @@
       "projectIds": []
     },
     {
-      "id": "38dc5749485980eebfd1cc835844aa5b",
+      "id": "38cc57494859807790f3f492847acc97",
       "type": "task",
-      "name": "Plan meal prep day",
-      "status": "In progress (WIP)",
+      "name": "pack hospital bag",
+      "status": "Current Sprint (this week)",
       "pillar": null,
       "domain": "Baby Girl",
       "hours": null,
       "projectIds": []
     },
     {
-      "id": "38cc574948598031a448c7d62e0b189c",
+      "id": "38cc5749485980479825ff369f0ffab9",
       "type": "task",
-      "name": "move cow and calves out of back hay pen",
+      "name": "order new breast pump free from insurance",
       "status": "Current Sprint (this week)",
       "pillar": null,
-      "domain": "Ranch",
+      "domain": "Baby Girl",
       "hours": null,
       "projectIds": []
     },
@@ -629,6 +639,16 @@
       "status": "Current Sprint (this week)",
       "pillar": null,
       "domain": "Ranch",
+      "hours": null,
+      "projectIds": []
+    },
+    {
+      "id": "386c5749485980098a27c1f04f7076fe",
+      "type": "task",
+      "name": "Move bottles to kitchen",
+      "status": "Current Sprint (this week)",
+      "pillar": null,
+      "domain": "Baby Girl",
       "hours": null,
       "projectIds": []
     },
@@ -689,16 +709,6 @@
       "status": "Current Sprint (this week)",
       "pillar": null,
       "domain": null,
-      "hours": null,
-      "projectIds": []
-    },
-    {
-      "id": "374c5749485980729acfeab618a7ecc2",
-      "type": "task",
-      "name": "call new property insurance guy and get new quotes",
-      "status": "Current Sprint (this week)",
-      "pillar": null,
-      "domain": "Real Estate",
       "hours": null,
       "projectIds": []
     },
@@ -773,9 +783,9 @@
       "projectIds": []
     },
     {
-      "id": "362c57494859805887a6f4693b53043e",
+      "id": "363c574948598082ad1ff5164dd91437",
       "type": "task",
-      "name": "Move sheep and goats to 3rd area to eat thistles",
+      "name": "brush out dogs",
       "status": "Current Sprint (this week)",
       "pillar": null,
       "domain": "Ranch",
@@ -789,6 +799,16 @@
       "status": "Current Sprint (this week)",
       "pillar": null,
       "domain": "Personal Admin",
+      "hours": 2,
+      "projectIds": []
+    },
+    {
+      "id": "360c5749485980d893dee1c2bcd5e974",
+      "type": "task",
+      "name": "Clean and prep baby car seat",
+      "status": "Current Sprint (this week)",
+      "pillar": null,
+      "domain": "Baby Girl",
       "hours": 2,
       "projectIds": []
     },
@@ -823,16 +843,6 @@
       "projectIds": []
     },
     {
-      "id": "35bc5749485980f4a850fdbcdd01132c",
-      "type": "task",
-      "name": "A progress tracking system for owen… milestones.. or something.. Pyramid?",
-      "status": "In progress (WIP)",
-      "pillar": null,
-      "domain": "Owen",
-      "hours": 8,
-      "projectIds": []
-    },
-    {
       "id": "35bc5749485980ad9bb1c4e4a793ce15",
       "type": "task",
       "name": "Get FMLA paperwork signed ",
@@ -840,16 +850,6 @@
       "pillar": null,
       "domain": "Health",
       "hours": 8,
-      "projectIds": []
-    },
-    {
-      "id": "354c57494859805e9ddcc5d6a1c811c3",
-      "type": "task",
-      "name": "Spanish Flash cards",
-      "status": "Current Sprint (this week)",
-      "pillar": null,
-      "domain": "Girls",
-      "hours": 2,
       "projectIds": []
     },
     {
@@ -861,19 +861,26 @@
       "domain": "Ranch",
       "hours": 2,
       "projectIds": []
-    },
-    {
-      "id": "33dc574948598084bb5bf0d20e834782",
-      "type": "task",
-      "name": "Change health insurance after baby is born",
-      "status": "Current Sprint (this week)",
-      "pillar": null,
-      "domain": "Personal Admin",
-      "hours": 4,
-      "projectIds": []
     }
   ],
   "wipTasks": [
+    {
+      "id": "397c5749485980a59e6ed4495117021a",
+      "type": "task",
+      "name": "bring all receipts and checkbook in from trucks",
+      "status": "In progress (WIP)",
+      "pillarIds": [],
+      "domain": null,
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": "2026-07-08T09:14:00.000-05:00",
+      "completeDate": null
+    },
     {
       "id": "394c5749485980c4807ae0612832b0c5",
       "type": "task",
@@ -955,7 +962,9 @@
       "domain": "Owen",
       "hours": 1,
       "projectIds": [],
-      "rockIds": [],
+      "rockIds": [
+        "377c57494859817083b1ddc5ffb3d1f0"
+      ],
       "person": [
         "Patricia Eubanks"
       ],
@@ -1173,11 +1182,13 @@
       "completeDate": null
     },
     {
-      "id": "38dc5749485980eebfd1cc835844aa5b",
+      "id": "38cc57494859807790f3f492847acc97",
       "type": "task",
-      "name": "Plan meal prep day",
-      "status": "In progress (WIP)",
-      "pillarIds": [],
+      "name": "pack hospital bag",
+      "status": "Current Sprint (this week)",
+      "pillarIds": [
+        "62f10d5c983944388542d9b1db866b1a"
+      ],
       "domain": "Baby Girl",
       "hours": null,
       "projectIds": [],
@@ -1188,27 +1199,28 @@
         "Patricia Eubanks"
       ],
       "velocity": 0,
-      "startDate": "2026-07-05T10:57:00.000-05:00",
+      "startDate": null,
       "completeDate": null
     },
     {
-      "id": "38cc574948598031a448c7d62e0b189c",
+      "id": "38cc5749485980479825ff369f0ffab9",
       "type": "task",
-      "name": "move cow and calves out of back hay pen",
+      "name": "order new breast pump free from insurance",
       "status": "Current Sprint (this week)",
       "pillarIds": [
-        "683e3c08456247dea6168f9329c85470"
+        "62f10d5c983944388542d9b1db866b1a"
       ],
-      "domain": "Ranch",
+      "domain": "Baby Girl",
       "hours": null,
       "projectIds": [],
-      "rockIds": [],
+      "rockIds": [
+        "377c574948598198a9f0e04219c83b50"
+      ],
       "person": [
-        "Patricia Eubanks",
-        "Noah Eubanks"
+        "Patricia Eubanks"
       ],
       "velocity": 0,
-      "startDate": "2026-06-27T11:06:00.000-05:00",
+      "startDate": null,
       "completeDate": null
     },
     {
@@ -1246,7 +1258,7 @@
         "Patricia Eubanks"
       ],
       "velocity": 0,
-      "startDate": "2026-06-27T10:56:00.000-05:00",
+      "startDate": "2026-07-08T10:56:00.000-05:00",
       "completeDate": null
     },
     {
@@ -1283,6 +1295,27 @@
       "person": [
         "Patricia Eubanks",
         "Noah Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": null,
+      "completeDate": null
+    },
+    {
+      "id": "386c5749485980098a27c1f04f7076fe",
+      "type": "task",
+      "name": "Move bottles to kitchen",
+      "status": "Current Sprint (this week)",
+      "pillarIds": [
+        "62f10d5c983944388542d9b1db866b1a"
+      ],
+      "domain": "Baby Girl",
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [
+        "377c574948598198a9f0e04219c83b50"
+      ],
+      "person": [
+        "Patricia Eubanks"
       ],
       "velocity": 0,
       "startDate": null,
@@ -1390,23 +1423,6 @@
       ],
       "velocity": 0,
       "startDate": "2026-06-05T23:34:00.000-05:00",
-      "completeDate": null
-    },
-    {
-      "id": "374c5749485980729acfeab618a7ecc2",
-      "type": "task",
-      "name": "call new property insurance guy and get new quotes",
-      "status": "Current Sprint (this week)",
-      "pillarIds": [],
-      "domain": "Real Estate",
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Patricia Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-06-03T14:13:00.000-05:00",
       "completeDate": null
     },
     {
@@ -1521,7 +1537,9 @@
       "domain": "Ranch",
       "hours": null,
       "projectIds": [],
-      "rockIds": [],
+      "rockIds": [
+        "377c574948598198a9f0e04219c83b50"
+      ],
       "person": [
         "Patricia Eubanks"
       ],
@@ -1530,9 +1548,9 @@
       "completeDate": null
     },
     {
-      "id": "362c57494859805887a6f4693b53043e",
+      "id": "363c574948598082ad1ff5164dd91437",
       "type": "task",
-      "name": "Move sheep and goats to 3rd area to eat thistles",
+      "name": "brush out dogs",
       "status": "Current Sprint (this week)",
       "pillarIds": [],
       "domain": "Ranch",
@@ -1543,7 +1561,7 @@
         "Patricia Eubanks"
       ],
       "velocity": 0,
-      "startDate": "2026-05-17T09:48:00.000-05:00",
+      "startDate": "2026-05-30T11:12:00.000-05:00",
       "completeDate": null
     },
     {
@@ -1561,6 +1579,27 @@
       ],
       "velocity": 0,
       "startDate": "2026-05-15T11:45:00.000-05:00",
+      "completeDate": null
+    },
+    {
+      "id": "360c5749485980d893dee1c2bcd5e974",
+      "type": "task",
+      "name": "Clean and prep baby car seat",
+      "status": "Current Sprint (this week)",
+      "pillarIds": [
+        "62f10d5c983944388542d9b1db866b1a"
+      ],
+      "domain": "Baby Girl",
+      "hours": 2,
+      "projectIds": [],
+      "rockIds": [
+        "377c574948598198a9f0e04219c83b50"
+      ],
+      "person": [
+        "Patricia Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": null,
       "completeDate": null
     },
     {
@@ -1615,27 +1654,6 @@
       "completeDate": null
     },
     {
-      "id": "35bc5749485980f4a850fdbcdd01132c",
-      "type": "task",
-      "name": "A progress tracking system for owen… milestones.. or something.. Pyramid?",
-      "status": "In progress (WIP)",
-      "pillarIds": [
-        "62f10d5c983944388542d9b1db866b1a"
-      ],
-      "domain": "Owen",
-      "hours": 8,
-      "projectIds": [],
-      "rockIds": [
-        "377c57494859817083b1ddc5ffb3d1f0"
-      ],
-      "person": [
-        "Patricia Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-06-28T14:02:00.000-05:00",
-      "completeDate": null
-    },
-    {
       "id": "35bc5749485980ad9bb1c4e4a793ce15",
       "type": "task",
       "name": "Get FMLA paperwork signed ",
@@ -1654,23 +1672,6 @@
       "completeDate": null
     },
     {
-      "id": "354c57494859805e9ddcc5d6a1c811c3",
-      "type": "task",
-      "name": "Spanish Flash cards",
-      "status": "Current Sprint (this week)",
-      "pillarIds": [],
-      "domain": "Girls",
-      "hours": 2,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Patricia Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": null,
-      "completeDate": null
-    },
-    {
       "id": "354c574948598010a4a5e40a0c476772",
       "type": "task",
       "name": "Shave Sammy",
@@ -1678,23 +1679,6 @@
       "pillarIds": [],
       "domain": "Ranch",
       "hours": 2,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Patricia Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": null,
-      "completeDate": null
-    },
-    {
-      "id": "33dc574948598084bb5bf0d20e834782",
-      "type": "task",
-      "name": "Change health insurance after baby is born",
-      "status": "Current Sprint (this week)",
-      "pillarIds": [],
-      "domain": "Personal Admin",
-      "hours": 4,
       "projectIds": [],
       "rockIds": [],
       "person": [
@@ -1828,6 +1812,45 @@
       "velocity": 1.291666666667,
       "startDate": "2026-06-29T10:57:00.000-05:00",
       "completeDate": "2026-06-30T18:09:00.000-05:00"
+    },
+    {
+      "id": "38dc5749485980eebfd1cc835844aa5b",
+      "type": "task",
+      "name": "Plan meal prep day",
+      "status": "Done",
+      "pillarIds": [],
+      "domain": "Baby Girl",
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [
+        "377c574948598198a9f0e04219c83b50"
+      ],
+      "person": [
+        "Patricia Eubanks"
+      ],
+      "velocity": 2.833333333333,
+      "startDate": "2026-07-05T10:57:00.000-05:00",
+      "completeDate": "2026-07-08T07:17:00.000-05:00"
+    },
+    {
+      "id": "38cc574948598031a448c7d62e0b189c",
+      "type": "task",
+      "name": "move cow and calves out of back hay pen",
+      "status": "Done",
+      "pillarIds": [
+        "683e3c08456247dea6168f9329c85470"
+      ],
+      "domain": "Ranch",
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Patricia Eubanks",
+        "Noah Eubanks"
+      ],
+      "velocity": 10.833333333333,
+      "startDate": "2026-06-27T11:06:00.000-05:00",
+      "completeDate": "2026-07-08T07:16:00.000-05:00"
     },
     {
       "id": "38ac5749485980f8a1a0f5b743e19dcd",
@@ -3429,40 +3452,6 @@
       "velocity": 16.708333333333,
       "startDate": "2026-05-15T23:50:00.000-05:00",
       "completeDate": "2026-06-01T16:53:00.000-05:00"
-    },
-    {
-      "id": "361c5749485980af865fdbaf9b3a6926",
-      "type": "task",
-      "name": "Add Domain for Baby",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": "Personal Admin",
-      "hours": 0.2,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 0.416666666667,
-      "startDate": "2026-05-15T09:47:00.000-05:00",
-      "completeDate": "2026-05-15T20:33:00.000-05:00"
-    },
-    {
-      "id": "361c57494859805486cdedf612781674",
-      "type": "task",
-      "name": "214 moving out 5/22",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": "Real Estate",
-      "hours": 30,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Patricia Eubanks"
-      ],
-      "velocity": 6.041666666667,
-      "startDate": "2026-05-24T10:00:00.000-05:00",
-      "completeDate": "2026-05-30T11:07:00.000-05:00"
     }
   ],
   "habitData": {
