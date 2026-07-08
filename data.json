@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-08T03:33:08.832Z",
+  "generated": "2026-07-08T06:34:52.438Z",
   "meta": {
     "currentQuarter": "Q3",
     "currentYear": "2026",
@@ -3679,6 +3679,27 @@
             "Create top 3 priorities for tomorrow": false,
             "Learn (read/listen)": false,
             "Gratitude/prayer (previous night)": false
+          },
+          "completed": 0,
+          "possible": 13,
+          "pct": 0
+        },
+        {
+          "date": "2026-07-08",
+          "habits": {
+            "Write down 3 wins from today (stay in the gain)": false,
+            "Move!": false,
+            "Review today’s top 3 (what am i doing today)": false,
+            "5am wake": false,
+            "Learn (read/listen)": false,
+            "Gratitude/prayer (previous night)": false,
+            "No caffeine": false,
+            "Create top 3 priorities for tomorrow": false,
+            "Play with Owen": false,
+            "Food recorded (with no unplanned indulgences)": false,
+            "No phone in bed (previous night)": false,
+            "Vitamins/supplements": false,
+            "1/2 gallon water": false
           },
           "completed": 0,
           "possible": 13,
