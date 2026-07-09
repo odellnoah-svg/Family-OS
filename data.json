@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-09T11:19:15.011Z",
+  "generated": "2026-07-09T15:27:37.370Z",
   "meta": {
     "currentQuarter": "Q3",
     "currentYear": "2026",
@@ -412,6 +412,16 @@
   ],
   "projects": [],
   "tasks": [
+    {
+      "id": "398c5749485980879c47f935bf49e2fd",
+      "type": "task",
+      "name": "Disconnect trailer from blue truck",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": null,
+      "hours": null,
+      "projectIds": []
+    },
     {
       "id": "397c5749485980a59e6ed4495117021a",
       "type": "task",
@@ -844,6 +854,23 @@
     }
   ],
   "wipTasks": [
+    {
+      "id": "398c5749485980879c47f935bf49e2fd",
+      "type": "task",
+      "name": "Disconnect trailer from blue truck",
+      "status": "In progress (WIP)",
+      "pillarIds": [],
+      "domain": null,
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": "2026-07-09T08:59:00.000-05:00",
+      "completeDate": null
+    },
     {
       "id": "397c5749485980a59e6ed4495117021a",
       "type": "task",
