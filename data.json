@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-08T21:17:00.356Z",
+  "generated": "2026-07-09T04:01:53.327Z",
   "meta": {
     "currentQuarter": "Q3",
     "currentYear": "2026",
@@ -463,16 +463,6 @@
       "projectIds": []
     },
     {
-      "id": "394c5749485980da9e14ffdafde29e5b",
-      "type": "task",
-      "name": "Pick up leucovorin",
-      "status": "In progress (WIP)",
-      "pillar": null,
-      "domain": "Owen",
-      "hours": 1,
-      "projectIds": []
-    },
-    {
       "id": "392c574948598083b149df644fa478b4",
       "type": "task",
       "name": "Salt into cherokee nation and close gate to heifer pasture ",
@@ -613,16 +603,6 @@
       "projectIds": []
     },
     {
-      "id": "38bc5749485980b0be62fa4e76499c06",
-      "type": "task",
-      "name": "Pay Absolute Extermination $1300",
-      "status": "In progress (WIP)",
-      "pillar": null,
-      "domain": "Real Estate",
-      "hours": null,
-      "projectIds": []
-    },
-    {
       "id": "38ac5749485980deb32ffa49d2123d88",
       "type": "task",
       "name": "Make dentist appointment ",
@@ -659,6 +639,26 @@
       "status": "Current Sprint (this week)",
       "pillar": null,
       "domain": null,
+      "hours": null,
+      "projectIds": []
+    },
+    {
+      "id": "380c57494859804d912fd91baccbfd44",
+      "type": "task",
+      "name": "Swing/bouncer for baby",
+      "status": "Current Sprint (this week)",
+      "pillar": null,
+      "domain": "Baby Girl",
+      "hours": null,
+      "projectIds": []
+    },
+    {
+      "id": "380c57494859806786f0cd6461d79669",
+      "type": "task",
+      "name": "Set up cabin for baby",
+      "status": "Current Sprint (this week)",
+      "pillar": null,
+      "domain": "Baby Girl",
       "hours": null,
       "projectIds": []
     },
@@ -773,16 +773,6 @@
       "projectIds": []
     },
     {
-      "id": "363c574948598097b039f8fb78af6c2f",
-      "type": "task",
-      "name": "administer flea and tick meds",
-      "status": "In progress (WIP)",
-      "pillar": null,
-      "domain": "Ranch",
-      "hours": null,
-      "projectIds": []
-    },
-    {
       "id": "363c574948598082ad1ff5164dd91437",
       "type": "task",
       "name": "brush out dogs",
@@ -840,16 +830,6 @@
       "pillar": null,
       "domain": "Personal Admin",
       "hours": 2,
-      "projectIds": []
-    },
-    {
-      "id": "35bc5749485980ad9bb1c4e4a793ce15",
-      "type": "task",
-      "name": "Get FMLA paperwork signed ",
-      "status": "In progress (WIP)",
-      "pillar": null,
-      "domain": "Health",
-      "hours": 8,
       "projectIds": []
     },
     {
@@ -949,27 +929,6 @@
       ],
       "velocity": 0,
       "startDate": "2026-07-05T10:53:00.000-05:00",
-      "completeDate": null
-    },
-    {
-      "id": "394c5749485980da9e14ffdafde29e5b",
-      "type": "task",
-      "name": "Pick up leucovorin",
-      "status": "In progress (WIP)",
-      "pillarIds": [
-        "2fb60975ef4e4b0fbd56793fba264939"
-      ],
-      "domain": "Owen",
-      "hours": 1,
-      "projectIds": [],
-      "rockIds": [
-        "377c57494859817083b1ddc5ffb3d1f0"
-      ],
-      "person": [
-        "Patricia Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-07-05T09:40:00.000-05:00",
       "completeDate": null
     },
     {
@@ -1243,25 +1202,6 @@
       "completeDate": null
     },
     {
-      "id": "38bc5749485980b0be62fa4e76499c06",
-      "type": "task",
-      "name": "Pay Absolute Extermination $1300",
-      "status": "In progress (WIP)",
-      "pillarIds": [
-        "fa5c3f6312394f09b07566f455dac82d"
-      ],
-      "domain": "Real Estate",
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Patricia Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-07-08T10:56:00.000-05:00",
-      "completeDate": null
-    },
-    {
       "id": "38ac5749485980deb32ffa49d2123d88",
       "type": "task",
       "name": "Make dentist appointment ",
@@ -1336,6 +1276,48 @@
       ],
       "velocity": 0,
       "startDate": "2026-06-16T00:00:00.000-05:00",
+      "completeDate": null
+    },
+    {
+      "id": "380c57494859804d912fd91baccbfd44",
+      "type": "task",
+      "name": "Swing/bouncer for baby",
+      "status": "Current Sprint (this week)",
+      "pillarIds": [
+        "62f10d5c983944388542d9b1db866b1a"
+      ],
+      "domain": "Baby Girl",
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [
+        "377c574948598198a9f0e04219c83b50"
+      ],
+      "person": [
+        "Patricia Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": null,
+      "completeDate": null
+    },
+    {
+      "id": "380c57494859806786f0cd6461d79669",
+      "type": "task",
+      "name": "Set up cabin for baby",
+      "status": "Current Sprint (this week)",
+      "pillarIds": [
+        "62f10d5c983944388542d9b1db866b1a"
+      ],
+      "domain": "Baby Girl",
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [
+        "377c574948598198a9f0e04219c83b50"
+      ],
+      "person": [
+        "Patricia Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": null,
       "completeDate": null
     },
     {
@@ -1529,25 +1511,6 @@
       "completeDate": null
     },
     {
-      "id": "363c574948598097b039f8fb78af6c2f",
-      "type": "task",
-      "name": "administer flea and tick meds",
-      "status": "In progress (WIP)",
-      "pillarIds": [],
-      "domain": "Ranch",
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [
-        "377c574948598198a9f0e04219c83b50"
-      ],
-      "person": [
-        "Patricia Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-05-17T10:13:00.000-05:00",
-      "completeDate": null
-    },
-    {
       "id": "363c574948598082ad1ff5164dd91437",
       "type": "task",
       "name": "brush out dogs",
@@ -1654,24 +1617,6 @@
       "completeDate": null
     },
     {
-      "id": "35bc5749485980ad9bb1c4e4a793ce15",
-      "type": "task",
-      "name": "Get FMLA paperwork signed ",
-      "status": "In progress (WIP)",
-      "pillarIds": [],
-      "domain": "Health",
-      "hours": 8,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks",
-        "Patricia Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-07-05T10:58:00.000-05:00",
-      "completeDate": null
-    },
-    {
       "id": "354c574948598010a4a5e40a0c476772",
       "type": "task",
       "name": "Shave Sammy",
@@ -1723,6 +1668,27 @@
       "velocity": 1.541666666667,
       "startDate": "2026-07-05T10:52:00.000-05:00",
       "completeDate": "2026-07-07T00:07:00.000-05:00"
+    },
+    {
+      "id": "394c5749485980da9e14ffdafde29e5b",
+      "type": "task",
+      "name": "Pick up leucovorin",
+      "status": "Done",
+      "pillarIds": [
+        "2fb60975ef4e4b0fbd56793fba264939"
+      ],
+      "domain": "Owen",
+      "hours": 1,
+      "projectIds": [],
+      "rockIds": [
+        "377c57494859817083b1ddc5ffb3d1f0"
+      ],
+      "person": [
+        "Patricia Eubanks"
+      ],
+      "velocity": 3.291666666667,
+      "startDate": "2026-07-05T09:40:00.000-05:00",
+      "completeDate": "2026-07-08T17:02:00.000-05:00"
     },
     {
       "id": "390c57494859806bafc4c1b6054da451",
@@ -1851,6 +1817,25 @@
       "velocity": 10.833333333333,
       "startDate": "2026-06-27T11:06:00.000-05:00",
       "completeDate": "2026-07-08T07:16:00.000-05:00"
+    },
+    {
+      "id": "38bc5749485980b0be62fa4e76499c06",
+      "type": "task",
+      "name": "Pay Absolute Extermination $1300",
+      "status": "Done",
+      "pillarIds": [
+        "fa5c3f6312394f09b07566f455dac82d"
+      ],
+      "domain": "Real Estate",
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Patricia Eubanks"
+      ],
+      "velocity": 0.458333333333,
+      "startDate": "2026-07-08T10:56:00.000-05:00",
+      "completeDate": "2026-07-08T22:20:00.000-05:00"
     },
     {
       "id": "38ac5749485980f8a1a0f5b743e19dcd",
@@ -3300,6 +3285,25 @@
       "completeDate": "2026-05-22T17:44:00.000-05:00"
     },
     {
+      "id": "363c574948598097b039f8fb78af6c2f",
+      "type": "task",
+      "name": "administer flea and tick meds",
+      "status": "Done",
+      "pillarIds": [],
+      "domain": "Ranch",
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [
+        "377c574948598198a9f0e04219c83b50"
+      ],
+      "person": [
+        "Patricia Eubanks"
+      ],
+      "velocity": 52.5,
+      "startDate": "2026-05-17T10:13:00.000-05:00",
+      "completeDate": "2026-07-08T22:20:00.000-05:00"
+    },
+    {
       "id": "363c5749485980afbb50d3b6dead8255",
       "type": "task",
       "name": "establish wip target hours",
@@ -3401,57 +3405,6 @@
       "velocity": 3.541666666667,
       "startDate": "2026-05-17T08:40:00.000-05:00",
       "completeDate": "2026-05-20T22:17:00.000-05:00"
-    },
-    {
-      "id": "363c574948598099a222c4ecb5a490bb",
-      "type": "task",
-      "name": "Mother’s helper ideas",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": null,
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Patricia Eubanks"
-      ],
-      "velocity": 9.291666666667,
-      "startDate": "2026-05-17T09:48:00.000-05:00",
-      "completeDate": "2026-05-26T17:05:00.000-05:00"
-    },
-    {
-      "id": "362c5749485980fbb816e1e01770c09b",
-      "type": "task",
-      "name": "Respond to AbA email",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": "Owen",
-      "hours": 1,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 1.916666666667,
-      "startDate": "2026-05-16T12:06:00.000-05:00",
-      "completeDate": "2026-05-18T10:15:00.000-05:00"
-    },
-    {
-      "id": "362c5749485980ddaf0eda3c1a9f023f",
-      "type": "task",
-      "name": "Test Notion MCP + Claude ",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": "Personal Admin",
-      "hours": 3,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 16.708333333333,
-      "startDate": "2026-05-15T23:50:00.000-05:00",
-      "completeDate": "2026-06-01T16:53:00.000-05:00"
     }
   ],
   "habitData": {
@@ -4359,14 +4312,14 @@
           "date": "2026-07-08",
           "habits": {
             "Laundry": false,
-            "Supplements": false,
+            "Supplements": true,
             "Leucovorin": false,
-            "Take care of baby": false,
-            "Feed dogs": false
+            "Take care of baby": true,
+            "Feed dogs": true
           },
-          "completed": 0,
+          "completed": 3,
           "possible": 5,
-          "pct": 0
+          "pct": 60
         }
       ]
     }
