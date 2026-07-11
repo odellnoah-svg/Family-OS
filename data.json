@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-11T09:44:26.215Z",
+  "generated": "2026-07-11T13:43:21.760Z",
   "meta": {
     "currentQuarter": "Q3",
     "currentYear": "2026",
@@ -412,6 +412,16 @@
   ],
   "projects": [],
   "tasks": [
+    {
+      "id": "39ac57494859809787dee688e430f62d",
+      "type": "task",
+      "name": "visitation schedule for the next school year ",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": "Personal Admin",
+      "hours": null,
+      "projectIds": []
+    },
     {
       "id": "398c5749485980879c47f935bf49e2fd",
       "type": "task",
@@ -844,6 +854,23 @@
     }
   ],
   "wipTasks": [
+    {
+      "id": "39ac57494859809787dee688e430f62d",
+      "type": "task",
+      "name": "visitation schedule for the next school year ",
+      "status": "In progress (WIP)",
+      "pillarIds": [],
+      "domain": "Personal Admin",
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Patricia Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": "2026-07-11T08:39:00.000-05:00",
+      "completeDate": null
+    },
     {
       "id": "398c5749485980879c47f935bf49e2fd",
       "type": "task",
