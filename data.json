@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-11T13:43:21.760Z",
+  "generated": "2026-07-11T17:06:04.957Z",
   "meta": {
     "currentQuarter": "Q3",
     "currentYear": "2026",
@@ -412,6 +412,16 @@
   ],
   "projects": [],
   "tasks": [
+    {
+      "id": "39ac5749485980cf8ffecbc5eaff57bf",
+      "type": "task",
+      "name": "Sammy to the vet",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": null,
+      "hours": null,
+      "projectIds": []
+    },
     {
       "id": "39ac57494859809787dee688e430f62d",
       "type": "task",
@@ -854,6 +864,23 @@
     }
   ],
   "wipTasks": [
+    {
+      "id": "39ac5749485980cf8ffecbc5eaff57bf",
+      "type": "task",
+      "name": "Sammy to the vet",
+      "status": "In progress (WIP)",
+      "pillarIds": [],
+      "domain": null,
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Patricia Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": "2026-07-11T09:00:00.000-05:00",
+      "completeDate": null
+    },
     {
       "id": "39ac57494859809787dee688e430f62d",
       "type": "task",
