@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-11T17:06:04.957Z",
+  "generated": "2026-07-11T20:59:32.315Z",
   "meta": {
     "currentQuarter": "Q3",
     "currentYear": "2026",
@@ -443,16 +443,6 @@
       "projectIds": []
     },
     {
-      "id": "397c5749485980a59e6ed4495117021a",
-      "type": "task",
-      "name": "bring all receipts and checkbook in from trucks",
-      "status": "In progress (WIP)",
-      "pillar": null,
-      "domain": null,
-      "hours": null,
-      "projectIds": []
-    },
-    {
       "id": "394c5749485980c4807ae0612832b0c5",
       "type": "task",
       "name": "market reports from Leach, Tahlequah, Coffeyville, Delaware county….  Maybe add to folder every week. ",
@@ -493,29 +483,9 @@
       "projectIds": []
     },
     {
-      "id": "392c574948598083b149df644fa478b4",
-      "type": "task",
-      "name": "Salt into cherokee nation and close gate to heifer pasture ",
-      "status": "In progress (WIP)",
-      "pillar": null,
-      "domain": "Ranch",
-      "hours": 0.5,
-      "projectIds": []
-    },
-    {
       "id": "392c574948598083becdf236e50ffbb8",
       "type": "task",
       "name": "Tranquilize ram and take to hay pen ",
-      "status": "In progress (WIP)",
-      "pillar": null,
-      "domain": "Ranch",
-      "hours": 1,
-      "projectIds": []
-    },
-    {
-      "id": "392c574948598017b2e4d7b3f12d09bb",
-      "type": "task",
-      "name": "Move cows & red bulls to cherokee nation ",
       "status": "In progress (WIP)",
       "pillar": null,
       "domain": "Ranch",
@@ -916,23 +886,6 @@
       "completeDate": null
     },
     {
-      "id": "397c5749485980a59e6ed4495117021a",
-      "type": "task",
-      "name": "bring all receipts and checkbook in from trucks",
-      "status": "In progress (WIP)",
-      "pillarIds": [],
-      "domain": null,
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-07-08T09:14:00.000-05:00",
-      "completeDate": null
-    },
-    {
       "id": "394c5749485980c4807ae0612832b0c5",
       "type": "task",
       "name": "market reports from Leach, Tahlequah, Coffeyville, Delaware county….  Maybe add to folder every week. ",
@@ -1003,25 +956,6 @@
       "completeDate": null
     },
     {
-      "id": "392c574948598083b149df644fa478b4",
-      "type": "task",
-      "name": "Salt into cherokee nation and close gate to heifer pasture ",
-      "status": "In progress (WIP)",
-      "pillarIds": [
-        "683e3c08456247dea6168f9329c85470"
-      ],
-      "domain": "Ranch",
-      "hours": 0.5,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-07-03T18:23:00.000-05:00",
-      "completeDate": null
-    },
-    {
       "id": "392c574948598083becdf236e50ffbb8",
       "type": "task",
       "name": "Tranquilize ram and take to hay pen ",
@@ -1038,25 +972,6 @@
       ],
       "velocity": 0,
       "startDate": "2026-07-03T18:12:00.000-05:00",
-      "completeDate": null
-    },
-    {
-      "id": "392c574948598017b2e4d7b3f12d09bb",
-      "type": "task",
-      "name": "Move cows & red bulls to cherokee nation ",
-      "status": "In progress (WIP)",
-      "pillarIds": [
-        "fa5c3f6312394f09b07566f455dac82d"
-      ],
-      "domain": "Ranch",
-      "hours": 1,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-07-03T18:11:00.000-05:00",
       "completeDate": null
     },
     {
@@ -1688,6 +1603,23 @@
       "completeDate": null
     },
     {
+      "id": "397c5749485980a59e6ed4495117021a",
+      "type": "task",
+      "name": "bring all receipts and checkbook in from trucks",
+      "status": "Done",
+      "pillarIds": [],
+      "domain": null,
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 3.166666666667,
+      "startDate": "2026-07-08T09:14:00.000-05:00",
+      "completeDate": "2026-07-11T14:03:00.000-05:00"
+    },
+    {
       "id": "394c57494859807995c4f8da956c5e22",
       "type": "task",
       "name": "Hay to rams",
@@ -1743,6 +1675,44 @@
       "velocity": 3.291666666667,
       "startDate": "2026-07-05T09:40:00.000-05:00",
       "completeDate": "2026-07-08T17:02:00.000-05:00"
+    },
+    {
+      "id": "392c574948598083b149df644fa478b4",
+      "type": "task",
+      "name": "Salt into back pasture for black bulls ",
+      "status": "Done",
+      "pillarIds": [
+        "683e3c08456247dea6168f9329c85470"
+      ],
+      "domain": "Ranch",
+      "hours": 0.5,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 7.791666666667,
+      "startDate": "2026-07-03T18:23:00.000-05:00",
+      "completeDate": "2026-07-11T13:59:00.000-05:00"
+    },
+    {
+      "id": "392c574948598017b2e4d7b3f12d09bb",
+      "type": "task",
+      "name": "Move cows & red bulls to goat pasture",
+      "status": "Done",
+      "pillarIds": [
+        "fa5c3f6312394f09b07566f455dac82d"
+      ],
+      "domain": "Ranch",
+      "hours": 1,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 7.791666666667,
+      "startDate": "2026-07-03T18:11:00.000-05:00",
+      "completeDate": "2026-07-11T13:58:00.000-05:00"
     },
     {
       "id": "390c57494859806bafc4c1b6054da451",
@@ -3408,57 +3378,6 @@
       "velocity": 27.291666666667,
       "startDate": "2026-05-17T09:57:00.000-05:00",
       "completeDate": "2026-06-13T17:20:00.000-05:00"
-    },
-    {
-      "id": "363c57494859809184bdc5982ba0ff23",
-      "type": "task",
-      "name": "Plan for pulling males from goats and sheep",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": "Ranch",
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Patricia Eubanks"
-      ],
-      "velocity": 27,
-      "startDate": "2026-05-17T09:54:00.000-05:00",
-      "completeDate": "2026-06-13T10:42:00.000-05:00"
-    },
-    {
-      "id": "363c5749485980a6b41cdcf6db10f541",
-      "type": "task",
-      "name": "Pickup/sweep cabin by 5/27",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": null,
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Patricia Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": null,
-      "completeDate": "2026-06-13T10:54:00.000-05:00"
-    },
-    {
-      "id": "363c5749485980058c2bf0add81ef6b4",
-      "type": "task",
-      "name": "Add daily habit tracker for tricia ",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": "Personal Admin",
-      "hours": 1,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 3.541666666667,
-      "startDate": "2026-05-17T08:40:00.000-05:00",
-      "completeDate": "2026-05-20T22:17:00.000-05:00"
     }
   ],
   "habitData": {
