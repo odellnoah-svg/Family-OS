@@ -27,7 +27,7 @@ const DBS = {
 // ── Habit Tracker Database IDs ───────────────────────────────
 const HABIT_DBS = {
   noah:   '38ec574948598058b3b8c5b60651d0d7',
-  tricia: '7dc5acf6912142b3a433ac47ab61e29b',
+  tricia: '398c574948598064981becd311703b77',
 }
 
 // ── Page IDs (for narrative content) ─────────────────────────
@@ -233,6 +233,23 @@ const NOAH_HABIT_ORDER = [
   "No phone in bed",
 ]
 
+// ── Tricia habit display order (matches Notion template sequence) ────
+const TRICIA_HABIT_ORDER = [
+  "Leucovorin",
+  "Laundry",
+  "Vitamins/supplements",
+  "Feed dogs",
+  "1/2 gallon water",
+  "Review today's top 3 (what am i doing today)",
+  "Learn (read/listen)",
+  "Food recorded (with no unplanned indulgences)",
+  "Write down 3 wins from today (stay in the gain)",
+  "Create top 3 priorities for tomorrow",
+  "No phone in bed (previous night)",
+  "Gratitude/prayer (previous night)",
+  "Take care of baby",
+]
+
 // ── Habit entry builder — new structure (one row per habit per day) ──
 function buildHabitEntries(rows, orderedFields = null) {
   const byDate = {}
@@ -324,15 +341,16 @@ async function main() {
   const { fields: noahFields, entries: noahHabitRaw } = buildHabitEntries(noahHabitRows, NOAH_HABIT_ORDER)
   console.log(`    ✓ ${noahHabitRaw.length} days · ${noahFields.length} habits`)
 
-  console.log('  Fetching Tricia habit data...')
-  const triciaHabitRaw = (await queryAll(HABIT_DBS.tricia, {
+  console.log('  Fetching Tricia habit data (new structure)...')
+  const triciaHabitRows = await queryAll(HABIT_DBS.tricia, {
     filter: { property: 'Date', date: { on_or_after: habitThirtyAgo } },
     sorts: [{ property: 'Date', direction: 'ascending' }]
-  })).map(parseHabitEntry).filter(e => e.date)
-  console.log(`    ✓ ${triciaHabitRaw.length} entries`)
+  })
+  const { fields: triciaFields, entries: triciaHabitRaw } = buildHabitEntries(triciaHabitRows, TRICIA_HABIT_ORDER)
+  console.log(`    ✓ ${triciaHabitRaw.length} days · ${triciaFields.length} habits`)
 
   // noahFields already set by buildHabitEntries above
-  const triciaFields = triciaHabitRaw.length > 0 ? Object.keys(triciaHabitRaw[0].habits).sort() : []
+  // triciaFields already set by buildHabitEntries above
   const habitData = {
     noah:   { fields: noahFields,   entries: noahHabitRaw  },
     tricia: { fields: triciaFields, entries: triciaHabitRaw },
