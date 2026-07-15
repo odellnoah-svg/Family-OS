@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-15T17:25:10.298Z",
+  "generated": "2026-07-15T21:08:38.405Z",
   "meta": {
     "currentQuarter": "Q3",
     "currentYear": "2026",
@@ -415,11 +415,11 @@
     {
       "id": "39ec574948598091acf7d9fdf3642f17",
       "type": "task",
-      "name": "(Untitled)",
+      "name": "Sign up for HSA ",
       "status": "In progress (WIP)",
       "pillar": null,
-      "domain": null,
-      "hours": null,
+      "domain": "Personal Admin",
+      "hours": 2,
       "projectIds": []
     },
     {
@@ -797,11 +797,13 @@
     {
       "id": "39ec574948598091acf7d9fdf3642f17",
       "type": "task",
-      "name": "(Untitled)",
+      "name": "Sign up for HSA ",
       "status": "In progress (WIP)",
-      "pillarIds": [],
-      "domain": null,
-      "hours": null,
+      "pillarIds": [
+        "2fb60975ef4e4b0fbd56793fba264939"
+      ],
+      "domain": "Personal Admin",
+      "hours": 2,
       "projectIds": [],
       "rockIds": [],
       "person": [
