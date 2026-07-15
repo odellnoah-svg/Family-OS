@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-15T13:59:40.094Z",
+  "generated": "2026-07-15T17:25:10.298Z",
   "meta": {
     "currentQuarter": "Q3",
     "currentYear": "2026",
@@ -413,9 +413,9 @@
   "projects": [],
   "tasks": [
     {
-      "id": "39ac5749485980cf8ffecbc5eaff57bf",
+      "id": "39ec574948598091acf7d9fdf3642f17",
       "type": "task",
-      "name": "Sammy to the vet",
+      "name": "(Untitled)",
       "status": "In progress (WIP)",
       "pillar": null,
       "domain": null,
@@ -423,13 +423,13 @@
       "projectIds": []
     },
     {
-      "id": "39ac57494859809787dee688e430f62d",
+      "id": "39ec57494859805b9908eedc0fe9ee57",
       "type": "task",
-      "name": "visitation schedule for the next school year ",
+      "name": "Sell bull calf ",
       "status": "In progress (WIP)",
       "pillar": null,
-      "domain": "Personal Admin",
-      "hours": null,
+      "domain": "Ranch",
+      "hours": 3,
       "projectIds": []
     },
     {
@@ -453,29 +453,9 @@
       "projectIds": []
     },
     {
-      "id": "394c5749485980a6a20ac9111dbe5e5d",
-      "type": "task",
-      "name": "Get receipts from vehicles ",
-      "status": "Current Sprint (this week)",
-      "pillar": null,
-      "domain": "Personal Admin",
-      "hours": 0.5,
-      "projectIds": []
-    },
-    {
       "id": "394c5749485980eaadebfeb9d16f0294",
       "type": "task",
       "name": "Deposit checks from unclaimed property immediately ",
-      "status": "In progress (WIP)",
-      "pillar": null,
-      "domain": null,
-      "hours": null,
-      "projectIds": []
-    },
-    {
-      "id": "394c57494859805b84b5c2860824b73b",
-      "type": "task",
-      "name": "3 heifers delivered to josh ",
       "status": "In progress (WIP)",
       "pillar": null,
       "domain": null,
@@ -573,16 +553,6 @@
       "projectIds": []
     },
     {
-      "id": "38cc57494859807790f3f492847acc97",
-      "type": "task",
-      "name": "pack hospital bag",
-      "status": "Current Sprint (this week)",
-      "pillar": null,
-      "domain": "Baby Girl",
-      "hours": null,
-      "projectIds": []
-    },
-    {
       "id": "38cc5749485980479825ff369f0ffab9",
       "type": "task",
       "name": "order new breast pump free from insurance",
@@ -646,7 +616,7 @@
       "id": "380c57494859804d912fd91baccbfd44",
       "type": "task",
       "name": "Swing/bouncer for baby",
-      "status": "Current Sprint (this week)",
+      "status": "In progress (WIP)",
       "pillar": null,
       "domain": "Baby Girl",
       "hours": null,
@@ -679,16 +649,6 @@
       "status": "In progress (WIP)",
       "pillar": null,
       "domain": "Personal Admin",
-      "hours": null,
-      "projectIds": []
-    },
-    {
-      "id": "37ec5749485980c0b35fcd8057f08515",
-      "type": "task",
-      "name": "Scan Receipts for taxes",
-      "status": "In progress (WIP)",
-      "pillar": null,
-      "domain": "Ranch",
       "hours": null,
       "projectIds": []
     },
@@ -796,7 +756,7 @@
       "id": "360c5749485980d893dee1c2bcd5e974",
       "type": "task",
       "name": "Clean and prep baby car seat",
-      "status": "Current Sprint (this week)",
+      "status": "In progress (WIP)",
       "pillar": null,
       "domain": "Baby Girl",
       "hours": 2,
@@ -835,9 +795,9 @@
   ],
   "wipTasks": [
     {
-      "id": "39ac5749485980cf8ffecbc5eaff57bf",
+      "id": "39ec574948598091acf7d9fdf3642f17",
       "type": "task",
-      "name": "Sammy to the vet",
+      "name": "(Untitled)",
       "status": "In progress (WIP)",
       "pillarIds": [],
       "domain": null,
@@ -845,27 +805,29 @@
       "projectIds": [],
       "rockIds": [],
       "person": [
-        "Patricia Eubanks"
+        "Noah Eubanks"
       ],
       "velocity": 0,
-      "startDate": "2026-07-11T09:00:00.000-05:00",
+      "startDate": "2026-07-15T11:37:00.000-05:00",
       "completeDate": null
     },
     {
-      "id": "39ac57494859809787dee688e430f62d",
+      "id": "39ec57494859805b9908eedc0fe9ee57",
       "type": "task",
-      "name": "visitation schedule for the next school year ",
+      "name": "Sell bull calf ",
       "status": "In progress (WIP)",
-      "pillarIds": [],
-      "domain": "Personal Admin",
-      "hours": null,
+      "pillarIds": [
+        "fa5c3f6312394f09b07566f455dac82d"
+      ],
+      "domain": "Ranch",
+      "hours": 3,
       "projectIds": [],
       "rockIds": [],
       "person": [
-        "Patricia Eubanks"
+        "Noah Eubanks"
       ],
       "velocity": 0,
-      "startDate": "2026-07-11T08:39:00.000-05:00",
+      "startDate": "2026-07-15T10:31:00.000-05:00",
       "completeDate": null
     },
     {
@@ -903,45 +865,9 @@
       "completeDate": null
     },
     {
-      "id": "394c5749485980a6a20ac9111dbe5e5d",
-      "type": "task",
-      "name": "Get receipts from vehicles ",
-      "status": "Current Sprint (this week)",
-      "pillarIds": [
-        "fa5c3f6312394f09b07566f455dac82d"
-      ],
-      "domain": "Personal Admin",
-      "hours": 0.5,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": null,
-      "completeDate": null
-    },
-    {
       "id": "394c5749485980eaadebfeb9d16f0294",
       "type": "task",
       "name": "Deposit checks from unclaimed property immediately ",
-      "status": "In progress (WIP)",
-      "pillarIds": [],
-      "domain": null,
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-07-05T10:53:00.000-05:00",
-      "completeDate": null
-    },
-    {
-      "id": "394c57494859805b84b5c2860824b73b",
-      "type": "task",
-      "name": "3 heifers delivered to josh ",
       "status": "In progress (WIP)",
       "pillarIds": [],
       "domain": null,
@@ -1127,27 +1053,6 @@
       "completeDate": null
     },
     {
-      "id": "38cc57494859807790f3f492847acc97",
-      "type": "task",
-      "name": "pack hospital bag",
-      "status": "Current Sprint (this week)",
-      "pillarIds": [
-        "62f10d5c983944388542d9b1db866b1a"
-      ],
-      "domain": "Baby Girl",
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [
-        "377c574948598198a9f0e04219c83b50"
-      ],
-      "person": [
-        "Patricia Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": null,
-      "completeDate": null
-    },
-    {
       "id": "38cc5749485980479825ff369f0ffab9",
       "type": "task",
       "name": "order new breast pump free from insurance",
@@ -1268,7 +1173,7 @@
       "id": "380c57494859804d912fd91baccbfd44",
       "type": "task",
       "name": "Swing/bouncer for baby",
-      "status": "Current Sprint (this week)",
+      "status": "In progress (WIP)",
       "pillarIds": [
         "62f10d5c983944388542d9b1db866b1a"
       ],
@@ -1282,7 +1187,7 @@
         "Patricia Eubanks"
       ],
       "velocity": 0,
-      "startDate": null,
+      "startDate": "2026-07-15T10:51:00.000-05:00",
       "completeDate": null
     },
     {
@@ -1340,23 +1245,6 @@
       ],
       "velocity": 0,
       "startDate": "2026-06-13T11:04:00.000-05:00",
-      "completeDate": null
-    },
-    {
-      "id": "37ec5749485980c0b35fcd8057f08515",
-      "type": "task",
-      "name": "Scan Receipts for taxes",
-      "status": "In progress (WIP)",
-      "pillarIds": [],
-      "domain": "Ranch",
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Patricia Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-06-13T11:02:00.000-05:00",
       "completeDate": null
     },
     {
@@ -1534,7 +1422,7 @@
       "id": "360c5749485980d893dee1c2bcd5e974",
       "type": "task",
       "name": "Clean and prep baby car seat",
-      "status": "Current Sprint (this week)",
+      "status": "In progress (WIP)",
       "pillarIds": [
         "62f10d5c983944388542d9b1db866b1a"
       ],
@@ -1548,7 +1436,7 @@
         "Patricia Eubanks"
       ],
       "velocity": 0,
-      "startDate": null,
+      "startDate": "2026-07-15T10:51:00.000-05:00",
       "completeDate": null
     },
     {
@@ -1603,6 +1491,23 @@
       "completeDate": null
     },
     {
+      "id": "39ac57494859809787dee688e430f62d",
+      "type": "task",
+      "name": "visitation schedule for the next school year ",
+      "status": "Done",
+      "pillarIds": [],
+      "domain": "Personal Admin",
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Patricia Eubanks"
+      ],
+      "velocity": 4.083333333333,
+      "startDate": "2026-07-11T08:39:00.000-05:00",
+      "completeDate": "2026-07-15T10:51:00.000-05:00"
+    },
+    {
       "id": "397c5749485980a59e6ed4495117021a",
       "type": "task",
       "name": "bring all receipts and checkbook in from trucks",
@@ -1618,6 +1523,25 @@
       "velocity": 3.166666666667,
       "startDate": "2026-07-08T09:14:00.000-05:00",
       "completeDate": "2026-07-11T14:03:00.000-05:00"
+    },
+    {
+      "id": "394c5749485980a6a20ac9111dbe5e5d",
+      "type": "task",
+      "name": "Get receipts from vehicles ",
+      "status": "Done",
+      "pillarIds": [
+        "fa5c3f6312394f09b07566f455dac82d"
+      ],
+      "domain": "Personal Admin",
+      "hours": 0.5,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": null,
+      "completeDate": "2026-07-15T10:32:00.000-05:00"
     },
     {
       "id": "394c57494859807995c4f8da956c5e22",
@@ -1637,6 +1561,23 @@
       "velocity": 0.166666666667,
       "startDate": "2026-07-05T14:02:00.000-05:00",
       "completeDate": "2026-07-05T18:26:00.000-05:00"
+    },
+    {
+      "id": "394c57494859805b84b5c2860824b73b",
+      "type": "task",
+      "name": "3 heifers delivered to josh ",
+      "status": "Done",
+      "pillarIds": [],
+      "domain": null,
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 9.958333333333,
+      "startDate": "2026-07-05T10:53:00.000-05:00",
+      "completeDate": "2026-07-15T10:31:00.000-05:00"
     },
     {
       "id": "394c5749485980d18dffc9c2deaeebe7",
@@ -1841,6 +1782,27 @@
       "velocity": 10.833333333333,
       "startDate": "2026-06-27T11:06:00.000-05:00",
       "completeDate": "2026-07-08T07:16:00.000-05:00"
+    },
+    {
+      "id": "38cc57494859807790f3f492847acc97",
+      "type": "task",
+      "name": "pack hospital bag",
+      "status": "Done",
+      "pillarIds": [
+        "62f10d5c983944388542d9b1db866b1a"
+      ],
+      "domain": "Baby Girl",
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [
+        "377c574948598198a9f0e04219c83b50"
+      ],
+      "person": [
+        "Patricia Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": null,
+      "completeDate": "2026-07-15T10:51:00.000-05:00"
     },
     {
       "id": "38bc5749485980b0be62fa4e76499c06",
@@ -2282,6 +2244,23 @@
       "velocity": 1.958333333333,
       "startDate": "2026-06-14T00:20:00.000-05:00",
       "completeDate": "2026-06-15T23:37:00.000-05:00"
+    },
+    {
+      "id": "37ec5749485980c0b35fcd8057f08515",
+      "type": "task",
+      "name": "Scan Receipts for taxes",
+      "status": "Done",
+      "pillarIds": [],
+      "domain": "Ranch",
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Patricia Eubanks"
+      ],
+      "velocity": 31.958333333333,
+      "startDate": "2026-06-13T11:02:00.000-05:00",
+      "completeDate": "2026-07-15T10:51:00.000-05:00"
     },
     {
       "id": "37dc5749485980c4ad5aedd3cb47e7ed",
@@ -3290,94 +3269,6 @@
       "velocity": 7.291666666667,
       "startDate": "2026-05-19T08:50:00.000-05:00",
       "completeDate": "2026-05-26T16:21:00.000-05:00"
-    },
-    {
-      "id": "363c5749485980f6a656f479e9dc5d28",
-      "type": "task",
-      "name": "Cancel gemini subscription? ",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": "Personal Admin",
-      "hours": 1,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": null,
-      "completeDate": "2026-05-22T17:44:00.000-05:00"
-    },
-    {
-      "id": "363c574948598097b039f8fb78af6c2f",
-      "type": "task",
-      "name": "administer flea and tick meds",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": "Ranch",
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [
-        "377c574948598198a9f0e04219c83b50"
-      ],
-      "person": [
-        "Patricia Eubanks"
-      ],
-      "velocity": 52.5,
-      "startDate": "2026-05-17T10:13:00.000-05:00",
-      "completeDate": "2026-07-08T22:20:00.000-05:00"
-    },
-    {
-      "id": "363c5749485980afbb50d3b6dead8255",
-      "type": "task",
-      "name": "establish wip target hours",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": null,
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 27.125,
-      "startDate": "2026-05-17T10:07:00.000-05:00",
-      "completeDate": "2026-06-13T13:09:00.000-05:00"
-    },
-    {
-      "id": "363c574948598060a888d591bd8a7dd3",
-      "type": "task",
-      "name": "schedule meeting for rocks review ",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": "Personal Admin",
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Patricia Eubanks",
-        "Noah Eubanks"
-      ],
-      "velocity": 7,
-      "startDate": "2026-05-17T10:04:00.000-05:00",
-      "completeDate": "2026-05-24T10:18:00.000-05:00"
-    },
-    {
-      "id": "363c57494859802e8890d462a273a831",
-      "type": "task",
-      "name": "how to identify top 3 priorities in WIP",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": null,
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 27.291666666667,
-      "startDate": "2026-05-17T09:57:00.000-05:00",
-      "completeDate": "2026-06-13T17:20:00.000-05:00"
     }
   ],
   "habitData": {
