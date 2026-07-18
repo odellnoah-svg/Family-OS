@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-18T17:04:44.215Z",
+  "generated": "2026-07-18T20:59:23.120Z",
   "meta": {
     "currentQuarter": "Q3",
     "currentYear": "2026",
@@ -413,6 +413,16 @@
   "projects": [],
   "tasks": [
     {
+      "id": "3a1c5749485980c49372ed3b8457a993",
+      "type": "task",
+      "name": "Deposit unclaimed property to dad’s estate account ",
+      "status": "Current Sprint (this week)",
+      "pillar": null,
+      "domain": null,
+      "hours": null,
+      "projectIds": []
+    },
+    {
       "id": "39ec574948598091acf7d9fdf3642f17",
       "type": "task",
       "name": "Sign up for HSA ",
@@ -553,16 +563,6 @@
       "projectIds": []
     },
     {
-      "id": "38cc5749485980479825ff369f0ffab9",
-      "type": "task",
-      "name": "order new breast pump free from insurance",
-      "status": "Current Sprint (this week)",
-      "pillar": null,
-      "domain": "Baby Girl",
-      "hours": null,
-      "projectIds": []
-    },
-    {
       "id": "38cc5749485980a6be93ffa6a5fa6e8a",
       "type": "task",
       "name": "Complete 3 qtr goal process from freedom accelerator and integrate into our existing system",
@@ -609,16 +609,6 @@
       "status": "Current Sprint (this week)",
       "pillar": null,
       "domain": null,
-      "hours": null,
-      "projectIds": []
-    },
-    {
-      "id": "380c57494859804d912fd91baccbfd44",
-      "type": "task",
-      "name": "Swing/bouncer for baby",
-      "status": "In progress (WIP)",
-      "pillar": null,
-      "domain": "Baby Girl",
       "hours": null,
       "projectIds": []
     },
@@ -794,6 +784,23 @@
     }
   ],
   "wipTasks": [
+    {
+      "id": "3a1c5749485980c49372ed3b8457a993",
+      "type": "task",
+      "name": "Deposit unclaimed property to dad’s estate account ",
+      "status": "Current Sprint (this week)",
+      "pillarIds": [],
+      "domain": null,
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": null,
+      "completeDate": null
+    },
     {
       "id": "39ec574948598091acf7d9fdf3642f17",
       "type": "task",
@@ -1055,27 +1062,6 @@
       "completeDate": null
     },
     {
-      "id": "38cc5749485980479825ff369f0ffab9",
-      "type": "task",
-      "name": "order new breast pump free from insurance",
-      "status": "Current Sprint (this week)",
-      "pillarIds": [
-        "62f10d5c983944388542d9b1db866b1a"
-      ],
-      "domain": "Baby Girl",
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [
-        "377c574948598198a9f0e04219c83b50"
-      ],
-      "person": [
-        "Patricia Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": null,
-      "completeDate": null
-    },
-    {
       "id": "38cc5749485980a6be93ffa6a5fa6e8a",
       "type": "task",
       "name": "Complete 3 qtr goal process from freedom accelerator and integrate into our existing system",
@@ -1169,27 +1155,6 @@
       ],
       "velocity": 0,
       "startDate": "2026-06-16T00:00:00.000-05:00",
-      "completeDate": null
-    },
-    {
-      "id": "380c57494859804d912fd91baccbfd44",
-      "type": "task",
-      "name": "Swing/bouncer for baby",
-      "status": "In progress (WIP)",
-      "pillarIds": [
-        "62f10d5c983944388542d9b1db866b1a"
-      ],
-      "domain": "Baby Girl",
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [
-        "377c574948598198a9f0e04219c83b50"
-      ],
-      "person": [
-        "Patricia Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-07-15T10:51:00.000-05:00",
       "completeDate": null
     },
     {
@@ -1807,6 +1772,27 @@
       "completeDate": "2026-07-15T10:51:00.000-05:00"
     },
     {
+      "id": "38cc5749485980479825ff369f0ffab9",
+      "type": "task",
+      "name": "order new breast pump free from insurance",
+      "status": "Done",
+      "pillarIds": [
+        "62f10d5c983944388542d9b1db866b1a"
+      ],
+      "domain": "Baby Girl",
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [
+        "377c574948598198a9f0e04219c83b50"
+      ],
+      "person": [
+        "Patricia Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": "2026-07-18T14:25:00.000-05:00",
+      "completeDate": "2026-07-18T14:26:00.000-05:00"
+    },
+    {
       "id": "38bc5749485980b0be62fa4e76499c06",
       "type": "task",
       "name": "Pay Absolute Extermination $1300",
@@ -2058,6 +2044,27 @@
       "velocity": 1.333333333333,
       "startDate": "2026-06-15T12:05:00.000-05:00",
       "completeDate": "2026-06-16T20:53:00.000-05:00"
+    },
+    {
+      "id": "380c57494859804d912fd91baccbfd44",
+      "type": "task",
+      "name": "Swing/bouncer for baby",
+      "status": "Done",
+      "pillarIds": [
+        "62f10d5c983944388542d9b1db866b1a"
+      ],
+      "domain": "Baby Girl",
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [
+        "377c574948598198a9f0e04219c83b50"
+      ],
+      "person": [
+        "Patricia Eubanks"
+      ],
+      "velocity": 3.125,
+      "startDate": "2026-07-15T10:51:00.000-05:00",
+      "completeDate": "2026-07-18T14:25:00.000-05:00"
     },
     {
       "id": "380c57494859804eb11ef1be037ec566",
@@ -3237,40 +3244,6 @@
       "velocity": 1.208333333333,
       "startDate": "2026-05-19T09:11:00.000-05:00",
       "completeDate": "2026-05-20T14:20:00.000-05:00"
-    },
-    {
-      "id": "365c574948598033ac24df4bf3af9e27",
-      "type": "task",
-      "name": "list madison’s books",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": "Personal Admin",
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Patricia Eubanks"
-      ],
-      "velocity": 22.166666666667,
-      "startDate": "2026-05-19T08:50:00.000-05:00",
-      "completeDate": "2026-06-10T12:51:00.000-05:00"
-    },
-    {
-      "id": "365c57494859804cb564eb28becea2d1",
-      "type": "task",
-      "name": "Cut off buddy’s collar",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": null,
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Patricia Eubanks"
-      ],
-      "velocity": 7.291666666667,
-      "startDate": "2026-05-19T08:50:00.000-05:00",
-      "completeDate": "2026-05-26T16:21:00.000-05:00"
     }
   ],
   "habitData": {
