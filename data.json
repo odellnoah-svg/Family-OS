@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-18T20:59:23.120Z",
+  "generated": "2026-07-19T03:36:42.012Z",
   "meta": {
     "currentQuarter": "Q3",
     "currentYear": "2026",
@@ -413,6 +413,16 @@
   "projects": [],
   "tasks": [
     {
+      "id": "3a2c57494859809fa8dbc7b483d17a16",
+      "type": "task",
+      "name": "Have noah added to WeStreet bank",
+      "status": "Current Sprint (this week)",
+      "pillar": null,
+      "domain": null,
+      "hours": null,
+      "projectIds": []
+    },
+    {
       "id": "3a1c5749485980c49372ed3b8457a993",
       "type": "task",
       "name": "Deposit unclaimed property to dad’s estate account ",
@@ -784,6 +794,24 @@
     }
   ],
   "wipTasks": [
+    {
+      "id": "3a2c57494859809fa8dbc7b483d17a16",
+      "type": "task",
+      "name": "Have noah added to WeStreet bank",
+      "status": "Current Sprint (this week)",
+      "pillarIds": [],
+      "domain": null,
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks",
+        "Patricia Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": null,
+      "completeDate": null
+    },
     {
       "id": "3a1c5749485980c49372ed3b8457a993",
       "type": "task",
