@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-29T17:22:19.905Z",
+  "generated": "2026-07-29T21:04:26.289Z",
   "meta": {
     "currentQuarter": "Q3",
     "currentYear": "2026",
@@ -413,6 +413,16 @@
   "projects": [],
   "tasks": [
     {
+      "id": "3acc5749485980bbb859ca78015f3447",
+      "type": "task",
+      "name": "Find therapist for Mad",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": "Girls",
+      "hours": null,
+      "projectIds": []
+    },
+    {
       "id": "3a2c57494859809fa8dbc7b483d17a16",
       "type": "task",
       "name": "Have noah added to WeStreet bank",
@@ -753,16 +763,6 @@
       "projectIds": []
     },
     {
-      "id": "360c5749485980d893dee1c2bcd5e974",
-      "type": "task",
-      "name": "Clean and prep baby car seat",
-      "status": "In progress (WIP)",
-      "pillar": null,
-      "domain": "Baby Girl",
-      "hours": 2,
-      "projectIds": []
-    },
-    {
       "id": "35dc57494859807c8a64c403fad2d317",
       "type": "task",
       "name": "Add personality tests to notion ",
@@ -794,6 +794,23 @@
     }
   ],
   "wipTasks": [
+    {
+      "id": "3acc5749485980bbb859ca78015f3447",
+      "type": "task",
+      "name": "Find therapist for Mad",
+      "status": "In progress (WIP)",
+      "pillarIds": [],
+      "domain": "Girls",
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Patricia Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": "2026-07-29T14:08:00.000-05:00",
+      "completeDate": null
+    },
     {
       "id": "3a2c57494859809fa8dbc7b483d17a16",
       "type": "task",
@@ -1414,27 +1431,6 @@
       "completeDate": null
     },
     {
-      "id": "360c5749485980d893dee1c2bcd5e974",
-      "type": "task",
-      "name": "Clean and prep baby car seat",
-      "status": "In progress (WIP)",
-      "pillarIds": [
-        "62f10d5c983944388542d9b1db866b1a"
-      ],
-      "domain": "Baby Girl",
-      "hours": 2,
-      "projectIds": [],
-      "rockIds": [
-        "377c574948598198a9f0e04219c83b50"
-      ],
-      "person": [
-        "Patricia Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-07-15T10:51:00.000-05:00",
-      "completeDate": null
-    },
-    {
       "id": "35dc57494859807c8a64c403fad2d317",
       "type": "task",
       "name": "Add personality tests to notion ",
@@ -1484,6 +1480,27 @@
       "velocity": 0,
       "startDate": null,
       "completeDate": null
+    },
+    {
+      "id": "360c5749485980d893dee1c2bcd5e974",
+      "type": "task",
+      "name": "Clean and prep baby car seat",
+      "status": "Done",
+      "pillarIds": [
+        "62f10d5c983944388542d9b1db866b1a"
+      ],
+      "domain": "Baby Girl",
+      "hours": 2,
+      "projectIds": [],
+      "rockIds": [
+        "377c574948598198a9f0e04219c83b50"
+      ],
+      "person": [
+        "Patricia Eubanks"
+      ],
+      "velocity": 14.125,
+      "startDate": "2026-07-15T10:51:00.000-05:00",
+      "completeDate": "2026-07-29T14:08:00.000-05:00"
     },
     {
       "id": "38cc5749485980479825ff369f0ffab9",
@@ -3262,23 +3279,6 @@
       "velocity": 5,
       "startDate": "2026-05-22T16:07:00.000-05:00",
       "completeDate": "2026-05-27T16:44:00.000-05:00"
-    },
-    {
-      "id": "368c57494859802baa92ebb50eb0ecb6",
-      "type": "task",
-      "name": "Make an appointment for Mads mole",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": "Girls",
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Patricia Eubanks"
-      ],
-      "velocity": 14.291666666667,
-      "startDate": "2026-05-22T06:49:00.000-05:00",
-      "completeDate": "2026-06-05T14:44:00.000-05:00"
     }
   ],
   "habitData": {
