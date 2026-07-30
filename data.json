@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-30T10:31:45.077Z",
+  "generated": "2026-07-30T14:22:57.861Z",
   "meta": {
     "currentQuarter": "Q3",
     "currentYear": "2026",
@@ -413,6 +413,76 @@
   "projects": [],
   "tasks": [
     {
+      "id": "3adc5749485980608bc9e1f405401e16",
+      "type": "task",
+      "name": "Insurance for 117 S Orphan ",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": "Real Estate",
+      "hours": null,
+      "projectIds": []
+    },
+    {
+      "id": "3adc5749485980afb1f0c820b35e92f1",
+      "type": "task",
+      "name": "Call motor mouth",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": "Owen",
+      "hours": null,
+      "projectIds": []
+    },
+    {
+      "id": "3adc574948598049b37efbe00880af76",
+      "type": "task",
+      "name": "Content for elevate print, sign, scan",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": "Owen",
+      "hours": null,
+      "projectIds": []
+    },
+    {
+      "id": "3adc57494859800cb7adceafc2e8eaea",
+      "type": "task",
+      "name": "Line up inspections for 117 s orphan ",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": "Real Estate",
+      "hours": null,
+      "projectIds": []
+    },
+    {
+      "id": "3adc574948598031ad90e796b90c179b",
+      "type": "task",
+      "name": "Pay cc tuition ",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": "Girls",
+      "hours": null,
+      "projectIds": []
+    },
+    {
+      "id": "3adc574948598001b4d3d54b471d06fd",
+      "type": "task",
+      "name": "Review course work for cc",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": "Girls",
+      "hours": null,
+      "projectIds": []
+    },
+    {
+      "id": "3adc5749485980e39058d4c8828fadce",
+      "type": "task",
+      "name": "Finish paying for college",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": "Girls",
+      "hours": null,
+      "projectIds": []
+    },
+    {
       "id": "3acc5749485980bbb859ca78015f3447",
       "type": "task",
       "name": "Find therapist for Mad",
@@ -794,6 +864,126 @@
     }
   ],
   "wipTasks": [
+    {
+      "id": "3adc5749485980608bc9e1f405401e16",
+      "type": "task",
+      "name": "Insurance for 117 S Orphan ",
+      "status": "In progress (WIP)",
+      "pillarIds": [],
+      "domain": "Real Estate",
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Patricia Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": "2026-07-30T08:13:00.000-05:00",
+      "completeDate": null
+    },
+    {
+      "id": "3adc5749485980afb1f0c820b35e92f1",
+      "type": "task",
+      "name": "Call motor mouth",
+      "status": "In progress (WIP)",
+      "pillarIds": [],
+      "domain": "Owen",
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Patricia Eubanks",
+        "Noah Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": "2026-07-30T08:06:00.000-05:00",
+      "completeDate": null
+    },
+    {
+      "id": "3adc574948598049b37efbe00880af76",
+      "type": "task",
+      "name": "Content for elevate print, sign, scan",
+      "status": "In progress (WIP)",
+      "pillarIds": [],
+      "domain": "Owen",
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Patricia Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": "2026-07-30T08:05:00.000-05:00",
+      "completeDate": null
+    },
+    {
+      "id": "3adc57494859800cb7adceafc2e8eaea",
+      "type": "task",
+      "name": "Line up inspections for 117 s orphan ",
+      "status": "In progress (WIP)",
+      "pillarIds": [],
+      "domain": "Real Estate",
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Patricia Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": "2026-07-30T07:56:00.000-05:00",
+      "completeDate": null
+    },
+    {
+      "id": "3adc574948598031ad90e796b90c179b",
+      "type": "task",
+      "name": "Pay cc tuition ",
+      "status": "In progress (WIP)",
+      "pillarIds": [],
+      "domain": "Girls",
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Patricia Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": "2026-07-30T07:45:00.000-05:00",
+      "completeDate": null
+    },
+    {
+      "id": "3adc574948598001b4d3d54b471d06fd",
+      "type": "task",
+      "name": "Review course work for cc",
+      "status": "In progress (WIP)",
+      "pillarIds": [],
+      "domain": "Girls",
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Patricia Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": "2026-07-30T07:45:00.000-05:00",
+      "completeDate": null
+    },
+    {
+      "id": "3adc5749485980e39058d4c8828fadce",
+      "type": "task",
+      "name": "Finish paying for college",
+      "status": "In progress (WIP)",
+      "pillarIds": [],
+      "domain": "Girls",
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Patricia Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": "2026-07-30T07:44:00.000-05:00",
+      "completeDate": null
+    },
     {
       "id": "3acc5749485980bbb859ca78015f3447",
       "type": "task",
