@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-30T02:56:47.203Z",
+  "generated": "2026-07-30T06:34:23.655Z",
   "meta": {
     "currentQuarter": "Q3",
     "currentYear": "2026",
@@ -3961,6 +3961,27 @@
           "completed": 0,
           "possible": 13,
           "pct": 0
+        },
+        {
+          "date": "2026-07-30",
+          "habits": {
+            "Review today’s top 3 (what am i doing today)": false,
+            "Move!": false,
+            "Food recorded (with no unplanned indulgences)": false,
+            "Create top 3 priorities for tomorrow": false,
+            "Learn (read/listen)": false,
+            "No caffeine": false,
+            "Vitamins/supplements": false,
+            "Play with Owen": false,
+            "Write down 3 wins from today (stay in the gain)": false,
+            "Gratitude/prayer (previous night)": false,
+            "No phone in bed (previous night)": false,
+            "5am wake": false,
+            "1/2 gallon water": false
+          },
+          "completed": 0,
+          "possible": 13,
+          "pct": 0
         }
       ]
     },
@@ -4275,6 +4296,20 @@
             "Laundry": false,
             "Gratitude/prayer (previous night)": false,
             "Vitamins/supplements": false
+          },
+          "completed": 0,
+          "possible": 6,
+          "pct": 0
+        },
+        {
+          "date": "2026-07-30",
+          "habits": {
+            "Leucovorin": false,
+            "Vitamins/supplements": false,
+            "No phone in bed (previous night)": false,
+            "Feed dogs": false,
+            "Laundry": false,
+            "Gratitude/prayer (previous night)": false
           },
           "completed": 0,
           "possible": 6,
