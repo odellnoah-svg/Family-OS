@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-30T17:42:41.913Z",
+  "generated": "2026-07-30T21:18:00.584Z",
   "meta": {
     "currentQuarter": "Q3",
     "currentYear": "2026",
@@ -412,6 +412,16 @@
   ],
   "projects": [],
   "tasks": [
+    {
+      "id": "3adc5749485980958449ea3c2e71a0b8",
+      "type": "task",
+      "name": "Email HR to add Vivian to insurance ",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": "Baby Girl",
+      "hours": null,
+      "projectIds": []
+    },
     {
       "id": "3adc5749485980608bc9e1f405401e16",
       "type": "task",
@@ -864,6 +874,23 @@
     }
   ],
   "wipTasks": [
+    {
+      "id": "3adc5749485980958449ea3c2e71a0b8",
+      "type": "task",
+      "name": "Email HR to add Vivian to insurance ",
+      "status": "In progress (WIP)",
+      "pillarIds": [],
+      "domain": "Baby Girl",
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": "2026-07-30T15:05:00.000-05:00",
+      "completeDate": null
+    },
     {
       "id": "3adc5749485980608bc9e1f405401e16",
       "type": "task",
