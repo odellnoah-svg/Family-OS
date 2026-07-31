@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-30T21:18:00.584Z",
+  "generated": "2026-07-31T03:39:38.730Z",
   "meta": {
     "currentQuarter": "Q3",
     "currentYear": "2026",
@@ -413,6 +413,26 @@
   "projects": [],
   "tasks": [
     {
+      "id": "3adc5749485980f483f1c6c52fd00d6f",
+      "type": "task",
+      "name": "Pet deposit for 1108",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": "Real Estate",
+      "hours": null,
+      "projectIds": []
+    },
+    {
+      "id": "3adc5749485980178bc6dd7743120030",
+      "type": "task",
+      "name": "New tires for telluride ",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": "Personal Admin",
+      "hours": null,
+      "projectIds": []
+    },
+    {
       "id": "3adc5749485980958449ea3c2e71a0b8",
       "type": "task",
       "name": "Email HR to add Vivian to insurance ",
@@ -425,7 +445,7 @@
     {
       "id": "3adc5749485980608bc9e1f405401e16",
       "type": "task",
-      "name": "Insurance for 117 S Orphan ",
+      "name": "Insurance for 117 S Orphan and 316 SE 4th",
       "status": "In progress (WIP)",
       "pillar": null,
       "domain": "Real Estate",
@@ -875,6 +895,41 @@
   ],
   "wipTasks": [
     {
+      "id": "3adc5749485980f483f1c6c52fd00d6f",
+      "type": "task",
+      "name": "Pet deposit for 1108",
+      "status": "In progress (WIP)",
+      "pillarIds": [],
+      "domain": "Real Estate",
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Patricia Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": "2026-07-30T16:28:00.000-05:00",
+      "completeDate": null
+    },
+    {
+      "id": "3adc5749485980178bc6dd7743120030",
+      "type": "task",
+      "name": "New tires for telluride ",
+      "status": "In progress (WIP)",
+      "pillarIds": [],
+      "domain": "Personal Admin",
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Patricia Eubanks",
+        "Noah Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": "2026-07-30T16:24:00.000-05:00",
+      "completeDate": null
+    },
+    {
       "id": "3adc5749485980958449ea3c2e71a0b8",
       "type": "task",
       "name": "Email HR to add Vivian to insurance ",
@@ -894,7 +949,7 @@
     {
       "id": "3adc5749485980608bc9e1f405401e16",
       "type": "task",
-      "name": "Insurance for 117 S Orphan ",
+      "name": "Insurance for 117 S Orphan and 316 SE 4th",
       "status": "In progress (WIP)",
       "pillarIds": [],
       "domain": "Real Estate",
