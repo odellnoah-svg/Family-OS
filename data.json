@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-31T17:46:37.818Z",
+  "generated": "2026-07-31T21:14:14.509Z",
   "meta": {
     "currentQuarter": "Q3",
     "currentYear": "2026",
@@ -469,16 +469,6 @@
       "status": "In progress (WIP)",
       "pillar": null,
       "domain": "Real Estate",
-      "hours": null,
-      "projectIds": []
-    },
-    {
-      "id": "3adc5749485980afb1f0c820b35e92f1",
-      "type": "task",
-      "name": "Call motor mouth",
-      "status": "In progress (WIP)",
-      "pillar": null,
-      "domain": "Owen",
       "hours": null,
       "projectIds": []
     },
@@ -1015,24 +1005,6 @@
       ],
       "velocity": 0,
       "startDate": "2026-07-30T08:13:00.000-05:00",
-      "completeDate": null
-    },
-    {
-      "id": "3adc5749485980afb1f0c820b35e92f1",
-      "type": "task",
-      "name": "Call motor mouth",
-      "status": "In progress (WIP)",
-      "pillarIds": [],
-      "domain": "Owen",
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Patricia Eubanks",
-        "Noah Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-07-30T08:06:00.000-05:00",
       "completeDate": null
     },
     {
@@ -1806,6 +1778,24 @@
       "velocity": 0,
       "startDate": null,
       "completeDate": null
+    },
+    {
+      "id": "3adc5749485980afb1f0c820b35e92f1",
+      "type": "task",
+      "name": "Call motor mouth",
+      "status": "Done",
+      "pillarIds": [],
+      "domain": "Owen",
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Patricia Eubanks",
+        "Noah Eubanks"
+      ],
+      "velocity": 1.25,
+      "startDate": "2026-07-30T08:06:00.000-05:00",
+      "completeDate": "2026-07-31T14:45:00.000-05:00"
     },
     {
       "id": "360c5749485980d893dee1c2bcd5e974",
@@ -3587,23 +3577,6 @@
       ],
       "velocity": 5,
       "startDate": "2026-05-22T16:41:00.000-05:00",
-      "completeDate": "2026-05-27T16:44:00.000-05:00"
-    },
-    {
-      "id": "e130a92c7fad4194b67dab75db016540",
-      "type": "task",
-      "name": "Prepare for Army Corps",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": "Personal Admin",
-      "hours": 3,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 5,
-      "startDate": "2026-05-22T16:07:00.000-05:00",
       "completeDate": "2026-05-27T16:44:00.000-05:00"
     }
   ],
