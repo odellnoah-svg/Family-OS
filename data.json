@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-01T13:44:23.273Z",
+  "generated": "2026-08-01T17:08:27.743Z",
   "meta": {
     "currentQuarter": "Q3",
     "currentYear": "2026",
@@ -543,16 +543,6 @@
       "projectIds": []
     },
     {
-      "id": "3a1c5749485980c49372ed3b8457a993",
-      "type": "task",
-      "name": "Deposit unclaimed property to dad’s estate account ",
-      "status": "Current Sprint (this week)",
-      "pillar": null,
-      "domain": null,
-      "hours": null,
-      "projectIds": []
-    },
-    {
       "id": "39ec574948598091acf7d9fdf3642f17",
       "type": "task",
       "name": "Sign up for HSA ",
@@ -583,39 +573,9 @@
       "projectIds": []
     },
     {
-      "id": "394c5749485980c4807ae0612832b0c5",
-      "type": "task",
-      "name": "market reports from Leach, Tahlequah, Coffeyville, Delaware county….  Maybe add to folder every week. ",
-      "status": "Current Sprint (this week)",
-      "pillar": null,
-      "domain": null,
-      "hours": null,
-      "projectIds": []
-    },
-    {
-      "id": "394c5749485980eaadebfeb9d16f0294",
-      "type": "task",
-      "name": "Deposit checks from unclaimed property immediately ",
-      "status": "In progress (WIP)",
-      "pillar": null,
-      "domain": null,
-      "hours": null,
-      "projectIds": []
-    },
-    {
       "id": "392c574948598083becdf236e50ffbb8",
       "type": "task",
       "name": "Tranquilize ram and take to hay pen ",
-      "status": "In progress (WIP)",
-      "pillar": null,
-      "domain": "Ranch",
-      "hours": 1,
-      "projectIds": []
-    },
-    {
-      "id": "392c57494859807db7d9e182292986b3",
-      "type": "task",
-      "name": "Repair fence that bulls destroyed",
       "status": "In progress (WIP)",
       "pillar": null,
       "domain": "Ranch",
@@ -630,16 +590,6 @@
       "pillar": null,
       "domain": "Personal Admin",
       "hours": 2,
-      "projectIds": []
-    },
-    {
-      "id": "38fc5749485980809630eb0f52c1db68",
-      "type": "task",
-      "name": "Generate schedule F with receipts ",
-      "status": "Current Sprint (this week)",
-      "pillar": null,
-      "domain": "Personal Admin",
-      "hours": 1,
       "projectIds": []
     },
     {
@@ -683,16 +633,6 @@
       "projectIds": []
     },
     {
-      "id": "38dc57494859801492c1db05b991c199",
-      "type": "task",
-      "name": "Install new water filtration on sink ",
-      "status": "Current Sprint (this week)",
-      "pillar": null,
-      "domain": "Health",
-      "hours": 4,
-      "projectIds": []
-    },
-    {
       "id": "38cc5749485980a6be93ffa6a5fa6e8a",
       "type": "task",
       "name": "Complete 3 qtr goal process from freedom accelerator and integrate into our existing system",
@@ -716,7 +656,7 @@
       "id": "387c574948598090bd19cf401a534ed3",
       "type": "task",
       "name": "Move large sheep/goat feeder to back hay pen and fill with feed",
-      "status": "Current Sprint (this week)",
+      "status": "In progress (WIP)",
       "pillar": null,
       "domain": "Ranch",
       "hours": null,
@@ -816,7 +756,7 @@
       "id": "368c5749485980f39b09d6a0b8e48586",
       "type": "task",
       "name": "Spray fence line and around houses",
-      "status": "Current Sprint (this week)",
+      "status": "In progress (WIP)",
       "pillar": null,
       "domain": "Ranch",
       "hours": 2,
@@ -1004,7 +944,7 @@
         "Patricia Eubanks"
       ],
       "velocity": 0,
-      "startDate": "2026-07-30T08:13:00.000-05:00",
+      "startDate": null,
       "completeDate": null
     },
     {
@@ -1128,23 +1068,6 @@
       "completeDate": null
     },
     {
-      "id": "3a1c5749485980c49372ed3b8457a993",
-      "type": "task",
-      "name": "Deposit unclaimed property to dad’s estate account ",
-      "status": "Current Sprint (this week)",
-      "pillarIds": [],
-      "domain": null,
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": null,
-      "completeDate": null
-    },
-    {
       "id": "39ec574948598091acf7d9fdf3642f17",
       "type": "task",
       "name": "Sign up for HSA ",
@@ -1200,40 +1123,6 @@
       "completeDate": null
     },
     {
-      "id": "394c5749485980c4807ae0612832b0c5",
-      "type": "task",
-      "name": "market reports from Leach, Tahlequah, Coffeyville, Delaware county….  Maybe add to folder every week. ",
-      "status": "Current Sprint (this week)",
-      "pillarIds": [],
-      "domain": null,
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": null,
-      "completeDate": null
-    },
-    {
-      "id": "394c5749485980eaadebfeb9d16f0294",
-      "type": "task",
-      "name": "Deposit checks from unclaimed property immediately ",
-      "status": "In progress (WIP)",
-      "pillarIds": [],
-      "domain": null,
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-07-05T10:53:00.000-05:00",
-      "completeDate": null
-    },
-    {
       "id": "392c574948598083becdf236e50ffbb8",
       "type": "task",
       "name": "Tranquilize ram and take to hay pen ",
@@ -1253,25 +1142,6 @@
       "completeDate": null
     },
     {
-      "id": "392c57494859807db7d9e182292986b3",
-      "type": "task",
-      "name": "Repair fence that bulls destroyed",
-      "status": "In progress (WIP)",
-      "pillarIds": [
-        "683e3c08456247dea6168f9329c85470"
-      ],
-      "domain": "Ranch",
-      "hours": 1,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-07-03T18:10:00.000-05:00",
-      "completeDate": null
-    },
-    {
       "id": "390c574948598028b5e7d2d058bf2336",
       "type": "task",
       "name": "Integrate Tony Robbins principles into our OS (along with quiz results)",
@@ -1286,25 +1156,6 @@
         "377c5749485981a7a422dc94f0af555f",
         "377c57494859811aa303e31aa2fa0c22"
       ],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": null,
-      "completeDate": null
-    },
-    {
-      "id": "38fc5749485980809630eb0f52c1db68",
-      "type": "task",
-      "name": "Generate schedule F with receipts ",
-      "status": "Current Sprint (this week)",
-      "pillarIds": [
-        "fa5c3f6312394f09b07566f455dac82d"
-      ],
-      "domain": "Personal Admin",
-      "hours": 1,
-      "projectIds": [],
-      "rockIds": [],
       "person": [
         "Noah Eubanks"
       ],
@@ -1386,25 +1237,6 @@
       "completeDate": null
     },
     {
-      "id": "38dc57494859801492c1db05b991c199",
-      "type": "task",
-      "name": "Install new water filtration on sink ",
-      "status": "Current Sprint (this week)",
-      "pillarIds": [
-        "2fb60975ef4e4b0fbd56793fba264939"
-      ],
-      "domain": "Health",
-      "hours": 4,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-06-28T14:22:00.000-05:00",
-      "completeDate": null
-    },
-    {
       "id": "38cc5749485980a6be93ffa6a5fa6e8a",
       "type": "task",
       "name": "Complete 3 qtr goal process from freedom accelerator and integrate into our existing system",
@@ -1444,7 +1276,7 @@
       "id": "387c574948598090bd19cf401a534ed3",
       "type": "task",
       "name": "Move large sheep/goat feeder to back hay pen and fill with feed",
-      "status": "Current Sprint (this week)",
+      "status": "In progress (WIP)",
       "pillarIds": [
         "683e3c08456247dea6168f9329c85470"
       ],
@@ -1459,7 +1291,7 @@
         "Noah Eubanks"
       ],
       "velocity": 0,
-      "startDate": null,
+      "startDate": "2026-08-01T11:56:00.000-05:00",
       "completeDate": null
     },
     {
@@ -1630,7 +1462,7 @@
       "id": "368c5749485980f39b09d6a0b8e48586",
       "type": "task",
       "name": "Spray fence line and around houses",
-      "status": "Current Sprint (this week)",
+      "status": "In progress (WIP)",
       "pillarIds": [],
       "domain": "Ranch",
       "hours": 2,
@@ -1640,7 +1472,7 @@
         "Noah Eubanks"
       ],
       "velocity": 0,
-      "startDate": "2026-05-22T16:45:00.000-05:00",
+      "startDate": "2026-08-01T11:55:00.000-05:00",
       "completeDate": null
     },
     {
@@ -1778,6 +1610,80 @@
       "velocity": 0,
       "startDate": null,
       "completeDate": null
+    },
+    {
+      "id": "38dc57494859801492c1db05b991c199",
+      "type": "task",
+      "name": "Install new water filtration on sink ",
+      "status": "Done",
+      "pillarIds": [
+        "2fb60975ef4e4b0fbd56793fba264939"
+      ],
+      "domain": "Health",
+      "hours": 4,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 33.875,
+      "startDate": "2026-06-28T14:22:00.000-05:00",
+      "completeDate": "2026-08-01T12:03:00.000-05:00"
+    },
+    {
+      "id": "38fc5749485980809630eb0f52c1db68",
+      "type": "task",
+      "name": "Generate schedule F with receipts ",
+      "status": "Done",
+      "pillarIds": [
+        "fa5c3f6312394f09b07566f455dac82d"
+      ],
+      "domain": "Personal Admin",
+      "hours": 1,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": null,
+      "completeDate": "2026-08-01T11:54:00.000-05:00"
+    },
+    {
+      "id": "392c57494859807db7d9e182292986b3",
+      "type": "task",
+      "name": "Repair fence that bulls destroyed",
+      "status": "Done",
+      "pillarIds": [
+        "683e3c08456247dea6168f9329c85470"
+      ],
+      "domain": "Ranch",
+      "hours": 1,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 28.708333333333,
+      "startDate": "2026-07-03T18:10:00.000-05:00",
+      "completeDate": "2026-08-01T11:52:00.000-05:00"
+    },
+    {
+      "id": "394c5749485980eaadebfeb9d16f0294",
+      "type": "task",
+      "name": "Deposit checks from unclaimed property immediately ",
+      "status": "Done",
+      "pillarIds": [],
+      "domain": null,
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 27,
+      "startDate": "2026-07-05T10:53:00.000-05:00",
+      "completeDate": "2026-08-01T11:52:00.000-05:00"
     },
     {
       "id": "3adc5749485980afb1f0c820b35e92f1",
@@ -3510,74 +3416,6 @@
       "velocity": 2.25,
       "startDate": "2026-05-24T10:17:00.000-05:00",
       "completeDate": "2026-05-26T17:07:00.000-05:00"
-    },
-    {
-      "id": "368c5749485980a1b7f8cad41106a590",
-      "type": "task",
-      "name": "Bulls moved to goat pasture",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": "Ranch",
-      "hours": 2,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 20.708333333333,
-      "startDate": "2026-05-22T16:46:00.000-05:00",
-      "completeDate": "2026-06-12T10:35:00.000-05:00"
-    },
-    {
-      "id": "368c574948598071b1badb89164f6e61",
-      "type": "task",
-      "name": "Unhook blue truck ",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": "Ranch",
-      "hours": 0.5,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 20.708333333333,
-      "startDate": "2026-05-22T16:45:00.000-05:00",
-      "completeDate": "2026-06-12T10:35:00.000-05:00"
-    },
-    {
-      "id": "368c5749485980f38013df40bbc55e87",
-      "type": "task",
-      "name": "Cabin cleaned ",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": "Ranch",
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 1.708333333333,
-      "startDate": "2026-05-22T16:43:00.000-05:00",
-      "completeDate": "2026-05-24T10:13:00.000-05:00"
-    },
-    {
-      "id": "368c57494859807d8f53d31908fd2fb1",
-      "type": "task",
-      "name": "Mow ",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": "Ranch",
-      "hours": 4,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 5,
-      "startDate": "2026-05-22T16:41:00.000-05:00",
-      "completeDate": "2026-05-27T16:44:00.000-05:00"
     }
   ],
   "habitData": {
