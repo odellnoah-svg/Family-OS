@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-01T17:08:27.743Z",
+  "generated": "2026-08-01T21:02:13.207Z",
   "meta": {
     "currentQuarter": "Q3",
     "currentYear": "2026",
@@ -483,16 +483,6 @@
       "projectIds": []
     },
     {
-      "id": "3adc57494859800cb7adceafc2e8eaea",
-      "type": "task",
-      "name": "Line up inspections for 117 s orphan ",
-      "status": "In progress (WIP)",
-      "pillar": null,
-      "domain": "Real Estate",
-      "hours": null,
-      "projectIds": []
-    },
-    {
       "id": "3adc574948598031ad90e796b90c179b",
       "type": "task",
       "name": "Pay cc tuition ",
@@ -962,23 +952,6 @@
       ],
       "velocity": 0,
       "startDate": "2026-07-30T08:05:00.000-05:00",
-      "completeDate": null
-    },
-    {
-      "id": "3adc57494859800cb7adceafc2e8eaea",
-      "type": "task",
-      "name": "Line up inspections for 117 s orphan ",
-      "status": "In progress (WIP)",
-      "pillarIds": [],
-      "domain": "Real Estate",
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Patricia Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-07-30T07:56:00.000-05:00",
       "completeDate": null
     },
     {
@@ -1610,6 +1583,23 @@
       "velocity": 0,
       "startDate": null,
       "completeDate": null
+    },
+    {
+      "id": "3adc57494859800cb7adceafc2e8eaea",
+      "type": "task",
+      "name": "Line up inspections for 117 s orphan and 316 SE 4th",
+      "status": "Done",
+      "pillarIds": [],
+      "domain": "Real Estate",
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Patricia Eubanks"
+      ],
+      "velocity": 2.208333333333,
+      "startDate": "2026-07-30T07:56:00.000-05:00",
+      "completeDate": "2026-08-01T13:39:00.000-05:00"
     },
     {
       "id": "38dc57494859801492c1db05b991c199",
@@ -3401,21 +3391,6 @@
       "velocity": 20,
       "startDate": "2026-05-24T10:30:00.000-05:00",
       "completeDate": "2026-06-13T10:58:00.000-05:00"
-    },
-    {
-      "id": "36ac5749485980e8b73ae6612a5e538a",
-      "type": "task",
-      "name": "make appointment for Owen with Dr Redmond",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": null,
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [],
-      "velocity": 2.25,
-      "startDate": "2026-05-24T10:17:00.000-05:00",
-      "completeDate": "2026-05-26T17:07:00.000-05:00"
     }
   ],
   "habitData": {
@@ -4177,8 +4152,13 @@
         "Create top 3 priorities for tomorrow",
         "No phone in bed (previous night)",
         "Gratitude/prayer (previous night)",
+        "80oz water",
+        "Brush teeth (owen & self)",
         "Play with Owen",
-        "Review today’s top 3 (what am i doing today)"
+        "Review today’s top 3 (what am i doing today)",
+        "School work check",
+        "Vitamins/supplements (owen & self)",
+        "Wash face"
       ],
       "entries": [
         {
@@ -4511,15 +4491,17 @@
         {
           "date": "2026-08-01",
           "habits": {
-            "Vitamins/supplements": false,
-            "No phone in bed (previous night)": false,
-            "Laundry": false,
+            "School work check": false,
+            "80oz water": false,
+            "Vitamins/supplements (owen & self)": false,
+            "Wash face": false,
+            "Brush teeth (owen & self)": false,
             "Gratitude/prayer (previous night)": false,
             "Leucovorin": false,
             "Feed dogs": false
           },
           "completed": 0,
-          "possible": 6,
+          "possible": 8,
           "pct": 0
         }
       ]
