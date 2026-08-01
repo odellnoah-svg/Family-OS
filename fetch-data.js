@@ -158,8 +158,10 @@ function parseRock(p) {
   return {
     id: nid(p.id), type: 'rock',
     name:       tP(p.properties,  'Rock'),
+    status:     sP(p.properties,  'Status'),
     quarters:   msP(p.properties, 'Quarter'),  // multi-select
     year:       sP(p.properties,  'Year'),
+    dueDate:    dtP(p.properties, 'Due Date'),
     pillarIds:  relP(p.properties, 'Pillar'),
     goalIds:    relP(p.properties, 'Related Goal'),
     projectIds: relP(p.properties, 'Related Projects'),
