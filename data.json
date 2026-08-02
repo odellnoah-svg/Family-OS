@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-02T03:49:47.554Z",
+  "generated": "2026-08-02T04:00:24.299Z",
   "meta": {
     "currentQuarter": "Q3",
     "currentYear": "2026",
@@ -84,7 +84,7 @@
       "id": "3b0c574948598169be38d64254d95e3b",
       "type": "pillar",
       "name": "Marriage",
-      "status": null,
+      "status": "Needs Attention",
       "goalIds": [
         "3b0c5749485981a3b118f320999c3435"
       ],
@@ -94,25 +94,17 @@
       "id": "cb4375f148b64a2e8a0ecd0f0e0e4962",
       "type": "pillar",
       "name": "Adventure & Community",
-      "status": null,
+      "status": "Needs Attention",
       "goalIds": [
         "377c57494859811087ffdfc53ceef4a1"
       ],
       "rockIds": []
     },
     {
-      "id": "76181932d64d40de88929de677bdf7c2",
-      "type": "pillar",
-      "name": "Systems & Simplicity",
-      "status": null,
-      "goalIds": [],
-      "rockIds": []
-    },
-    {
       "id": "fa5c3f6312394f09b07566f455dac82d",
       "type": "pillar",
       "name": "Freedom & Ownership",
-      "status": null,
+      "status": "Needs Attention",
       "goalIds": [
         "377c57494859814faa0ffdd8e66784ef",
         "377c5749485981719753feff3374b406"
@@ -125,7 +117,7 @@
       "id": "2fb60975ef4e4b0fbd56793fba264939",
       "type": "pillar",
       "name": "Health & Energy",
-      "status": null,
+      "status": "Needs Attention",
       "goalIds": [
         "377c5749485981c09a49e9d155e1aa8e",
         "377c5749485981628785ce8cf275c91e"
@@ -138,7 +130,7 @@
       "id": "62f10d5c983944388542d9b1db866b1a",
       "type": "pillar",
       "name": "Family & Parenting",
-      "status": null,
+      "status": "Needs Attention",
       "goalIds": [
         "377c5749485981bc8291e85c91623b70",
         "377c574948598180b88ad2957a778bf6"
@@ -152,7 +144,7 @@
       "id": "2f43207e861543bb8c72d04d16a27f53",
       "type": "pillar",
       "name": "Faith & Character",
-      "status": null,
+      "status": "Needs Attention",
       "goalIds": [
         "377c5749485981c6bf13edd20999359a"
       ],
@@ -162,7 +154,7 @@
       "id": "683e3c08456247dea6168f9329c85470",
       "type": "pillar",
       "name": "Home/Homestead",
-      "status": null,
+      "status": "Needs Attention",
       "goalIds": [
         "377c5749485981f28140cbdfe9f3d5e7",
         "377c5749485981f4a6fbfe1483df9a20",
