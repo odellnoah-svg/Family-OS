@@ -187,6 +187,7 @@ function parseTask(p) {
     domain:     sP(p.properties,  'Domain (aka- Area)'),
     hours:      numP(p.properties, 'Estimated Hours'),
     projectIds: relP(p.properties, 'Project'),
+    systemsEnabling: p.properties['Systems-enabling']?.checkbox ?? false,
   }
 }
 function parseWipTask(p) {
@@ -203,6 +204,7 @@ function parseWipTask(p) {
     velocity:     numP(p.properties, 'Velocity '),
     startDate:    dtP(p.properties,  'Auto- Start Date (Entered WIP) '),
     completeDate: dtP(p.properties,  'Auto- Completed Date (moved to done)'),
+    systemsEnabling: p.properties['Systems-enabling']?.checkbox ?? false,
   }
 }
 // Rich parser for the full task bank (backlog + sprint + WIP) — for Claude-side
@@ -223,6 +225,7 @@ function parseFullTask(p) {
     location:   sP(p.properties,  'Location'),
     raeOwner:   msP(p.properties, 'RAE assigned owner'),
     created:    p.created_time || null,
+    systemsEnabling: p.properties['Systems-enabling']?.checkbox ?? false,
   }
 }
 
