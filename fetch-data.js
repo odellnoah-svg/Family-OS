@@ -138,7 +138,7 @@ function parsePillar(p) {
   return {
     id: nid(p.id), type: 'pillar',
     name:    tP(p.properties, 'Pillar Name'),
-    status:  sP(p.properties, 'Status'),
+    status:  stP(p.properties, 'Status'),  // Pillars Status is a status-type field
     goalIds: relP(p.properties, 'Goal'),
     rockIds: relP(p.properties, 'Rock'),
   }
