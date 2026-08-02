@@ -205,6 +205,26 @@ function parseWipTask(p) {
     completeDate: dtP(p.properties,  'Auto- Completed Date (moved to done)'),
   }
 }
+// Rich parser for the full task bank (backlog + sprint + WIP) — for Claude-side
+// ranking, sprint suggestions, daily top-3, drop/delegate. Not shown on the dashboard.
+function parseFullTask(p) {
+  return {
+    id: nid(p.id), type: 'task',
+    name:       tP(p.properties,  'Task Name'),
+    status:     stP(p.properties, 'Status'),
+    pillarIds:  relP(p.properties, 'Pillar'),
+    domain:     sP(p.properties,  'Domain (aka- Area)'),
+    hours:      numP(p.properties, 'Estimated Hours'),
+    person:     perP(p.properties, 'Person'),
+    projectIds: relP(p.properties, 'Project'),
+    rockIds:    relP(p.properties, '90-Day Rocks'),
+    goalIds:    relP(p.properties, 'Goals'),
+    doDate:     dtP(p.properties,  '"Do Date" (when you plan to do it)'),
+    location:   sP(p.properties,  'Location'),
+    raeOwner:   msP(p.properties, 'RAE assigned owner'),
+    created:    p.created_time || null,
+  }
+}
 
 // ── Habit entry parser ───────────────────────────────────────
 function parseHabitEntry(p) {
@@ -333,6 +353,18 @@ async function main() {
   const wipTasks = [...wipActive, ...wipDone]
   console.log(`    ✓ ${wipActive.length} active · ${wipDone.length} recent done`)
 
+  // Full task bank: ALL open tasks (Master Backlog + Current Sprint + WIP).
+  // Captured for Claude-side task management; NOT rendered on the dashboard.
+  console.log('  Fetching full task bank (backlog + sprint + WIP)...')
+  const allTasks = (await queryAll(DBS.tasks, {
+    filter: { or: [
+      { property: 'Status', status: { equals: 'Master Backlog' } },
+      { property: 'Status', status: { equals: 'Current Sprint (this week)' } },
+      { property: 'Status', status: { equals: 'In progress (WIP)' } },
+    ]}
+  })).map(parseFullTask)
+  console.log(`    ✓ ${allTasks.length} open tasks in bank`)
+
   // Habit tracker data (last 30 days)
   const habitThirtyAgo = new Date(Date.now() - 62*24*60*60*1000).toISOString().split('T')[0]
   console.log('  Fetching Noah habit data (new structure)...')
@@ -392,6 +424,7 @@ async function main() {
     projects,
     tasks,
     wipTasks,
+    allTasks,
     habitData,
   }
 
@@ -400,7 +433,7 @@ async function main() {
   console.log('')
   console.log(`✓ data.json written successfully`)
   console.log(`  Quarter: ${currentQuarter} ${currentYear}`)
-  console.log(`  ${pillars.length} pillars · ${goals.length} goals · ${rocks.length} rocks · ${projects.length} projects · ${tasks.length} active tasks · ${wipTasks.length} WIP tasks`)
+  console.log(`  ${pillars.length} pillars · ${goals.length} goals · ${rocks.length} rocks · ${projects.length} projects · ${tasks.length} active tasks · ${wipTasks.length} WIP tasks · ${allTasks.length} bank`)
 }
 
 main().catch(err => {
