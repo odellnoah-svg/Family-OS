@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-02T17:08:54.932Z",
+  "generated": "2026-08-02T21:02:47.687Z",
   "meta": {
     "currentQuarter": "Q3",
     "currentYear": "2026",
@@ -435,23 +435,12 @@
   "projects": [],
   "tasks": [
     {
-      "id": "3aec5749485980d782b9c69a9a45ebe6",
+      "id": "3b0c574948598088aa6fc8769906c14b",
       "type": "task",
-      "name": "(Untitled)",
+      "name": "Taxes for Bryce",
       "status": "In progress (WIP)",
       "pillar": null,
-      "domain": null,
-      "hours": null,
-      "projectIds": [],
-      "systemsEnabling": false
-    },
-    {
-      "id": "3aec57494859808385d2e996a914f709",
-      "type": "task",
-      "name": "print vod for Arvest",
-      "status": "In progress (WIP)",
-      "pillar": null,
-      "domain": null,
+      "domain": "Personal Admin",
       "hours": null,
       "projectIds": [],
       "systemsEnabling": false
@@ -743,17 +732,6 @@
       "systemsEnabling": false
     },
     {
-      "id": "37ec5749485980bf9186fda996cc0ab7",
-      "type": "task",
-      "name": "create habits list",
-      "status": "In progress (WIP)",
-      "pillar": null,
-      "domain": "Personal Admin",
-      "hours": null,
-      "projectIds": [],
-      "systemsEnabling": false
-    },
-    {
       "id": "37dc57494859808c81c8c2365bcd013b",
       "type": "task",
       "name": "Revise AI agent for suggested task prioritization ",
@@ -899,12 +877,14 @@
   ],
   "wipTasks": [
     {
-      "id": "3aec5749485980d782b9c69a9a45ebe6",
+      "id": "3b0c574948598088aa6fc8769906c14b",
       "type": "task",
-      "name": "(Untitled)",
+      "name": "Taxes for Bryce",
       "status": "In progress (WIP)",
-      "pillarIds": [],
-      "domain": null,
+      "pillarIds": [
+        "62f10d5c983944388542d9b1db866b1a"
+      ],
+      "domain": "Personal Admin",
       "hours": null,
       "projectIds": [],
       "rockIds": [],
@@ -912,25 +892,7 @@
         "Patricia Eubanks"
       ],
       "velocity": 0,
-      "startDate": "2026-07-31T12:02:00.000-05:00",
-      "completeDate": null,
-      "systemsEnabling": false
-    },
-    {
-      "id": "3aec57494859808385d2e996a914f709",
-      "type": "task",
-      "name": "print vod for Arvest",
-      "status": "In progress (WIP)",
-      "pillarIds": [],
-      "domain": null,
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Patricia Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-07-31T12:01:00.000-05:00",
+      "startDate": "2026-08-02T13:57:00.000-05:00",
       "completeDate": null,
       "systemsEnabling": false
     },
@@ -1437,24 +1399,6 @@
       "systemsEnabling": false
     },
     {
-      "id": "37ec5749485980bf9186fda996cc0ab7",
-      "type": "task",
-      "name": "create habits list",
-      "status": "In progress (WIP)",
-      "pillarIds": [],
-      "domain": "Personal Admin",
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Patricia Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-06-13T11:04:00.000-05:00",
-      "completeDate": null,
-      "systemsEnabling": false
-    },
-    {
       "id": "37dc57494859808c81c8c2365bcd013b",
       "type": "task",
       "name": "Revise AI agent for suggested task prioritization ",
@@ -1687,6 +1631,42 @@
       "velocity": 0,
       "startDate": null,
       "completeDate": null,
+      "systemsEnabling": false
+    },
+    {
+      "id": "3aec57494859808385d2e996a914f709",
+      "type": "task",
+      "name": "print vod for Arvest",
+      "status": "Done",
+      "pillarIds": [],
+      "domain": null,
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Patricia Eubanks"
+      ],
+      "velocity": 2.041666666667,
+      "startDate": "2026-07-31T12:01:00.000-05:00",
+      "completeDate": "2026-08-02T13:57:00.000-05:00",
+      "systemsEnabling": false
+    },
+    {
+      "id": "37ec5749485980bf9186fda996cc0ab7",
+      "type": "task",
+      "name": "create habits list",
+      "status": "Done",
+      "pillarIds": [],
+      "domain": "Personal Admin",
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Patricia Eubanks"
+      ],
+      "velocity": 50.083333333333,
+      "startDate": "2026-06-13T11:04:00.000-05:00",
+      "completeDate": "2026-08-02T13:56:00.000-05:00",
       "systemsEnabling": false
     },
     {
@@ -3560,45 +3540,33 @@
       "startDate": "2026-05-26T16:42:00.000-05:00",
       "completeDate": "2026-05-27T16:44:00.000-05:00",
       "systemsEnabling": false
-    },
-    {
-      "id": "36ac57494859807ebc1bf3efb2588a82",
-      "type": "task",
-      "name": "Take pics of bulls to market/sell",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": null,
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 0.25,
-      "startDate": "2026-06-13T13:12:00.000-05:00",
-      "completeDate": "2026-06-13T19:15:00.000-05:00",
-      "systemsEnabling": false
-    },
-    {
-      "id": "36ac5749485980ed86f1e9dfe81b63d7",
-      "type": "task",
-      "name": "Let bulls into goat and sheep pastures",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": null,
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Patricia Eubanks"
-      ],
-      "velocity": 20,
-      "startDate": "2026-05-24T10:30:00.000-05:00",
-      "completeDate": "2026-06-13T10:58:00.000-05:00",
-      "systemsEnabling": false
     }
   ],
   "allTasks": [
+    {
+      "id": "3b0c574948598088aa6fc8769906c14b",
+      "type": "task",
+      "name": "Taxes for Bryce",
+      "status": "In progress (WIP)",
+      "pillarIds": [
+        "62f10d5c983944388542d9b1db866b1a"
+      ],
+      "domain": "Personal Admin",
+      "hours": null,
+      "person": [
+        "Patricia Eubanks"
+      ],
+      "projectIds": [],
+      "rockIds": [],
+      "goalIds": [
+        "377c5749485981bc8291e85c91623b70"
+      ],
+      "doDate": "2026-08-04",
+      "location": null,
+      "raeOwner": [],
+      "created": "2026-08-02T18:57:00.000Z",
+      "systemsEnabling": false
+    },
     {
       "id": "3afc5749485980a98409d698dbd28a35",
       "type": "task",
@@ -3620,46 +3588,6 @@
       "location": null,
       "raeOwner": [],
       "created": "2026-08-01T15:13:00.000Z",
-      "systemsEnabling": false
-    },
-    {
-      "id": "3aec5749485980d782b9c69a9a45ebe6",
-      "type": "task",
-      "name": "(Untitled)",
-      "status": "In progress (WIP)",
-      "pillarIds": [],
-      "domain": null,
-      "hours": null,
-      "person": [
-        "Patricia Eubanks"
-      ],
-      "projectIds": [],
-      "rockIds": [],
-      "goalIds": [],
-      "doDate": null,
-      "location": null,
-      "raeOwner": [],
-      "created": "2026-07-31T17:02:00.000Z",
-      "systemsEnabling": false
-    },
-    {
-      "id": "3aec57494859808385d2e996a914f709",
-      "type": "task",
-      "name": "print vod for Arvest",
-      "status": "In progress (WIP)",
-      "pillarIds": [],
-      "domain": null,
-      "hours": null,
-      "person": [
-        "Patricia Eubanks"
-      ],
-      "projectIds": [],
-      "rockIds": [],
-      "goalIds": [],
-      "doDate": null,
-      "location": null,
-      "raeOwner": [],
-      "created": "2026-07-31T17:01:00.000Z",
       "systemsEnabling": false
     },
     {
@@ -4268,26 +4196,6 @@
       "location": "Anywhere",
       "raeOwner": [],
       "created": "2026-06-14T19:36:00.000Z",
-      "systemsEnabling": false
-    },
-    {
-      "id": "37ec5749485980bf9186fda996cc0ab7",
-      "type": "task",
-      "name": "create habits list",
-      "status": "In progress (WIP)",
-      "pillarIds": [],
-      "domain": "Personal Admin",
-      "hours": null,
-      "person": [
-        "Patricia Eubanks"
-      ],
-      "projectIds": [],
-      "rockIds": [],
-      "goalIds": [],
-      "doDate": null,
-      "location": null,
-      "raeOwner": [],
-      "created": "2026-06-13T16:04:00.000Z",
       "systemsEnabling": false
     },
     {
@@ -6171,15 +6079,15 @@
         {
           "date": "2026-08-02",
           "habits": {
-            "Laundry": false,
+            "Laundry": true,
             "Gratitude/prayer (previous night)": false,
             "Feed dogs": false,
-            "Vitamins/supplements (owen & self)": false,
-            "Leucovorin": false
+            "Vitamins/supplements (owen & self)": true,
+            "Leucovorin": true
           },
-          "completed": 0,
+          "completed": 3,
           "possible": 5,
-          "pct": 0
+          "pct": 60
         }
       ]
     }
