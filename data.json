@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-02T00:56:15.048Z",
+  "generated": "2026-08-02T03:41:13.330Z",
   "meta": {
     "currentQuarter": "Q3",
     "currentYear": "2026",
@@ -81,6 +81,16 @@
   },
   "pillars": [
     {
+      "id": "3b0c574948598169be38d64254d95e3b",
+      "type": "pillar",
+      "name": "Marriage",
+      "status": null,
+      "goalIds": [
+        "3b0c5749485981a3b118f320999c3435"
+      ],
+      "rockIds": []
+    },
+    {
       "id": "cb4375f148b64a2e8a0ecd0f0e0e4962",
       "type": "pillar",
       "name": "Adventure & Community",
@@ -95,13 +105,8 @@
       "type": "pillar",
       "name": "Systems & Simplicity",
       "status": null,
-      "goalIds": [
-        "377c574948598140a0cfcdae3f7697fc",
-        "377c5749485981d89883f0896cc974cf"
-      ],
-      "rockIds": [
-        "377c5749485981a7a422dc94f0af555f"
-      ]
+      "goalIds": [],
+      "rockIds": []
     },
     {
       "id": "fa5c3f6312394f09b07566f455dac82d",
@@ -132,7 +137,7 @@
     {
       "id": "62f10d5c983944388542d9b1db866b1a",
       "type": "pillar",
-      "name": "Marriage & Family",
+      "name": "Family & Parenting",
       "status": null,
       "goalIds": [
         "377c5749485981bc8291e85c91623b70",
@@ -160,14 +165,29 @@
       "status": null,
       "goalIds": [
         "377c5749485981f28140cbdfe9f3d5e7",
-        "377c5749485981f4a6fbfe1483df9a20"
+        "377c5749485981f4a6fbfe1483df9a20",
+        "377c574948598140a0cfcdae3f7697fc",
+        "377c5749485981d89883f0896cc974cf"
       ],
       "rockIds": [
-        "377c574948598198a9f0e04219c83b50"
+        "377c574948598198a9f0e04219c83b50",
+        "377c5749485981a7a422dc94f0af555f"
       ]
     }
   ],
   "goals": [
+    {
+      "id": "3b0c5749485981a3b118f320999c3435",
+      "type": "goal",
+      "name": "Protect and strengthen our marriage through the baby year",
+      "status": "Active",
+      "horizon": "1-Year",
+      "priority": "High",
+      "pillarIds": [
+        "3b0c574948598169be38d64254d95e3b"
+      ],
+      "rockIds": []
+    },
     {
       "id": "377c57494859811087ffdfc53ceef4a1",
       "type": "goal",
@@ -243,7 +263,7 @@
       "horizon": "1-Year",
       "priority": "High",
       "pillarIds": [
-        "76181932d64d40de88929de677bdf7c2"
+        "683e3c08456247dea6168f9329c85470"
       ],
       "rockIds": [
         "377c5749485981a7a422dc94f0af555f"
@@ -269,7 +289,7 @@
       "horizon": "3-Year",
       "priority": "High",
       "pillarIds": [
-        "76181932d64d40de88929de677bdf7c2"
+        "683e3c08456247dea6168f9329c85470"
       ],
       "rockIds": []
     },
@@ -412,7 +432,7 @@
       "year": "2026",
       "dueDate": null,
       "pillarIds": [
-        "76181932d64d40de88929de677bdf7c2"
+        "683e3c08456247dea6168f9329c85470"
       ],
       "goalIds": [
         "377c5749485981d89883f0896cc974cf"
@@ -1152,8 +1172,7 @@
       "name": "Create a complete health metrics page in the dashboard based on cronometer/apple-health CSV in Google Drive",
       "status": "Current Sprint (this week)",
       "pillarIds": [
-        "2fb60975ef4e4b0fbd56793fba264939",
-        "76181932d64d40de88929de677bdf7c2"
+        "683e3c08456247dea6168f9329c85470"
       ],
       "domain": "Health",
       "hours": 2,
@@ -1225,7 +1244,7 @@
       "name": "Complete 3 qtr goal process from freedom accelerator and integrate into our existing system",
       "status": "Current Sprint (this week)",
       "pillarIds": [
-        "76181932d64d40de88929de677bdf7c2"
+        "683e3c08456247dea6168f9329c85470"
       ],
       "domain": "Personal Admin",
       "hours": 1,
@@ -2524,7 +2543,7 @@
       "name": "Revise any language/descriptions related to WIP/task management flow ",
       "status": "Done",
       "pillarIds": [
-        "76181932d64d40de88929de677bdf7c2"
+        "683e3c08456247dea6168f9329c85470"
       ],
       "domain": "Personal Admin",
       "hours": 1,
@@ -2899,7 +2918,7 @@
       "name": "Review goals and rocks ",
       "status": "Done",
       "pillarIds": [
-        "76181932d64d40de88929de677bdf7c2"
+        "683e3c08456247dea6168f9329c85470"
       ],
       "domain": "Personal Admin",
       "hours": 1,
@@ -2937,7 +2956,7 @@
       "name": "Create 3 year outcomes and add to goals database ",
       "status": "Done",
       "pillarIds": [
-        "76181932d64d40de88929de677bdf7c2"
+        "683e3c08456247dea6168f9329c85470"
       ],
       "domain": "Personal Admin",
       "hours": 1.5,
@@ -2956,7 +2975,7 @@
       "name": "Add Habits Tracker to dashboard ",
       "status": "Done",
       "pillarIds": [
-        "76181932d64d40de88929de677bdf7c2"
+        "683e3c08456247dea6168f9329c85470"
       ],
       "domain": "Personal Admin",
       "hours": 0.5,
@@ -2975,7 +2994,7 @@
       "name": "Add “velocity” to WIP dashboard ",
       "status": "Done",
       "pillarIds": [
-        "76181932d64d40de88929de677bdf7c2"
+        "683e3c08456247dea6168f9329c85470"
       ],
       "domain": "Personal Admin",
       "hours": 0.5,
@@ -2994,7 +3013,7 @@
       "name": "WIP dashboard additions-  total view, Noah view, Tricia view ",
       "status": "Done",
       "pillarIds": [
-        "76181932d64d40de88929de677bdf7c2"
+        "683e3c08456247dea6168f9329c85470"
       ],
       "domain": "Personal Admin",
       "hours": 0.5,
@@ -3133,7 +3152,7 @@
       "name": "Turn VTO into strategic roadmap (ref chat convo)",
       "status": "Done",
       "pillarIds": [
-        "76181932d64d40de88929de677bdf7c2"
+        "683e3c08456247dea6168f9329c85470"
       ],
       "domain": "Personal Admin",
       "hours": 2,
@@ -3642,7 +3661,7 @@
       "name": "Get Junior Bod fixed",
       "status": "Master Backlog",
       "pillarIds": [
-        "76181932d64d40de88929de677bdf7c2"
+        "683e3c08456247dea6168f9329c85470"
       ],
       "domain": "Ranch",
       "hours": null,
@@ -3793,8 +3812,7 @@
       "name": "Create a complete health metrics page in the dashboard based on cronometer/apple-health CSV in Google Drive",
       "status": "Current Sprint (this week)",
       "pillarIds": [
-        "2fb60975ef4e4b0fbd56793fba264939",
-        "76181932d64d40de88929de677bdf7c2"
+        "683e3c08456247dea6168f9329c85470"
       ],
       "domain": "Health",
       "hours": 2,
@@ -3876,7 +3894,7 @@
       "name": "Complete 3 qtr goal process from freedom accelerator and integrate into our existing system",
       "status": "Current Sprint (this week)",
       "pillarIds": [
-        "76181932d64d40de88929de677bdf7c2"
+        "683e3c08456247dea6168f9329c85470"
       ],
       "domain": "Personal Admin",
       "hours": 1,
@@ -5873,16 +5891,16 @@
           "habits": {
             "School work check": false,
             "80oz water": false,
-            "Vitamins/supplements (owen & self)": false,
-            "Wash face": false,
+            "Vitamins/supplements (owen & self)": true,
+            "Wash face": true,
             "Brush teeth (owen & self)": false,
             "Gratitude/prayer (previous night)": false,
             "Leucovorin": false,
             "Feed dogs": false
           },
-          "completed": 0,
+          "completed": 2,
           "possible": 8,
-          "pct": 0
+          "pct": 25
         }
       ]
     }
