@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-03T17:58:35.129Z",
+  "generated": "2026-08-03T21:12:45.716Z",
   "meta": {
     "currentQuarter": "Q3",
     "currentYear": "2026",
@@ -435,6 +435,17 @@
   "projects": [],
   "tasks": [
     {
+      "id": "3b1c5749485981e6979cc9262f1daae3",
+      "type": "task",
+      "name": "Track down Lindsay property rent check — tenant says sent last month",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": "Real Estate",
+      "hours": null,
+      "projectIds": [],
+      "systemsEnabling": false
+    },
+    {
       "id": "3b1c5749485980f8893acccc051bb469",
       "type": "task",
       "name": "Add atomic habits pdf files to knowledge vault ",
@@ -474,17 +485,6 @@
       "status": "In progress (WIP)",
       "pillar": null,
       "domain": "Real Estate",
-      "hours": null,
-      "projectIds": [],
-      "systemsEnabling": false
-    },
-    {
-      "id": "3adc5749485980178bc6dd7743120030",
-      "type": "task",
-      "name": "New tires for telluride ",
-      "status": "In progress (WIP)",
-      "pillar": null,
-      "domain": "Personal Admin",
       "hours": null,
       "projectIds": [],
       "systemsEnabling": false
@@ -567,21 +567,10 @@
       "systemsEnabling": false
     },
     {
-      "id": "39ec574948598091acf7d9fdf3642f17",
-      "type": "task",
-      "name": "Sign up for HSA ",
-      "status": "In progress (WIP)",
-      "pillar": null,
-      "domain": "Personal Admin",
-      "hours": 2,
-      "projectIds": [],
-      "systemsEnabling": false
-    },
-    {
       "id": "39ec57494859805b9908eedc0fe9ee57",
       "type": "task",
       "name": "Sell bull calf ",
-      "status": "In progress (WIP)",
+      "status": "Current Sprint (this week)",
       "pillar": null,
       "domain": "Ranch",
       "hours": 3,
@@ -592,7 +581,7 @@
       "id": "398c5749485980879c47f935bf49e2fd",
       "type": "task",
       "name": "Disconnect trailer from blue truck",
-      "status": "In progress (WIP)",
+      "status": "Current Sprint (this week)",
       "pillar": null,
       "domain": null,
       "hours": null,
@@ -603,21 +592,10 @@
       "id": "392c574948598083becdf236e50ffbb8",
       "type": "task",
       "name": "Tranquilize ram and take to hay pen ",
-      "status": "In progress (WIP)",
+      "status": "Current Sprint (this week)",
       "pillar": null,
       "domain": "Ranch",
       "hours": 1,
-      "projectIds": [],
-      "systemsEnabling": false
-    },
-    {
-      "id": "390c574948598028b5e7d2d058bf2336",
-      "type": "task",
-      "name": "Integrate Tony Robbins principles into our OS (along with quiz results)",
-      "status": "Current Sprint (this week)",
-      "pillar": null,
-      "domain": "Personal Admin",
-      "hours": 2,
       "projectIds": [],
       "systemsEnabling": false
     },
@@ -631,28 +609,6 @@
       "hours": 2,
       "projectIds": [],
       "systemsEnabling": true
-    },
-    {
-      "id": "38ec57494859807dabebea2067eed223",
-      "type": "task",
-      "name": "Automated emails for torch tracker ",
-      "status": "Current Sprint (this week)",
-      "pillar": null,
-      "domain": "RAE",
-      "hours": 2,
-      "projectIds": [],
-      "systemsEnabling": false
-    },
-    {
-      "id": "38ec5749485980eb9846d4cae096e392",
-      "type": "task",
-      "name": "Full implementation of WIP Dashboard/Incentives",
-      "status": "Current Sprint (this week)",
-      "pillar": null,
-      "domain": "RAE",
-      "hours": 120,
-      "projectIds": [],
-      "systemsEnabling": false
     },
     {
       "id": "38ec5749485980ba9853c3e3d02506b4",
@@ -691,7 +647,7 @@
       "id": "387c574948598090bd19cf401a534ed3",
       "type": "task",
       "name": "Move large sheep/goat feeder to back hay pen and fill with feed",
-      "status": "In progress (WIP)",
+      "status": "Current Sprint (this week)",
       "pillar": null,
       "domain": "Ranch",
       "hours": null,
@@ -888,6 +844,24 @@
   ],
   "wipTasks": [
     {
+      "id": "3b1c5749485981e6979cc9262f1daae3",
+      "type": "task",
+      "name": "Track down Lindsay property rent check — tenant says sent last month",
+      "status": "In progress (WIP)",
+      "pillarIds": [],
+      "domain": "Real Estate",
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Patricia Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": "2026-08-03T15:11:00.000-05:00",
+      "completeDate": null,
+      "systemsEnabling": false
+    },
+    {
       "id": "3b1c5749485980f8893acccc051bb469",
       "type": "task",
       "name": "Add atomic habits pdf files to knowledge vault ",
@@ -958,25 +932,6 @@
       ],
       "velocity": 0,
       "startDate": "2026-07-30T16:28:00.000-05:00",
-      "completeDate": null,
-      "systemsEnabling": false
-    },
-    {
-      "id": "3adc5749485980178bc6dd7743120030",
-      "type": "task",
-      "name": "New tires for telluride ",
-      "status": "In progress (WIP)",
-      "pillarIds": [],
-      "domain": "Personal Admin",
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Patricia Eubanks",
-        "Noah Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-07-30T16:24:00.000-05:00",
       "completeDate": null,
       "systemsEnabling": false
     },
@@ -1108,30 +1063,10 @@
       "systemsEnabling": false
     },
     {
-      "id": "39ec574948598091acf7d9fdf3642f17",
-      "type": "task",
-      "name": "Sign up for HSA ",
-      "status": "In progress (WIP)",
-      "pillarIds": [
-        "2fb60975ef4e4b0fbd56793fba264939"
-      ],
-      "domain": "Personal Admin",
-      "hours": 2,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-07-15T11:37:00.000-05:00",
-      "completeDate": null,
-      "systemsEnabling": false
-    },
-    {
       "id": "39ec57494859805b9908eedc0fe9ee57",
       "type": "task",
       "name": "Sell bull calf ",
-      "status": "In progress (WIP)",
+      "status": "Current Sprint (this week)",
       "pillarIds": [
         "fa5c3f6312394f09b07566f455dac82d"
       ],
@@ -1151,7 +1086,7 @@
       "id": "398c5749485980879c47f935bf49e2fd",
       "type": "task",
       "name": "Disconnect trailer from blue truck",
-      "status": "In progress (WIP)",
+      "status": "Current Sprint (this week)",
       "pillarIds": [],
       "domain": null,
       "hours": null,
@@ -1169,7 +1104,7 @@
       "id": "392c574948598083becdf236e50ffbb8",
       "type": "task",
       "name": "Tranquilize ram and take to hay pen ",
-      "status": "In progress (WIP)",
+      "status": "Current Sprint (this week)",
       "pillarIds": [
         "fa5c3f6312394f09b07566f455dac82d"
       ],
@@ -1182,29 +1117,6 @@
       ],
       "velocity": 0,
       "startDate": "2026-07-03T18:12:00.000-05:00",
-      "completeDate": null,
-      "systemsEnabling": false
-    },
-    {
-      "id": "390c574948598028b5e7d2d058bf2336",
-      "type": "task",
-      "name": "Integrate Tony Robbins principles into our OS (along with quiz results)",
-      "status": "Current Sprint (this week)",
-      "pillarIds": [
-        "2fb60975ef4e4b0fbd56793fba264939"
-      ],
-      "domain": "Personal Admin",
-      "hours": 2,
-      "projectIds": [],
-      "rockIds": [
-        "377c5749485981a7a422dc94f0af555f",
-        "377c57494859811aa303e31aa2fa0c22"
-      ],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": null,
       "completeDate": null,
       "systemsEnabling": false
     },
@@ -1229,42 +1141,6 @@
       "startDate": null,
       "completeDate": null,
       "systemsEnabling": true
-    },
-    {
-      "id": "38ec57494859807dabebea2067eed223",
-      "type": "task",
-      "name": "Automated emails for torch tracker ",
-      "status": "Current Sprint (this week)",
-      "pillarIds": [],
-      "domain": "RAE",
-      "hours": 2,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": null,
-      "completeDate": null,
-      "systemsEnabling": false
-    },
-    {
-      "id": "38ec5749485980eb9846d4cae096e392",
-      "type": "task",
-      "name": "Full implementation of WIP Dashboard/Incentives",
-      "status": "Current Sprint (this week)",
-      "pillarIds": [],
-      "domain": "RAE",
-      "hours": 120,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": null,
-      "completeDate": null,
-      "systemsEnabling": false
     },
     {
       "id": "38ec5749485980ba9853c3e3d02506b4",
@@ -1326,7 +1202,7 @@
       "id": "387c574948598090bd19cf401a534ed3",
       "type": "task",
       "name": "Move large sheep/goat feeder to back hay pen and fill with feed",
-      "status": "In progress (WIP)",
+      "status": "Current Sprint (this week)",
       "pillarIds": [
         "683e3c08456247dea6168f9329c85470"
       ],
@@ -3573,6 +3449,26 @@
   ],
   "allTasks": [
     {
+      "id": "3b1c5749485981e6979cc9262f1daae3",
+      "type": "task",
+      "name": "Track down Lindsay property rent check — tenant says sent last month",
+      "status": "In progress (WIP)",
+      "pillarIds": [],
+      "domain": "Real Estate",
+      "hours": null,
+      "person": [
+        "Patricia Eubanks"
+      ],
+      "projectIds": [],
+      "rockIds": [],
+      "goalIds": [],
+      "doDate": null,
+      "location": null,
+      "raeOwner": [],
+      "created": "2026-08-03T20:09:00.000Z",
+      "systemsEnabling": false
+    },
+    {
       "id": "3b1c5749485980f8893acccc051bb469",
       "type": "task",
       "name": "Add atomic habits pdf files to knowledge vault ",
@@ -3683,7 +3579,7 @@
       "id": "3adc5749485980178bc6dd7743120030",
       "type": "task",
       "name": "New tires for telluride ",
-      "status": "In progress (WIP)",
+      "status": "Master Backlog",
       "pillarIds": [],
       "domain": "Personal Admin",
       "hours": null,
@@ -3869,7 +3765,7 @@
       "id": "39ec574948598091acf7d9fdf3642f17",
       "type": "task",
       "name": "Sign up for HSA ",
-      "status": "In progress (WIP)",
+      "status": "Master Backlog",
       "pillarIds": [
         "2fb60975ef4e4b0fbd56793fba264939"
       ],
@@ -3891,7 +3787,7 @@
       "id": "39ec57494859805b9908eedc0fe9ee57",
       "type": "task",
       "name": "Sell bull calf ",
-      "status": "In progress (WIP)",
+      "status": "Current Sprint (this week)",
       "pillarIds": [
         "fa5c3f6312394f09b07566f455dac82d"
       ],
@@ -3913,7 +3809,7 @@
       "id": "398c5749485980879c47f935bf49e2fd",
       "type": "task",
       "name": "Disconnect trailer from blue truck",
-      "status": "In progress (WIP)",
+      "status": "Current Sprint (this week)",
       "pillarIds": [],
       "domain": null,
       "hours": null,
@@ -3933,7 +3829,7 @@
       "id": "392c574948598083becdf236e50ffbb8",
       "type": "task",
       "name": "Tranquilize ram and take to hay pen ",
-      "status": "In progress (WIP)",
+      "status": "Current Sprint (this week)",
       "pillarIds": [
         "fa5c3f6312394f09b07566f455dac82d"
       ],
@@ -3955,7 +3851,7 @@
       "id": "390c574948598028b5e7d2d058bf2336",
       "type": "task",
       "name": "Integrate Tony Robbins principles into our OS (along with quiz results)",
-      "status": "Current Sprint (this week)",
+      "status": "Master Backlog",
       "pillarIds": [
         "2fb60975ef4e4b0fbd56793fba264939"
       ],
@@ -4008,7 +3904,7 @@
       "id": "38ec57494859807dabebea2067eed223",
       "type": "task",
       "name": "Automated emails for torch tracker ",
-      "status": "Current Sprint (this week)",
+      "status": "Master Backlog",
       "pillarIds": [],
       "domain": "RAE",
       "hours": 2,
@@ -4028,7 +3924,7 @@
       "id": "38ec5749485980eb9846d4cae096e392",
       "type": "task",
       "name": "Full implementation of WIP Dashboard/Incentives",
-      "status": "Current Sprint (this week)",
+      "status": "Master Backlog",
       "pillarIds": [],
       "domain": "RAE",
       "hours": 120,
@@ -4110,7 +4006,7 @@
       "id": "387c574948598090bd19cf401a534ed3",
       "type": "task",
       "name": "Move large sheep/goat feeder to back hay pen and fill with feed",
-      "status": "In progress (WIP)",
+      "status": "Current Sprint (this week)",
       "pillarIds": [
         "683e3c08456247dea6168f9329c85470"
       ],
