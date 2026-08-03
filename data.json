@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-03T11:35:23.843Z",
+  "generated": "2026-08-03T14:57:22.332Z",
   "meta": {
     "currentQuarter": "Q3",
     "currentYear": "2026",
@@ -435,6 +435,17 @@
   "projects": [],
   "tasks": [
     {
+      "id": "3b1c5749485980418df8c483f101108f",
+      "type": "task",
+      "name": "Review admissions for Bryce",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": "Personal Admin",
+      "hours": null,
+      "projectIds": [],
+      "systemsEnabling": false
+    },
+    {
       "id": "3b0c574948598088aa6fc8769906c14b",
       "type": "task",
       "name": "Taxes for Bryce",
@@ -865,6 +876,24 @@
     }
   ],
   "wipTasks": [
+    {
+      "id": "3b1c5749485980418df8c483f101108f",
+      "type": "task",
+      "name": "Review admissions for Bryce",
+      "status": "In progress (WIP)",
+      "pillarIds": [],
+      "domain": "Personal Admin",
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Patricia Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": "2026-08-03T08:21:00.000-05:00",
+      "completeDate": null,
+      "systemsEnabling": false
+    },
     {
       "id": "3b0c574948598088aa6fc8769906c14b",
       "type": "task",
@@ -3514,6 +3543,26 @@
     }
   ],
   "allTasks": [
+    {
+      "id": "3b1c5749485980418df8c483f101108f",
+      "type": "task",
+      "name": "Review admissions for Bryce",
+      "status": "In progress (WIP)",
+      "pillarIds": [],
+      "domain": "Personal Admin",
+      "hours": null,
+      "person": [
+        "Patricia Eubanks"
+      ],
+      "projectIds": [],
+      "rockIds": [],
+      "goalIds": [],
+      "doDate": null,
+      "location": null,
+      "raeOwner": [],
+      "created": "2026-08-03T13:21:00.000Z",
+      "systemsEnabling": false
+    },
     {
       "id": "3b0c574948598088aa6fc8769906c14b",
       "type": "task",
