@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-03T14:57:22.332Z",
+  "generated": "2026-08-03T17:58:35.129Z",
   "meta": {
     "currentQuarter": "Q3",
     "currentYear": "2026",
@@ -434,6 +434,17 @@
   ],
   "projects": [],
   "tasks": [
+    {
+      "id": "3b1c5749485980f8893acccc051bb469",
+      "type": "task",
+      "name": "Add atomic habits pdf files to knowledge vault ",
+      "status": "Current Sprint (this week)",
+      "pillar": null,
+      "domain": null,
+      "hours": null,
+      "projectIds": [],
+      "systemsEnabling": false
+    },
     {
       "id": "3b1c5749485980418df8c483f101108f",
       "type": "task",
@@ -876,6 +887,24 @@
     }
   ],
   "wipTasks": [
+    {
+      "id": "3b1c5749485980f8893acccc051bb469",
+      "type": "task",
+      "name": "Add atomic habits pdf files to knowledge vault ",
+      "status": "Current Sprint (this week)",
+      "pillarIds": [],
+      "domain": null,
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": null,
+      "completeDate": null,
+      "systemsEnabling": false
+    },
     {
       "id": "3b1c5749485980418df8c483f101108f",
       "type": "task",
@@ -3543,6 +3572,26 @@
     }
   ],
   "allTasks": [
+    {
+      "id": "3b1c5749485980f8893acccc051bb469",
+      "type": "task",
+      "name": "Add atomic habits pdf files to knowledge vault ",
+      "status": "Current Sprint (this week)",
+      "pillarIds": [],
+      "domain": null,
+      "hours": null,
+      "person": [
+        "Noah Eubanks"
+      ],
+      "projectIds": [],
+      "rockIds": [],
+      "goalIds": [],
+      "doDate": null,
+      "location": null,
+      "raeOwner": [],
+      "created": "2026-08-03T17:06:00.000Z",
+      "systemsEnabling": false
+    },
     {
       "id": "3b1c5749485980418df8c483f101108f",
       "type": "task",
