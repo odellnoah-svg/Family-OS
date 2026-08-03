@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-02T21:02:47.687Z",
+  "generated": "2026-08-03T03:40:40.273Z",
   "meta": {
     "currentQuarter": "Q3",
     "currentYear": "2026",
@@ -490,17 +490,6 @@
       "systemsEnabling": false
     },
     {
-      "id": "3adc574948598049b37efbe00880af76",
-      "type": "task",
-      "name": "Content for elevate print, sign, scan",
-      "status": "In progress (WIP)",
-      "pillar": null,
-      "domain": "Owen",
-      "hours": null,
-      "projectIds": [],
-      "systemsEnabling": false
-    },
-    {
       "id": "3adc574948598031ad90e796b90c179b",
       "type": "task",
       "name": "Pay cc tuition ",
@@ -966,24 +955,6 @@
       ],
       "velocity": 0,
       "startDate": null,
-      "completeDate": null,
-      "systemsEnabling": false
-    },
-    {
-      "id": "3adc574948598049b37efbe00880af76",
-      "type": "task",
-      "name": "Content for elevate print, sign, scan",
-      "status": "In progress (WIP)",
-      "pillarIds": [],
-      "domain": "Owen",
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Patricia Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-07-30T08:05:00.000-05:00",
       "completeDate": null,
       "systemsEnabling": false
     },
@@ -1631,6 +1602,24 @@
       "velocity": 0,
       "startDate": null,
       "completeDate": null,
+      "systemsEnabling": false
+    },
+    {
+      "id": "3adc574948598049b37efbe00880af76",
+      "type": "task",
+      "name": "Content for elevate print, sign, scan",
+      "status": "Done",
+      "pillarIds": [],
+      "domain": "Owen",
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Patricia Eubanks"
+      ],
+      "velocity": 3.583333333333,
+      "startDate": "2026-07-30T08:05:00.000-05:00",
+      "completeDate": "2026-08-02T22:10:00.000-05:00",
       "systemsEnabling": false
     },
     {
@@ -3522,24 +3511,6 @@
       "startDate": "2026-05-26T17:09:00.000-05:00",
       "completeDate": "2026-06-13T10:58:00.000-05:00",
       "systemsEnabling": false
-    },
-    {
-      "id": "36cc57494859806f9e48d7fc8198c633",
-      "type": "task",
-      "name": "Hay to heifers",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": null,
-      "hours": 0.5,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 1,
-      "startDate": "2026-05-26T16:42:00.000-05:00",
-      "completeDate": "2026-05-27T16:44:00.000-05:00",
-      "systemsEnabling": false
     }
   ],
   "allTasks": [
@@ -3669,26 +3640,6 @@
       "location": null,
       "raeOwner": [],
       "created": "2026-07-30T13:13:00.000Z",
-      "systemsEnabling": false
-    },
-    {
-      "id": "3adc574948598049b37efbe00880af76",
-      "type": "task",
-      "name": "Content for elevate print, sign, scan",
-      "status": "In progress (WIP)",
-      "pillarIds": [],
-      "domain": "Owen",
-      "hours": null,
-      "person": [
-        "Patricia Eubanks"
-      ],
-      "projectIds": [],
-      "rockIds": [],
-      "goalIds": [],
-      "doDate": null,
-      "location": null,
-      "raeOwner": [],
-      "created": "2026-07-30T13:05:00.000Z",
       "systemsEnabling": false
     },
     {
@@ -6064,7 +6015,7 @@
           "date": "2026-08-01",
           "habits": {
             "School work check": false,
-            "80oz water": false,
+            "80oz water": true,
             "Vitamins/supplements (owen & self)": true,
             "Wash face": true,
             "Brush teeth (owen & self)": false,
@@ -6072,22 +6023,24 @@
             "Leucovorin": false,
             "Feed dogs": false
           },
-          "completed": 2,
+          "completed": 3,
           "possible": 8,
-          "pct": 25
+          "pct": 38
         },
         {
           "date": "2026-08-02",
           "habits": {
             "Laundry": true,
-            "Gratitude/prayer (previous night)": false,
+            "Brush teeth (owen & self)": true,
+            "Wash face": true,
+            "Gratitude/prayer (previous night)": true,
             "Feed dogs": false,
             "Vitamins/supplements (owen & self)": true,
             "Leucovorin": true
           },
-          "completed": 3,
-          "possible": 5,
-          "pct": 60
+          "completed": 6,
+          "possible": 7,
+          "pct": 86
         }
       ]
     }
