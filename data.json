@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-03T21:12:45.716Z",
+  "generated": "2026-08-04T03:25:27.733Z",
   "meta": {
     "currentQuarter": "Q3",
     "currentYear": "2026",
@@ -435,6 +435,39 @@
   "projects": [],
   "tasks": [
     {
+      "id": "3b2c57494859808abffad1e2156230f3",
+      "type": "task",
+      "name": "Create a rental property performance dashboard within the financial dashboard, based on Tricia’s spreadsheet ",
+      "status": "Current Sprint (this week)",
+      "pillar": null,
+      "domain": null,
+      "hours": null,
+      "projectIds": [],
+      "systemsEnabling": false
+    },
+    {
+      "id": "3b2c5749485980e694c9e0df503789ed",
+      "type": "task",
+      "name": "Implement doorloop or innago? ",
+      "status": "Current Sprint (this week)",
+      "pillar": null,
+      "domain": null,
+      "hours": null,
+      "projectIds": [],
+      "systemsEnabling": false
+    },
+    {
+      "id": "3b1c5749485980bb9bc9c8987a2f9567",
+      "type": "task",
+      "name": "Order birth certificate ",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": "Baby Girl",
+      "hours": null,
+      "projectIds": [],
+      "systemsEnabling": false
+    },
+    {
       "id": "3b1c5749485981e6979cc9262f1daae3",
       "type": "task",
       "name": "Track down Lindsay property rent check — tenant says sent last month",
@@ -452,7 +485,7 @@
       "status": "Current Sprint (this week)",
       "pillar": null,
       "domain": null,
-      "hours": null,
+      "hours": 0.5,
       "projectIds": [],
       "systemsEnabling": false
     },
@@ -496,7 +529,7 @@
       "status": "In progress (WIP)",
       "pillar": null,
       "domain": "Baby Girl",
-      "hours": null,
+      "hours": 0.5,
       "projectIds": [],
       "systemsEnabling": false
     },
@@ -562,7 +595,7 @@
       "status": "Current Sprint (this week)",
       "pillar": null,
       "domain": null,
-      "hours": null,
+      "hours": 0.5,
       "projectIds": [],
       "systemsEnabling": false
     },
@@ -584,7 +617,7 @@
       "status": "Current Sprint (this week)",
       "pillar": null,
       "domain": null,
-      "hours": null,
+      "hours": 0.25,
       "projectIds": [],
       "systemsEnabling": false
     },
@@ -650,7 +683,7 @@
       "status": "Current Sprint (this week)",
       "pillar": null,
       "domain": "Ranch",
-      "hours": null,
+      "hours": 1,
       "projectIds": [],
       "systemsEnabling": false
     },
@@ -672,7 +705,7 @@
       "status": "Current Sprint (this week)",
       "pillar": null,
       "domain": null,
-      "hours": null,
+      "hours": 4,
       "projectIds": [],
       "systemsEnabling": false
     },
@@ -696,7 +729,7 @@
       "domain": "Personal Admin",
       "hours": 2,
       "projectIds": [],
-      "systemsEnabling": false
+      "systemsEnabling": true
     },
     {
       "id": "37dc57494859808c81c8c2365bcd013b",
@@ -705,9 +738,9 @@
       "status": "Current Sprint (this week)",
       "pillar": null,
       "domain": null,
-      "hours": null,
+      "hours": 3,
       "projectIds": [],
-      "systemsEnabling": false
+      "systemsEnabling": true
     },
     {
       "id": "377c57494859804c9503ef82bdafbbf0",
@@ -716,7 +749,7 @@
       "status": "Current Sprint (this week)",
       "pillar": null,
       "domain": null,
-      "hours": null,
+      "hours": 1,
       "projectIds": [],
       "systemsEnabling": false
     },
@@ -727,7 +760,7 @@
       "status": "Current Sprint (this week)",
       "pillar": null,
       "domain": "Real Estate",
-      "hours": null,
+      "hours": 4,
       "projectIds": [],
       "systemsEnabling": false
     },
@@ -806,7 +839,7 @@
       "domain": "Personal Admin",
       "hours": 2,
       "projectIds": [],
-      "systemsEnabling": false
+      "systemsEnabling": true
     },
     {
       "id": "35dc57494859807c8a64c403fad2d317",
@@ -844,6 +877,60 @@
   ],
   "wipTasks": [
     {
+      "id": "3b2c57494859808abffad1e2156230f3",
+      "type": "task",
+      "name": "Create a rental property performance dashboard within the financial dashboard, based on Tricia’s spreadsheet ",
+      "status": "Current Sprint (this week)",
+      "pillarIds": [],
+      "domain": null,
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": null,
+      "completeDate": null,
+      "systemsEnabling": false
+    },
+    {
+      "id": "3b2c5749485980e694c9e0df503789ed",
+      "type": "task",
+      "name": "Implement doorloop or innago? ",
+      "status": "Current Sprint (this week)",
+      "pillarIds": [],
+      "domain": null,
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": null,
+      "completeDate": null,
+      "systemsEnabling": false
+    },
+    {
+      "id": "3b1c5749485980bb9bc9c8987a2f9567",
+      "type": "task",
+      "name": "Order birth certificate ",
+      "status": "In progress (WIP)",
+      "pillarIds": [],
+      "domain": "Baby Girl",
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Patricia Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": "2026-08-03T18:29:00.000-05:00",
+      "completeDate": null,
+      "systemsEnabling": false
+    },
+    {
       "id": "3b1c5749485981e6979cc9262f1daae3",
       "type": "task",
       "name": "Track down Lindsay property rent check — tenant says sent last month",
@@ -866,9 +953,11 @@
       "type": "task",
       "name": "Add atomic habits pdf files to knowledge vault ",
       "status": "Current Sprint (this week)",
-      "pillarIds": [],
+      "pillarIds": [
+        "683e3c08456247dea6168f9329c85470"
+      ],
       "domain": null,
-      "hours": null,
+      "hours": 0.5,
       "projectIds": [],
       "rockIds": [],
       "person": [
@@ -940,11 +1029,15 @@
       "type": "task",
       "name": "Email HR to add Vivian to insurance ",
       "status": "In progress (WIP)",
-      "pillarIds": [],
+      "pillarIds": [
+        "62f10d5c983944388542d9b1db866b1a"
+      ],
       "domain": "Baby Girl",
-      "hours": null,
+      "hours": 0.5,
       "projectIds": [],
-      "rockIds": [],
+      "rockIds": [
+        "377c574948598198a9f0e04219c83b50"
+      ],
       "person": [
         "Noah Eubanks"
       ],
@@ -1048,9 +1141,11 @@
       "type": "task",
       "name": "Have noah added to WeStreet bank",
       "status": "Current Sprint (this week)",
-      "pillarIds": [],
+      "pillarIds": [
+        "fa5c3f6312394f09b07566f455dac82d"
+      ],
       "domain": null,
-      "hours": null,
+      "hours": 0.5,
       "projectIds": [],
       "rockIds": [],
       "person": [
@@ -1087,9 +1182,11 @@
       "type": "task",
       "name": "Disconnect trailer from blue truck",
       "status": "Current Sprint (this week)",
-      "pillarIds": [],
+      "pillarIds": [
+        "fa5c3f6312394f09b07566f455dac82d"
+      ],
       "domain": null,
-      "hours": null,
+      "hours": 0.25,
       "projectIds": [],
       "rockIds": [],
       "person": [
@@ -1207,7 +1304,7 @@
         "683e3c08456247dea6168f9329c85470"
       ],
       "domain": "Ranch",
-      "hours": null,
+      "hours": 1,
       "projectIds": [],
       "rockIds": [
         "377c574948598198a9f0e04219c83b50"
@@ -1248,9 +1345,11 @@
       "type": "task",
       "name": "Revise high level flow diagram .. include grazing chart (forage projections—- lbs of forage,,, cow days, etc) and how to flows into Ranch Profit Planner… maybe a separate forage inventory tracker later",
       "status": "Current Sprint (this week)",
-      "pillarIds": [],
+      "pillarIds": [
+        "fa5c3f6312394f09b07566f455dac82d"
+      ],
       "domain": null,
-      "hours": null,
+      "hours": 4,
       "projectIds": [],
       "rockIds": [],
       "person": [
@@ -1294,41 +1393,49 @@
       "domain": "Personal Admin",
       "hours": 2,
       "projectIds": [],
-      "rockIds": [],
+      "rockIds": [
+        "377c57494859812889a4dd717fe95ca2"
+      ],
       "person": [
         "Noah Eubanks"
       ],
       "velocity": 0,
       "startDate": "2026-06-14T14:36:00.000-05:00",
       "completeDate": null,
-      "systemsEnabling": false
+      "systemsEnabling": true
     },
     {
       "id": "37dc57494859808c81c8c2365bcd013b",
       "type": "task",
       "name": "Revise AI agent for suggested task prioritization ",
       "status": "Current Sprint (this week)",
-      "pillarIds": [],
+      "pillarIds": [
+        "683e3c08456247dea6168f9329c85470"
+      ],
       "domain": null,
-      "hours": null,
+      "hours": 3,
       "projectIds": [],
-      "rockIds": [],
+      "rockIds": [
+        "377c5749485981a7a422dc94f0af555f"
+      ],
       "person": [
         "Noah Eubanks"
       ],
       "velocity": 0,
       "startDate": "2026-06-12T10:32:00.000-05:00",
       "completeDate": null,
-      "systemsEnabling": false
+      "systemsEnabling": true
     },
     {
       "id": "377c57494859804c9503ef82bdafbbf0",
       "type": "task",
       "name": "Add something in vision and maybe OS philosophy about strength from god in dark times. And that we won’t be destroyed when things don’t go as planned.  We will persist ",
       "status": "Current Sprint (this week)",
-      "pillarIds": [],
+      "pillarIds": [
+        "2f43207e861543bb8c72d04d16a27f53"
+      ],
       "domain": null,
-      "hours": null,
+      "hours": 1,
       "projectIds": [],
       "rockIds": [],
       "person": [
@@ -1344,9 +1451,11 @@
       "type": "task",
       "name": "Rental repairs",
       "status": "Current Sprint (this week)",
-      "pillarIds": [],
+      "pillarIds": [
+        "fa5c3f6312394f09b07566f455dac82d"
+      ],
       "domain": "Real Estate",
-      "hours": null,
+      "hours": 4,
       "projectIds": [],
       "rockIds": [],
       "person": [
@@ -1363,11 +1472,15 @@
       "type": "task",
       "name": "Add books/resources into Owen’s google drive folder — AI reference for guidance ",
       "status": "Current Sprint (this week)",
-      "pillarIds": [],
+      "pillarIds": [
+        "62f10d5c983944388542d9b1db866b1a"
+      ],
       "domain": "Owen",
       "hours": 2,
       "projectIds": [],
-      "rockIds": [],
+      "rockIds": [
+        "377c57494859817083b1ddc5ffb3d1f0"
+      ],
       "person": [
         "Noah Eubanks"
       ],
@@ -1381,7 +1494,9 @@
       "type": "task",
       "name": "Spray fence line and around houses",
       "status": "In progress (WIP)",
-      "pillarIds": [],
+      "pillarIds": [
+        "683e3c08456247dea6168f9329c85470"
+      ],
       "domain": "Ranch",
       "hours": 2,
       "projectIds": [],
@@ -1471,25 +1586,31 @@
       "type": "task",
       "name": "Add key manually reported weekly/monthly/quarterly metrics to the meeting database (feeds scorecards and future reports) — see list in body ",
       "status": "Current Sprint (this week)",
-      "pillarIds": [],
+      "pillarIds": [
+        "683e3c08456247dea6168f9329c85470"
+      ],
       "domain": "Personal Admin",
       "hours": 2,
       "projectIds": [],
-      "rockIds": [],
+      "rockIds": [
+        "377c5749485981a7a422dc94f0af555f"
+      ],
       "person": [
         "Noah Eubanks"
       ],
       "velocity": 0,
       "startDate": "2026-05-15T11:45:00.000-05:00",
       "completeDate": null,
-      "systemsEnabling": false
+      "systemsEnabling": true
     },
     {
       "id": "35dc57494859807c8a64c403fad2d317",
       "type": "task",
       "name": "Add personality tests to notion ",
       "status": "In progress (WIP)",
-      "pillarIds": [],
+      "pillarIds": [
+        "62f10d5c983944388542d9b1db866b1a"
+      ],
       "domain": "Personal Admin",
       "hours": 1,
       "projectIds": [],
@@ -1507,7 +1628,9 @@
       "type": "task",
       "name": "Backup computer to external hard drive ",
       "status": "Current Sprint (this week)",
-      "pillarIds": [],
+      "pillarIds": [
+        "fa5c3f6312394f09b07566f455dac82d"
+      ],
       "domain": "Personal Admin",
       "hours": 2,
       "projectIds": [],
@@ -3449,6 +3572,148 @@
   ],
   "allTasks": [
     {
+      "id": "3b2c57494859808abffad1e2156230f3",
+      "type": "task",
+      "name": "Create a rental property performance dashboard within the financial dashboard, based on Tricia’s spreadsheet ",
+      "status": "Current Sprint (this week)",
+      "pillarIds": [],
+      "domain": null,
+      "hours": null,
+      "person": [
+        "Noah Eubanks"
+      ],
+      "projectIds": [],
+      "rockIds": [],
+      "goalIds": [],
+      "doDate": null,
+      "location": null,
+      "raeOwner": [],
+      "created": "2026-08-04T03:05:00.000Z",
+      "systemsEnabling": false
+    },
+    {
+      "id": "3b2c57494859806aa49cd6ba2d09a582",
+      "type": "task",
+      "name": "(Untitled)",
+      "status": "Master Backlog",
+      "pillarIds": [],
+      "domain": null,
+      "hours": null,
+      "person": [
+        "Noah Eubanks"
+      ],
+      "projectIds": [],
+      "rockIds": [],
+      "goalIds": [],
+      "doDate": null,
+      "location": null,
+      "raeOwner": [],
+      "created": "2026-08-04T03:05:00.000Z",
+      "systemsEnabling": false
+    },
+    {
+      "id": "3b2c5749485980e694c9e0df503789ed",
+      "type": "task",
+      "name": "Implement doorloop or innago? ",
+      "status": "Current Sprint (this week)",
+      "pillarIds": [],
+      "domain": null,
+      "hours": null,
+      "person": [
+        "Noah Eubanks"
+      ],
+      "projectIds": [],
+      "rockIds": [],
+      "goalIds": [],
+      "doDate": null,
+      "location": null,
+      "raeOwner": [],
+      "created": "2026-08-04T03:05:00.000Z",
+      "systemsEnabling": false
+    },
+    {
+      "id": "3b2c5749485980c18a25dbdb3a0c0a66",
+      "type": "task",
+      "name": "cancel max subscription in claude once i’m done building our OS ",
+      "status": "Master Backlog",
+      "pillarIds": [],
+      "domain": null,
+      "hours": null,
+      "person": [
+        "Noah Eubanks"
+      ],
+      "projectIds": [],
+      "rockIds": [],
+      "goalIds": [],
+      "doDate": null,
+      "location": null,
+      "raeOwner": [],
+      "created": "2026-08-04T03:03:00.000Z",
+      "systemsEnabling": false
+    },
+    {
+      "id": "3b2c57494859800fbbd2cd622b1bc06c",
+      "type": "task",
+      "name": "cancel monarch subscription ",
+      "status": "Master Backlog",
+      "pillarIds": [],
+      "domain": null,
+      "hours": null,
+      "person": [
+        "Noah Eubanks"
+      ],
+      "projectIds": [],
+      "rockIds": [],
+      "goalIds": [],
+      "doDate": null,
+      "location": null,
+      "raeOwner": [],
+      "created": "2026-08-04T03:03:00.000Z",
+      "systemsEnabling": false
+    },
+    {
+      "id": "3b2c574948598000ac6edbfd3c7225c0",
+      "type": "task",
+      "name": "Repair the floor in the manufactured home ",
+      "status": "Master Backlog",
+      "pillarIds": [
+        "683e3c08456247dea6168f9329c85470"
+      ],
+      "domain": null,
+      "hours": 5,
+      "person": [
+        "Noah Eubanks"
+      ],
+      "projectIds": [],
+      "rockIds": [],
+      "goalIds": [],
+      "doDate": null,
+      "location": "Home",
+      "raeOwner": [],
+      "created": "2026-08-04T01:45:00.000Z",
+      "systemsEnabling": false
+    },
+    {
+      "id": "3b1c5749485980bb9bc9c8987a2f9567",
+      "type": "task",
+      "name": "Order birth certificate ",
+      "status": "In progress (WIP)",
+      "pillarIds": [],
+      "domain": "Baby Girl",
+      "hours": null,
+      "person": [
+        "Patricia Eubanks"
+      ],
+      "projectIds": [],
+      "rockIds": [],
+      "goalIds": [],
+      "doDate": null,
+      "location": null,
+      "raeOwner": [],
+      "created": "2026-08-03T23:28:00.000Z",
+      "systemsEnabling": false
+    },
+    {
       "id": "3b1c5749485981e6979cc9262f1daae3",
       "type": "task",
       "name": "Track down Lindsay property rent check — tenant says sent last month",
@@ -3473,17 +3738,21 @@
       "type": "task",
       "name": "Add atomic habits pdf files to knowledge vault ",
       "status": "Current Sprint (this week)",
-      "pillarIds": [],
+      "pillarIds": [
+        "683e3c08456247dea6168f9329c85470"
+      ],
       "domain": null,
-      "hours": null,
+      "hours": 0.5,
       "person": [
         "Noah Eubanks"
       ],
       "projectIds": [],
       "rockIds": [],
-      "goalIds": [],
+      "goalIds": [
+        "377c5749485981d89883f0896cc974cf"
+      ],
       "doDate": null,
-      "location": null,
+      "location": "Anywhere",
       "raeOwner": [],
       "created": "2026-08-03T17:06:00.000Z",
       "systemsEnabling": false
@@ -3537,9 +3806,11 @@
       "type": "task",
       "name": "Look into HipCamp",
       "status": "Master Backlog",
-      "pillarIds": [],
+      "pillarIds": [
+        "fa5c3f6312394f09b07566f455dac82d"
+      ],
       "domain": "Ranch",
-      "hours": null,
+      "hours": 1,
       "person": [
         "Patricia Eubanks",
         "Noah Eubanks"
@@ -3550,7 +3821,7 @@
         "377c5749485981719753feff3374b406"
       ],
       "doDate": null,
-      "location": null,
+      "location": "Anywhere",
       "raeOwner": [],
       "created": "2026-08-01T15:13:00.000Z",
       "systemsEnabling": false
@@ -3580,18 +3851,22 @@
       "type": "task",
       "name": "New tires for telluride ",
       "status": "Master Backlog",
-      "pillarIds": [],
+      "pillarIds": [
+        "683e3c08456247dea6168f9329c85470"
+      ],
       "domain": "Personal Admin",
-      "hours": null,
+      "hours": 2,
       "person": [
         "Patricia Eubanks",
         "Noah Eubanks"
       ],
       "projectIds": [],
       "rockIds": [],
-      "goalIds": [],
+      "goalIds": [
+        "377c5749485981f4a6fbfe1483df9a20"
+      ],
       "doDate": null,
-      "location": null,
+      "location": "Anywhere",
       "raeOwner": [],
       "created": "2026-07-30T21:24:00.000Z",
       "systemsEnabling": false
@@ -3601,17 +3876,23 @@
       "type": "task",
       "name": "Email HR to add Vivian to insurance ",
       "status": "In progress (WIP)",
-      "pillarIds": [],
+      "pillarIds": [
+        "62f10d5c983944388542d9b1db866b1a"
+      ],
       "domain": "Baby Girl",
-      "hours": null,
+      "hours": 0.5,
       "person": [
         "Noah Eubanks"
       ],
       "projectIds": [],
-      "rockIds": [],
-      "goalIds": [],
+      "rockIds": [
+        "377c574948598198a9f0e04219c83b50"
+      ],
+      "goalIds": [
+        "377c574948598180b88ad2957a778bf6"
+      ],
       "doDate": null,
-      "location": null,
+      "location": "Anywhere",
       "raeOwner": [],
       "created": "2026-07-30T20:05:00.000Z",
       "systemsEnabling": false
@@ -3745,18 +4026,22 @@
       "type": "task",
       "name": "Have noah added to WeStreet bank",
       "status": "Current Sprint (this week)",
-      "pillarIds": [],
+      "pillarIds": [
+        "fa5c3f6312394f09b07566f455dac82d"
+      ],
       "domain": null,
-      "hours": null,
+      "hours": 0.5,
       "person": [
         "Noah Eubanks",
         "Patricia Eubanks"
       ],
       "projectIds": [],
       "rockIds": [],
-      "goalIds": [],
+      "goalIds": [
+        "377c57494859814faa0ffdd8e66784ef"
+      ],
       "doDate": null,
-      "location": null,
+      "location": "Anywhere",
       "raeOwner": [],
       "created": "2026-07-19T03:11:00.000Z",
       "systemsEnabling": false
@@ -3776,7 +4061,9 @@
       ],
       "projectIds": [],
       "rockIds": [],
-      "goalIds": [],
+      "goalIds": [
+        "377c57494859814faa0ffdd8e66784ef"
+      ],
       "doDate": null,
       "location": "Anywhere",
       "raeOwner": [],
@@ -3798,7 +4085,9 @@
       ],
       "projectIds": [],
       "rockIds": [],
-      "goalIds": [],
+      "goalIds": [
+        "377c5749485981f28140cbdfe9f3d5e7"
+      ],
       "doDate": null,
       "location": "Home",
       "raeOwner": [],
@@ -3810,17 +4099,21 @@
       "type": "task",
       "name": "Disconnect trailer from blue truck",
       "status": "Current Sprint (this week)",
-      "pillarIds": [],
+      "pillarIds": [
+        "fa5c3f6312394f09b07566f455dac82d"
+      ],
       "domain": null,
-      "hours": null,
+      "hours": 0.25,
       "person": [
         "Noah Eubanks"
       ],
       "projectIds": [],
       "rockIds": [],
-      "goalIds": [],
+      "goalIds": [
+        "377c5749485981f28140cbdfe9f3d5e7"
+      ],
       "doDate": null,
-      "location": null,
+      "location": "Home",
       "raeOwner": [],
       "created": "2026-07-09T13:59:00.000Z",
       "systemsEnabling": false
@@ -3840,7 +4133,9 @@
       ],
       "projectIds": [],
       "rockIds": [],
-      "goalIds": [],
+      "goalIds": [
+        "377c5749485981f28140cbdfe9f3d5e7"
+      ],
       "doDate": null,
       "location": "Home",
       "raeOwner": [],
@@ -3913,7 +4208,9 @@
       ],
       "projectIds": [],
       "rockIds": [],
-      "goalIds": [],
+      "goalIds": [
+        "377c57494859814faa0ffdd8e66784ef"
+      ],
       "doDate": null,
       "location": "Anywhere",
       "raeOwner": [],
@@ -3925,7 +4222,9 @@
       "type": "task",
       "name": "Full implementation of WIP Dashboard/Incentives",
       "status": "Master Backlog",
-      "pillarIds": [],
+      "pillarIds": [
+        "fa5c3f6312394f09b07566f455dac82d"
+      ],
       "domain": "RAE",
       "hours": 120,
       "person": [
@@ -3933,7 +4232,9 @@
       ],
       "projectIds": [],
       "rockIds": [],
-      "goalIds": [],
+      "goalIds": [
+        "377c57494859814faa0ffdd8e66784ef"
+      ],
       "doDate": null,
       "location": "Pryor",
       "raeOwner": [],
@@ -3975,9 +4276,11 @@
       ],
       "projectIds": [],
       "rockIds": [],
-      "goalIds": [],
+      "goalIds": [
+        "377c5749485981d89883f0896cc974cf"
+      ],
       "doDate": null,
-      "location": null,
+      "location": "Anywhere",
       "raeOwner": [],
       "created": "2026-06-27T14:56:00.000Z",
       "systemsEnabling": true
@@ -4011,7 +4314,7 @@
         "683e3c08456247dea6168f9329c85470"
       ],
       "domain": "Ranch",
-      "hours": null,
+      "hours": 1,
       "person": [
         "Patricia Eubanks",
         "Noah Eubanks"
@@ -4024,7 +4327,7 @@
         "377c5749485981f4a6fbfe1483df9a20"
       ],
       "doDate": null,
-      "location": null,
+      "location": "Home",
       "raeOwner": [],
       "created": "2026-06-22T16:19:00.000Z",
       "systemsEnabling": false
@@ -4080,17 +4383,21 @@
       "type": "task",
       "name": "Revise high level flow diagram .. include grazing chart (forage projections—- lbs of forage,,, cow days, etc) and how to flows into Ranch Profit Planner… maybe a separate forage inventory tracker later",
       "status": "Current Sprint (this week)",
-      "pillarIds": [],
+      "pillarIds": [
+        "fa5c3f6312394f09b07566f455dac82d"
+      ],
       "domain": null,
-      "hours": null,
+      "hours": 4,
       "person": [
         "Noah Eubanks"
       ],
       "projectIds": [],
       "rockIds": [],
-      "goalIds": [],
+      "goalIds": [
+        "377c5749485981f28140cbdfe9f3d5e7"
+      ],
       "doDate": null,
-      "location": null,
+      "location": "Anywhere",
       "raeOwner": [],
       "created": "2026-06-16T05:00:00.000Z",
       "systemsEnabling": false
@@ -4135,50 +4442,64 @@
         "Noah Eubanks"
       ],
       "projectIds": [],
-      "rockIds": [],
-      "goalIds": [],
+      "rockIds": [
+        "377c57494859812889a4dd717fe95ca2"
+      ],
+      "goalIds": [
+        "377c57494859814faa0ffdd8e66784ef"
+      ],
       "doDate": null,
       "location": "Anywhere",
       "raeOwner": [],
       "created": "2026-06-14T19:36:00.000Z",
-      "systemsEnabling": false
+      "systemsEnabling": true
     },
     {
       "id": "37dc57494859808c81c8c2365bcd013b",
       "type": "task",
       "name": "Revise AI agent for suggested task prioritization ",
       "status": "Current Sprint (this week)",
-      "pillarIds": [],
+      "pillarIds": [
+        "683e3c08456247dea6168f9329c85470"
+      ],
       "domain": null,
-      "hours": null,
+      "hours": 3,
       "person": [
         "Noah Eubanks"
       ],
       "projectIds": [],
-      "rockIds": [],
-      "goalIds": [],
+      "rockIds": [
+        "377c5749485981a7a422dc94f0af555f"
+      ],
+      "goalIds": [
+        "377c5749485981d89883f0896cc974cf"
+      ],
       "doDate": null,
-      "location": null,
+      "location": "Anywhere",
       "raeOwner": [],
       "created": "2026-06-12T15:32:00.000Z",
-      "systemsEnabling": false
+      "systemsEnabling": true
     },
     {
       "id": "377c57494859804c9503ef82bdafbbf0",
       "type": "task",
       "name": "Add something in vision and maybe OS philosophy about strength from god in dark times. And that we won’t be destroyed when things don’t go as planned.  We will persist ",
       "status": "Current Sprint (this week)",
-      "pillarIds": [],
+      "pillarIds": [
+        "2f43207e861543bb8c72d04d16a27f53"
+      ],
       "domain": null,
-      "hours": null,
+      "hours": 1,
       "person": [
         "Noah Eubanks"
       ],
       "projectIds": [],
       "rockIds": [],
-      "goalIds": [],
+      "goalIds": [
+        "377c5749485981c6bf13edd20999359a"
+      ],
       "doDate": null,
-      "location": null,
+      "location": "Anywhere",
       "raeOwner": [],
       "created": "2026-06-06T04:34:00.000Z",
       "systemsEnabling": false
@@ -4262,18 +4583,22 @@
       "type": "task",
       "name": "Rental repairs",
       "status": "Current Sprint (this week)",
-      "pillarIds": [],
+      "pillarIds": [
+        "fa5c3f6312394f09b07566f455dac82d"
+      ],
       "domain": "Real Estate",
-      "hours": null,
+      "hours": 4,
       "person": [
         "Patricia Eubanks",
         "Noah Eubanks"
       ],
       "projectIds": [],
       "rockIds": [],
-      "goalIds": [],
+      "goalIds": [
+        "377c5749485981719753feff3374b406"
+      ],
       "doDate": "2026-07-10",
-      "location": null,
+      "location": "Anywhere",
       "raeOwner": [],
       "created": "2026-05-30T16:08:00.000Z",
       "systemsEnabling": false
@@ -4303,15 +4628,21 @@
       "type": "task",
       "name": "Add books/resources into Owen’s google drive folder — AI reference for guidance ",
       "status": "Current Sprint (this week)",
-      "pillarIds": [],
+      "pillarIds": [
+        "62f10d5c983944388542d9b1db866b1a"
+      ],
       "domain": "Owen",
       "hours": 2,
       "person": [
         "Noah Eubanks"
       ],
       "projectIds": [],
-      "rockIds": [],
-      "goalIds": [],
+      "rockIds": [
+        "377c57494859817083b1ddc5ffb3d1f0"
+      ],
+      "goalIds": [
+        "377c5749485981bc8291e85c91623b70"
+      ],
       "doDate": null,
       "location": "Anywhere",
       "raeOwner": [],
@@ -4323,7 +4654,9 @@
       "type": "task",
       "name": "Spray fence line and around houses",
       "status": "In progress (WIP)",
-      "pillarIds": [],
+      "pillarIds": [
+        "683e3c08456247dea6168f9329c85470"
+      ],
       "domain": "Ranch",
       "hours": 2,
       "person": [
@@ -4331,7 +4664,9 @@
       ],
       "projectIds": [],
       "rockIds": [],
-      "goalIds": [],
+      "goalIds": [
+        "377c5749485981f28140cbdfe9f3d5e7"
+      ],
       "doDate": null,
       "location": "Home",
       "raeOwner": [],
@@ -4343,7 +4678,9 @@
       "type": "task",
       "name": "cabin fence boards repaired",
       "status": "Master Backlog",
-      "pillarIds": [],
+      "pillarIds": [
+        "683e3c08456247dea6168f9329c85470"
+      ],
       "domain": "Ranch",
       "hours": 2,
       "person": [
@@ -4351,7 +4688,9 @@
       ],
       "projectIds": [],
       "rockIds": [],
-      "goalIds": [],
+      "goalIds": [
+        "377c5749485981f28140cbdfe9f3d5e7"
+      ],
       "doDate": null,
       "location": "Home",
       "raeOwner": [],
@@ -4463,7 +4802,9 @@
       "type": "task",
       "name": "document core processes ",
       "status": "Master Backlog",
-      "pillarIds": [],
+      "pillarIds": [
+        "683e3c08456247dea6168f9329c85470"
+      ],
       "domain": "Personal Admin",
       "hours": 1,
       "person": [
@@ -4471,7 +4812,9 @@
       ],
       "projectIds": [],
       "rockIds": [],
-      "goalIds": [],
+      "goalIds": [
+        "377c5749485981d89883f0896cc974cf"
+      ],
       "doDate": null,
       "location": "Anywhere",
       "raeOwner": [],
@@ -4483,27 +4826,35 @@
       "type": "task",
       "name": "Add key manually reported weekly/monthly/quarterly metrics to the meeting database (feeds scorecards and future reports) — see list in body ",
       "status": "Current Sprint (this week)",
-      "pillarIds": [],
+      "pillarIds": [
+        "683e3c08456247dea6168f9329c85470"
+      ],
       "domain": "Personal Admin",
       "hours": 2,
       "person": [
         "Noah Eubanks"
       ],
       "projectIds": [],
-      "rockIds": [],
-      "goalIds": [],
+      "rockIds": [
+        "377c5749485981a7a422dc94f0af555f"
+      ],
+      "goalIds": [
+        "377c5749485981d89883f0896cc974cf"
+      ],
       "doDate": null,
       "location": "Anywhere",
       "raeOwner": [],
       "created": "2026-05-15T16:45:00.000Z",
-      "systemsEnabling": false
+      "systemsEnabling": true
     },
     {
       "id": "35dc57494859807c8a64c403fad2d317",
       "type": "task",
       "name": "Add personality tests to notion ",
       "status": "In progress (WIP)",
-      "pillarIds": [],
+      "pillarIds": [
+        "62f10d5c983944388542d9b1db866b1a"
+      ],
       "domain": "Personal Admin",
       "hours": 1,
       "person": [
@@ -4511,7 +4862,9 @@
       ],
       "projectIds": [],
       "rockIds": [],
-      "goalIds": [],
+      "goalIds": [
+        "377c5749485981d89883f0896cc974cf"
+      ],
       "doDate": null,
       "location": "Anywhere",
       "raeOwner": [],
@@ -4523,7 +4876,9 @@
       "type": "task",
       "name": "Create a mind map of the OS/workflow with AI integration ",
       "status": "Master Backlog",
-      "pillarIds": [],
+      "pillarIds": [
+        "683e3c08456247dea6168f9329c85470"
+      ],
       "domain": "Personal Admin",
       "hours": 2,
       "person": [
@@ -4531,7 +4886,9 @@
       ],
       "projectIds": [],
       "rockIds": [],
-      "goalIds": [],
+      "goalIds": [
+        "377c5749485981d89883f0896cc974cf"
+      ],
       "doDate": null,
       "location": "Anywhere",
       "raeOwner": [],
@@ -4543,7 +4900,9 @@
       "type": "task",
       "name": "Everyone in the family take personality tests and save results in google drive",
       "status": "Master Backlog",
-      "pillarIds": [],
+      "pillarIds": [
+        "62f10d5c983944388542d9b1db866b1a"
+      ],
       "domain": "Personal Admin",
       "hours": 3,
       "person": [
@@ -4552,7 +4911,9 @@
       ],
       "projectIds": [],
       "rockIds": [],
-      "goalIds": [],
+      "goalIds": [
+        "377c5749485981d89883f0896cc974cf"
+      ],
       "doDate": null,
       "location": "Anywhere",
       "raeOwner": [],
@@ -4564,7 +4925,9 @@
       "type": "task",
       "name": "Backup computer to external hard drive ",
       "status": "Current Sprint (this week)",
-      "pillarIds": [],
+      "pillarIds": [
+        "fa5c3f6312394f09b07566f455dac82d"
+      ],
       "domain": "Personal Admin",
       "hours": 2,
       "person": [
@@ -4584,7 +4947,9 @@
       "type": "task",
       "name": "Add 3-6 more torches on west wall of hydro braze area ",
       "status": "Master Backlog",
-      "pillarIds": [],
+      "pillarIds": [
+        "fa5c3f6312394f09b07566f455dac82d"
+      ],
       "domain": "RAE",
       "hours": 40,
       "person": [
@@ -4592,7 +4957,9 @@
       ],
       "projectIds": [],
       "rockIds": [],
-      "goalIds": [],
+      "goalIds": [
+        "377c57494859814faa0ffdd8e66784ef"
+      ],
       "doDate": null,
       "location": "Pryor",
       "raeOwner": [
@@ -4667,15 +5034,21 @@
       "type": "task",
       "name": "Create deal acquisition pipeline ",
       "status": "Master Backlog",
-      "pillarIds": [],
+      "pillarIds": [
+        "fa5c3f6312394f09b07566f455dac82d"
+      ],
       "domain": "Real Estate",
       "hours": 8,
       "person": [
         "Noah Eubanks"
       ],
       "projectIds": [],
-      "rockIds": [],
-      "goalIds": [],
+      "rockIds": [
+        "377c57494859812889a4dd717fe95ca2"
+      ],
+      "goalIds": [
+        "377c5749485981719753feff3374b406"
+      ],
       "doDate": null,
       "location": "Anywhere",
       "raeOwner": [],
@@ -4687,15 +5060,19 @@
       "type": "task",
       "name": "Requisition for SS tube bender ",
       "status": "Master Backlog",
-      "pillarIds": [],
+      "pillarIds": [
+        "fa5c3f6312394f09b07566f455dac82d"
+      ],
       "domain": "RAE",
-      "hours": null,
+      "hours": 2,
       "person": [
         "Noah Eubanks"
       ],
       "projectIds": [],
       "rockIds": [],
-      "goalIds": [],
+      "goalIds": [
+        "377c57494859814faa0ffdd8e66784ef"
+      ],
       "doDate": null,
       "location": "Anywhere",
       "raeOwner": [
@@ -4729,7 +5106,9 @@
       "type": "task",
       "name": "Complete tool cage list ",
       "status": "Master Backlog",
-      "pillarIds": [],
+      "pillarIds": [
+        "fa5c3f6312394f09b07566f455dac82d"
+      ],
       "domain": "RAE",
       "hours": 40,
       "person": [
@@ -4737,7 +5116,9 @@
       ],
       "projectIds": [],
       "rockIds": [],
-      "goalIds": [],
+      "goalIds": [
+        "377c57494859814faa0ffdd8e66784ef"
+      ],
       "doDate": null,
       "location": "Pryor",
       "raeOwner": [
@@ -4751,15 +5132,21 @@
       "type": "task",
       "name": "Draft offer on 80 acres ",
       "status": "Master Backlog",
-      "pillarIds": [],
+      "pillarIds": [
+        "fa5c3f6312394f09b07566f455dac82d"
+      ],
       "domain": "Real Estate",
       "hours": 8,
       "person": [
         "Noah Eubanks"
       ],
       "projectIds": [],
-      "rockIds": [],
-      "goalIds": [],
+      "rockIds": [
+        "377c57494859812889a4dd717fe95ca2"
+      ],
+      "goalIds": [
+        "377c5749485981719753feff3374b406"
+      ],
       "doDate": null,
       "location": "Anywhere",
       "raeOwner": [],
@@ -4771,7 +5158,9 @@
       "type": "task",
       "name": "create “Asset Registry” database",
       "status": "Master Backlog",
-      "pillarIds": [],
+      "pillarIds": [
+        "683e3c08456247dea6168f9329c85470"
+      ],
       "domain": "Personal Admin",
       "hours": 3,
       "person": [
@@ -4779,7 +5168,9 @@
       ],
       "projectIds": [],
       "rockIds": [],
-      "goalIds": [],
+      "goalIds": [
+        "377c5749485981d89883f0896cc974cf"
+      ],
       "doDate": null,
       "location": "Anywhere",
       "raeOwner": [],
@@ -4791,7 +5182,9 @@
       "type": "task",
       "name": "Install water line and electrical conduit and backfill trench ",
       "status": "Master Backlog",
-      "pillarIds": [],
+      "pillarIds": [
+        "683e3c08456247dea6168f9329c85470"
+      ],
       "domain": "Barndo",
       "hours": 24,
       "person": [
@@ -4799,7 +5192,9 @@
       ],
       "projectIds": [],
       "rockIds": [],
-      "goalIds": [],
+      "goalIds": [
+        "377c5749485981f4a6fbfe1483df9a20"
+      ],
       "doDate": "2026-04-26T08:00:00.000-05:00",
       "location": "Home",
       "raeOwner": [],
@@ -4811,7 +5206,9 @@
       "type": "task",
       "name": "Trench primary utilities ",
       "status": "Master Backlog",
-      "pillarIds": [],
+      "pillarIds": [
+        "683e3c08456247dea6168f9329c85470"
+      ],
       "domain": "Barndo",
       "hours": 24,
       "person": [
@@ -4819,7 +5216,9 @@
       ],
       "projectIds": [],
       "rockIds": [],
-      "goalIds": [],
+      "goalIds": [
+        "377c5749485981f4a6fbfe1483df9a20"
+      ],
       "doDate": null,
       "location": "Home",
       "raeOwner": [],
@@ -4831,7 +5230,9 @@
       "type": "task",
       "name": "Paint footing , piers, and utility locations ",
       "status": "Master Backlog",
-      "pillarIds": [],
+      "pillarIds": [
+        "683e3c08456247dea6168f9329c85470"
+      ],
       "domain": "Barndo",
       "hours": 4,
       "person": [
@@ -4839,7 +5240,9 @@
       ],
       "projectIds": [],
       "rockIds": [],
-      "goalIds": [],
+      "goalIds": [
+        "377c5749485981f4a6fbfe1483df9a20"
+      ],
       "doDate": null,
       "location": "Home",
       "raeOwner": [],
@@ -4861,7 +5264,9 @@
       ],
       "projectIds": [],
       "rockIds": [],
-      "goalIds": [],
+      "goalIds": [
+        "377c5749485981f4a6fbfe1483df9a20"
+      ],
       "doDate": null,
       "location": "Home",
       "raeOwner": [],
@@ -4873,7 +5278,9 @@
       "type": "task",
       "name": "Finalize drawings for barndo slab ",
       "status": "Master Backlog",
-      "pillarIds": [],
+      "pillarIds": [
+        "683e3c08456247dea6168f9329c85470"
+      ],
       "domain": "Barndo",
       "hours": 8,
       "person": [
@@ -4881,7 +5288,9 @@
       ],
       "projectIds": [],
       "rockIds": [],
-      "goalIds": [],
+      "goalIds": [
+        "377c5749485981f4a6fbfe1483df9a20"
+      ],
       "doDate": "2026-05-25T10:00:00.000-05:00",
       "location": "Anywhere",
       "raeOwner": [],
@@ -6060,15 +6469,15 @@
         {
           "date": "2026-08-03",
           "habits": {
-            "Laundry": false,
-            "Leucovorin": false,
-            "Gratitude/prayer (previous night)": false,
-            "Feed dogs": false,
-            "Vitamins/supplements (owen & self)": false
+            "Laundry": true,
+            "Leucovorin": true,
+            "Gratitude/prayer (previous night)": true,
+            "Feed dogs": true,
+            "Vitamins/supplements (owen & self)": true
           },
-          "completed": 0,
+          "completed": 5,
           "possible": 5,
-          "pct": 0
+          "pct": 100
         }
       ]
     }
