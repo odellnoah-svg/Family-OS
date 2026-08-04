@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-04T10:46:35.562Z",
+  "generated": "2026-08-04T14:33:00.091Z",
   "meta": {
     "currentQuarter": "Q3",
     "currentYear": "2026",
@@ -434,6 +434,17 @@
   ],
   "projects": [],
   "tasks": [
+    {
+      "id": "3b2c574948598042b7bce9dff3ffb9ac",
+      "type": "task",
+      "name": "Call army corps supervisor ",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": null,
+      "hours": null,
+      "projectIds": [],
+      "systemsEnabling": false
+    },
     {
       "id": "3b2c57494859808abffad1e2156230f3",
       "type": "task",
@@ -876,6 +887,24 @@
     }
   ],
   "wipTasks": [
+    {
+      "id": "3b2c574948598042b7bce9dff3ffb9ac",
+      "type": "task",
+      "name": "Call army corps supervisor ",
+      "status": "In progress (WIP)",
+      "pillarIds": [],
+      "domain": null,
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": "2026-08-04T07:54:00.000-05:00",
+      "completeDate": null,
+      "systemsEnabling": false
+    },
     {
       "id": "3b2c57494859808abffad1e2156230f3",
       "type": "task",
@@ -3572,6 +3601,26 @@
   ],
   "allTasks": [
     {
+      "id": "3b2c574948598042b7bce9dff3ffb9ac",
+      "type": "task",
+      "name": "Call army corps supervisor ",
+      "status": "In progress (WIP)",
+      "pillarIds": [],
+      "domain": null,
+      "hours": null,
+      "person": [
+        "Noah Eubanks"
+      ],
+      "projectIds": [],
+      "rockIds": [],
+      "goalIds": [],
+      "doDate": null,
+      "location": null,
+      "raeOwner": [],
+      "created": "2026-08-04T12:54:00.000Z",
+      "systemsEnabling": false
+    },
+    {
       "id": "3b2c57494859808abffad1e2156230f3",
       "type": "task",
       "name": "Create a rental property performance dashboard within the financial dashboard, based on Tricia’s spreadsheet ",
@@ -3594,7 +3643,7 @@
     {
       "id": "3b2c57494859806aa49cd6ba2d09a582",
       "type": "task",
-      "name": "(Untitled)",
+      "name": "Finalize life insurance policy ",
       "status": "Master Backlog",
       "pillarIds": [],
       "domain": null,
