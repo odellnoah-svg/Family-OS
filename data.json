@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-04T17:56:45.921Z",
+  "generated": "2026-08-04T21:19:47.980Z",
   "meta": {
     "currentQuarter": "Q3",
     "currentYear": "2026",
@@ -435,6 +435,17 @@
   "projects": [],
   "tasks": [
     {
+      "id": "3b2c5749485980828268f76e56d9742c",
+      "type": "task",
+      "name": "use Claude to evaluate insurance options",
+      "status": "Current Sprint (this week)",
+      "pillar": null,
+      "domain": "Personal Admin",
+      "hours": null,
+      "projectIds": [],
+      "systemsEnabling": false
+    },
+    {
       "id": "3b2c57494859810abf90c06438beb379",
       "type": "task",
       "name": "Pick up rent from Wanda & repair her faucet",
@@ -507,17 +518,6 @@
       "status": "Current Sprint (this week)",
       "pillar": null,
       "domain": null,
-      "hours": null,
-      "projectIds": [],
-      "systemsEnabling": false
-    },
-    {
-      "id": "3b1c5749485980bb9bc9c8987a2f9567",
-      "type": "task",
-      "name": "Order birth certificate ",
-      "status": "In progress (WIP)",
-      "pillar": null,
-      "domain": "Baby Girl",
       "hours": null,
       "projectIds": [],
       "systemsEnabling": false
@@ -899,6 +899,24 @@
   ],
   "wipTasks": [
     {
+      "id": "3b2c5749485980828268f76e56d9742c",
+      "type": "task",
+      "name": "use Claude to evaluate insurance options",
+      "status": "Current Sprint (this week)",
+      "pillarIds": [],
+      "domain": "Personal Admin",
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": null,
+      "completeDate": null,
+      "systemsEnabling": false
+    },
+    {
       "id": "3b2c57494859810abf90c06438beb379",
       "type": "task",
       "name": "Pick up rent from Wanda & repair her faucet",
@@ -1031,24 +1049,6 @@
       ],
       "velocity": 0,
       "startDate": null,
-      "completeDate": null,
-      "systemsEnabling": false
-    },
-    {
-      "id": "3b1c5749485980bb9bc9c8987a2f9567",
-      "type": "task",
-      "name": "Order birth certificate ",
-      "status": "In progress (WIP)",
-      "pillarIds": [],
-      "domain": "Baby Girl",
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Patricia Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-08-03T18:29:00.000-05:00",
       "completeDate": null,
       "systemsEnabling": false
     },
@@ -1728,6 +1728,24 @@
       "velocity": 0,
       "startDate": null,
       "completeDate": null,
+      "systemsEnabling": false
+    },
+    {
+      "id": "3b1c5749485980bb9bc9c8987a2f9567",
+      "type": "task",
+      "name": "Order birth certificate ",
+      "status": "Done",
+      "pillarIds": [],
+      "domain": "Baby Girl",
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Patricia Eubanks"
+      ],
+      "velocity": 0.875,
+      "startDate": "2026-08-03T18:29:00.000-05:00",
+      "completeDate": "2026-08-04T15:34:00.000-05:00",
       "systemsEnabling": false
     },
     {
@@ -3620,27 +3638,49 @@
       "startDate": "2026-05-30T10:59:00.000-05:00",
       "completeDate": "2026-06-27T09:56:00.000-05:00",
       "systemsEnabling": false
-    },
-    {
-      "id": "370c5749485980bd860ef9479c172f1f",
-      "type": "task",
-      "name": "Order Goat/Sheep Collars ",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": "Ranch",
-      "hours": 2,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 34.291666666667,
-      "startDate": "2026-05-30T10:57:00.000-05:00",
-      "completeDate": "2026-07-03T18:08:00.000-05:00",
-      "systemsEnabling": false
     }
   ],
   "allTasks": [
+    {
+      "id": "3b2c57494859804a9af6e64424a15d47",
+      "type": "task",
+      "name": "Add VOG capabilities to the market analyzer ",
+      "status": "Master Backlog",
+      "pillarIds": [],
+      "domain": null,
+      "hours": null,
+      "person": [
+        "Noah Eubanks"
+      ],
+      "projectIds": [],
+      "rockIds": [],
+      "goalIds": [],
+      "doDate": null,
+      "location": null,
+      "raeOwner": [],
+      "created": "2026-08-04T19:12:00.000Z",
+      "systemsEnabling": false
+    },
+    {
+      "id": "3b2c5749485980828268f76e56d9742c",
+      "type": "task",
+      "name": "use Claude to evaluate insurance options",
+      "status": "Current Sprint (this week)",
+      "pillarIds": [],
+      "domain": "Personal Admin",
+      "hours": null,
+      "person": [
+        "Noah Eubanks"
+      ],
+      "projectIds": [],
+      "rockIds": [],
+      "goalIds": [],
+      "doDate": null,
+      "location": null,
+      "raeOwner": [],
+      "created": "2026-08-04T18:44:00.000Z",
+      "systemsEnabling": false
+    },
     {
       "id": "3b2c57494859810abf90c06438beb379",
       "type": "task",
@@ -3871,26 +3911,6 @@
       "location": "Home",
       "raeOwner": [],
       "created": "2026-08-04T01:45:00.000Z",
-      "systemsEnabling": false
-    },
-    {
-      "id": "3b1c5749485980bb9bc9c8987a2f9567",
-      "type": "task",
-      "name": "Order birth certificate ",
-      "status": "In progress (WIP)",
-      "pillarIds": [],
-      "domain": "Baby Girl",
-      "hours": null,
-      "person": [
-        "Patricia Eubanks"
-      ],
-      "projectIds": [],
-      "rockIds": [],
-      "goalIds": [],
-      "doDate": null,
-      "location": null,
-      "raeOwner": [],
-      "created": "2026-08-03T23:28:00.000Z",
       "systemsEnabling": false
     },
     {
