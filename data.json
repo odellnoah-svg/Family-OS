@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-04T14:33:00.091Z",
+  "generated": "2026-08-04T17:56:45.921Z",
   "meta": {
     "currentQuarter": "Q3",
     "currentYear": "2026",
@@ -339,7 +339,7 @@
       "id": "377c57494859811aa303e31aa2fa0c22",
       "type": "rock",
       "name": "Simple health baseline maintained for both Noah and Tricia",
-      "status": "Not Started",
+      "status": "On Track",
       "quarters": [
         "Q2",
         "Q3"
@@ -358,7 +358,7 @@
       "id": "377c57494859812889a4dd717fe95ca2",
       "type": "rock",
       "name": "Financial clarity report created and next rental door decision made",
-      "status": "Not Started",
+      "status": "On Track",
       "quarters": [
         "Q3",
         "Q2"
@@ -377,7 +377,7 @@
       "id": "377c57494859817083b1ddc5ffb3d1f0",
       "type": "rock",
       "name": "Owen’s transition is intentionally supported",
-      "status": "Not Started",
+      "status": "On Track",
       "quarters": [
         "Q3",
         "Q2"
@@ -396,7 +396,7 @@
       "id": "377c574948598198a9f0e04219c83b50",
       "type": "rock",
       "name": "Welcome the baby into a prepared home and a protected postpartum rhythm",
-      "status": "Not Started",
+      "status": "Complete",
       "quarters": [
         "Q3",
         "Q2"
@@ -416,7 +416,7 @@
       "id": "377c5749485981a7a422dc94f0af555f",
       "type": "rock",
       "name": "Weekly Family OS review maintained — 8 of 13 weeks",
-      "status": "Not Started",
+      "status": "On Track",
       "quarters": [
         "Q3",
         "Q2"
@@ -434,6 +434,50 @@
   ],
   "projects": [],
   "tasks": [
+    {
+      "id": "3b2c57494859810abf90c06438beb379",
+      "type": "task",
+      "name": "Pick up rent from Wanda & repair her faucet",
+      "status": "Current Sprint (this week)",
+      "pillar": null,
+      "domain": "Real Estate",
+      "hours": 1,
+      "projectIds": [],
+      "systemsEnabling": false
+    },
+    {
+      "id": "3b2c574948598188b4cdf269945220e3",
+      "type": "task",
+      "name": "Fix Tricia's habit tracker in Notion",
+      "status": "Current Sprint (this week)",
+      "pillar": null,
+      "domain": "Personal Admin",
+      "hours": 1,
+      "projectIds": [],
+      "systemsEnabling": true
+    },
+    {
+      "id": "3b2c5749485981959348f5b75a50f846",
+      "type": "task",
+      "name": "Develop offers on the 3 off-market properties",
+      "status": "Current Sprint (this week)",
+      "pillar": null,
+      "domain": "Real Estate",
+      "hours": 3,
+      "projectIds": [],
+      "systemsEnabling": false
+    },
+    {
+      "id": "3b2c5749485980429db6f9e6d2460ac4",
+      "type": "task",
+      "name": "Fix tricia’s habit tracker ",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": null,
+      "hours": null,
+      "projectIds": [],
+      "systemsEnabling": false
+    },
     {
       "id": "3b2c574948598042b7bce9dff3ffb9ac",
       "type": "task",
@@ -655,17 +699,6 @@
       "systemsEnabling": true
     },
     {
-      "id": "38ec5749485980ba9853c3e3d02506b4",
-      "type": "task",
-      "name": "email jay regarding test tank ",
-      "status": "In progress (WIP)",
-      "pillar": null,
-      "domain": "RAE",
-      "hours": 1,
-      "projectIds": [],
-      "systemsEnabling": false
-    },
-    {
       "id": "38cc5749485980a6be93ffa6a5fa6e8a",
       "type": "task",
       "name": "Complete 3 qtr goal process from freedom accelerator and integrate into our existing system",
@@ -798,17 +831,6 @@
       "systemsEnabling": false
     },
     {
-      "id": "366c57494859808db073cf30173283c2",
-      "type": "task",
-      "name": "Layout for Tietz & shared",
-      "status": "In progress (WIP)",
-      "pillar": null,
-      "domain": "RAE",
-      "hours": 3,
-      "projectIds": [],
-      "systemsEnabling": false
-    },
-    {
       "id": "366c5749485980d79779dd9475ada042",
       "type": "task",
       "name": "Call Mertain and ask why coverage is inconsistent ",
@@ -816,17 +838,6 @@
       "pillar": null,
       "domain": "Owen",
       "hours": null,
-      "projectIds": [],
-      "systemsEnabling": false
-    },
-    {
-      "id": "364c57494859800389d2f3c822f2e542",
-      "type": "task",
-      "name": "TEFRA application process completed",
-      "status": "In progress (WIP)",
-      "pillar": null,
-      "domain": "Owen",
-      "hours": 8,
       "projectIds": [],
       "systemsEnabling": false
     },
@@ -887,6 +898,88 @@
     }
   ],
   "wipTasks": [
+    {
+      "id": "3b2c57494859810abf90c06438beb379",
+      "type": "task",
+      "name": "Pick up rent from Wanda & repair her faucet",
+      "status": "Current Sprint (this week)",
+      "pillarIds": [
+        "fa5c3f6312394f09b07566f455dac82d"
+      ],
+      "domain": "Real Estate",
+      "hours": 1,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": null,
+      "completeDate": null,
+      "systemsEnabling": false
+    },
+    {
+      "id": "3b2c574948598188b4cdf269945220e3",
+      "type": "task",
+      "name": "Fix Tricia's habit tracker in Notion",
+      "status": "Current Sprint (this week)",
+      "pillarIds": [
+        "2fb60975ef4e4b0fbd56793fba264939"
+      ],
+      "domain": "Personal Admin",
+      "hours": 1,
+      "projectIds": [],
+      "rockIds": [
+        "377c57494859811aa303e31aa2fa0c22"
+      ],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": null,
+      "completeDate": null,
+      "systemsEnabling": true
+    },
+    {
+      "id": "3b2c5749485981959348f5b75a50f846",
+      "type": "task",
+      "name": "Develop offers on the 3 off-market properties",
+      "status": "Current Sprint (this week)",
+      "pillarIds": [
+        "fa5c3f6312394f09b07566f455dac82d"
+      ],
+      "domain": "Real Estate",
+      "hours": 3,
+      "projectIds": [],
+      "rockIds": [
+        "377c57494859812889a4dd717fe95ca2"
+      ],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": null,
+      "completeDate": null,
+      "systemsEnabling": false
+    },
+    {
+      "id": "3b2c5749485980429db6f9e6d2460ac4",
+      "type": "task",
+      "name": "Fix tricia’s habit tracker ",
+      "status": "In progress (WIP)",
+      "pillarIds": [],
+      "domain": null,
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": "2026-08-04T11:33:00.000-05:00",
+      "completeDate": null,
+      "systemsEnabling": false
+    },
     {
       "id": "3b2c574948598042b7bce9dff3ffb9ac",
       "type": "task",
@@ -970,7 +1063,8 @@
       "projectIds": [],
       "rockIds": [],
       "person": [
-        "Patricia Eubanks"
+        "Patricia Eubanks",
+        "Noah Eubanks"
       ],
       "velocity": 0,
       "startDate": "2026-08-03T15:11:00.000-05:00",
@@ -1269,24 +1363,6 @@
       "systemsEnabling": true
     },
     {
-      "id": "38ec5749485980ba9853c3e3d02506b4",
-      "type": "task",
-      "name": "email jay regarding test tank ",
-      "status": "In progress (WIP)",
-      "pillarIds": [],
-      "domain": "RAE",
-      "hours": 1,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-07-03T18:09:00.000-05:00",
-      "completeDate": null,
-      "systemsEnabling": false
-    },
-    {
       "id": "38cc5749485980a6be93ffa6a5fa6e8a",
       "type": "task",
       "name": "Complete 3 qtr goal process from freedom accelerator and integrate into our existing system",
@@ -1539,24 +1615,6 @@
       "systemsEnabling": false
     },
     {
-      "id": "366c57494859808db073cf30173283c2",
-      "type": "task",
-      "name": "Layout for Tietz & shared",
-      "status": "In progress (WIP)",
-      "pillarIds": [],
-      "domain": "RAE",
-      "hours": 3,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-07-03T18:08:00.000-05:00",
-      "completeDate": null,
-      "systemsEnabling": false
-    },
-    {
       "id": "366c5749485980d79779dd9475ada042",
       "type": "task",
       "name": "Call Mertain and ask why coverage is inconsistent ",
@@ -1571,24 +1629,6 @@
       ],
       "velocity": 0,
       "startDate": "2026-05-20T11:30:00.000-05:00",
-      "completeDate": null,
-      "systemsEnabling": false
-    },
-    {
-      "id": "364c57494859800389d2f3c822f2e542",
-      "type": "task",
-      "name": "TEFRA application process completed",
-      "status": "In progress (WIP)",
-      "pillarIds": [],
-      "domain": "Owen",
-      "hours": 8,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Patricia Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-06-15T18:03:00.000-05:00",
       "completeDate": null,
       "systemsEnabling": false
     },
@@ -1688,6 +1728,61 @@
       "velocity": 0,
       "startDate": null,
       "completeDate": null,
+      "systemsEnabling": false
+    },
+    {
+      "id": "38ec5749485980ba9853c3e3d02506b4",
+      "type": "task",
+      "name": "email jay regarding test tank ",
+      "status": "Done",
+      "pillarIds": [],
+      "domain": "RAE",
+      "hours": 1,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 31.75,
+      "startDate": "2026-07-03T18:09:00.000-05:00",
+      "completeDate": "2026-08-04T12:30:00.000-05:00",
+      "systemsEnabling": false
+    },
+    {
+      "id": "366c57494859808db073cf30173283c2",
+      "type": "task",
+      "name": "Layout for Tietz & shared",
+      "status": "Done",
+      "pillarIds": [],
+      "domain": "RAE",
+      "hours": 3,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 31.75,
+      "startDate": "2026-07-03T18:08:00.000-05:00",
+      "completeDate": "2026-08-04T12:30:00.000-05:00",
+      "systemsEnabling": false
+    },
+    {
+      "id": "3b2c5749485980e89b3ffbea44216a9c",
+      "type": "task",
+      "name": "Vivian added insurance ",
+      "status": "Done",
+      "pillarIds": [],
+      "domain": null,
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Patricia Eubanks",
+        "Noah Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": null,
+      "completeDate": "2026-08-04T11:42:00.000-05:00",
       "systemsEnabling": false
     },
     {
@@ -3543,63 +3638,99 @@
       "startDate": "2026-05-30T10:57:00.000-05:00",
       "completeDate": "2026-07-03T18:08:00.000-05:00",
       "systemsEnabling": false
-    },
-    {
-      "id": "370c57494859807c866fd89712b8a17b",
-      "type": "task",
-      "name": "tig torch rigs",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": "RAE",
-      "hours": 2,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 13.958333333333,
-      "startDate": "2026-06-13T10:52:00.000-05:00",
-      "completeDate": "2026-06-27T10:45:00.000-05:00",
-      "systemsEnabling": false
-    },
-    {
-      "id": "36ec5749485980f390c3e9813cb1eb22",
-      "type": "task",
-      "name": "verify wall thickness of laters 1/2”x0.025",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": "RAE",
-      "hours": 2,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 4.083333333333,
-      "startDate": "2026-05-28T09:23:00.000-05:00",
-      "completeDate": "2026-06-01T11:34:00.000-05:00",
-      "systemsEnabling": false
-    },
-    {
-      "id": "36cc57494859808b85e3f648684def84",
-      "type": "task",
-      "name": "Wanda’s dishwasher repaired/diagnosed ",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": null,
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 17.708333333333,
-      "startDate": "2026-05-26T17:09:00.000-05:00",
-      "completeDate": "2026-06-13T10:58:00.000-05:00",
-      "systemsEnabling": false
     }
   ],
   "allTasks": [
+    {
+      "id": "3b2c57494859810abf90c06438beb379",
+      "type": "task",
+      "name": "Pick up rent from Wanda & repair her faucet",
+      "status": "Current Sprint (this week)",
+      "pillarIds": [
+        "fa5c3f6312394f09b07566f455dac82d"
+      ],
+      "domain": "Real Estate",
+      "hours": 1,
+      "person": [
+        "Noah Eubanks"
+      ],
+      "projectIds": [],
+      "rockIds": [],
+      "goalIds": [],
+      "doDate": null,
+      "location": null,
+      "raeOwner": [],
+      "created": "2026-08-04T17:30:00.000Z",
+      "systemsEnabling": false
+    },
+    {
+      "id": "3b2c574948598188b4cdf269945220e3",
+      "type": "task",
+      "name": "Fix Tricia's habit tracker in Notion",
+      "status": "Current Sprint (this week)",
+      "pillarIds": [
+        "2fb60975ef4e4b0fbd56793fba264939"
+      ],
+      "domain": "Personal Admin",
+      "hours": 1,
+      "person": [
+        "Noah Eubanks"
+      ],
+      "projectIds": [],
+      "rockIds": [
+        "377c57494859811aa303e31aa2fa0c22"
+      ],
+      "goalIds": [],
+      "doDate": null,
+      "location": null,
+      "raeOwner": [],
+      "created": "2026-08-04T17:30:00.000Z",
+      "systemsEnabling": true
+    },
+    {
+      "id": "3b2c5749485981959348f5b75a50f846",
+      "type": "task",
+      "name": "Develop offers on the 3 off-market properties",
+      "status": "Current Sprint (this week)",
+      "pillarIds": [
+        "fa5c3f6312394f09b07566f455dac82d"
+      ],
+      "domain": "Real Estate",
+      "hours": 3,
+      "person": [
+        "Noah Eubanks"
+      ],
+      "projectIds": [],
+      "rockIds": [
+        "377c57494859812889a4dd717fe95ca2"
+      ],
+      "goalIds": [],
+      "doDate": null,
+      "location": null,
+      "raeOwner": [],
+      "created": "2026-08-04T17:30:00.000Z",
+      "systemsEnabling": false
+    },
+    {
+      "id": "3b2c5749485980429db6f9e6d2460ac4",
+      "type": "task",
+      "name": "Fix tricia’s habit tracker ",
+      "status": "In progress (WIP)",
+      "pillarIds": [],
+      "domain": null,
+      "hours": null,
+      "person": [
+        "Noah Eubanks"
+      ],
+      "projectIds": [],
+      "rockIds": [],
+      "goalIds": [],
+      "doDate": null,
+      "location": null,
+      "raeOwner": [],
+      "created": "2026-08-04T16:33:00.000Z",
+      "systemsEnabling": false
+    },
     {
       "id": "3b2c574948598042b7bce9dff3ffb9ac",
       "type": "task",
@@ -3771,7 +3902,8 @@
       "domain": "Real Estate",
       "hours": null,
       "person": [
-        "Patricia Eubanks"
+        "Patricia Eubanks",
+        "Noah Eubanks"
       ],
       "projectIds": [],
       "rockIds": [],
@@ -4291,26 +4423,6 @@
       "systemsEnabling": false
     },
     {
-      "id": "38ec5749485980ba9853c3e3d02506b4",
-      "type": "task",
-      "name": "email jay regarding test tank ",
-      "status": "In progress (WIP)",
-      "pillarIds": [],
-      "domain": "RAE",
-      "hours": 1,
-      "person": [
-        "Noah Eubanks"
-      ],
-      "projectIds": [],
-      "rockIds": [],
-      "goalIds": [],
-      "doDate": null,
-      "location": "Anywhere",
-      "raeOwner": [],
-      "created": "2026-06-29T15:57:00.000Z",
-      "systemsEnabling": false
-    },
-    {
       "id": "38cc5749485980a6be93ffa6a5fa6e8a",
       "type": "task",
       "name": "Complete 3 qtr goal process from freedom accelerator and integrate into our existing system",
@@ -4747,26 +4859,6 @@
       "systemsEnabling": false
     },
     {
-      "id": "366c57494859808db073cf30173283c2",
-      "type": "task",
-      "name": "Layout for Tietz & shared",
-      "status": "In progress (WIP)",
-      "pillarIds": [],
-      "domain": "RAE",
-      "hours": 3,
-      "person": [
-        "Noah Eubanks"
-      ],
-      "projectIds": [],
-      "rockIds": [],
-      "goalIds": [],
-      "doDate": "2026-05-21",
-      "location": "Pryor",
-      "raeOwner": [],
-      "created": "2026-05-20T23:33:00.000Z",
-      "systemsEnabling": false
-    },
-    {
       "id": "366c5749485980d79779dd9475ada042",
       "type": "task",
       "name": "Call Mertain and ask why coverage is inconsistent ",
@@ -4790,7 +4882,7 @@
       "id": "364c57494859800389d2f3c822f2e542",
       "type": "task",
       "name": "TEFRA application process completed",
-      "status": "In progress (WIP)",
+      "status": "Master Backlog",
       "pillarIds": [],
       "domain": "Owen",
       "hours": 8,
@@ -4985,7 +5077,7 @@
       "projectIds": [],
       "rockIds": [],
       "goalIds": [],
-      "doDate": null,
+      "doDate": "2026-08-05",
       "location": "Anywhere",
       "raeOwner": [],
       "created": "2026-05-09T16:48:00.000Z",
