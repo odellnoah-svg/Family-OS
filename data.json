@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-05T14:26:07.321Z",
+  "generated": "2026-08-05T17:48:32.235Z",
   "meta": {
     "currentQuarter": "Q3",
     "currentYear": "2026",
@@ -534,17 +534,6 @@
       "systemsEnabling": false
     },
     {
-      "id": "3b0c574948598088aa6fc8769906c14b",
-      "type": "task",
-      "name": "Taxes for Bryce",
-      "status": "In progress (WIP)",
-      "pillar": null,
-      "domain": "Personal Admin",
-      "hours": null,
-      "projectIds": [],
-      "systemsEnabling": false
-    },
-    {
       "id": "3adc5749485980f483f1c6c52fd00d6f",
       "type": "task",
       "name": "Pet deposit for 1108",
@@ -592,7 +581,7 @@
       "id": "3adc5749485980e39058d4c8828fadce",
       "type": "task",
       "name": "Finish paying for college",
-      "status": "In progress (WIP)",
+      "status": "Current Sprint (this week)",
       "pillar": null,
       "domain": "Girls",
       "hours": null,
@@ -603,7 +592,7 @@
       "id": "3acc5749485980bbb859ca78015f3447",
       "type": "task",
       "name": "Find therapist for Mad",
-      "status": "In progress (WIP)",
+      "status": "Current Sprint (this week)",
       "pillar": null,
       "domain": "Girls",
       "hours": null,
@@ -1040,26 +1029,6 @@
       "systemsEnabling": false
     },
     {
-      "id": "3b0c574948598088aa6fc8769906c14b",
-      "type": "task",
-      "name": "Taxes for Bryce",
-      "status": "In progress (WIP)",
-      "pillarIds": [
-        "62f10d5c983944388542d9b1db866b1a"
-      ],
-      "domain": "Personal Admin",
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Patricia Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-08-02T13:57:00.000-05:00",
-      "completeDate": null,
-      "systemsEnabling": false
-    },
-    {
       "id": "3adc5749485980f483f1c6c52fd00d6f",
       "type": "task",
       "name": "Pet deposit for 1108",
@@ -1139,7 +1108,7 @@
       "id": "3adc5749485980e39058d4c8828fadce",
       "type": "task",
       "name": "Finish paying for college",
-      "status": "In progress (WIP)",
+      "status": "Current Sprint (this week)",
       "pillarIds": [],
       "domain": "Girls",
       "hours": null,
@@ -1157,7 +1126,7 @@
       "id": "3acc5749485980bbb859ca78015f3447",
       "type": "task",
       "name": "Find therapist for Mad",
-      "status": "In progress (WIP)",
+      "status": "Current Sprint (this week)",
       "pillarIds": [],
       "domain": "Girls",
       "hours": null,
@@ -1640,6 +1609,26 @@
       "velocity": 0,
       "startDate": null,
       "completeDate": null,
+      "systemsEnabling": false
+    },
+    {
+      "id": "3b0c574948598088aa6fc8769906c14b",
+      "type": "task",
+      "name": "Taxes for Bryce",
+      "status": "Done",
+      "pillarIds": [
+        "62f10d5c983944388542d9b1db866b1a"
+      ],
+      "domain": "Personal Admin",
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Patricia Eubanks"
+      ],
+      "velocity": 2.875,
+      "startDate": "2026-08-02T13:57:00.000-05:00",
+      "completeDate": "2026-08-05T11:07:00.000-05:00",
       "systemsEnabling": false
     },
     {
@@ -3533,24 +3522,6 @@
       "startDate": "2026-05-31T10:25:00.000-05:00",
       "completeDate": "2026-06-01T11:37:00.000-05:00",
       "systemsEnabling": false
-    },
-    {
-      "id": "371c57494859807f86afccfb6d5b32e5",
-      "type": "task",
-      "name": "Update AI use case database",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": "Personal Admin",
-      "hours": 2,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 13.583333333333,
-      "startDate": "2026-05-30T22:23:00.000-05:00",
-      "completeDate": "2026-06-13T13:12:00.000-05:00",
-      "systemsEnabling": false
     }
   ],
   "allTasks": [
@@ -3871,30 +3842,6 @@
       "systemsEnabling": false
     },
     {
-      "id": "3b0c574948598088aa6fc8769906c14b",
-      "type": "task",
-      "name": "Taxes for Bryce",
-      "status": "In progress (WIP)",
-      "pillarIds": [
-        "62f10d5c983944388542d9b1db866b1a"
-      ],
-      "domain": "Personal Admin",
-      "hours": null,
-      "person": [
-        "Patricia Eubanks"
-      ],
-      "projectIds": [],
-      "rockIds": [],
-      "goalIds": [
-        "377c5749485981bc8291e85c91623b70"
-      ],
-      "doDate": "2026-08-04",
-      "location": null,
-      "raeOwner": [],
-      "created": "2026-08-02T18:57:00.000Z",
-      "systemsEnabling": false
-    },
-    {
       "id": "3afc5749485980a98409d698dbd28a35",
       "type": "task",
       "name": "Look into HipCamp",
@@ -4034,7 +3981,7 @@
       "id": "3adc5749485980e39058d4c8828fadce",
       "type": "task",
       "name": "Finish paying for college",
-      "status": "In progress (WIP)",
+      "status": "Current Sprint (this week)",
       "pillarIds": [],
       "domain": "Girls",
       "hours": null,
@@ -4054,7 +4001,7 @@
       "id": "3acc5749485980bbb859ca78015f3447",
       "type": "task",
       "name": "Find therapist for Mad",
-      "status": "In progress (WIP)",
+      "status": "Current Sprint (this week)",
       "pillarIds": [],
       "domain": "Girls",
       "hours": null,
