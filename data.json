@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-04T21:19:47.980Z",
+  "generated": "2026-08-05T03:20:37.195Z",
   "meta": {
     "currentQuarter": "Q3",
     "currentYear": "2026",
@@ -523,17 +523,6 @@
       "systemsEnabling": false
     },
     {
-      "id": "3b1c5749485981e6979cc9262f1daae3",
-      "type": "task",
-      "name": "Track down Lindsay property rent check — tenant says sent last month",
-      "status": "In progress (WIP)",
-      "pillar": null,
-      "domain": "Real Estate",
-      "hours": null,
-      "projectIds": [],
-      "systemsEnabling": false
-    },
-    {
       "id": "3b1c5749485980f8893acccc051bb469",
       "type": "task",
       "name": "Add atomic habits pdf files to knowledge vault ",
@@ -541,17 +530,6 @@
       "pillar": null,
       "domain": null,
       "hours": 0.5,
-      "projectIds": [],
-      "systemsEnabling": false
-    },
-    {
-      "id": "3b1c5749485980418df8c483f101108f",
-      "type": "task",
-      "name": "Review admissions for Bryce",
-      "status": "In progress (WIP)",
-      "pillar": null,
-      "domain": "Personal Admin",
-      "hours": null,
       "projectIds": [],
       "systemsEnabling": false
     },
@@ -603,17 +581,6 @@
       "id": "3adc574948598031ad90e796b90c179b",
       "type": "task",
       "name": "Pay cc tuition ",
-      "status": "In progress (WIP)",
-      "pillar": null,
-      "domain": "Girls",
-      "hours": null,
-      "projectIds": [],
-      "systemsEnabling": false
-    },
-    {
-      "id": "3adc574948598001b4d3d54b471d06fd",
-      "type": "task",
-      "name": "Review course work for cc",
       "status": "In progress (WIP)",
       "pillar": null,
       "domain": "Girls",
@@ -1053,25 +1020,6 @@
       "systemsEnabling": false
     },
     {
-      "id": "3b1c5749485981e6979cc9262f1daae3",
-      "type": "task",
-      "name": "Track down Lindsay property rent check — tenant says sent last month",
-      "status": "In progress (WIP)",
-      "pillarIds": [],
-      "domain": "Real Estate",
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Patricia Eubanks",
-        "Noah Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-08-03T15:11:00.000-05:00",
-      "completeDate": null,
-      "systemsEnabling": false
-    },
-    {
       "id": "3b1c5749485980f8893acccc051bb469",
       "type": "task",
       "name": "Add atomic habits pdf files to knowledge vault ",
@@ -1088,24 +1036,6 @@
       ],
       "velocity": 0,
       "startDate": null,
-      "completeDate": null,
-      "systemsEnabling": false
-    },
-    {
-      "id": "3b1c5749485980418df8c483f101108f",
-      "type": "task",
-      "name": "Review admissions for Bryce",
-      "status": "In progress (WIP)",
-      "pillarIds": [],
-      "domain": "Personal Admin",
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Patricia Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-08-03T08:21:00.000-05:00",
       "completeDate": null,
       "systemsEnabling": false
     },
@@ -1191,24 +1121,6 @@
       "id": "3adc574948598031ad90e796b90c179b",
       "type": "task",
       "name": "Pay cc tuition ",
-      "status": "In progress (WIP)",
-      "pillarIds": [],
-      "domain": "Girls",
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Patricia Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-07-30T07:45:00.000-05:00",
-      "completeDate": null,
-      "systemsEnabling": false
-    },
-    {
-      "id": "3adc574948598001b4d3d54b471d06fd",
-      "type": "task",
-      "name": "Review course work for cc",
       "status": "In progress (WIP)",
       "pillarIds": [],
       "domain": "Girls",
@@ -1728,6 +1640,61 @@
       "velocity": 0,
       "startDate": null,
       "completeDate": null,
+      "systemsEnabling": false
+    },
+    {
+      "id": "3adc574948598001b4d3d54b471d06fd",
+      "type": "task",
+      "name": "Review course work for cc",
+      "status": "Done",
+      "pillarIds": [],
+      "domain": "Girls",
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Patricia Eubanks"
+      ],
+      "velocity": 5.541666666667,
+      "startDate": "2026-07-30T07:45:00.000-05:00",
+      "completeDate": "2026-08-04T21:26:00.000-05:00",
+      "systemsEnabling": false
+    },
+    {
+      "id": "3b1c5749485981e6979cc9262f1daae3",
+      "type": "task",
+      "name": "Track down Lindsay property rent check — tenant says sent last month",
+      "status": "Done",
+      "pillarIds": [],
+      "domain": "Real Estate",
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Patricia Eubanks",
+        "Noah Eubanks"
+      ],
+      "velocity": 1.041666666667,
+      "startDate": "2026-08-03T15:11:00.000-05:00",
+      "completeDate": "2026-08-04T17:10:00.000-05:00",
+      "systemsEnabling": false
+    },
+    {
+      "id": "3b1c5749485980418df8c483f101108f",
+      "type": "task",
+      "name": "Review admissions for Bryce",
+      "status": "Done",
+      "pillarIds": [],
+      "domain": "Personal Admin",
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Patricia Eubanks"
+      ],
+      "velocity": 1.333333333333,
+      "startDate": "2026-08-03T08:21:00.000-05:00",
+      "completeDate": "2026-08-04T16:41:00.000-05:00",
       "systemsEnabling": false
     },
     {
@@ -3584,63 +3551,29 @@
       "startDate": "2026-05-30T22:23:00.000-05:00",
       "completeDate": "2026-06-13T13:12:00.000-05:00",
       "systemsEnabling": false
-    },
-    {
-      "id": "370c57494859805992ded605f1a21652",
-      "type": "task",
-      "name": "Transfer utilities from 214 ",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": "Real Estate",
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Patricia Eubanks"
-      ],
-      "velocity": 2.208333333333,
-      "startDate": "2026-05-30T15:40:00.000-05:00",
-      "completeDate": "2026-06-01T20:49:00.000-05:00",
-      "systemsEnabling": false
-    },
-    {
-      "id": "370c574948598066a063cce593aca2b1",
-      "type": "task",
-      "name": "Pay gas for 1108 ",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": "Real Estate",
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Patricia Eubanks"
-      ],
-      "velocity": 2.208333333333,
-      "startDate": "2026-05-30T15:39:00.000-05:00",
-      "completeDate": "2026-06-01T20:49:00.000-05:00",
-      "systemsEnabling": false
-    },
-    {
-      "id": "370c5749485980738cffca310dd0e182",
-      "type": "task",
-      "name": "Advertise PCC bulls for sale ",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": "Ranch",
-      "hours": 2,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 27.916666666667,
-      "startDate": "2026-05-30T10:59:00.000-05:00",
-      "completeDate": "2026-06-27T09:56:00.000-05:00",
-      "systemsEnabling": false
     }
   ],
   "allTasks": [
+    {
+      "id": "3b3c57494859809f8dadf5d5e1963ca9",
+      "type": "task",
+      "name": "Reach out to Michelle at Veritas Taxes for a November meeting",
+      "status": "Master Backlog",
+      "pillarIds": [],
+      "domain": "Personal Admin",
+      "hours": null,
+      "person": [
+        "Patricia Eubanks"
+      ],
+      "projectIds": [],
+      "rockIds": [],
+      "goalIds": [],
+      "doDate": "2026-08-25",
+      "location": null,
+      "raeOwner": [],
+      "created": "2026-08-05T00:29:00.000Z",
+      "systemsEnabling": false
+    },
     {
       "id": "3b2c57494859804a9af6e64424a15d47",
       "type": "task",
@@ -3914,27 +3847,6 @@
       "systemsEnabling": false
     },
     {
-      "id": "3b1c5749485981e6979cc9262f1daae3",
-      "type": "task",
-      "name": "Track down Lindsay property rent check — tenant says sent last month",
-      "status": "In progress (WIP)",
-      "pillarIds": [],
-      "domain": "Real Estate",
-      "hours": null,
-      "person": [
-        "Patricia Eubanks",
-        "Noah Eubanks"
-      ],
-      "projectIds": [],
-      "rockIds": [],
-      "goalIds": [],
-      "doDate": null,
-      "location": null,
-      "raeOwner": [],
-      "created": "2026-08-03T20:09:00.000Z",
-      "systemsEnabling": false
-    },
-    {
       "id": "3b1c5749485980f8893acccc051bb469",
       "type": "task",
       "name": "Add atomic habits pdf files to knowledge vault ",
@@ -3956,26 +3868,6 @@
       "location": "Anywhere",
       "raeOwner": [],
       "created": "2026-08-03T17:06:00.000Z",
-      "systemsEnabling": false
-    },
-    {
-      "id": "3b1c5749485980418df8c483f101108f",
-      "type": "task",
-      "name": "Review admissions for Bryce",
-      "status": "In progress (WIP)",
-      "pillarIds": [],
-      "domain": "Personal Admin",
-      "hours": null,
-      "person": [
-        "Patricia Eubanks"
-      ],
-      "projectIds": [],
-      "rockIds": [],
-      "goalIds": [],
-      "doDate": null,
-      "location": null,
-      "raeOwner": [],
-      "created": "2026-08-03T13:21:00.000Z",
       "systemsEnabling": false
     },
     {
@@ -4122,26 +4014,6 @@
       "id": "3adc574948598031ad90e796b90c179b",
       "type": "task",
       "name": "Pay cc tuition ",
-      "status": "In progress (WIP)",
-      "pillarIds": [],
-      "domain": "Girls",
-      "hours": null,
-      "person": [
-        "Patricia Eubanks"
-      ],
-      "projectIds": [],
-      "rockIds": [],
-      "goalIds": [],
-      "doDate": null,
-      "location": null,
-      "raeOwner": [],
-      "created": "2026-07-30T12:45:00.000Z",
-      "systemsEnabling": false
-    },
-    {
-      "id": "3adc574948598001b4d3d54b471d06fd",
-      "type": "task",
-      "name": "Review course work for cc",
       "status": "In progress (WIP)",
       "pillarIds": [],
       "domain": "Girls",
@@ -6281,6 +6153,7 @@
         "Create top 3 priorities for tomorrow",
         "No phone in bed (previous night)",
         "Gratitude/prayer (previous night)",
+        "Take care of baby",
         "80oz water",
         "Brush teeth (owen & self)",
         "Play with Owen",
@@ -6664,15 +6537,19 @@
         {
           "date": "2026-08-04",
           "habits": {
-            "Gratitude/prayer (previous night)": false,
+            "Gratitude/prayer (previous night)": true,
             "Laundry": false,
-            "Leucovorin": false,
-            "Feed dogs": false,
-            "Vitamins/supplements (owen & self)": false
+            "School work check": true,
+            "Leucovorin": true,
+            "Feed dogs": true,
+            "Brush teeth (owen & self)": true,
+            "Wash face": true,
+            "Vitamins/supplements (owen & self)": true,
+            "Take care of baby": true
           },
-          "completed": 0,
-          "possible": 5,
-          "pct": 0
+          "completed": 8,
+          "possible": 9,
+          "pct": 89
         }
       ]
     }
