@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-05T17:48:32.235Z",
+  "generated": "2026-08-05T21:19:40.399Z",
   "meta": {
     "currentQuarter": "Q3",
     "currentYear": "2026",
@@ -3525,6 +3525,46 @@
     }
   ],
   "allTasks": [
+    {
+      "id": "3b3c5749485980f480ededc2f39bece8",
+      "type": "task",
+      "name": "Develop LLC/Holding-Co organizational structure ",
+      "status": "Master Backlog",
+      "pillarIds": [],
+      "domain": null,
+      "hours": null,
+      "person": [
+        "Noah Eubanks"
+      ],
+      "projectIds": [],
+      "rockIds": [],
+      "goalIds": [],
+      "doDate": null,
+      "location": null,
+      "raeOwner": [],
+      "created": "2026-08-05T19:41:00.000Z",
+      "systemsEnabling": false
+    },
+    {
+      "id": "3b3c57494859805a9bb4ca0bc3a5f0db",
+      "type": "task",
+      "name": "Create a family trust",
+      "status": "Master Backlog",
+      "pillarIds": [],
+      "domain": null,
+      "hours": null,
+      "person": [
+        "Noah Eubanks"
+      ],
+      "projectIds": [],
+      "rockIds": [],
+      "goalIds": [],
+      "doDate": null,
+      "location": null,
+      "raeOwner": [],
+      "created": "2026-08-05T19:41:00.000Z",
+      "systemsEnabling": false
+    },
     {
       "id": "3b3c57494859809f8dadf5d5e1963ca9",
       "type": "task",
