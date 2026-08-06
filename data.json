@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-05T21:19:40.399Z",
+  "generated": "2026-08-06T03:23:18.192Z",
   "meta": {
     "currentQuarter": "Q3",
     "currentYear": "2026",
@@ -3526,6 +3526,26 @@
   ],
   "allTasks": [
     {
+      "id": "3b3c57494859801b94e8cb9f5b4b3d6a",
+      "type": "task",
+      "name": "Clean up Notion.. get rid of unnecessary items, update any processes/pillars/etc, and reorganize.  Use claude ",
+      "status": "Master Backlog",
+      "pillarIds": [],
+      "domain": null,
+      "hours": null,
+      "person": [
+        "Noah Eubanks"
+      ],
+      "projectIds": [],
+      "rockIds": [],
+      "goalIds": [],
+      "doDate": null,
+      "location": null,
+      "raeOwner": [],
+      "created": "2026-08-05T22:05:00.000Z",
+      "systemsEnabling": false
+    },
+    {
       "id": "3b3c5749485980f480ededc2f39bece8",
       "type": "task",
       "name": "Develop LLC/Holding-Co organizational structure ",
@@ -6563,14 +6583,17 @@
           "date": "2026-08-05",
           "habits": {
             "Laundry": false,
-            "Gratitude/prayer (previous night)": false,
-            "Vitamins/supplements (owen & self)": false,
-            "Feed dogs": false,
-            "Leucovorin": false
+            "Wash face": true,
+            "Brush teeth (owen & self)": true,
+            "Gratitude/prayer (previous night)": true,
+            "Vitamins/supplements (owen & self)": true,
+            "School work check": true,
+            "Feed dogs": true,
+            "Leucovorin": true
           },
-          "completed": 0,
-          "possible": 5,
-          "pct": 0
+          "completed": 7,
+          "possible": 8,
+          "pct": 88
         }
       ]
     }
