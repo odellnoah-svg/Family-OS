@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-06T03:23:18.192Z",
+  "generated": "2026-08-06T06:38:43.933Z",
   "meta": {
     "currentQuarter": "Q3",
     "currentYear": "2026",
@@ -435,6 +435,17 @@
   "projects": [],
   "tasks": [
     {
+      "id": "3b4c574948598039b83cebce3c3b6c81",
+      "type": "task",
+      "name": "Complete dashboard set up in cloudflare and clean up GitHub repositories ",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": null,
+      "hours": null,
+      "projectIds": [],
+      "systemsEnabling": false
+    },
+    {
       "id": "3b2c5749485980828268f76e56d9742c",
       "type": "task",
       "name": "use Claude to evaluate insurance options",
@@ -475,17 +486,6 @@
       "pillar": null,
       "domain": "Real Estate",
       "hours": 3,
-      "projectIds": [],
-      "systemsEnabling": false
-    },
-    {
-      "id": "3b2c5749485980429db6f9e6d2460ac4",
-      "type": "task",
-      "name": "Fix tricia’s habit tracker ",
-      "status": "In progress (WIP)",
-      "pillar": null,
-      "domain": null,
-      "hours": null,
       "projectIds": [],
       "systemsEnabling": false
     },
@@ -823,7 +823,7 @@
       "id": "35dc57494859807c8a64c403fad2d317",
       "type": "task",
       "name": "Add personality tests to notion ",
-      "status": "In progress (WIP)",
+      "status": "Current Sprint (this week)",
       "pillar": null,
       "domain": "Personal Admin",
       "hours": 1,
@@ -854,6 +854,24 @@
     }
   ],
   "wipTasks": [
+    {
+      "id": "3b4c574948598039b83cebce3c3b6c81",
+      "type": "task",
+      "name": "Complete dashboard set up in cloudflare and clean up GitHub repositories ",
+      "status": "In progress (WIP)",
+      "pillarIds": [],
+      "domain": null,
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": "2026-08-05T22:39:00.000-05:00",
+      "completeDate": null,
+      "systemsEnabling": false
+    },
     {
       "id": "3b2c5749485980828268f76e56d9742c",
       "type": "task",
@@ -933,24 +951,6 @@
       ],
       "velocity": 0,
       "startDate": null,
-      "completeDate": null,
-      "systemsEnabling": false
-    },
-    {
-      "id": "3b2c5749485980429db6f9e6d2460ac4",
-      "type": "task",
-      "name": "Fix tricia’s habit tracker ",
-      "status": "In progress (WIP)",
-      "pillarIds": [],
-      "domain": null,
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-08-04T11:33:00.000-05:00",
       "completeDate": null,
       "systemsEnabling": false
     },
@@ -1557,7 +1557,7 @@
       "id": "35dc57494859807c8a64c403fad2d317",
       "type": "task",
       "name": "Add personality tests to notion ",
-      "status": "In progress (WIP)",
+      "status": "Current Sprint (this week)",
       "pillarIds": [
         "62f10d5c983944388542d9b1db866b1a"
       ],
@@ -1609,6 +1609,24 @@
       "velocity": 0,
       "startDate": null,
       "completeDate": null,
+      "systemsEnabling": false
+    },
+    {
+      "id": "3b2c5749485980429db6f9e6d2460ac4",
+      "type": "task",
+      "name": "Fix tricia’s habit tracker ",
+      "status": "Done",
+      "pillarIds": [],
+      "domain": null,
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 1.458333333333,
+      "startDate": "2026-08-04T11:33:00.000-05:00",
+      "completeDate": "2026-08-05T22:39:00.000-05:00",
       "systemsEnabling": false
     },
     {
@@ -3504,27 +3522,29 @@
       "startDate": "2026-06-01T18:35:00.000-05:00",
       "completeDate": "2026-06-01T21:09:00.000-05:00",
       "systemsEnabling": false
-    },
-    {
-      "id": "371c574948598061ba80cfbc525c94ec",
-      "type": "task",
-      "name": "Prayer as part of 20/20/20.. include in gratitude/reflection",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": "Health",
-      "hours": 0.5,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 1.041666666667,
-      "startDate": "2026-05-31T10:25:00.000-05:00",
-      "completeDate": "2026-06-01T11:37:00.000-05:00",
-      "systemsEnabling": false
     }
   ],
   "allTasks": [
+    {
+      "id": "3b4c574948598039b83cebce3c3b6c81",
+      "type": "task",
+      "name": "Complete dashboard set up in cloudflare and clean up GitHub repositories ",
+      "status": "In progress (WIP)",
+      "pillarIds": [],
+      "domain": null,
+      "hours": null,
+      "person": [
+        "Noah Eubanks"
+      ],
+      "projectIds": [],
+      "rockIds": [],
+      "goalIds": [],
+      "doDate": null,
+      "location": null,
+      "raeOwner": [],
+      "created": "2026-08-06T03:39:00.000Z",
+      "systemsEnabling": false
+    },
     {
       "id": "3b3c57494859801b94e8cb9f5b4b3d6a",
       "type": "task",
@@ -3713,26 +3733,6 @@
       "location": null,
       "raeOwner": [],
       "created": "2026-08-04T17:30:00.000Z",
-      "systemsEnabling": false
-    },
-    {
-      "id": "3b2c5749485980429db6f9e6d2460ac4",
-      "type": "task",
-      "name": "Fix tricia’s habit tracker ",
-      "status": "In progress (WIP)",
-      "pillarIds": [],
-      "domain": null,
-      "hours": null,
-      "person": [
-        "Noah Eubanks"
-      ],
-      "projectIds": [],
-      "rockIds": [],
-      "goalIds": [],
-      "doDate": null,
-      "location": null,
-      "raeOwner": [],
-      "created": "2026-08-04T16:33:00.000Z",
       "systemsEnabling": false
     },
     {
@@ -4891,7 +4891,7 @@
       "id": "35dc57494859807c8a64c403fad2d317",
       "type": "task",
       "name": "Add personality tests to notion ",
-      "status": "In progress (WIP)",
+      "status": "Current Sprint (this week)",
       "pillarIds": [
         "62f10d5c983944388542d9b1db866b1a"
       ],
@@ -6149,18 +6149,39 @@
           "date": "2026-08-05",
           "habits": {
             "Create top 3 priorities for tomorrow": false,
-            "1/2 gallon water": false,
-            "Gratitude/prayer (previous night)": false,
+            "1/2 gallon water": true,
+            "Gratitude/prayer (previous night)": true,
             "5am wake": false,
-            "Write down 3 wins from today (stay in the gain)": false,
-            "Vitamins/supplements": false,
-            "Learn (read/listen)": false,
+            "Write down 3 wins from today (stay in the gain)": true,
+            "Vitamins/supplements": true,
+            "Learn (read/listen)": true,
             "No caffeine": false,
-            "Play with Owen": false,
+            "Play with Owen": true,
             "No phone in bed (previous night)": false,
-            "Food recorded (with no unplanned indulgences)": false,
+            "Food recorded (with no unplanned indulgences)": true,
             "Review today’s top 3 (what am i doing today)": false,
             "Move!": false
+          },
+          "completed": 7,
+          "possible": 13,
+          "pct": 54
+        },
+        {
+          "date": "2026-08-06",
+          "habits": {
+            "Create top 3 priorities for tomorrow": false,
+            "Gratitude/prayer (previous night)": false,
+            "Food recorded (with no unplanned indulgences)": false,
+            "Review today’s top 3 (what am i doing today)": false,
+            "Move!": false,
+            "Write down 3 wins from today (stay in the gain)": false,
+            "1/2 gallon water": false,
+            "5am wake": false,
+            "Learn (read/listen)": false,
+            "No caffeine": false,
+            "No phone in bed (previous night)": false,
+            "Play with Owen": false,
+            "Vitamins/supplements": false
           },
           "completed": 0,
           "possible": 13,
@@ -6594,6 +6615,22 @@
           "completed": 7,
           "possible": 8,
           "pct": 88
+        },
+        {
+          "date": "2026-08-06",
+          "habits": {
+            "Laundry": false,
+            "Wash face": false,
+            "Brush teeth (owen & self)": false,
+            "Vitamins/supplements (owen & self)": false,
+            "Gratitude/prayer (previous night)": false,
+            "School work check": false,
+            "Feed dogs": false,
+            "Leucovorin": false
+          },
+          "completed": 0,
+          "possible": 8,
+          "pct": 0
         }
       ]
     }
