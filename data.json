@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-06T10:46:33.197Z",
+  "generated": "2026-08-06T14:28:55.674Z",
   "meta": {
     "currentQuarter": "Q3",
     "currentYear": "2026",
@@ -435,6 +435,17 @@
   "projects": [],
   "tasks": [
     {
+      "id": "3b4c5749485980afac1ce80fcada53bf",
+      "type": "task",
+      "name": "Tires 🛞 for Kia",
+      "status": "Current Sprint (this week)",
+      "pillar": null,
+      "domain": "Personal Admin",
+      "hours": null,
+      "projectIds": [],
+      "systemsEnabling": false
+    },
+    {
       "id": "3b4c574948598039b83cebce3c3b6c81",
       "type": "task",
       "name": "Complete dashboard set up in cloudflare and clean up GitHub repositories ",
@@ -854,6 +865,25 @@
     }
   ],
   "wipTasks": [
+    {
+      "id": "3b4c5749485980afac1ce80fcada53bf",
+      "type": "task",
+      "name": "Tires 🛞 for Kia",
+      "status": "Current Sprint (this week)",
+      "pillarIds": [],
+      "domain": "Personal Admin",
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Patricia Eubanks",
+        "Noah Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": null,
+      "completeDate": null,
+      "systemsEnabling": false
+    },
     {
       "id": "3b4c574948598039b83cebce3c3b6c81",
       "type": "task",
@@ -3526,6 +3556,48 @@
   ],
   "allTasks": [
     {
+      "id": "3b4c5749485980ba8e0af49184effc45",
+      "type": "task",
+      "name": "Tires for Mini 🛞 ",
+      "status": "Master Backlog",
+      "pillarIds": [],
+      "domain": "Personal Admin",
+      "hours": null,
+      "person": [
+        "Patricia Eubanks",
+        "Noah Eubanks"
+      ],
+      "projectIds": [],
+      "rockIds": [],
+      "goalIds": [],
+      "doDate": null,
+      "location": null,
+      "raeOwner": [],
+      "created": "2026-08-06T14:00:00.000Z",
+      "systemsEnabling": false
+    },
+    {
+      "id": "3b4c5749485980afac1ce80fcada53bf",
+      "type": "task",
+      "name": "Tires 🛞 for Kia",
+      "status": "Current Sprint (this week)",
+      "pillarIds": [],
+      "domain": "Personal Admin",
+      "hours": null,
+      "person": [
+        "Patricia Eubanks",
+        "Noah Eubanks"
+      ],
+      "projectIds": [],
+      "rockIds": [],
+      "goalIds": [],
+      "doDate": null,
+      "location": null,
+      "raeOwner": [],
+      "created": "2026-08-06T14:00:00.000Z",
+      "systemsEnabling": false
+    },
+    {
       "id": "3b4c574948598039b83cebce3c3b6c81",
       "type": "task",
       "name": "Complete dashboard set up in cloudflare and clean up GitHub repositories ",
@@ -6176,16 +6248,16 @@
             "Move!": false,
             "Write down 3 wins from today (stay in the gain)": false,
             "1/2 gallon water": false,
-            "5am wake": false,
+            "5am wake": true,
             "Learn (read/listen)": false,
             "No caffeine": false,
             "No phone in bed (previous night)": false,
             "Play with Owen": false,
             "Vitamins/supplements": false
           },
-          "completed": 0,
+          "completed": 1,
           "possible": 13,
-          "pct": 0
+          "pct": 8
         }
       ]
     },
