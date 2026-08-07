@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-07T00:54:25.603Z",
+  "generated": "2026-08-07T05:46:20.989Z",
   "meta": {
     "currentQuarter": "Q3",
     "currentYear": "2026",
@@ -435,23 +435,23 @@
   "projects": [],
   "tasks": [
     {
+      "id": "3b5c5749485980d98514d9240e3dbe71",
+      "type": "task",
+      "name": "Air up tire on white truck and go get grain ",
+      "status": "In progress (WIP)",
+      "pillar": null,
+      "domain": null,
+      "hours": null,
+      "projectIds": [],
+      "systemsEnabling": false
+    },
+    {
       "id": "3b4c5749485980afac1ce80fcada53bf",
       "type": "task",
       "name": "Tires 🛞 for Kia",
       "status": "Current Sprint (this week)",
       "pillar": null,
       "domain": "Personal Admin",
-      "hours": null,
-      "projectIds": [],
-      "systemsEnabling": false
-    },
-    {
-      "id": "3b4c574948598039b83cebce3c3b6c81",
-      "type": "task",
-      "name": "Complete dashboard set up in cloudflare and clean up GitHub repositories ",
-      "status": "In progress (WIP)",
-      "pillar": null,
-      "domain": null,
       "hours": null,
       "projectIds": [],
       "systemsEnabling": false
@@ -479,17 +479,6 @@
       "systemsEnabling": false
     },
     {
-      "id": "3b2c574948598188b4cdf269945220e3",
-      "type": "task",
-      "name": "Fix Tricia's habit tracker in Notion",
-      "status": "Current Sprint (this week)",
-      "pillar": null,
-      "domain": "Personal Admin",
-      "hours": 1,
-      "projectIds": [],
-      "systemsEnabling": true
-    },
-    {
       "id": "3b2c5749485981959348f5b75a50f846",
       "type": "task",
       "name": "Develop offers on the 3 off-market properties",
@@ -497,17 +486,6 @@
       "pillar": null,
       "domain": "Real Estate",
       "hours": 3,
-      "projectIds": [],
-      "systemsEnabling": false
-    },
-    {
-      "id": "3b2c574948598042b7bce9dff3ffb9ac",
-      "type": "task",
-      "name": "Call army corps supervisor ",
-      "status": "In progress (WIP)",
-      "pillar": null,
-      "domain": null,
-      "hours": null,
       "projectIds": [],
       "systemsEnabling": false
     },
@@ -647,7 +625,7 @@
       "id": "392c574948598083becdf236e50ffbb8",
       "type": "task",
       "name": "Tranquilize ram and take to hay pen ",
-      "status": "Current Sprint (this week)",
+      "status": "In progress (WIP)",
       "pillar": null,
       "domain": "Ranch",
       "hours": 1,
@@ -739,17 +717,6 @@
       "pillar": null,
       "domain": "Personal Admin",
       "hours": 2,
-      "projectIds": [],
-      "systemsEnabling": true
-    },
-    {
-      "id": "37dc57494859808c81c8c2365bcd013b",
-      "type": "task",
-      "name": "Revise AI agent for suggested task prioritization ",
-      "status": "Current Sprint (this week)",
-      "pillar": null,
-      "domain": null,
-      "hours": 3,
       "projectIds": [],
       "systemsEnabling": true
     },
@@ -866,6 +833,24 @@
   ],
   "wipTasks": [
     {
+      "id": "3b5c5749485980d98514d9240e3dbe71",
+      "type": "task",
+      "name": "Air up tire on white truck and go get grain ",
+      "status": "In progress (WIP)",
+      "pillarIds": [],
+      "domain": null,
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": "2026-08-06T21:43:00.000-05:00",
+      "completeDate": null,
+      "systemsEnabling": false
+    },
+    {
       "id": "3b4c5749485980afac1ce80fcada53bf",
       "type": "task",
       "name": "Tires 🛞 for Kia",
@@ -881,24 +866,6 @@
       ],
       "velocity": 0,
       "startDate": null,
-      "completeDate": null,
-      "systemsEnabling": false
-    },
-    {
-      "id": "3b4c574948598039b83cebce3c3b6c81",
-      "type": "task",
-      "name": "Complete dashboard set up in cloudflare and clean up GitHub repositories ",
-      "status": "In progress (WIP)",
-      "pillarIds": [],
-      "domain": null,
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-08-05T22:39:00.000-05:00",
       "completeDate": null,
       "systemsEnabling": false
     },
@@ -941,28 +908,6 @@
       "systemsEnabling": false
     },
     {
-      "id": "3b2c574948598188b4cdf269945220e3",
-      "type": "task",
-      "name": "Fix Tricia's habit tracker in Notion",
-      "status": "Current Sprint (this week)",
-      "pillarIds": [
-        "2fb60975ef4e4b0fbd56793fba264939"
-      ],
-      "domain": "Personal Admin",
-      "hours": 1,
-      "projectIds": [],
-      "rockIds": [
-        "377c57494859811aa303e31aa2fa0c22"
-      ],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": null,
-      "completeDate": null,
-      "systemsEnabling": true
-    },
-    {
       "id": "3b2c5749485981959348f5b75a50f846",
       "type": "task",
       "name": "Develop offers on the 3 off-market properties",
@@ -981,24 +926,6 @@
       ],
       "velocity": 0,
       "startDate": null,
-      "completeDate": null,
-      "systemsEnabling": false
-    },
-    {
-      "id": "3b2c574948598042b7bce9dff3ffb9ac",
-      "type": "task",
-      "name": "Call army corps supervisor ",
-      "status": "In progress (WIP)",
-      "pillarIds": [],
-      "domain": null,
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-08-04T07:54:00.000-05:00",
       "completeDate": null,
       "systemsEnabling": false
     },
@@ -1235,7 +1162,7 @@
       "id": "392c574948598083becdf236e50ffbb8",
       "type": "task",
       "name": "Tranquilize ram and take to hay pen ",
-      "status": "Current Sprint (this week)",
+      "status": "In progress (WIP)",
       "pillarIds": [
         "fa5c3f6312394f09b07566f455dac82d"
       ],
@@ -1247,7 +1174,7 @@
         "Noah Eubanks"
       ],
       "velocity": 0,
-      "startDate": "2026-07-03T18:12:00.000-05:00",
+      "startDate": "2026-08-06T21:42:00.000-05:00",
       "completeDate": null,
       "systemsEnabling": false
     },
@@ -1417,28 +1344,6 @@
       ],
       "velocity": 0,
       "startDate": "2026-06-14T14:36:00.000-05:00",
-      "completeDate": null,
-      "systemsEnabling": true
-    },
-    {
-      "id": "37dc57494859808c81c8c2365bcd013b",
-      "type": "task",
-      "name": "Revise AI agent for suggested task prioritization ",
-      "status": "Current Sprint (this week)",
-      "pillarIds": [
-        "683e3c08456247dea6168f9329c85470"
-      ],
-      "domain": null,
-      "hours": 3,
-      "projectIds": [],
-      "rockIds": [
-        "377c5749485981a7a422dc94f0af555f"
-      ],
-      "person": [
-        "Noah Eubanks"
-      ],
-      "velocity": 0,
-      "startDate": "2026-06-12T10:32:00.000-05:00",
       "completeDate": null,
       "systemsEnabling": true
     },
@@ -1639,6 +1544,64 @@
       "velocity": 0,
       "startDate": null,
       "completeDate": null,
+      "systemsEnabling": false
+    },
+    {
+      "id": "3b2c574948598188b4cdf269945220e3",
+      "type": "task",
+      "name": "Fix Tricia's habit tracker in Notion",
+      "status": "Done",
+      "pillarIds": [
+        "2fb60975ef4e4b0fbd56793fba264939"
+      ],
+      "domain": "Personal Admin",
+      "hours": 1,
+      "projectIds": [],
+      "rockIds": [
+        "377c57494859811aa303e31aa2fa0c22"
+      ],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 0,
+      "startDate": null,
+      "completeDate": "2026-08-06T21:42:00.000-05:00",
+      "systemsEnabling": true
+    },
+    {
+      "id": "3b4c574948598039b83cebce3c3b6c81",
+      "type": "task",
+      "name": "Complete dashboard set up in cloudflare and clean up GitHub repositories ",
+      "status": "Done",
+      "pillarIds": [],
+      "domain": null,
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 0.958333333333,
+      "startDate": "2026-08-05T22:39:00.000-05:00",
+      "completeDate": "2026-08-06T21:40:00.000-05:00",
+      "systemsEnabling": false
+    },
+    {
+      "id": "3b2c574948598042b7bce9dff3ffb9ac",
+      "type": "task",
+      "name": "Call army corps supervisor ",
+      "status": "Done",
+      "pillarIds": [],
+      "domain": null,
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [
+        "Noah Eubanks"
+      ],
+      "velocity": 2.541666666667,
+      "startDate": "2026-08-04T07:54:00.000-05:00",
+      "completeDate": "2026-08-06T21:39:00.000-05:00",
       "systemsEnabling": false
     },
     {
@@ -3497,64 +3460,29 @@
       "startDate": "2026-06-01T22:09:00.000-05:00",
       "completeDate": "2026-06-12T10:32:00.000-05:00",
       "systemsEnabling": true
-    },
-    {
-      "id": "373c5749485980c08534c1ffdf707422",
-      "type": "task",
-      "name": "Fix door at 214",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": "Real Estate",
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Noah Eubanks",
-        "Patricia Eubanks"
-      ],
-      "velocity": 1.583333333333,
-      "startDate": "2026-06-01T19:57:00.000-05:00",
-      "completeDate": "2026-06-03T10:39:00.000-05:00",
-      "systemsEnabling": false
-    },
-    {
-      "id": "373c57494859808493fdd514acbba043",
-      "type": "task",
-      "name": "Invest Paige’s money at fidelity",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": "Girls",
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Patricia Eubanks"
-      ],
-      "velocity": 1.625,
-      "startDate": "2026-06-01T19:38:00.000-05:00",
-      "completeDate": "2026-06-03T10:59:00.000-05:00",
-      "systemsEnabling": false
-    },
-    {
-      "id": "372c5749485980969becf0782dd9ebd5",
-      "type": "task",
-      "name": "pay plumber for 1108",
-      "status": "Done",
-      "pillarIds": [],
-      "domain": "Real Estate",
-      "hours": null,
-      "projectIds": [],
-      "rockIds": [],
-      "person": [
-        "Patricia Eubanks"
-      ],
-      "velocity": 0.083333333333,
-      "startDate": "2026-06-01T18:35:00.000-05:00",
-      "completeDate": "2026-06-01T21:09:00.000-05:00",
-      "systemsEnabling": false
     }
   ],
   "allTasks": [
+    {
+      "id": "3b5c5749485980d98514d9240e3dbe71",
+      "type": "task",
+      "name": "Air up tire on white truck and go get grain ",
+      "status": "In progress (WIP)",
+      "pillarIds": [],
+      "domain": null,
+      "hours": null,
+      "person": [
+        "Noah Eubanks"
+      ],
+      "projectIds": [],
+      "rockIds": [],
+      "goalIds": [],
+      "doDate": null,
+      "location": null,
+      "raeOwner": [],
+      "created": "2026-08-07T02:43:00.000Z",
+      "systemsEnabling": false
+    },
     {
       "id": "3b4c5749485980ba8e0af49184effc45",
       "type": "task",
@@ -3595,26 +3523,6 @@
       "location": null,
       "raeOwner": [],
       "created": "2026-08-06T14:00:00.000Z",
-      "systemsEnabling": false
-    },
-    {
-      "id": "3b4c574948598039b83cebce3c3b6c81",
-      "type": "task",
-      "name": "Complete dashboard set up in cloudflare and clean up GitHub repositories ",
-      "status": "In progress (WIP)",
-      "pillarIds": [],
-      "domain": null,
-      "hours": null,
-      "person": [
-        "Noah Eubanks"
-      ],
-      "projectIds": [],
-      "rockIds": [],
-      "goalIds": [],
-      "doDate": null,
-      "location": null,
-      "raeOwner": [],
-      "created": "2026-08-06T03:39:00.000Z",
       "systemsEnabling": false
     },
     {
@@ -3760,30 +3668,6 @@
       "systemsEnabling": false
     },
     {
-      "id": "3b2c574948598188b4cdf269945220e3",
-      "type": "task",
-      "name": "Fix Tricia's habit tracker in Notion",
-      "status": "Current Sprint (this week)",
-      "pillarIds": [
-        "2fb60975ef4e4b0fbd56793fba264939"
-      ],
-      "domain": "Personal Admin",
-      "hours": 1,
-      "person": [
-        "Noah Eubanks"
-      ],
-      "projectIds": [],
-      "rockIds": [
-        "377c57494859811aa303e31aa2fa0c22"
-      ],
-      "goalIds": [],
-      "doDate": null,
-      "location": null,
-      "raeOwner": [],
-      "created": "2026-08-04T17:30:00.000Z",
-      "systemsEnabling": true
-    },
-    {
       "id": "3b2c5749485981959348f5b75a50f846",
       "type": "task",
       "name": "Develop offers on the 3 off-market properties",
@@ -3805,26 +3689,6 @@
       "location": null,
       "raeOwner": [],
       "created": "2026-08-04T17:30:00.000Z",
-      "systemsEnabling": false
-    },
-    {
-      "id": "3b2c574948598042b7bce9dff3ffb9ac",
-      "type": "task",
-      "name": "Call army corps supervisor ",
-      "status": "In progress (WIP)",
-      "pillarIds": [],
-      "domain": null,
-      "hours": null,
-      "person": [
-        "Noah Eubanks"
-      ],
-      "projectIds": [],
-      "rockIds": [],
-      "goalIds": [],
-      "doDate": null,
-      "location": null,
-      "raeOwner": [],
-      "created": "2026-08-04T12:54:00.000Z",
       "systemsEnabling": false
     },
     {
@@ -4274,7 +4138,7 @@
       "id": "392c574948598083becdf236e50ffbb8",
       "type": "task",
       "name": "Tranquilize ram and take to hay pen ",
-      "status": "Current Sprint (this week)",
+      "status": "In progress (WIP)",
       "pillarIds": [
         "fa5c3f6312394f09b07566f455dac82d"
       ],
@@ -4584,32 +4448,6 @@
       "location": "Anywhere",
       "raeOwner": [],
       "created": "2026-06-14T19:36:00.000Z",
-      "systemsEnabling": true
-    },
-    {
-      "id": "37dc57494859808c81c8c2365bcd013b",
-      "type": "task",
-      "name": "Revise AI agent for suggested task prioritization ",
-      "status": "Current Sprint (this week)",
-      "pillarIds": [
-        "683e3c08456247dea6168f9329c85470"
-      ],
-      "domain": null,
-      "hours": 3,
-      "person": [
-        "Noah Eubanks"
-      ],
-      "projectIds": [],
-      "rockIds": [
-        "377c5749485981a7a422dc94f0af555f"
-      ],
-      "goalIds": [
-        "377c5749485981d89883f0896cc974cf"
-      ],
-      "doDate": null,
-      "location": "Anywhere",
-      "raeOwner": [],
-      "created": "2026-06-12T15:32:00.000Z",
       "systemsEnabling": true
     },
     {
@@ -6242,22 +6080,43 @@
           "date": "2026-08-06",
           "habits": {
             "Create top 3 priorities for tomorrow": false,
-            "Gratitude/prayer (previous night)": false,
+            "Gratitude/prayer (previous night)": true,
             "Food recorded (with no unplanned indulgences)": false,
             "Review today’s top 3 (what am i doing today)": false,
             "Move!": false,
-            "Write down 3 wins from today (stay in the gain)": false,
-            "1/2 gallon water": false,
+            "Write down 3 wins from today (stay in the gain)": true,
+            "1/2 gallon water": true,
             "5am wake": true,
-            "Learn (read/listen)": false,
+            "Learn (read/listen)": true,
             "No caffeine": false,
             "No phone in bed (previous night)": false,
-            "Play with Owen": false,
+            "Play with Owen": true,
             "Vitamins/supplements": false
           },
-          "completed": 1,
+          "completed": 6,
           "possible": 13,
-          "pct": 8
+          "pct": 46
+        },
+        {
+          "date": "2026-08-07",
+          "habits": {
+            "Vitamins/supplements": false,
+            "Learn (read/listen)": false,
+            "No phone in bed (previous night)": false,
+            "Review today’s top 3 (what am i doing today)": false,
+            "Create top 3 priorities for tomorrow": false,
+            "Play with Owen": false,
+            "Food recorded (with no unplanned indulgences)": false,
+            "No caffeine": false,
+            "Move!": false,
+            "Gratitude/prayer (previous night)": false,
+            "Write down 3 wins from today (stay in the gain)": false,
+            "5am wake": false,
+            "1/2 gallon water": false
+          },
+          "completed": 0,
+          "possible": 13,
+          "pct": 0
         }
       ]
     },
@@ -6691,14 +6550,30 @@
         {
           "date": "2026-08-06",
           "habits": {
-            "Laundry": false,
+            "Laundry": true,
+            "Wash face": true,
+            "Brush teeth (owen & self)": true,
+            "Vitamins/supplements (owen & self)": true,
+            "Gratitude/prayer (previous night)": true,
+            "School work check": true,
+            "Feed dogs": true,
+            "Leucovorin": true
+          },
+          "completed": 8,
+          "possible": 8,
+          "pct": 100
+        },
+        {
+          "date": "2026-08-07",
+          "habits": {
             "Wash face": false,
-            "Brush teeth (owen & self)": false,
-            "Vitamins/supplements (owen & self)": false,
-            "Gratitude/prayer (previous night)": false,
+            "Laundry": false,
             "School work check": false,
+            "Gratitude/prayer (previous night)": false,
             "Feed dogs": false,
-            "Leucovorin": false
+            "Leucovorin": false,
+            "Vitamins/supplements (owen & self)": false,
+            "Brush teeth (owen & self)": false
           },
           "completed": 0,
           "possible": 8,
