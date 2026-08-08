@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-08T13:03:33.008Z",
+  "generated": "2026-08-08T16:42:21.947Z",
   "meta": {
     "currentQuarter": "Q3",
     "currentYear": "2026",
@@ -435,6 +435,17 @@
   "projects": [],
   "tasks": [
     {
+      "id": "3b6c5749485981959009d366a7fc7194",
+      "type": "task",
+      "name": "Kiko and girls tasks",
+      "status": "Current Sprint (this week)",
+      "pillar": null,
+      "domain": "Ranch",
+      "hours": null,
+      "projectIds": [],
+      "systemsEnabling": false
+    },
+    {
       "id": "3b6c5749485980888c61ff58678b2026",
       "type": "task",
       "name": "Post bulls for sale again",
@@ -799,6 +810,24 @@
     }
   ],
   "wipTasks": [
+    {
+      "id": "3b6c5749485981959009d366a7fc7194",
+      "type": "task",
+      "name": "Kiko and girls tasks",
+      "status": "Current Sprint (this week)",
+      "pillarIds": [
+        "683e3c08456247dea6168f9329c85470"
+      ],
+      "domain": "Ranch",
+      "hours": null,
+      "projectIds": [],
+      "rockIds": [],
+      "person": [],
+      "velocity": 0,
+      "startDate": null,
+      "completeDate": null,
+      "systemsEnabling": false
+    },
     {
       "id": "3b6c5749485980888c61ff58678b2026",
       "type": "task",
@@ -3372,6 +3401,26 @@
     }
   ],
   "allTasks": [
+    {
+      "id": "3b6c5749485981959009d366a7fc7194",
+      "type": "task",
+      "name": "Kiko and girls tasks",
+      "status": "Current Sprint (this week)",
+      "pillarIds": [
+        "683e3c08456247dea6168f9329c85470"
+      ],
+      "domain": "Ranch",
+      "hours": null,
+      "person": [],
+      "projectIds": [],
+      "rockIds": [],
+      "goalIds": [],
+      "doDate": null,
+      "location": "Home",
+      "raeOwner": [],
+      "created": "2026-08-08T16:17:00.000Z",
+      "systemsEnabling": false
+    },
     {
       "id": "3b6c5749485980888c61ff58678b2026",
       "type": "task",
