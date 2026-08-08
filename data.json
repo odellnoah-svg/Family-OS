@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-07T20:50:21.998Z",
+  "generated": "2026-08-08T02:06:32.958Z",
   "meta": {
     "currentQuarter": "Q3",
     "currentYear": "2026",
@@ -6566,18 +6566,18 @@
         {
           "date": "2026-08-07",
           "habits": {
-            "Wash face": false,
+            "Wash face": true,
             "Laundry": false,
-            "School work check": false,
+            "School work check": true,
             "Gratitude/prayer (previous night)": false,
-            "Feed dogs": false,
-            "Leucovorin": false,
-            "Vitamins/supplements (owen & self)": false,
-            "Brush teeth (owen & self)": false
+            "Feed dogs": true,
+            "Leucovorin": true,
+            "Vitamins/supplements (owen & self)": true,
+            "Brush teeth (owen & self)": true
           },
-          "completed": 0,
+          "completed": 6,
           "possible": 8,
-          "pct": 0
+          "pct": 75
         }
       ]
     }
